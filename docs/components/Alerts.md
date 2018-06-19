@@ -83,7 +83,7 @@ const callback = () => alert('Dismissed!');
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-`closeLabel`  | no | Node   - | 'Close alert' | Screen reader label attached to close button
+`closeLabel`  | no | Node     | 'Close alert' | Screen reader label attached to close button
 `dismissable` | no | Boolean  | false         | If true, render a close button
 `onDismiss`   | no | Function |               | Callback that is called when the user clicks the close button
 `show`        | no | Boolean  |               | If set, overrides the close button. True shows the alert, false hides the alert.

@@ -49,5 +49,4 @@ Property       | Required | Type                              | Default  | Descr
 `className`    | no       | String                            |          | Class name to put on the inner `label` element
 `size`         | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
 
--
 _All other props are passed to the inner `input` element._

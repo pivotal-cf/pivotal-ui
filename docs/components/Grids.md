@@ -18,9 +18,9 @@ Flex grids use flexbox to position columns within rows.
 ::title=Outlining the grid
 ::description=This should help you visualize the columns. The grey dotted box is the grid and the orange dotted boxes are the columns.
 <Grid className="grid-show show-outline">
-    <FlexCol fixed {...{style: {width: "150px"}}}/>
-    <FlexCol />
-    <FlexCol className="col-grow-2"/>
+  <FlexCol fixed {...{style: {width: "150px"}}}/>
+  <FlexCol />
+  <FlexCol className="col-grow-2"/>
 </Grid>
 ```
 
@@ -28,16 +28,16 @@ Flex grids use flexbox to position columns within rows.
 ::title=Gutters
 ::description=You can create a flex grid with and without gutters. To remove gutters, set the `gutter` prop to `false` or use the `.grid-nogutter` class. Here are examples of what each would look like.
 <div>
-    <Grid className="grid-show mbxl">
-        <FlexCol />
-        <FlexCol />
-        <FlexCol />
-    </Grid>
-    <Grid gutter={false} className="grid-show">
-        <FlexCol />
-        <FlexCol />
-        <FlexCol />
-    </Grid>
+  <Grid className="grid-show mbxl">
+    <FlexCol />
+    <FlexCol />
+    <FlexCol />
+  </Grid>
+  <Grid gutter={false} className="grid-show">
+    <FlexCol />
+    <FlexCol />
+    <FlexCol />
+  </Grid>
 </div>
 ```
 
@@ -45,36 +45,36 @@ Flex grids use flexbox to position columns within rows.
 ::title=Sizing
 ::description=Using the `col` prop on a `FlexCol` or the `col-{n}` classes, you can create a basic grid system by specifying the width of each column out of 24.
 <div>
-    <Grid className="grid-show mbxl">
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-      <FlexCol col={2} />
-    </Grid>
+  <Grid className="grid-show mbxl">
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+    <FlexCol col={2} />
+  </Grid>
 
-    <Grid className="grid-show mbxl">
-      <FlexCol col={16} />
-      <FlexCol col={8} />
-    </Grid>
+  <Grid className="grid-show mbxl">
+    <FlexCol col={16} />
+    <FlexCol col={8} />
+  </Grid>
 
-    <Grid className="grid-show mbxl">
-      <FlexCol col={8} />
-      <FlexCol col={8} />
-      <FlexCol col={8} />
-    </Grid>
+  <Grid className="grid-show mbxl">
+    <FlexCol col={8} />
+    <FlexCol col={8} />
+    <FlexCol col={8} />
+  </Grid>
 
-    <Grid className="grid-show">
-      <FlexCol col={12} />
-      <FlexCol col={12} />
-    </Grid>
+  <Grid className="grid-show">
+    <FlexCol col={12} />
+    <FlexCol col={12} />
+  </Grid>
 </div>
 ```
 
@@ -82,16 +82,16 @@ Flex grids use flexbox to position columns within rows.
 ::title=Dynamic column growth
 ::description=You can also specify how the columns grow with the `grow={n}` prop or the `col-grow-{n}` classes (n = 2 - 11). These columns will attempt to respect their given ratio until the content of the column exceeds their parameters, after which the column will drop onto another row:
 <div>
-    <Grid className="grid-show mbxl">
-        <FlexCol />
-        <FlexCol grow={2} />
-    </Grid>
+  <Grid className="grid-show mbxl">
+    <FlexCol />
+    <FlexCol grow={2} />
+  </Grid>
 
-    <Grid className="grid-show">
-        <FlexCol />
-        <FlexCol grow={2} />
-        <FlexCol grow={5} />
-    </Grid>
+  <Grid className="grid-show">
+    <FlexCol />
+    <FlexCol grow={2} />
+    <FlexCol grow={5} />
+  </Grid>
 </div>
 ```
 
@@ -99,9 +99,9 @@ Flex grids use flexbox to position columns within rows.
 ::title=Fixing column sizing
 ::description=You can fix the width of a column by using the `fixed` prop or the `.col-fixed` class.
 <Grid className="grid-show">
-    <FlexCol fixed {...{style: {width: "150px"}}}/>
-    <FlexCol />
-    <FlexCol />
+  <FlexCol fixed {...{style: {width: "150px"}}}/>
+  <FlexCol />
+  <FlexCol />
 </Grid>
 ```
 
@@ -109,21 +109,21 @@ Flex grids use flexbox to position columns within rows.
 ::title=Breakpoints
 ::description=You can specify three different media breakpoints with the `breakpoint` prop or the `.col-sm, .col-md, and .col-lg` classes.
 <div>
-    <Grid className="grid-show mbxl">
-        <FlexCol {...{style: {width: "150px"}, breakpoint: 'sm'}}/>
-        <FlexCol {...{breakpoint: 'sm'}}/>
-        <FlexCol {...{breakpoint: 'sm'}}/>
-    </Grid>
-    <Grid className="grid-show mbxl">
-        <FlexCol {...{style: {width: "150px"}, breakpoint: 'md'}}/>
-        <FlexCol {...{breakpoint: 'md'}}/>
-        <FlexCol {...{breakpoint: 'md'}}/>
-    </Grid>
-     <Grid className="grid-show">
-         <FlexCol {...{style: {width: "150px"}, breakpoint: 'lg'}}/>
-         <FlexCol {...{breakpoint: 'lg'}}/>
-         <FlexCol {...{breakpoint: 'lg'}}/>
-     </Grid>
+  <Grid className="grid-show mbxl">
+    <FlexCol {...{style: {width: "150px"}, breakpoint: 'sm'}}/>
+    <FlexCol {...{breakpoint: 'sm'}}/>
+    <FlexCol {...{breakpoint: 'sm'}}/>
+  </Grid>
+  <Grid className="grid-show mbxl">
+    <FlexCol {...{style: {width: "150px"}, breakpoint: 'md'}}/>
+    <FlexCol {...{breakpoint: 'md'}}/>
+    <FlexCol {...{breakpoint: 'md'}}/>
+  </Grid>
+   <Grid className="grid-show">
+     <FlexCol {...{style: {width: "150px"}, breakpoint: 'lg'}}/>
+     <FlexCol {...{breakpoint: 'lg'}}/>
+     <FlexCol {...{breakpoint: 'lg'}}/>
+   </Grid>
 </div>
 ```
 
@@ -131,9 +131,9 @@ Flex grids use flexbox to position columns within rows.
 ::title=Alignment
 ::description=Aligning columns relative to the grid:
 <Grid className="grid-show" {...{style: {height: "200px"}}}>
-    <FlexCol {...{alignment: 'top'}}/>
-    <FlexCol {...{alignment: 'middle'}}/>
-    <FlexCol {...{alignment: 'bottom'}}/>
+  <FlexCol {...{alignment: 'top'}}/>
+  <FlexCol {...{alignment: 'middle'}}/>
+  <FlexCol {...{alignment: 'bottom'}}/>
 </Grid>
 ```
 
