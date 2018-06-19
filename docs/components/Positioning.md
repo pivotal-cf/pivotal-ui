@@ -36,17 +36,11 @@ Modifier | Purpose
 
 ```html
 ::title=Position Absolute
-<div style="border: 2px solid #0074d9;
-            color: #0074d9;
-            padding: 20px;">
-    Parent element
-    <div class="position-absolute"
-         style="border: 1px dotted #000;
-                background-color: #eee;
-                padding: 20px;
-                color: #000;">
-       Child element
-    </div>
+<div class="border type-accent-5 paxxl">
+  Parent element
+  <div class="position-absolute paxxl type-neutral-1 bg-warn-6">
+    Child element
+  </div>
 </div>
 ```
 
@@ -56,71 +50,66 @@ Modifier | Purpose
      style="color: white;
             padding: 70px;
             background-color: #0074d9;">
-    Parent element
-    <div class="position-absolute"
-         style="background-color: rgba(0,0,0,.3);
-                padding: 20px;
-                color: rgba(255,255,255,.4);
-                bottom: 0;
-                left: 0;
-                right: 0;">
-       Child element
-    </div>
+  Parent element
+  <div class="position-absolute"
+       style="background-color: rgba(0,0,0,.3);
+              padding: 20px;
+              color: rgba(255,255,255,.4);
+              bottom: 0;
+              left: 0;
+              right: 0;">
+    Child element
+  </div>
 </div>
 ```
 
 ```html
 ::title=Position Fixed
 <div>
-    This example places a green box in the bottom-right corner of this page.
-    <div class="position-fixed"
-        style="background-color: green;
-                opacity: .85;
-                padding: 20px;
-                color: white;
-                right: 0;
-                bottom: 0;">
+  This example places a green box in the bottom-right corner of this page.
+  <div class="position-fixed bg-success-1 type-dark-11 paxxl"
+       style="right: 0; bottom: 0;">
     I am fixed!
-    </div>
+  </div>
 </div>
 ```
 
 ```html
 ::title=Display Flex
 <div class="display-flex">
-    <div style="background-color: #aaa; flex: 1;">child1</div>
-    <div style="background-color: #ccc; flex: 2;">child2</div>
-    <div style="background-color: #eee; flex: 3;">child3</div>
+  <div class="bg-dark-6" style="flex: 1;">child1</div>
+  <div class="bg-dark-8" style="flex: 2;">child2</div>
+  <div class="bg-dark-10" style="flex: 3;">child3</div>
 </div>
 ```
 
 ```html
 ::title=Display Block
-<span style="background-color: #aaa;" class="display-block">
-    This span tag takes up all available width
+<span class="display-block bg-dark-10">
+  This span tag takes up all available width
 </span>
 ```
 
 ```html
 ::title=Display Inline
-<div style="background-color: #aaa;" class="display-inline">
-    This div tag takes up only the space it needs
+<div class="display-inline bg-dark-10">
+  This div tag takes up only the space it needs
 </div>
 ```
 
 ```html
 ::title=Display Inline-Block
-<div style="background-color: #aaa; width: 600px" class="display-inline-block">
-    This div tag takes up a fixed amount of space (600px)
+<div class="display-inline-block bg-dark-10" style="width: 600px">
+  This div tag takes up a fixed amount of space (600px)
 </div>
 ```
 
 ```html
 ::title=Display None
 <div>
-    The div below this text has been hidden with the "display-none" class.
-    <div class="display-none">
-        This div is hidden!
-    </div>
+  The div below this text has been hidden with the "display-none" class.
+  <div class="display-none">
+    This div is hidden!
+  </div>
 </div>
 ```
