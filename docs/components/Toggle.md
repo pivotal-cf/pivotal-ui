@@ -3,13 +3,8 @@ title: Toggle
 menu: components
 cssPath: pivotal-ui/css/toggle
 reactPath: pivotal-ui/react/toggle
-componentProps:
-  Toggle:
-    id: The id of the element
-    className: Class name to put on the inner `label` element
-    size: Size variations
-    ...props: All other props are passed to the inner `input[type="checkbox"]` element.
-    type: (undocumented)
+reactComponents:
+  - Toggle
 ---
 
 # Overview
@@ -45,3 +40,14 @@ componentProps:
   </FormRow>
 </Form>
 ```
+
+# Props
+
+Property       | Required | Type                              | Default  | Description
+---------------|----------|-----------------------------------|----------|------------
+`id`           | no       | String                            |          | The id of the element
+`className`    | no       | String                            |          | Class name to put on the inner `label` element
+`size`         | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
+
+-
+_All other props are passed to the inner `input` element._

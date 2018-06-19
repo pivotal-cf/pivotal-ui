@@ -33,7 +33,6 @@ const markdownFileToComponent = ({fileName, json}) => {
   const file = fileName.replace(/^\.\//, '');
   const pageMetadata = {};
   const pageSections = [];
-  const pageComponents = {};
   let pageRoute;
 
   json.children.forEach(child => {
@@ -53,8 +52,6 @@ const markdownFileToComponent = ({fileName, json}) => {
 
   pageRoute = toUri(pageMetadata.route || pageMetadata.title);
 
-  if (pageMetadata.reactPath) pageSections.push({title: 'Props'});
-
   pageSections.forEach((section, i) => {
     const {rawContent, title} = section;
     const toProcess = {type: 'root', children: rawContent};
@@ -66,7 +63,7 @@ const markdownFileToComponent = ({fileName, json}) => {
     const componentPath = pageMetadata.reactPath.split('/').pop();
     const exported = require(`pivotal-ui/react/${componentPath}`);
     Object.entries(exported).forEach(([key, value]) => {
-      window[key] = pageComponents[key] = value;
+      window[key] = value;
     });
   }
 
@@ -74,8 +71,7 @@ const markdownFileToComponent = ({fileName, json}) => {
     file,
     route: pageRoute,
     pageMetadata,
-    pageSections,
-    pageComponents
+    pageSections
   };
 };
 

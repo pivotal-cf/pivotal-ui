@@ -2,9 +2,8 @@
 title: SVG
 menu: components
 reactPath: pivotal-ui/react/svg
-componentProps:
-  Svg:
-    src: Name of the SVG (excluding the `.svg` extension)
+reactComponents:
+  - Svg
 ---
 
 # Overview
@@ -43,3 +42,9 @@ This optimization will sometimes change your SVG in undesirable ways. You can tu
 ::nonInteractive
  require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../../../app/svgs/${src}.svg`);
 ```
+
+# Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+`src`    | yes | String | | Name of the svg (excluding the `.svg` extension)

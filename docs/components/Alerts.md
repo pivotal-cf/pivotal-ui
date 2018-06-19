@@ -3,21 +3,11 @@ title: Alerts
 menu: components
 cssPath: pivotal-ui/css/alerts
 reactPath: pivotal-ui/react/alerts
-componentProps:
-  SuccessAlert:
-    closeLabel: Screen reader label attached to close button
-    dismissable: If true, render a close button
-    onDismiss:  Callback that is called when the user clicks the close button
-    show: If set, overrides the close button. True shows the alert, false hides the alert.
-    withIcon: If true, render alert with an icon
-    alertIcon: (undocumented)
-    bsStyle: (undocumented)
-  InfoAlert:
-    _extends: SuccessAlert
-  WarningAlert:
-    _extends: SuccessAlert
-  ErrorAlert:
-    _extends: SuccessAlert
+reactComponents:
+  - SuccessAlert
+  - InfoAlert
+  - WarningAlert
+  - ErrorAlert
 ---
 
 # Overview
@@ -88,3 +78,13 @@ const callback = () => alert('Dismissed!');
 ::title=Dismissable alert with an icon
 <WarningAlert dismissable withIcon>warning</WarningAlert>
 ```
+
+# Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+`closeLabel`  | no | Node   - | 'Close alert' | Screen reader label attached to close button
+`dismissable` | no | Boolean  | false         | If true, render a close button
+`onDismiss`   | no | Function |               | Callback that is called when the user clicks the close button
+`show`        | no | Boolean  |               | If set, overrides the close button. True shows the alert, false hides the alert.
+`withIcon`    | no | Boolean  | false         | If true, render alert with an icon

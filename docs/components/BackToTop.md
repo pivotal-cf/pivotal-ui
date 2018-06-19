@@ -3,12 +3,8 @@ title: Back to Top
 menu: components
 cssPath: pivotal-ui/css/back-to-top
 reactPath: pivotal-ui/react/back-to-top
-componentProps:
-  BackToTop:
-    alwaysVisible: >
-      If `alwaysVisible` is not set, the component will only appear after the window has been scrolled.
-    scrollableId: >
-      If `scrollableId` is set, the component will update this element's scrollTop property. Otherwise, document.body will be scrolled.
+reactComponents:
+  - BackToTop
 ---
 
 # Overview
@@ -28,3 +24,10 @@ You can place the link anywhere in your markup, but best practices are either to
 See the bottom right corner of your screen!
 </div>
 ```
+
+# Props
+
+Property       | Required | Type   | Default | Description
+---------------|----------|--------|---------|------------
+`alwaysVisible`  | no       | Boolean | false   | If `alwaysVisible` is not set, the component will only appear after the window has been scrolled.
+`scrollableId`   | no       | String  |         | If `scrollableId` is set, the component will update this element's scrollTop property. Otherwise, document.body will be scrolled.

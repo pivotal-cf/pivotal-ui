@@ -3,38 +3,12 @@ title: Table
 menu: components
 cssPath: pivotal-ui/css/tables
 reactPath: pivotal-ui/react/table
-componentProps:
-  Table:
-    columns: Metadata about columns
-    data: The data to display in the table
-    plugProps: (undocumented)
-    plugTag: (undocumented)
-    table: (undocumented)
-    tableTag: (undocumented)
-    tbody: (undocumented)
-    tbodyTag: (undocumented)
-    td: (undocumented)
-    tdTag: (undocumented)
-    tfoot: (undocumented)
-    tfootTag: (undocumented)
-    th: (undocumented)
-    thTag: (undocumented)
-    thead: (undocumented)
-    theadTag: (undocumented)
-    tr: (undocumented)
-    trTag: (undocumented)
-  FlexTable:
-    _extends: Table
-  SortableTable:
-    _extends: Table
-  SortableFlexTable:
-    _extends: Table
-  AdvancedTable:
-    _extends: Table
-    footerRow: Anything that evaluates into HTML. Only valid when used with `withFooterRow` plugin.
-    rowClassName: Function with input `({rowDatum, isHeader, rowIndex})` and outputs a string. Only valid when used with `withRowClassName` plugin.
-    rowDrawer: Function with input `(rowIndex)`. Only valid when used with `withRowDrawer` plugin.
-    rowLink: Object comprising of `{link, onClick}`. `link` is a function whose input is `{rowDatum}` and outputs an `href`. `onClick` is a function that is executed when the row is clicked. Only valid with `withRowLink` plugin.
+reactComponents:
+  - Table
+  - FlexTable
+  - SortableTable
+  - SortableFlexTable
+  - AdvancedTable
 ---
 
 # Overview
@@ -524,25 +498,6 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 
 For additional examples, [review the plugins that Pivotal UI provides](https://github.com/pivotal-cf/pivotal-ui/tree/master/src/react/table/plugins).
 
-
-
-# Column Props
-
-Property         | Required | Type | Default | Description
------------------|----------|------|---------|------------
-attribute        | yes      | String    |       | The key to use in the data prop to get data for that column
-displayName      | no       | String    |       | The text in the TableHeader for that column
-link             | no       | Function  |       | The link destination. Only valid when used with `withCellLink` plugin.
-className        | no       | String or Function | | The class(es) to apply to a column. If this is a function, the inputs are `(rowDatum, isHeader)`. Only valid when used with `withCellClassName` plugin.
-ellipsis         | no       | Boolean   | false | Ellipsify overflow text. Only valid when used with `withCellEllipsis` plugin.
-onClick          | no       | Function  |       | The function to execute when the cell is clicked. The inputs to this function are `(event, rowDatum)`. Only valid when used with `withCellOnClick` plugin.
-CellRenderer     | no       | React component  |       | Component to use to render cell children. Rendered with `{...rowDatum}` as props. Only valid when used with `withCellRenderer` plugin.
-renderTdChildren | no       | Function  |       | Function which will be called to render custom cell children. Called with `rowDatum` as its argument. Only valid when used with `withRenderTdChildren` plugin.
-tooltip          | no       | Function  |       | Function whose inputs are `({isHeader}, rowDatum)` and should output an object containing `{text, size, theme, showIcon}`. `text` and `size` are used in the [Tooltip](/tooltips#tooltips) Component. `theme` is a prop of the [OverlayTrigger](/tooltips#overlay-triggers) Component. `showIcon` determines if the info icon is shown. Only valid when used with `withCellTooltip` plugin.
-width            | no       | String    |       | Can be any valid CSS `width` input. Only valid when used with `withCellWidth` plugin.
-sortable         | no       | Boolean   |       | Determines whether a column is sortable. Only valid when used with `withSorting` plugin.
-sortBy           | no       | Function  |       | Function that determines sort order. The input is the cell data. Only valid when used with `withSorting` plugin and if `sortable` is true.
-
 # Table Modifiers
 
 Class                   | Description
@@ -555,3 +510,33 @@ Class                   | Description
 `.table-no-borders`     | Removes all borders, internal and external, when applied to the .table element.Removes all borders, internal and external, when applied to the .table element.
 `.table-td-pal`         | Applied to table cell to add 8px vertical padding
 `.table-td-paxl`        | Applied to table cell to add 16px vertical padding
+
+# Props
+
+## Table props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+`columns`     | no | Array     | | Metadata about columns
+`data`        | yes | Array     | | The data to display in the table
+`footerRow`   | no  | Any       | | Anything that evaluates into HTML. Only valid when used with `withFooterRow` plugin.
+`rowClassName`| no  | Function  | | Function with input `({rowDatum, isHeader, rowIndex})` and outputs a string. Only valid when used with `withRowClassName` plugin.
+`rowDrawer`   | no  | Function  | | Function with input `(rowIndex)`. Only valid when used with `withRowDrawer` plugin.
+`rowLink`     | no  | Object    | | Object comprising of `{link, onClick}`. `link` is a function whose input is `{rowDatum}` and outputs an `href`. `onClick` is a function that is executed when the row is clicked. Only valid with `withRowLink` plugin.
+
+## Column object props
+
+Property         | Required | Type | Default | Description
+-----------------|----------|------|---------|------------
+`attribute`        | yes      | String    |       | The key to use in the data prop to get data for that column
+`displayName`      | no       | String    |       | The text in the TableHeader for that column
+`link`             | no       | Function  |       | The link destination. Only valid when used with `withCellLink` plugin.
+`className`        | no       | String or Function | | The class(es) to apply to a column. If this is a function, the inputs are `(rowDatum, isHeader)`. Only valid when used with `withCellClassName` plugin.
+`ellipsis`         | no       | Boolean   | false | Ellipsify overflow text. Only valid when used with `withCellEllipsis` plugin.
+`onClick`          | no       | Function  |       | The function to execute when the cell is clicked. The inputs to this function are `(event, rowDatum)`. Only valid when used with `withCellOnClick` plugin.
+`CellRenderer`     | no       | React component  |       | Component to use to render cell children. Rendered with `{...rowDatum}` as props. Only valid when used with `withCellRenderer` plugin.
+`renderTdChildren` | no       | Function  |       | Function which will be called to render custom cell children. Called with `rowDatum` as its argument. Only valid when used with `withRenderTdChildren` plugin.
+`tooltip`          | no       | Function  |       | Function whose inputs are `({isHeader}, rowDatum)` and should output an object containing `{text, size, theme, showIcon}`. `text` and `size` are used in the [Tooltip](/tooltips#tooltips) Component. `theme` is a prop of the [OverlayTrigger](/tooltips#overlay-triggers) Component. `showIcon` determines if the info icon is shown. Only valid when used with `withCellTooltip` plugin.
+`width`            | no       | String    |       | Can be any valid CSS `width` input. Only valid when used with `withCellWidth` plugin.
+`sortable`         | no       | Boolean   |       | Determines whether a column is sortable. Only valid when used with `withSorting` plugin.
+`sortBy`           | no       | Function  |       | Function that determines sort order. The input is the cell data. Only valid when used with `withSorting` plugin and if `sortable` is true.

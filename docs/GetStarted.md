@@ -122,7 +122,6 @@ These files can be included with a `<link>` tag in an HTML file like this:
 
 ```js
 ::nonInteractive
-
 import {Jasmine} from 'pui-react-tools';
 import 'babel-polyfill';
 
@@ -159,7 +158,6 @@ Jasmine.install({
 
 ```js
 ::nonInteractive
-
 import $ from 'jquery';
 import 'jasmine_dom_matchers';
 import ReactDOM from 'react-dom';
@@ -184,7 +182,6 @@ afterEach(() => {
 
 ```js
 ::nonInteractive
-
 import React from 'react';
 import App from './App';
 import 'path/to/spec_helper';
@@ -223,7 +220,6 @@ describe('app', () => {
 
 ```js
 ::nonInteractive
-
 import {Jasmine} from 'pui-react-tools';
 Lint.install({globs: ['src/**/*.js']});
 ```

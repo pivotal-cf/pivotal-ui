@@ -2,15 +2,8 @@
 title: Wizard
 menu: components
 reactPath: pivotal-ui/react/wizard
-componentProps:
-  Wizard:
-    pages: An array of Wizard Pages.
-    cancel: Callback to call when the user cancels the Wizard.
-    cancelText: Text for the Cancel button.
-    finish: Callback to call when the user finishes the Wizard.
-    finishText: Text for the Finish button.
-    saving: When true, renders the Finish button with a spinner icon and disables the Back button.
-    savingText: Text for the Finish button when `saving` is true.
+reactComponents:
+  - Wizard
 ---
 
 # Overview
@@ -55,16 +48,30 @@ const pages = [{
 <Wizard pages={pages} style={{border: '1px solid #ccc', padding: '8px'}}/>
 ```
 
-### Pages Props
+# Props
 
-Property         | Required | Type     | Default | Description
------------------|----------|----------|---------|------------
-render           | yes      | Function |         | Function that returns JSX for a page.
-hideNextButton   | no       | Boolean  | false   | Whether to hide the Next button.
-nextEnabled      | no       | Function |         | Callback to determine whether to enable the Next button. The Wizard's `getPage` function is passed as an argument to the callback.
-nextText         | no       | Function |         | Callback to determine the text for the Next button.
-onClickBack      | no       | Function |         | Called when the user clicks the Back button. Can optionally return a page index to go back to.
-onClickNext      | no       | Function |         | Called when the user clicks the Next button.
-backComponent    | no       | Node     |         | Replaces the standard Back button.
-finishComponent  | no       | Node     |         | Replaces the standard Finish button.
-hideFinishButton | no       | Boolean  |         | Hides the Finish button.
+## Wizard props
+
+Property     | Required | Type     | Default | Description
+-------------|----------|----------|---------|------------
+`pages`      | yes      | Array    | []      | An array of Wizard Pages.
+`cancel`     | no       | Function |         | Callback to call when the user cancels the Wizard.
+`cancelText` | no       | String   | Cancel  | Text for the Cancel button.
+`finish`     | no       | Function |         | Callback to call when the user finishes the Wizard.
+`finishText` | no       | String   | Finish  | Text for the Finish button.
+`saving`     | no       | Boolean  | false   | When true, renders the Finish button with a spinner icon and disables the Back button.
+`savingText` | no       | String   | Saving  | Text for the Finish button when `saving` is true.
+
+## Page object props
+
+Property           | Required | Type     | Default | Description
+-------------------|----------|----------|---------|------------
+`render`           | yes      | Function |         | Function that returns JSX for a page.
+`hideNextButton`   | no       | Boolean  | false   | Whether to hide the Next button.
+`nextEnabled`      | no       | Function |         | Callback to determine whether to enable the Next button. The Wizard's `getPage` function is passed as an argument to the callback.
+`nextText`         | no       | Function |         | Callback to determine the text for the Next button.
+`onClickBack`      | no       | Function |         | Called when the user clicks the Back button. Can optionally return a page index to go back to.
+`onClickNext`      | no       | Function |         | Called when the user clicks the Next button.
+`backComponent`    | no       | Node     |         | Replaces the standard Back button.
+`finishComponent`  | no       | Node     |         | Replaces the standard Finish button.
+`hideFinishButton` | no       | Boolean  |         | Hides the Finish button.

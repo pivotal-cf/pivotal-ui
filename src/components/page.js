@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {Icon} from 'pivotal-ui/react/iconography';
 import ImportPreview from './import_preview';
-import PropTable from './prop_table';
 import Config from '../config';
 import Anchor from './anchor';
 import Prism from 'prismjs';
@@ -17,7 +16,6 @@ const issueUrl = `${Config.get('puiRepository')}/issues/new`;
 export default class Page extends PureComponent {
   static propTypes = {
     file: PropTypes.string.isRequired,
-    pageComponents: PropTypes.object.isRequired,
     pageMetadata: PropTypes.object,
     pageSections: PropTypes.array.isRequired,
     currentRoute: PropTypes.string
@@ -28,8 +26,8 @@ export default class Page extends PureComponent {
   }
 
   render() {
-    const {currentRoute, file, pageComponents, pageSections, pageMetadata} = this.props;
-    const {title, reactPath, componentProps, cssPath} = pageMetadata;
+    const {currentRoute, file, pageSections, pageMetadata} = this.props;
+    const {title, reactPath, reactComponents, cssPath} = pageMetadata;
     const singlePageSection = pageSections.length === 1;
 
     const tabLinks = pageSections.map(({title, route}) => {
@@ -44,21 +42,12 @@ export default class Page extends PureComponent {
     if (singlePageSection) {
       const {SectionComponent} = pageSections[0];
       content = SectionComponent ? <SectionComponent/> : null;
-    } else if (currentRoute.endsWith('/props')) {
-      content = Object.keys(componentProps).map(componentName => (
-        <PropTable {...{
-          key: componentName,
-          componentName,
-          component: pageComponents[componentName],
-          pagePropDescriptions: componentProps
-        }}/>
-      ));
     } else {
       const {SectionComponent, title: sectionTitle} = pageSections.find(({route}) => route === currentRoute) || {};
       content = (
         <Fragment>
           {SectionComponent ? <SectionComponent/> : null}
-          {sectionTitle === 'Overview' && <ImportPreview {...{reactPath, cssPath, componentProps}}/>}
+          {sectionTitle === 'Overview' && <ImportPreview {...{reactPath, cssPath, reactComponents}}/>}
         </Fragment>
       );
     }

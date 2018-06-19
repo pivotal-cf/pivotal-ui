@@ -3,18 +3,9 @@ title: Media
 menu: components
 cssPath: pivotal-ui/css/media
 reactPath: pivotal-ui/react/media
-componentProps:
-  Media:
-    image: The image displayed
-    innerClassName: The classname of the inner element
-    mediaSpacing: Amount of whitespace between media and body
-    stackSize: At what breakpoint should the media object stack
-    vAlign: Vertical alignment of the body (used for large images with small content next to it, usually centered)
-    placement: Horizontal placement of the media
-    className: The classname of the element
-  Flag:
-    _extends: Media
-    vAlign: (undocumented)
+reactComponents:
+  - Media
+  - Flag
 ---
 
 # Overview
@@ -211,3 +202,17 @@ const mediaSpacingImage = <Image href="http://www.google.com" src="https://place
   </Media>
 </div>
 ```
+
+# Props
+
+## Media/Flag props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+`image`          | yes | Node                                        |        | The image displayed
+`innerClassName` | no  | String                                      |        | The classname of the inner element
+`mediaSpacing`   | no  | oneOf('small', 'medium', 'large', 'xlarge') |        | Amount of whitespace between media and body
+`stackSize`      | no  | oneOf('xsmall', 'small', 'medium', 'large') |        | At what breakpoint should the media object stack
+`vAlign`         | no  | oneOf('middle', 'bottom')                   |        | Vertical alignment of the body (used for large images with small content next to it, usually centered)
+`placement`      | no  | oneOf('left', 'right')                      | 'left' | Horizontal placement of the media
+`className`      | no  | String                                      |        | The classname of the element

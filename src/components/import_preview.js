@@ -6,21 +6,20 @@ export default class ImportPreview extends PureComponent {
   static propTypes = {
     cssPath: PropTypes.string,
     reactPath: PropTypes.string,
-    componentProps: PropTypes.object
+    reactComponents: PropTypes.array
   };
 
   static defaultProps = {
-    componentProps: {}
+    reactComponents: []
   };
 
   render() {
-    const {cssPath, reactPath, componentProps} = this.props;
+    const {cssPath, reactPath, reactComponents} = this.props;
     if (!cssPath && !reactPath) return null;
 
-    const componentNames = Object.keys(componentProps);
-    const reactImport = reactPath && `import {${componentNames.join(', ')}} from '${reactPath}';`;
+    const reactImport = reactPath && `import {${reactComponents.join(', ')}} from '${reactPath}';`;
     const cssImport = cssPath && `import '${cssPath}';`;
-    const multipleComponents = componentNames.length > 1;
+    const multipleComponents = reactComponents.length > 1;
 
     const preview = (label, code, className) => (
       <div {...{className: classnames('border styleguide-import-preview', className)}}>

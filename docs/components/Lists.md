@@ -3,17 +3,10 @@ title: Lists
 menu: components
 cssPath: pivotal-ui/css/lists
 reactPath: pivotal-ui/react/lists
-componentProps:
-  BreadcrumbList:
-    className: Classname of the list
-    unstyled: Whether to style the list
-    divider: Whether to include a divider between items
-  InlineList:
-    className: Classname of the list
-    unstyled: Whether to style the list
-    divider: Whether to include a divider between items
-  ListItem:
-    ...props: All props passed directly to `li` tag.
+reactComponents:
+  - BreadcrumbList
+  - InlineList
+  - ListItem
 ---
 
 # Overview
@@ -53,3 +46,25 @@ componentProps:
   <ListItem>Item 3</ListItem>
 </InlineList>
 ```
+
+# Props
+
+## BreadcrumbList props
+
+Property    | Required | Type | Default | Description
+------------|----------|------|---------|------------
+`className` | no | String  |       | Classname of the list
+`unstyled`  | no | Boolean | false | Whether to style the list
+`divider`   | no | Boolean | false | Whether to include a divider between items
+
+## InlineList props
+
+Property    | Required | Type | Default | Description
+------------|----------|------|---------|------------
+`className` | no | String  |       | Classname of the list
+`unstyled`  | no | Boolean | false | Whether to style the list
+`divider`   | no | Boolean | false | Whether to include a divider between items
+
+## ListItem props
+
+_All props passed directly to inner `li` element._

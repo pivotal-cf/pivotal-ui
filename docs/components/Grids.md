@@ -3,16 +3,9 @@ title: Grids
 menu: components
 cssPath: pivotal-ui/css/flex-grids
 reactPath: pivotal-ui/react/flex-grids
-componentProps:
-  Grid:
-    gutter: When true, adds spacing between `FlexCol`s
-  FlexCol:
-    col: Fraction out of 24 that this column's width should be in its `Grid`
-    fixed: When true, column width is fixed to the width of its content
-    grow: The ratio of the column's width relative to other columns in the same `Grid`
-    alignment: Alignment of the column within the `Grid`
-    contentAlignment: Alignment of the column's contents within itself
-    breakpoint: Width of window at which column will expand to take up full width of `Grid` (`sm` = `768px`, `md` = `992px`, `lg` = `1200px`)
+reactComponents:
+  - Grid
+  - FlexCol
 ---
 
 # Overview
@@ -153,3 +146,22 @@ Flex grids use flexbox to position columns within rows.
   <FlexCol {...{contentAlignment: 'bottom', style: {height:"100px", border: "1px solid #b4b4b4", background: "#f8f8f8", margin: "0 8px"}}}>Some content that sits at the bottom of the column</FlexCol>
 </Grid>
 ```
+
+# Props
+
+## Grid props
+
+Property | Required | Type    | Default | Description
+---------|----------|---------|---------|------------
+`gutter` | no       | boolean | true    | When true, adds spacing between `FlexCol`s
+
+## FlexCol props
+
+Property           | Required | Type                               | Default | Description
+-------------------|----------|------------------------------------|---------|------------
+`col`              | no       | number                             |         | Fraction out of 24 that this column's width should be in its `Grid`
+`fixed`            | no       | boolean                            | false   | When true, column width is fixed to the width of its content
+`grow`             | no       | number                             | 1       | The ratio of the column's width relative to other columns in the same `Grid`
+`alignment`        | no       | oneOf(['top', 'middle', 'bottom']) |         | Alignment of the column within the `Grid`
+`contentAlignment` | no       | oneOf(['top', 'middle', 'bottom']) |         | Alignment of the column's contents within itself
+`breakpoint`       | no       | oneOf(['sm', 'md', 'lg'])          |         | Width of window at which column will expand to take up full width of `Grid` (`sm` = `768px`, `md` = `992px`, `lg` = `1200px`)

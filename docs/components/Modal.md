@@ -3,19 +3,8 @@ title: Modal
 menu: components
 cssPath: pivotal-ui/css/modal
 reactPath: pivotal-ui/react/modal
-componentProps:
-  Modal:
-    animationDuration: Animation duration in milliseconds (Set to <= 0 to disable animations) |
-    animationEasing: Animation easing function
-    bodyClassName: Class(es) to apply to modal body
-    children: Content to render in modal body
-    dialogClassName: Class(es) to apply to the modal dialog
-    footer: Content to render in modal footer
-    footerClassName: Class(es) to apply to modal footer
-    onHide: Callback that fires as soon as the modal begins closing
-    size: Size of modal (can be any CSS width value)
-    show: Whether the modal should be opened or closed
-    title: Title of the modal, shown at the top of the modal
+reactComponents:
+  - Modal
 ---
 
 # Overview
@@ -63,3 +52,15 @@ class MyModal extends React.Component {
 
 <MyModal />
 ```
+
+# Props
+
+Property            | Required   | Type                                                                                         | Default                              | Description                                                            |
+--------------------| ---------- | ----------                                                                                   | ----------                           | ------------                                                           |
+`animationDuration` | no         | Number                                                                                       | 300                                  | Animation duration in milliseconds (Set to <= 0 to disable animations) |
+`animationEasing`   | no         | String                                                                                       | cubic-bezier(0.25, 0.46, 0.45, 0.94) | Animation easing function                                              |
+`dialogClassName`   | no         | String                                                                                       |                                      | Class(es) to apply to the modal dialog                                 |
+`onHide`            | yes        | Function                                                                                     |                                      | Callback that fires as soon as the modal begins closing                |
+`size`              | no         | String, oneOf(['sm', 'small', 'large', 'lg']) or a valid css width value, eg. '44%', '900px' |                                      | Size variations                                                        |
+`show`              | no         | Boolean                                                                                      |                                      | Whether the modal should be opened or closed                           |
+`title`             | no         | Node                                                                                         |                                      | Title of the modal, shown at the top of the modal                      |

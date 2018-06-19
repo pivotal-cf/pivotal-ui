@@ -3,20 +3,8 @@ title: Flyout
 menu: components
 cssPath: pivotal-ui/css/flyout
 reactPath: pivotal-ui/react/flyout
-componentProps:
-  Flyout:
-    animationDuration: Animation duration in milliseconds (Set to <= 0 to disable animations)
-    animationEasing: Animation easing function
-    bodyClassName: Class(es) to apply to the body
-    buttonAriaLabel: ARIA label to give to icon button
-    children: Contents of the flyout body
-    dialogClassName: Class(es) to apply to the modal dialog
-    header: Contents of the flyout header
-    headerClassName: Class(es) to apply to the header
-    iconSrc: Icon to use for the close button
-    onHide: Callback that fires as soon as the modal begins closing
-    show: Whether or not the flyout is visible width Width of flyout content
-    width: Width of flyout content
+reactComponents:
+  - Flyout
 ---
 
 # Overview
@@ -91,3 +79,19 @@ class Page extends React.Component {
 
 <Page/>
 ```
+
+# Props
+
+Property             | Required    | Type        | Default                               | Description
+---------------------|-------------|-------------|---------------------------------------|-------------
+`animationDuration`  | no          | Number      | 200                                   | Animation duration in milliseconds (Set to <= 0 to disable animations)
+`animationEasing`    | no          | String      | cubic-bezier(0.25, 0.46, 0.45, 0.94)  | Animation easing function
+`bodyClassName`      | no          | String      |                                       | Class(es) to apply to the body
+`children`           | no          | Any         |                                       | Contents of the flyout body
+`dialogClassName`    | no          | String      |                                       | Class(es) to apply to the modal dialog
+`header`             | no          | Any         |                                       | Contents of the flyout header
+`headerClassName`    | no          | String      |                                       | Class(es) to apply to the header
+`iconSrc`            | no          | String      | 'close'                               | Icon to use for the close button
+`onHide`             | yes         | Function    |                                       | Callback that fires as soon as the modal begins closing
+`show`               | no          | Boolean     | false                                 | Whether or not the flyout is visible
+`width`              | no          | String      | 480px                                 | Width of flyout content

@@ -3,11 +3,8 @@ title: Icons
 menu: components
 cssPath: pivotal-ui/css/iconography
 reactPath: pivotal-ui/react/iconography
-componentProps:
-  Icon:
-    src: The name of the icon
-    style: Styles to apply
-    verticalAlign: Vertical alignment
+reactComponents:
+  - Icon
 ---
 
 # Overview
@@ -96,3 +93,11 @@ example below.
   </div>
 </div>
 ```
+
+# Props
+
+Property           | Required | Type                               | Default  | Description
+-------------------|----------|------------------------------------|----------|------------
+`src`              | yes      | String                             |          | The name of the icon
+`style`            | no       | Object                             |          | Styles to apply
+`verticalAlign`    | no       | oneOf(['middle', 'baseline'])      | 'middle' | Vertical alignment
