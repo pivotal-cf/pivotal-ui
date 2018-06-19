@@ -43,7 +43,7 @@ describe('ImportPreview', () => {
 
     describe('with one React component', () => {
       beforeEach(() => {
-        subject::setProps({componentProps: {Component1: {}}});
+        subject::setProps({reactComponents: ['Component1']});
       });
 
       it('renders the correct label and text', () => {
@@ -57,7 +57,7 @@ describe('ImportPreview', () => {
 
     describe('with multiple React components', () => {
       beforeEach(() => {
-        subject::setProps({componentProps: {Component1: {}, Component2: {}}});
+        subject::setProps({reactComponents: ['Component1', 'Component2']});
       });
 
       it('renders the correct label and text', () => {
@@ -75,7 +75,7 @@ describe('ImportPreview', () => {
       subject::setProps({
         cssPath: 'pivotal-ui/css/alerts',
         reactPath: 'pivotal-ui/react/alerts',
-        componentProps: {Component1: {}, Component2: {}}
+        reactComponents: ['Component1', 'Component2']
       });
     });
 
