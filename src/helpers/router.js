@@ -27,6 +27,10 @@ const Router = {
     document.getElementById('content').scrollTop = 0;
     skipPushState || window.history.pushState({}, '', newRoute);
     handlers.forEach(handler => handler(newRoute, newRouteContent));
+  },
+
+  getHandlers() {
+    return handlers;
   }
 };
 
