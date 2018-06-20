@@ -31,7 +31,7 @@ const sectionTitleToRoute = (title, pageRoute, sectionIndex) => {
 
 const markdownFileToComponent = ({fileName, json}) => {
   const file = fileName.replace(/^\.\//, '');
-  const pageMetadata = {};
+  const pageMetadata = {menu: '', route: ''};
   const pageSections = [];
   let pageRoute;
 

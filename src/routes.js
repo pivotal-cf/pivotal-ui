@@ -4,11 +4,12 @@ const requirePages = require.context('../docs', true, /\.md$/);
 
 const routes = requirePages.keys().reduce((memo, fileName) => {
   const json = requirePages(fileName);
-  const routeData = markdownFileToComponent({fileName, json});
-  return {...memo, [routeData.route]: routeData};
+  const routeContent = markdownFileToComponent({fileName, json});
+  return {...memo, [routeContent.route]: routeContent};
 }, {});
 
-routes['/'] = {...routes['/get-started'], route: '/'};
+const defaultRoute = '/get-started';
+routes['/'] = {...routes[defaultRoute], route: '/'};
 
 export const getRouteContent = (route = '') => {
   const firstRoutePart = route.split('/').filter(Boolean)[0] || '';
