@@ -1,4 +1,4 @@
-import React, {Fragment, PureComponent} from 'react';
+import React, {PureComponent} from 'react';
 import classnames from 'classnames';
 import CodeExample from '../code_example';
 
