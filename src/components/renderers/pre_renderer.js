@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React, {Fragment, PureComponent} from 'react';
 import classnames from 'classnames';
 import CodeExample from '../code_example';
 
@@ -42,16 +42,17 @@ export default class PreRenderer extends PureComponent {
 
       if (!nonInteractive) return <CodeExample {...{lang, title, description, code, noToolbar}}/>;
 
-      return (<pre {...{
-        ...this.props,
-        children: <code>{lines.join('\n').trim()}</code>,
-        className: classnames('md-pre border border-not-rounded', className)
-      }}/>);
+      return (
+        <pre {...{...this.props, className: classnames('md-pre border border-not-rounded', className)}}>
+          {<code>{lines.join('\n').trim()}</code>}
+        </pre>
+      );
     }
 
-    return (<pre {...{
-      ...this.props,
-      className: classnames('md-pre border border-not-rounded', className)
-    }}/>);
+    return (
+      <pre {...{...this.props, className: classnames('md-pre border border-not-rounded', className)}}>
+        {React.Children.map(this.props.children, (child, key) => React.cloneElement(child, {key}))}
+      </pre>
+    );
   }
 };
