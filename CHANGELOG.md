@@ -1,8 +1,12 @@
 <a name="16.0.1"></a>
 ## 16.0.1 (2018-06-21)
 #### CSS
-* **dialog**: Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
-* **flyout**: Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
+* **dialog**:
+  * Set overflow: hidden on pui-flyout-dialog-backdrop ([ed72cd31](https://github.com/pivotal-cf/pivotal-ui/commit/ed72cd31))
+  * Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
+* **flyout**:
+  * Set overflow: hidden on pui-flyout-dialog-backdrop ([ed72cd31](https://github.com/pivotal-cf/pivotal-ui/commit/ed72cd31))
+  * Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
 * **modal**:
   * Increase specificity of modal close button [[:beetle:#157978614](https://www.pivotaltracker.com/story/show/157978614)] ([de00535b](https://github.com/pivotal-cf/pivotal-ui/commit/de00535b))
   * Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
