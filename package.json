@@ -128,7 +128,7 @@
     "scroll-into-view": "^1.3.0",
     "tether": "^1.3.7",
     "through": "^2.3.8",
-    "trie-search": "^1.0.1"
+    "trie-search": "1.1.0"
   },
   "scripts": {
     "test": "gulp ci --fatal"
