@@ -124,7 +124,7 @@
     "prismjs": "0.0.1",
     "phantomjs-prebuilt": "^2.1.14",
     "scroll-into-view": "^1.3.0",
-    "trie-search": "^1.0.1",
+    "trie-search": "1.1.0",
     "react-addons-shallow-compare": "^15.0.1",
     "react-tether": "^0.5.7",
     "from": "^0.1.3"
