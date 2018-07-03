@@ -149,7 +149,9 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     return (
       <div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
         {clonedInput}
-        <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion, showNoSearchResults}}>
+        <AutocompleteList {...{
+          $autocomplete, onPick, maxItems, selectedSuggestion, showNoSearchResults
+        }}>
           {children}
         </AutocompleteList>
       </div>
