@@ -1,9 +1,14 @@
-import {exec, execSync} from 'child_process';
 import {version} from '../../package.json';
 import fs from 'fs';
 
+const peerDepNote = 'React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.';
+
 const hardcodedNotes = {
-  '10.4.0': 'React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.'
+  '10.4.0': peerDepNote,
+  '11.2.0': peerDepNote,
+  '12.4.0': peerDepNote,
+  '13.1.0': peerDepNote,
+  '14.1.0': peerDepNote
 };
 
 const trackerIcons = {

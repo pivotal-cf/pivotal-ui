@@ -1,5 +1,9 @@
+<a name="14.1.0"></a>
+# 14.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
 <a name="14.0.0"></a>
-# 14.0.0 (2018-02-22)
+# 14.0.0 (2018-02-16)
 #### CSS
 * **alerts**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **all**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
