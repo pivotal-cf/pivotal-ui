@@ -1,6 +1,10 @@
 import {version} from '../../package.json';
 import fs from 'fs';
 
+const hardcodedNotes = {
+  '10.4.0': 'React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.'
+};
+
 const trackerIcons = {
   bug: ':beetle:',
   chore: ':gear:',
@@ -72,6 +76,9 @@ export default class ChangelogHelper {
     const semver = tag.replace(/^v/, '');
     const commitDate = tag !== version ? await gitHelper.getCommitDate(tag) : Date.now();
     const date = new Date(commitDate).toISOString().split('T')[0];
-    return `<a name="${semver}"></a>\n${headingMd} ${semver} (${date})\n${componentsMd.join('\n')}`;
+    const notes = hardcodedNotes[semver] ? `\n${hardcodedNotes[semver]}` : '';
+    return `<a name="${semver}"></a>
+${headingMd} ${semver} (${date})${notes}
+${componentsMd.join('\n')}`;
   }
 };
