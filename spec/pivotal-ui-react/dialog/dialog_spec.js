@@ -38,15 +38,24 @@ describe('Dialog', () => {
 
   it('renders a hidden backdrop', () => {
     expect('.pui-dialog-backdrop').not.toHaveClass('pui-dialog-show');
-    expect('.pui-dialog-backdrop').toHaveAttr('style',
-      'visibility: hidden; transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;'
-    );
+    expect('.pui-dialog-backdrop').toHaveStyle({
+      visibility: 'hidden',
+      transitionDuration: '200ms',
+      transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      transitionDelay: '0s',
+      transitionProperty: 'opacity'
+    });
     expect('.pui-dialog-backdrop').toHaveAttr('aria-hidden', 'true');
   });
 
   it('renders a hidden dialog', () => {
     expect('.pui-dialog').not.toHaveClass('pui-dialog-show');
-    expect('.pui-dialog').toHaveAttr('style', 'transition: transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;');
+    expect('.pui-dialog').toHaveStyle({
+      transitionDuration: '200ms',
+      transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+      transitionDelay: '0s',
+      transitionProperty: 'transform'
+    });
   });
 
   it('does not render the children', () => {
@@ -56,7 +65,7 @@ describe('Dialog', () => {
   });
 
   it('does not update the parent z-index', () => {
-    expect('#root').toHaveAttr('style', null);
+    expect('#root').toHaveStyle({});
   });
 
   describe('when updateParentZIndex is true and modal becomes visible', () => {
@@ -65,7 +74,7 @@ describe('Dialog', () => {
     });
 
     it('updates the parent z-index', () => {
-      expect('#root').toHaveAttr('style', 'z-index: 1000;');
+      expect('#root').toHaveStyle({zIndex: '1000'});
     });
 
     describe('when the modal is closed', () => {
@@ -74,7 +83,7 @@ describe('Dialog', () => {
       });
 
       it('updates the parent z-index', () => {
-        expect('#root').toHaveAttr('style', 'z-index: -1000;');
+        expect('#root').toHaveStyle({zIndex: '-1000'});
       });
     });
   });
@@ -90,7 +99,7 @@ describe('Dialog', () => {
     });
 
     it('does not update the parent z-index', () => {
-      expect('#root').toHaveAttr('style', null);
+      expect('#root').toHaveStyle({});
     });
 
     it('sets a keydown event listener', () => {
@@ -106,7 +115,13 @@ describe('Dialog', () => {
     });
 
     it('renders a modal', () => {
-      expect('.pui-dialog-backdrop').toHaveAttr('style', 'visibility: visible; transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;');
+      expect('.pui-dialog-backdrop').toHaveStyle({
+        visibility: 'visible',
+        transitionDuration: '200ms',
+        transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        transitionDelay: '0s',
+        transitionProperty: 'opacity'
+      });
       expect('.pui-dialog-backdrop').toHaveClass('pui-dialog-show');
     });
 
@@ -387,11 +402,11 @@ describe('Dialog', () => {
     });
 
     it('does not give a transition to the backdrop', () => {
-      expect('.pui-dialog-backdrop').toHaveAttr('style', 'visibility: hidden;');
+      expect('.pui-dialog-backdrop').toHaveStyle({visibility: 'hidden'});
     });
 
     it('does not give a transition to the dialog', () => {
-      expect('.pui-dialog').toHaveAttr('style', '');
+      expect('.pui-dialog').toHaveStyle({});
     });
   });
 
@@ -436,7 +451,7 @@ describe('Dialog', () => {
     });
 
     it('sets the style on the dialog', () => {
-      expect('.pui-dialog').toHaveAttr('style', 'width: 240px;');
+      expect('.pui-dialog').toHaveStyle({width: '240px'});
     });
   });
 });

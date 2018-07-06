@@ -1,5 +1,4 @@
 import '../spec_helper';
-import {itPropagatesAttributes} from '../support/shared_examples';
 import {Grid, FlexCol} from '../../../src/react/flex-grids';
 import {findByClass} from '../spec_helper';
 

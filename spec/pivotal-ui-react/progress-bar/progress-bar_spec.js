@@ -17,7 +17,7 @@ describe('ProgressBar', () => {
     expect('.pui-progress .pui-progress-bar').toHaveAttr('aria-valuemax', '100');
     expect('.pui-progress .pui-progress-bar').toHaveAttr('aria-valuemin', '0');
     expect('.pui-progress .pui-progress-bar').toHaveAttr('aria-valuenow', '0');
-    expect('.pui-progress .pui-progress-bar').toHaveAttr('style', 'width: 0%;');
+    expect('.pui-progress .pui-progress-bar').toHaveStyle({width: '0%'});
   });
 
   describe('when given a className', () => {
@@ -47,7 +47,7 @@ describe('ProgressBar', () => {
 
     it('sets the attributes of the progress bar accordingly', () => {
       expect('.pui-progress .pui-progress-bar').toHaveAttr('aria-valuenow', '78');
-      expect('.pui-progress .pui-progress-bar').toHaveAttr('style', 'width: 78%;');
+      expect('.pui-progress .pui-progress-bar').toHaveStyle({width: '78%'});
     });
   });
 });

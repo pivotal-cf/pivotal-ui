@@ -86,7 +86,7 @@ describe('Checkbox', () => {
     });
 
     it('puts the style on the outer div', () => {
-      expect('.pui-checkbox').toHaveAttr('style', 'color: green; background-color: red;');
+      expect('.pui-checkbox').toHaveStyle({color: 'green', backgroundColor: 'red'});
     });
   });
 

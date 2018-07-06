@@ -45,33 +45,33 @@ describe('BackToTop', () => {
     });
 
     it('fades in the button', () => {
-      expect('.pui-back-to-top').toHaveAttr('style', 'display: inline; opacity: 0; font-size: 200px;');
+      expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 0, 'font-size': '200px'});
       MockNow.tick(BackToTop.FADE_DURATION / 2);
       MockRaf.next();
-      expect('.pui-back-to-top').toHaveAttr('style', 'display: inline; opacity: 0.5; font-size: 200px;');
+      expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 0.5, 'font-size': '200px'});
       MockNow.tick(BackToTop.FADE_DURATION / 2);
       MockRaf.next();
-      expect('.pui-back-to-top').toHaveAttr('style', 'display: inline; opacity: 1; font-size: 200px;');
+      expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 1, 'font-size': '200px'});
     });
 
     describe('when the scroll top is less than 400', () => {
       beforeEach(() => {
         MockNow.tick(BackToTop.FADE_DURATION);
         MockRaf.next();
-        expect('.pui-back-to-top').toHaveAttr('style', 'display: inline; opacity: 1; font-size: 200px;');
+        expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 1, 'font-size': '200px'});
 
         ScrollTop.setScrollTop(0);
         triggerScroll();
       });
 
       it('fades out the button', () => {
-        expect('.pui-back-to-top').toHaveAttr('style', 'display: inline; opacity: 1; font-size: 200px;');
+        expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 1, 'font-size': '200px'});
         MockNow.tick(BackToTop.FADE_DURATION / 2);
         MockRaf.next();
-        expect('.pui-back-to-top').toHaveAttr('style', 'display: inline; opacity: 0.5; font-size: 200px;');
+        expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 0.5, 'font-size': '200px'});
         MockNow.tick(BackToTop.FADE_DURATION / 2);
         MockRaf.next();
-        expect('.pui-back-to-top').toHaveAttr('style', 'display: inline; opacity: 0; font-size: 200px;');
+        expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 0, 'font-size': '200px'});
       });
     });
 

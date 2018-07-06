@@ -24,8 +24,8 @@ describe('withCellWidth', () => {
   });
 
   it('renders th elements with width style', () => {
-    expect('table tr:eq(0) th:eq(0)').toHaveAttr('style', 'width: 100px;');
-    expect('table tr:eq(0) th:eq(1)').toHaveAttr('style', 'width: 200px;');
+    expect('table tr:eq(0) th:eq(0)').toHaveStyle({width: '100px'});
+    expect('table tr:eq(0) th:eq(1)').toHaveStyle({width: '200px'});
   });
 
   it('renders td elements with col-fixed class', () => {
@@ -37,10 +37,10 @@ describe('withCellWidth', () => {
   });
 
   it('renders td elements with width style', () => {
-    expect('table tr:eq(1) td:eq(0)').toHaveAttr('style', 'width: 100px;');
-    expect('table tr:eq(1) td:eq(1)').toHaveAttr('style', 'width: 200px;');
+    expect('table tr:eq(1) td:eq(0)').toHaveStyle({width: '100px'});
+    expect('table tr:eq(1) td:eq(1)').toHaveStyle({width: '200px'});
 
-    expect('table tr:eq(2) td:eq(0)').toHaveAttr('style', 'width: 100px;');
-    expect('table tr:eq(2) td:eq(1)').toHaveAttr('style', 'width: 200px;');
+    expect('table tr:eq(2) td:eq(0)').toHaveStyle({width: '100px'});
+    expect('table tr:eq(2) td:eq(1)').toHaveStyle({width: '200px'});
   });
 });

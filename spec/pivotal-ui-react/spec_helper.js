@@ -12,6 +12,7 @@ import 'pivotal-js-jasmine-matchers';
 import 'react-spy-on-render';
 import ReactTestUtils from 'react-dom/test-utils';
 import stringifier from 'stringifier';
+const {DiffBuilder} = jasmine;
 
 export const findByClass = ReactTestUtils.findRenderedDOMComponentWithClass;
 export const findAllByClass = ReactTestUtils.scryRenderedDOMComponentsWithClass;
@@ -19,14 +20,44 @@ export const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
 export const findAllByTag = ReactTestUtils.scryRenderedDOMComponentsWithTag;
 export const clickOn = ReactTestUtils.Simulate.click;
 
+beforeAll(() => {
+  jasmine.addMatchers({
+    toHaveStyle(util, customEqualityTesters) {
+      return {
+        compare: function (actual, expected) {
+          const {style} = jQuery(actual)[0];
+          const actualStyle = {};
+          for (let i = 0; i < style.length; i++) {
+            actualStyle[style[i]] = style[style[i]];
+          }
+
+          const expectedStyle = Object.entries(expected).reduce((memo, [key, value]) => {
+            key = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+            return {...memo, [key]: `${value}`};
+          }, {});
+
+          const diffBuilder = new DiffBuilder();
+          const pass = util.equals(actualStyle, expectedStyle, customEqualityTesters, diffBuilder);
+          const message = pass
+            ? `Expected style not to match, but it did:\n${JSON.stringify(actualStyle, null, 2)}`
+            : `Element style did not match expectations.\n${diffBuilder.getMessage()}`;
+
+          return {pass, message};
+        }
+      };
+    }
+  });
+});
+
 MockNextTick.install();
 
 delete ReactTestUtils.renderIntoDocument;
 
-jasmine.pp = function(obj) {
+jasmine.pp = function (obj) {
   const stringifierInstance = stringifier({maxDepth: 5, indent: '  '});
   return stringifierInstance(obj);
 };
+jasmine.getEnv().randomizeTests(false);
 
 Object.assign(global, {
   jQuery,

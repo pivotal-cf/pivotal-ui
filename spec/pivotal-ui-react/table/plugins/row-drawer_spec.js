@@ -56,7 +56,7 @@ describe('withRowDrawer', () => {
         expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveClass('th');
         expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveClass('col');
         expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveClass('col-fixed');
-        expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveAttr('style', 'border-right-width: 0px; width: 36px;');
+        expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveStyle({borderRightWidth: '0px', width: '36px'});
       });
 
       it('renders an > icon on the first column', () => {

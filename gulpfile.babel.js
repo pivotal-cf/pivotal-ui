@@ -7,7 +7,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 Jasmine.install({
   headlessServerOptions: {
     includeStackTrace: true,
-    random: false,
+    random: undefined,
     isVerbose: false,
     port: 8888,
     driver: 'chrome'

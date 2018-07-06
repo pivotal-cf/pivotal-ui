@@ -76,7 +76,7 @@ describe('Collapse', () => {
   });
 
   it('passes through style', () => {
-    expect('.pui-collapse').toHaveAttr('style', /opacity: 0\.5/);
+    expect('.pui-collapse').toHaveStyle({opacity: 0.5});
   });
 
   it('contains a right-caret as its collapsed icon when closed', () => {

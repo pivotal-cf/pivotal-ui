@@ -46,7 +46,7 @@ describe('Alert Component', () => {
         expect('.pui-alert button:eq(0)').toHaveAttr('aria-label');
       });
 
-     it('adds the closeLabel to the close button', () => {
+      it('adds the closeLabel to the close button', () => {
         subject::setProps({dismissable: true, closeLabel: 'click to close the alert'});
         expect('.pui-alert button:eq(0)').toHaveAttr('aria-label');
         expect($('.pui-alert button:eq(0)').attr('aria-label')).toBe('click to close the alert');

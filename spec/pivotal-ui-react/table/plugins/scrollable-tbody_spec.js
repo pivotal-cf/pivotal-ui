@@ -27,7 +27,7 @@ describe('withScrollableTbody', () => {
     });
 
     it('does not set the height of the tbody with the given prop', () => {
-      expect('table tbody').not.toHaveAttr('style', 'height: 70vh;');
+      expect('table tbody').toHaveStyle({});
     });
   });
 
@@ -46,7 +46,7 @@ describe('withScrollableTbody', () => {
     });
 
     it('sets the height of the tbody with the given prop', () => {
-      expect('table tbody').toHaveAttr('style', 'height: 70vh;');
+      expect('table tbody').toHaveStyle({height: '70vh'});
     });
   });
 });

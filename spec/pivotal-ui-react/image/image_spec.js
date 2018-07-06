@@ -1,18 +1,18 @@
 import '../spec_helper';
-
 import {Image} from '../../../src/react/images';
-import {reactCompPropagatesAttrs} from '../support/shared_examples';
 
 describe('Image', () => {
   const renderComponent = props => ReactDOM.render(
     <Image src="http://placehold.it/20x20" {...props} />, root);
 
-  beforeEach(() => {
-    reactCompPropagatesAttrs(renderComponent({
-      className: 'foo',
-      id: 'bar',
-      style: {color: 'red'}
-    }), 'foo', 'bar', {color: 'red'});
+  it('adds classname, id, style to the component', () => {
+    const result = renderComponent({className: 'foo', id: 'bar', style: {color: 'red'}});
+    const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'foo');
+
+    expect(component).not.toBeNull();
+    expect(component.hasAttribute('id')).toBe(true);
+    expect(component.getAttribute('id')).toEqual('bar');
+    expect(component.style.color).toEqual('red');
   });
 
   describe('when responsive', () => {
