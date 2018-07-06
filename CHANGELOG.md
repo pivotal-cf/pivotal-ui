@@ -1,5 +1,6 @@
-<a name="10.3.4"></a>
-## 10.3.4 (2018-01-16)
+<a name="10.4.0"></a>
+# 10.4.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
 #### CSS
 * **tables**: Fix missing bottom border on table footer row [#153578787] ([c15f4380](https://github.com/pivotal-cf/pivotal-ui/commit/c15f4380))
 <a name="10.3.3"></a>
