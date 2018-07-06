@@ -18,8 +18,7 @@ Jasmine.install({
     test: () => {
       return {
         ...devWebpack,
-        entry: './spec/index.js',
-        devtool: 'cheap-module-source-map'
+        entry: './spec/index.js'
       }
     }
   }
