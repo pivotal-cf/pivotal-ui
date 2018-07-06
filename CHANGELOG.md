@@ -1,3 +1,8 @@
+<a name="13.1.0"></a>
+# 13.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+#### React
+* **copy-to-clipboard**: Make CopyToClipboard work for text with newlines [[:beetle:#154782444](https://www.pivotaltracker.com/story/show/154782444)] (#555) ([572e4192](https://github.com/pivotal-cf/pivotal-ui/commit/572e4192))
 <a name="13.0.2"></a>
 ## 13.0.2 (2018-02-14)
 #### CSS
