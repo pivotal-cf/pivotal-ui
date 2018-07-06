@@ -11,7 +11,7 @@
   },
   "name": "pivotal-ui",
   "description": "***",
-  "version": "16.0.2",
+  "version": "16.1.0",
   "devDependencies": {
     "axios": "^0.5.4",
     "babel-core": "^6.18.2",

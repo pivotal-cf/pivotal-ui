@@ -1,3 +1,7 @@
+<a name="16.1.0"></a>
+# 16.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
 <a name="16.0.2"></a>
 ## 16.0.2 (2018-07-03)
 #### React
