@@ -1,7 +1,12 @@
+<a name="15.1.0"></a>
+# 15.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
 <a name="15.0.0"></a>
 # 15.0.0 (2018-03-29)
 #### CSS
 * **buttons**: Fix IE: Button contents shift when pressed [[:beetle:#155240754](https://www.pivotaltracker.com/story/show/155240754)] ([5cf8c06a](https://github.com/pivotal-cf/pivotal-ui/commit/5cf8c06a))
+* **checkbox-dropdown**: Make CheckboxDropdown work with new Dropdown [[:gear:#156384281](https://www.pivotaltracker.com/story/show/156384281)] ([d9a78898](https://github.com/pivotal-cf/pivotal-ui/commit/d9a78898))
 * **dropdowns**:
   * Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
   * Fix Notifications example on IE [[:beetle:#155240782](https://www.pivotaltracker.com/story/show/155240782)] ([4037c89e](https://github.com/pivotal-cf/pivotal-ui/commit/4037c89e))
@@ -15,7 +20,9 @@
 * **typography**: Stop disabling subpixel antialiasing! [[:beetle:#155689262](https://www.pivotaltracker.com/story/show/155689262)] ([b1ec1b1f](https://github.com/pivotal-cf/pivotal-ui/commit/b1ec1b1f))
 #### React
 * **autocomplete**: update app autocomplete to return the trie-building promise when initializing items, also add an updateList method to be able to update the list of search results without showing the list [[:star:#156202601](https://www.pivotaltracker.com/story/show/156202601)] ([b66c61e4](https://github.com/pivotal-cf/pivotal-ui/commit/b66c61e4))
-* **checkbox-dropdown**: Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
+* **checkbox-dropdown**:
+  * Make CheckboxDropdown work with new Dropdown [[:gear:#156384281](https://www.pivotaltracker.com/story/show/156384281)] ([d9a78898](https://github.com/pivotal-cf/pivotal-ui/commit/d9a78898))
+  * Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
 * **copy-to-clipboard**: Make CopyToClipboard work for text with newlines [[:beetle:#154782444](https://www.pivotaltracker.com/story/show/154782444)] (#555) ([c290ab63](https://github.com/pivotal-cf/pivotal-ui/commit/c290ab63))
 * **dropdowns**: Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
 * **notifications**: Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
