@@ -13,6 +13,8 @@ const globals = {
   ...require('pivotal-js-react-test-helpers')
 };
 
+jasmine.getEnv().randomizeTests(false);
+
 Object.assign(global, globals);
 
 beforeAll(() => {

@@ -699,7 +699,7 @@ babel-core@^6.26.0, babel-core@^6.5.2:
     slash "^1.0.0"
     source-map "^0.5.6"
 
-babel-core@^6.26.3:
+babel-core@^6.26.3, babel-core@^6.4.5:
   version "6.26.3"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.26.3.tgz#b2e2f09e342d0f0c88e2f02e067794125e75c207"
   dependencies:
@@ -898,6 +898,13 @@ babel-plugin-check-es2015-constants@^6.22.0:
 babel-plugin-react-svg@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-react-svg/-/babel-plugin-react-svg-2.1.0.tgz#169eeba1a20fa2dee3a71ff38eedd63d08e69487"
+
+babel-plugin-stack-trace-sourcemap@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-stack-trace-sourcemap/-/babel-plugin-stack-trace-sourcemap-1.0.2.tgz#9e8a73d02e524f01c9330b10c39990a0b6f88b4e"
+  dependencies:
+    babel-core "^6.4.5"
+    babel-runtime "^6.3.19"
 
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
@@ -3716,10 +3723,6 @@ exit-hook@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/exit-hook/-/exit-hook-1.1.1.tgz#f05ca233b48c05d54fff07765df8507e95c02ff8"
 
-exit@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/exit/-/exit-0.1.2.tgz#0632638f8d877cc82107d30a0fff1a17cba1cd0c"
-
 expand-brackets@^0.1.4:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/expand-brackets/-/expand-brackets-0.1.5.tgz#df07284e342a807cd733ac5af72411e581d1177b"
@@ -4840,9 +4843,9 @@ gulp-if@^2.0.1:
     ternary-stream "^2.0.1"
     through2 "^2.0.1"
 
-gulp-jasmine-browser@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/gulp-jasmine-browser/-/gulp-jasmine-browser-3.0.2.tgz#3e5f3a6ef852380dd8c4b540e61a9b4c58d9e5fd"
+gulp-jasmine-browser@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-jasmine-browser/-/gulp-jasmine-browser-4.0.0.tgz#1fedcd67cee4f2b8aa750692eebdc1765d034f90"
   dependencies:
     babel-polyfill "^6.3.14"
     babel-runtime "^6.3.19"
@@ -4865,15 +4868,15 @@ gulp-jasmine-browser@^3.0.0:
     vinyl "^1.2.0"
     ws "^3.3.1"
 
-gulp-jasmine@^2.4.0:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/gulp-jasmine/-/gulp-jasmine-2.4.2.tgz#5a7f47e27370c3619ac0a2a442be399671409db3"
+gulp-jasmine@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gulp-jasmine/-/gulp-jasmine-4.0.0.tgz#efe566b8350f41a14f63ffaecc6ccdf8646709a9"
   dependencies:
-    arrify "^1.0.0"
-    gulp-util "^3.0.0"
-    jasmine "^2.3.0"
-    jasmine-terminal-reporter "^1.0.0"
-    through2 "^2.0.0"
+    arrify "^1.0.1"
+    jasmine "^3.1.0"
+    jasmine-terminal-reporter "^1.0.3"
+    plugin-error "^1.0.1"
+    through2 "^2.0.3"
 
 gulp-load-plugins@^1.2.4:
   version "1.5.0"
@@ -6106,13 +6109,9 @@ jasmine-ajax@^3.2.0:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/jasmine-ajax/-/jasmine-ajax-3.3.1.tgz#f8cad9fd49dfd44f3cf798d36f4e857d125c75c5"
 
-jasmine-core@^2.4.1:
-  version "2.99.1"
-  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-2.99.1.tgz#e6400df1e6b56e130b61c4bcd093daa7f6e8ca15"
-
-jasmine-core@~2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-2.8.0.tgz#bcc979ae1f9fd05701e45e52e65d3a5d63f1a24e"
+jasmine-core@~3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-3.1.0.tgz#a4785e135d5df65024dfc9224953df585bd2766c"
 
 jasmine-json-stream-reporter@^0.3.1:
   version "0.3.1"
@@ -6125,20 +6124,19 @@ jasmine-profile-reporter@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/jasmine-profile-reporter/-/jasmine-profile-reporter-0.0.2.tgz#b10ddaf9ab75b7bc6c4c9f46f24a67a0455f3978"
 
-jasmine-terminal-reporter@^1.0.0, jasmine-terminal-reporter@^1.0.2:
+jasmine-terminal-reporter@^1.0.2, jasmine-terminal-reporter@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/jasmine-terminal-reporter/-/jasmine-terminal-reporter-1.0.3.tgz#896f1ec8fdf4bf6aecdd41c503eda7347f61526b"
   dependencies:
     indent-string "^2.1.0"
     pluralize "^1.2.1"
 
-jasmine@^2.3.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/jasmine/-/jasmine-2.8.0.tgz#6b089c0a11576b1f16df11b80146d91d4e8b8a3e"
+jasmine@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/jasmine/-/jasmine-3.1.0.tgz#2bd59fd7ec6ec0e8acb64e09f45a68ed2ad1952a"
   dependencies:
-    exit "^0.1.2"
     glob "^7.0.6"
-    jasmine-core "~2.8.0"
+    jasmine-core "~3.1.0"
 
 jasmine_dom_matchers@^1.4.0:
   version "1.4.0"
@@ -8706,9 +8704,9 @@ public-encrypt@^4.0.0:
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
 
-pui-react-tools@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/pui-react-tools/-/pui-react-tools-4.0.1.tgz#750570d21183f374fb492ae8d6a3bd616f5b180c"
+pui-react-tools@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/pui-react-tools/-/pui-react-tools-5.0.1.tgz#271b2b452e6973d785dbf948f5f9e562c33ed924"
   dependencies:
     babel-core "^6.26.0"
     babel-eslint "^7.2.3"
@@ -8724,8 +8722,8 @@ pui-react-tools@^4.0.1:
     gulp-babel "^7.0.0"
     gulp-eslint "^4.0.0"
     gulp-if "^2.0.1"
-    gulp-jasmine "^2.4.0"
-    gulp-jasmine-browser "^3.0.0"
+    gulp-jasmine "^4.0.0"
+    gulp-jasmine-browser "^4.0.0"
     gulp-load-plugins "^1.2.4"
     gulp-plumber "^1.1.0"
     gulp-process-env "^0.0.2"
