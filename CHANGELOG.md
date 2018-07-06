@@ -1,3 +1,8 @@
+<a name="12.4.0"></a>
+# 12.4.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+#### React
+* **copy-to-clipboard**: Make CopyToClipboard work for text with newlines [[:beetle:#154782444](https://www.pivotaltracker.com/story/show/154782444)] (#555) ([54740944](https://github.com/pivotal-cf/pivotal-ui/commit/54740944))
 <a name="12.3.0"></a>
 # 12.3.0 (2018-01-11)
 #### CSS
@@ -292,7 +297,7 @@
   * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
 * **tables**:
   * css for table drawers [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([bbe85867](https://github.com/pivotal-cf/pivotal-ui/commit/bbe85867))
-  * update html table css to make font-size less specific [[:star:#150190185](https://www.pivotaltracker.com/story/show/150190185)] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
+  * update html table css to make font-size less specific [#150190185] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
 * **tabs**:
   * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
   * update tab action padding for 8pt grid [[:star:#150269434](https://www.pivotaltracker.com/story/show/150269434)] ([bdc052de](https://github.com/pivotal-cf/pivotal-ui/commit/bdc052de))
