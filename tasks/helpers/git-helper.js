@@ -1,7 +1,7 @@
 import {exec} from 'child_process';
 
 const ignoredCommits = [
-  'f107f79', '50b53e5', '8da492c', 'b57a9cd', 'e5a6b3b', '220c75d', '985780a'
+  'f107f79', '50b53e5', '8da492c', 'b57a9cd', 'e5a6b3b', '220c75d', '985780a', '2c9e294d'
 ];
 
 const tagToSemver = tag => tag.split('.').map(s => s.replace(/^[^\d]*(\d+)[^\d]*$/, '$1')).map(i => +i);
@@ -107,7 +107,7 @@ export default class GitHelper {
   async getPreviousTagSha(version) {
     const [major, minor, patch] = tagToSemver(version);
     let tags = (await this.git('tag')).split('\n').map(tagToSemver);
-    tags = tags.filter(([major, minor, patch]) => !( isNaN(major) || isNaN(minor) || isNaN(patch)));
+    tags = tags.filter(([major, minor, patch]) => !(isNaN(major) || isNaN(minor) || isNaN(patch)));
     tags.sort(sortSemversReverse);
     if (minor === 0 && patch === 0) return this.getForkPoint('master', `v${major - 1}`);
     let previousTag;
@@ -133,7 +133,7 @@ export default class GitHelper {
     const [firstTagMajor, firstTagMinor, firstTagPatch] = tagToSemver(firstTag);
     const [versionMajor] = tagToSemver(version);
     let tags = (await this.git('tag')).split('\n').map(tagToSemver);
-    tags = tags.filter(([major, minor, patch]) => !( isNaN(major) || isNaN(minor) || isNaN(patch)));
+    tags = tags.filter(([major, minor, patch]) => !(isNaN(major) || isNaN(minor) || isNaN(patch)));
     tags.sort(sortSemversReverse);
     return tags.filter(([major2, minor2, patch2]) => {
       if (major2 < firstTagMajor) return;
