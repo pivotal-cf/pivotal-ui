@@ -22,7 +22,7 @@ Prepend any color name with `type-` to apply that color to an element's text.
 
 # Palette
 
-```jsx
+```jsx harmony
 ::noToolbar
 
 <TextFilter {...{

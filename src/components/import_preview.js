@@ -1,4 +1,4 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -29,10 +29,10 @@ export default class ImportPreview extends PureComponent {
     );
 
     return (
-      <Fragment>
+      <div>
         {reactPath && preview(`Import React component${multipleComponents ? 's' : ''}`, reactImport)}
         {cssPath && preview(`Import CSS${reactPath ? ' only' : ''}`, cssImport, {'mtxxxl': reactPath})}
-      </Fragment>
+      </div>
     );
   }
 }

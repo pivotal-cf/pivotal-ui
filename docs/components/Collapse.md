@@ -19,7 +19,7 @@ This is a basic collapse with no additional styles.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 <BaseCollapse header="Panel 1">
   <p>Panel 1 content</p>
@@ -35,7 +35,7 @@ This is a basic collapse with no additional styles.
 </BaseCollapse>
 ```
 
-```jsx
+```jsx harmony
 ::title=Without arrows example
 ::description=This is a basic collapse with an +/- icon in the clickable region
 <AltCollapse header="Without Arrows">
@@ -47,7 +47,7 @@ This is a basic collapse with no additional styles.
 </AltCollapse>
 ```
 
-```jsx
+```jsx harmony
 ::title=Arrow icon example
 ::description=This is a basic collapse with an arrow icon in the clickable region
 <Collapse header="With Arrows">
@@ -59,7 +59,7 @@ This is a basic collapse with no additional styles.
 </Collapse>
 ```
 
-```jsx
+```jsx harmony
 ::title=Divider example
 ::description=To add a divider between the clickable region and the expanded content region, simply set the `divider` property to be true
 <Collapse header="With Divider" divider>

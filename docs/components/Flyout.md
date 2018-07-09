@@ -18,7 +18,7 @@ The flyout will overlay its first parent that has position `relative`.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 class Page extends React.Component {
   constructor(props) {

@@ -14,7 +14,7 @@ Autocomplete provides the user the ability to search for known entities with the
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 const onPick = item => alert('You selected ' + item.value);
 const onInitializeItems = callback => callback(['foo', 'food', 'bar']);
@@ -22,7 +22,7 @@ const onInitializeItems = callback => callback(['foo', 'food', 'bar']);
 <Autocomplete onInitializeItems={onInitializeItems} onPick={onPick}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Adding more options to autocomplete
 ::description=By saving the `onInitializeItems` callback, we can call it whenever we need to give the autocomplete new data. We then use the `updateList()` method to update the list.
 

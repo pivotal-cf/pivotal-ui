@@ -13,7 +13,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Breadcrumb
 <BreadcrumbList>
   <ListItem><a href="#">Home</a></ListItem>
@@ -38,7 +38,7 @@ reactComponents:
 </ul>
 ```
 
-```jsx
+```jsx harmony
 ::title=Inline
 <InlineList>
   <ListItem>Item 1</ListItem>

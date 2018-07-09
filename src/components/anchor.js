@@ -13,7 +13,7 @@ export default class Anchor extends PureComponent {
     if (href.charAt(0) !== '/' || href.startsWith('/static')) return;
     evt.preventDefault();
     Router.navigate(href);
-  }
+  };
 
   render() {
     const {href, children, className, target, id} = this.props;

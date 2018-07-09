@@ -13,7 +13,7 @@ The copy to clipboard functionality can be applied to a variety of elements.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Copy options
 <div>
   <CopyToClipboard text="I got copied by a link" tooltip="Good news, it's copied!">Click Me To Copy</CopyToClipboard>
@@ -35,7 +35,7 @@ The copy to clipboard functionality can be applied to a variety of elements.
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Readonly input and copy button
 <div className="copy-input grid">
   <Input label="Shareable Link" value="bar.com/1234.jpg" readOnly className="col"/>

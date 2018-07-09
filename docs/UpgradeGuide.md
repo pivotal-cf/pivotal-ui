@@ -200,7 +200,7 @@ This component was based on Bootstrap Grids, and has been removed. Use our Flex 
 
 Deprecated Bootstrap-based Grid:
 
-```jsx
+```jsx harmony
 ::nonInteractive
 <Row>
   <Col md={8}>...</Col>
@@ -210,8 +210,7 @@ Deprecated Bootstrap-based Grid:
 
 FlexGrid:
 
-```jsx
-::nonInteractive
+```jsx harmony
 <Grid>
   <FlexCol>...</FlexCol>
   <FlexCol grow={2}>...</FlexCol>
@@ -326,7 +325,7 @@ and into the Form component.
 
 ### Forms
 
-```jsx
+```jsx harmony
 <Form className="example-form">
   <FormRow className="mbxl">
     <FormCol {...{

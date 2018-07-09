@@ -11,19 +11,19 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 ::description=The Toggle component takes an `onChange` callback.
 <Toggle onChange={() => console.log('I have been toggled!')}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Toggle checked
 ::description=Toggles accept a `checked` prop that turns on the switch. Note that you must handle the addition and removal of the `checked` property yourself.
 <Toggle checked onChange={() => console.log('I should handle check changes!')}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Toggle size
 ::description=Toggle has a `size` attribute that takes three options: small, medium (default), and large.
 <Form>

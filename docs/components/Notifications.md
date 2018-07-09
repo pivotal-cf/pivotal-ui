@@ -13,12 +13,12 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=No notifications
 <Notifications />
 ```
 
-```jsx
+```jsx harmony
 ::title=With notifications
 <Notifications>
   <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
@@ -30,7 +30,7 @@ reactComponents:
 </Notifications>
 ```
 
-```jsx
+```jsx harmony
 ::title=Notification sizing
 <div>
   <Notifications size="h1">
@@ -63,12 +63,12 @@ reactComponents:
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=No alerts
 <AlertNotifications />
 ```
 
-```jsx
+```jsx harmony
 ::title=With alerts
 <div>
   <AlertNotifications>

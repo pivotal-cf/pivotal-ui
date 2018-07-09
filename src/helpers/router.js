@@ -9,7 +9,6 @@ const Router = {
   },
 
   destroy() {
-    handlers = undefined;
     window.removeEventListener('popstate', Router.onPopState);
   },
 

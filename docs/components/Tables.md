@@ -25,7 +25,7 @@ Tables can also be composed with any subset of the features offered by the **Adv
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic HTML Table with implicit columns
 ::description=When no `columns` prop is given, the table will automatically determine the columns and column headers based on the keys of `data`.
 const data = [{
@@ -44,7 +44,7 @@ const data = [{
 <Table data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Basic HTML Table with simple columns
 ::description=When the `columns` prop contains strings, the associated data will be shown in the data in the order provided.
 const data = [{
@@ -64,7 +64,7 @@ const columns = ['title', 'instances'];
 <Table columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Sortable HTML Table with explicit columns
 ::description=The `columns` prop defines the properties of each column. This allows for more complex table behavior, such as sorting.
 const columns = [{
@@ -102,7 +102,7 @@ const data = [{
 <SortableTable columns={columns} data={data} defaultSort="instances"/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Basic Flex Table
 const columns = [{
   attribute: 'title', displayName: 'Title'
@@ -127,7 +127,7 @@ const data = [{
 <FlexTable columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Sortable Flex Table
 const columns = [{
   attribute: 'title',
@@ -164,7 +164,7 @@ const data = [{
 <SortableFlexTable columns={columns} data={data} defaultSort="instances"/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Table row hover
 ::description=Adding .tr-hover to a specific table row or the table element itself will add the hover effect.
 const ComposedTable = withRowClassName(Table);
@@ -173,7 +173,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <ComposedTable columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'tr-hover'}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Table cell hover
 ::description=Adding .td-hover to the table element will allow the user to highlight individual cells.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
@@ -181,7 +181,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <Table columns={columns} data={data} className="td-hover"/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Table border modifiers
 ::description=Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
@@ -189,7 +189,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <Table columns={columns} data={data} className="tr-no-h-borders"/>
 ```
 
-```jsx
+```jsx harmony
 ::title=No external borders
 ::description=No external borders to rows using class .table-no-ext-borders on the table element.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
@@ -197,7 +197,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <Table columns={columns} data={data} className="table-no-ext-borders"/>
 ```
 
-```jsx
+```jsx harmony
 ::title=No borders
 ::description=No borders to rows using class .table-no-borders on the table element.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
@@ -241,7 +241,7 @@ const ComposedTable = flow(withFlex, withSorting)(Table);
 
 The following examples demonstrate the individual usage of each of the above plugins.
 
-```jsx
+```jsx harmony
 ::title=Flex
 ::description=Flex tables are composed of `div` tags.
 const TableWithFlex = withFlex(Table);
@@ -250,7 +250,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithFlex columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Cell links (requires FlexTable)
 ::description=Each cell in a column of a FlexTable can be an `a` tag. In this example, the first column links to the top of this section, and the last column links to the top of this page.
 const FlexTableWithCellLink = withCellLink(FlexTable);
@@ -261,7 +261,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <FlexTableWithCellLink columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Cell className
 ::description=Each cell in a column can have custom classes. In this example, the first column has the `h4` class applied.
 const TableWithClassName = withCellClassName(Table);
@@ -271,7 +271,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithClassName columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Cell ellipsis (requires FlexTable)
 ::description=Each cell in a column of a FlexTable can be set to trail off with an ellipsis when the contents exceed the available space. In this example, the first column has the `type-ellipsis` class applied.
 const FlexTableWithCellEllipsis = withCellEllipsis(FlexTable);
@@ -281,7 +281,7 @@ const data = [1, 2].map(() => ({header1: 'CellCellCellCellCellCellCellCellCellCe
 <FlexTableWithCellEllipsis columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Cell onClick
 ::description=Each cell in a column can be provided an onClick handler. In this example, the first column has the will show an alert with  contextual information for the row when clicked.
 const TableWithCellOnClick = withCellOnClick(Table);
@@ -291,7 +291,7 @@ const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${
 <TableWithCellOnClick columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Cell renderer
 ::description=Each cell in a column can provide a custom component to render its children. In this example, the first column has a custom cell renderer component that reverses its text and applies a `strong` tag. To simply return some custom children for a cell, rather than use a whole custom component, consider using `withRenderTdChildren` instead of `withCellRenderer`. If an inline function is passed as a `CellRenderer`, it will unmount and remount the children of a cell whenever the table is given new props, rather than simply rerendering the children.
 class CustomCellRenderer extends React.Component {
@@ -307,7 +307,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithCellRenderer columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Custom renderTdChildren function
 ::description=Each cell in a column can provide a custom render function. In this example, the first column has a custom child render function that capitalizes its text.
 const TableWithRenderTdChildren = withRenderTdChildren(Table);
@@ -317,7 +317,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithRenderTdChildren columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Cell tooltip
 ::description=Each cell in a column can have a tooltip. In this example, the first column has a tooltip that displays its text, reversed. The header tooltip has a dark theme, while the body cell tooltips have a light theme.
 const TableWithCellTooltip = withCellTooltip(Table);
@@ -327,7 +327,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithCellTooltip columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Cell width
 ::description=Each cell in a column can have a fixed width. In this example, the cells in the first column are 100px wide, and the cells in the second column are 200px. The cells in the final column use the remaining space.
 const TableWithCellWidth = withCellWidth(Table);
@@ -338,7 +338,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithCellWidth columns={columns} data={data}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Footer row
 ::description=A custom footer row can be provided.
 const TableWithFooterRow = withFooterRow(Table);
@@ -348,7 +348,7 @@ const footerRow = <tr><td colSpan={3}><strong>I am a footer!</strong></td></tr>;
 <TableWithFooterRow columns={columns} data={data} footerRow={footerRow}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Row className
 ::description=A className can be provided to a row element. In this example, the body rows are given the `h4` class.
 const TableWithRowClassName = withRowClassName(Table);
@@ -357,7 +357,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithRowClassName columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'h4'}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Row drawer (requires FlexTable)
 ::description=When body rows of a FlexTable are clicked, drawer content is revealed.
 const TableWithRowDrawer = withRowDrawer(FlexTable);
@@ -375,7 +375,7 @@ const rowDrawer = i => (
 <TableWithRowDrawer columns={columns} data={data} rowDrawer={rowDrawer}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Row links (requires FlexTable)
 ::description=An entire row of a FlexTable can be rendered as an `a` tag. In this example, clicking the first body row links to the top of this section.
 const TableWithRowLink = withRowLink(FlexTable);
@@ -384,7 +384,7 @@ const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${
 <TableWithRowLink columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '#using-plugins'}}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Sorting
 ::description=A table can be sorted ascending or descending by a given column by clicking on that column's header.
 const TableWithSorting = withSorting(Table);
@@ -423,7 +423,7 @@ const data = [{
 <TableWithSorting columns={columns} data={data} defaultSort="instances"/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Scrollable table body (requires FlexTable)
 ::description=When `scrollable` and `tbodyHeight="<some height>"`, the table body will scroll when that height is exceeded.
 const ScrollableTable = withScrollableTbody(FlexTable);
@@ -474,7 +474,7 @@ The callback should return a new DOM element as a String or a React Component to
 For Prop callbacks, the first argument is the `props` that the element will receive. The second argument is relevant `context`.
 The callback should return any new props that the element should be rendered with. They will generally overwrite any pre-existing props. The `className` and `style` props will be merged with the old values.
 
-```jsx
+```jsx harmony
 ::title=Table with cell color
 ::description=Each column has a different color: red, green, and blue.
 function withCellColor(Table) {

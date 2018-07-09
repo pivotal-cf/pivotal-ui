@@ -11,7 +11,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Checkboxes
 <div>
   <Checkbox>Checkbox one</Checkbox>

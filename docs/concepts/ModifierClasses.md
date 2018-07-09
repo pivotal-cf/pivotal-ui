@@ -23,7 +23,7 @@ The `underline` class does exactly one thing: gives any text with this class an 
 
 To demonstrate how modifier classes can be composed, consider this unstyled content that displays the current year:
 
-```jsx
+```jsx harmony
 ::title=With no modifiers
 <div>
   <span>current year:</span> <span>{new Date().getFullYear()}</span>
@@ -32,7 +32,7 @@ To demonstrate how modifier classes can be composed, consider this unstyled cont
 
 Now, let's add a bunch of modifier classes to the outer `div` and inner `span` elements to center the text and add some style:
 
-```jsx
+```jsx harmony
 ::title=With several modifiers
 <div className="paxl bg-brand-8 type-neutral-11 border border-rounded h2 txt-c">
   <span className="em-high">current year:</span> <span className="em-low">{new Date().getFullYear()}</span>

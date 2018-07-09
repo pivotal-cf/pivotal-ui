@@ -12,7 +12,7 @@ The `Wizard` component allows the user to navigate through a series of Wizard pa
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 const pages = [{
   render() { return <span>This is the first page of the wizard. By default, the wizard cannot be cancelled. The user cannot go back from the first page. Click the Next button to proceed.</span>}
@@ -25,7 +25,7 @@ const pages = [{
 <Wizard pages={pages} style={{border: '1px solid #ccc', padding: '8px'}} finish={() => alert('All done!')}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=With saving and savingText
 const pages = [{
   render() { return <span>This is the first page of the wizard. The user can click Next.</span>}
@@ -36,7 +36,7 @@ const pages = [{
 <Wizard pages={pages} saving={true} savingText="Finishing" style={{border: '1px solid #ccc', padding: '8px'}} finish={() => alert('All done!')}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=With custom back and finish components
 const pages = [{
   render() { return <span>This is the first page of the wizard, click the Next button to see the custom back and finish components.</span>}

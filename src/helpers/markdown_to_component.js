@@ -33,11 +33,10 @@ const markdownFileToComponent = ({fileName, json}) => {
   const file = fileName.replace(/^\.\//, '');
   const pageMetadata = {menu: '', route: ''};
   const pageSections = [];
-  let pageRoute;
 
   json.children.forEach(child => {
     if (child.type === 'yaml') {
-      Object.assign(pageMetadata, child.data.parsedValue || {});
+      Object.assign(pageMetadata, child.data.parsedValue);
       return;
     }
 
@@ -50,7 +49,7 @@ const markdownFileToComponent = ({fileName, json}) => {
     pageSections[pageSections.length - 1].rawContent.push(child);
   });
 
-  pageRoute = toUri(pageMetadata.route || pageMetadata.title);
+  const pageRoute = toUri(pageMetadata.route || pageMetadata.title);
 
   pageSections.forEach((section, i) => {
     const {rawContent, title} = section;

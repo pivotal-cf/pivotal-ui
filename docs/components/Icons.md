@@ -15,7 +15,7 @@ example below.
 
 # Icon List
 
-```jsx
+```jsx harmony
 ::noToolbar
 <TextFilter {...{
   className: 'mhl',
@@ -44,7 +44,7 @@ example below.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=SVG example
 ::description=Using the `Icon` component with the `src` prop inserts an SVG icon. It can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
 <h1>
@@ -52,7 +52,7 @@ example below.
 </h1>
 ```
 
-```jsx
+```jsx harmony
 ::title=Baseline
 ::description=Align SVG to baseline with the `verticalAlign` property, which adds the `.icon-baseline` modifier class.
 <h1>
@@ -75,7 +75,7 @@ example below.
 </span>
 ```
 
-```jsx
+```jsx harmony
 ::title=Spinner
 ::description=Spinner behavior is determined by size. Note that the large spinner moves relatively slowly, whereas the small spinner moves more quickly and dramatically.  In all cases, the base height and width is 1em and is meant to be overwritten with a font-size attribute. The font sizes provided here are meant as suggestions.
 <div className="grid txt-c">

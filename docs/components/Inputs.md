@@ -15,17 +15,17 @@ Inputs will only be fully styled if their type is properly declared.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Text field
  <Input placeholder="Text input" type="text"/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Password field
 <Input placeholder="Password" type="password" />
 ```
 
-```jsx
+```jsx harmony
 ::title=Size
 ::description=Input has a `size` attribute that takes three options: small, medium (default), and large.
 <div>
@@ -35,7 +35,7 @@ Inputs will only be fully styled if their type is properly declared.
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=With icon
 <div>
     <Input placeholder="Search" icon="search" />

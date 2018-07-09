@@ -14,7 +14,7 @@ through props.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 ::description=The `Collapsible`'s `expanded` prop comes from the outer component's `state`.
 

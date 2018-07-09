@@ -11,7 +11,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic dropdown
 ::description=This is the basic dropdown. It has an attached menu that extends from the bottom.
 <Dropdown title='Basic Dropdown'>
@@ -21,7 +21,7 @@ reactComponents:
 </Dropdown>
 ```
 
-```jsx
+```jsx harmony
 ::title=Basic dropdown with custom icon
 <Dropdown title='Basic Dropdown Custom Icon' icon='more_vert'>
   <a href="#">lorem ipsum</a>
@@ -30,7 +30,7 @@ reactComponents:
 </Dropdown>
 ```
 
-```jsx
+```jsx harmony
 ::title=Float dropdown menu
 ::description=The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that exceeds the parent dropdown width.
 <Grid>
@@ -60,7 +60,7 @@ reactComponents:
 </Grid>
 ```
 
-```jsx
+```jsx harmony
 ::title=Float scroll menu
 ::description=Lists that are indeterminately long can utilize the float scroll menu. The size is fixed so you'll have to customize the fixed height to achieve your desired results.
 <Dropdown title='Float Scroll Menu' scroll floatMenu>
@@ -77,7 +77,7 @@ reactComponents:
 </Dropdown>
 ```
 
-```jsx
+```jsx harmony
 ::title=Split dropdown
 ::description=Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the focused state. Only appropriate as a float menu.
 <Dropdown title='Split Dropdown' split>
@@ -87,7 +87,7 @@ reactComponents:
 </Dropdown>
 ```
 
-```jsx
+```jsx harmony
 ::title=Flat button dropdown
 ::description=Dropdown with the flat button styling. Floating menu only.
 <Dropdown title='Flat Button Dropdown' flat>
@@ -97,7 +97,7 @@ reactComponents:
 </Dropdown>
 ```
 
-```jsx
+```jsx harmony
 ::title=Link dropdown
 ::description=Dropdown with the link styling, retains dropdown padding. Floating menu only.
 <Dropdown title='Link Dropdown' link>
@@ -107,7 +107,7 @@ reactComponents:
 </Dropdown>
 ```
 
-```jsx
+```jsx harmony
 ::title=Icon dropdown
 ::description=Rendered when no title is specified. Floating menu only.
 <Dropdown icon='more_vert' menuAlign='left'>
@@ -117,7 +117,7 @@ reactComponents:
 </Dropdown>
 ```
 
-```jsx
+```jsx harmony
 ::title=Sizing
 <div>
   <Dropdown title='Large Dropdown' size='large'>

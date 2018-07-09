@@ -47,7 +47,7 @@ yarn add pivotal-ui
 
 4. Open `src/App.js` and replace the contents with:
 
-```js
+```jsx harmony
 ::nonInteractive
 import React, {Component} from 'react';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
@@ -71,7 +71,7 @@ For non-React projects, Pivotal UI's styles can be included in two different way
 
 For projects that are using Webpack and the [css-loader](https://github.com/webpack-contrib/css-loader), the CSS for each component can be imported directly into JavaScript files like this:
 
-```js
+```jsx harmony
 ::nonInteractive
 import 'pivotal-ui/css/alerts';
 ```
@@ -111,7 +111,7 @@ These files can be included with a `<link>` tag in an HTML file like this:
 
 - Create a `.babelrc` file in your project root
 
-```js
+```jsx harmony
 ::nonInteractive
 {
   "presets": [["es2015", {"loose": true}], "react"]
@@ -120,7 +120,7 @@ These files can be included with a `<link>` tag in an HTML file like this:
 
 - Create gulpfile.babel.js to install the jasmine task with a webpack config
 
-```js
+```jsx harmony
 ::nonInteractive
 import {Jasmine} from 'pui-react-tools';
 import 'babel-polyfill';
@@ -156,7 +156,7 @@ Jasmine.install({
 
 - Create a `spec_helper.js` that imports necessary dependencies and sets up tests
 
-```js
+```jsx harmony
 ::nonInteractive
 import $ from 'jquery';
 import 'jasmine_dom_matchers';
@@ -180,7 +180,7 @@ afterEach(() => {
 
 - Import `spec_helper.js` in your test file. Render into root and assert against jquery selectors.
 
-```js
+```jsx harmony
 ::nonInteractive
 import React from 'react';
 import App from './App';
@@ -209,7 +209,7 @@ describe('app', () => {
 
 - Create a `.babelrc` file in your project root
 
-```js
+```jsx harmony
 ::nonInteractive
 {
   "presets": [["es2015", {"loose": true}], "react"]
@@ -218,7 +218,7 @@ describe('app', () => {
 
 - Create gulpfile.babel.js to install the link task
 
-```js
+```jsx harmony
 ::nonInteractive
 import {Jasmine} from 'pui-react-tools';
 Lint.install({globs: ['src/**/*.js']});

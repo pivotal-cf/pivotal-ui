@@ -11,14 +11,14 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic checkbox dropdown
 <CheckboxDropdown {...{
   labels: ['DEBUG', 'WARNING', 'ERROR']
 }} />
 ```
 
-```jsx
+```jsx harmony
 ::title=Checkbox dropdown with onChange
 
 class Example extends React.Component {

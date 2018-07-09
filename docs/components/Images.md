@@ -11,7 +11,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 ::description=Images in React can be responsive and/or wrapped in a link.
 <Image src="http://placehold.it/1000x100"
@@ -20,7 +20,7 @@ reactComponents:
        alt="A beautiful placeholder"/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Responsive
 ::description=Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element.
 <Grid>
@@ -50,7 +50,7 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Custom SVG
 <Grid>
   <FlexCol grow={5}>

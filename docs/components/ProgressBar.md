@@ -11,7 +11,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 <div>
   <div>Downloading...</div>
   <ProgressBar value={60} barClassName='bar-class' />

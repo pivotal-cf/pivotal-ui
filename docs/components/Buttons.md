@@ -21,7 +21,7 @@ The aria-label attribute will be populated with the button text, unless an aria-
 ### Color and Treatment
 There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt` prop, to use the flat style, use the `flat` prop.
 
-```jsx
+```jsx harmony
 ::title=Default button
 <div>
   <DefaultButton>Default</DefaultButton>
@@ -30,7 +30,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Primary button
 <div>
   <PrimaryButton>Primary</PrimaryButton>
@@ -39,7 +39,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Danger button
 <div>
   <DangerButton>Danger</DangerButton>
@@ -48,7 +48,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Brand button
 ::description=This button color is only for marketing purposes. Pivotal products should refrain from using this button.
 <div>
@@ -58,7 +58,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Link vs button
 ::description=Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
 <div>
@@ -67,7 +67,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Sizing
 ::description=To change the size of the button, use the `large` or `small` property.
 <div>
@@ -77,13 +77,13 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Full width button
 ::description=To make a button full width, set `fullWidth` to true
 <DefaultButton fullWidth>Full Width Button</DefaultButton>
 ```
 
-```jsx
+```jsx harmony
 ::title=Disabled
 ::description=If given the disabled attribute, a button will be functionally disabled, but will look unchanged. If given the disabled class, a button will be functionally disabled, and will also change visually.
 <div>
@@ -95,7 +95,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Icons
 ::description=Buttons can contain an icon with text or just an icon.
 <div>

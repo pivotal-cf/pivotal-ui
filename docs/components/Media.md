@@ -12,7 +12,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 ::description=A Flag is a special type of media that is vAlign='middle'. The images or other media can be aligned top, middle, or bottom. The default is top aligned. The base button renderer. You won't really interact with this directly.
 const mediaBasicImage = <Image src="https://placehold.it/50x50" alt="A sample media object"/>;
@@ -96,7 +96,7 @@ const mediaBasicLinkedImage = <Image src="https://placehold.it/50x50" href="http
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Vertical alignment
 const mediaAlignmentImage = <Image href="https://www.google.com" src="https://placehold.it/50x50" alt="A sample media object"/>;
 
@@ -175,7 +175,7 @@ const mediaAlignmentImage = <Image href="https://www.google.com" src="https://pl
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Spacing
 ::description=Media spacing can be added to the left and right medias. If no spacing is defined, it defaults to large.
 const mediaSpacingImage = <Image href="http://www.google.com" src="https://placehold.it/50x50" alt="A sample media object"/>;

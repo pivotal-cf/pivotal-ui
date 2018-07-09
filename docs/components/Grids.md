@@ -14,7 +14,7 @@ Flex grids use flexbox to position columns within rows.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Outlining the grid
 ::description=This should help you visualize the columns. The grey dotted box is the grid and the orange dotted boxes are the columns.
 <Grid className="grid-show show-outline">
@@ -24,7 +24,7 @@ Flex grids use flexbox to position columns within rows.
 </Grid>
 ```
 
-```jsx
+```jsx harmony
 ::title=Gutters
 ::description=You can create a flex grid with and without gutters. To remove gutters, set the `gutter` prop to `false` or use the `.grid-nogutter` class. Here are examples of what each would look like.
 <div>
@@ -41,7 +41,7 @@ Flex grids use flexbox to position columns within rows.
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Sizing
 ::description=Using the `col` prop on a `FlexCol` or the `col-{n}` classes, you can create a basic grid system by specifying the width of each column out of 24.
 <div>
@@ -78,7 +78,7 @@ Flex grids use flexbox to position columns within rows.
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Dynamic column growth
 ::description=You can also specify how the columns grow with the `grow={n}` prop or the `col-grow-{n}` classes (n = 2 - 11). These columns will attempt to respect their given ratio until the content of the column exceeds their parameters, after which the column will drop onto another row:
 <div>
@@ -95,7 +95,7 @@ Flex grids use flexbox to position columns within rows.
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Fixing column sizing
 ::description=You can fix the width of a column by using the `fixed` prop or the `.col-fixed` class.
 <Grid className="grid-show">
@@ -105,7 +105,7 @@ Flex grids use flexbox to position columns within rows.
 </Grid>
 ```
 
-```jsx
+```jsx harmony
 ::title=Breakpoints
 ::description=You can specify three different media breakpoints with the `breakpoint` prop or the `.col-sm, .col-md, and .col-lg` classes.
 <div>
@@ -127,7 +127,7 @@ Flex grids use flexbox to position columns within rows.
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Alignment
 ::description=Aligning columns relative to the grid:
 <Grid className="grid-show" {...{style: {height: "200px"}}}>
@@ -137,7 +137,7 @@ Flex grids use flexbox to position columns within rows.
 </Grid>
 ```
 
-```jsx
+```jsx harmony
 ::title=Relative alignment
 ::description=Aligning content relative to the column it is in
 <Grid>

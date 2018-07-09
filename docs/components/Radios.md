@@ -12,7 +12,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 ::description=In this case, the `name` attached to `RadioGroup` will be applied to all of Radio children.
 <RadioGroup name="field_name">
@@ -22,7 +22,7 @@ reactComponents:
 </RadioGroup>
 ```
 
-```jsx
+```jsx harmony
 ::title=onChange
 ::description=Additionally, special behaviors can be added to the `onChange` event handler exposed by radio groups. In this example, additional form controls are displayed when the user selects the third radio button. Similar to the `name` property, the `onChange` handlers is passed down to all child components.
 class MyComponent extends React.Component {

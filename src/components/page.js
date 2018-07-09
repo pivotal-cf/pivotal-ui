@@ -1,4 +1,4 @@
-import React, {PureComponent, Fragment} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {Icon} from 'pivotal-ui/react/iconography';
@@ -45,10 +45,10 @@ export default class Page extends PureComponent {
     } else {
       const {SectionComponent, title: sectionTitle} = pageSections.find(({route}) => route === currentRoute) || {};
       content = (
-        <Fragment>
+        <div>
           {SectionComponent ? <SectionComponent/> : null}
           {sectionTitle === 'Overview' && <ImportPreview {...{reactPath, cssPath, reactComponents}}/>}
-        </Fragment>
+        </div>
       );
     }
 

@@ -23,16 +23,16 @@ components. You can use these to lay out the fields in your form, and to control
 
 A `Form` will generally look like this:
 
-```jsx
+```jsx harmony
 ::nonInteractive
 <Form>
     <FormRow>
         <FormCol name="username">
-            <Input type="text"/>
+            <Input/>
         </FormCol>
-        {...some more cols...}
+        {/*...some more cols...*/}
     </FormRow>
-    {...some more rows...}
+    {/*...some more rows...*/}
 </Form>
 ```
 
@@ -43,7 +43,7 @@ Each `FormCol` should be given a unique `name` prop, which will be how its value
 We can set an `initialValue` on each field. When the form is reset before submitting,
 all fields will revert to their `initialValue`, if provided.
 
-```jsx
+```jsx harmony
 ::title=Address Form
 ::description=The last `FormRow` contains a `FormCol` that has a children function. We use the `Form`'s `canSubmit` function to control whether or not the "Submit" button is disabled, and we attach the `Form`'s `reset` function to the "Reset" button, to allow it to reset the form's state.
 <Form name="example02">
@@ -109,7 +109,7 @@ When you set the `inline` prop on a `FormCol` to `true`, the label gets position
 of above it. By default, the label will appear to the left of the field, but you can set `labelPosition="after"`
 to place the label on the right.
 
-```jsx
+```jsx harmony
 ::title=Inline Form
 <Form name="inline-example">
     <FormRow>
@@ -140,7 +140,7 @@ The `tooltip` prop on a `FormCol` makes an icon with a tooltip appear next to th
 `tooltipSize` can be set to: `sm`, `md` or `lg` in order to control it's size. And it's placement can be controlled
 via the `tooltipPlacement` prop with the following options: `left`, `right`, `bottom`, `top`.
 
-```jsx
+```jsx harmony
 ::title=Tooltips
 <Form name="inline-example">
     <FormRow>
@@ -190,7 +190,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
 If you define a `wrapper` prop on a `FormRow`, the `FormRow` will be wrapped in whatever JSX node you specify.
 You might use this with the `ExpanderContent` component to toggle the hiding and showing of rows.
 
-```jsx
+```jsx harmony
 ::title=Row Wrapper Example
 <Form name="example03">
     <FormRow>
@@ -225,7 +225,7 @@ return either an error message (if there is a validation error) or a falsy value
 Next, to construct the "Save Password" button, we look at the current form state and render the button as
 disabled when `state.current.password1` and `state.current.password2` do not match.
 
-```jsx
+```jsx harmony
 ::title=Validated Fields Form
 <Form name="example01">
     <FormRow>
@@ -268,7 +268,7 @@ Name         | Type     | Description
 `state`      | object   | State of the `Form`. Current state is `state.current`, and initial state is `state.initial`.
 `onChange`   | function | Change handler for the given field. Use this to override the default behavior of the `Form`. By default, a `onChange` handler to each field that controls the entry in the `Form` state corresponding to the field's `name`.
 
-```jsx
+```jsx harmony
 ::title=Dynamic Field Generation
 <Form name="example01">
     <FormRow>
@@ -294,7 +294,7 @@ The `onSubmit` method is passed `{state: {initial, current}}`.
 
 By default, a button within the `Form` that has `type="submit"` will trigger submission.
 
-```jsx
+```jsx harmony
 ::title=Form submission
 <Form {...{
     onSubmit: ({initial, current}) => alert(`You changed your name from ${initial.firstName} ${initial.lastName} to ${current.firstName} ${current.lastName}`)
@@ -315,7 +315,7 @@ By default, a button within the `Form` that has `type="submit"` will trigger sub
 
 You can also attach this behavior to another field that takes in the `onSubmit`, as shown below.
 
-```jsx
+```jsx harmony
 ::title=Form submission without a submit button
 <Form {...{
     onSubmit: ({initial, current}) => alert(`You changed your name from ${initial.firstName} ${initial.lastName} to ${current.firstName} ${current.lastName}`)
@@ -338,7 +338,7 @@ You can also attach this behavior to another field that takes in the `onSubmit`,
 
 Define a `onSubmitError` handler to map error messages to a specific field. Return an object keyed by the field's `name` to determine where the error is shown.
 
-```jsx
+```jsx harmony
 ::title=Form submission
 ::description=The error is attached to the first name field.
 <Form {...{
@@ -372,7 +372,7 @@ Note that state management and other `Form` features are not handled by the `For
 
 ## Examples
 
-```jsx
+```jsx harmony
 ::title=Basic form unit
 <FormUnit {...{
     label: 'Optional field',
@@ -386,7 +386,7 @@ Note that state management and other `Form` features are not handled by the `For
 }}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Inline form unit
 ::description=When `inline` is `true`, the label will be placed on the same line as the field.
 <div>
@@ -418,7 +418,7 @@ Note that state management and other `Form` features are not handled by the `For
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Form unit with error
 ::description=When `hasError` is `true`, the field border and help text become red to indicate an error.
 <FormUnit {...{
@@ -430,7 +430,7 @@ Note that state management and other `Form` features are not handled by the `For
 }}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Form unit with postLabel
 ::description=The `postLabel` can contain any node and will be positioned in the top-right corner of a non-inline form unit.
 <FormUnit {...{
@@ -442,7 +442,7 @@ Note that state management and other `Form` features are not handled by the `For
 }}/>
 ```
 
-```jsx
+```jsx harmony
 ::title=Form unit with composite field
 <FormUnit {...{
     label: 'Table field',

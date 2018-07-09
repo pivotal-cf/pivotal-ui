@@ -14,7 +14,7 @@ and render a list of data based on the entered filter text.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Filter out data that does not contain the filter text
 ::description=Given a list of data, render only the items that contain the filter text.
 const isOdd = (data, userInput) => {
@@ -32,7 +32,7 @@ const renderData = dataItem => dataItem.map((item, i) => <li key={i}>{item}</li>
 }} />
 ```
 
-```jsx
+```jsx harmony
 ::title=Filter out rows of a table based on filter text
 ::description=Given a list of objects, render table rows for the objects with a `name` property that contains the filter text.
 const filter = (data, userInput) => {

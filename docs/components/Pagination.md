@@ -18,12 +18,12 @@ The pagination component will display a maximum of five pages. When more than fi
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Without extra props
 <Pagination/>
 ```
 
-```jsx
+```jsx harmony
 ::title=With extra props
 ::description=The following is an example of pagination with extra props:
 class PaginationAdvanced extends React.Component {

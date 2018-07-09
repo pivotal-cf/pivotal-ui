@@ -22,7 +22,7 @@ Native HTML `select`s are excellent to use because they will automatically behav
 </select>
 ```
 
-```jsx
+```jsx harmony
 ::title=Sizing
 ::description=Set heights using the form control classes `.input-lg` and `.input-sm`. Create larger or smaller form controls that match button sizes.
 <Form>
@@ -53,7 +53,7 @@ Native HTML `select`s are excellent to use because they will automatically behav
 </Form>
 ```
 
-```jsx
+```jsx harmony
 ::title=Select React component
 <Select
   name="even-numbers"

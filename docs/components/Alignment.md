@@ -23,7 +23,7 @@ Note that the vertical alignment classes listed here (`txt-t`, `txt-m`, `txt-b`)
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Horizontal alignment
 <div>
   <p className="txt-l"><code>txt-l</code></p>
@@ -32,7 +32,7 @@ Note that the vertical alignment classes listed here (`txt-t`, `txt-m`, `txt-b`)
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Vertical alignment
 <table className="table">
   <tbody>

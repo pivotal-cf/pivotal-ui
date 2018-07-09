@@ -18,7 +18,7 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 ::description=TooltipTriggers are an easy way to create CSS-driven tooltips with the tooltip content created inline with the triggering element. The content of the tooltip is wrapped in a Tooltip component for ease of styling. Please note that the TooltipTrigger will add a lot of markup to the DOM if you are using it in a highly repeated layout.
 <Grid>
@@ -40,7 +40,7 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 </Grid>
 ```
 
-```jsx
+```jsx harmony
 ::title=Markup example
 ::description=Since the tooltip property is of type Node, you may add markup to the tooltip, such as links.
 <TooltipTrigger isSticky tooltip={<a href="#">clickable link</a>} theme="light">
@@ -48,7 +48,7 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 </TooltipTrigger>
 ```
 
-```jsx
+```jsx harmony
 ::title=Manual trigger example
 ::description=The trigger is manual, so the visibility of the tooltip is controlled by the display prop.
 class ManualTooltipExample extends React.Component {

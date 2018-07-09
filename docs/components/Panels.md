@@ -13,7 +13,7 @@ Using Panels, you can organize information collections into logical groups, aggr
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Panel
 ::description= By default the panel applies basic padding to content.
 <Panel bodyClassName="opt-inner-class">
@@ -21,14 +21,14 @@ Using Panels, you can organize information collections into logical groups, aggr
 </Panel>
 ```
 
-```jsx
+```jsx harmony
 ::title=Panel with header and footer
 <Panel header='header' footer='Panel footer'>
   Base Panel with base header
 </Panel>
 ```
 
-```jsx
+```jsx harmony
 ::title=Panel with actions
 <Panel
   title="Title"
@@ -39,7 +39,7 @@ Using Panels, you can organize information collections into logical groups, aggr
 </Panel>
 ```
 
-```jsx
+```jsx harmony
 ::title=Panel with loading animation
 ::description=Add a loading animation to a panel with the class `panel-loading-indicator`. The animation is intended for panels that utilize panel-header and panel-body. This should be used when the content of the panel is being loaded asynchronously and you’d like to communicate to the user that their content is on the way.
 <Panel loading={true} title="Loading Panel">

@@ -23,7 +23,7 @@ Additionally, each `Tab` must define an `eventKey` property for uniquely identif
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Tabs
 <Tabs defaultActiveKey={1} actions={<a>Action!</a>}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
@@ -34,7 +34,7 @@ Additionally, each `Tab` must define an `eventKey` property for uniquely identif
 </Tabs>
 ```
 
-```jsx
+```jsx harmony
 ::title=Left tabs
 <LeftTabs defaultActiveKey={1}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
@@ -45,7 +45,7 @@ Additionally, each `Tab` must define an `eventKey` property for uniquely identif
 </LeftTabs>
 ```
 
-```jsx
+```jsx harmony
 ::title=Responsive breakpoints
 ::description=Tabs can be responsive, and will display accordion-style on small screens and folder-style on large screens.
 <Tabs defaultActiveKey={1} responsiveBreakpoint="md">

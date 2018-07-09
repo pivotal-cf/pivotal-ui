@@ -16,7 +16,7 @@ Alerts use the [Iconography](/icons) component when using `withIcon` or `dismiss
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 <div>
   <SuccessAlert>Everything is wonderful</SuccessAlert>
@@ -26,7 +26,7 @@ Alerts use the [Iconography](/icons) component when using `withIcon` or `dismiss
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Complex example
 ::description=Alerts are also used to bring important notes to a user's attention. If the content of your alert is a little more complicated, we would recommend using headings coupled with the content.
 <InfoAlert>
@@ -39,7 +39,7 @@ Alerts use the [Iconography](/icons) component when using `withIcon` or `dismiss
 </InfoAlert>
 ```
 
-```jsx
+```jsx harmony
 ::title=Alert links
 ::description=If you want to include a link in your alert, use the class `pui-alert-link`.
 <WarningAlert>
@@ -50,20 +50,20 @@ Alerts use the [Iconography](/icons) component when using `withIcon` or `dismiss
 </WarningAlert>
 ```
 
-```jsx
+```jsx harmony
 ::title=Dismissible alert example
 ::description=Add the `dismissable` property to add a close button to the alert.
 <SuccessAlert dismissable>Everything is wonderful</SuccessAlert>
 ```
 
-```jsx
+```jsx harmony
 ::title=Callback on dismiss example
 ::description=If you want a callback to be called when the close button is clicked, set the `onDismiss` property to that callback.
 const callback = () => alert('Dismissed!');
 <InfoAlert onDismiss={callback} dismissable>with callback</InfoAlert>
 ```
 
-```jsx
+```jsx harmony
 ::title=Alerts with icons example
 ::description=If you want an icon to be displayed, set the `withIcon` property.
 <div>
@@ -74,7 +74,7 @@ const callback = () => alert('Dismissed!');
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Dismissable alert with an icon
 <WarningAlert dismissable withIcon>warning</WarningAlert>
 ```

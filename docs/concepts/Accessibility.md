@@ -37,7 +37,7 @@ For example, do not create a styled `div` element with `onClick` behavior instea
 
 Choose a background color and a text color from Pivotal UI's color palette to calculate the contrast ratio between these colors.
 
-```jsx
+```jsx harmony
 ::noToolbar
 
 const parseRgb = str => {

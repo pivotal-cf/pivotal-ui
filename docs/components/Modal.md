@@ -14,7 +14,7 @@ the main content again.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example with custom size and duration
 class MyModal extends React.Component {
   constructor(props) {

@@ -11,7 +11,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Large divider example
 ::description=Dividers draw horizontal lines between different content groupings
 <div>
@@ -21,7 +21,7 @@ reactComponents:
 </div>
 ```
 
-```jsx
+```jsx harmony
 ::title=Inverse dividers
 ::description=On a dark background, use these inverse dividers
 <div style={{background: '#232B2F'}}>

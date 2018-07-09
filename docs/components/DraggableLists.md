@@ -11,7 +11,7 @@ reactComponents:
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Draggable
 <DraggableList className="my-list-class" innerClassName="my-item-class">
   <DraggableListItem>

@@ -20,7 +20,7 @@ anywhere without knowing about `<body>`.
 
 # Examples
 
-```jsx
+```jsx harmony
 ::title=Basic example
 <div>
   <section>
