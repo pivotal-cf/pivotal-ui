@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import Sidebar from './components/sidebar';
-import {getRouteContent} from './routes';
-import Router from './helpers/router';
+import {Route} from 'react-router-dom';
 import Page from './components/page';
 import '../stylesheets/app.scss';
 
-const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
-cssRequireContext.keys().map(cssRequireContext);
+const requirePuiCss = require.context('pivotal-ui/css/', true, /\.scss$/);
+requirePuiCss.keys().map(requirePuiCss);
+
+const requirePuiReact = require.context('pivotal-ui/react/', true, /index\.js$/);
+requirePuiReact.keys().map(file => {
+  Object.entries(requirePuiReact(file)).forEach(([key, value]) => window[key] = value);
+});
+
 window.Icons = require('pivotal-ui/react/iconography/icons');
 window.colorPalette = {
   neutral: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
@@ -20,33 +25,21 @@ window.colorPalette = {
 };
 
 export default class App extends Component {
-  state = {
-    currentRoute: window.location.pathname,
-    routeContent: getRouteContent(window.location.pathname)
-  };
-
-  componentDidMount() {
-    Router.onRouteChange((currentRoute, routeContent) => {
-      this.setState({currentRoute, routeContent});
-    });
-  }
-
-  componentWillUnmount() {
-    Router.destroy();
-  }
-
   render() {
-    const {currentRoute, routeContent} = this.state;
+    const {routes, location} = this.props;
     const currentDate = new Date();
     const year = currentDate.getFullYear();
 
     return (
       <Grid id="app" gutter={false}>
         <FlexCol fixed>
-          <Sidebar {...{currentRoute}}/>
+          <Sidebar {...{routes, currentRoute: location.pathname}}/>
         </FlexCol>
         <FlexCol id="content" className="content">
-          <Page {...{currentRoute, ...routeContent}}/>
+          {Object.keys(routes).map((path, key) =>
+            <Route exact {...{key, path, render: props => <Page {...{...props, routes}}/>}}/>
+          )}
+
           <footer className="pvxl phxxxl">
             © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
             <span className="pln">

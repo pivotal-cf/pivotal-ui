@@ -1,4 +1,4 @@
-import {getRouteContent} from '../routes';
+import {getRouteContent} from './routes_helper';
 
 let handlers;
 

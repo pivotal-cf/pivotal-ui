@@ -1,0 +1,16 @@
+import MarkdownFileHelper from './markdown_file_helper';
+
+const getRoutes = ({requireFunc, processor}) => requireFunc.keys().reduce((memo, file) => {
+  const json = requireFunc(file);
+  const route = MarkdownFileHelper.getRoute(file);
+  const tabHeaderIndex = MarkdownFileHelper.getTabHeaderIndex(file);
+  const pageTitle = MarkdownFileHelper.getPageTitle(file);
+  const parentTitle = MarkdownFileHelper.getParentTitle(file);
+
+  return {
+    ...memo,
+    [route]: {file, route, pageContent: MarkdownFileHelper.process({processor, json}), tabHeaderIndex, pageTitle, parentTitle}
+  };
+}, {});
+
+export default {getRoutes};

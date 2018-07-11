@@ -1,11 +1,11 @@
 import React, {PureComponent} from 'react';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
 import {Input} from 'pivotal-ui/react/inputs';
-import {routeData} from '../routes';
 import Router from '../helpers/router';
 import SearchResult from './search_result';
 
 const searchItems = [];
+const routeData = [];
 
 routeData.forEach(({route, pageMetadata, pageSections}) => {
   if (route === '/' || route === '/404' || !pageMetadata) return;

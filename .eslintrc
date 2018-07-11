@@ -7,7 +7,8 @@
     "browser": true
   },
   "plugins": [
-    "react"
+    "react",
+    "jasmine"
   ],
   "rules": {
     "block-scoped-var": 2,

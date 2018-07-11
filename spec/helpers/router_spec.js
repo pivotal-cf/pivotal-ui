@@ -1,5 +1,5 @@
 import '../spec_helper';
-import * as Routes from '../../src/routes';
+import * as Routes from '../../src/helpers/routes_helper';
 import Router from '../../src/helpers/router';
 
 describe('Router', () => {

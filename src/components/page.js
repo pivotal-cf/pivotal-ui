@@ -1,60 +1,45 @@
 import React, {PureComponent} from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {Icon} from 'pivotal-ui/react/iconography';
+import MarkdownFileHelper from '../helpers/markdown_file_helper';
 import ImportPreview from './import_preview';
 import Config from '../config';
-import Anchor from './anchor';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism-coy.css';
 import 'prismjs/components/prism-bash.min.js';
 import 'prismjs/components/prism-jsx.min.js';
+import ImportInfo from './component_imports.json';
 
 const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${file}`;
 const issueUrl = `${Config.get('puiRepository')}/issues/new`;
 
 export default class Page extends PureComponent {
   static propTypes = {
-    file: PropTypes.string.isRequired,
-    pageMetadata: PropTypes.object,
-    pageSections: PropTypes.array.isRequired,
-    currentRoute: PropTypes.string
   };
 
-  componentDidUpdate() {
+  componentDidMount() {
     Prism.highlightAll();
   }
 
   render() {
-    const {currentRoute, file, pageSections, pageMetadata} = this.props;
-    const {title, reactPath, reactComponents, cssPath} = pageMetadata;
-    const singlePageSection = pageSections.length === 1;
+    const {match, routes} = this.props;
+    const {path} = match;
+    const {pageContent, file, tabHeaderIndex} = routes[path];
+    const componentMatch = path.match(/(components|modifiers)\/(\w+)\/*/);
 
-    const tabLinks = pageSections.map(({title, route}) => {
-      return (
-        <li key={route} className={classnames({active: route === currentRoute})}>
-          <Anchor href={route}>{title}</Anchor>
-        </li>
-      );
-    });
+    const title = MarkdownFileHelper.getParentTitle(file);
 
-    let content;
-    if (singlePageSection) {
-      const {SectionComponent} = pageSections[0];
-      content = SectionComponent ? <SectionComponent/> : null;
-    } else {
-      const {SectionComponent, title: sectionTitle} = pageSections.find(({route}) => route === currentRoute) || {};
-      content = (
-        <div>
-          {SectionComponent ? <SectionComponent/> : null}
-          {sectionTitle === 'Overview' && <ImportPreview {...{reactPath, cssPath, reactComponents}}/>}
-        </div>
-      );
-    }
+    const tabLinks = MarkdownFileHelper.getTabRoutes(routes, path).map(route => (
+      <li key={route} className={classnames({active: route === path})}>
+        <Link to={route}>{routes[route].pageTitle}</Link>
+      </li>
+    ));
 
     return (
       <div className="styleguide-page">
-        <header className={classnames('styleguide-page-header bg-neutral-10 pvxl phxxxl', {'border-bottom': singlePageSection})}>
+        <header className={classnames('styleguide-page-header bg-neutral-10 pvxl phxxxl')}>
           <a className="type-underline-hover type-sm" href={formatEditUrl(file)} target="_blank">
             <Icon verticalAlign="baseline" src="mode_edit"/>
             <span className="toolbar--label mlm">Edit this page</span>
@@ -65,14 +50,17 @@ export default class Page extends PureComponent {
           </a>
           <h1 className="mtxxl em-high">{title}</h1>
         </header>
-        {singlePageSection ? null : <nav className="tab-simple phxl bg-neutral-10 border-bottom">
+        <nav className="tab-simple phxl bg-neutral-10 border-bottom">
           <ul className="styleguide-tabs nav nav-tabs">
             {tabLinks}
           </ul>
-        </nav>}
+        </nav>
         <main className="styleguide-page-main">
           <div className="styleguide-tab-content paxxxl">
-            {content}
+            {pageContent}
+            {componentMatch && tabHeaderIndex <= 1 && <ImportPreview {...{
+              ...ImportInfo[componentMatch[2]]
+            }}/>}
           </div>
         </main>
       </div>
