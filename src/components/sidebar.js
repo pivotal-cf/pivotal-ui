@@ -7,7 +7,6 @@ import {Divider} from 'pivotal-ui/react/dividers';
 import {routeData} from '../helpers/routes_helper';
 import Config from '../config';
 import SearchBar from './search_bar';
-import Anchor from './anchor';
 
 const routeMatchesCurrentRoute = (currentRoute, route) => currentRoute.substring(0, currentRoute.lastIndexOf('/')) === route.substring(0, route.lastIndexOf('/'));
 
@@ -56,13 +55,13 @@ export default class Sidebar extends PureComponent {
             <div className="h4">v{Config.get('puiVersion')}</div>
           </div>
         </div>
-        <SearchBar/>
+        <SearchBar {...{routes}}/>
         {others.map(route => toLink(route, currentRoute))}
-        <Anchor {...{
+        <a {...{
           href: 'https://github.com/pivotal-cf/pivotal-ui',
           target: '_blank',
           className: 'sidebar-link'
-        }}>GitHub<Icon src="open_in_new" verticalAlign="baseline" className="mlm"/></Anchor>
+        }}>GitHub<Icon src="open_in_new" verticalAlign="baseline" className="mlm"/></a>
 
         <Divider inverse className="mvl"/>
         <div className="em-high h4 pvl plxl prl">Concepts</div>

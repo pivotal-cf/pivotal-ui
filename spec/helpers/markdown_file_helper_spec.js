@@ -5,7 +5,7 @@ describe('MarkdownFileHelper', () => {
   let result, file;
 
   beforeEach(() => {
-    file = './components/hello-world/1.Usage-and-examples.md';
+    file = './components/hello_world/1.Usage_and_examples.md';
   });
 
   describe('#process', () => {
@@ -38,14 +38,14 @@ describe('MarkdownFileHelper', () => {
     });
 
     it('returns the route', () => {
-      expect(result).toBe('/components/hello-world/usage-and-examples');
+      expect(result).toBe('/components/hello_world/usage_and_examples');
     });
   });
 
   describe('#getTabHeaderIndex', () => {
-    describe('when the tab index is a single-digit number', () => {
+    describe('when the tab index is a single digit number', () => {
       beforeEach(() => {
-        file = './components/hello-world/3.Usage-and-examples.md';
+        file = './components/hello_world/3.Usage_and_examples.md';
         result = MarkdownFileHelper.getTabHeaderIndex(file);
       });
 
@@ -54,9 +54,9 @@ describe('MarkdownFileHelper', () => {
       });
     });
 
-    describe('when the tab index is a multiple-digit number', () => {
+    describe('when the tab index is a multiple digit number', () => {
       beforeEach(() => {
-        file = './components/hello-world/10.Usage-and-examples.md';
+        file = './components/hello_world/10.Usage_and_examples.md';
         result = MarkdownFileHelper.getTabHeaderIndex(file);
       });
 
@@ -67,7 +67,7 @@ describe('MarkdownFileHelper', () => {
 
     describe('when the tab index is a negative number', () => {
       beforeEach(() => {
-        file = './components/hello-world/-10.Usage-and-examples.md';
+        file = './components/hello_world/-10.Usage_and_examples.md';
         result = MarkdownFileHelper.getTabHeaderIndex(file);
       });
 
@@ -78,7 +78,7 @@ describe('MarkdownFileHelper', () => {
 
     describe('when the tab index is a not number', () => {
       beforeEach(() => {
-        file = './components/hello-world/three.Usage-and-examples.md';
+        file = './components/hello_world/three.Usage_and_examples.md';
         result = MarkdownFileHelper.getTabHeaderIndex(file);
       });
 
@@ -89,7 +89,7 @@ describe('MarkdownFileHelper', () => {
 
     describe('when there is no period in the filename', () => {
       beforeEach(() => {
-        file = './components/hello-world/foo.md';
+        file = './components/hello_world/foo.md';
         result = MarkdownFileHelper.getTabHeaderIndex(file);
       });
 
@@ -101,7 +101,7 @@ describe('MarkdownFileHelper', () => {
 
   describe('#getParentTitle', () => {
     beforeEach(() => {
-      result = MarkdownFileHelper.getParentTitle('./components/Hello-world-FOO/1.Usage-and-examples.md');
+      result = MarkdownFileHelper.getParentTitle('./components/Hello_world_FOO/1.Usage_and_examples.md');
     });
 
     it('returns the parent title', () => {
@@ -123,37 +123,37 @@ describe('MarkdownFileHelper', () => {
     let currentRoute, routes;
 
     beforeEach(() => {
-      currentRoute = '/components/hello-world/tab-four';
+      currentRoute = '/components/hello_world/tab_four';
 
       routes = {
-        '/components/hello-world/tab-one': {
+        '/components/hello_world/tab_one': {
           tabHeaderIndex: 1,
-          file: './components/hello-world/1.Tab-one.md',
-          route: '/components/hello-world/tab-one',
+          file: './components/hello_world/1.Tab_one.md',
+          route: '/components/hello_world/tab_one',
           pageContent: {}
         },
-        '/components/hello-world/tab-five': {
+        '/components/hello_world/tab_five': {
           tabHeaderIndex: 5,
-          file: './components/hello-world/5.Tab-five.md',
-          route: '/components/hello-world/tab-five',
+          file: './components/hello_world/5.Tab_five.md',
+          route: '/components/hello_world/tab_five',
           pageContent: {}
         },
-        '/components/hello-world/tab-four': {
+        '/components/hello_world/tab_four': {
           tabHeaderIndex: 4,
-          file: './components/hello-world/4.Tab-four.md',
-          route: '/components/hello-world/tab-four',
+          file: './components/hello_world/4.Tab_four.md',
+          route: '/components/hello_world/tab_four',
           pageContent: {}
         },
-        '/components/hello-world/tab-two': {
+        '/components/hello_world/tab_two': {
           tabHeaderIndex: 2,
-          file: './components/hello-world/2.Tab-two.md',
-          route: '/components/hello-world/tab-two',
+          file: './components/hello_world/2.Tab_two.md',
+          route: '/components/hello_world/tab_two',
           pageContent: {}
         },
-        '/components/hello-world/tab-three': {
+        '/components/hello_world/tab_three': {
           tabHeaderIndex: 3,
-          file: './components/hello-world/3.Tab-three.md',
-          route: '/components/hello-world/tab-three',
+          file: './components/hello_world/3.Tab_three.md',
+          route: '/components/hello_world/tab_three',
           pageContent: {}
         }
       };
@@ -163,12 +163,32 @@ describe('MarkdownFileHelper', () => {
 
     it('returns the tab routes for the given file', () => {
       expect(result).toEqual([
-        '/components/hello-world/tab-one',
-        '/components/hello-world/tab-two',
-        '/components/hello-world/tab-three',
-        '/components/hello-world/tab-four',
-        '/components/hello-world/tab-five'
+        '/components/hello_world/tab_one',
+        '/components/hello_world/tab_two',
+        '/components/hello_world/tab_three',
+        '/components/hello_world/tab_four',
+        '/components/hello_world/tab_five'
       ]);
+    });
+  });
+
+  describe('#getCategory', () => {
+    beforeEach(() => {
+      result = MarkdownFileHelper.getCategory('/get_started/installation');
+    });
+
+    it('returns info by default', () => {
+      expect(result).toBe('info')
+    });
+
+    describe('when the file has a category', () => {
+      beforeEach(() => {
+        result = MarkdownFileHelper.getCategory(file);
+      });
+
+      it('returns the category', () => {
+        expect(result).toBe('components');
+      });
     });
   });
 });

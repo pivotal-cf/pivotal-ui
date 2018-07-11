@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import {Link} from 'react-router-dom';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {Icon} from 'pivotal-ui/react/iconography';
 import MarkdownFileHelper from '../helpers/markdown_file_helper';
@@ -16,15 +15,13 @@ const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${fi
 const issueUrl = `${Config.get('puiRepository')}/issues/new`;
 
 export default class Page extends PureComponent {
-  static propTypes = {
-  };
-
   componentDidMount() {
     Prism.highlightAll();
   }
 
   render() {
     const {match, routes} = this.props;
+    // console.log({other});
     const {path} = match;
     const {pageContent, file, tabHeaderIndex} = routes[path];
     const componentMatch = path.match(/(components|modifiers)\/(\w+)\/*/);

@@ -22,5 +22,13 @@ export default {
       .filter(entry => entry[0].startsWith(directoryPath))
       .sort((a, b) => a[1].tabHeaderIndex - b[1].tabHeaderIndex)
       .map(entry => entry[0]);
+  },
+
+  getCategory: file => {
+    const category = file.split('/')[1];
+    return ['components', 'modifiers', 'concepts'].indexOf(category) === -1
+      ? 'info'
+      : category;
+
   }
 };

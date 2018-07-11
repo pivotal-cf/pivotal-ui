@@ -41,10 +41,10 @@ export default class App extends Component {
           )}
 
           <footer className="pvxl phxxxl">
-            © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
+            © {year} <a href="https://pivotal.io" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
             <span className="pln">
-              <span className="policy-link"><a href="https://pivotal.io/privacy-policy">Privacy Policy</a></span>
-              <span className="policy-link"><a href="https://pivotal.io/terms-of-use">Terms of Use</a></span>
+              <span className="policy-link"><a href="https://pivotal.io/privacy-policy" target="_blank">Privacy Policy</a></span>
+              <span className="policy-link"><a href="https://pivotal.io/terms-of-use" target="_blank">Terms of Use</a></span>
               <span className="policy-link" id="teconsent"/>
             </span>
           </footer>

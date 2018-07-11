@@ -1,29 +1,24 @@
 import React, {PureComponent} from 'react';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
 import {Input} from 'pivotal-ui/react/inputs';
-import Router from '../helpers/router';
 import SearchResult from './search_result';
+import {withRouter} from 'react-router-dom'
 
 const searchItems = [];
-const routeData = [];
 
-routeData.forEach(({route, pageMetadata, pageSections}) => {
-  if (route === '/' || route === '/404' || !pageMetadata) return;
-  const {title, menu} = pageMetadata;
+class SearchBar extends PureComponent {
+  constructor(props) {
+    super(props);
+    const {routes} = props;
 
-  if (!pageSections || !pageSections.length) {
-    searchItems.push({title, category: menu, route});
-    return;
+    Object.values(routes).forEach(route => {
+      if (route.route === '/' || route.route === '/404') return;
+      searchItems.push(route);
+    });
   }
 
-  pageSections.forEach(({route, title: subtitle}) => {
-    searchItems.push({title, subtitle, category: menu, route});
-  });
-});
-
-export default class SearchBar extends PureComponent {
-  onPick = picked => {
-    picked && picked.route && Router.navigate(picked.route);
+  onPick = route => {
+    this.props.history.push(route.route);
     this.el && this.el.setState({value: ''});
   };
 
@@ -32,16 +27,18 @@ export default class SearchBar extends PureComponent {
     const titleMatches = [];
     const subtitleMatches = [];
 
-    searchItems.forEach(({title, subtitle, category, route}) => {
+    searchItems.forEach(({parentTitle: title, pageTitle: subtitle, category, route}) => {
       if (titleMatches.length + subtitleMatches.length > 50) return;
       const matchLength = searchText.length;
 
       if (title) {
         const matchIndex = title.toLowerCase().indexOf(searchText);
         if (matchIndex > -1) {
-          titleMatches.push({route, value: <SearchResult {...{
-            title, subtitle, category, matchIndex, matchLength, matched: 'title'
-          }}/>});
+          titleMatches.push({
+            route, value: <SearchResult {...{
+              title, subtitle, category, matchIndex, matchLength, matched: 'title'
+            }}/>
+          });
           return;
         }
       }
@@ -49,9 +46,11 @@ export default class SearchBar extends PureComponent {
       if (subtitle) {
         const matchIndex = subtitle.toLowerCase().indexOf(searchText);
         if (matchIndex > -1) {
-          subtitleMatches.push({route, value: <SearchResult {...{
-            title, subtitle, category, matchIndex, matchLength, matched: 'subtitle'
-          }}/>});
+          subtitleMatches.push({
+            route, value: <SearchResult {...{
+              title, subtitle, category, matchIndex, matchLength, matched: 'subtitle'
+            }}/>
+          });
           return;
         }
       }
@@ -75,3 +74,5 @@ export default class SearchBar extends PureComponent {
     );
   }
 }
+
+export default withRouter(SearchBar)

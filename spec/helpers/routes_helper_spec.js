@@ -14,35 +14,41 @@ describe('RoutesHelper', () => {
       spyOn(MarkdownFileHelper, 'getTabHeaderIndex').and.callFake(file => file === './parent1/file1.md' ? 1 : 2);
       spyOn(MarkdownFileHelper, 'getPageTitle').and.callThrough();
       spyOn(MarkdownFileHelper, 'getParentTitle').and.callThrough();
+      spyOn(MarkdownFileHelper, 'getCategory').and.callThrough();
       spyOn(MarkdownFileHelper, 'process').and.callFake(({json}) => ({processed: json}));
       requireFunc = jasmine.createSpy('requireFunc').and.callFake(file => file === './parent1/file1.md' ? json1 : json2);
-      requireFunc.keys = jasmine.createSpy('keys').and.returnValue(['./parent1/file1.md', './parent2/file2.md']);
+      requireFunc.keys = jasmine.createSpy('keys').and.returnValue(['./parent1/file1.md', './components/parent2/file2.md']);
       result = RoutesHelper.getRoutes({requireFunc, processor});
     });
 
     it('requires each file', () => {
       expect(requireFunc).toHaveBeenCalledWith('./parent1/file1.md');
-      expect(requireFunc).toHaveBeenCalledWith('./parent2/file2.md');
+      expect(requireFunc).toHaveBeenCalledWith('./components/parent2/file2.md');
     });
 
     it('gets the route for each file', () => {
       expect(MarkdownFileHelper.getRoute).toHaveBeenCalledWith('./parent1/file1.md');
-      expect(MarkdownFileHelper.getRoute).toHaveBeenCalledWith('./parent2/file2.md');
+      expect(MarkdownFileHelper.getRoute).toHaveBeenCalledWith('./components/parent2/file2.md');
     });
 
     it('gets the tab header index for each file', () => {
       expect(MarkdownFileHelper.getTabHeaderIndex).toHaveBeenCalledWith('./parent1/file1.md');
-      expect(MarkdownFileHelper.getTabHeaderIndex).toHaveBeenCalledWith('./parent2/file2.md');
+      expect(MarkdownFileHelper.getTabHeaderIndex).toHaveBeenCalledWith('./components/parent2/file2.md');
     });
 
     it('gets the page title for each file', () => {
       expect(MarkdownFileHelper.getPageTitle).toHaveBeenCalledWith('./parent1/file1.md');
-      expect(MarkdownFileHelper.getPageTitle).toHaveBeenCalledWith('./parent2/file2.md');
+      expect(MarkdownFileHelper.getPageTitle).toHaveBeenCalledWith('./components/parent2/file2.md');
     });
 
     it('gets the parent title for each file', () => {
       expect(MarkdownFileHelper.getParentTitle).toHaveBeenCalledWith('./parent1/file1.md');
-      expect(MarkdownFileHelper.getParentTitle).toHaveBeenCalledWith('./parent2/file2.md');
+      expect(MarkdownFileHelper.getParentTitle).toHaveBeenCalledWith('./components/parent2/file2.md');
+    });
+
+    it('gets the category for each file', () => {
+      expect(MarkdownFileHelper.getCategory).toHaveBeenCalledWith('./parent1/file1.md');
+      expect(MarkdownFileHelper.getCategory).toHaveBeenCalledWith('./components/parent2/file2.md');
     });
 
     it('processes each file', () => {
@@ -58,15 +64,17 @@ describe('RoutesHelper', () => {
           pageContent: {processed: json1},
           tabHeaderIndex: 1,
           pageTitle: 'file1',
-          parentTitle: 'parent1'
+          parentTitle: 'parent1',
+          category: 'info',
         },
-        '/parent2/file2': {
-          file: './parent2/file2.md',
-          route: '/parent2/file2',
+        '/components/parent2/file2': {
+          file: './components/parent2/file2.md',
+          route: '/components/parent2/file2',
           pageContent: {processed: json2},
           tabHeaderIndex: 2,
           pageTitle: 'file2',
-          parentTitle: 'parent2'
+          parentTitle: 'parent2',
+          category: 'components'
         }
       });
     });
