@@ -21,7 +21,6 @@ export default class Page extends PureComponent {
 
   render() {
     const {match, routes} = this.props;
-    // console.log({other});
     const {path} = match;
     const {pageContent, file, tabHeaderIndex} = routes[path];
     const componentMatch = path.match(/(components|modifiers)\/(\w+)\/*/);

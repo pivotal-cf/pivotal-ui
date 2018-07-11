@@ -46,6 +46,9 @@ export default class Sidebar extends PureComponent {
       else others.push(route);
     });
 
+    const fileNumRegex = /^\.\/(-?\d+)\./;
+    others.sort((a, b) => parseInt(a.file.match(fileNumRegex)[1], 10) > parseInt(b.file.match(fileNumRegex)[1], 10));
+
     return (
       <nav className="sidebar bg-dark-2">
         <div className="sidebar-header">

@@ -3,15 +3,15 @@ export default {
 
   getRoute: fileName => {
     const pathElements = fileName.replace(/^\./, '').replace(/\.md$/i, '').split('/');
-    pathElements[pathElements.length - 1] = pathElements[pathElements.length - 1].replace(/^\d+\./, '');
-    return pathElements.join('/').toLowerCase();
+    const mappedElemenets = pathElements.map(path => path.replace(/^-?\d+\./, ''));
+    return mappedElemenets.join('/').toLowerCase();
   },
 
   getTabHeaderIndex: file => parseInt(/^-?\d+/.exec(file.split('/').pop()), 10) || -1,
 
   getParentTitle: file => {
     const parts = file.split('/');
-    return parts[parts.length - 2].replace(/_/g, ' ');
+    return parts[parts.length - 2].replace(/^-?\d+\./, '').replace(/_/g, ' ');
   },
 
   getPageTitle: file => file.split('/').pop().replace(/^-?\d+\./, '').replace(/_/g, ' ').replace(/\.md$/i, ''),

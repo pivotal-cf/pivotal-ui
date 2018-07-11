@@ -5,7 +5,7 @@ describe('MarkdownFileHelper', () => {
   let result, file;
 
   beforeEach(() => {
-    file = './components/hello_world/1.Usage_and_examples.md';
+    file = './components/2.hello_world/1.Usage_and_examples.md';
   });
 
   describe('#process', () => {
@@ -37,7 +37,7 @@ describe('MarkdownFileHelper', () => {
       result = MarkdownFileHelper.getRoute(file);
     });
 
-    it('returns the route', () => {
+    it('strips the numbers from the route', () => {
       expect(result).toBe('/components/hello_world/usage_and_examples');
     });
   });
@@ -106,6 +106,16 @@ describe('MarkdownFileHelper', () => {
 
     it('returns the parent title', () => {
       expect(result).toBe('Hello world FOO');
+    });
+
+    describe('when the file is numbered', () => {
+      beforeEach(() => {
+        result = MarkdownFileHelper.getParentTitle('./1.Get_Started/4.Unit_testing_with_Jasmine.md');
+      });
+
+      it('strips the number from the title', () => {
+        expect(result).toBe('Get Started');
+      });
     });
   });
 
