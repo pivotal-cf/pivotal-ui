@@ -2,7 +2,7 @@ import '../spec_helper';
 import RoutesHelper from '../../src/helpers/routes_helper';
 import MarkdownFileHelper from '../../src/helpers/markdown_file_helper';
 
-fdescribe('RoutesHelper', () => {
+describe('RoutesHelper', () => {
   let result, json1, json2, processor, requireFunc;
 
   describe('#getRoutes', () => {

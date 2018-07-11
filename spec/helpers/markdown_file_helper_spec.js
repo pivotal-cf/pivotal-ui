@@ -1,7 +1,7 @@
 import '../spec_helper';
 import MarkdownFileHelper from '../../src/helpers/markdown_file_helper';
 
-fdescribe('MarkdownFileHelper', () => {
+describe('MarkdownFileHelper', () => {
   let result, file;
 
   beforeEach(() => {
@@ -62,6 +62,17 @@ fdescribe('MarkdownFileHelper', () => {
 
       it('returns the tab header index', () => {
         expect(result).toBe(10);
+      });
+    });
+
+    describe('when the tab index is a negative number', () => {
+      beforeEach(() => {
+        file = './components/hello-world/-10.Usage-and-examples.md';
+        result = MarkdownFileHelper.getTabHeaderIndex(file);
+      });
+
+      it('returns the tab header index', () => {
+        expect(result).toBe(-10);
       });
     });
 
