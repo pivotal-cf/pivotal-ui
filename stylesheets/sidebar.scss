@@ -56,8 +56,7 @@ $active-item-border-size: $base-unit / 2;
   }
 
   &.active {
-    color: $dark-1;
-    background-color: $gray-11;
+    background-color: $dark-1;
     border-left: $active-item-border-size solid $brand-8;
     padding-left: $sidebar-item-left-padding - $active-item-border-size;
   }
