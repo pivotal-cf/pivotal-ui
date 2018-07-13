@@ -11,6 +11,11 @@ $active-item-border-size: $base-unit / 2;
   position: fixed;
   width: 240px;
   height: 100%;
+
+  .autocomplete input {
+    background-color: $dark-1;
+    color: $gray-9;
+  }
 }
 
 .sidebar-header {
