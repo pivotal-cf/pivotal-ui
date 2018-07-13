@@ -46,11 +46,11 @@ export default class Page extends PureComponent {
           </a>
           <h1 className="mtxxl em-high">{title}</h1>
         </header>
-        <nav className="tab-simple phxl bg-neutral-10 border-bottom">
+        {tabLinks.length > 1 && <nav className="tab-simple phxl bg-neutral-10 border-bottom">
           <ul className="styleguide-tabs nav nav-tabs">
             {tabLinks}
           </ul>
-        </nav>
+        </nav>}
         <main className="styleguide-page-main">
           <div className="styleguide-tab-content paxxxl">
             {pageContent}

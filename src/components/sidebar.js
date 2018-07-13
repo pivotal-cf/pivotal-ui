@@ -39,11 +39,11 @@ export default class Sidebar extends PureComponent {
           };
         }, {}));
 
-    Object.values(sidebarRoutes).map(route => {
+    Object.values(sidebarRoutes).forEach(route => {
       if (route.route.startsWith('/concepts/')) concepts.push(route);
       else if (route.route.startsWith('/components/')) components.push(route);
       else if (route.route.startsWith('/modifiers/')) modifiers.push(route);
-      else others.push(route);
+      else if (!route.route.startsWith('/404')) others.push(route);
     });
 
     const fileNumRegex = /^\.\/(-?\d+)\./;

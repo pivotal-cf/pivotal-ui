@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import Sidebar from './components/sidebar';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import Page from './components/page';
 import '../stylesheets/app.scss';
 
@@ -36,15 +36,20 @@ export default class App extends Component {
           <Sidebar {...{routes, currentRoute: location.pathname}}/>
         </FlexCol>
         <FlexCol id="content" className="content">
-          {Object.keys(routes).map((path, key) =>
-            <Route exact {...{key, path, render: props => <Page {...{...props, routes}}/>}}/>
-          )}
+          <Switch>
+            {Object.keys(routes).map((path, key) =>
+              <Route exact {...{key, path, render: props => <Page {...{...props, routes}}/>}}/>
+            )}
+            <Route {...{render: () => <Page {...{match: {path: '/404/404'}, routes}}/>}}/>
+          </Switch>
 
           <footer className="pvxl phxxxl">
             © {year} <a href="https://pivotal.io" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
             <span className="pln">
-              <span className="policy-link"><a href="https://pivotal.io/privacy-policy" target="_blank">Privacy Policy</a></span>
-              <span className="policy-link"><a href="https://pivotal.io/terms-of-use" target="_blank">Terms of Use</a></span>
+              <span className="policy-link"><a href="https://pivotal.io/privacy-policy"
+                                               target="_blank">Privacy Policy</a></span>
+              <span className="policy-link"><a href="https://pivotal.io/terms-of-use"
+                                               target="_blank">Terms of Use</a></span>
               <span className="policy-link" id="teconsent"/>
             </span>
           </footer>
