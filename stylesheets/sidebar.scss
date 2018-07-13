@@ -8,6 +8,7 @@ $active-item-border-size: $base-unit / 2;
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 40px;
+  position: fixed;
   width: 240px;
   height: 100%;
 }

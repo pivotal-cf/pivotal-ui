@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {Divider} from 'pivotal-ui/react/dividers';
-import {routeData} from '../helpers/routes_helper';
 import Config from '../config';
 import SearchBar from './search_bar';
 
@@ -20,7 +19,8 @@ const toLink = ({route, parentTitle}, currentRoute) => (
 
 export default class Sidebar extends PureComponent {
   static propTypes = {
-    routes: PropTypes.object.isRequired
+    routes: PropTypes.object.isRequired,
+    currentRoute: PropTypes.string.isRequired
   };
 
   render() {

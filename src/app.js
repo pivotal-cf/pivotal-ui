@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import Sidebar from './components/sidebar';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Page from './components/page';
@@ -31,16 +30,14 @@ export default class App extends Component {
     const year = currentDate.getFullYear();
 
     return (
-      <Grid id="app" gutter={false}>
-        <FlexCol fixed>
-          <Sidebar {...{routes, currentRoute: location.pathname}}/>
-        </FlexCol>
-        <FlexCol id="content" className="content">
+      <div id="app">
+        <Sidebar {...{routes, currentRoute: location.pathname}}/>
+        <div id="content" className="content">
           <Switch>
             {Object.keys(routes).map((path, key) =>
               <Route exact {...{key, path, render: props => <Page {...{...props, routes}}/>}}/>
             )}
-            <Redirect from="/"  to="/get_started/installation"/>
+            <Redirect from="/" to="/get_started/installation"/>
             <Route {...{render: () => <Page {...{match: {path: '/404/404'}, routes}}/>}}/>
           </Switch>
 
@@ -54,8 +51,8 @@ export default class App extends Component {
               <span className="policy-link" id="teconsent"/>
             </span>
           </footer>
-        </FlexCol>
-      </Grid>
+        </div>
+      </div>
     );
   }
 }

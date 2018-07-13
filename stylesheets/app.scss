@@ -49,8 +49,7 @@ h2.h2 {
 }
 
 #content {
-  height: 100vh;
-  overflow: auto;
+  padding-left: 240px;
 
   .policy-link {
     &:not(:empty):before {

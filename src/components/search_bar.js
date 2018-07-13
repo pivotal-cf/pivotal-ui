@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
 import {Input} from 'pivotal-ui/react/inputs';
 import SearchResult from './search_result';
-import {withRouter} from 'react-router-dom'
+import {withRouter} from 'react-router-dom';
 
 const searchItems = [];
 
@@ -75,4 +75,4 @@ class SearchBar extends PureComponent {
   }
 }
 
-export default withRouter(SearchBar)
+export default withRouter(SearchBar);
