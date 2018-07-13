@@ -34,8 +34,10 @@ describe('withCellTooltip', () => {
     expect(tooltip).toHaveBeenCalledWith({isHeader: false}, data[1]);
   });
 
-  it('does not render a tooltip', () => {
-    expect('.tooltip').not.toExist();
+  it('renders a hidden tooltip', () => {
+    expect('thead tr:eq(0) th:eq(0) .tooltip .tooltip-container').toHaveClass('tooltip-container-hidden');
+    expect('tbody tr:eq(0) td:eq(0) .tooltip .tooltip-container').toHaveClass('tooltip-container-hidden');
+    expect('tbody tr:eq(1) td:eq(0) .tooltip .tooltip-container').toHaveClass('tooltip-container-hidden');
   });
 
   it('renders an Icon for the first header', () => {
@@ -52,29 +54,30 @@ describe('withCellTooltip', () => {
 
   describe('when hovering the first header', () => {
     beforeEach(() => {
-      $('th:eq(0) .overlay-trigger').simulate('mouseOver');
+      $('tr:eq(0) th:eq(0) .tooltip').simulate('mouseOver');
     });
 
     afterEach(() => {
-      $('th:eq(0) .overlay-trigger').simulate('mouseOut');
+      $('tr:eq(0) th:eq(0) .tooltip').simulate('mouseOut');
     });
 
     it('renders a tooltip', () => {
-      expect('.tooltip').toHaveText('is header? true');
+      expect('thead th:eq(0) .tooltip .tooltip-container').toHaveClass('tooltip-container-visible');
+      expect('thead th:eq(0) .tooltip-content').toHaveText('is header? true');
     });
   });
 
   describe('when hovering the first body row first column', () => {
     beforeEach(() => {
-      $('tr:eq(1) td:eq(0) .overlay-trigger').simulate('mouseOver');
+      $('tr:eq(1) td:eq(0) .tooltip').simulate('mouseOver');
     });
 
     afterEach(() => {
-      $('tr:eq(1) td:eq(0) .overlay-trigger').simulate('mouseOut');
+      $('tr:eq(1) td:eq(0) .tooltip').simulate('mouseOut');
     });
 
     it('renders a tooltip', () => {
-      expect('.tooltip').toHaveText('is header? false');
+      expect('tr:eq(1) td:eq(0) .tooltip-content').toHaveText('is header? false');
     });
   });
 });

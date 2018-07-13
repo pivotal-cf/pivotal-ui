@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import {Tooltip} from '../../tooltip';
-import {OverlayTrigger} from '../../overlay-trigger';
+import {TooltipTrigger} from '../../tooltip';
 import {Icon} from '../../iconography';
 
 import {TablePlugin} from '../table-plugin';
@@ -14,14 +13,15 @@ export function withCellTooltip(Table) {
     const {text, size, theme, showIcon} = tooltip({isHeader}, rowDatum) || {};
     if (!text) return;
 
-    const overlay = (<Tooltip {...{size}}>{text}</Tooltip>);
     const children = (
-      <OverlayTrigger {...{
+      <TooltipTrigger {...{
         placement: 'top',
-        overlay,
-        theme
+        tooltip: text,
+        theme,
+        size,
+        trigger: 'hover'
       }}>
-        <span className="overlay-trigger">
+        <span>
           <span>{oldChildren}</span>
           {showIcon && <Icon {...{
             src: 'info_outline',
@@ -29,7 +29,7 @@ export function withCellTooltip(Table) {
             className: 'mlm'
           }}/>}
         </span>
-      </OverlayTrigger>
+      </TooltipTrigger>
     );
 
     return {children};
