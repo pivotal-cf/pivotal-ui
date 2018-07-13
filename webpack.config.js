@@ -31,5 +31,9 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin("components.css")
-  ]
+  ],
+  node: {
+    fs: 'empty',
+    module: 'empty'
+  }
 };
