@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import Sidebar from './components/sidebar';
-import {Route, Switch} from 'react-router-dom';
+import {Route, Switch, Redirect} from 'react-router-dom';
 import Page from './components/page';
 import '../stylesheets/app.scss';
 
@@ -40,6 +40,7 @@ export default class App extends Component {
             {Object.keys(routes).map((path, key) =>
               <Route exact {...{key, path, render: props => <Page {...{...props, routes}}/>}}/>
             )}
+            <Redirect from="/"  to="/get_started/installation"/>
             <Route {...{render: () => <Page {...{match: {path: '/404/404'}, routes}}/>}}/>
           </Switch>
 
