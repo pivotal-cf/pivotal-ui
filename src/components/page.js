@@ -9,6 +9,7 @@ import Prism from 'prismjs';
 import 'prismjs/themes/prism-coy.css';
 import 'prismjs/components/prism-bash.min.js';
 import 'prismjs/components/prism-jsx.min.js';
+import 'prismjs/components/prism-ruby.min.js';
 import ImportInfo from './component_imports.json';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 
@@ -36,7 +37,7 @@ export default class Page extends PureComponent {
 
     return (
       <div className="styleguide-page">
-        <header className={classnames('styleguide-page-header bg-neutral-10 pvxl phxxxl')}>
+        <header className={classnames('styleguide-page-header bg-neutral-10 pvxl phxxxl', {'border-bottom': tabLinks.length <= 1})}>
           <Grid className="mtl">
             <FlexCol>
               <h1 className="em-high">{title}</h1>
