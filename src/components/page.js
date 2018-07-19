@@ -6,7 +6,7 @@ import MarkdownFileHelper from '../helpers/markdown_file_helper';
 import ImportPreview from './import_preview';
 import Config from '../config';
 import Prism from 'prismjs';
-import 'prismjs/themes/prism-coy.css';
+import 'prismjs/themes/prism.css';
 import 'prismjs/components/prism-bash.min.js';
 import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-ruby.min.js';
