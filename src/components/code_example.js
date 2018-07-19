@@ -12,6 +12,7 @@ import pretty from 'pretty';
 import reactRenderer from 'remark-react';
 import Editor from './editor';
 import ErrorBoundary from './error_boundary';
+import Prism from 'prismjs';
 
 const remark = unified().use(parse).use(reactRenderer);
 
@@ -37,6 +38,10 @@ export default class CodeExample extends PureComponent {
     noToolbar: PropTypes.bool,
     title: PropTypes.string
   };
+
+  componentDidUpdate() {
+    Prism.highlightAll();
+  }
 
   state = {showReact: false, showHtml: false, code: this.props.code};
 
