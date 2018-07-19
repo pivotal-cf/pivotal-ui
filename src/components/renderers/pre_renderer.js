@@ -18,22 +18,22 @@ export default class PreRenderer extends PureComponent {
       let noToolbar = false;
       let nonInteractive = false;
 
-      if (lines[0].indexOf('::title=') === 0) {
-        title = lines[0].replace('::title=', '');
+      if (lines[0].indexOf('//title=') === 0) {
+        title = lines[0].replace('//title=', '');
         lines.splice(0, 1);
       }
 
-      if (lines[0].indexOf('::description=') === 0) {
-        description = lines[0].replace('::description=', '');
+      if (lines[0].indexOf('//description=') === 0) {
+        description = lines[0].replace('//description=', '');
         lines.splice(0, 1);
       }
 
-      if (lines[0].indexOf('::noToolbar') === 0) {
+      if (lines[0].indexOf('//noToolbar') === 0) {
         noToolbar = true;
         lines.splice(0, 1);
       }
 
-      if (lines[0].indexOf('::nonInteractive') === 0) {
+      if (lines[0].indexOf('//nonInteractive') === 0) {
         nonInteractive = true;
         lines.splice(0, 1);
       }

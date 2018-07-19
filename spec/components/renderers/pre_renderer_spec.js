@@ -38,10 +38,10 @@ describe('PreRenderer', () => {
       });
     });
 
-    describe('when a ::title is given', () => {
+    describe('when a //title is given', () => {
       beforeEach(() => {
         subject::setProps({children: [
-          <span className="language-js" children={[`::title=My example\n${code}`]}/>
+          <span className="language-js" children={[`//title=My example\n${code}`]}/>
         ]});
       });
 
@@ -56,10 +56,10 @@ describe('PreRenderer', () => {
       });
     });
 
-    describe('when a ::description is given', () => {
+    describe('when a //description is given', () => {
       beforeEach(() => {
         subject::setProps({children: [
-          <span className="language-js" children={[`::description=My description\n${code}`]}/>
+          <span className="language-js" children={[`//description=My description\n${code}`]}/>
         ]});
       });
 
@@ -74,10 +74,10 @@ describe('PreRenderer', () => {
       });
     });
 
-    describe('when ::noToolbar is given', () => {
+    describe('when //noToolbar is given', () => {
       beforeEach(() => {
         subject::setProps({children: [
-          <span className="language-js" children={[`::noToolbar\n${code}`]}/>
+          <span className="language-js" children={[`//noToolbar\n${code}`]}/>
         ]});
       });
 
@@ -92,10 +92,10 @@ describe('PreRenderer', () => {
       });
     });
 
-    describe('when ::nonInteractive is given', () => {
+    describe('when //nonInteractive is given', () => {
       beforeEach(() => {
         subject::setProps({children: [
-          <span className="language-js" children={[`::nonInteractive\n${code}`]}/>
+          <span className="language-js" children={[`//nonInteractive\n${code}`]}/>
         ]});
       });
 
