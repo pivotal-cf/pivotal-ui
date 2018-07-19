@@ -12,6 +12,7 @@ import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-ruby.min.js';
 import ImportInfo from './component_imports.json';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
+import {Divider} from 'pivotal-ui/react/dividers';
 
 const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${file}`;
 const issueUrl = `${Config.get('puiRepository')}/issues/new`;
@@ -37,7 +38,8 @@ export default class Page extends PureComponent {
 
     return (
       <div className="styleguide-page">
-        <header className={classnames('styleguide-page-header bg-neutral-10 pvxl phxxxl', {'border-bottom': tabLinks.length <= 1})}>
+        <header
+          className={classnames('styleguide-page-header bg-neutral-10 pvxl phxxxl', {'border-bottom': tabLinks.length <= 1})}>
           <Grid className="mtl">
             <FlexCol>
               <h1 className="em-high">{title}</h1>
@@ -62,9 +64,14 @@ export default class Page extends PureComponent {
         <main className="styleguide-page-main">
           <div className="styleguide-tab-content paxxxl">
             {pageContent}
-            {componentMatch && tabHeaderIndex <= 1 && <ImportPreview {...{
-              ...ImportInfo[componentMatch[2]]
-            }}/>}
+            {componentMatch && tabHeaderIndex <= 1 && (
+              <div>
+                <Divider className="mbxxl"/>
+                <ImportPreview {...{
+                  ...ImportInfo[componentMatch[2]]
+                }}/>
+              </div>
+            )}
           </div>
         </main>
       </div>

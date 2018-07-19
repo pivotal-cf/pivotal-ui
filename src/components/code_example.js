@@ -72,7 +72,7 @@ export default class CodeExample extends PureComponent {
     const renderedDescription = description && remark.processSync(description).contents;
 
     return (
-      <div {...{className: 'code-example border mbxxxl'}}>
+      <div {...{className: 'code-example border mbxxl'}}>
         <div className="code-example-title pal border-bottom bg-neutral-10">
           <Grid gutter={false}>
             <FlexCol className="em-high">{title}</FlexCol>

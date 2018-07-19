@@ -31,7 +31,7 @@ export default class ImportPreview extends PureComponent {
     return (
       <div>
         {reactPath && preview(`Import React component${multipleComponents ? 's' : ''}`, reactImport)}
-        {cssPath && preview(`Import CSS${reactPath ? ' only' : ''}`, cssImport, {'mtxxxl': reactPath})}
+        {cssPath && preview(`Import CSS${reactPath ? ' only' : ''}`, cssImport, {'mtxl': reactPath})}
       </div>
     );
   }
