@@ -10194,9 +10194,9 @@ react-element-to-jsx-string@^13.2.0:
     is-plain-object "2.0.4"
     stringify-object "3.2.2"
 
-react-spy-on-render@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/react-spy-on-render/-/react-spy-on-render-0.5.0.tgz#ba43fb093bfcc72f8451836ee08a8315f6cfb098"
+react-spy-on-render@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/react-spy-on-render/-/react-spy-on-render-0.6.0.tgz#94981d0a779a1e144c87b1f883a84a17e11a0999"
   dependencies:
     react "^0.14.8 || ^15.0.1 || ^16.0.0"
     react-element-to-jsx-string "^13.2.0"

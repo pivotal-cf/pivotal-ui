@@ -12,6 +12,9 @@ import 'pivotal-js-jasmine-matchers';
 import 'react-spy-on-render';
 import ReactTestUtils from 'react-dom/test-utils';
 import stringifier from 'stringifier';
+import ReactTestHelpers from 'pivotal-js-react-test-helpers';
+
+const {spyOnRender, ...reactTestHelpers} = ReactTestHelpers;
 const {DiffBuilder} = jasmine;
 
 export const findByClass = ReactTestUtils.findRenderedDOMComponentWithClass;
@@ -69,7 +72,7 @@ Object.assign(global, {
   React,
   ReactDOM,
   ReactTestUtils,
-  ...require('pivotal-js-react-test-helpers')
+  ...reactTestHelpers
 });
 
 global.shallowRender = jsx => {

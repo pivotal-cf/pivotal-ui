@@ -48,7 +48,12 @@ describe('Flyout', () => {
     expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn-default-flat');
     expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn-icon');
     expect('.pui-dialog .pui-flyout-icon-btn').toHaveAttr('aria-label', 'Close');
-    expect(Icon).toHaveBeenRenderedWithProps({src: 'chevron_left', size: 'inherit', style: {}, verticalAlign: 'middle'});
+    expect(Icon).toHaveBeenRenderedWithProps({
+      src: 'chevron_left',
+      size: 'inherit',
+      style: {},
+      verticalAlign: 'middle'
+    });
   });
 
   it('renders the children', () => {
