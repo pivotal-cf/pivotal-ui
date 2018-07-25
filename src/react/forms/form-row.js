@@ -26,11 +26,11 @@ export class FormRow extends React.Component {
     const {wrapper, state, children, className, id, ...props} = this.props;
 
     const filteredChildren = React.Children.toArray(children).filter(child => {
-      const childIsFormRow = child.type === FormCol || child.type.prototype instanceof FormCol;
-      if (!childIsFormRow) {
+      const childIsFormCol = child.type === FormCol || child.type.prototype instanceof FormCol;
+      if (!childIsFormCol) {
         console.warn(`Child of type "${child.type}" will not be rendered. A FormRow's children should be of type FormCol.`);
       }
-      return childIsFormRow;
+      return childIsFormCol;
     });
 
     const row = (<Grid {...{id, className: classnames(className, 'form-row')}}>{React.Children.map(filteredChildren, (formCol, key) => {

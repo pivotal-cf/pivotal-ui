@@ -31,6 +31,11 @@ export class FormCol extends React.Component {
     state: {}
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {id: newId()};
+  }
+
   componentDidMount() {
     require('../../css/forms');
   }
@@ -56,7 +61,7 @@ export class FormCol extends React.Component {
     if (element && React.Children.count(element) === 1) {
       const props = {
         name: element.props.name || name,
-        id: element.props.id || newId()
+        id: element.props.id || this.state.id
       };
       htmlFor = labelFor || props.id;
 
@@ -67,8 +72,7 @@ export class FormCol extends React.Component {
           props.onChange = element.props.onChange || onChangeCheckbox(name);
         } else {
           props.value = element.props.hasOwnProperty('value') ? element.props.value : (state.current && state.current[name]);
-          props.onChange = element.props.onChange || (onChange ? onChange(name, validator) : () => {
-            });
+          props.onChange = element.props.onChange || (onChange ? onChange(name, validator) : () => undefined);
           validator && (props.onBlur = onBlur({name, validator}));
         }
       }
