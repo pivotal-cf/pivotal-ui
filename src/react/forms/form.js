@@ -13,6 +13,27 @@ function isPromise(promise = {}) {
   return typeof promise.then === 'function';
 }
 
+const newFormState = (children, cb) => {
+  const initial = {}, current = {}, requiredFields = [];
+
+  React.Children.toArray(children)
+    .filter(r => r)
+    .forEach(formRow => (
+      React.Children.toArray(formRow.props.children)
+        .filter(c => c)
+        .forEach(formCol => {
+          if (!formCol.props || !formCol.props.name) return;
+          const {initialValue, currentValue, isRequired} = cb(formCol.props);
+          const {name} = formCol.props;
+          initial[name] = initialValue;
+          current[name] = currentValue;
+          isRequired && requiredFields.push(name);
+        })
+    ));
+
+  return {initial, current, requiredFields};
+};
+
 export class Form extends React.Component {
   static propTypes = {
     onModified: PropTypes.func.isRequired,
@@ -31,53 +52,43 @@ export class Form extends React.Component {
 
   constructor(props) {
     super(props);
-    const requiredFields = [];
-    const initial = {};
-
-    const {children} = props;
-    React.Children.toArray(children)
-      .filter(r => r)
-      .forEach(formRow => (
-        React.Children.toArray(formRow.props.children)
-          .filter(c => c)
-          .forEach(formCol => {
-            if (!formCol.props) return;
-            const {name, optional, initialValue} = formCol.props;
-            if (name) {
-              optional || requiredFields.push(name);
-              initial[name] = typeof initialValue === 'undefined' ? '' : initialValue;
-            }
-          })
-      ));
-
-    const current = deepClone(initial);
     this.state = {
-      initial,
-      current,
       submitting: false,
       errors: {},
-      requiredFields
+      ...newFormState(props.children, ({name, optional, initialValue}) => {
+        initialValue = typeof initialValue === 'undefined' ? '' : initialValue;
+        return {isRequired: !optional, initialValue, currentValue: deepClone(initialValue)};
+      })
     };
-
-    this.onChangeCheckbox = this.onChangeCheckbox.bind(this);
-    this.onChange = this.onChange.bind(this);
-    this.onBlur = this.onBlur.bind(this);
-    this.reset = this.reset.bind(this);
-    this.canSubmit = this.canSubmit.bind(this);
-    this.canReset = this.canReset.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
     require('../../css/forms');
   }
 
+  shouldComponentUpdate({children}, nextState) {
+    const {current: oldCurrent, initial: oldInitial} = nextState;
+
+    const {initial, current, requiredFields} = newFormState(children, ({name, optional, initialValue}) => {
+      initialValue = typeof initialValue === 'undefined' ? '' : initialValue;
+      return {
+        isRequired: !optional,
+        initialValue: oldInitial.hasOwnProperty(name) ? oldInitial[name] : initialValue,
+        currentValue: oldCurrent.hasOwnProperty(name) ? oldCurrent[name] : deepClone(initialValue)
+      };
+    });
+
+    nextState.initial = initial;
+    nextState.current = current;
+    nextState.requiredFields = requiredFields;
+    return true;
+  }
+
   componentWillUnmount() {
     this.props.onModified(false);
   }
 
-  onChangeCheckbox(name) {
+  onChangeCheckbox = name => {
     return () => {
       this.setState({
         current: {
@@ -86,9 +97,9 @@ export class Form extends React.Component {
         }
       });
     };
-  }
+  };
 
-  onChange(name, validator) {
+  onChange = (name, validator) => {
     const {initial} = this.state;
     const {onModified} = this.props;
     return (...args) => {
@@ -101,17 +112,15 @@ export class Form extends React.Component {
       };
       const error = validator && validator(value);
       if (!error) {
-        nextState.errors = {
-          ...this.state.errors,
-          [name]: undefined
-        };
+        nextState.errors = {...this.state.errors};
+        delete nextState.errors[name];
       }
       this.setState(nextState);
       onModified(!deepEqual(initial, nextState.current));
     };
-  }
+  };
 
-  onBlur({name, validator}) {
+  onBlur = ({name, validator}) => {
     return ({target: {value}}) => {
       const error = validator(value);
       this.setState({
@@ -121,9 +130,9 @@ export class Form extends React.Component {
         }
       });
     };
-  }
+  };
 
-  canSubmit({checkRequiredFields} = {}) {
+  canSubmit = ({checkRequiredFields} = {}) => {
     const {children} = this.props;
     const {initial, current, submitting, requiredFields} = this.state;
     return !submitting
@@ -136,14 +145,14 @@ export class Form extends React.Component {
         row => find(
           React.Children.toArray(row.props.children),
           ({props: {name, validator}}) => validator && validator(this.state.current[name])));
-  }
+  };
 
-  canReset() {
+  canReset = () => {
     const {submitting, initial, current} = this.state;
     return !submitting && !deepEqual(initial, current);
-  }
+  };
 
-  onSubmit(e) {
+  onSubmit = e => {
     e && e.preventDefault();
     const {onSubmit, onSubmitError, afterSubmit, onModified, resetOnSubmit} = this.props;
     const {initial, current} = this.state;
@@ -177,14 +186,14 @@ export class Form extends React.Component {
       onError(e);
       throw e;
     }
-  }
+  };
 
-  reset() {
+  reset = () => {
     const {onModified} = this.props;
     const {initial} = this.state;
     onModified(false);
     this.setState({current: deepClone(initial), errors: {}});
-  }
+  };
 
   render() {
     const {className, children, onSubmit, resetOnSubmit, onModified, onSubmitError, afterSubmit, ...other} = this.props;
@@ -192,7 +201,7 @@ export class Form extends React.Component {
     const filteredChildren = React.Children.toArray(children).filter(child => {
       const childIsFormRow = child.type === FormRow || child.type.prototype instanceof FormRow;
       if (!childIsFormRow) {
-        console.warn(`Child of type "${child.type}" will not be rendered. A Form\'s children should be of type FormRow.`);
+        console.warn(`Child of type "${child.type}" will not be rendered. A Form's children should be of type FormRow.`);
       }
       return childIsFormRow;
     });

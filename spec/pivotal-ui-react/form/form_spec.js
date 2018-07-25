@@ -2,6 +2,38 @@ import '../spec_helper';
 import {Form, FormRow, FormCol} from '../../../src/react/forms';
 import {Input} from '../../../src/react/inputs';
 import {DefaultButton} from '../../../src/react/buttons';
+import {Checkbox} from '../../../src/react/checkbox';
+import React from 'react';
+
+class Page extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {renderCol: false};
+  }
+
+  render() {
+    const {renderCol} = this.state;
+
+    return (
+      <div>
+        <Form ref={el => this.form = el}>
+          <FormRow>
+            <FormCol {...{name: 'name'}}>
+              <Input/>
+            </FormCol>
+            {renderCol && <FormCol {...{name: 'password'}}>
+              <Input/>
+            </FormCol>}
+            <FormCol {...{name: 'other'}}>
+              <Input/>
+            </FormCol>
+          </FormRow>
+        </Form>
+        <Checkbox className="col-toggle" onChange={() => this.setState({renderCol: !renderCol})}/>
+      </div>
+    );
+  }
+}
 
 describe('Form', () => {
   let Buttons, subject, afterSubmit;
@@ -866,7 +898,7 @@ describe('Form', () => {
 
       ReactDOM.render(<Form>
         <div className="evil-do-not-render">evil</div>
-        <FakeRow />
+        <FakeRow/>
       </Form>, root);
     });
 
@@ -920,6 +952,52 @@ describe('Form', () => {
       expect('.some-form').toHaveAttr('id', 'some-id');
       expect('.some-form').toHaveAttr('name', 'some-name');
       expect('.some-form').toHaveAttr('method', 'some-method');
+    });
+  });
+
+  describe('when rendering a Page component', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(<Page/>, root);
+      $('.form-row:eq(0) .form-col:eq(0) input').val('some-name').simulate('change');
+    });
+
+    it('renders inputs without values', () => {
+      expect('.form-row:eq(0) .form-col').toHaveLength(2);
+      expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
+      expect('.form-row:eq(0) .form-col:eq(1) input').toHaveAttr('value', undefined);
+    });
+
+    it('sets the form state', () => {
+      expect(subject.form.state).toEqual({
+        submitting: false,
+        errors: {},
+        initial: {name: '', other: ''},
+        current: {name: 'some-name', other: ''},
+        requiredFields: ['name', 'other']
+      });
+    });
+
+    describe('when adding a new col', () => {
+      beforeEach(() => {
+        $('.col-toggle input').click();
+      });
+
+      it('renders the new col', () => {
+        expect('.form-row:eq(0) .form-col').toHaveLength(3);
+        expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
+        expect('.form-row:eq(0) .form-col:eq(1) input').toHaveAttr('value', undefined);
+        expect('.form-row:eq(0) .form-col:eq(2) input').toHaveAttr('value', undefined);
+      });
+
+      it('updates the form state', () => {
+        expect(subject.form.state).toEqual({
+          submitting: false,
+          errors: {},
+          initial: {name: '', password: '', other: ''},
+          current: {name: 'some-name', password: '', other: ''},
+          requiredFields: ['name', 'password', 'other']
+        });
+      });
     });
   });
 });
