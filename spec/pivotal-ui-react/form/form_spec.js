@@ -4,6 +4,7 @@ import {Input} from '../../../src/react/inputs';
 import {DefaultButton} from '../../../src/react/buttons';
 import {Checkbox} from '../../../src/react/checkbox';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Page extends React.Component {
   constructor(props) {
@@ -697,7 +698,7 @@ describe('Form', () => {
       });
 
       it('calls the given onChange callback', () => {
-        expect(onChange).toHaveBeenCalled();
+        expect(onChange).toHaveBeenCalledWith(jasmine.any(Object));
       });
     });
   });
@@ -997,6 +998,34 @@ describe('Form', () => {
           current: {name: 'some-name', password: '', other: ''},
           requiredFields: ['name', 'password', 'other']
         });
+      });
+    });
+  });
+
+  describe('when passing the onChange', () => {
+    let subject;
+
+    describe('when passed an event', () => {
+      beforeEach(() => {
+        subject = ReactDOM.render(<Form><FormRow><FormCol {...{name: 'title'}}><input /></FormCol></FormRow></Form>, root);
+        $('.form input').val('mytitle').simulate('change');
+      });
+
+      it('parses the value from the event', () => {
+        expect(subject.state.current).toEqual({title: 'mytitle'});
+      });
+    });
+
+    describe('when passed a value', () => {
+      beforeEach(() => {
+        const Component = ({onChange}) => <input {...{onChange: () => onChange('some-title')}}/>;
+        Component.propTypes = {onChange: PropTypes.func};
+        subject = ReactDOM.render(<Form><FormRow><FormCol {...{name: 'title'}}><Component /></FormCol></FormRow></Form>, root);
+        $('.form input').val('').simulate('change');
+      });
+
+      it('uses the value', () => {
+        expect(subject.state.current).toEqual({title: 'some-title'});
       });
     });
   });

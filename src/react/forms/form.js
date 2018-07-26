@@ -102,8 +102,8 @@ export class Form extends React.Component {
   onChange = (name, validator) => {
     const {initial} = this.state;
     const {onModified} = this.props;
-    return (...args) => {
-      const value = args.length > 1 ? args[1] : args[0] && args[0].target.value;
+    return val => {
+      const value = val.target && val.target.hasOwnProperty('value') ? val.target.value : val;
       const nextState = {
         current: {
           ...this.state.current,
