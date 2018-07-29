@@ -65,7 +65,7 @@
     "unified": "^6.1.4"
   },
   "scripts": {
-    "copy-files": "cp public/* dist/ && cp -R static dist/",
+    "copy-files": "mkdir -p dist && cp public/* dist/ && cp -R static dist/",
     "start": "npm run copy-files && webpack-dev-server --config ./frontend_webpack.config.babel.js",
     "build": "webpack --config ./frontend_webpack.config.babel.js -p && npm run copy-files",
     "build-dev": "webpack --config ./frontend_webpack.config.babel.js && npm run copy-files",
