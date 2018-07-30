@@ -1,5 +1,6 @@
 import '../spec_helper';
-import {Form, FormRow, FormCol} from '../../../src/react/forms';
+import {Grid, FlexCol} from '../../../src/react/flex-grids';
+import {Form} from '../../../src/react/forms';
 import {Input} from '../../../src/react/inputs';
 import {DefaultButton} from '../../../src/react/buttons';
 import {Checkbox} from '../../../src/react/checkbox';
@@ -17,18 +18,14 @@ class Page extends React.Component {
 
     return (
       <div>
-        <Form ref={el => this.form = el}>
-          <FormRow>
-            <FormCol {...{name: 'name'}}>
-              <Input/>
-            </FormCol>
-            {renderCol && <FormCol {...{name: 'password'}}>
-              <Input/>
-            </FormCol>}
-            <FormCol {...{name: 'other'}}>
-              <Input/>
-            </FormCol>
-          </FormRow>
+        <Form {...{ref: el => this.form = el, fields: {name: {}, password: renderCol && {}, other: {}}}}>
+          {({fields: {name, password, other}}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              {renderCol && <FlexCol>{password}</FlexCol>}
+              <FlexCol>{other}</FlexCol>
+            </Grid>
+          )}
         </Form>
         <Checkbox className="col-toggle" onChange={() => this.setState({renderCol: !renderCol})}/>
       </div>
@@ -53,19 +50,13 @@ describe('Form', () => {
   describe('with one required field', () => {
     beforeEach(() => {
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit}}>
-          <FormRow>
-            <FormCol {...{
-              name: 'name',
-              initialValue: 'some-name'
-            }}>
-              <Input/>
-            </FormCol>
-            <FormCol {...{
-              className: 'col-fixed',
-              children: Buttons
-            }}/>
-          </FormRow>
+        <Form {...{className: 'some-form', afterSubmit, fields: {name: {initialValue: 'some-name'}}}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
         </Form>, root);
     });
 
@@ -78,79 +69,80 @@ describe('Form', () => {
     });
 
     it('renders an input with a default value', () => {
-      expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
+      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
     });
 
-    it('renders Buttons with submitting=false', () => {
+    it('renders Buttons', () => {
       expect(Buttons).toHaveBeenCalledWith({
         canSubmit: subject.canSubmit,
         canReset: subject.canReset,
         reset: subject.reset,
         onSubmit: subject.onSubmit,
-        submitting: false,
         setState: subject.setState,
         state: subject.state,
-        onChange: jasmine.any(Function)
+        onChange: subject.onChange,
+        onBlur: subject.onBlur,
+        onChangeCheckbox: subject.onChangeCheckbox
       });
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.form-row:eq(0) .form-col:eq(1)').toHaveClass('col-fixed');
-      expect('.form-row:eq(0) .form-col:eq(1) .save').toHaveAttr('type', 'submit');
-      expect('.form-row:eq(0) .form-col:eq(1) .save').toHaveText('Save');
-      expect('.form-row:eq(0) .form-col:eq(1) .save').toBeDisabled();
-      expect('.form-row:eq(0) .form-col:eq(1) .cancel').toHaveText('Cancel');
-      expect('.form-row:eq(0) .form-col:eq(1) .cancel').toBeDisabled();
+      expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveAttr('type', 'submit');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveText('Save');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toHaveText('Cancel');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
     });
 
     describe('when deleting the name', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(0) input').val('').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('').simulate('change');
       });
 
       it('allows the name to change', () => {
-        expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', '');
+        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('');
       });
 
       it('renders buttons ', () => {
-        expect('.form-row:eq(0) .form-col:eq(1)').toHaveClass('col-fixed');
-        expect('.form-row:eq(0) .form-col:eq(1) .save').toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
       });
 
       describe('when clicking the cancel button', () => {
         beforeEach(() => {
-          $('.form-row:eq(0) .form-col:eq(1) .cancel').simulate('click');
+          $('fieldset > .grid:eq(0) > .col:eq(1) .cancel').simulate('click');
         });
 
         it('resets the name', () => {
-          expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
+          expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
         });
       });
     });
 
     describe('when changing the name', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('allows the name to change', () => {
-        expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-other-name');
+        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-other-name');
       });
 
       it('renders enabled buttons ', () => {
-        expect('.form-row:eq(0) .form-col:eq(1)').toHaveClass('col-fixed');
-        expect('.form-row:eq(0) .form-col:eq(1) .save').not.toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
       });
 
       describe('when clicking the cancel button', () => {
         beforeEach(() => {
-          $('.form-row:eq(0) .form-col:eq(1) .cancel').simulate('click');
+          $('fieldset > .grid:eq(0) > .col:eq(1) .cancel').simulate('click');
         });
 
         it('resets the name', () => {
-          expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
+          expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
         });
       });
 
@@ -162,14 +154,14 @@ describe('Form', () => {
           error = new Error('invalid');
           errors = {name: 'invalid'};
           onSubmitError = jasmine.createSpy('onSubmitError').and.returnValue(errors);
-          subject::setProps({onSubmitError});
           onSubmit = jasmine.createSpy('onSubmit');
           onSubmit.and.callFake(() => new Promise((res, rej) => {
             resolve = res;
             reject = rej;
           }));
-          subject::setProps({onSubmit});
-          $('.form-row:eq(0) .form-col:eq(1) .save').simulate('submit');
+          Buttons.calls.reset();
+          subject::setProps({onSubmitError, onSubmit});
+          $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
         });
 
         it('calls onSubmit', () => {
@@ -181,20 +173,21 @@ describe('Form', () => {
         });
 
         it('disables the buttons', () => {
-          expect('.form-row:eq(0) .form-col:eq(1) .save').toBeDisabled();
-          expect('.form-row:eq(0) .form-col:eq(1) .cancel').toBeDisabled();
+          expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
+          expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
         });
 
-        it('renders Buttons with submitting=true', () => {
+        it('renders Buttons', () => {
           expect(Buttons).toHaveBeenCalledWith({
             canSubmit: subject.canSubmit,
             canReset: subject.canReset,
             reset: subject.reset,
             onSubmit: subject.onSubmit,
-            submitting: true,
             setState: subject.setState,
             state: subject.state,
-            onChange: jasmine.any(Function)
+            onChange: subject.onChange,
+            onBlur: subject.onBlur,
+            onChangeCheckbox: subject.onChangeCheckbox
           });
         });
 
@@ -208,22 +201,23 @@ describe('Form', () => {
             expect('form > fieldset').not.toBeDisabled();
           });
 
-          it('renders Buttons with submitting=false', () => {
+          it('renders Buttons', () => {
             expect(Buttons).toHaveBeenCalledWith({
               canSubmit: subject.canSubmit,
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
-              submitting: false,
               setState: subject.setState,
               state: subject.state,
-              onChange: jasmine.any(Function)
+              onChange: subject.onChange,
+              onBlur: subject.onBlur,
+              onChangeCheckbox: subject.onChangeCheckbox
             });
           });
 
           it('makes both buttons disabled', () => {
-            expect('.form-row:eq(0) .form-col:eq(1) .save').toBeDisabled();
-            expect('.form-row:eq(0) .form-col:eq(1) .cancel').toBeDisabled();
+            expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
+            expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
           });
 
           it('resets the initial state', () => {
@@ -255,22 +249,23 @@ describe('Form', () => {
             expect('form > fieldset').not.toBeDisabled();
           });
 
-          it('renders Buttons with submitting=false', () => {
+          it('renders Buttons', () => {
             expect(Buttons).toHaveBeenCalledWith({
               canSubmit: subject.canSubmit,
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
-              submitting: false,
               setState: subject.setState,
               state: subject.state,
-              onChange: jasmine.any(Function)
+              onChange: subject.onChange,
+              onBlur: subject.onBlur,
+              onChangeCheckbox: subject.onChangeCheckbox
             });
           });
 
           it('re-enables both buttons disabled', () => {
-            expect('.form-row:eq(0) .form-col:eq(1) .save').not.toBeDisabled();
-            expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
+            expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
+            expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
           });
 
           it('retains the initial state', () => {
@@ -291,11 +286,11 @@ describe('Form', () => {
 
           describe('when clicking the cancel button', () => {
             beforeEach(() => {
-              $('.form-row:eq(0) .form-col:eq(1) .cancel').simulate('click');
+              $('fieldset > .grid:eq(0) > .col:eq(1) .cancel').simulate('click');
             });
 
             it('resets the name', () => {
-              expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
+              expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
             });
 
             it('clears the errors', () => {
@@ -306,7 +301,7 @@ describe('Form', () => {
           describe('when clicking the save button and the submit action resolves', () => {
             beforeEach(() => {
               onSubmit.and.returnValue(Promise.resolve());
-              $('.form-row:eq(0) .form-col:eq(1) .save').simulate('submit');
+              $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
               MockPromises.tick(1);
             });
 
@@ -349,30 +344,21 @@ describe('Form', () => {
 
       beforeEach(() => {
         validator = jasmine.createSpy('validator');
-        subject::setProps({
-          children: (
-            <FormRow>
-              <FormCol {...{
-                name: 'name',
-                initialValue: 'some-name',
-                validator
-              }}>
-                <Input/>
-              </FormCol>
-              <FormCol {...{
-                className: 'col-fixed',
-                children: Buttons
-              }}/>
-            </FormRow>
-          )
-        });
+        const children = ({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        );
+        children.propTypes = {fields: PropTypes.object};
+        subject::setProps({fields: {name: {initialValue: 'some-name', validator}}, children});
       });
 
       describe('when the validator returns an error', () => {
         beforeEach(() => {
           validator.and.returnValue('some-error');
-          $('.form-row:eq(0) .form-col:eq(0) input').val('invalid value').simulate('change');
-          $('.form-row:eq(0) .form-col:eq(0) input').simulate('blur');
+          $('fieldset > .grid:eq(0) > .col:eq(0) input').val('invalid value').simulate('change');
+          $('fieldset > .grid:eq(0) > .col:eq(0) input').simulate('blur');
         });
 
         it('calls the validator', () => {
@@ -380,8 +366,8 @@ describe('Form', () => {
         });
 
         it('renders the error text', () => {
-          expect('.form-row:eq(0) .form-col:eq(0) .form-unit').toHaveClass('has-error');
-          expect('.form-row:eq(0) .form-col:eq(0) .help-row').toHaveText('some-error');
+          expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').toHaveClass('has-error');
+          expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('some-error');
         });
 
         it('disables the submit button', () => {
@@ -391,7 +377,7 @@ describe('Form', () => {
         describe('when the validation error is corrected', () => {
           beforeEach(() => {
             validator.and.returnValue(undefined);
-            $('.form-row:eq(0) .form-col:eq(0) input').val('valid value').simulate('change');
+            $('fieldset > .grid:eq(0) > .col:eq(0) input').val('valid value').simulate('change');
           });
 
           it('calls the validator', () => {
@@ -399,8 +385,8 @@ describe('Form', () => {
           });
 
           it('removes the error text', () => {
-            expect('.form-row:eq(0) .form-col:eq(0) .form-unit').not.toHaveClass('has-error');
-            expect('.form-row:eq(0) .form-col:eq(0) .help-row').toHaveText('');
+            expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').not.toHaveClass('has-error');
+            expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('');
           });
 
           it('enables the submit button', () => {
@@ -411,7 +397,7 @@ describe('Form', () => {
 
       describe('when the validator returns nothing', () => {
         beforeEach(() => {
-          $('.form-row:eq(0) .form-col:eq(0) input').simulate('blur');
+          $('fieldset > .grid:eq(0) > .col:eq(0) input').simulate('blur');
         });
 
         it('calls the validator', () => {
@@ -419,8 +405,8 @@ describe('Form', () => {
         });
 
         it('does not render error text', () => {
-          expect('.form-row:eq(0) .form-col:eq(0) .form-unit').not.toHaveClass('has-error');
-          expect('.form-row:eq(0) .form-col:eq(0) .help-row').toHaveText('');
+          expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').not.toHaveClass('has-error');
+          expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('');
         });
       });
     });
@@ -429,59 +415,55 @@ describe('Form', () => {
   describe('with two required fields', () => {
     beforeEach(() => {
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit}}>
-          <FormRow>
-            <FormCol {...{name: 'name'}}>
-              <Input/>
-            </FormCol>
-            <FormCol {...{name: 'password'}}>
-              <Input/>
-            </FormCol>
-            <FormCol {...{className: 'col-fixed'}}>
-              {Buttons}
-            </FormCol>
-          </FormRow>
+        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {}}}}>
+          {({fields: {name, password}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol>{password}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
         </Form>, root);
     });
 
     it('renders inputs without values', () => {
-      expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', undefined);
-      expect('.form-row:eq(0) .form-col:eq(1) input').toHaveAttr('value', undefined);
+      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.form-row:eq(0) .form-col:eq(2)').toHaveClass('col-fixed');
-      expect('.form-row:eq(0) .form-col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.form-row:eq(0) .form-col:eq(2) .save').toHaveText('Save');
-      expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
-      expect('.form-row:eq(0) .form-col:eq(2) .cancel').toHaveText('Cancel');
-      expect('.form-row:eq(0) .form-col:eq(2) .cancel').toBeDisabled();
+      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
+      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
+      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
+      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
     });
 
     describe('when setting the name', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('allows the name to change', () => {
-        expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-other-name');
+        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-other-name');
       });
 
       it('renders buttons ', () => {
-        expect('.form-row:eq(0) .form-col:eq(2)').toHaveClass('col-fixed');
-        expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
       });
 
       describe('when setting the password', () => {
         beforeEach(() => {
-          $('.form-row:eq(0) .form-col:eq(1) input').val('some-password').simulate('change');
+          $('fieldset > .grid:eq(0) > .col:eq(1) input').val('some-password').simulate('change');
         });
 
         it('renders enabled buttons ', () => {
-          expect('.form-row:eq(0) .form-col:eq(2)').toHaveClass('col-fixed');
-          expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
-          expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
+          expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+          expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
+          expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
         });
       });
     });
@@ -490,55 +472,52 @@ describe('Form', () => {
   describe('with one optional field', () => {
     beforeEach(() => {
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit}}>
-          <FormRow>
-            <FormCol {...{
-              name: 'name',
-              initialValue: 'some-name',
-              label: 'Some label',
-              optional: true
-            }}>
-              <Input/>
-            </FormCol>
-            <FormCol {...{className: 'col-fixed'}}>
-              {Buttons}
-            </FormCol>
-          </FormRow>
+        <Form {...{
+          className: 'some-form',
+          afterSubmit,
+          fields: {name: {initialValue: 'some-name', label: 'Some label', optional: true}}
+        }}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
         </Form>, root);
     });
 
     it('renders an optional text for the input', () => {
-      expect('.form-row:eq(0) .form-col:eq(0) .label-row').toHaveText('Some label(Optional)');
+      expect('fieldset > .grid:eq(0) > .col:eq(0) .label-row').toHaveText('Some label(Optional)');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.form-row .form-col:eq(1)').toHaveClass('col-fixed');
-      expect('.form-row .form-col:eq(1) .save').toHaveAttr('type', 'submit');
-      expect('.form-row .form-col:eq(1) .save').toHaveText('Save');
-      expect('.form-row .form-col:eq(1) .save').toBeDisabled();
-      expect('.form-row .form-col:eq(1) .cancel').toHaveText('Cancel');
-      expect('.form-row .form-col:eq(1) .cancel').toBeDisabled();
+      expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveAttr('type', 'submit');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveText('Save');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toHaveText('Cancel');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
     });
 
     describe('when changing the optional field', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.form-row:eq(0) .form-col:eq(1) .save').not.toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
       });
     });
 
     describe('when deleting the optional field', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(0) input').val('').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.form-row:eq(0) .form-col:eq(1) .save').not.toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
       });
     });
   });
@@ -546,114 +525,96 @@ describe('Form', () => {
   describe('with one required and one optional field', () => {
     beforeEach(() => {
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit}}>
-          <FormRow>
-            <FormCol {...{
-              name: 'name',
-              initialValue: 'some-name'
-            }}>
-              <Input/>
-            </FormCol>
-            <FormCol {...{
-              name: 'password',
-              initialValue: 'some-password',
-              optional: true
-            }}>
-              <Input/>
-            </FormCol>
-            <FormCol {...{
-              className: 'col-fixed'
-            }}>{Buttons}</FormCol>
-          </FormRow>
+        <Form {...{
+          className: 'some-form',
+          afterSubmit,
+          fields: {name: {initialValue: 'some-name'}, password: {initialValue: 'some-password', optional: true}}
+        }}>
+          {({fields: {name, password}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol>{password}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
         </Form>, root);
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.form-row:eq(0) .form-col:eq(2)').toHaveClass('col-fixed');
-      expect('.form-row:eq(0) .form-col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.form-row:eq(0) .form-col:eq(2) .save').toHaveText('Save');
-      expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
-      expect('.form-row:eq(0) .form-col:eq(2) .cancel').toHaveText('Cancel');
-      expect('.form-row:eq(0) .form-col:eq(2) .cancel').toBeDisabled();
+      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
+      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
+      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
+      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
     });
 
     describe('when changing the optional field', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(1) input').val('some-other-password').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(1) input').val('some-other-password').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
       });
     });
 
     describe('when deleting the optional field', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(1) input').val('').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(1) input').val('').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
       });
     });
 
     describe('when changing the required field', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
       });
     });
 
     describe('when deleting the required field', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(0) input').val('').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('').simulate('change');
       });
 
       it('renders buttons in a col-fixed col', () => {
-        expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
-        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
       });
     });
   });
 
   describe('with two checkbox fields', () => {
     beforeEach(() => {
+      const children = () => <input type="checkbox"/>;
       subject = ReactDOM.render(
-        <Form>
-          <FormRow>
-            <FormCol {...{
-              name: 'check1',
-              initialValue: false
-            }}>
-              <input type="checkbox"/>
-            </FormCol>
-            <FormCol {...{
-              name: 'check2'
-            }}>
-              <input type="checkbox"/>
-            </FormCol>
-          </FormRow>
+        <Form {...{fields: {check1: {initialValue: false, children}, check2: {children}}}}>
+          {({fields: {check1, check2}, ...rest}) => (
+            <Grid>
+              <FlexCol>{check1}</FlexCol>
+              <FlexCol>{check2}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
         </Form>, root);
     });
 
     it('sets the initial state correctly', () => {
-      expect(subject.state.initial).toEqual({
-        check1: false,
-        check2: ''
-      });
+      expect(subject.state.initial).toEqual({check1: false, check2: ''});
     });
 
     it('sets the current state correctly', () => {
-      expect(subject.state.current).toEqual({
-        check1: false,
-        check2: ''
-      });
+      expect(subject.state.current).toEqual({check1: false, check2: ''});
     });
   });
 
@@ -664,15 +625,17 @@ describe('Form', () => {
       onChange = jasmine.createSpy('onChange');
 
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit}}>
-          <FormRow>
-            <FormCol>
-              <Input className="field1" onChange={onChange}/>
-            </FormCol>
-            <FormCol>
-              <Input className="field2"/>
-            </FormCol>
-          </FormRow>
+        <Form {...{className: 'some-form', afterSubmit, fields: {}}}>
+          {() => (
+            <Grid>
+              <FlexCol>
+                <Input className="field1" onChange={onChange}/>
+              </FlexCol>
+              <FlexCol>
+                <Input className="field2"/>
+              </FlexCol>
+            </Grid>
+          )}
         </Form>, root);
     });
 
@@ -703,53 +666,6 @@ describe('Form', () => {
     });
   });
 
-  describe('with a hidden field', () => {
-    beforeEach(() => {
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form'}}>
-          <FormRow>
-            <FormCol {...{
-              name: 'name',
-              hidden: true,
-              initialValue: 'some-name'
-            }}>
-              <Input/>
-            </FormCol>
-          </FormRow>
-        </Form>, root);
-    });
-
-    it('renders the col with the hidden attribute', () => {
-      expect('.form-row:eq(0) .form-col:eq(0)').toHaveAttr('hidden');
-    });
-  });
-
-  describe('with a row wrapper', () => {
-    let wrapper;
-
-    beforeEach(() => {
-      wrapper = jasmine.createSpy('wrapper').and.returnValue(<div className="wrapper"/>);
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form'}}>
-          <FormRow {...{wrapper}}>
-            <FormCol {...{
-              initialValue: 'some-name'
-            }}>
-              <Input className="some-input"/>
-            </FormCol>
-          </FormRow>
-        </Form>, root);
-    });
-
-    it('calls the wrapper with the form state', () => {
-      expect(wrapper).toHaveBeenCalledWith(subject.state);
-    });
-
-    it('renders the row grid within the wrapper', () => {
-      expect('.some-form > fieldset > .wrapper > .grid > .col input').toHaveClass('some-input');
-    });
-  });
-
   describe('canSubmit with a custom checkRequiredFields callback ', () => {
     let checkRequiredFields;
 
@@ -764,17 +680,13 @@ describe('Form', () => {
       ));
 
       subject = ReactDOM.render(
-        <Form>
-          <FormRow>
-            <FormCol {...{
-              name: 'name'
-            }} >
-              <Input/>
-            </FormCol>
-            <FormCol>
-              {Buttons}
-            </FormCol>
-          </FormRow>
+        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}}}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
         </Form>, root);
       $('input').val('some-name').simulate('change');
     });
@@ -809,26 +721,19 @@ describe('Form', () => {
       onModified = jasmine.createSpy('onModified');
 
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, onModified}}>
-          <FormRow>
-            <FormCol {...{
-              name: 'name',
-              initialValue: 'some-name'
-            }}>
-              <Input/>
-            </FormCol>
-            <FormCol {...{
-              className: 'col-fixed'
-            }}>
-              {Buttons}
-            </FormCol>
-          </FormRow>
+        <Form {...{className: 'some-form', afterSubmit, onModified, fields: {name: {initialValue: 'some-name'}}}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
         </Form>, root);
     });
 
     describe('when modifying', () => {
       beforeEach(() => {
-        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('calls the onModified callback with true', () => {
@@ -839,7 +744,7 @@ describe('Form', () => {
       describe('when resetting manually', () => {
         beforeEach(() => {
           onModified.calls.reset();
-          $('.form-row:eq(0) .form-col:eq(0) input').val('some-name').simulate('change');
+          $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-name').simulate('change');
         });
 
         it('calls the onModified callback with false', () => {
@@ -887,59 +792,24 @@ describe('Form', () => {
     });
   });
 
-  describe('when given invalid children', () => {
-    beforeEach(() => {
-      spyOn(console, 'warn');
-
-      class FakeRow extends FormRow {
-        render() {
-          return <div className="extended-form-row">fake row</div>;
-        }
-      }
-
-      ReactDOM.render(<Form>
-        <div className="evil-do-not-render">evil</div>
-        <FakeRow/>
-      </Form>, root);
-    });
-
-    it('renders the extended form row', () => {
-      expect('.extended-form-row').toExist();
-    });
-
-    it('does not render invalid nodes', () => {
-      expect('.evil-do-not-render').not.toExist();
-    });
-
-    it('logs an error about invalid children types', () => {
-      expect(console.warn).toHaveBeenCalledWith('Child of type "div" will not be rendered. A Form\'s children should be of type FormRow.');
-    });
-  });
-
   describe('resetOnSubmit', () => {
     beforeEach(() => {
       ReactDOM.render(
-        <Form {...{className: 'some-form', resetOnSubmit: true}}>
-          <FormRow>
-            <FormCol {...{
-              name: 'name',
-              initialValue: 'some-name'
-            }}>
-              <Input/>
-            </FormCol>
-            <FormCol {...{
-              className: 'col-fixed',
-              children: Buttons
-            }}/>
-          </FormRow>
+        <Form {...{className: 'some-form', resetOnSubmit: true, fields: {name: {initialValue: 'some-name'}}}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
         </Form>, root);
-      $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
-      $('.form-row:eq(0) .form-col:eq(1) .save').simulate('submit');
+      $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
+      $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
     });
 
     it('resets the form to its initial state', () => {
       MockPromises.tick();
-      expect($('.form-row:eq(0) .form-col:eq(0) input').val()).toEqual('some-name');
+      expect($('fieldset > .grid:eq(0) > .col:eq(0) input').val()).toEqual('some-name');
     });
   });
 
@@ -959,13 +829,13 @@ describe('Form', () => {
   describe('when rendering a Page component', () => {
     beforeEach(() => {
       subject = ReactDOM.render(<Page/>, root);
-      $('.form-row:eq(0) .form-col:eq(0) input').val('some-name').simulate('change');
+      $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-name').simulate('change');
     });
 
     it('renders inputs without values', () => {
-      expect('.form-row:eq(0) .form-col').toHaveLength(2);
-      expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
-      expect('.form-row:eq(0) .form-col:eq(1) input').toHaveAttr('value', undefined);
+      expect('.grid:eq(0) .col').toHaveLength(2);
+      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
     });
 
     it('sets the form state', () => {
@@ -984,10 +854,10 @@ describe('Form', () => {
       });
 
       it('renders the new col', () => {
-        expect('.form-row:eq(0) .form-col').toHaveLength(3);
-        expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
-        expect('.form-row:eq(0) .form-col:eq(1) input').toHaveAttr('value', undefined);
-        expect('.form-row:eq(0) .form-col:eq(2) input').toHaveAttr('value', undefined);
+        expect('.grid:eq(0) .col').toHaveLength(3);
+        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
+        expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
+        expect('fieldset > .grid:eq(0) > .col:eq(2) input').toHaveValue('');
       });
 
       it('updates the form state', () => {
@@ -1007,7 +877,10 @@ describe('Form', () => {
 
     describe('when passed an event', () => {
       beforeEach(() => {
-        subject = ReactDOM.render(<Form><FormRow><FormCol {...{name: 'title'}}><input /></FormCol></FormRow></Form>, root);
+        subject = ReactDOM.render(
+          <Form {...{fields: {title: {}}}}>
+            {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+          </Form>, root);
         $('.form input').val('mytitle').simulate('change');
       });
 
@@ -1020,7 +893,10 @@ describe('Form', () => {
       beforeEach(() => {
         const Component = ({onChange}) => <input {...{onChange: () => onChange('some-title')}}/>;
         Component.propTypes = {onChange: PropTypes.func};
-        subject = ReactDOM.render(<Form><FormRow><FormCol {...{name: 'title'}}><Component /></FormCol></FormRow></Form>, root);
+        subject = ReactDOM.render(
+          <Form {...{fields: {title: {children: <Component/>}}}}>
+            {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+          </Form>, root);
         $('.form input').val('').simulate('change');
       });
 
