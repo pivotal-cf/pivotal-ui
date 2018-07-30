@@ -1,16 +1,10 @@
 import '../spec_helper';
-import {FormCol, FormUnit} from '../../../src/react/forms';
+import {FormCol} from '../../../src/react/forms';
 import crypto from 'crypto';
 import {FlexCol} from '../../../src/react/flex-grids';
 
-class TestInput extends React.Component {
-  render() {
-    return <input />;
-  }
-}
-
 describe('FormCol', () => {
-  let element, onChange, state, setState;
+  let onChange, state, setState;
 
   beforeEach(() => {
     spyOn(React, 'cloneElement').and.callThrough();
@@ -20,7 +14,22 @@ describe('FormCol', () => {
     state = {key: 'value'};
   });
 
-  describe('simple case', () => {
+  describe('when fixed', () => {
+    beforeEach(() => ReactDOM.render(<FormCol fixed/>, root));
+    it('renders a col-fixed class', () => expect('.col').toHaveClass('col-fixed'));
+  });
+
+  describe('with id', () => {
+    beforeEach(() => ReactDOM.render(<FormCol id="some-id"/>, root));
+    it('renders with the id', () => expect('.col').toHaveAttr('id', 'some-id'));
+  });
+
+  describe('when hidden', () => {
+    beforeEach(() => ReactDOM.render(<FormCol hidden/>, root));
+    it('renders hidden', () => expect('.col').toHaveAttr('hidden', ''));
+  });
+
+  describe('with children', () => {
     beforeEach(() => {
       spyOnRender(FlexCol).and.callThrough();
 
@@ -38,355 +47,45 @@ describe('FormCol', () => {
       });
     });
 
-    it('renders a form unit', () => {
-      expect('.col > .form-unit').toExist();
-      expect('.col > .form-unit').toHaveText('hello');
+    it('renders children', () => {
+      expect('.col > div').toHaveText('hello');
     });
   });
 
-  describe('fixed props', () => {
-    beforeEach(() => {
-      ReactDOM.render(<FormCol fixed>
-        <div>hello</div>
-      </FormCol>, root);
-    });
-
-    it('renders a col-fixed class', () => {
-      expect('.col').toHaveClass('col-fixed');
-    });
-  });
-
-  describe('when the element is a checkbox', () => {
-    let state, onChangeCheckbox, innerOnChange, checkbox, subject;
+  describe('with a function child', () => {
+    let child, state, setState, canSubmit, onSubmit, canReset, reset;
 
     beforeEach(() => {
-      checkbox = <input type="checkbox"/>;
-      state = {current: {}};
-      innerOnChange = () => 'changed';
-      onChangeCheckbox = jasmine.createSpy('onChangeCheckbox').and.returnValue(innerOnChange);
-
-      subject = ReactDOM.render(<FormCol name="checkboxName" state={state} onChangeCheckbox={onChangeCheckbox}>
-        {checkbox}
-      </FormCol>, root);
+      spyOnRender(FlexCol).and.callThrough();
+      child = jasmine.createSpy('child').and.returnValue(<span className="child">child return value</span>);
+      state = {submitting: true};
+      setState = jasmine.createSpy('setState');
+      canSubmit = jasmine.createSpy('canSubmit');
+      onSubmit = jasmine.createSpy('onSubmit');
+      canReset = jasmine.createSpy('canReset');
+      reset = jasmine.createSpy('reset');
+      ReactDOM.render(<FormCol {...{
+        id: 'some-id', className: 'some-class', state, setState, canSubmit, onSubmit, canReset, reset
+      }}>{child}</FormCol>, root);
     });
 
-    it('passes in the correct props to the cloned element', () => {
-      expect(React.cloneElement).toHaveBeenCalledWith(checkbox, {
-        name: 'checkboxName',
-        id: 'some-unique-string',
-        checked: false,
-        onChange: innerOnChange
-      });
-    });
-
-    describe('when the value is true in the state', () => {
-      beforeEach(() => {
-        state = {current: {checkboxName: true}};
-        subject::setProps({state});
-      });
-
-      it('passes in the correct props to the cloned element', () => {
-        expect(React.cloneElement).toHaveBeenCalledWith(checkbox, {
-          name: 'checkboxName',
-          id: 'some-unique-string',
-          checked: true,
-          onChange: innerOnChange
-        });
+    it('renders a FlexCol with the props', () => {
+      expect(FlexCol).toHaveBeenRenderedWithProps({
+        id: 'some-id',
+        className: 'some-class form-col',
+        hidden: undefined,
+        children: jasmine.any(Object)
       });
     });
 
-    describe('when a checked state is passed', () => {
-      beforeEach(() => {
-        checkbox = <input type="checkbox" checked={false}/>;
-        subject::setProps({children: checkbox});
-      });
-
-      it('passes in the correct props to the cloned element', () => {
-        expect(React.cloneElement).toHaveBeenCalledWith(checkbox, {
-          name: 'checkboxName',
-          id: 'some-unique-string',
-          checked: false,
-          onChange: innerOnChange
-        });
-      });
-    });
-  });
-
-  describe('clones the element with extra props', () => {
-    beforeEach(() => {
-      element = <input onChange={onChange} value="some-value"/>;
-      ReactDOM.render(<FormCol name="some-name-set-on-the-col">
-        {element}
-      </FormCol>, root);
-    });
-
-    it('passes in the props to the cloned element', () => {
-      expect(React.cloneElement).toHaveBeenCalledWith(element, {
-        onChange,
-        name: 'some-name-set-on-the-col',
-        value: 'some-value',
-        id: 'some-unique-string'
+    it('calls the child', () => {
+      expect(child).toHaveBeenCalledWith({
+        canSubmit, canReset, reset, onSubmit, submitting: state.submitting, setState, state
       });
     });
 
-    describe('when given children as a function', () => {
-      let childrenSpy, props, formProps, formOnChange;
-
-      beforeEach(() => {
-        formOnChange = jasmine.createSpy('formOnChange');
-        element = <input/>;
-        childrenSpy = jasmine.createSpy('children').and.returnValue(element);
-        formProps = {
-          canSubmit: () => 'can submit',
-          canReset: () => 'can reset',
-          reset: () => 'reset',
-          onSubmit: () => 'on submit',
-          setState: () => 'set state',
-          state: {
-            key: 'value',
-            current: {'some-name-set-on-the-col': 'current-value'},
-            submitting: true
-          },
-          onChange: () => formOnChange
-        };
-
-        props = {
-          ...formProps,
-          name: 'some-name-set-on-the-col',
-          onBlur: () => 'on blur'
-        };
-
-        ReactDOM.render(<FormCol {...props}>
-          {childrenSpy}
-        </FormCol>, root);
-      });
-
-      it('calls the children callback', () => {
-        expect(childrenSpy).toHaveBeenCalledWith({
-          ...formProps,
-          submitting: true,
-          onChange: formOnChange
-        });
-      });
-
-      it('clones element with the form props', () => {
-        expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
-          id: 'some-unique-string',
-          onChange: formOnChange,
-          name: 'some-name-set-on-the-col',
-          value: 'current-value'
-        }));
-      });
-    });
-  });
-
-  describe('when there are multiple children', () => {
-    beforeEach(() => {
-      ReactDOM.render(<FormCol>
-        <input className="element1"/>
-        <input className="element2"/>
-      </FormCol>, root);
-    });
-
-    it('renders all children', () => {
-      expect('.element1').toExist();
-      expect('.element2').toExist();
-    });
-  });
-
-  describe('when onChange', () => {
-    describe('is set on the element', () => {
-      beforeEach(() => {
-        element = <input onChange={onChange}/>;
-        ReactDOM.render(<FormCol name="someName">
-          {element}
-        </FormCol>, root);
-      });
-
-      it('uses the passed onChange', () => {
-        expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
-          onChange
-        }));
-      });
-    });
-
-    describe('is not set on the element', () => {
-      let validator, onBlur, formUnitOnChange;
-
-      beforeEach(() => {
-        formUnitOnChange = jasmine.createSpy('formUnitOnChange').and.returnValue('some-callback');
-      });
-
-      describe('and when there is a default onChange function', () => {
-        beforeEach(() => {
-          spyOnRender(TestInput);
-          validator = jasmine.createSpy('validator');
-          onBlur = jasmine.createSpy('onBlur');
-          element = <TestInput />;
-
-          ReactDOM.render(<FormCol {...{
-            onChange: formUnitOnChange,
-            onBlur,
-            validator,
-            name: 'some-col'
-          }}>
-            {element}
-          </FormCol>, root);
-        });
-
-        it('uses the FormUnit onChange', () => {
-          expect(formUnitOnChange).toHaveBeenCalledWith('some-col', validator);
-          expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
-            onChange: 'some-callback'
-          }));
-        });
-      });
-
-      describe('and when there is no default onChange function', () => {
-        beforeEach(() => {
-          onChange.calls.reset();
-          formUnitOnChange.calls.reset();
-          element = <input />;
-          ReactDOM.render(<FormCol onChange={null} name="someName">
-            {element}
-          </FormCol>, root);
-          $('input').val('new-value').simulate('change');
-        });
-
-        it('defaults to an empty function', () => {
-          expect(onChange).not.toHaveBeenCalled();
-          expect(formUnitOnChange).not.toHaveBeenCalled();
-
-          expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
-            onChange: jasmine.any(Function),
-            name: 'someName',
-            id: 'some-unique-string',
-            value: undefined
-          }));
-        });
-      });
-    });
-  });
-
-  describe('when value', () => {
-    describe('is set on the element', () => {
-      beforeEach(() => {
-        element = <input value="my-value"/>;
-        ReactDOM.render(<FormCol name="someName">
-          {element}
-        </FormCol>, root);
-      });
-
-      it('uses the passed value', () => {
-        expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
-          value: 'my-value'
-        }));
-      });
-    });
-
-    describe('is not set on the element', () => {
-      let state;
-
-      beforeEach(() => {
-        state = {current: {someField: 'current-value'}};
-        element = <input />;
-        ReactDOM.render(<FormCol name="someField" state={state}>
-          {element}
-        </FormCol>, root);
-      });
-
-      it('uses the value stored in the state', () => {
-        expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
-          value: 'current-value'
-        }));
-      });
-    });
-  });
-
-  describe('when id', () => {
-    describe('is set on the element', () => {
-      beforeEach(() => {
-        element = <input id="some-id"/>;
-        ReactDOM.render(<FormCol>
-          {element}
-        </FormCol>, root);
-      });
-
-      it('uses the given id on the element', () => {
-        expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
-          id: 'some-id'
-        }));
-      });
-    });
-
-    describe('is not set on the element', () => {
-      beforeEach(() => {
-        element = <input />;
-
-        ReactDOM.render(<FormCol>
-          {element}
-        </FormCol>, root);
-      });
-
-      it('generates a random id for the element', () => {
-        expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
-          id: 'some-unique-string'
-        }));
-      });
-    });
-  });
-
-  describe('when labelFor', () => {
-    let field;
-
-    beforeEach(() => {
-      field = <div className="some-field">a field</div>;
-
-      spyOnRender(FormUnit).and.callThrough();
-      React.cloneElement.and.returnValue(field);
-    });
-
-    describe('is given as a prop', () => {
-      let subject;
-      beforeEach(() => {
-        element = <input />;
-        subject = ReactDOM.render(<FormCol {...{
-          labelFor: 'some-label',
-          retainLabelHeight: true,
-          help: 'Some help text',
-          state,
-          setState
-        }}>
-          {element}
-        </FormCol>, root);
-      });
-
-      it('uses the given the labelFor', () => {
-        expect(FormUnit).toHaveBeenRenderedWithProps({
-          retainLabelHeight: true,
-          hasError: undefined,
-          labelFor: 'some-label',
-          state,
-          setState,
-          field,
-          help: 'Some help text'
-        });
-      });
-    });
-
-    describe('is not given as a prop', () => {
-      beforeEach(() => {
-        element = <input id="my-alter-id"/>;
-        ReactDOM.render(<FormCol>
-          {element}
-        </FormCol>, root);
-      });
-
-      it('uses the id from the element', () => {
-        expect(FormUnit).toHaveBeenRenderedWithProps(jasmine.objectContaining({
-          labelFor: 'my-alter-id'
-        }));
-      });
+    it('renders the child return value', () => {
+      expect('.col > span.child').toHaveText('child return value');
     });
   });
 });

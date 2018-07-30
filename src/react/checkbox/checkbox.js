@@ -15,7 +15,7 @@ export class Checkbox extends React.Component {
     name: PropTypes.string,
     onChange: PropTypes.func,
     style: PropTypes.object,
-    type: PropTypes.string.isRequired,
+    type: PropTypes.string,
     indeterminate: PropTypes.bool
   };
 
