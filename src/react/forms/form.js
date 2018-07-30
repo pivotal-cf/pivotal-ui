@@ -55,17 +55,18 @@ export class Form extends React.Component {
   }
 
   shouldComponentUpdate({fields}, nextState) {
-    const {current: oldCurrent, initial: oldInitial} = nextState;
-    const {initial, current, requiredFields} = newFormState(fields, ({name, optional, initialValue}) => {
-      initialValue = typeof initialValue === 'undefined' ? '' : initialValue;
-      return {
-        isRequired: !optional,
-        initialValue: oldInitial.hasOwnProperty(name) ? oldInitial[name] : initialValue,
-        currentValue: oldCurrent.hasOwnProperty(name) ? oldCurrent[name] : deepClone(initialValue)
-      };
-    });
-    nextState.initial = initial;
-    nextState.current = current;
+    const {current, initial} = nextState;
+    const {initial: newInitial, current: newCurrent, requiredFields} = newFormState(fields,
+      ({name, optional, initialValue}) => {
+        initialValue = typeof initialValue === 'undefined' ? '' : initialValue;
+        return {
+          isRequired: !optional,
+          initialValue: initial.hasOwnProperty(name) ? initial[name] : initialValue,
+          currentValue: current.hasOwnProperty(name) ? current[name] : deepClone(initialValue)
+        };
+      });
+    nextState.initial = newInitial;
+    nextState.current = newCurrent;
     nextState.requiredFields = requiredFields;
     return true;
   }
