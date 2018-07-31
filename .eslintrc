@@ -8,18 +8,22 @@
   },
   "plugins": [
     "react",
-    "jasmine"
+    "jasmine",
+    "markdown"
   ],
   "rules": {
+    "arrow-parens": ["error", "as-needed"],
     "block-scoped-var": 2,
     "camelcase": 0,
     "complexity": 2,
+    "comma-dangle": ["error", "never"],
     "consistent-return": 0,
     "curly": 0,
     "default-case": 2,
     "dot-notation": 2,
     "eqeqeq": 2,
     "eol-last": 0,
+    "jasmine/no-focused-tests": 2,
     "key-spacing": 2,
     "no-caller": 2,
     "no-console": [2, {"allow": ["warn", "error"]}],
