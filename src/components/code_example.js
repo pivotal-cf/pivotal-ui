@@ -60,9 +60,9 @@ export default class CodeExample extends PureComponent {
 
     if (hasReact) {
       try {
-        transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
+        transpiledCode = Babel.transform(code, {presets: [['es2015', {loose: true, modules: false}], 'react']}).code;
         // eslint-disable-next-line no-eval
-        livePreview = eval(transpiledCode);
+        livePreview = eval(transpiledCode) || null;
       } catch (e) {
         livePreview = <pre className="caught-error">{e.toString()}</pre>;
       }
