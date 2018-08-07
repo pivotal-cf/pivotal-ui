@@ -166,7 +166,7 @@ describe('Alert Component', () => {
     });
 
     it('renders an icon in the alert', () => {
-      expect('.pui-alert svg').toHaveClass('icon-warning');
+      expect('.pui-alert svg').toHaveClass('icon-report');
     });
 
     it('has a "error alert" label', () => {

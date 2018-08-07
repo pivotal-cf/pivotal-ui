@@ -104,4 +104,4 @@ const defAlert = props => {
 export const SuccessAlert = defAlert({bsStyle: 'success', alertIcon: 'check_circle'});
 export const InfoAlert = defAlert({bsStyle: 'info', alertIcon: 'info'});
 export const WarningAlert = defAlert({bsStyle: 'warning', alertIcon: 'warning'});
-export const ErrorAlert = defAlert({bsStyle: 'danger', alertIcon: 'warning'});
+export const ErrorAlert = defAlert({bsStyle: 'danger', alertIcon: 'report'});
