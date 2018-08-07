@@ -80,3 +80,16 @@
 .pui-alert-error, .alert-error {
   @extend .pui-alert-danger;
 }
+
+.pui-alert-close-btn.pui-btn {
+  height: $font-size-base * 1.5;
+
+  &:hover,
+  &:focus {
+    color: $close-color;
+  }
+
+  &.pui-btn.btn-icon .icon {
+    margin: 0;
+  }
+}

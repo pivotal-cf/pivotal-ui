@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {mergeProps} from '../helpers';
 import {Icon} from '../iconography';
+import {DefaultButton} from '../buttons';
 
 class Alert extends React.PureComponent {
   static propTypes = {
@@ -59,9 +60,14 @@ class Alert extends React.PureComponent {
     if (dismissable) {
       dismissableColumn = (
         <div className="col col-fixed pan">
-          <button type="button" className="btn close pui-close" aria-label={closeLabel} onClick={this.handleAlertDismiss}><Icon
-            src="close"/>
-          </button>
+          <DefaultButton {...{
+            className: 'pui-alert-close-btn',
+            iconOnly: true,
+            flat: true,
+            'aria-label': closeLabel,
+            onClick: this.handleAlertDismiss,
+            icon: <Icon src="close"/>
+          }}/>
         </div>
       );
     }

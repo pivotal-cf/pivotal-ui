@@ -161,6 +161,10 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
     }
   }
 
+  .pui-alert-close-btn {
+    color: $text-color;
+  }
+
   svg {
     fill: $text-color;
   }

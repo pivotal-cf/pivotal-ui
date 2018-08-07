@@ -38,7 +38,8 @@ describe('Alert Component', () => {
 
       it('has a close button', () => {
         expect('.pui-alert button').toHaveLength(1);
-        expect('button:eq(0)').toHaveClass('pui-close');
+        expect('.pui-btn-default-flat.pui-btn-icon').toHaveClass('pui-alert-close-btn');
+        expect('.pui-btn-default-flat.pui-btn-icon .icon-close').toExist();
       });
 
       it('has an sr-only close button', () => {
@@ -55,7 +56,6 @@ describe('Alert Component', () => {
       it('disappears when close button is clicked', () => {
         subject::setProps({dismissable: true});
         $('.icon-close').simulate('click');
-        jasmine.clock().tick(1);
         expect('.pui-alert').not.toExist();
       });
 
@@ -77,7 +77,6 @@ describe('Alert Component', () => {
         it('renders the alert even after the close button is clicked', () => {
           subject::setProps({dismissable: true, show: true});
           $('.icon-close').simulate('click');
-          jasmine.clock().tick(1);
           expect('.pui-alert').toExist();
         });
 
