@@ -156,6 +156,19 @@
   outline: none;
 }
 
+.pui-btn.pui-btn-default-flat:focus, .btn.btn-default-flat:focus {
+  color: $btn-default-color-focus;
+  outline: none;
+}
+
+.pui-btn.pui-btn-default-flat:hover,
+.pui-btn.pui-btn-default-flat:focus:hover,
+.btn.btn-default-flat:hover,
+.btn.btn-default-flat:focus:hover {
+  color: $btn-default-color-hover;
+  outline: none;
+}
+
 //Default Alt Button
 //---------------------------------------
 .pui-btn.pui-btn-default-alt, .btn.btn-default-alt {
