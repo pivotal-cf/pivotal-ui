@@ -34,12 +34,12 @@ export class Panel extends React.Component {
     return (
       <div {...{...props, className: classnames('pui-panel-container', className)}}>
         {(title || titleCols.length > 0) && <Grid className={classnames('pui-panel-title', titleClassName)}>
-          {title && <FlexCol className="h5 em-high type-ellipsis">{title}</FlexCol>}
+          {title && <FlexCol contentAlignment="middle" className="h5 em-high type-ellipsis">{title}</FlexCol>}
           {titleCols.map((el, key) => React.cloneElement(el, {key}))}
         </Grid>}
         <div {...{className: classnames('pui-panel bg-neutral-11 box-shadow-1 border-rounded', panelClassName)}}>
           {(header || headerCols.length > 0) && <Grid className={classnames('pui-panel-header', headerClassName)}>
-            {header && <FlexCol className="type-ellipsis em-high">{header}</FlexCol>}
+            {header && <FlexCol contentAlignment="middle" className="type-ellipsis em-high">{header}</FlexCol>}
             {headerCols.map((el, key) => React.cloneElement(el, {key}))}
           </Grid>}
           {children && (

@@ -55,6 +55,7 @@ describe('Panel', () => {
       expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('h5');
       expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('em-high');
       expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('type-ellipsis');
+      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('col-middle');
     });
 
     describe('with titleClassName', () => {
@@ -115,6 +116,7 @@ describe('Panel', () => {
       expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveText('some header');
       expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveClass('type-ellipsis');
       expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveClass('em-high');
+      expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveClass('col-middle');
     });
 
     describe('with headerClassName', () => {
