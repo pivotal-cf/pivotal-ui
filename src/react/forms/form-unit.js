@@ -21,34 +21,35 @@ export class FormUnit extends React.Component {
     tooltip: PropTypes.node,
     tooltipSize: PropTypes.oneOf(['sm', 'md', 'lg']),
     tooltipPlacement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
-    field: PropTypes.node,
+    children: PropTypes.node,
     help: PropTypes.node,
     hasError: PropTypes.bool,
     state: PropTypes.object,
-    setState: PropTypes.func,
+    setValues: PropTypes.func,
     fieldRowClassName: PropTypes.string,
     labelRowClassName: PropTypes.string
+  };
+
+  static defaultProps = {
+    tooltipSize: 'lg',
+    tooltipPlacement: 'top'
   };
 
   componentDidMount() {
     require('../../css/forms');
   }
 
-  render() {
-    const {
-      className, hideHelpRow, retainLabelHeight, inline, label, labelClassName, labelPosition, optional, optionalText,
-      tooltip, tooltipSize = 'lg', tooltipPlacement = 'top', field, help, hasError, labelFor, postLabel, state,
-      setState, fieldRowClassName, labelRowClassName
-    } = this.props;
-
-    if (!label && !field && !help) return null;
-
-    const tooltipIcon = tooltip &&
+  newTooltipIcon = () => {
+    const {tooltip, tooltipSize, tooltipPlacement} = this.props;
+    return tooltip &&
       <TooltipTrigger {...{tooltip, className: 'tooltip-light', size: tooltipSize, placement: tooltipPlacement}}>
         <Icon verticalAlign="baseline" src="info_outline"/>
       </TooltipTrigger>;
+  };
 
-    const labelElement = (
+  newLabelElement = tooltipIcon => {
+    const {labelClassName, labelFor, label, optional, optionalText} = this.props;
+    return (
       <label {...{className: labelClassName, htmlFor: labelFor}}>
         {label}
         {tooltipIcon}
@@ -58,58 +59,80 @@ export class FormUnit extends React.Component {
                 </span>}
       </label>
     );
+  };
 
-    const labelRow = (label || retainLabelHeight || postLabel) && (
-        inline
-          ? labelElement
-          : (
+  newLabelRow = () => {
+    const {label, retainLabelHeight, postLabel, inline, labelRowClassName, state, setValues} = this.props;
+    const tooltipIcon = this.newTooltipIcon();
+    const labelElement = this.newLabelElement(tooltipIcon);
+    return (label || retainLabelHeight || postLabel) && (
+      inline
+        ? labelElement
+        : (
           <Grid {...{key: 'label-row', className: classnames('label-row', labelRowClassName), gutter: false}}>
             <FlexCol>{labelElement}</FlexCol>
             <FlexCol fixed contentAlignment="middle" className="post-label">
-              {typeof postLabel === 'function' ? postLabel({state, setState}) : postLabel}
+              {typeof postLabel === 'function' ? postLabel({state, setValues}) : postLabel}
             </FlexCol>
           </Grid>
         )
-      );
+    );
+  };
 
-    const fieldRow = field && (inline
-        ? field
-        : <div className={classnames('field-row', fieldRowClassName)} key="field-row">{field}</div>);
-    const helpRowClassName = classnames('help-row', {'type-dark-5': !hasError});
-    const helpRow = inline ? help : <div className={helpRowClassName} key="help-row">{help}</div>;
+  newFieldRow = () => {
+    const {children, inline, fieldRowClassName} = this.props;
+    return children && (inline
+      ? children
+      : <div className={classnames('field-row', fieldRowClassName)} key="field-row">{children}</div>);
+  };
 
+  newContent = (labelRow, fieldRow, helpRow) => {
+    const {inline, labelRowClassName, labelPosition, fieldRowClassName, hideHelpRow} = this.props;
     const sections = labelPosition === 'after' ? [fieldRow, labelRow] : [labelRow, fieldRow];
-
+    const showRowClassNames = (key, position) => key === position && labelPosition !== 'after' || key === (1 - position) && labelPosition === 'after';
     const content = inline ? ([
         <Grid className="grid-inline" key="top">
-          {sections.map((col, key) => (<FlexCol {...{
-            key,
-            fixed: key === 0,
-            className: classnames({
-              [classnames('label-row', labelRowClassName)]: key === 0 && labelPosition !== 'after' || key === 1 && labelPosition === 'after',
-              [classnames('field-row', fieldRowClassName)]: key === 0 && labelPosition === 'after' || key === 1 && labelPosition !== 'after'
-            })
-          }}>{col}</FlexCol>))}
+          {sections.map((col, key) => (
+            <FlexCol {...{
+              key,
+              fixed: key === 0,
+              className: classnames({
+                [classnames('label-row', labelRowClassName)]: showRowClassNames(key, 0),
+                [classnames('field-row', fieldRowClassName)]: showRowClassNames(key, 1)
+              })
+            }}>{col}</FlexCol>
+          ))}
         </Grid>]
     ) : sections;
+    !hideHelpRow && content.push(helpRow);
+    return content;
+  };
 
-    if (!hideHelpRow) {
-      if (inline) {
-        content.push((
-          <Grid key="bottom">
-            <FlexCol className={helpRowClassName}>
-              {helpRow}
-            </FlexCol>
-          </Grid>
-        ));
-      } else {
-        content.push(helpRow);
-      }
+  newHelpRow = () => {
+    const {inline, hasError, help} = this.props;
+    const helpRowClassName = classnames('help-row', {'type-dark-5': !hasError});
+    if (inline) {
+      return (
+        <Grid key="bottom">
+          <FlexCol className={helpRowClassName}>{help}</FlexCol>
+        </Grid>
+      );
     }
+    return <div className={helpRowClassName} key="help-row">{help}</div>;
+  };
+
+  render() {
+    const {className, inline, label, children, help, hasError} = this.props;
+
+    if (!label && !children && !help) return null;
+
+    const labelRow = this.newLabelRow();
+    const fieldRow = this.newFieldRow();
+    const helpRow = this.newHelpRow();
 
     return (
       <div className={classnames('form-unit', className, {'has-error': hasError, 'inline-form-unit': inline})}>
-        {content}
+        {this.newContent(labelRow, fieldRow, helpRow)}
       </div>
     );
   }

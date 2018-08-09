@@ -9,20 +9,20 @@ describe('FormUnit', () => {
     spyOnRender(TooltipTrigger).and.callThrough();
     subject = ReactDOM.render(<FormUnit {...{
       className: 'my-class',
-      field: (<div><span>hello</span></div>)
-    }} />, root);
+      children: (<div><span>hello</span></div>)
+    }}/>, root);
   });
 
   it('does not render a label row when no label is provided', () => {
     expect('.form-unit .label-row').not.toExist();
   });
 
-  describe('when no field is provided', () => {
+  describe('when no children are provided', () => {
     beforeEach(() => {
       subject = ReactDOM.render(<FormUnit {...{
         className: 'my-class',
         label: 'some label'
-      }} />, root);
+      }}/>, root);
     });
 
     it('does not render a field row', () => {
@@ -161,18 +161,18 @@ describe('FormUnit', () => {
     });
 
     describe('when the postLabel is a function', () => {
-      let postLabel, setState, state;
+      let postLabel, state, setValues;
 
       beforeEach(() => {
         postLabel = jasmine.createSpy('postLabel').and.returnValue(<span className="returned">returned</span>);
-        setState = jasmine.createSpy('setState');
+        setValues = jasmine.createSpy('setValues');
         state = {key: 'value'};
 
-        subject::setProps({postLabel, setState, state});
+        subject::setProps({postLabel, state, setValues});
       });
 
       it('calls the postLabel function', () => {
-        expect(postLabel).toHaveBeenCalledWith({setState, state});
+        expect(postLabel).toHaveBeenCalledWith({state, setValues});
       });
 
       it('renders the returned node', () => {
@@ -373,9 +373,9 @@ describe('FormUnit', () => {
     });
   });
 
-  describe('when there is no label, field, or help block', () => {
+  describe('when there is no label, children, or help block', () => {
     beforeEach(() => {
-      subject::setProps({label: null, field: null, help: null});
+      subject::setProps({label: null, children: null, help: null});
     });
 
     it('renders nothing', () => {

@@ -48,9 +48,12 @@ describe('Form', () => {
   });
 
   describe('with one required field', () => {
+    let fields;
+
     beforeEach(() => {
+      fields = {name: {initialValue: 'some-name'}};
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields: {name: {initialValue: 'some-name'}}}}>
+        <Form {...{className: 'some-form', afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
               <FlexCol>{name}</FlexCol>
@@ -78,11 +81,10 @@ describe('Form', () => {
         canReset: subject.canReset,
         reset: subject.reset,
         onSubmit: subject.onSubmit,
-        setState: subject.setState,
         state: subject.state,
-        onChange: subject.onChange,
         onBlur: subject.onBlur,
-        onChangeCheckbox: subject.onChangeCheckbox
+        setValues: subject.setValues,
+        submitting: false
       });
     });
 
@@ -93,6 +95,18 @@ describe('Form', () => {
       expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
       expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toHaveText('Cancel');
       expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
+    });
+
+    describe('when adding a field', () => {
+      beforeEach(() => {
+        fields.age = {initialValue: '0'};
+        subject::setProps({fields});
+      });
+
+      it('updates the state', () => {
+        expect(subject.state.initial.age).toBe('0');
+        expect(subject.state.current.age).toBe('0');
+      });
     });
 
     describe('when deleting the name', () => {
@@ -183,11 +197,10 @@ describe('Form', () => {
             canReset: subject.canReset,
             reset: subject.reset,
             onSubmit: subject.onSubmit,
-            setState: subject.setState,
             state: subject.state,
-            onChange: subject.onChange,
             onBlur: subject.onBlur,
-            onChangeCheckbox: subject.onChangeCheckbox
+            setValues: subject.setValues,
+            submitting: true
           });
         });
 
@@ -207,11 +220,10 @@ describe('Form', () => {
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
-              setState: subject.setState,
               state: subject.state,
-              onChange: subject.onChange,
               onBlur: subject.onBlur,
-              onChangeCheckbox: subject.onChangeCheckbox
+              setValues: subject.setValues,
+              submitting: false
             });
           });
 
@@ -232,7 +244,6 @@ describe('Form', () => {
             MockPromises.tick();
             expect(afterSubmit).toHaveBeenCalledWith({
               state: subject.state,
-              setState: subject.setState,
               response: {result: 'success'},
               reset: subject.reset
             });
@@ -255,11 +266,10 @@ describe('Form', () => {
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
-              setState: subject.setState,
               state: subject.state,
-              onChange: subject.onChange,
               onBlur: subject.onBlur,
-              onChangeCheckbox: subject.onChangeCheckbox
+              setValues: subject.setValues,
+              submitting: false
             });
           });
 
@@ -351,7 +361,7 @@ describe('Form', () => {
           </Grid>
         );
         children.propTypes = {fields: PropTypes.object};
-        subject::setProps({fields: {name: {initialValue: 'some-name', validator}}, children});
+        subject::setProps({fields: {name: {initialValue: 'some-name', validator}, age: false}, children});
       });
 
       describe('when the validator returns an error', () => {
@@ -412,6 +422,116 @@ describe('Form', () => {
     });
   });
 
+  describe('with one required field where initialValue is empty string', () => {
+    let fields;
+
+    beforeEach(() => {
+      fields = {name: {initialValue: ''}};
+      subject = ReactDOM.render(
+        <Form {...{className: 'some-form', afterSubmit, fields}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
+        </Form>, root);
+    });
+
+    it('stores empty string in the state', () => {
+      expect(subject.state.initial.name).toBe('');
+      expect(subject.state.current.name).toBe('');
+    });
+  });
+
+  describe('with one required field where initialValue is undefined', () => {
+    let fields;
+
+    beforeEach(() => {
+      fields = {name: {initialValue: undefined}};
+      subject = ReactDOM.render(
+        <Form {...{className: 'some-form', afterSubmit, fields}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
+        </Form>, root);
+    });
+
+    it('stores empty string in the state', () => {
+      expect(subject.state.initial.name).toBe('');
+      expect(subject.state.current.name).toBe('');
+    });
+  });
+
+  describe('with one required field where initialValue is null', () => {
+    let fields;
+
+    beforeEach(() => {
+      fields = {name: {initialValue: null}};
+      subject = ReactDOM.render(
+        <Form {...{className: 'some-form', afterSubmit, fields}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
+        </Form>, root);
+    });
+
+    it('stores empty string in the state', () => {
+      expect(subject.state.initial.name).toBe('');
+      expect(subject.state.current.name).toBe('');
+    });
+  });
+
+  describe('with one required field where initialValue is false', () => {
+    let fields;
+
+    beforeEach(() => {
+      fields = {name: {initialValue: false}};
+      subject = ReactDOM.render(
+        <Form {...{className: 'some-form', afterSubmit, fields}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
+        </Form>, root);
+    });
+
+    it('stores empty string in the state', () => {
+      expect(subject.state.initial.name).toBe(false);
+      expect(subject.state.current.name).toBe(false);
+    });
+  });
+
+  describe('with one required field where initialValue is zero', () => {
+    let fields;
+
+    beforeEach(() => {
+      fields = {name: {initialValue: 0}};
+      subject = ReactDOM.render(
+        <Form {...{className: 'some-form', afterSubmit, fields}}>
+          {({fields: {name}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
+        </Form>, root);
+    });
+
+    it('stores empty string in the state', () => {
+      expect(subject.state.initial.name).toBe(0);
+      expect(subject.state.current.name).toBe(0);
+    });
+  });
+
   describe('with two required fields', () => {
     beforeEach(() => {
       subject = ReactDOM.render(
@@ -465,6 +585,54 @@ describe('Form', () => {
           expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
           expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
         });
+      });
+    });
+  });
+
+  describe('with two required fields, one required based on optional callback', () => {
+    let optional;
+
+    beforeEach(() => {
+      optional = jasmine.createSpy('optional');
+      subject = ReactDOM.render(
+        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {optional}}}}>
+          {({fields: {name, password}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol>{password}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
+        </Form>, root);
+    });
+
+    it('renders inputs without values', () => {
+      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
+    });
+
+    it('renders disabled buttons in a col-fixed col', () => {
+      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
+      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
+      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
+      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
+    });
+
+    describe('when setting the name', () => {
+      beforeEach(() => {
+        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
+      });
+
+      it('allows the name to change', () => {
+        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-other-name');
+      });
+
+      it('renders buttons ', () => {
+        expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
       });
     });
   });
@@ -816,7 +984,7 @@ describe('Form', () => {
   describe('when passed extra props', () => {
     beforeEach(() => {
       ReactDOM.render(
-        <Form {...{className: 'some-form', id: 'some-id', name: 'some-name', method: 'some-method'}} />, root);
+        <Form {...{className: 'some-form', id: 'some-id', name: 'some-name', method: 'some-method'}}/>, root);
     });
 
     it('passes them to the form tag', () => {
@@ -828,6 +996,32 @@ describe('Form', () => {
 
   describe('when rendering a Page component', () => {
     beforeEach(() => {
+      class Page extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {renderCol: false};
+        }
+
+        render() {
+          const {renderCol} = this.state;
+
+          return (
+            <div>
+              <Form {...{ref: el => this.form = el, fields: {name: {}, password: renderCol && {}, other: {}}}}>
+                {({fields: {name, password, other}}) => (
+                  <Grid>
+                    <FlexCol>{name}</FlexCol>
+                    {renderCol && <FlexCol>{password}</FlexCol>}
+                    <FlexCol>{other}</FlexCol>
+                  </Grid>
+                )}
+              </Form>
+              <Checkbox className="col-toggle" onChange={() => this.setState({renderCol: !renderCol})}/>
+            </div>
+          );
+        }
+      }
+
       subject = ReactDOM.render(<Page/>, root);
       $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-name').simulate('change');
     });
@@ -843,8 +1037,7 @@ describe('Form', () => {
         submitting: false,
         errors: {},
         initial: {name: '', other: ''},
-        current: {name: 'some-name', other: ''},
-        requiredFields: ['name', 'other']
+        current: {name: 'some-name', other: ''}
       });
     });
 
@@ -865,14 +1058,13 @@ describe('Form', () => {
           submitting: false,
           errors: {},
           initial: {name: '', password: '', other: ''},
-          current: {name: 'some-name', password: '', other: ''},
-          requiredFields: ['name', 'password', 'other']
+          current: {name: 'some-name', password: '', other: ''}
         });
       });
     });
   });
 
-  describe('when passing the onChange', () => {
+  describe('when passing values to built-in onChange', () => {
     let subject;
 
     describe('when passed an event', () => {
@@ -889,20 +1081,92 @@ describe('Form', () => {
       });
     });
 
-    describe('when passed a value', () => {
+    describe('when not passed an event', () => {
       beforeEach(() => {
-        const Component = ({onChange}) => <input {...{onChange: () => onChange('some-title')}}/>;
+        const Component = ({onChange}) => <input {...{onChange}}/>;
         Component.propTypes = {onChange: PropTypes.func};
         subject = ReactDOM.render(
           <Form {...{fields: {title: {children: <Component/>}}}}>
             {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
           </Form>, root);
-        $('.form input').val('').simulate('change');
+        $('.form input').val('some-title').simulate('change');
       });
 
       it('uses the value', () => {
         expect(subject.state.current).toEqual({title: 'some-title'});
       });
+    });
+  });
+
+  describe('when a field has a custom onChange', () => {
+    let persist;
+
+    beforeEach(() => {
+      persist = jasmine.createSpy('persist');
+      subject = ReactDOM.render(
+        <Form {...{
+          fields: {
+            title: {
+              children: ({setValues}) => <input {...{onChange: () => setValues({name: 'Jane'})}}/>
+            }, name: {initialValue: 'John'}
+          }
+        }}>
+          {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+        </Form>, root);
+      $('.form input').val('some-title').simulate('change', {target: {value: 'some-title'}, persist});
+    });
+
+    it('persists the event', () => {
+      expect(persist).toHaveBeenCalledWith();
+    });
+
+    it('updates the current state', () => {
+      expect(subject.state.current).toEqual({title: 'some-title', name: 'Jane'});
+    });
+  });
+
+  describe('when a checkbox field has a custom onChange', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(
+        <Form {...{
+          fields: {
+            title: {
+              children: ({setValues}) => <Checkbox {...{onChange: () => setValues({name: 'Jane'})}}/>
+            }, name: {initialValue: 'John'}
+          }
+        }}>
+          {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+        </Form>, root);
+      $('.form input').click();
+    });
+
+    it('updates the current state', () => {
+      expect(subject.state.current).toEqual({title: true, name: 'Jane'});
+    });
+  });
+
+  describe('when updating current values programmatically', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(
+        <Form {...{
+          className: 'some-form',
+          afterSubmit,
+          fields: {name: {initialValue: 'some-name'}, password: {initialValue: 'some-password', optional: true}}
+        }}>
+          {({fields: {name, password}, ...rest}) => (
+            <Grid>
+              <FlexCol>{name}</FlexCol>
+              <FlexCol>{password}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
+        </Form>, root);
+
+      subject.setValues({name: 'new-name'});
+    });
+
+    it('changes the form state without updating un-passed values', () => {
+      expect(subject.state.current).toEqual({name: 'new-name', password: 'some-password'});
     });
   });
 });
