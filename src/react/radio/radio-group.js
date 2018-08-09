@@ -5,8 +5,9 @@ import classnames from 'classnames';
 export class RadioGroup extends React.Component {
   static propTypes = {
     id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    value: PropTypes.any
   };
 
   componentDidMount() {
@@ -14,17 +15,14 @@ export class RadioGroup extends React.Component {
   }
 
   render() {
-    const {name, children, onChange, className, ...others} = this.props;
+    const {name, children, onChange, className, value, ...others} = this.props;
     const radioProps = onChange ? {name, onChange} : {name};
 
-    const renderedChildren = React.Children.map(children, child =>
-      React.cloneElement(child, radioProps));
-
-    const props = {
-      ...others,
-      className: classnames('pui-radio-group', className)
-    };
-
-    return <div {...props} >{renderedChildren}</div>;
+    return (
+      <div {...{...others, className: classnames('pui-radio-group', className)}}>
+        {React.Children.map(children, child =>
+          React.cloneElement(child, {...radioProps, checked: child.props.value === value}))}
+      </div>
+    );
   }
 }
