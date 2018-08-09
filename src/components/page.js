@@ -20,6 +20,11 @@ const issueUrl = `${Config.get('puiRepository')}/issues/new`;
 export default class Page extends PureComponent {
   componentDidMount() {
     Prism.highlightAll();
+    const {match, routes} = this.props;
+    const {path} = match;
+    const {file, pageTitle} = routes[path];
+    const title = MarkdownFileHelper.getParentTitle(file);
+    document.title = `${title} - ${pageTitle}`;
   }
 
   render() {
