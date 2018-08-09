@@ -8,6 +8,7 @@ describe('Toggle', () => {
 
   it('renders', () => {
     const result = renderComponent();
+    expect(findByClass(result, 'pui-toggle')).toBeDefined();
     expect(findByClass(result, 'toggle-switch')).toBeDefined();
   });
 

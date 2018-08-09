@@ -30,7 +30,7 @@ export class Toggle extends React.PureComponent {
       type: 'checkbox'
     });
 
-    return (<div>
+    return (<div className="pui-toggle">
       <input {...inputProps}/>
       <label {...{htmlFor: toggleId, className: classnames(size, className)}}>{children}</label>
     </div>);

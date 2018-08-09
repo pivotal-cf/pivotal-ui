@@ -1,6 +1,10 @@
 @import "../pui-variables";
 @import '../mixins';
 
+.pui-toggle {
+  position: relative;
+}
+
 .toggle-switch, .pui-toggle-switch {
   position: absolute;
   opacity: 0;
