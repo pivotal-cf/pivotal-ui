@@ -129,8 +129,6 @@
     "cssPath": "pivotal-ui/css/forms",
     "reactComponents": [
       "Form",
-      "FormRow",
-      "FormCol",
       "FormUnit"
     ],
     "reactPath": "pivotal-ui/react/forms"
