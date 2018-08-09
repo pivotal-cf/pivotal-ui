@@ -10,7 +10,7 @@ const htmlPlugin = new HtmlWebpackPlugin({template: 'index.html'});
 
 const prodConfig = {
   mode: 'production',
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   plugins: [
     new NamedModulesPlugin(),
     new ExtractTextPlugin('app.css'),
@@ -21,7 +21,7 @@ const prodConfig = {
 
 const devConfig = {
   mode: 'development',
-  entry: ['react-hot-loader/patch', './src/index.js'],
+  entry: ['react-hot-loader/patch', 'babel-polyfill', './src/index.js'],
   devServer: {
     hot: true,
     historyApiFallback: true,
