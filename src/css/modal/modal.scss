@@ -40,11 +40,15 @@
 }
 
 .pui-modal-body {
-  padding: $base-unit ($base-unit * 3) $base-unit ($base-unit * 3);
+  padding: $base-unit ($base-unit * 3) ($base-unit * 3) ($base-unit * 3);
 
   p {
     font-size: 18px;
     line-height: 24px;
+  }
+
+  &.pui-modal-has-footer {
+    padding-bottom: $base-unit;
   }
 }
 

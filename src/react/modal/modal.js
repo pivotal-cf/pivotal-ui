@@ -35,12 +35,17 @@ export class Modal extends PureComponent {
   }
 
   render() {
-    const {title, size, children, onHide, dialogClassName, footer, bodyClassName, footerClassName, ...props} = this.props;
+    const {
+      title, size, children, onHide, dialogClassName, footer, bodyClassName, footerClassName, ...props
+    } = this.props;
 
     const sizeClass = Modal.sizeClasses[size];
     const mergedDialogClassNames = classnames('pui-modal-dialog', dialogClassName, sizeClass);
     const width = sizeClass ? null : size;
-    const dialogProps = {...props, hideOnBackdropClick: true, hideOnEscKeyDown: true, dialogClassName: mergedDialogClassNames, onHide, ariaLabelledBy: this.titleId, className: 'pui-modal-dialog-backdrop'};
+    const dialogProps = {
+      ...props, hideOnBackdropClick: true, hideOnEscKeyDown: true, dialogClassName: mergedDialogClassNames, onHide,
+      ariaLabelledBy: this.titleId, className: 'pui-modal-dialog-backdrop'
+    };
     width && (dialogProps.width = width);
 
     return (
@@ -48,7 +53,7 @@ export class Modal extends PureComponent {
         <div className="pui-modal-header">
           <h3 className="pui-modal-title em-high" id={this.titleId}>{title}</h3>
         </div>
-        <div {...{className: classnames('pui-modal-body', bodyClassName)}}>{children}</div>
+        <div {...{className: classnames('pui-modal-body', {'pui-modal-has-footer': footer}, bodyClassName)}}>{children}</div>
         {footer && <div {...{className: classnames('pui-modal-footer', footerClassName)}}>{footer}</div>}
         <DefaultButton {...{
           className: 'pui-modal-close-btn',

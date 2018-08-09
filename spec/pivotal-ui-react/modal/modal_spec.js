@@ -58,6 +58,7 @@ describe('Modal', () => {
 
   it('does not render a footer', () => {
     expect('.pui-dialog.pui-modal-dialog .pui-modal-footer').not.toExist();
+    expect('.pui-dialog.pui-modal-dialog .pui-modal-body').not.toHaveClass('pui-modal-has-footer');
   });
 
   describe('when given a title', () => {
@@ -94,6 +95,7 @@ describe('Modal', () => {
     it('renders the footer in the dialog', () => {
       expect('.pui-dialog.pui-modal-dialog .pui-modal-footer h6').toHaveText('a footer');
       expect('.pui-dialog.pui-modal-dialog .pui-modal-footer').toHaveClass('some-footer-class');
+      expect('.pui-dialog.pui-modal-dialog .pui-modal-body').toHaveClass('pui-modal-has-footer');
     });
   });
 
