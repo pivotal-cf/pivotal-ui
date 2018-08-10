@@ -7,27 +7,27 @@ import classnames from 'classnames';
 
 export class FormUnit extends React.Component {
   static propTypes = {
+    children: PropTypes.node,
     className: PropTypes.string,
+    fieldRowClassName: PropTypes.string,
+    hasError: PropTypes.bool,
+    help: PropTypes.node,
+    hideHelpRow: PropTypes.bool,
     inline: PropTypes.bool,
     label: PropTypes.string,
     labelClassName: PropTypes.string,
     labelFor: PropTypes.string,
-    postLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
-    hideHelpRow: PropTypes.bool,
-    retainLabelHeight: PropTypes.bool,
     labelPosition: PropTypes.oneOf(['after']),
+    labelRowClassName: PropTypes.string,
     optional: PropTypes.bool,
     optionalText: PropTypes.string,
-    tooltip: PropTypes.node,
-    tooltipSize: PropTypes.oneOf(['sm', 'md', 'lg']),
-    tooltipPlacement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
-    children: PropTypes.node,
-    help: PropTypes.node,
-    hasError: PropTypes.bool,
-    state: PropTypes.object,
+    postLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    retainLabelHeight: PropTypes.bool,
     setValues: PropTypes.func,
-    fieldRowClassName: PropTypes.string,
-    labelRowClassName: PropTypes.string
+    state: PropTypes.object,
+    tooltip: PropTypes.node,
+    tooltipPlacement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
+    tooltipSize: PropTypes.oneOf(['sm', 'md', 'lg'])
   };
 
   static defaultProps = {
