@@ -198,6 +198,12 @@
     ],
     "reactPath": "pivotal-ui/react/notifications"
   },
+  "overlay_trigger": {
+    "reactComponents": [
+      "OverlayTrigger"
+    ],
+    "reactPath": "pivotal-ui/react/overlay-trigger"
+  },
   "pagination": {
     "cssPath": "pivotal-ui/css/pagination",
     "reactComponents": [
