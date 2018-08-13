@@ -15,13 +15,14 @@ const isPromise = promise => promise && typeof promise.then === 'function';
 const newId = () => crypto.randomBytes(16).toString('base64');
 const noop = () => undefined;
 
-const newFormState = (fields, cb) => getFieldEntries(fields)
+const newFormState = (fields, ids, cb) => getFieldEntries(fields)
   .reduce((memo, [name, props]) => {
     const {initialValue, currentValue} = cb({...props, name});
     memo.initial[name] = initialValue;
     memo.current[name] = currentValue;
+    memo.ids[name] = ids[name] || newId();
     return memo;
-  }, {initial: {}, current: {}, submitting: false, errors: {}});
+  }, {initial: {}, current: {}, ids, submitting: false, errors: {}});
 const newInitialValue = initialValue => [null, undefined].includes(initialValue) ? '' : initialValue;
 
 export class Form extends React.Component {
@@ -45,20 +46,20 @@ export class Form extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = newFormState(props.fields, ({initialValue}) => {
+    this.state = newFormState(props.fields, {}, ({initialValue}) => {
       initialValue = newInitialValue(initialValue);
       return {initialValue, currentValue: deepClone(initialValue)};
     });
     this.setState = this.setState.bind(this);
   }
 
-  // componentDidMount() {
-  //   require('../../css/forms');
-  // }
+  componentDidMount() {
+    require('../../css/forms');
+  }
 
   shouldComponentUpdate({fields}, nextState) {
     const {current, initial} = nextState;
-    const {initial: newInitial, current: newCurrent} = newFormState(fields,
+    const {initial: newInitial, ids, current: newCurrent} = newFormState(fields, nextState.ids,
       ({name, initialValue}) => {
         initialValue = newInitialValue(initialValue);
         return {
@@ -68,6 +69,7 @@ export class Form extends React.Component {
       });
     nextState.initial = newInitial;
     nextState.current = newCurrent;
+    nextState.ids = ids;
     return true;
   }
 
@@ -159,7 +161,7 @@ export class Form extends React.Component {
 
   setValues = (values, cb) => this.setState({current: {...this.state.current, ...values}}, cb);
 
-  controlField = ({children = <Input type="text"/>, validator, name}) => {
+  controlField = ({children = <Input type="text"/>, validator, name, ids}) => {
     const {canSubmit, canReset, reset, onSubmit, setValues, state, onChange, onBlur, onChangeCheckbox} = this;
     const {submitting} = state;
 
@@ -171,7 +173,8 @@ export class Form extends React.Component {
 
     if (!element || React.Children.count(element) !== 1 || !name) return element;
 
-    const props = {name: element.props.name || name, id: element.props.id || newId()};
+    const props = {name: element.props.name || name};
+    props.id = element.props.id || ids[props.name];
 
     if (element.props.type === 'checkbox') {
       props.checked = !!(element.props.hasOwnProperty('checked') ? element.props.checked : (state.current && state.current[name]));
@@ -189,11 +192,11 @@ export class Form extends React.Component {
     // eslint-disable-next-line no-unused-vars
     const {className, children, fields, onModified, onSubmitError, afterSubmit, resetOnSubmit, ...others} = this.props;
     const {canSubmit, canReset, reset, onSubmit, setValues, state, onBlur} = this;
-    const {current, submitting} = state;
+    const {current, submitting, ids} = state;
 
     const formUnits = getFieldEntries(fields).reduce((memo, [name, props]) => {
       const error = state.errors[name];
-      const children = this.controlField({...props, name});
+      const children = this.controlField({...props, name, ids});
       const help = error || props.help;
       const labelFor = props.labelFor || children.props.id;
       // eslint-disable-next-line no-unused-vars

@@ -7,32 +7,6 @@ import {Checkbox} from '../../../src/react/checkbox';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Page extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {renderCol: false};
-  }
-
-  render() {
-    const {renderCol} = this.state;
-
-    return (
-      <div>
-        <Form {...{ref: el => this.form = el, fields: {name: {}, password: renderCol && {}, other: {}}}}>
-          {({fields: {name, password, other}}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              {renderCol && <FlexCol>{password}</FlexCol>}
-              <FlexCol>{other}</FlexCol>
-            </Grid>
-          )}
-        </Form>
-        <Checkbox className="col-toggle" onChange={() => this.setState({renderCol: !renderCol})}/>
-      </div>
-    );
-  }
-}
-
 describe('Form', () => {
   let Buttons, subject, afterSubmit;
 
@@ -1037,7 +1011,11 @@ describe('Form', () => {
         submitting: false,
         errors: {},
         initial: {name: '', other: ''},
-        current: {name: 'some-name', other: ''}
+        current: {name: 'some-name', other: ''},
+        ids: {
+          name: jasmine.any(String),
+          other: jasmine.any(String)
+        }
       });
     });
 
@@ -1058,7 +1036,12 @@ describe('Form', () => {
           submitting: false,
           errors: {},
           initial: {name: '', password: '', other: ''},
-          current: {name: 'some-name', password: '', other: ''}
+          current: {name: 'some-name', password: '', other: ''},
+          ids: {
+            name: jasmine.any(String),
+            password: jasmine.any(String),
+            other: jasmine.any(String)
+          }
         });
       });
     });
