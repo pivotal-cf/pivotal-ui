@@ -97,7 +97,9 @@ export class Form extends React.Component {
     onModified(!deepEqual(initial, nextState.current));
   };
 
-  onBlur = ({name, validator}) => ({target: {value}}) => {
+  onBlur = ({name, validator}) => val => {
+    const value = val.target && 'value' in val.target ? val.target.value : val;
+
     const error = validator(value);
     this.setState({errors: {...this.state.errors, [name]: error}});
   };
@@ -168,7 +170,7 @@ export class Form extends React.Component {
     const element = typeof children !== 'function'
       ? children
       : children({
-        onChange: onChange(name, validator), canSubmit, canReset, reset, onSubmit, submitting, setValues, state
+        onChange: onChange(name, validator), canSubmit, canReset, reset, onSubmit, submitting, setValues, state, onBlur: onBlur({name, validator})
       });
 
     if (!element || React.Children.count(element) !== 1 || !name) return element;

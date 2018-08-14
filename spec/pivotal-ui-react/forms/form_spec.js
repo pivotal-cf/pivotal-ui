@@ -1082,29 +1082,160 @@ describe('Form', () => {
   });
 
   describe('when a field has a custom onChange', () => {
-    let persist;
 
-    beforeEach(() => {
-      persist = jasmine.createSpy('persist');
-      subject = ReactDOM.render(
-        <Form {...{
+    describe('when the field is not a collection', () => {
+      let persist;
+
+      beforeEach(() => {
+        persist = jasmine.createSpy('persist');
+        subject = ReactDOM.render(
+          <Form {...{
+            fields: {
+              title: {
+                children: ({setValues}) => <input {...{onChange: () => setValues({name: 'Jane'})}}/>
+              }, name: {initialValue: 'John'}
+            }
+          }}>
+            {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+          </Form>, root);
+        $('.form input').val('some-title').simulate('change', {target: {value: 'some-title'}, persist});
+      });
+
+      it('persists the event', () => {
+        expect(persist).toHaveBeenCalledWith();
+      });
+
+      it('updates the current state', () => {
+        expect(subject.state.current).toEqual({title: 'some-title', name: 'Jane'});
+      });
+    });
+
+    describe('when the field is a collection', () => {
+      beforeEach(() => {
+        subject = ReactDOM.render(<Form {...{
+          id: 'composite-fields-example',
           fields: {
-            title: {
-              children: ({setValues}) => <input {...{onChange: () => setValues({name: 'Jane'})}}/>
-            }, name: {initialValue: 'John'}
+            url: {
+              label: 'URL',
+              initialValue: {host: '', path: ''},
+              children: ({state: {current: {url: {host, path}}}, onChange}) => (
+                <Grid>
+                  <FlexCol fixed>https://</FlexCol>
+                  <FlexCol>
+                    <Input value={host} onChange={e => {
+                      e.stopPropagation();
+                      onChange({host: e.target.value, path});
+                    }}/>
+                  </FlexCol>
+                  <FlexCol fixed>/</FlexCol>
+                  <FlexCol>
+                    <Input value={path} onChange={e => {
+                      e.stopPropagation();
+                      onChange({host, path: e.target.value});
+                    }}/>
+                  </FlexCol>
+                </Grid>
+              )
+            }
           }
         }}>
-          {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+          {({fields, state: {current}}) => (
+            <div>
+              {fields.url}
+              State:
+              <pre>{JSON.stringify(current.url, null, 2)}</pre>
+            </div>
+          )}
         </Form>, root);
-      $('.form input').val('some-title').simulate('change', {target: {value: 'some-title'}, persist});
+        $('.form input:eq(0)').val('my-host').simulate('change');
+      });
+
+      it('changes the value of the host', () => {
+        expect(subject.state.current).toEqual({url: {host: 'my-host', path: ''}});
+      });
+    });
+  });
+
+  describe('when a field has a custom onBlur', () => {
+    let validator;
+
+    beforeEach(() => {
+      validator = jasmine.createSpy('validator').and.returnValue('');
     });
 
-    it('persists the event', () => {
-      expect(persist).toHaveBeenCalledWith();
+    describe('when the field is not a collection', () => {
+      beforeEach(() => {
+        subject = ReactDOM.render(
+          <Form {...{
+            fields: {
+              name: {
+                initialValue: 'John',
+                validator
+              }
+            }
+          }}>
+            {({fields}) => fields.name}
+          </Form>, root);
+        $('.form input').val('other-name').simulate('blur');
+      });
+
+      it('calls the validator with the correct value', () => {
+        expect(validator).toHaveBeenCalledWith('other-name');
+      });
+
+      it('updates the error state', () => {
+        expect(subject.state.errors).toEqual({name: ''});
+      });
     });
 
-    it('updates the current state', () => {
-      expect(subject.state.current).toEqual({title: 'some-title', name: 'Jane'});
+    describe('when the field is a collection', () => {
+      beforeEach(() => {
+        subject = ReactDOM.render(<Form {...{
+          id: 'composite-fields-example',
+          fields: {
+            url: {
+              label: 'URL',
+              validator,
+              initialValue: {host: '', path: ''},
+              children: ({state: {current: {url: {host, path}}}, onBlur}) => (
+                <Grid>
+                  <FlexCol fixed>https://</FlexCol>
+                  <FlexCol>
+                    <Input value={host} onBlur={e => {
+                      e.stopPropagation();
+                      onBlur({host: e.target.value, path});
+                    }}/>
+                  </FlexCol>
+                  <FlexCol fixed>/</FlexCol>
+                  <FlexCol>
+                    <Input value={path} onChange={e => {
+                      e.stopPropagation();
+                      onBlur({host, path: e.target.value});
+                    }}/>
+                  </FlexCol>
+                </Grid>
+              )
+            }
+          }
+        }}>
+          {({fields, state: {current}}) => (
+            <div>
+              {fields.url}
+              State:
+              <pre>{JSON.stringify(current.url, null, 2)}</pre>
+            </div>
+          )}
+        </Form>, root);
+        $('.form input:eq(0)').val('my-host').simulate('blur');
+      });
+
+      it('calls the validator with the correct value', () => {
+        expect(validator).toHaveBeenCalledWith({host: 'my-host', path: ''});
+      });
+
+      it('updates the error state', () => {
+        expect(subject.state.errors).toEqual({url: ''});
+      });
     });
   });
 
