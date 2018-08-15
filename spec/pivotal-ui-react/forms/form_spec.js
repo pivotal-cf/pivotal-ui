@@ -1283,4 +1283,66 @@ describe('Form', () => {
       expect(subject.state.current).toEqual({name: 'new-name', password: 'some-password'});
     });
   });
+
+  describe('composite field with a custom input', () => {
+    beforeEach(() => {
+      class CustomInput extends React.Component {
+        static propTypes = {value: PropTypes.string, onChange: PropTypes.func};
+        static defaultProps = {value: 'some-default-value'};
+
+        render() {
+          return <input {...this.props}/>;
+        }
+      }
+
+      ReactDOM.render(<Form {...{
+        fields: {input: {initialValue: CustomInput.defaultProps.value, children: <CustomInput/>}}
+      }}>{({fields: {input}}) => input}</Form>, root);
+    });
+
+    it('renders the initial value', () => {
+      expect('input').toHaveValue('some-default-value');
+    });
+
+    describe('when changing the input value', () => {
+      beforeEach(() => {
+        $('input').val('some-new-value').simulate('change');
+      });
+
+      it('renders the new value', () => {
+        expect('input').toHaveValue('some-new-value');
+      });
+    });
+  });
+
+  describe('composite field with a custom checkbox', () => {
+    beforeEach(() => {
+      class CustomCheckbox extends React.Component {
+        static propTypes = {checked: PropTypes.bool, onChange: PropTypes.func, type: PropTypes.string};
+        static defaultProps = {checked: true, type: 'checkbox'};
+
+        render() {
+          return <input {...this.props}/>;
+        }
+      }
+
+      ReactDOM.render(<Form {...{
+        fields: {checkbox: {initialValue: CustomCheckbox.defaultProps.checked, children: <CustomCheckbox/>}}
+      }}>{({fields: {checkbox}}) => checkbox}</Form>, root);
+    });
+
+    it('renders the initial value', () => {
+      expect('input').toBeChecked();
+    });
+
+    describe('when changing the input value', () => {
+      beforeEach(() => {
+        $('input').click();
+      });
+
+      it('renders the new value', () => {
+        expect('input').not.toBeChecked();
+      });
+    });
+  });
 });

@@ -170,7 +170,8 @@ export class Form extends React.Component {
     const element = typeof children !== 'function'
       ? children
       : children({
-        onChange: onChange(name, validator), canSubmit, canReset, reset, onSubmit, submitting, setValues, state, onBlur: onBlur({name, validator})
+        onChange: onChange(name, validator), canSubmit, canReset, reset, onSubmit, submitting, setValues, state,
+        onBlur: onBlur({name, validator})
       });
 
     if (!element || React.Children.count(element) !== 1 || !name) return element;
@@ -178,11 +179,17 @@ export class Form extends React.Component {
     const props = {name: element.props.name || name};
     props.id = element.props.id || ids[props.name];
 
+    const hasCurrentValue = state.current.hasOwnProperty(name);
+
     if (element.props.type === 'checkbox') {
-      props.checked = !!(element.props.hasOwnProperty('checked') ? element.props.checked : (state.current && state.current[name]));
+      props.checked = !!(hasCurrentValue
+        ? (state.current && state.current[name])
+        : element.props.checked);
       props.onChange = onChangeCheckbox(name, element.props.onChange);
     } else {
-      props.value = element.props.hasOwnProperty('value') ? element.props.value : (state.current && state.current[name]);
+      props.value = hasCurrentValue
+        ? (state.current && state.current[name])
+        : element.props.value;
       props.onChange = onChange(name, validator, element.props.onChange);
       if (validator) props.onBlur = onBlur({name, validator});
     }
