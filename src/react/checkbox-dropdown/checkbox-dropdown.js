@@ -5,7 +5,7 @@ import {Checkbox} from '../checkbox';
 import classnames from 'classnames';
 
 function doNothing() {
-};
+}
 
 export class CheckboxDropdown extends React.Component {
   static propTypes = {
@@ -91,7 +91,7 @@ export class CheckboxDropdown extends React.Component {
     });
 
     const checkBoxAllProps = {
-      className: 'all-checkbox man',
+      className: 'checkbox-dropdown-item-checkbox all-checkbox man',
       labelClassName: 'pui-checkbox-dropdown-item-label',
       checked: this.allSelected(),
       onClick: e => this.toggleAll(e),
@@ -100,19 +100,17 @@ export class CheckboxDropdown extends React.Component {
 
     const title = <span className="type-ellipsis">{this.getTitle()}</span>;
 
-    return (<Dropdown {...{
-      ...dropDownProps,
-      title,
-      closeOnMenuClick: false,
-      className: classnames('checkbox-dropdown', className)
-    }}>
-      <span className="checkbox-dropdown-item-checkbox show-all"
-            onSelect={e => this.toggleAll(e)}
-            checked={this.allSelected()}>
+    return (
+      <Dropdown {...{
+        ...dropDownProps,
+        title,
+        closeOnMenuClick: false,
+        className: classnames('checkbox-dropdown', className)
+      }}>
         <Checkbox {...checkBoxAllProps}>ALL</Checkbox>
-      </span>
-      {dropdownItems}
-    </Dropdown>);
+        {dropdownItems}
+      </Dropdown>
+    );
   }
 }
 
