@@ -415,7 +415,9 @@ textarea.valid {
     input[type="password"],
     textarea,
     select {
-      border: 1px solid $input-border-invalid;
+      &, &:focus {
+        border: 1px solid $input-border-invalid;
+      }
     }
   }
 }
