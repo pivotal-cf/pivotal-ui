@@ -21,7 +21,7 @@ const prodConfig = {
 
 const devConfig = {
   mode: 'development',
-  entry: ['react-hot-loader/patch', 'babel-polyfill', './src/index.js'],
+  entry: ['babel-polyfill', 'react-hot-loader/patch', './src/index.js'],
   devServer: {
     host: '0.0.0.0',
     hot: true,
