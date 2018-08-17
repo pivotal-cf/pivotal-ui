@@ -23,6 +23,7 @@ const devConfig = {
   mode: 'development',
   entry: ['react-hot-loader/patch', 'babel-polyfill', './src/index.js'],
   devServer: {
+    host: '0.0.0.0',
     hot: true,
     historyApiFallback: true,
     publicPath: '/',
