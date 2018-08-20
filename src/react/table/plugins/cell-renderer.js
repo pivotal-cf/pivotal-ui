@@ -9,6 +9,7 @@ export function withCellRenderer(Table) {
       return this.renderTable(Table, {
         td: (props, {column: {CellRenderer}, rowDatum}) => {
           if (!CellRenderer) return;
+          console.warn('CellRenderer plugin will be deprecated use renderTdChildren instead.');
           const cellRendererProps = {};
           if (CellRenderer.propTypes) {
             Object.keys(CellRenderer.propTypes).forEach(key => cellRendererProps[key] = rowDatum[key]);
