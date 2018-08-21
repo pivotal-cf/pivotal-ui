@@ -1214,4 +1214,20 @@ describe('Form', () => {
       });
     });
   });
+
+  describe('when initial value changes', () => {
+    let fields;
+
+    beforeEach(() => {
+      fields = {name: {initialValue: 'some-name'}};
+      subject = ReactDOM.render(<Form {...{fields}}>{({fields: {name}}) => name}</Form>, root);
+      fields = {name: {initialValue: 'some-other-name'}};
+      subject::setProps({fields});
+    });
+
+    it('changes the state', () => {
+      expect(subject.state.initial).toEqual({name: 'some-other-name'});
+      expect(subject.state.current).toEqual({name: 'some-other-name'});
+    });
+  });
 });

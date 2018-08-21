@@ -27,11 +27,11 @@ const newInitialValue = initialValue => [null, undefined].includes(initialValue)
 
 export class Form extends React.Component {
   static propTypes = {
+    afterSubmit: PropTypes.func,
     fields: PropTypes.object,
     onModified: PropTypes.func,
     onSubmit: PropTypes.func,
     onSubmitError: PropTypes.func,
-    afterSubmit: PropTypes.func,
     resetOnSubmit: PropTypes.bool
   };
 
@@ -58,16 +58,19 @@ export class Form extends React.Component {
   }
 
   shouldComponentUpdate({fields}, nextState) {
+    const isStateChange = nextState !== this.state;
     const {current, initial} = nextState;
     const {initial: newInitial, ids, current: newCurrent} = newFormState(fields, nextState.ids,
       ({name, initialValue}) => {
         initialValue = newInitialValue(initialValue);
         return {
-          initialValue: initial.hasOwnProperty(name) ? initial[name] : initialValue,
-          currentValue: current.hasOwnProperty(name) ? current[name] : deepClone(initialValue)
+          initialValue: initialValue,
+          currentValue: current.hasOwnProperty(name)
+            ? current[name] === this.state.initial[name] ? deepClone(initialValue) : current[name]
+            : deepClone(initialValue)
         };
       });
-    nextState.initial = newInitial;
+    nextState.initial = isStateChange ? initial : newInitial;
     nextState.current = newCurrent;
     nextState.ids = ids;
     return true;
