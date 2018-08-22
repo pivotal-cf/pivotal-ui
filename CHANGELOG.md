@@ -1,3 +1,83 @@
+<a name="17.0.0"></a>
+# 17.0.0 (2018-08-22)
+#### CSS
+* **alerts**: improve accessibility of alert close buttons [[:star:#159472807](https://www.pivotaltracker.com/story/show/159472807)] ([876493cd](https://github.com/pivotal-cf/pivotal-ui/commit/876493cd))
+* **backgrounds**: Remove background css ([f1547b87](https://github.com/pivotal-cf/pivotal-ui/commit/f1547b87))
+* **buttons**: Add :focus and :hover states for default flat buttons [[:beetle:#159605719](https://www.pivotaltracker.com/story/show/159605719)] ([638ec596](https://github.com/pivotal-cf/pivotal-ui/commit/638ec596))
+* **common**: improve accessibility of alert close buttons [[:star:#159472807](https://www.pivotaltracker.com/story/show/159472807)] ([876493cd](https://github.com/pivotal-cf/pivotal-ui/commit/876493cd))
+* **dialog**:
+  * Set overflow: hidden on pui-flyout-dialog-backdrop ([c74ab613](https://github.com/pivotal-cf/pivotal-ui/commit/c74ab613))
+  * Update flyout to only allow scrolling on the body [#158120117] ([e3971085](https://github.com/pivotal-cf/pivotal-ui/commit/e3971085))
+* **flyout**:
+  * Set overflow: hidden on pui-flyout-dialog-backdrop ([c74ab613](https://github.com/pivotal-cf/pivotal-ui/commit/c74ab613))
+  * Update flyout to only allow scrolling on the body [#158120117] ([e3971085](https://github.com/pivotal-cf/pivotal-ui/commit/e3971085))
+* **forms**: when focusing an invalid input/textarea/select in a composite component, the border remains red [#159776171] ([ccfa45e9](https://github.com/pivotal-cf/pivotal-ui/commit/ccfa45e9))
+* **iconography**:
+  * improve accessibility of alert close buttons [[:star:#159472807](https://www.pivotaltracker.com/story/show/159472807)] ([876493cd](https://github.com/pivotal-cf/pivotal-ui/commit/876493cd))
+  * Use 'report' icon for ErrorAlerts [[:star:#159472807](https://www.pivotaltracker.com/story/show/159472807)] ([71dc6da7](https://github.com/pivotal-cf/pivotal-ui/commit/71dc6da7))
+  * Add check_circle_outline icon [[:star:#159600744](https://www.pivotaltracker.com/story/show/159600744)] ([da6c67db](https://github.com/pivotal-cf/pivotal-ui/commit/da6c67db))
+* **mixins.scss**: improve accessibility of alert close buttons [[:star:#159472807](https://www.pivotaltracker.com/story/show/159472807)] ([876493cd](https://github.com/pivotal-cf/pivotal-ui/commit/876493cd))
+* **modal**:
+  * Fix Modal body bottom padding with/without footer [[:star:#159633137](https://www.pivotaltracker.com/story/show/159633137)] ([54cde128](https://github.com/pivotal-cf/pivotal-ui/commit/54cde128))
+  * Update flyout to only allow scrolling on the body [#158120117] ([e3971085](https://github.com/pivotal-cf/pivotal-ui/commit/e3971085))
+  * Increase specificity of modal close button [[:beetle:#157978614](https://www.pivotaltracker.com/story/show/157978614)] ([8498b989](https://github.com/pivotal-cf/pivotal-ui/commit/8498b989))
+* **toggle**: Add position: relative to div that wraps Toggle component [[:beetle:#158548185](https://www.pivotaltracker.com/story/show/158548185)] ([b322c772](https://github.com/pivotal-cf/pivotal-ui/commit/b322c772))
+* **tooltips**: keep tooltip visible when hovering over content [[:beetle:#159811731](https://www.pivotaltracker.com/story/show/159811731)] ([8777e307](https://github.com/pivotal-cf/pivotal-ui/commit/8777e307))
+#### React
+* **alerts**:
+  * improve accessibility of alert close buttons [[:star:#159472807](https://www.pivotaltracker.com/story/show/159472807)] ([876493cd](https://github.com/pivotal-cf/pivotal-ui/commit/876493cd))
+  * Use 'report' icon for ErrorAlerts [[:star:#159472807](https://www.pivotaltracker.com/story/show/159472807)] ([71dc6da7](https://github.com/pivotal-cf/pivotal-ui/commit/71dc6da7))
+* **autocomplete**: Lock trie-search to version 1.1.0 for IE compatibility [[:beetle:#158801137](https://www.pivotaltracker.com/story/show/158801137)] ([1a381016](https://github.com/pivotal-cf/pivotal-ui/commit/1a381016))
+* **checkbox**: allow custom form layouts [[:star:#159317578](https://www.pivotaltracker.com/story/show/159317578)] ([6c621a20](https://github.com/pivotal-cf/pivotal-ui/commit/6c621a20))
+* **checkbox-dropdown**: remove unnecessary span around the 'all' checkbox ([2d5100d3](https://github.com/pivotal-cf/pivotal-ui/commit/2d5100d3))
+* **dialog**: Update flyout to only allow scrolling on the body [#158120117] ([e3971085](https://github.com/pivotal-cf/pivotal-ui/commit/e3971085))
+* **flyout**: Update flyout to only allow scrolling on the body [#158120117] ([e3971085](https://github.com/pivotal-cf/pivotal-ui/commit/e3971085))
+* **forms**:
+  * Update Form state when initialValue changes [[:star:#159941766](https://www.pivotaltracker.com/story/show/159941766)] ([866e3012](https://github.com/pivotal-cf/pivotal-ui/commit/866e3012))
+  * fix bug that prevented users from updating a composite form field's value when the field has a defaultProps for the value [[:beetle:#159782516](https://www.pivotaltracker.com/story/show/159782516)] ([f9cdaae9](https://github.com/pivotal-cf/pivotal-ui/commit/f9cdaae9))
+  * Generate id for fields once [[:star:#159318497](https://www.pivotaltracker.com/story/show/159318497)] ([cb8b030b](https://github.com/pivotal-cf/pivotal-ui/commit/cb8b030b))
+  * Sort FormUnit props ([aa998948](https://github.com/pivotal-cf/pivotal-ui/commit/aa998948))
+  * New Form and FormUnit. Remove GridForm, FormRow and FormCol [[:star:#159416165](https://www.pivotaltracker.com/story/show/159416165)] ([a6717285](https://github.com/pivotal-cf/pivotal-ui/commit/a6717285))
+  * allow custom form layouts [[:star:#159317578](https://www.pivotaltracker.com/story/show/159317578)] ([6c621a20](https://github.com/pivotal-cf/pivotal-ui/commit/6c621a20))
+  * Do not force users to pass null when calling onChange [[:star:#159348538](https://www.pivotaltracker.com/story/show/159348538)] ([53622d02](https://github.com/pivotal-cf/pivotal-ui/commit/53622d02))
+  * Generate id for formCol children once [[:star:#159318497](https://www.pivotaltracker.com/story/show/159318497)] ([30cf2575](https://github.com/pivotal-cf/pivotal-ui/commit/30cf2575))
+  * Re-construct form state when children are changed [[:star:#159309702](https://www.pivotaltracker.com/story/show/159309702)] ([09de8993](https://github.com/pivotal-cf/pivotal-ui/commit/09de8993))
+* **modal**: Fix Modal body bottom padding with/without footer [[:star:#159633137](https://www.pivotaltracker.com/story/show/159633137)] ([54cde128](https://github.com/pivotal-cf/pivotal-ui/commit/54cde128))
+* **panels**: Make panel headers and titles vertically aligned [[:beetle:#159573411](https://www.pivotaltracker.com/story/show/159573411)] ([744a5020](https://github.com/pivotal-cf/pivotal-ui/commit/744a5020))
+* **radio**: RadioGroups can hold value and passes  and  to children [[:star:#159416165](https://www.pivotaltracker.com/story/show/159416165)] ([da2dccb1](https://github.com/pivotal-cf/pivotal-ui/commit/da2dccb1))
+* **table**:
+  * Add deprecation warning in CellRenderer table plugin [[:gear:#159903235](https://www.pivotaltracker.com/story/show/159903235)] ([1d243424](https://github.com/pivotal-cf/pivotal-ui/commit/1d243424))
+  * Introduce renderThChildren table plugin [[:gear:#159899107](https://www.pivotaltracker.com/story/show/159899107)] ([0ab59be2](https://github.com/pivotal-cf/pivotal-ui/commit/0ab59be2))
+  * Use TooltipTrigger instead of OverlayTrigger in Table plugin ([b2247290](https://github.com/pivotal-cf/pivotal-ui/commit/b2247290))
+* **toggle**: Add position: relative to div that wraps Toggle component [[:beetle:#158548185](https://www.pivotaltracker.com/story/show/158548185)] ([b322c772](https://github.com/pivotal-cf/pivotal-ui/commit/b322c772))
+<a name="16.2.0"></a>
+# 16.2.0 (2018-08-07)
+#### CSS
+* **iconography**: Add check_circle_outline icon [[:star:#159600744](https://www.pivotaltracker.com/story/show/159600744)] ([168df1a9](https://github.com/pivotal-cf/pivotal-ui/commit/168df1a9))
+<a name="16.1.0"></a>
+# 16.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
+<a name="16.0.2"></a>
+## 16.0.2 (2018-07-03)
+#### React
+* **autocomplete**: Lock trie-search to version 1.1.0 for IE compatibility [[:beetle:#158801137](https://www.pivotaltracker.com/story/show/158801137)] ([cb256588](https://github.com/pivotal-cf/pivotal-ui/commit/cb256588))
+<a name="16.0.1"></a>
+## 16.0.1 (2018-06-21)
+#### CSS
+* **dialog**:
+  * Set overflow: hidden on pui-flyout-dialog-backdrop ([ed72cd31](https://github.com/pivotal-cf/pivotal-ui/commit/ed72cd31))
+  * Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
+* **flyout**:
+  * Set overflow: hidden on pui-flyout-dialog-backdrop ([ed72cd31](https://github.com/pivotal-cf/pivotal-ui/commit/ed72cd31))
+  * Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
+* **modal**:
+  * Increase specificity of modal close button [[:beetle:#157978614](https://www.pivotaltracker.com/story/show/157978614)] ([de00535b](https://github.com/pivotal-cf/pivotal-ui/commit/de00535b))
+  * Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
+  * Increase specificity of modal close button [[:beetle:#157978614](https://www.pivotaltracker.com/story/show/157978614)] ([3f1e8d83](https://github.com/pivotal-cf/pivotal-ui/commit/3f1e8d83))
+#### React
+* **dialog**: Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
+* **flyout**: Update flyout to only allow scrolling on the body [#158120117] ([0a7502a1](https://github.com/pivotal-cf/pivotal-ui/commit/0a7502a1))
 <a name="16.0.0"></a>
 # 16.0.0 (2018-05-24)
 #### CSS
@@ -81,6 +161,10 @@
 * **stream-list**: delete stream-list [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([aa0222de](https://github.com/pivotal-cf/pivotal-ui/commit/aa0222de))
 * **table**: Add withRenderTdChildren table plugin [[:beetle:#157580060](https://www.pivotaltracker.com/story/show/157580060)] ([4893562c](https://github.com/pivotal-cf/pivotal-ui/commit/4893562c))
 * **toggle**: Move toggle css from form.scss into its own file [[:beetle:#157613435](https://www.pivotaltracker.com/story/show/157613435)] ([14e244e8](https://github.com/pivotal-cf/pivotal-ui/commit/14e244e8))
+<a name="15.1.0"></a>
+# 15.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
 <a name="15.0.0"></a>
 # 15.0.0 (2018-03-29)
 #### CSS
@@ -109,6 +193,10 @@
   * Pagination component calls onSelect with newActivePage [[:star:#156202613](https://www.pivotaltracker.com/story/show/156202613)] ([cafffdb0](https://github.com/pivotal-cf/pivotal-ui/commit/cafffdb0))
   * Rewrite Pagination component [#155640854] ([9f1b2262](https://github.com/pivotal-cf/pivotal-ui/commit/9f1b2262))
 * **tabs**: Load styles when tabs mount [[:beetle:#154842004](https://www.pivotaltracker.com/story/show/154842004)] ([e0a56d30](https://github.com/pivotal-cf/pivotal-ui/commit/e0a56d30))
+<a name="14.1.0"></a>
+# 14.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
 <a name="14.0.0"></a>
 # 14.0.0 (2018-02-16)
 #### CSS
@@ -174,6 +262,11 @@
 * **tabs**:
   * Load styles when tabs mount [[:beetle:#154842004](https://www.pivotaltracker.com/story/show/154842004)] ([16d52229](https://github.com/pivotal-cf/pivotal-ui/commit/16d52229))
   * Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+<a name="13.1.0"></a>
+# 13.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+#### React
+* **copy-to-clipboard**: Make CopyToClipboard work for text with newlines [[:beetle:#154782444](https://www.pivotaltracker.com/story/show/154782444)] (#555) ([572e4192](https://github.com/pivotal-cf/pivotal-ui/commit/572e4192))
 <a name="13.0.2"></a>
 ## 13.0.2 (2018-02-14)
 #### CSS
@@ -216,6 +309,11 @@
 * **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([cb751ce1](https://github.com/pivotal-cf/pivotal-ui/commit/cb751ce1))
 * **tabs**: Pull title prop off TabContent so it does not end up on inner div [[:beetle:#153425866](https://www.pivotaltracker.com/story/show/153425866)] ([30564caa](https://github.com/pivotal-cf/pivotal-ui/commit/30564caa))
 * **wizard**: Update Wizard component with backComponent, finishComponent, and hideFinishButton [[:star:#153856072](https://www.pivotaltracker.com/story/show/153856072)] ([2525046e](https://github.com/pivotal-cf/pivotal-ui/commit/2525046e))
+<a name="12.4.0"></a>
+# 12.4.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+#### React
+* **copy-to-clipboard**: Make CopyToClipboard work for text with newlines [[:beetle:#154782444](https://www.pivotaltracker.com/story/show/154782444)] (#555) ([54740944](https://github.com/pivotal-cf/pivotal-ui/commit/54740944))
 <a name="12.3.0"></a>
 # 12.3.0 (2018-01-11)
 #### CSS
@@ -292,6 +390,10 @@
   * when table columns are implicit, do not set the display name [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([c1c27f61](https://github.com/pivotal-cf/pivotal-ui/commit/c1c27f61))
   * table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([9537c680](https://github.com/pivotal-cf/pivotal-ui/commit/9537c680))
 * **toggle**: include form css from toggle component [[:gear:#153427216](https://www.pivotaltracker.com/story/show/153427216)] ([abde0a56](https://github.com/pivotal-cf/pivotal-ui/commit/abde0a56))
+<a name="11.2.0"></a>
+# 11.2.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
 <a name="11.1.4"></a>
 ## 11.1.4 (2018-01-04)
 #### React
@@ -407,6 +509,13 @@
   * Always allow the 'display' prop to set visibility ([2f738702](https://github.com/pivotal-cf/pivotal-ui/commit/2f738702))
   * Allow manual control of TooltipTrigger visibility ([ab89565d](https://github.com/pivotal-cf/pivotal-ui/commit/ab89565d))
 * **wizard**: Add saving and savingText props to Wizard [[:star:#151932325](https://www.pivotaltracker.com/story/show/151932325)] ([66e8b923](https://github.com/pivotal-cf/pivotal-ui/commit/66e8b923))
+<a name="10.4.0"></a>
+# 10.4.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+#### CSS
+* **tables**: Fix missing bottom border on table footer row [#153578787] ([c15f4380](https://github.com/pivotal-cf/pivotal-ui/commit/c15f4380))
+#### React
+* **iconography**: use react 15 as a dev dep, allow react 15 or 16 as peer dependencies [[:gear:#157639580](https://www.pivotaltracker.com/story/show/157639580)] ([2c9e294d](https://github.com/pivotal-cf/pivotal-ui/commit/2c9e294d))
 <a name="10.3.3"></a>
 ## 10.3.3 (2018-01-04)
 #### React
