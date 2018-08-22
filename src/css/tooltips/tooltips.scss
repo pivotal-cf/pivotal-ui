@@ -25,6 +25,8 @@
 
   &.tooltip-hoverable {
     &:after {
+      content: "";
+      z-index: -100;
       position: absolute;
       width: calc(100% + 16px);
       height: calc(100% + 16px);
