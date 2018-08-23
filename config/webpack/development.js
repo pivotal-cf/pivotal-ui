@@ -9,10 +9,6 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /bootstrap/,
-        loader: 'imports?jQuery=jquery'
-      },
-      {
         test: /\.(eot|ttf|woff)$/,
         loader: 'url-loader',
       },
