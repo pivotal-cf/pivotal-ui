@@ -23,6 +23,11 @@ window.colorPalette = {
   success: [1, 2, 3, 4, 5, 6]
 };
 
+const ScrollToTop = () => {
+  window.scrollTo(0, 0);
+  return null;
+};
+
 export default class App extends Component {
   render() {
     const {routes, location} = this.props;
@@ -33,6 +38,7 @@ export default class App extends Component {
       <div id="app">
         <Sidebar {...{routes, currentRoute: location.pathname}}/>
         <div id="content" className="content">
+          <Route component={ScrollToTop}/>
           <Switch>
             {Object.keys(routes).map((path, key) =>
               <Route exact {...{key, path, render: props => <Page {...{...props, routes}}/>}}/>
