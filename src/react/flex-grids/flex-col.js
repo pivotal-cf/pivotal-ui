@@ -3,26 +3,6 @@ import PropTypes from 'prop-types';
 import {mergeProps} from '../helpers';
 import classnames from 'classnames';
 
-export class Grid extends React.PureComponent {
-  static propTypes = {
-    gutter: PropTypes.bool
-  };
-
-  static defaultProps = {
-    gutter: true
-  };
-
-  componentDidMount() {
-    require('../../css/flex-grids');
-  }
-
-  render() {
-    const {gutter, ...props} = this.props;
-    const newProps = mergeProps(props, {className: classnames('grid', gutter ? '' : 'grid-nogutter')});
-    return <div {...newProps}/>;
-  }
-}
-
 export class FlexCol extends React.Component {
   static propTypes = {
     col: PropTypes.number,
