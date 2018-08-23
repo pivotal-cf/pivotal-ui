@@ -244,11 +244,7 @@
     "reactPath": "pivotal-ui/react/radio"
   },
   "select": {
-    "cssPath": "pivotal-ui/css/select",
-    "reactComponents": [
-      "Select"
-    ],
-    "reactPath": "pivotal-ui/react/select"
+    "cssPath": "pivotal-ui/css/select"
   },
   "svg": {
     "reactComponents": [
