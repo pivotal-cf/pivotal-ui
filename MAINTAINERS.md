@@ -3,9 +3,9 @@
 ## Core maintainers
 
 * Jonathan Berney ([@jberney](https://github.com/jberney))
-* Steven Locke ([@StevenLocke](https://github.com/StevenLocke))
 * Reid Mitchell ([@reid47](https://github.com/reid47))
 * Ming Xiao ([@mingxiao](https://github.com/mingxiao))
+* Sarah Weinstein ([@sweinstein22](https://github.com/sweinstein22))
 
 ## Past maintainers
 
@@ -15,3 +15,4 @@
 * Elana Koren ([@elanakoren](https://github.com/elanakoren))
 * Anushka Makhija ([@amakhija](https://github.com/amakhija))
 * Elena Sharma ([@elenasharma](https://github.com/elenasharma))
+* Steven Locke ([@StevenLocke](https://github.com/StevenLocke))
