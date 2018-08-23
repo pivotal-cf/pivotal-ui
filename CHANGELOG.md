@@ -1,3 +1,10 @@
+<a name="17.0.1"></a>
+## 17.0.1 (2018-08-23)
+#### CSS
+* **flex-grids**: New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([4fed70c9](https://github.com/pivotal-cf/pivotal-ui/commit/4fed70c9))
+#### React
+* **flex-grids**: New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([4fed70c9](https://github.com/pivotal-cf/pivotal-ui/commit/4fed70c9))
+* **tabs**: New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([4fed70c9](https://github.com/pivotal-cf/pivotal-ui/commit/4fed70c9))
 <a name="17.0.0"></a>
 # 17.0.0 (2018-08-22)
 #### CSS
