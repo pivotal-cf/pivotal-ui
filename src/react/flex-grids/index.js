@@ -1,1 +1,2 @@
-export {FlexCol, Grid} from './flex-grids';
+export {Grid} from './grid';
+export {FlexCol} from './flex-col';

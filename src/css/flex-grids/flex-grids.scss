@@ -1,6 +1,7 @@
 @import "../pui-variables";
 
 $base-unit: 8px;
+$justifyContentProps: flex-start flex-end center space-between space-around space-evenly;
 
 .grid {
   box-sizing: border-box;
@@ -27,6 +28,12 @@ $base-unit: 8px;
     margin: 0;
     & > .col {
       padding: 0;
+    }
+  }
+
+  @each $prop in $justifyContentProps {
+    &.justify-content-#{$prop} {
+      justify-content: $prop;
     }
   }
 }

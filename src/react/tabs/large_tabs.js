@@ -5,7 +5,7 @@ import TabContent from './tab_content';
 import TabHeaders from './tab_headers';
 import classnames from 'classnames';
 import {default as mixin} from '../mixins';
-import {FlexCol, Grid} from '../flex-grids/flex-grids';
+import {FlexCol, Grid} from '../flex-grids';
 
 export class LargeTabs extends mixin(React.Component).with(Animation) {
   static propTypes = {
