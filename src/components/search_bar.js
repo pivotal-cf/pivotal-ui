@@ -4,17 +4,17 @@ import {Input} from 'pivotal-ui/react/inputs';
 import SearchResult from './search_result';
 import {withRouter} from 'react-router-dom';
 
-const searchItems = [];
+let searchItems;
 
 class SearchBar extends PureComponent {
   constructor(props) {
     super(props);
     const {routes} = props;
 
-    Object.values(routes).forEach(route => {
+    searchItems = Object.values(routes).map(route => {
       if (route.route === '/' || route.route === '/404') return;
-      searchItems.push(route);
-    });
+      return route;
+    }).filter(Boolean);
   }
 
   onPick = route => {
