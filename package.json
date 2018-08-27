@@ -76,7 +76,10 @@
     "lint": "eslint src docs spec --ext .js,.md --fix"
   },
   "jest": {
-    "testRegex": ".*_spec\\.js$",
-    "setupTestFrameworkScriptFile": "<rootDir>/spec/spec_helper.js"
+    "moduleNameMapper": {
+      "^pivotal-ui/react/(.*)": "<rootDir>/../pivotal-ui/src/react/$1"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/spec/spec_helper.js",
+    "testRegex": ".*_spec\\.js$"
   }
 }
