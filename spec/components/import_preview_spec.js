@@ -1,11 +1,10 @@
-import '../spec_helper';
 import ImportPreview from '../../src/components/import_preview';
 
 describe('ImportPreview', () => {
   let subject;
 
   beforeEach(() => {
-    subject = ReactDOM.render(<ImportPreview/>, root);
+    subject = testRender(<ImportPreview/>);
   });
 
   it('renders nothing with CSS or React paths', () => {
@@ -14,7 +13,7 @@ describe('ImportPreview', () => {
 
   describe('with only a CSS path', () => {
     beforeEach(() => {
-      subject::setProps({cssPath: 'pivotal-ui/css/alerts'});
+      subject.setProps({cssPath: 'pivotal-ui/css/alerts'});
     });
 
     it('renders only one import preview', () => {
@@ -33,7 +32,7 @@ describe('ImportPreview', () => {
 
   describe('with only a React path', () => {
     beforeEach(() => {
-      subject::setProps({reactPath: 'pivotal-ui/react/alerts'});
+      subject.setProps({reactPath: 'pivotal-ui/react/alerts'});
     });
 
     it('renders only one import preview', () => {
@@ -43,7 +42,7 @@ describe('ImportPreview', () => {
 
     describe('with one React component', () => {
       beforeEach(() => {
-        subject::setProps({reactComponents: ['Component1']});
+        subject.setProps({reactComponents: ['Component1']});
       });
 
       it('renders the correct label and text', () => {
@@ -57,7 +56,7 @@ describe('ImportPreview', () => {
 
     describe('with multiple React components', () => {
       beforeEach(() => {
-        subject::setProps({reactComponents: ['Component1', 'Component2']});
+        subject.setProps({reactComponents: ['Component1', 'Component2']});
       });
 
       it('renders the correct label and text', () => {
@@ -72,7 +71,7 @@ describe('ImportPreview', () => {
 
   describe('with both CSS and React paths', () => {
     beforeEach(() => {
-      subject::setProps({
+      subject.setProps({
         cssPath: 'pivotal-ui/css/alerts',
         reactPath: 'pivotal-ui/react/alerts',
         reactComponents: ['Component1', 'Component2']

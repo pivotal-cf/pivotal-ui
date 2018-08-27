@@ -3,12 +3,17 @@
   "env": {
     "es6": true,
     "node": true,
-    "jasmine": true,
+    "jest": true,
     "browser": true
+  },
+  "globals": {
+    "spyOnRender": true,
+    "testRender": true,
+    "React": true
   },
   "plugins": [
     "react",
-    "jasmine",
+    "jest",
     "markdown"
   ],
   "rules": {
@@ -23,7 +28,7 @@
     "dot-notation": 2,
     "eqeqeq": 2,
     "eol-last": 0,
-    "jasmine/no-focused-tests": 2,
+    "jest/no-focused-tests": 2,
     "key-spacing": 2,
     "no-caller": 2,
     "no-console": [2, {"allow": ["warn", "error"]}],
@@ -61,7 +66,7 @@
     "no-undef": 2,
     "no-underscore-dangle": 0,
     "no-unused-expressions": 0,
-    "no-unused-vars": 2,
+    "no-unused-vars":  ["error", { "varsIgnorePattern": "React" }],
     "no-void": 2,
     "no-warning-comments": 2,
     "no-with": 2,

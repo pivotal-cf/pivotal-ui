@@ -10,14 +10,14 @@ describe('RoutesHelper', () => {
       processor = {};
       json1 = {a: 1, b: 2};
       json2 = {c: 3, d: 4};
-      spyOn(MarkdownFileHelper, 'getRoute').and.callThrough();
-      spyOn(MarkdownFileHelper, 'getTabHeaderIndex').and.callFake(file => file === './parent1/file1.md' ? 1 : 2);
-      spyOn(MarkdownFileHelper, 'getPageTitle').and.callThrough();
-      spyOn(MarkdownFileHelper, 'getParentTitle').and.callThrough();
-      spyOn(MarkdownFileHelper, 'getCategory').and.callThrough();
-      spyOn(MarkdownFileHelper, 'process').and.callFake(({json}) => ({processed: json}));
-      requireFunc = jasmine.createSpy('requireFunc').and.callFake(file => file === './parent1/file1.md' ? json1 : json2);
-      requireFunc.keys = jasmine.createSpy('keys').and.returnValue(['./parent1/file1.md', './components/parent2/file2.md']);
+      jest.spyOn(MarkdownFileHelper, 'getRoute').mockImplementation(file => file === './parent1/file1.md' ? '/parent1/file1' : '/components/parent2/file2');
+      jest.spyOn(MarkdownFileHelper, 'getTabHeaderIndex').mockImplementation(file => file === './parent1/file1.md' ? 1 : 2);
+      jest.spyOn(MarkdownFileHelper, 'getPageTitle');
+      jest.spyOn(MarkdownFileHelper, 'getParentTitle');
+      jest.spyOn(MarkdownFileHelper, 'getCategory');
+      jest.spyOn(MarkdownFileHelper, 'process').mockImplementation(({json}) => ({processed: json}));
+      requireFunc = jest.fn(file => file === './parent1/file1.md' ? json1 : json2);
+      requireFunc.keys = jest.fn().mockReturnValue(['./parent1/file1.md', './components/parent2/file2.md']);
       result = RoutesHelper.getRoutes({requireFunc, processor});
     });
 
@@ -65,7 +65,7 @@ describe('RoutesHelper', () => {
           tabHeaderIndex: 1,
           pageTitle: 'file1',
           parentTitle: 'parent1',
-          category: 'info',
+          category: 'info'
         },
         '/components/parent2/file2': {
           file: './components/parent2/file2.md',

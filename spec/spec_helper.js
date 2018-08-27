@@ -1,33 +1,26 @@
-import jQuery from 'jquery';
-import ReactDOM from 'react-dom';
-import React from 'react';
-
 require('babel-polyfill');
-require('pivotal-js-jasmine-matchers');
+
+import './support/matchers/jest_dom';
+import jQuery from 'jquery';
+import React from 'react';
+import {testRender, testReset} from './support/matchers/jest_react';
+
+function spyOnRender(componentClass, returnValue = null) {
+  return jest.spyOn(componentClass.prototype, 'render').mockReturnValue(returnValue);
+}
 
 const globals = {
   $: jQuery,
-  jQuery,
-  ReactDOM,
   React,
-  ...require('pivotal-js-react-test-helpers')
+  testRender,
+  spyOnRender
 };
-
-jasmine.getEnv().randomizeTests(false);
 
 Object.assign(global, globals);
 
-beforeAll(() => {
-  jasmine.MAX_PRETTY_PRINT_DEPTH = 5;
-  jasmine.MAX_PRETTY_PRINT_ARRAY_LENGTH = 25;
-});
-
-beforeEach(() => {
-  $('body').find('#root').remove().end().append('<div id="root"/>');
-});
-
 afterEach(() => {
-  ReactDOM.unmountComponentAtNode(root);
+  testReset();
+  jest.clearAllMocks();
 });
 
 afterAll(() => {

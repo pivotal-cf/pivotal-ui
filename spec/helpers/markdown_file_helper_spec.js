@@ -1,4 +1,3 @@
-import '../spec_helper';
 import MarkdownFileHelper from '../../src/helpers/markdown_file_helper';
 
 describe('MarkdownFileHelper', () => {
@@ -13,9 +12,10 @@ describe('MarkdownFileHelper', () => {
 
     beforeEach(() => {
       json = {a: 1, b: 2};
-      processor = jasmine.createSpyObj('processor', ['runSync', 'stringify']);
-      processor.runSync.and.returnValue('runSyncOutput');
-      processor.stringify.and.returnValue('stringifyOutput');
+      processor = {
+        runSync: jest.fn(() => 'runSyncOutput'),
+        stringify: jest.fn(() => 'stringifyOutput')
+      };
       result = MarkdownFileHelper.process({processor, json});
     });
 
@@ -37,7 +37,7 @@ describe('MarkdownFileHelper', () => {
       result = MarkdownFileHelper.getRoute(file);
     });
 
-    it('strips the numbers from the route', () => {
+    it('strips the numbers, leading dots, and trailing .md file extension from the route', () => {
       expect(result).toBe('/components/hello_world/usage_and_examples');
     });
   });
@@ -188,7 +188,7 @@ describe('MarkdownFileHelper', () => {
     });
 
     it('returns info by default', () => {
-      expect(result).toBe('info')
+      expect(result).toBe('info');
     });
 
     describe('when the file has a category', () => {

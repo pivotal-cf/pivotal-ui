@@ -1,15 +1,15 @@
-import '../../spec_helper';
 import HeadingRenderer from '../../../src/components/renderers/heading_renderer';
+import {testRender} from '../../support/matchers/jest_react';
 
 describe('HeadingRenderer', () => {
   let Heading, subject;
 
   beforeEach(() => {
     Heading = HeadingRenderer(6);
-    subject = ReactDOM.render(<Heading {...{
+    subject = testRender(<Heading {...{
       className: 'test-heading',
       children: ['I am a heading!']
-    }}/>, root);
+    }}/>);
   });
 
   it('renders a heading with correct class names', () => {
@@ -26,7 +26,7 @@ describe('HeadingRenderer', () => {
 
   describe('without children', () => {
     beforeEach(() => {
-      subject::setProps({children: undefined});
+      subject.setProps({children: undefined});
     });
 
     it('renders an empty heading', () => {

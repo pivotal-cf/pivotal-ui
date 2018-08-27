@@ -1,25 +1,25 @@
-import '../../spec_helper';
 import LinkRenderer from '../../../src/components/renderers/link_renderer';
 import {Link} from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
+import {testRender} from '../../support/matchers/jest_react';
 
 describe('LinkRenderer', () => {
   let href, children;
 
   beforeEach(() => {
-    spyOnRender(Link).and.callThrough();
+    spyOnRender(Link);
   });
 
   describe('when the href is external', () => {
     beforeEach(() => {
       href = 'http://www.some_website.com';
       children = ['external link'];
-      ReactDOM.render(<LinkRenderer {...{href, children}}/>, root);
+      testRender(<LinkRenderer {...{href, children}}/>);
     });
 
     it('renders an <a> tag', () => {
-      expect('#root > a').toHaveAttr('href', 'http://www.some_website.com');
-      expect('#root > a').toHaveText('external link');
+      expect('a').toHaveAttr('href', 'http://www.some_website.com');
+      expect('a').toHaveText('external link');
     });
   });
 
@@ -27,12 +27,12 @@ describe('LinkRenderer', () => {
     beforeEach(() => {
       href = '/static/versions/v205';
       children = ['Version 205'];
-      ReactDOM.render(<LinkRenderer {...{href, children}}/>, root);
+      testRender(<LinkRenderer {...{href, children}}/>);
     });
 
     it('renders an <a> tag', () => {
-      expect('#root > a').toHaveAttr('href', '/static/versions/v205');
-      expect('#root > a').toHaveText('Version 205');
+      expect('a').toHaveAttr('href', '/static/versions/v205');
+      expect('a').toHaveText('Version 205');
     });
   });
 
@@ -40,14 +40,11 @@ describe('LinkRenderer', () => {
     beforeEach(() => {
       href = '/some/page/on/this/domain';
       children = ['name of page'];
-      ReactDOM.render(<Router><LinkRenderer {...{href, children}}/></Router>, root);
+      testRender(<Router><LinkRenderer {...{href, children}}/></Router>);
     });
 
     it('renders a react router Link', () => {
-      expect(Link).toHaveBeenRenderedWithProps({to: href, replace: false});
-      expect('#root > a').toHaveText('name of page');
+      expect(Link).toHaveBeenRenderedWithProps({to: href, replace: false, children: 'name of page'});
     });
   });
-
-
 });

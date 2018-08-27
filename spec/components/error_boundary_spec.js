@@ -1,4 +1,3 @@
-import '../spec_helper';
 import ErrorBoundary from '../../src/components/error_boundary';
 
 describe('ErrorBoundary', () => {
@@ -7,7 +6,7 @@ describe('ErrorBoundary', () => {
   beforeEach(() => {
     error = new Error('some error');
     info = {ComponentStack: 'here'};
-    subject = ReactDOM.render(<ErrorBoundary><div className="hello">hello</div></ErrorBoundary>, root);
+    subject = testRender(<ErrorBoundary><div className="hello">hello</div></ErrorBoundary>);
   });
 
   describe('when an error was caught', () => {
@@ -16,7 +15,7 @@ describe('ErrorBoundary', () => {
     });
 
     it('renders an error pre tag', () => {
-      expect('#root pre').toHaveText('some error');
+      expect('pre').toHaveText('some error');
     });
   });
 

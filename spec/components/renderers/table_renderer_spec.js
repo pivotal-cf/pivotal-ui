@@ -1,30 +1,30 @@
-import '../../spec_helper';
 import TableRenderer from '../../../src/components/renderers/table_renderer';
+import {testRender} from '../../support/matchers/jest_react';
 
 describe('TableRenderer', () => {
   beforeEach(() => {
-    ReactDOM.render(<TableRenderer {...{
+    testRender(<TableRenderer {...{
       className: 'test-table-class',
       id: 'test-table-id',
       children: [
         <thead>
-          <tr>
-            <th>col1</th>
-            <th>col2</th>
-          </tr>
+        <tr>
+          <th>col1</th>
+          <th>col2</th>
+        </tr>
         </thead>,
         <tbody>
-          <tr>
-            <td>A</td>
-            <td>B</td>
-          </tr>
-          <tr>
-            <td>C</td>
-            <td>D</td>
-          </tr>
+        <tr>
+          <td>A</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>D</td>
+        </tr>
         </tbody>
       ]
-    }}/>, root);
+    }}/>);
   });
 
   it('renders a table', () => {

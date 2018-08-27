@@ -4,11 +4,6 @@
       "plugins": [
         "stack-trace-sourcemap"
       ]
-    },
-    "test": {
-      "plugins": [
-        "stack-trace-sourcemap"
-      ]
     }
   },
   "presets": [
