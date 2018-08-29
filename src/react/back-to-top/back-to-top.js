@@ -27,14 +27,17 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
   componentDidMount() {
     require('../../css/back-to-top');
     this.updateScroll = throttle(this.updateScroll, 100);
-    window.addEventListener('scroll', this.updateScroll);
     const {scrollableId} = this.props;
     const element = scrollableId && document.getElementById(scrollableId);
+    if (element) element.addEventListener('scroll', this.updateScroll);
+    else window.addEventListener('scroll', this.updateScroll);
     privates.set(this, {element});
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.updateScroll);
+    const {element} = privates.get(this);
+    if (element) element.removeEventListener('scroll', this.updateScroll);
+    else window.removeEventListener('scroll', this.updateScroll);
   }
 
   updateScroll = () => {
