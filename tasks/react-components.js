@@ -50,6 +50,7 @@ gulp.task('react-build-svgs', async() => {
   for (let i = 0; i < svgInfos.length; i++) {
     const {item, promise} = svgInfos[i];
     const name = item.replace(/\.svg$/, '');
+    if (name.startsWith('.')) continue;
     const svg = await promise;
     svgs.push({name, svg});
   }
