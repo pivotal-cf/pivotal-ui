@@ -18,8 +18,12 @@ describe('BackToTop', () => {
   });
 
   describe('without scrollableId', () => {
+    let subject;
+
     beforeEach(done => {
-      ReactDOM.render(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>, root);
+      spyOn(window, 'addEventListener').and.callThrough();
+      spyOn(window, 'removeEventListener').and.callThrough();
+      subject = ReactDOM.render(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>, root);
 
       jasmine.clock().uninstall();
       setTimeout(() => {
@@ -28,6 +32,10 @@ describe('BackToTop', () => {
         triggerScroll();
         done();
       }, 0);
+    });
+
+    it('adds an event listener to the window', () => {
+      expect(window.addEventListener).toHaveBeenCalledWith('scroll', subject.updateScroll);
     });
 
     it('passes down the className, id, and style properties', () => {
@@ -52,6 +60,11 @@ describe('BackToTop', () => {
       MockNow.tick(BackToTop.FADE_DURATION / 2);
       MockRaf.next();
       expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 1, 'font-size': '200px'});
+    });
+
+    it('removes an event listener from the window', () => {
+      ReactDOM.unmountComponentAtNode(root);
+      expect(window.removeEventListener).toHaveBeenCalledWith('scroll', subject.updateScroll);
     });
 
     describe('when the scroll top is less than 400', () => {
@@ -107,13 +120,22 @@ describe('BackToTop', () => {
   });
 
   describe('with a scrollableId', () => {
-    let scrollableId;
+    let scrollableId, element, updateScroll;
 
     beforeEach(done => {
       scrollableId = 'scrollable';
+      element = jasmine.createSpyObj('element', ['addEventListener', 'removeEventListener']);
+      spyOn(document, 'getElementById').and.returnValue(element);
       ReactDOM.render(<div id={scrollableId} style={{height: '100px', maxHeight: '100px', overflowY: 'scroll'}}>
         <div {...{height: '500px'}}/>
-        <BackToTop {...{className: 'foo', id: 'bar', style: {fontSize: '500px'}, scrollableId}}/>
+        <BackToTop {...{
+          ref: el => {
+            if (el) updateScroll = el.updateScroll;
+          },
+          className: 'foo',
+          id: 'bar',
+          style: {fontSize: '500px'}, scrollableId
+        }}/>
       </div>, root);
 
       jasmine.clock().uninstall();
@@ -125,23 +147,32 @@ describe('BackToTop', () => {
       }, 0);
     });
 
+    it('adds an event listener to the element', () => {
+      expect(element.addEventListener).toHaveBeenCalledWith('scroll', updateScroll);
+    });
+
+    it('removes an event listener from the window', () => {
+      ReactDOM.unmountComponentAtNode(root);
+      expect(element.removeEventListener).toHaveBeenCalledWith('scroll', updateScroll);
+    });
+
     describe('when the back to top link is clicked', () => {
       beforeEach(() => {
         $('.pui-back-to-top').simulate('click');
       });
 
       it('calls getScrollTop', () => {
-        expect(ScrollTop.getScrollTop).toHaveBeenCalledWith(window.scrollable, document);
+        expect(ScrollTop.getScrollTop).toHaveBeenCalledWith(element, document);
       });
 
       it('calls setScrollTop', () => {
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(100, window.scrollable, document);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(100, element, document);
         MockNow.tick(BackToTop.SCROLL_DURATION / 2);
         MockRaf.next();
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(12.5, window.scrollable, document);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(12.5, element, document);
         MockNow.tick(BackToTop.SCROLL_DURATION / 2);
         MockRaf.next();
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(0, window.scrollable, document);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(0, element, document);
       });
 
       it('animates the body scroll to the top', () => {
