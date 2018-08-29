@@ -7,14 +7,6 @@ import {mergeProps} from '../helpers';
 import {default as mixin} from '../mixins';
 import Animation from '../mixins/mixins/animation_mixin';
 
-const isFirefox = () => navigator.userAgent.toLowerCase().indexOf('firefox') !== -1;
-
-function getElement(id) {
-  if (id) return document.getElementById(id);
-  if (isFirefox()) return document.documentElement;
-  return document.body;
-}
-
 const privates = new WeakMap();
 
 export class BackToTop extends mixin(React.PureComponent).with(Animation) {
@@ -37,7 +29,7 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
     this.updateScroll = throttle(this.updateScroll, 100);
     window.addEventListener('scroll', this.updateScroll);
     const {scrollableId} = this.props;
-    const element = getElement(scrollableId);
+    const element = scrollableId && document.getElementById(scrollableId);
     privates.set(this, {element});
   }
 
@@ -47,7 +39,7 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
 
   updateScroll = () => {
     const {element} = privates.get(this);
-    this.setState({visible: ScrollTop.getScrollTop(element) > BackToTop.VISIBILITY_HEIGHT});
+    this.setState({visible: ScrollTop.getScrollTop(element, document) > BackToTop.VISIBILITY_HEIGHT});
   };
 
   scrollToTop = () => {
@@ -67,12 +59,12 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
 
     const {key} = this.state;
     if (key) {
-      const startValue = ScrollTop.getScrollTop(element);
+      const startValue = ScrollTop.getScrollTop(element, document);
       const scrollTarget = this.animate(key, 0, BackToTop.SCROLL_DURATION, {
         startValue,
         easing: 'easeOutCubic'
       });
-      ScrollTop.setScrollTop(scrollTarget, element);
+      ScrollTop.setScrollTop(scrollTarget, element, document);
       if (!scrollTarget) setTimeout(() => this.setState({key: null}), 10);
     }
 

@@ -76,11 +76,7 @@ describe('BackToTop', () => {
     });
 
     describe('when the back to top link is clicked', () => {
-      let element;
-
       beforeEach(() => {
-        const isFirefox = () => navigator.userAgent.toLowerCase().indexOf('firefox') !== -1;
-        element = isFirefox() ? document.documentElement : document.body;
         $('.pui-back-to-top').simulate('click');
       });
 
@@ -95,17 +91,17 @@ describe('BackToTop', () => {
       });
 
       it('calls getScrollTop', () => {
-        expect(ScrollTop.getScrollTop).toHaveBeenCalledWith(element);
+        expect(ScrollTop.getScrollTop).toHaveBeenCalledWith(undefined, document);
       });
 
       it('calls setScrollTop', () => {
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(500, element);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(500, undefined, document);
         MockNow.tick(BackToTop.SCROLL_DURATION / 2);
         MockRaf.next();
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(62.5, element);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(62.5, undefined, document);
         MockNow.tick(BackToTop.SCROLL_DURATION / 2);
         MockRaf.next();
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(0, element);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(0, undefined, document);
       });
     });
   });
@@ -135,17 +131,17 @@ describe('BackToTop', () => {
       });
 
       it('calls getScrollTop', () => {
-        expect(ScrollTop.getScrollTop).toHaveBeenCalledWith(window.scrollable);
+        expect(ScrollTop.getScrollTop).toHaveBeenCalledWith(window.scrollable, document);
       });
 
       it('calls setScrollTop', () => {
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(100, window.scrollable);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(100, window.scrollable, document);
         MockNow.tick(BackToTop.SCROLL_DURATION / 2);
         MockRaf.next();
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(12.5, window.scrollable);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(12.5, window.scrollable, document);
         MockNow.tick(BackToTop.SCROLL_DURATION / 2);
         MockRaf.next();
-        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(0, window.scrollable);
+        expect(ScrollTop.setScrollTop).toHaveBeenCalledWith(0, window.scrollable, document);
       });
 
       it('animates the body scroll to the top', () => {
