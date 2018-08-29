@@ -19,31 +19,31 @@ describe('Notifications', () => {
 
   describe('when there are children', function() {
     beforeEach(function() {
-      ReactDOM.render((
+      subject = shallow((
         <Notifications {...props}>
           <NotificationItem {...itemProps} href="my-fee-link">fee</NotificationItem>
           <NotificationItem href="my-fi-link">fi</NotificationItem>
           <NotificationItem href="my-fo-link">fo</NotificationItem>
           <NotificationItem href="my-fum-link">fum</NotificationItem>
-        </Notifications>), root);
+        </Notifications>));
 
       $('.dropdown-toggle').simulate('click');
     });
 
     it('renders the bell', () => {
-      expect('.dropdown-notifications-title svg.icon-notifications').toExist();
+      expect(subject.find('.dropdown-notifications-title svg.icon-notifications').exists()).toBeTruthy();
     });
 
     it('passes through the className to the btn-group', function() {
-      expect('.dropdown').toHaveClass(props.className);
+      expect(subject.find('.dropdown').hasClass(props.className)).toBeTruthy();
     });
 
     it('passes through style to the button', function() {
-      expect('.dropdown').toHaveCss(props.style);
+      expect(subject.find('.dropdown').prop('style')).toEqual(props.style);
     });
 
     it('passes through id to the button', function() {
-      expect('.dropdown').toHaveAttr('id', 'test-id');
+      expect(subject.find('.dropdown').prop('id')).toBe('test-id');
     });
 
     it('renders a notification count badge', function() {
@@ -52,21 +52,21 @@ describe('Notifications', () => {
 
     describe('NotificationItem', function() {
       it('passes through className to the li ', function() {
-        expect('#root li:first a').toHaveClass(itemProps.className);
+        expect(subject.find('#root li:first a').hasClass(itemProps.className)).toBeTruthy();
       });
 
       it('passes through style to the li', function() {
-        expect('#root li:first a').toHaveCss(itemProps.style);
+        expect(subject.find('#root li:first a').prop('style')).toEqual(itemProps.style);
       });
 
       it('passes through id to the anchor', function() {
-        expect('#root li:first a#test-item-id').toExist();
+        expect(subject.find('#root li:first a#test-item-id').exists()).toBeTruthy();
       });
     });
 
     it('renders the children in a dropdown menu', function() {
       expect('.dropdown-menu a:eq(0)').toContainText('fee');
-      expect('.dropdown-menu a:eq(0)').toHaveAttr('href', 'my-fee-link');
+      expect(subject.find('.dropdown-menu a:eq(0)').prop('href')).toBe('my-fee-link');
 
       expect('.dropdown-menu').toContainText('fi');
       expect('.dropdown-menu').toContainText('fo');
@@ -76,11 +76,11 @@ describe('Notifications', () => {
 
   describe('when there are no children', function() {
     beforeEach(function() {
-      ReactDOM.render(<Notifications/>, root);
+      subject = shallow(<Notifications/>);
     });
 
     it('does not render a badge', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-badge').not.toExist();
+      expect(subject.find('.dropdown-notifications-title .dropdown-notifications-badge').exists()).toBeFalsy();
     });
 
     it('renders the no notification message on click', function() {
@@ -92,11 +92,11 @@ describe('Notifications', () => {
 
   describe('when there are size modifiers', function() {
     beforeEach(function() {
-      ReactDOM.render(<Notifications size="h1"/>, root);
+      subject = shallow(<Notifications size="h1"/>);
     });
 
     it('renders a h1 sized notification', function() {
-      expect('.dropdown-notifications-title').toHaveClass('h1');
+      expect(subject.find('.dropdown-notifications-title').hasClass('h1')).toBeTruthy();
     });
   });
 });
@@ -111,24 +111,24 @@ describe('Alert Notifications', function() {
       }
     };
     beforeEach(function() {
-      ReactDOM.render((
+      subject = shallow((
         <AlertNotifications {...props}>
           <NotificationItem href="my-fee-link">fee</NotificationItem>
           <NotificationItem href="my-fi-link">fi</NotificationItem>
           <NotificationItem href="my-fo-link">fo</NotificationItem>
           <NotificationItem href="my-fum-link">fum</NotificationItem>
-        </AlertNotifications>), root);
+        </AlertNotifications>));
     });
 
     it('renders a notification alert icon', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-alert svg').toHaveClass('icon-warning');
+      expect(subject.find('.dropdown-notifications-title .dropdown-notifications-alert svg').hasClass('icon-warning')).toBeTruthy();
     });
 
     it('renders the children in a dropdown menu on click', function() {
       $('.dropdown-toggle').simulate('click');
 
       expect('.dropdown-menu a:eq(0)').toContainText('fee');
-      expect('.dropdown-menu a:eq(0)').toHaveAttr('href', 'my-fee-link');
+      expect(subject.find('.dropdown-menu a:eq(0)').prop('href')).toBe('my-fee-link');
 
       expect('.dropdown-menu').toContainText('fi');
       expect('.dropdown-menu').toContainText('fo');
@@ -136,25 +136,25 @@ describe('Alert Notifications', function() {
     });
 
     it('passes through the className to the btn-group', function() {
-      expect('.dropdown').toHaveClass(props.className);
+      expect(subject.find('.dropdown').hasClass(props.className)).toBeTruthy();
     });
 
     it('passes through style to the button', function() {
-      expect('.dropdown').toHaveCss(props.style);
+      expect(subject.find('.dropdown').prop('style')).toEqual(props.style);
     });
 
     it('passes through id to the button', function() {
-      expect('.dropdown').toHaveAttr('id', 'test-id');
+      expect(subject.find('.dropdown').prop('id')).toBe('test-id');
     });
   });
 
   describe('when there are no children', function() {
     beforeEach(function() {
-      ReactDOM.render(<AlertNotifications/>, root);
+      subject = shallow(<AlertNotifications/>);
     });
 
     it('does not render an alert icon', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-alert').not.toExist();
+      expect(subject.find('.dropdown-notifications-title .dropdown-notifications-alert').exists()).toBeFalsy();
     });
 
     it('renders the no notification message on click', function() {
@@ -166,11 +166,11 @@ describe('Alert Notifications', function() {
 
   describe('when there are size modifiers', function() {
     beforeEach(function() {
-      ReactDOM.render(<AlertNotifications size="h1"/>, root);
+      subject = shallow(<AlertNotifications size="h1"/>);
     });
 
     it('renders a h1 sized notification', function() {
-      expect('.dropdown-notifications-title').toHaveClass('h1');
+      expect(subject.find('.dropdown-notifications-title').hasClass('h1')).toBeTruthy();
     });
   });
 });

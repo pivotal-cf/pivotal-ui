@@ -4,9 +4,10 @@ import {Divider} from '../../../src/react/dividers';
 import {findByTag} from '../spec_helper';
 
 describe('Divider', () => {
-  let result, renderComponent;
+  let result, renderComponent, subject;
+
   beforeEach(() => {
-    renderComponent = props => ReactDOM.render(<Divider {...props}/>, root);
+    renderComponent = props => subject = shallow(<Divider {...props}/>);
   });
 
   describe('rendering', () => {
@@ -18,13 +19,14 @@ describe('Divider', () => {
     });
 
     it('creates a divider', () => {
-      expect(findByTag(result, 'hr')).toHaveClass('divider-alternate-1');
+      expect(result.is('hr')).toBeTruthy();
+      expect(result.hasClass('divider-alternate-1')).toBeTruthy();
     });
 
     it('adds provided attributes to the correct component', () => {
-      expect('hr').toHaveClass(props.className);
-      expect('hr').toHaveAttr('id', props.id);
-      expect('hr').toHaveCss(props.style);
+      expect(result.hasClass(props.className)).toBeTruthy();
+      expect(result.prop('id')).toBe(props.id);
+      expect(result.prop('style')).toEqual(props.style);
     });
   });
 
@@ -34,7 +36,7 @@ describe('Divider', () => {
     });
 
     it('creates a divider with -2 appended to the classname', () => {
-      expect(findByTag(result, 'hr')).toHaveClass('divider-alternate-2');
+      expect(result.hasClass('divider-alternate-2')).toBeTruthy();
     });
   });
 
@@ -44,7 +46,7 @@ describe('Divider', () => {
     });
 
     it('creates a divider without the -alternate in the class', () => {
-      expect(findByTag(result, 'hr')).toHaveClass('divider-1');
+      expect(result.hasClass('divider-1')).toBeTruthy();
     });
   });
 
@@ -54,7 +56,7 @@ describe('Divider', () => {
     });
 
     it('creates a divider without the -alternate in the class and -2 appended to the classname', () => {
-      expect(findByTag(result, 'hr')).toHaveClass('divider-2');
+      expect(result.hasClass('divider-2')).toBeTruthy();
     });
   });
 
@@ -64,7 +66,7 @@ describe('Divider', () => {
     });
 
     it('passes the data attribute through to the divider', () => {
-      expect(findByTag(result, 'hr')).toHaveAttr('data-behavior', 'myAttr');
+      expect(subject.find(result).prop('data-behavior')).toBe('myAttr');
     });
   });
 });

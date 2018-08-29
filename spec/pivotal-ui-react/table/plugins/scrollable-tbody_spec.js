@@ -15,38 +15,38 @@ describe('withScrollableTbody', () => {
 
   describe('when "scrollable" prop is falsy', () => {
     beforeEach(() => {
-      ReactDOM.render(<ComposedTable {...{
+      subject = shallow(<ComposedTable {...{
         columns,
         data,
         tbodyHeight: '70vh',
-      }}/>, root);
+      }}/>);
     });
 
     it('does not apply the "scrollable-body" class to tbody', () => {
-      expect('table tbody').not.toHaveClass('scrollable-body');
+      expect(subject.find('table tbody').hasClass('scrollable-body')).toBeFalsy();
     });
 
     it('does not set the height of the tbody with the given prop', () => {
-      expect('table tbody').toHaveStyle({});
+      expect(subject.find('table tbody').prop('style')).toEqual({});
     });
   });
 
   describe('when "scrollable" prop is true', () => {
     beforeEach(() => {
-      ReactDOM.render(<ComposedTable {...{
+      subject = shallow(<ComposedTable {...{
         columns,
         data,
         tbodyHeight: '70vh',
         scrollable: true
-      }}/>, root);
+      }}/>);
     });
 
     it('applies the "scrollable-body" class to tbody', () => {
-      expect('table tbody').toHaveClass('scrollable-body');
+      expect(subject.find('table tbody').hasClass('scrollable-body')).toBeTruthy();
     });
 
     it('sets the height of the tbody with the given prop', () => {
-      expect('table tbody').toHaveStyle({height: '70vh'});
+      expect(subject.find('table tbody').prop('style')).toEqual({height: '70vh'});
     });
   });
 });

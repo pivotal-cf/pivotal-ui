@@ -14,7 +14,7 @@ describe('BoundingClientRect', () => {
     spyOn(Base.prototype, 'render').and.callThrough();
     Klass = Base;
     const Component = useBoundingClientRect(Klass);
-    subject = ReactDOM.render(<Component/>, root);
+    subject = shallow(<Component/>);
     resizeSpy = spyOn(subject, 'resize').and.callThrough();
   });
 
@@ -29,7 +29,7 @@ describe('BoundingClientRect', () => {
       });
 
       it('returns a promise with the container', () => {
-        const containerReadySpy = jasmine.createSpy('containerReady');
+        const containerReadySpy = jest.fn();
         subject.state.containerReady.then(containerReadySpy);
         MockPromises.tick();
         expect(containerReadySpy).toHaveBeenCalledWith(subject.state.container);
@@ -39,7 +39,7 @@ describe('BoundingClientRect', () => {
 
   describe('when the props change', () => {
     beforeEach(() => {
-      subject::setProps({someProp: 'changed'});
+      subject.setProps({someProp: 'changed'});
     });
 
     it('calls resize', () => {
@@ -47,7 +47,7 @@ describe('BoundingClientRect', () => {
     });
 
     it('does not do call forceUpdate if unmounted', () => {
-      ReactDOM.render(<div/>, root);
+      subject = shallow(<div/>);
       expect(() => MockRaf.next()).not.toThrow();
     });
   });

@@ -1,47 +1,45 @@
 import '../spec_helper';
 import {Icon} from '../../../src/react/iconography';
 
-describe('iconography', function() {
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+describe('iconography', () => {
+  let subject;
 
-  it('works', function() {
-    ReactDOM.render(<Icon src="add"/>, root);
-    expect('.icon svg').toExist();
+  it('works', () => {
+    subject = shallow(<Icon src="add"/>);
+    expect(subject.find('.icon svg').exists()).toBeTruthy();
   });
 
   it('propagates className and id to the span', () => {
-    ReactDOM.render(<Icon src="add" className="foo" id="bar"/>, root);
-    expect('.icon').toHaveClass('foo');
-    expect('.icon').toHaveAttr('id', 'bar');
+    subject = shallow(<Icon src="add" className="foo" id="bar"/>);
+    expect(subject.find('.icon').hasClass('foo')).toBeTruthy();
+    expect(subject.find('.icon').prop('id')).toBe('bar');
   });
 
   describe('verticalAlign', () => {
     it('if verticalAlign is not specified it applies the .icon-middle', () => {
-      ReactDOM.render(<Icon src="add"/>, root);
-      expect('.icon').toHaveClass('icon-middle');
+      subject = shallow(<Icon src="add"/>);
+      expect(subject.find('.icon').hasClass('icon-middle')).toBeTruthy();
     });
 
     it('if verticalAlign=baseline it applies the .icon-middle class', () => {
-      ReactDOM.render(<Icon src="add" verticalAlign="middle"/>, root);
-      expect('.icon').toHaveClass('icon-middle');
+      subject = shallow(<Icon src="add" verticalAlign="middle"/>);
+      expect(subject.find('.icon').hasClass('icon-middle')).toBeTruthy();
     });
 
     it('if verticalAlign=baseline it applies the .icon-baseline class', () => {
-      ReactDOM.render(<Icon src="add" verticalAlign="baseline"/>, root);
-      expect('.icon').toHaveClass('icon-baseline');
+      subject = shallow(<Icon src="add" verticalAlign="baseline"/>);
+      expect(subject.find('.icon').hasClass('icon-baseline')).toBeTruthy();
     });
   });
 
   describe('unknown icon', () => {
     beforeEach(() => {
       spyOn(console, 'warn');
-      ReactDOM.render(<Icon src="non-existing-icon"/>, root);
+      subject = shallow(<Icon src="non-existing-icon"/>);
     });
 
     it('renders a help', () => {
-      expect('.icon .icon-help').toExist();
+      expect(subject.find('.icon .icon-help').exists()).toBeTruthy();
     });
 
     it('logs an error message', () => {

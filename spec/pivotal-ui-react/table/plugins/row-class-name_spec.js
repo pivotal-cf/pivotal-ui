@@ -16,11 +16,11 @@ describe('withRowClassName', () => {
     }, {
       attr1: 'row2-value1', attr2: 'row2-value2'
     }];
-    rowClassName = jasmine.createSpy('rowClassName');
+    rowClassName = jest.fn();
     rowClassName.and.callFake(({isHeader}) => classnames({isHeader, isBody: !isHeader}));
 
     const ComposedTable = withRowClassName(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data, rowClassName}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data, rowClassName}}/>);
   });
 
   it('calls rowClassName', () => {
@@ -30,15 +30,15 @@ describe('withRowClassName', () => {
   });
 
   it('renders header row with isHeader class name', () => {
-    expect('table thead tr').toHaveClass('isHeader');
-    expect('table thead tr').not.toHaveClass('isBody');
+    expect(subject.find('table thead tr').hasClass('isHeader')).toBeTruthy();
+    expect(subject.find('table thead tr').hasClass('isBody')).toBeFalsy();
   });
 
   it('renders body rows with isBody class name', () => {
-    expect('table tbody tr:eq(0)').toHaveClass('isBody');
-    expect('table tbody tr:eq(0)').not.toHaveClass('isHeader');
+    expect(subject.find('table tbody tr:eq(0)').hasClass('isBody')).toBeTruthy();
+    expect(subject.find('table tbody tr:eq(0)').hasClass('isHeader')).toBeFalsy();
 
-    expect('table tbody tr:eq(1)').toHaveClass('isBody');
-    expect('table tbody tr:eq(1)').not.toHaveClass('isHeader');
+    expect(subject.find('table tbody tr:eq(1)').hasClass('isBody')).toBeTruthy();
+    expect(subject.find('table tbody tr:eq(1)').hasClass('isHeader')).toBeFalsy();
   });
 });

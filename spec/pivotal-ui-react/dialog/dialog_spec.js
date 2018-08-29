@@ -17,14 +17,14 @@ describe('Dialog', () => {
     spyOn(DomHelpers, 'setTimeout').and.callThrough();
     spyOn(document.body, 'appendChild').and.callThrough();
     spyOn(document.body, 'removeChild').and.callThrough();
-    onHide = jasmine.createSpy('onHide');
+    onHide = jest.fn();
 
     button = document.createElement('button');
     button.setAttribute('id', 'some-button');
     document.body.appendChild(button);
     document.body.appendChild.calls.reset();
 
-    subject = ReactDOM.render(
+    subject = shallow(
       <Dialog {...{onHide}}>
         <span id="non-focusable"/>
         <input/>
@@ -37,7 +37,7 @@ describe('Dialog', () => {
   afterEach(() => document.body.removeChild(button));
 
   it('renders a hidden backdrop', () => {
-    expect('.pui-dialog-backdrop').not.toHaveClass('pui-dialog-show');
+    expect(subject.find('.pui-dialog-backdrop').hasClass('pui-dialog-show')).toBeFalsy();
     expect('.pui-dialog-backdrop').toHaveStyle({
       visibility: 'hidden',
       transitionDuration: '200ms',
@@ -45,11 +45,11 @@ describe('Dialog', () => {
       transitionDelay: '0s',
       transitionProperty: 'opacity'
     });
-    expect('.pui-dialog-backdrop').toHaveAttr('aria-hidden', 'true');
+    expect(subject.find('.pui-dialog-backdrop').prop('aria-hidden')).toBe('true');
   });
 
   it('renders a hidden dialog', () => {
-    expect('.pui-dialog').not.toHaveClass('pui-dialog-show');
+    expect(subject.find('.pui-dialog').hasClass('pui-dialog-show')).toBeFalsy();
     expect('.pui-dialog').toHaveStyle({
       transitionDuration: '200ms',
       transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
@@ -59,31 +59,31 @@ describe('Dialog', () => {
   });
 
   it('does not render the children', () => {
-    expect('.pui-dialog #non-focusable').not.toExist();
-    expect('.pui-dialog input').not.toExist();
-    expect('.pui-dialog a').not.toExist();
+    expect(subject.find('.pui-dialog #non-focusable').exists()).toBeFalsy();
+    expect(subject.find('.pui-dialog input').exists()).toBeFalsy();
+    expect(subject.find('.pui-dialog a').exists()).toBeFalsy();
   });
 
   it('does not update the parent z-index', () => {
-    expect('#root').toHaveStyle({});
+    expect(subject.find('#root').prop('style')).toEqual({});
   });
 
   describe('when updateParentZIndex is true and modal becomes visible', () => {
     beforeEach(() => {
-      subject::setProps({updateParentZIndex: true, animationDuration: 0, show: true});
+      subject.setProps({updateParentZIndex: true, animationDuration: 0, show: true});
     });
 
     it('updates the parent z-index', () => {
-      expect('#root').toHaveStyle({zIndex: '1000'});
+      expect(subject.find('#root').prop('style')).toEqual({zIndex: '1000'});
     });
 
     describe('when the modal is closed', () => {
       beforeEach(() => {
-        subject::setProps({show: false});
+        subject.setProps({show: false});
       });
 
       it('updates the parent z-index', () => {
-        expect('#root').toHaveStyle({zIndex: '-1000'});
+        expect(subject.find('#root').prop('style')).toEqual({zIndex: '-1000'});
       });
     });
   });
@@ -95,11 +95,11 @@ describe('Dialog', () => {
       subject.closingTimeout = -1;
       document.body.style.overflow = 'scroll';
       $('#some-button').focus();
-      subject::setProps({show: true});
+      subject.setProps({show: true});
     });
 
     it('does not update the parent z-index', () => {
-      expect('#root').toHaveStyle({});
+      expect(subject.find('#root').prop('style')).toEqual({});
     });
 
     it('sets a keydown event listener', () => {
@@ -122,18 +122,18 @@ describe('Dialog', () => {
         transitionDelay: '0s',
         transitionProperty: 'opacity'
       });
-      expect('.pui-dialog-backdrop').toHaveClass('pui-dialog-show');
+      expect(subject.find('.pui-dialog-backdrop').hasClass('pui-dialog-show')).toBeTruthy();
     });
 
     it('renders the dialog', () => {
-      expect('.pui-dialog').toHaveClass('pui-dialog-show');
-      expect('.pui-dialog').toHaveAttr('role', 'dialog');
+      expect(subject.find('.pui-dialog').hasClass('pui-dialog-show')).toBeTruthy();
+      expect(subject.find('.pui-dialog').prop('role')).toBe('dialog');
     });
 
     it('renders the children', () => {
-      expect('.pui-dialog #non-focusable').toExist();
-      expect('.pui-dialog input').toExist();
-      expect('.pui-dialog a').toExist();
+      expect(subject.find('.pui-dialog #non-focusable').exists()).toBeTruthy();
+      expect(subject.find('.pui-dialog input').exists()).toBeTruthy();
+      expect(subject.find('.pui-dialog a').exists()).toBeTruthy();
     });
 
     it('focuses the first focusable child', () => {
@@ -150,7 +150,7 @@ describe('Dialog', () => {
 
       describe('when hideOnEscKeyDown is true', () => {
         beforeEach(() => {
-          subject::setProps({hideOnEscKeyDown: true});
+          subject.setProps({hideOnEscKeyDown: true});
           onHide.calls.reset();
           escEvent = new KeyboardEvent('keydown', {keyCode: Dialog.ESC_KEY, bubbles: true});
           spyOn(escEvent, 'preventDefault');
@@ -188,7 +188,7 @@ describe('Dialog', () => {
     describe('when the backdrop is clicked', () => {
       describe('when hideOnBackdropClick is true', () => {
         beforeEach(() => {
-          subject::setProps({hideOnBackdropClick: true});
+          subject.setProps({hideOnBackdropClick: true});
           onHide.calls.reset();
           $('.pui-dialog-backdrop').simulate('click');
         });
@@ -316,7 +316,7 @@ describe('Dialog', () => {
 
     describe('when show becomes false and animation is enabled', () => {
       beforeEach(() => {
-        subject::setProps({show: false});
+        subject.setProps({show: false});
         jasmine.clock().tick(Dialog.defaultProps.animationDuration);
       });
 
@@ -339,7 +339,7 @@ describe('Dialog', () => {
 
     describe('when show becomes false and animation is disabled', () => {
       beforeEach(() => {
-        subject::setProps({animationDuration: 0, show: false});
+        subject.setProps({animationDuration: 0, show: false});
       });
 
       it('removes the keydown event listener', () => {
@@ -371,7 +371,7 @@ describe('Dialog', () => {
       spyOn(global.document, 'addEventListener').and.callThrough();
       ReactDOM.unmountComponentAtNode(root);
       $('#some-button').focus();
-      subject = ReactDOM.render(
+      subject = shallow(
         <Dialog {...{show: true, onHide}}>
           <span id="non-focusable"/>
           <input/>
@@ -390,68 +390,68 @@ describe('Dialog', () => {
     });
 
     it('renders the children', () => {
-      expect('.pui-dialog #non-focusable').toExist();
-      expect('.pui-dialog input').toExist();
-      expect('.pui-dialog a').toExist();
+      expect(subject.find('.pui-dialog #non-focusable').exists()).toBeTruthy();
+      expect(subject.find('.pui-dialog input').exists()).toBeTruthy();
+      expect(subject.find('.pui-dialog a').exists()).toBeTruthy();
     });
   });
 
   describe('when animationDuration is 0', () => {
     beforeEach(() => {
-      subject::setProps({animationDuration: 0});
+      subject.setProps({animationDuration: 0});
     });
 
     it('does not give a transition to the backdrop', () => {
-      expect('.pui-dialog-backdrop').toHaveStyle({visibility: 'hidden'});
+      expect(subject.find('.pui-dialog-backdrop').prop('style')).toEqual({visibility: 'hidden'});
     });
 
     it('does not give a transition to the dialog', () => {
-      expect('.pui-dialog').toHaveStyle({});
+      expect(subject.find('.pui-dialog').prop('style')).toEqual({});
     });
   });
 
   describe('when given an ariaLabelledby', () => {
     beforeEach(() => {
-      subject::setProps({ariaLabelledBy: 'non-focusable', show: true});
+      subject.setProps({ariaLabelledBy: 'non-focusable', show: true});
     });
 
     it('sets the aria-labelledby attribute on the dialog', () => {
-      expect('.pui-dialog').toHaveAttr('aria-labelledby', 'non-focusable');
+      expect(subject.find('.pui-dialog').prop('aria-labelledby')).toBe('non-focusable');
     });
   });
 
   describe('when given a className', () => {
     beforeEach(() => {
-      subject::setProps({className: 'custom-modal-class'});
+      subject.setProps({className: 'custom-modal-class'});
     });
 
     it('applies the className to the modal backdrop', () => {
-      expect('.pui-dialog-backdrop').toHaveClass('custom-modal-class');
+      expect(subject.find('.pui-dialog-backdrop').hasClass('custom-modal-class')).toBeTruthy();
     });
   });
 
   describe('when given a dialogClassName', () => {
     beforeEach(() => {
-      subject::setProps({dialogClassName: 'custom-dialog-class'});
+      subject.setProps({dialogClassName: 'custom-dialog-class'});
     });
 
     it('applies it as a className to the modal dialog', () => {
-      expect('.pui-dialog').toHaveClass('custom-dialog-class');
+      expect(subject.find('.pui-dialog').hasClass('custom-dialog-class')).toBeTruthy();
     });
   });
 
   describe('when given a width', () => {
     beforeEach(() => {
-      subject::setProps({width: '240px', animationDuration: 0});
+      subject.setProps({width: '240px', animationDuration: 0});
     });
 
     it('does not add a className to the dialog', () => {
-      expect('.pui-dialog').not.toHaveClass('pui-modal-sm');
-      expect('.pui-dialog').not.toHaveClass('pui-modal-lg');
+      expect(subject.find('.pui-dialog').hasClass('pui-modal-sm')).toBeFalsy();
+      expect(subject.find('.pui-dialog').hasClass('pui-modal-lg')).toBeFalsy();
     });
 
     it('sets the style on the dialog', () => {
-      expect('.pui-dialog').toHaveStyle({width: '240px'});
+      expect(subject.find('.pui-dialog').prop('style')).toEqual({width: '240px'});
     });
   });
 });

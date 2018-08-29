@@ -6,13 +6,13 @@ import {findByClass, findAllByClass, findByTag, clickOn} from '../spec_helper';
 describe('Select', () => {
   let result, onChangeSpy, onEnteredSpy, onExitedSpy;
 
-  const renderComponent = props => ReactDOM.render(<Select {...props}/>, root);
+  const renderComponent = props => subject = shallow(<Select {...props}/>);
 
   describe('basic rendering and behavior', () => {
     beforeEach(() => {
-      onChangeSpy = jasmine.createSpy('onChange');
-      onEnteredSpy = jasmine.createSpy('onEntered');
-      onExitedSpy = jasmine.createSpy('onExited');
+      onChangeSpy = jest.fn();
+      onEnteredSpy = jest.fn();
+      onExitedSpy = jest.fn();
       result = renderComponent({
         className: 'myClassName',
         name: 'myName',
@@ -27,75 +27,75 @@ describe('Select', () => {
     });
 
     it('renders a hidden input with the defaultValue', () => {
-      const input = findByTag(result, 'input');
+      const input = result.find('input');
 
-      expect(input).toHaveAttr('type', 'hidden');
-      expect(input).toHaveAttr('name', 'myName');
+      expect(subject.find(input).prop('type')).toBe('hidden');
+      expect(subject.find(input).prop('name')).toBe('myName');
       expect(input).toHaveValue('defaultValue');
     });
 
     it('passes through className to the select', () => {
-      const toggle = findByClass(result, 'select');
-      expect(toggle).toHaveClass('myClassName');
+      const toggle = result.find('.select');
+      expect(subject.find(toggle).hasClass('myClassName')).toBeTruthy();
     });
 
     it('passes through style to the select', () => {
-      const toggle = findByClass(result, 'select');
-      expect(toggle).toHaveCss({opacity: '0.5'});
+      const toggle = result.find('.select');
+      expect(subject.find(toggle).prop('style')).toEqual({opacity: '0.5'});
     });
 
     it('passes through id to the select', () => {
-      const toggle = findByClass(result, 'select');
-      expect(toggle).toHaveAttr('id', 'test-id');
+      const toggle = result.find('.select');
+      expect(subject.find(toggle).prop('id')).toBe('test-id');
     });
 
     it('creates a select-toggle with a double arrow', () => {
-      expect('.select-toggle .icon-select_chevrons').toExist();
+      expect(subject.find('.select-toggle .icon-select_chevrons').exists()).toBeTruthy();
     });
 
     it('shows the default value in the toggle', () => {
-      const toggle = findByClass(result, 'select-toggle');
-      expect(toggle).toHaveText('defaultValue');
+      const toggle = result.find('.select-toggle');
+      expect(subject.find(toggle).text()).toBe('defaultValue');
     });
 
     it('shows the select menu on click', () => {
-      const toggle = findByClass(result, 'select-toggle');
+      const toggle = result.find('.select-toggle');
       clickOn(toggle);
 
-      const menu = findByClass(result, 'select-menu');
-      expect(menu.parentNode).toHaveClass('open');
+      const menu = result.find('.select-menu');
+      expect(subject.find(menu.parentNode).hasClass('open')).toBeTruthy();
     });
 
     it('hides the menu when clicking outside the select', () => {
-      const toggle = findByClass(result, 'select-toggle');
+      const toggle = result.find('.select-toggle');
       clickOn(toggle);
 
       const evt = document.createEvent('HTMLEvents');
       evt.initEvent('click', true, true);
       document.documentElement.dispatchEvent(evt);
 
-      const menu = findByClass(result, 'select-menu');
-      expect(menu.parentNode).not.toHaveClass('open');
+      const menu = result.find('.select-menu');
+      expect(subject.find(menu.parentNode).hasClass('open')).toBeFalsy();
     });
 
     it('hides the menu when clicking the select again', () => {
-      const toggle = findByClass(result, 'select-toggle');
+      const toggle = result.find('.select-toggle');
       clickOn(toggle);
       clickOn(toggle);
 
-      const menu = findByClass(result, 'select-menu');
-      expect(menu.parentNode).not.toHaveClass('open');
+      const menu = result.find('.select-menu');
+      expect(subject.find(menu.parentNode).hasClass('open')).toBeFalsy();
     });
 
     it('calls onEntered when opening', () => {
-      const toggle = findByClass(result, 'select-toggle');
+      const toggle = result.find('.select-toggle');
       clickOn(toggle);
 
       expect(onEnteredSpy).toHaveBeenCalled();
     });
 
     it('calls onExited when closing', () => {
-      const toggle = findByClass(result, 'select-toggle');
+      const toggle = result.find('.select-toggle');
       clickOn(toggle);
       clickOn(toggle);
 
@@ -104,7 +104,7 @@ describe('Select', () => {
 
     describe('when selecting an option', () => {
       beforeEach(() => {
-        const toggle = findByClass(result, 'select-toggle');
+        const toggle = result.find('.select-toggle');
         clickOn(toggle);
 
         const optionOne = findAllByClass(result, 'option')[1];
@@ -116,15 +116,15 @@ describe('Select', () => {
       });
 
       it('updates the selected value', () => {
-        expect(findByClass(result, 'select-toggle-label')).toHaveText('one');
-        const input = findByTag(result, 'input');
-        expect(input).toHaveAttr('type', 'hidden');
+        expect(result.find('.select-toggle-label').text()).toBe('one');
+        const input = result.find('input');
+        expect(subject.find(input).prop('type')).toBe('hidden');
         expect(input).toHaveValue('one');
       });
 
       it('closes the menu', () => {
-        const menu = findByClass(result, 'select-menu');
-        expect(menu.parentNode).not.toHaveClass('open');
+        const menu = result.find('.select-menu');
+        expect(subject.find(menu.parentNode).hasClass('open')).toBeFalsy();
       });
     });
   });
@@ -141,20 +141,20 @@ describe('Select', () => {
     });
 
     it('sets the value of the select and the label of the toggle', () => {
-      clickOn(findByClass(result, 'select-toggle'));
+      clickOn(result.find('.select-toggle'));
       jasmine.clock().tick(1);
 
-      expect(findByClass(result, 'select-toggle-label')).toHaveText('the default');
-      const input = findByTag(result, 'input');
-      expect(input).toHaveAttr('type', 'hidden');
+      expect(result.find('.select-toggle-label').text()).toBe('the default');
+      const input = result.find('input');
+      expect(subject.find(input).prop('type')).toBe('hidden');
       expect(input).toHaveValue('defaultValue');
     });
 
     it('renders the options', () => {
       const options = findAllByClass(result, 'option');
-      expect(options[0]).toHaveText('the default');
-      expect(options[1]).toHaveText('one');
-      expect(options[2]).toHaveText('two');
+      expect(subject.find(options[0]).text()).toBe('the default');
+      expect(subject.find(options[1]).text()).toBe('one');
+      expect(subject.find(options[2]).text()).toBe('two');
     });
   });
 
@@ -162,7 +162,7 @@ describe('Select', () => {
     it('shows the value', () => {
       result = renderComponent({value: 'my value', options: ['anOption']});
 
-      expect(findByClass(result, 'select-toggle-label')).toHaveText('my value');
+      expect(result.find('.select-toggle-label').text()).toBe('my value');
     });
   });
 });

@@ -35,7 +35,7 @@ export class PortalSource extends React.PureComponent {
 
   componentDidUpdate() {
     const {root} = this.state.destination || {};
-    if (root) ReactDOM.render(<div>{this.props.children}</div>, root);
+    if (root) subject = shallow(<div>{this.props.children}</div>);
   }
 
   componentWillUnmount() {

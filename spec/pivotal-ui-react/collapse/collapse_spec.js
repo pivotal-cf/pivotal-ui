@@ -7,18 +7,18 @@ describe('BaseCollapse', () => {
 
   beforeEach(() => {
     spyOn(Collapsible.prototype, 'render').and.callThrough();
-    subject = ReactDOM.render((
+    subject = shallow((
       <BaseCollapse header="ima header">
         <h1>Child</h1>
       </BaseCollapse>
-    ), root);
+    ));
   });
 
   it('creates a collapsed panel', () => {
-    expect('.pui-collapse-panel-title').toHaveText('ima header');
+    expect(subject.find('.pui-collapse-panel-title').text()).toBe('ima header');
     expect(Collapsible).toHaveBeenRenderedWithProps(
       jasmine.objectContaining({expanded: false}));
-    expect('.pui-collapse-panel-body').toHaveText('Child');
+    expect(subject.find('.pui-collapse-panel-body').text()).toBe('Child');
   });
 
   describe('opening and closing', () => {
@@ -37,22 +37,22 @@ describe('BaseCollapse', () => {
 
   describe('when the divider property is set to true', () => {
     beforeEach(() => {
-      subject::setProps({divider: true});
+      subject.setProps({divider: true});
     });
 
     it('renders a divider on top of the panel body', () => {
-      expect('.pui-collapse').toHaveClass('pui-collapse-divider');
+      expect(subject.find('.pui-collapse').hasClass('pui-collapse-divider')).toBeTruthy();
     });
   });
 
   describe('when the defaultExpanded property is set to true', () => {
     beforeEach(() => {
       ReactDOM.unmountComponentAtNode(root);
-      ReactDOM.render((
+      subject = shallow((
         <BaseCollapse header="ima header" defaultExpanded={true}>
           <h1>Child</h1>
         </BaseCollapse>
-      ), root);
+      ));
     });
 
     it('starts out expanded', () => {
@@ -64,7 +64,7 @@ describe('BaseCollapse', () => {
 
 describe('Collapse', () => {
   beforeEach(() => {
-    ReactDOM.render(
+    subject = shallow(
       <Collapse header="ima header" className="test-class" style={{opacity: 0.5}}>
         <h1>Child</h1>
       </Collapse>,
@@ -72,38 +72,38 @@ describe('Collapse', () => {
   });
 
   it('passes through className', () => {
-    expect('.pui-collapse').toHaveClass('test-class');
+    expect(subject.find('.pui-collapse').hasClass('test-class')).toBeTruthy();
   });
 
   it('passes through style', () => {
-    expect('.pui-collapse').toHaveStyle({opacity: 0.5});
+    expect(subject.find('.pui-collapse').prop('style')).toEqual({opacity: 0.5});
   });
 
   it('contains a right-caret as its collapsed icon when closed', () => {
-    expect('svg').toHaveClass('icon-arrow_drop_right');
+    expect(subject.find('svg').hasClass('icon-arrow_drop_right')).toBeTruthy();
   });
 
   it('contains a down-caret as its collapsed icon when open', () => {
     $('.pui-collapse-panel-title svg').simulate('click');
-    expect('svg').toHaveClass('icon-arrow_drop_down');
+    expect(subject.find('svg').hasClass('icon-arrow_drop_down')).toBeTruthy();
   });
 });
 
 describe('AltCollapse', () => {
   beforeEach(() => {
-    ReactDOM.render(
+    subject = shallow(
       <AltCollapse header="ima header">
         <h1>Child</h1>
       </AltCollapse>
-      , root);
+      );
   });
 
   it('contains a right-caret as its collapsed icon when closed', () => {
-    expect('svg').toHaveClass('icon-add_circle');
+    expect(subject.find('svg').hasClass('icon-add_circle')).toBeTruthy();
   });
 
   it('contains a down-caret as its collapsed icon when open', () => {
     $('.pui-collapse-panel-title svg').simulate('click');
-    expect('svg').toHaveClass('icon-remove_circle');
+    expect(subject.find('svg').hasClass('icon-remove_circle')).toBeTruthy();
   });
 });

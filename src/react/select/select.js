@@ -38,7 +38,7 @@ export class Select extends mixin(React.Component).with(Scrim, Transition) {
   toggle = () => this.setState({open: !this.state.open});
 
   select = e => {
-    const value = e.target.getAttribute('data-value');
+    const value = e.target.prop('data-value');
 
     this.setState({
       open: false,

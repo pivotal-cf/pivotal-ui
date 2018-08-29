@@ -5,7 +5,7 @@ describe('withCellLink', () => {
   let link;
 
   beforeEach(() => {
-    link = jasmine.createSpy('link').and.returnValue('some-href');
+    link = jest.fn().and.returnValue('some-href');
     const columns = [{
       attribute: 'attr1'
     }, {
@@ -18,7 +18,7 @@ describe('withCellLink', () => {
     }];
 
     const ComposedTable = withCellLink(withFlex(Table));
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('renders div.th elements without href', () => {
@@ -27,8 +27,8 @@ describe('withCellLink', () => {
   });
 
   it('renders a.td elements with href', () => {
-    expect('.table .tr:eq(1) > a.td').toHaveAttr('href', 'some-href');
-    expect('.table .tr:eq(2) > a.td').toHaveAttr('href', 'some-href');
+    expect(subject.find('.table .tr:eq(1) > a.td').prop('href')).toBe('some-href');
+    expect(subject.find('.table .tr:eq(2) > a.td').prop('href')).toBe('some-href');
   });
 
   it('renders div.td elements without href', () => {

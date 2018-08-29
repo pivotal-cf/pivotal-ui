@@ -48,7 +48,7 @@ class MyTestPage extends React.Component {
  }
 }
 
-ReactDOM.render(<MyTestPage />, document.getElementById('root'));
+subject = shallow(<MyTestPage />, document.getElementById('root'));
 ```
 
 HTML:

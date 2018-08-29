@@ -4,7 +4,7 @@ import {ExpanderContent, ExpanderTrigger} from '../../../src/react/expander';
 import {findByClass, findByTag, clickOn} from '../spec_helper';
 
 describe('ExpanderContent', () => {
-  const renderIntoDom = props => ReactDOM.render(
+  const renderIntoDom = props => subject = shallow(
     <ExpanderContent {...props}>
       <div>You won a brand new car!</div>
     </ExpanderContent>, root
@@ -13,21 +13,21 @@ describe('ExpanderContent', () => {
   describe('when expanded is unset', () => {
     it('hides the content', () => {
       const result = renderIntoDom({expanded: false});
-      expect(findByClass(result, 'pui-collapsible')).not.toHaveClass('in');
+      expect(result.find('.pui-collapsible')).not.toHaveClass('in');
     });
   });
 
   describe('when expanded is set to false', () => {
     it('hides the content', () => {
       const result = renderIntoDom({expanded: false});
-      expect(findByClass(result, 'pui-collapsible')).not.toHaveClass('in');
+      expect(result.find('.pui-collapsible')).not.toHaveClass('in');
     });
   });
 
   describe('when expanded is set to true', () => {
     it('shows the content', () => {
       const result = renderIntoDom({expanded: true});
-      expect(findByClass(result, 'pui-collapsible')).toHaveClass('in');
+      expect(result.find('.pui-collapsible').hasClass('in')).toBeTruthy();
     });
   });
 
@@ -36,26 +36,26 @@ describe('ExpanderContent', () => {
 
     describe('when the content was already visible', () => {
       beforeEach(() => {
-        onExitedSpy = jasmine.createSpy('on exited');
+        onExitedSpy = jest.fn();
         expanderContent = renderIntoDom({expanded: true, onExited: onExitedSpy, delay: 0});
         expanderContent.toggle();
       });
 
       it('hides the content', () => {
-        expect(findByClass(expanderContent, 'pui-collapsible')).not.toHaveClass('in');
+        expect(expanderContent.find('.pui-collapsible')).not.toHaveClass('in');
         expect(onExitedSpy).toHaveBeenCalled();
       });
     });
 
     describe('when the content is not visible', () => {
       beforeEach(() => {
-        onEnteredSpy = jasmine.createSpy('onEntered');
+        onEnteredSpy = jest.fn();
         expanderContent = renderIntoDom({expanded: false, onEntered: onEnteredSpy, delay: 0});
         expanderContent.toggle();
       });
 
       it('shows the content', () => {
-        expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
+        expect(expanderContent.find('.pui-collapsible').hasClass('in')).toBeTruthy();
         expect(onEnteredSpy).toHaveBeenCalled();
       });
     });
@@ -63,17 +63,17 @@ describe('ExpanderContent', () => {
     it('can be invoked ad nauseum', () => {
       expanderContent = renderIntoDom({expanded: false, delay: 0});
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
+      expect(expanderContent.find('.pui-collapsible').hasClass('in')).toBeTruthy();
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).not.toHaveClass('in');
+      expect(expanderContent.find('.pui-collapsible')).not.toHaveClass('in');
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
+      expect(expanderContent.find('.pui-collapsible').hasClass('in')).toBeTruthy();
     });
   });
 });
 
 describe('ExpanderTrigger', () => {
-  const renderComponent = props => ReactDOM.render(
+  const renderComponent = props => subject = shallow(
     <ExpanderTrigger>
       <button>Click here to trigger</button>
     </ExpanderTrigger>,
@@ -92,7 +92,7 @@ describe('ExpanderTrigger', () => {
       });
 
       it('invokes the #toggle method on the provided target', () => {
-        clickOn(findByTag(expanderTrigger, 'button'));
+        clickOn(expanderTrigger.find('button'));
         expect(expanderContent.toggle).toHaveBeenCalled();
       });
     });
@@ -102,7 +102,7 @@ describe('ExpanderTrigger', () => {
         spyOn(console, 'warn');
 
         expanderTrigger = renderComponent();
-        clickOn(findByTag(expanderTrigger, 'button'));
+        clickOn(expanderTrigger.find('button'));
 
         expect(console.warn).toHaveBeenCalledWith('No ExpanderContent provided to ExpanderTrigger.');
       });

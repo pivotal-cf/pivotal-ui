@@ -19,7 +19,7 @@ describe('BackToTop', () => {
 
   describe('without scrollableId', () => {
     beforeEach(done => {
-      ReactDOM.render(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>, root);
+      subject = shallow(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>);
 
       jasmine.clock().uninstall();
       setTimeout(() => {
@@ -31,17 +31,17 @@ describe('BackToTop', () => {
     });
 
     it('passes down the className, id, and style properties', () => {
-      expect('.pui-back-to-top').toHaveClass('foo');
+      expect(subject.find('.pui-back-to-top').hasClass('foo')).toBeTruthy();
       expect('.pui-back-to-top').toHaveProp('id', 'bar');
-      expect('.pui-back-to-top').toHaveCss({'font-size': '200px'});
+      expect(subject.find('.pui-back-to-top').prop('style')).toEqual({'font-size': '200px'});
     });
 
     it('renders a back to top link that is visible', () => {
-      expect('.pui-back-to-top').toExist();
+      expect(subject.find('.pui-back-to-top').exists()).toBeTruthy();
     });
 
     it('renders a arrow upward icon', () => {
-      expect('svg.icon-arrow_upward').toExist();
+      expect(subject.find('svg.icon-arrow_upward').exists()).toBeTruthy();
     });
 
     it('fades in the button', () => {
@@ -115,10 +115,10 @@ describe('BackToTop', () => {
 
     beforeEach(done => {
       scrollableId = 'scrollable';
-      ReactDOM.render(<div id={scrollableId} style={{height: '100px', maxHeight: '100px', overflowY: 'scroll'}}>
+      subject = shallow(<div id={scrollableId} style={{height: '100px', maxHeight: '100px', overflowY: 'scroll'}}>
         <div {...{height: '500px'}}/>
         <BackToTop {...{className: 'foo', id: 'bar', style: {fontSize: '500px'}, scrollableId}}/>
-      </div>, root);
+      </div>);
 
       jasmine.clock().uninstall();
       setTimeout(() => {

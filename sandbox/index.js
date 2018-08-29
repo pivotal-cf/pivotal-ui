@@ -7,11 +7,11 @@ req.keys().forEach(req);
 
 const root = document.getElementById('root');
 
-ReactDOM.render(<Sandbox/>, root);
+subject = shallow(<Sandbox/>);
 
 if (module.hot) {
   module.hot.accept('./sandbox', () => {
     const NextSandbox = require('./sandbox').default;
-    ReactDOM.render(<NextSandbox/>, root);
+    subject = shallow(<NextSandbox/>);
   })
 }

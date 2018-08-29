@@ -1,6 +1,6 @@
 var callbacks = [];
 
-var raf = jasmine.createSpy('raf').and.callFake(function(callback) {
+var raf = jest.fn().and.callFake(function(callback) {
   callbacks.push(callback);
 });
 

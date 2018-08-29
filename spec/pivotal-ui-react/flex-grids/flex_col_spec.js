@@ -4,61 +4,61 @@ import {FlexCol} from '../../../src/react/flex-grids';
 describe('FlexCol', () => {
   describe('alignment prop', () => {
     beforeEach(() => {
-      ReactDOM.render(<FlexCol alignment="middle" />, root);
+      subject = shallow(<FlexCol alignment="middle" />);
     });
 
     it('applies correct class name', () => {
-      expect('.col').toHaveClass('col-align-middle');
+      expect(subject.find('.col').hasClass('col-align-middle')).toBeTruthy();
     });
   });
 
   describe('breakpoint prop', () => {
     beforeEach(() => {
-      ReactDOM.render(<FlexCol breakpoint="md" />, root);
+      subject = shallow(<FlexCol breakpoint="md" />);
     });
 
     it('applies correct class name', () => {
-      expect('.col').toHaveClass('col-md');
+      expect(subject.find('.col').hasClass('col-md')).toBeTruthy();
     });
   });
 
   describe('col prop', () => {
     beforeEach(() => {
-      ReactDOM.render(<FlexCol col={6}/>, root);
+      subject = shallow(<FlexCol col={6}/>);
     });
 
     it('applies correct class name', () => {
-      expect('.col').toHaveClass('col-6');
+      expect(subject.find('.col').hasClass('col-6')).toBeTruthy();
     });
   });
 
   describe('contentAlignment prop', () => {
     beforeEach(() => {
-      ReactDOM.render(<FlexCol contentAlignment="middle" />, root);
+      subject = shallow(<FlexCol contentAlignment="middle" />);
     });
 
     it('applies correct class name', () => {
-      expect('.col').toHaveClass('col-middle');
+      expect(subject.find('.col').hasClass('col-middle')).toBeTruthy();
     });
   });
 
   describe('fixed prop', () => {
     beforeEach(() => {
-      ReactDOM.render(<FlexCol fixed />, root);
+      subject = shallow(<FlexCol fixed />);
     });
 
     it('applies correct class name', () => {
-      expect('.col').toHaveClass('col-fixed');
+      expect(subject.find('.col').hasClass('col-fixed')).toBeTruthy();
     });
   });
 
   describe('grow prop', () => {
     beforeEach(() => {
-      ReactDOM.render(<FlexCol grow={2} />, root);
+      subject = shallow(<FlexCol grow={2} />);
     });
 
     it('applies correct class name', () => {
-      expect('.col').toHaveClass('col-grow-2');
+      expect(subject.find('.col').hasClass('col-grow-2')).toBeTruthy();
     });
   });
 });

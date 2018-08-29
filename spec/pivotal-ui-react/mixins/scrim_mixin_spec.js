@@ -18,7 +18,7 @@ describe('ScrimMixin', () => {
   describe('when there is no document', () => {
     it('does not throw an exception', () => {
       expect(() => {
-        ReactDOM.render(<Component getDocument={() => undefined}/>, root);
+        subject = shallow(<Component getDocument={() => undefined}/>);
       }).not.toThrow();
     });
   });

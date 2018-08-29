@@ -4,8 +4,8 @@ describe('Collapsible', () => {
   let onEnteredSpy, onExitedSpy, subject;
 
   const render = delay => {
-    onEnteredSpy = jasmine.createSpy('onEntered');
-    onExitedSpy = jasmine.createSpy('onExited');
+    onEnteredSpy = jest.fn();
+    onExitedSpy = jest.fn();
     class Klass extends React.Component {
       constructor(props, context) {
         super(props, context);
@@ -28,7 +28,7 @@ describe('Collapsible', () => {
       }
     }
 
-    subject = ReactDOM.render(<Klass />, root);
+    subject = shallow(<Klass />);
   };
 
   beforeEach(() => {
@@ -40,7 +40,7 @@ describe('Collapsible', () => {
   });
 
   it('renders children hidden by default', () => {
-    expect('.pui-collapsible').not.toHaveClass('in');
+    expect(subject.find('.pui-collapsible').hasClass('in')).toBeFalsy();
   });
 
   it('shows children if expanded is true', () => {
@@ -49,8 +49,8 @@ describe('Collapsible', () => {
     MockNow.tick(200);
     MockRaf.next();
 
-    expect('.pui-collapsible').toHaveClass('in');
-    expect('.pui-collapsible .maybe').toExist();
+    expect(subject.find('.pui-collapsible').hasClass('in')).toBeTruthy();
+    expect(subject.find('.pui-collapsible .maybe').exists()).toBeTruthy();
   });
 
   it('animates while expanding', () => {
@@ -60,7 +60,7 @@ describe('Collapsible', () => {
     MockRaf.next();
     MockRaf.next();
 
-    expect('.pui-collapsible-shield').toHaveCss({marginBottom: '0px'});
+    expect(subject.find('.pui-collapsible-shield').prop('style')).toEqual({marginBottom: '0px'});
   });
 
   it('calls onEntered when done opening', () => {
@@ -99,7 +99,7 @@ describe('Collapsible', () => {
     it('expands instantly', () => {
       $('.pui-collapse-toggle').simulate('click');
 
-      expect('.pui-collapsible-shield').toHaveCss({marginBottom: '0px'});
+      expect(subject.find('.pui-collapsible-shield').prop('style')).toEqual({marginBottom: '0px'});
     });
 
     it('calls onEntered when done opening', () => {

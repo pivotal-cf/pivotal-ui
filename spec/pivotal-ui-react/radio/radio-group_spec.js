@@ -4,14 +4,14 @@ import {Radio, RadioGroup} from '../../../src/react/radio';
 describe('RadioGroup', () => {
   let subject;
 
-  const secondRadioSpy = jasmine.createSpy('secondRadio');
+  const secondRadioSpy = jest.fn();
 
   beforeEach(() => {
-    subject = ReactDOM.render(<RadioGroup name="group-1">
+    subject = shallow(<RadioGroup name="group-1">
       <Radio value="one">first</Radio>
       <Radio value="two" onChange={secondRadioSpy}>second</Radio>
       <Radio value="three">third</Radio>
-    </RadioGroup>, root);
+    </RadioGroup>);
   });
 
   it('renders', () => {
@@ -26,8 +26,8 @@ describe('RadioGroup', () => {
 
     beforeEach(() => {
       clickedValue = null;
-      changeSpy = jasmine.createSpy('change').and.callFake(event => clickedValue = event.nativeEvent.target.value);
-      subject::setProps({onChange: changeSpy, name: 'radioGroup'});
+      changeSpy = jest.fn().and.callFake(event => clickedValue = event.nativeEvent.target.value);
+      subject.setProps({onChange: changeSpy, name: 'radioGroup'});
       $('.pui-radio-group input[type="radio"]:eq(0)').simulate('change');
     });
 
@@ -39,7 +39,7 @@ describe('RadioGroup', () => {
 
   describe('when given a value', () => {
     beforeEach(() => {
-      subject::setProps({value: 'three'});
+      subject.setProps({value: 'three'});
     });
 
     it('checks the corresponding radio', () => {
@@ -51,12 +51,12 @@ describe('RadioGroup', () => {
 
   describe('other props and no onChange', () => {
     beforeEach(() => {
-      subject::setProps({id: 'clear-channel', style: {color: 'rgb(255, 0, 0)'}, className: '1234'});
+      subject.setProps({id: 'clear-channel', style: {color: 'rgb(255, 0, 0)'}, className: '1234'});
     });
 
     it('passes id, style, and className to radio group', () => {
-      expect('.pui-radio-group').toHaveAttr('id', 'clear-channel');
-      expect('.pui-radio-group').toHaveClass('1234');
+      expect(subject.find('.pui-radio-group').prop('id')).toBe('clear-channel');
+      expect(subject.find('.pui-radio-group').hasClass('1234')).toBeTruthy();
       expect('.pui-radio-group').toHaveCss({color: 'rgb(255, 0, 0)'});
     });
 

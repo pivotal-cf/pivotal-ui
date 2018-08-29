@@ -14,7 +14,7 @@ describe('DomHelpers', () => {
     });
 
     it('returns a falsy value when given a falsy value', () => {
-      expect(DomHelpers.findTabbableElements(null)).toBeFalsy();
+      expect(DomHelpers.findTabbableElements(null)).not.toExist();
     });
   });
 

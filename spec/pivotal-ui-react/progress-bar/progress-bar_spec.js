@@ -5,49 +5,49 @@ describe('ProgressBar', () => {
   let subject;
 
   beforeEach(() => {
-    subject = ReactDOM.render(<ProgressBar/>, root);
+    subject = shallow(<ProgressBar/>);
   });
 
   it('renders a progress background div', () => {
-    expect('.pui-progress').toExist();
+    expect(subject.find('.pui-progress').exists()).toBeTruthy();
   });
 
   it('renders a progress foreground div', () => {
-    expect('.pui-progress .pui-progress-bar').toHaveAttr('role', 'progressbar');
-    expect('.pui-progress .pui-progress-bar').toHaveAttr('aria-valuemax', '100');
-    expect('.pui-progress .pui-progress-bar').toHaveAttr('aria-valuemin', '0');
-    expect('.pui-progress .pui-progress-bar').toHaveAttr('aria-valuenow', '0');
-    expect('.pui-progress .pui-progress-bar').toHaveStyle({width: '0%'});
+    expect(subject.find('.pui-progress .pui-progress-bar').prop('role')).toBe('progressbar');
+    expect(subject.find('.pui-progress .pui-progress-bar').prop('aria-valuemax')).toBe(100);
+    expect(subject.find('.pui-progress .pui-progress-bar').prop('aria-valuemin')).toBe(0);
+    expect(subject.find('.pui-progress .pui-progress-bar').prop('aria-valuenow')).toBe(0);
+    expect(subject.find('.pui-progress .pui-progress-bar').prop('style')).toEqual({width: '0%'});
   });
 
   describe('when given a className', () => {
     beforeEach(() => {
-      subject::setProps({className: 'custom-class'});
+      subject.setProps({className: 'custom-class'});
     });
 
     it('applies the class to the outer div', () => {
-      expect('.pui-progress').toHaveClass('custom-class');
+      expect(subject.find('.pui-progress').hasClass('custom-class')).toBeTruthy();
     });
   });
 
   describe('when given a barClassName', () => {
     beforeEach(() => {
-      subject::setProps({barClassName: 'custom-bar-class'});
+      subject.setProps({barClassName: 'custom-bar-class'});
     });
 
     it('applies the class to the progress bar', () => {
-      expect('.pui-progress .pui-progress-bar').toHaveClass('custom-bar-class');
+      expect(subject.find('.pui-progress .pui-progress-bar').hasClass('custom-bar-class')).toBeTruthy();
     });
   });
 
   describe('when given a value', () => {
     beforeEach(() => {
-      subject::setProps({value: 78});
+      subject.setProps({value: 78});
     });
 
     it('sets the attributes of the progress bar accordingly', () => {
-      expect('.pui-progress .pui-progress-bar').toHaveAttr('aria-valuenow', '78');
-      expect('.pui-progress .pui-progress-bar').toHaveStyle({width: '78%'});
+      expect(subject.find('.pui-progress .pui-progress-bar').prop('aria-valuenow')).toBe(78);
+      expect(subject.find('.pui-progress .pui-progress-bar').prop('style')).toEqual({width: '78%'});
     });
   });
 });

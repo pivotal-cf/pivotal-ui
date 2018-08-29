@@ -13,22 +13,22 @@ describe('withCellEllipsis', () => {
   describe('when ellipsis is true', () => {
     beforeEach(() => {
       columns[0].ellipsis = true;
-      ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+      subject = shallow(<ComposedTable {...{columns, data}}/>);
     });
 
     it('renders with the "type-ellipsis" class', () => {
-      expect('table tr:eq(1) td:eq(0) span').toHaveClass('type-ellipsis');
+      expect(subject.find('table tr:eq(1) td:eq(0) span').hasClass('type-ellipsis')).toBeTruthy();
     });
   });
 
   describe('when ellipsis is false', () => {
     beforeEach(() => {
       columns[0].ellipsis = false;
-      ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+      subject = shallow(<ComposedTable {...{columns, data}}/>);
     });
 
     it('does not render with the "type-ellipsis" class', () => {
-      expect('table tr:eq(1) td:eq(0) span').not.toExist();
+      expect(subject.find('table tr:eq(1) td:eq(0) span').exists()).toBeFalsy();
     });
   });
 });

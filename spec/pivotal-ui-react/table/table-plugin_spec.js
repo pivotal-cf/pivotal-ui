@@ -16,16 +16,16 @@ describe('TablePlugin', () => {
     let tableTag, context, subject, returned;
 
     beforeEach(() => {
-      tableTag = jasmine.createSpy('tableTag');
+      tableTag = jest.fn();
       context = {a: 1, b: 2};
     });
 
     describe('when the props callback provides a value', () => {
       beforeEach(() => {
         tableTag.and.returnValue('some-value');
-        subject = ReactDOM.render(<TablePlugin {...{
+        subject = shallow(<TablePlugin {...{
           columns: [], data: [], tableTag
-        }}/>, root);
+        }}/>);
         returned = subject.plugTag('table', null, context);
       });
 
@@ -42,11 +42,11 @@ describe('TablePlugin', () => {
       let tagCb;
 
       beforeEach(() => {
-        tagCb = jasmine.createSpy('tagCb');
+        tagCb = jest.fn();
         tagCb.and.returnValue('cb-value');
-        subject = ReactDOM.render(<TablePlugin {...{
+        subject = shallow(<TablePlugin {...{
           columns: [], data: [], tableTag
-        }}/>, root);
+        }}/>);
         returned = subject.plugTag('table', 'cb-value', context);
       });
 
@@ -70,10 +70,10 @@ describe('TablePlugin', () => {
         style: {old: 'style-old'},
         old: 'prop-old'
       };
-      table = jasmine.createSpy('table').and.returnValue(oldProps);
-      subject = ReactDOM.render(<TablePlugin {...{
+      table = jest.fn().and.returnValue(oldProps);
+      subject = shallow(<TablePlugin {...{
         columns: [], data: [], table
-      }}/>, root);
+      }}/>);
 
       newProps = {
         className: 'new-class-name',

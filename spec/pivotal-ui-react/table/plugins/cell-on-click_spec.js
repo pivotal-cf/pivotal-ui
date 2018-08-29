@@ -5,7 +5,7 @@ describe('withCellOnClick', () => {
   let onClick, data;
 
   beforeEach(() => {
-    onClick = jasmine.createSpy('onClick');
+    onClick = jest.fn();
     const columns = [{
       attribute: 'attr1',
       onClick
@@ -13,7 +13,7 @@ describe('withCellOnClick', () => {
     data = [{attr1: 'my value'}];
 
     const ComposedTable = withCellOnClick(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('calls the onClick callback', () => {

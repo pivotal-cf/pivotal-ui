@@ -52,7 +52,7 @@ export class DraggableList extends React.Component {
 
   dragEnter = e => {
     const {draggingId, itemIndices} = this.state;
-    const endDraggingId = Number(e.currentTarget.getAttribute('data-dragging-id'));
+    const endDraggingId = Number(e.currentTarget.prop('data-dragging-id'));
     if (draggingId === null || Number.isNaN(endDraggingId)) return;
 
     const startIndex = itemIndices.indexOf(draggingId);

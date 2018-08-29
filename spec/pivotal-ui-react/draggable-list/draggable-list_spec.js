@@ -6,7 +6,7 @@ describe('DraggableList', () => {
   let subject;
 
   beforeEach(() => {
-    subject = ReactDOM.render(
+    subject = shallow(
       <DraggableList>
         <DraggableListItem>Foo</DraggableListItem>
         <DraggableListItem>Bar</DraggableListItem>
@@ -17,16 +17,16 @@ describe('DraggableList', () => {
   });
 
   it('renders', () => {
-    expect('#root ul').toHaveClass('list-draggable');
+    expect(subject.find('#root ul').hasClass('list-draggable')).toBeTruthy();
   });
 
   describe('when given an innerClassName', () => {
     beforeEach(() => {
-      subject::setProps({innerClassName: 'inner-test-class'});
+      subject.setProps({innerClassName: 'inner-test-class'});
     });
 
     it('passes through innerClassName to item content', () => {
-      expect('.draggable-item-content:eq(0)').toHaveClass('inner-test-class');
+      expect(subject.find('.draggable-item-content:eq(0)').hasClass('inner-test-class')).toBeTruthy();
     });
   });
 
@@ -35,15 +35,15 @@ describe('DraggableList', () => {
 
     beforeEach(() => {
       dataTransferStub = {};
-      setDataSpy = jasmine.createSpy('setData');
+      setDataSpy = jest.fn();
       dataTransferStub.setData = setDataSpy;
-      dragEndSpy = jasmine.createSpy('dragEnd');
+      dragEndSpy = jest.fn();
 
-      subject::setProps({onDragEnd: dragEndSpy});
+      subject.setProps({onDragEnd: dragEndSpy});
     });
 
     it('does not apply dragging class to ul by default', () => {
-      expect('#root ul').not.toHaveClass('dragging');
+      expect(subject.find('#root ul').hasClass('dragging')).toBeFalsy();
     });
 
     describe('dragStart', () => {
@@ -53,11 +53,11 @@ describe('DraggableList', () => {
       });
 
       it('adds the dragging class', () => {
-        expect('#root ul').toHaveClass('dragging');
+        expect(subject.find('#root ul').hasClass('dragging')).toBeTruthy();
       });
 
       it('adds the aria-grabbed attribute', () => {
-        expect('.draggable-grip:eq(1)').toHaveAttr('aria-grabbed', 'true');
+        expect(subject.find('.draggable-grip:eq(1)').prop('aria-grabbed')).toBe('true');
       });
 
       it('calls setData with text/plain so firefox considers the drag to be valid', () => {
@@ -74,9 +74,9 @@ describe('DraggableList', () => {
       });
 
       it('reorders the list', () => {
-        expect('.draggable-child:eq(0)').toHaveText('Bar');
-        expect('.draggable-child:eq(1)').toHaveText('Foo');
-        expect('.draggable-child:eq(2)').toHaveText('Gaz');
+        expect('.draggable-child:eq(0)'.text()).toBe('Bar');
+        expect('.draggable-child:eq(1)'.text()).toBe('Foo');
+        expect('.draggable-child:eq(2)'.text()).toBe('Gaz');
       });
     });
 
@@ -96,7 +96,7 @@ describe('DraggableList', () => {
       });
 
       it('removes the grabbed class', () => {
-        expect('#root ul').not.toHaveClass('dragging');
+        expect(subject.find('#root ul').hasClass('dragging')).toBeFalsy();
       });
     });
   });

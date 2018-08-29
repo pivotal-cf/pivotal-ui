@@ -5,7 +5,7 @@ import {findByClass} from '../spec_helper';
 
 describe('Media', () => {
   let result;
-  const renderComponent = props => ReactDOM.render(<Media {...props}>fop</Media>, root);
+  const renderComponent = props => subject = shallow(<Media {...props}>fop</Media>);
   const image = <img src="http://placehold.it/20x20" alt="my fancy image description" height="50px" width="40px"/>;
   describe('attributes', () => {
     beforeEach(() => {
@@ -13,25 +13,25 @@ describe('Media', () => {
     });
 
     it('creates a media component', () => {
-      const media = findByClass(result, 'media');
+      const media = result.find('.media');
       expect(media.querySelector('.media-body')).toContainText('fop');
     });
 
     it('passes the provided className onto the .media element', () => {
-      expect(findByClass(result, 'media')).toHaveClass('media-class');
+      expect(result.find('.media').hasClass('media-class')).toBeTruthy();
     });
 
     it('passes image attributes through', () => {
-      const media = findByClass(result, 'media');
+      const media = result.find('.media');
       const img = media.querySelector('img');
-      expect(img).toHaveAttr('src', 'http://placehold.it/20x20');
-      expect(img).toHaveAttr('alt', 'my fancy image description');
-      expect(img).toHaveAttr('height', '50px');
-      expect(img).toHaveAttr('width', '40px');
+      expect(subject.find(img).prop('src')).toBe('http://placehold.it/20x20');
+      expect(subject.find(img).prop('alt')).toBe('my fancy image description');
+      expect(subject.find(img).prop('height')).toBe('50px');
+      expect(subject.find(img).prop('width')).toBe('40px');
     });
 
     it('confers media-left class on the image container', () => {
-      const media = findByClass(result, 'media');
+      const media = result.find('.media');
       expect(media.querySelector('.media-left img')).toBeDefined();
     });
   });
@@ -39,69 +39,69 @@ describe('Media', () => {
   describe('when media is left-aligned', () => {
     it('confers media-left class on the image container', () => {
       result = renderComponent({className: 'media-class', image, placement: 'left'});
-      const media = findByClass(result, 'media');
+      const media = result.find('.media');
       expect(media.querySelector('.media-left img')).toBeDefined();
     });
 
     it('adds the appropriate class based on media spacing', () => {
       result = renderComponent({className: 'media-class', image, placement: 'left', mediaSpacing: 'small'});
-      expect(findByClass(result, 'media').querySelector('.media-left')).toHaveClass('prs');
+      expect(result.find('.media').querySelector('.media-left').hasClass('prs')).toBeTruthy();
 
       result = renderComponent({className: 'media-class', image, placement: 'left', mediaSpacing: 'medium'});
-      expect(findByClass(result, 'media').querySelector('.media-left')).toHaveClass('prm');
+      expect(result.find('.media').querySelector('.media-left').hasClass('prm')).toBeTruthy();
 
       result = renderComponent({className: 'media-class', image, placement: 'left', mediaSpacing: 'large'});
-      expect(findByClass(result, 'media').querySelector('.media-left')).toHaveClass('prl');
+      expect(result.find('.media').querySelector('.media-left').hasClass('prl')).toBeTruthy();
 
       result = renderComponent({className: 'media-class', image, placement: 'left', mediaSpacing: 'xlarge'});
-      expect(findByClass(result, 'media').querySelector('.media-left')).toHaveClass('prxl');
+      expect(result.find('.media').querySelector('.media-left').hasClass('prxl')).toBeTruthy();
     });
   });
 
   describe('when media is right-aligned', () => {
     it('confers media-right class on the image container', () => {
       result = renderComponent({className: 'media-class', image, placement: 'right'});
-      const media = findByClass(result, 'media');
+      const media = result.find('.media');
       expect(media.querySelector('.media-right img')).toBeDefined();
     });
 
     it('adds the appropriate class based on media spacing', () => {
       result = renderComponent({image, placement: 'right', mediaSpacing: 'small'});
-      expect(findByClass(result, 'media').querySelector('.media-right')).toHaveClass('pls');
+      expect(result.find('.media').querySelector('.media-right').hasClass('pls')).toBeTruthy();
 
       result = renderComponent({image, placement: 'right', mediaSpacing: 'medium'});
-      expect(findByClass(result, 'media').querySelector('.media-right')).toHaveClass('plm');
+      expect(result.find('.media').querySelector('.media-right').hasClass('plm')).toBeTruthy();
 
       result = renderComponent({image, placement: 'right', mediaSpacing: 'large'});
-      expect(findByClass(result, 'media').querySelector('.media-right')).toHaveClass('pll');
+      expect(result.find('.media').querySelector('.media-right').hasClass('pll')).toBeTruthy();
 
       result = renderComponent({image, placement: 'right', mediaSpacing: 'xlarge'});
-      expect(findByClass(result, 'media').querySelector('.media-right')).toHaveClass('plxl');
+      expect(result.find('.media').querySelector('.media-right').hasClass('plxl')).toBeTruthy();
     });
   });
 
   it('confers the appropriate classes to both children based on vAlign', () => {
     ['middle', 'bottom'].forEach(vAlign => {
       result = renderComponent({image, vAlign});
-      const media = findByClass(result, 'media');
+      const media = result.find('.media');
 
-      expect(media.querySelector('.media-body')).toHaveClass(`media-${vAlign}`);
-      expect(media.querySelector('.media-left')).toHaveClass(`media-${vAlign}`);
+      expect(media.querySelector('.media-body').hasClass(`media-${vAlign}`)).toBeTruthy();
+      expect(media.querySelector('.media-left').hasClass(`media-${vAlign}`)).toBeTruthy();
     });
   });
 
   it('confers the appropriate classes based on stackSize', () => {
     result = renderComponent({image, stackSize: 'xsmall'});
-    expect(findByClass(result, 'media')).toHaveClass('media-stackable-xs');
+    expect(result.find('.media').hasClass('media-stackable-xs')).toBeTruthy();
 
     result = renderComponent({image, stackSize: 'small'});
-    expect(findByClass(result, 'media')).toHaveClass('media-stackable-sm');
+    expect(result.find('.media').hasClass('media-stackable-sm')).toBeTruthy();
 
     result = renderComponent({image, stackSize: 'medium'});
-    expect(findByClass(result, 'media')).toHaveClass('media-stackable-md');
+    expect(result.find('.media').hasClass('media-stackable-md')).toBeTruthy();
 
     result = renderComponent({image, stackSize: 'large'});
-    expect(findByClass(result, 'media')).toHaveClass('media-stackable-lg');
+    expect(result.find('.media').hasClass('media-stackable-lg')).toBeTruthy();
   });
 
   describe('when custom attributes are set on media', () => {
@@ -113,18 +113,18 @@ describe('Media', () => {
         id: 'test-id',
         style: {opacity: 0.5}
       });
-      const media = findByClass(result, 'media');
-      expect(media).toHaveClass('test-class');
-      expect(media).toHaveAttr('id', 'test-id');
-      expect(media).toHaveCss({opacity: '0.5'});
-      expect(media.querySelector('.media-body')).toHaveClass('inner-test-class');
+      const media = result.find('.media');
+      expect(subject.find(media).hasClass('test-class')).toBeTruthy();
+      expect(subject.find(media).prop('id')).toBe('test-id');
+      expect(subject.find(media).prop('style')).toEqual({opacity: '0.5'});
+      expect(media.querySelector('.media-body').hasClass('inner-test-class')).toBeTruthy();
     });
   });
 });
 
 describe('Flag', () => {
   const image = <img src="http://placehold.it/20x20" alt="my fancy image description" height="50px" width="40px"/>;
-  const renderComponent = props => ReactDOM.render(<Flag {...props}>fop</Flag>, root);
+  const renderComponent = props => subject = shallow(<Flag {...props}>fop</Flag>);
 
   it('renders a Media component with vAlign set to middle, regardless of the passed-in vAlign value', () => {
     const result = renderComponent({image, vAlign: 'bottom'});
@@ -132,8 +132,8 @@ describe('Flag', () => {
     const mediaComponent = ReactTestUtils.findRenderedComponentWithType(result, Media);
     expect(mediaComponent).toBeDefined();
 
-    const media = findByClass(mediaComponent, 'media');
-    expect(media.querySelector('.media-body')).toHaveClass('media-middle');
-    expect(media.querySelector('.media-left')).toHaveClass('media-middle');
+    const media = mediaComponent.find('.media');
+    expect(media.querySelector('.media-body').hasClass('media-middle')).toBeTruthy();
+    expect(media.querySelector('.media-left').hasClass('media-middle')).toBeTruthy();
   });
 });

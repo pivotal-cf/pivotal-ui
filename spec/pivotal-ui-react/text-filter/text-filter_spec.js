@@ -6,37 +6,37 @@ describe('TextFilter', () => {
 
   beforeEach(() => {
     data = ['apple', 'banana', 'actuator'];
-    filter = jasmine.createSpy('filter').and.returnValue(data);
-    renderFilteredData = jasmine.createSpy('renderFilteredData')
+    filter = jest.fn().and.returnValue(data);
+    renderFilteredData = jest.fn()
       .and.returnValue(<ul>{data.map((v, i) => <li key={i}>{v}</li>)}</ul>);
-    subject = ReactDOM.render(<TextFilter {...{
+    subject = shallow(<TextFilter {...{
       data,
       filter,
       renderFilteredData
-    }}/>, root);
+    }}/>);
   });
 
   it('renders a filter icon', () => {
-    expect('.text-filter > .grid .col:eq(0)').toHaveClass('col-fixed');
-    expect('.text-filter > .grid .col:eq(0) svg.icon-filter_list').toExist();
+    expect(subject.find('.text-filter > .grid .col:eq(0)').hasClass('col-fixed')).toBeTruthy();
+    expect(subject.find('.text-filter > .grid .col:eq(0) svg.icon-filter_list').exists()).toBeTruthy();
   });
 
   it('renders a text input', () => {
-    expect('.text-filter > .grid .col:eq(1) input').toExist();
-    expect('.text-filter > .grid .col:eq(1) input').toHaveAttr('value', '');
+    expect(subject.find('.text-filter > .grid .col:eq(1) input').exists()).toBeTruthy();
+    expect(subject.find('.text-filter > .grid .col:eq(1) input').prop('value')).toBe('');
   });
 
   it('gives the text input a default placeholder', () => {
-    expect('.text-filter > .grid .col:eq(1) input').toHaveAttr('placeholder', 'Filter...');
+    expect(subject.find('.text-filter > .grid .col:eq(1) input').prop('placeholder')).toBe('Filter...');
   });
 
   it('renders the count column', () => {
-    expect('.text-filter > .grid .col:eq(2)').toHaveClass('col-fixed');
-    expect('.text-filter > .grid .col:eq(2)').toHaveText(`${data.length} / ${data.length}`);
+    expect(subject.find('.text-filter > .grid .col:eq(2)').hasClass('col-fixed')).toBeTruthy();
+    expect('.text-filter > .grid .col:eq(2)'.text()).toBe(`${data.length} / ${data.length}`);
   });
 
   it('renders the unfiltered count', () => {
-    expect('.text-filter > .grid .col:eq(2) .unfiltered-count').toHaveText(data.length);
+    expect('.text-filter > .grid .col:eq(2) .unfiltered-count'.text()).toBe(data.length);
   });
 
   it('filters the data', () => {
@@ -44,7 +44,7 @@ describe('TextFilter', () => {
   });
 
   it('renders the filtered count', () => {
-    expect('.text-filter > .grid .col:eq(2) .filtered-count').toHaveText(data.length);
+    expect('.text-filter > .grid .col:eq(2) .filtered-count'.text()).toBe(data.length);
   });
 
   it('calls the renderFilteredData callback', () => {
@@ -53,18 +53,18 @@ describe('TextFilter', () => {
 
   it('renders the filtered object', () => {
     expect($('.text-filter > ul li').length).toBe(3);
-    expect('.text-filter > ul li:eq(0)').toHaveText('apple');
-    expect('.text-filter > ul li:eq(1)').toHaveText('banana');
-    expect('.text-filter > ul li:eq(2)').toHaveText('actuator');
+    expect('.text-filter > ul li:eq(0)'.text()).toBe('apple');
+    expect('.text-filter > ul li:eq(1)'.text()).toBe('banana');
+    expect('.text-filter > ul li:eq(2)'.text()).toBe('actuator');
   });
 
   describe('when custom placeholder text is given', () => {
     beforeEach(() => {
-      subject::setProps({filterPlaceholderText: 'Your text here...'});
+      subject.setProps({filterPlaceholderText: 'Your text here...'});
     });
 
     it('gives the text input the custom placeholder', () => {
-      expect('.text-filter > .grid .col:eq(1) input').toHaveAttr('placeholder', 'Your text here...');
+      expect(subject.find('.text-filter > .grid .col:eq(1) input').prop('placeholder')).toBe('Your text here...');
     });
   });
 
@@ -79,7 +79,7 @@ describe('TextFilter', () => {
     });
 
     it('renders the text in the input field', () => {
-      expect('input').toHaveAttr('value', 'a');
+      expect(subject.find('input').prop('value')).toBe('a');
     });
 
     it('filters the data', () => {
@@ -87,8 +87,8 @@ describe('TextFilter', () => {
     });
 
     it('displays the correct filtered count', () => {
-      expect('.text-filter > .grid .col:eq(2) .filtered-count').toHaveText(filtered.length);
-      expect('.text-filter > .grid .col:eq(2)').toHaveText(`${filtered.length} / ${data.length}`);
+      expect('.text-filter > .grid .col:eq(2) .filtered-count'.text()).toBe(filtered.length);
+      expect('.text-filter > .grid .col:eq(2)'.text()).toBe(`${filtered.length} / ${data.length}`);
     });
 
     it('calls the renderFilteredData callback', () => {
@@ -97,25 +97,25 @@ describe('TextFilter', () => {
 
     it('renders the filtered object', () => {
       expect($('.text-filter > ul li').length).toBe(2);
-      expect('.text-filter > ul li:eq(0)').toHaveText('apple');
-      expect('.text-filter > ul li:eq(1)').toHaveText('actuator');
+      expect('.text-filter > ul li:eq(0)'.text()).toBe('apple');
+      expect('.text-filter > ul li:eq(1)'.text()).toBe('actuator');
     });
 
     describe('when there are no results', () => {
       beforeEach(() => {
         filter.and.returnValue([]);
-        subject::setProps({data: []});
+        subject.setProps({data: []});
       });
 
       describe('and emptyState is given', () => {
         beforeEach(() => {
-          subject::setProps({
+          subject.setProps({
             data: [],
             emptyState: (<p id="wompwomp">No results</p>)
           });
         });
         it('renders the emptyState', () => {
-          expect('#wompwomp').toExist();
+          expect(subject.find('#wompwomp').exists()).toBeTruthy();
         });
       });
 

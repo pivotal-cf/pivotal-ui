@@ -5,17 +5,17 @@ describe('OverlayTrigger', () => {
   let subject;
   const launcher = <span className="launcher">Manually Ask For Tooltip</span>;
   const tooltip = <Tooltip className="tooltip-text" content="Hello World"/>;
-  const renderComponent = props => ReactDOM.render(
-    <OverlayTrigger {...props}>{launcher}</OverlayTrigger>, root);
+  const renderComponent = props => subject = shallow(
+    <OverlayTrigger {...props}>{launcher}</OverlayTrigger>);
   const createLauncher = props => <span className="launcher" {...props}>Manually Ask For Tooltip</span>;
-  const renderComponentWithCustomLauncher = (props, customLauncher) => ReactDOM.render(
-    <OverlayTrigger {...props}>{customLauncher}</OverlayTrigger>, root);
+  const renderComponentWithCustomLauncher = (props, customLauncher) => subject = shallow(
+    <OverlayTrigger {...props}>{customLauncher}</OverlayTrigger>);
 
-  const renderIntoDom = props => ReactDOM.render(<OverlayTrigger {...props}>{launcher}</OverlayTrigger>, root);
+  const renderIntoDom = props => subject = shallow(<OverlayTrigger {...props}>{launcher}</OverlayTrigger>);
 
   it('renders the launcher', () => {
     subject = renderComponent({overlay: tooltip});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveText('Manually Ask For Tooltip');
+    expect(subject.find('launcher').text()).toBe('Manually Ask For Tooltip');
   });
 
   describe('with the tooltip open', () => {
@@ -27,8 +27,8 @@ describe('OverlayTrigger', () => {
         pin: false,
         placement: 'top'
       });
-      expect($('.tooltip-text')).toExist();
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+      expect($('.tooltip-text').exists()).toBeTruthy();
+      expect(subject.find('tether-enabled')).toBeDefined();
     });
   });
 
@@ -42,30 +42,30 @@ describe('OverlayTrigger', () => {
 
   it('positions according to placement if pin is false, defaulting to right-side placement', () => {
     subject = renderComponent({overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-right');
+    expect(subject.find('launcher').hasClass('tooltip-right')).toBeTruthy();
 
     subject = renderComponent({placement: 'left', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-left');
+    expect(subject.find('launcher').hasClass('tooltip-left')).toBeTruthy();
 
     subject = renderComponent({placement: 'left', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-left');
+    expect(subject.find('launcher').hasClass('tooltip-left')).toBeTruthy();
 
     subject = renderComponent({placement: 'top', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-top');
+    expect(subject.find('launcher').hasClass('tooltip-top')).toBeTruthy();
 
     subject = renderComponent({placement: 'bottom', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-bottom');
+    expect(subject.find('launcher').hasClass('tooltip-bottom')).toBeTruthy();
 
     subject = renderComponent({placement: 'right', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-right');
+    expect(subject.find('launcher').hasClass('tooltip-right')).toBeTruthy();
   });
 
   describe('callbacks', () => {
     let onEnteredSpy, onExitedSpy, launcher;
 
     beforeEach(() => {
-      onEnteredSpy = jasmine.createSpy('onEntered');
-      onExitedSpy = jasmine.createSpy('onExited');
+      onEnteredSpy = jest.fn();
+      onExitedSpy = jest.fn();
 
       subject = renderComponent({
         overlay: tooltip,
@@ -74,7 +74,7 @@ describe('OverlayTrigger', () => {
         trigger: 'click'
       });
 
-      launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
+      launcher = subject.find('launcher');
 
       onEnteredSpy.calls.reset();
       onExitedSpy.calls.reset();
@@ -82,23 +82,23 @@ describe('OverlayTrigger', () => {
 
     it('calls onEntered upon tooltip display', () => {
       expect(onEnteredSpy).not.toHaveBeenCalled();
-      ReactTestUtils.Simulate.click(launcher);
+      launcher.simulate('click');
 
       expect(onEnteredSpy).toHaveBeenCalled();
     });
 
     it('calls onExited upon tooltip display', () => {
       expect(onExitedSpy).not.toHaveBeenCalled();
-      ReactTestUtils.Simulate.click(launcher);
-      ReactTestUtils.Simulate.click(launcher);
+      launcher.simulate('click');
+      launcher.simulate('click');
       expect(onExitedSpy).toHaveBeenCalled();
     });
 
     it('does not call the callbacks when not changing', () => {
-      ReactTestUtils.Simulate.click(launcher);
+      launcher.simulate('click');
       onEnteredSpy.calls.reset();
 
-      ReactTestUtils.Simulate.focus(launcher);
+      launcher.simulate('focus');
       expect(onEnteredSpy).not.toHaveBeenCalled();
     });
   });
@@ -112,13 +112,13 @@ describe('OverlayTrigger', () => {
         delayShow: 5000,
       });
 
-      launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
-      ReactTestUtils.Simulate.click(launcher);
+      launcher = subject.find('launcher');
+      launcher.simulate('click');
 
       jasmine.clock().tick(4999);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
       jasmine.clock().tick(1);
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+      expect(subject.find('tether-enabled')).toBeDefined();
     });
 
     it('respects "delayHide"', () => {
@@ -129,11 +129,11 @@ describe('OverlayTrigger', () => {
         display: true
       });
 
-      launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
-      ReactTestUtils.Simulate.click(launcher);
+      launcher = subject.find('launcher');
+      launcher.simulate('click');
 
       jasmine.clock().tick(4999);
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+      expect(subject.find('tether-enabled')).toBeDefined();
       jasmine.clock().tick(1);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
     });
@@ -145,18 +145,18 @@ describe('OverlayTrigger', () => {
         delay: 5000,
       });
 
-      launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
-      ReactTestUtils.Simulate.click(launcher);
+      launcher = subject.find('launcher');
+      launcher.simulate('click');
 
       jasmine.clock().tick(4999);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
       jasmine.clock().tick(1);
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+      expect(subject.find('tether-enabled')).toBeDefined();
 
-      ReactTestUtils.Simulate.click(launcher);
+      launcher.simulate('click');
 
       jasmine.clock().tick(4999);
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+      expect(subject.find('tether-enabled')).toBeDefined();
       jasmine.clock().tick(1);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
     });
@@ -168,12 +168,12 @@ describe('OverlayTrigger', () => {
         delay: 5000,
       });
 
-      launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
+      launcher = subject.find('launcher');
 
-      ReactTestUtils.Simulate.mouseOver(launcher);
+      launcher.simulate('mouseOver');
       jasmine.clock().tick(2000);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
-      ReactTestUtils.Simulate.mouseOut(launcher);
+      launcher.simulate('mouseOut');
 
       jasmine.clock().tick(3000);
 
@@ -191,21 +191,21 @@ describe('OverlayTrigger', () => {
         delay: 5000,
       });
 
-      launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
+      launcher = subject.find('launcher');
 
-      ReactTestUtils.Simulate.click(launcher);
+      launcher.simulate('click');
       jasmine.clock().tick(2000);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
-      ReactTestUtils.Simulate.click(launcher);
+      launcher.simulate('click');
 
       jasmine.clock().tick(3000);
 
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+      expect(subject.find('tether-enabled')).toBeDefined();
     });
   });
 
   it('cleans up callbacks when unmounted', () => {
-    const onEnteredSpy = jasmine.createSpy('on entered');
+    const onEnteredSpy = jest.fn();
     subject = renderIntoDom({
       trigger: 'click',
       delay: 5000,
@@ -213,8 +213,8 @@ describe('OverlayTrigger', () => {
       onEntered: onEnteredSpy
     });
 
-    const launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
-    ReactTestUtils.Simulate.click(launcher);
+    const launcher = subject.find('launcher');
+    launcher.simulate('click');
 
     jasmine.clock().tick(3000);
     ReactDOM.unmountComponentAtNode(root);
@@ -228,14 +228,14 @@ describe('OverlayTrigger', () => {
       const tooltip1 = <Tooltip className="tooltip-unspecified-id" content="Hello World3"/>;
       const tooltip2 = <Tooltip className="tooltip-unspecified-id" content="Hello World4"/>;
 
-      subject = ReactDOM.render(<OverlayTrigger display={true} overlay={tooltip2}>
+      subject = shallow(<OverlayTrigger display={true} overlay={tooltip2}>
         <OverlayTrigger display={true} overlay={tooltip1}>
           {launcher}
         </OverlayTrigger>
-      </OverlayTrigger>, root);
+      </OverlayTrigger>);
 
-      expect($('.tooltip-unspecified-id')[0].id).toBeTruthy();
-      expect($('.tooltip-unspecified-id')[1].id).toBeTruthy();
+      expect($('.tooltip-unspecified-id')[0].id.exists()).toBeTruthy();
+      expect($('.tooltip-unspecified-id')[1].id.exists()).toBeTruthy();
       expect($('.tooltip-unspecified-id')[0].id).not.toEqual($('.tooltip-unspecified-id')[1].id);
     });
   });
@@ -253,8 +253,8 @@ describe('OverlayTrigger', () => {
     });
 
     it('uses aria-described-by', () => {
-      const launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
-      expect(launcher).toHaveAttr('aria-describedby', 'my-specified-id');
+      const launcher = subject.find('launcher');
+      expect(subject.find(launcher).prop('aria-describedby')).toBe('my-specified-id');
     });
   });
 
@@ -264,13 +264,13 @@ describe('OverlayTrigger', () => {
     describe('on hover', () => {
       let onMouseOverSpy, onMouseOutSpy;
       beforeEach(() => {
-        onMouseOverSpy = jasmine.createSpy('onMouseOver');
-        onMouseOutSpy = jasmine.createSpy('onMouseOut');
+        onMouseOverSpy = jest.fn();
+        onMouseOutSpy = jest.fn();
         subject = renderComponentWithCustomLauncher(
           {overlay: tooltip, trigger: 'hover'},
           createLauncher({onMouseOver: onMouseOverSpy, onMouseOut: onMouseOutSpy})
         );
-        launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
+        launcher = subject.find('launcher');
         onMouseOverSpy.calls.reset();
         onMouseOutSpy.calls.reset();
       });
@@ -278,20 +278,20 @@ describe('OverlayTrigger', () => {
       it('triggers on hover', () => {
         expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
 
-        ReactTestUtils.Simulate.mouseOver(launcher);
+        launcher.simulate('mouseOver');
 
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+        expect(subject.find('tether-enabled')).toBeDefined();
 
-        ReactTestUtils.Simulate.mouseOut(launcher);
+        launcher.simulate('mouseOut');
 
         expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
       });
 
       it('calls the callbacks', () => {
-        ReactTestUtils.Simulate.mouseOver(launcher);
+        launcher.simulate('mouseOver');
         expect(onMouseOverSpy).toHaveBeenCalled();
 
-        ReactTestUtils.Simulate.mouseOut(launcher);
+        launcher.simulate('mouseOut');
         expect(onMouseOutSpy).toHaveBeenCalled();
       });
     });
@@ -304,20 +304,20 @@ describe('OverlayTrigger', () => {
       });
       it('does not hide overlay if it is hovered', () => {
         $('.launcher').simulate('mouseOver');
-        expect('.tooltip-text').toExist();
+        expect(subject.find('.tooltip-text').exists()).toBeTruthy();
 
         $('.launcher').simulate('mouseOut');
 
         jasmine.clock().tick(49);
-        expect('.tooltip-text').toExist();
+        expect(subject.find('.tooltip-text').exists()).toBeTruthy();
 
         $('.tooltip-text').simulate('mouseOver');
         jasmine.clock().tick(2);
-        expect('.tooltip-text').toExist();
+        expect(subject.find('.tooltip-text').exists()).toBeTruthy();
 
         $('.tooltip-text').simulate('mouseOut');
         jasmine.clock().tick(50);
-        expect('.tooltip-text').not.toExist();
+        expect(subject.find('.tooltip-text').exists()).toBeFalsy();
       });
     });
 
@@ -325,29 +325,29 @@ describe('OverlayTrigger', () => {
     describe('on click', () => {
       let onClickSpy;
       beforeEach(() => {
-        onClickSpy = jasmine.createSpy('onClick');
+        onClickSpy = jest.fn();
         subject = renderComponentWithCustomLauncher(
           {overlay: tooltip, trigger: 'click'},
           createLauncher({onClick: onClickSpy})
         );
-        launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
+        launcher = subject.find('launcher');
         onClickSpy.calls.reset();
       });
 
       it('triggers on hover', () => {
         expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
 
-        ReactTestUtils.Simulate.click(launcher);
+        launcher.simulate('click');
 
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+        expect(subject.find('tether-enabled')).toBeDefined();
 
-        ReactTestUtils.Simulate.click(launcher);
+        launcher.simulate('click');
 
         expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
       });
 
       it('calls the callback', () => {
-        ReactTestUtils.Simulate.click(launcher);
+        launcher.simulate('click');
         expect(onClickSpy).toHaveBeenCalled();
       });
     });
@@ -355,13 +355,13 @@ describe('OverlayTrigger', () => {
     describe('on focus', () => {
       let onFocusSpy, onBlurSpy;
       beforeEach(() => {
-        onFocusSpy = jasmine.createSpy('onFocus');
-        onBlurSpy = jasmine.createSpy('onBlur');
+        onFocusSpy = jest.fn();
+        onBlurSpy = jest.fn();
         subject = renderComponentWithCustomLauncher(
           {overlay: tooltip, trigger: 'focus'},
           createLauncher({onFocus: onFocusSpy, onBlur: onBlurSpy})
         );
-        launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
+        launcher = subject.find('launcher');
         onFocusSpy.calls.reset();
         onBlurSpy.calls.reset();
       });
@@ -369,20 +369,20 @@ describe('OverlayTrigger', () => {
       it('triggers on focus', () => {
         expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
 
-        ReactTestUtils.Simulate.focus(launcher);
+        launcher.simulate('focus');
 
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+        expect(subject.find('tether-enabled')).toBeDefined();
 
-        ReactTestUtils.Simulate.blur(launcher);
+        launcher.simulate('blur');
 
         expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
       });
 
       it('calls the callbacks', () => {
-        ReactTestUtils.Simulate.focus(launcher);
+        launcher.simulate('focus');
         expect(onFocusSpy).toHaveBeenCalled();
 
-        ReactTestUtils.Simulate.blur(launcher);
+        launcher.simulate('blur');
         expect(onBlurSpy).toHaveBeenCalled();
       });
     });
@@ -397,15 +397,15 @@ describe('OverlayTrigger', () => {
           disableScrim: true,
           overlay: tooltip
         });
-        launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
+        launcher = subject.find('launcher');
 
-        ReactTestUtils.Simulate.click(launcher);
+        launcher.simulate('click');
 
         const evt = document.createEvent('HTMLEvents');
         evt.initEvent('click', true, true);
         document.documentElement.dispatchEvent(evt);
 
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+        expect(subject.find('tether-enabled')).toBeDefined();
       });
     });
 
@@ -416,16 +416,16 @@ describe('OverlayTrigger', () => {
           disableScrim: false,
           overlay: tooltip
         });
-        launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
+        launcher = subject.find('launcher');
       });
 
       it('allows clicking on the trigger to still work', () => {
-        ReactTestUtils.Simulate.click(launcher);
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+        launcher.simulate('click');
+        expect(subject.find('tether-enabled')).toBeDefined();
       });
 
       it('closes the tooltip when clicking on the body', () => {
-        ReactTestUtils.Simulate.click(launcher);
+        launcher.simulate('click');
 
         const evt = document.createEvent('HTMLEvents');
         evt.initEvent('click', true, true);
@@ -437,7 +437,7 @@ describe('OverlayTrigger', () => {
       it('does not close when clicking on the launcher', () => {
         $('.launcher').simulate('click');
 
-        expect('.tether-enabled').toExist();
+        expect(subject.find('.tether-enabled').exists()).toBeTruthy();
       });
     });
   });
@@ -445,7 +445,7 @@ describe('OverlayTrigger', () => {
   describe('theme', () => {
     it('adds an appropriate class if theme === light', () => {
       subject = renderIntoDom({theme: 'light', overlay: tooltip, display: true});
-      expect($('.tooltip-light .tooltip-text')).toExist();
+      expect($('.tooltip-light .tooltip-text').exists()).toBeTruthy();
     });
 
     it('does not add a class if theme =/= light', () => {

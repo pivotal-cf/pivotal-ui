@@ -11,8 +11,8 @@ describe('Form', () => {
   let Buttons, subject, afterSubmit;
 
   beforeEach(() => {
-    afterSubmit = jasmine.createSpy('afterSubmit');
-    Buttons = jasmine.createSpy('Buttons');
+    afterSubmit = jest.fn();
+    Buttons = jest.fn();
     Buttons.and.callFake(({canSubmit, canReset, reset}) => (
       <div>
         <DefaultButton {...{className: 'save', type: 'submit', disabled: !canSubmit()}}>Save</DefaultButton>
@@ -26,7 +26,7 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: 'some-name'}};
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -34,11 +34,11 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('uses the form classname', () => {
-      expect('form').toHaveClass('some-form');
+      expect(subject.find('form').hasClass('some-form')).toBeTruthy();
     });
 
     it('does not disable the top-level fieldset', () => {
@@ -63,18 +63,18 @@ describe('Form', () => {
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveAttr('type', 'submit');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveText('Save');
+      expect(subject.find('fieldset > .grid:eq(0) > .col:eq(1)').hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('fieldset > .grid:eq(0) > .col:eq(1) .save').prop('type')).toBe('submit');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .save'.text()).toBe('Save');
       expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toHaveText('Cancel');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel'.text()).toBe('Cancel');
       expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
     });
 
     describe('when adding a field', () => {
       beforeEach(() => {
         fields.age = {initialValue: '0'};
-        subject::setProps({fields});
+        subject.setProps({fields});
       });
 
       it('updates the state', () => {
@@ -93,7 +93,7 @@ describe('Form', () => {
       });
 
       it('renders buttons ', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
+        expect(subject.find('fieldset > .grid:eq(0) > .col:eq(1)').hasClass('col-fixed')).toBeTruthy();
         expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
         expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
       });
@@ -119,7 +119,7 @@ describe('Form', () => {
       });
 
       it('renders enabled buttons ', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
+        expect(subject.find('fieldset > .grid:eq(0) > .col:eq(1)').hasClass('col-fixed')).toBeTruthy();
         expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
         expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
       });
@@ -138,17 +138,17 @@ describe('Form', () => {
         let error, errors, onSubmitError, onSubmit, resolve, reject;
 
         beforeEach(() => {
-          Promise.onPossiblyUnhandledRejection(jasmine.createSpy('reject'));
+          Promise.onPossiblyUnhandledRejection(jest.fn());
           error = new Error('invalid');
           errors = {name: 'invalid'};
-          onSubmitError = jasmine.createSpy('onSubmitError').and.returnValue(errors);
-          onSubmit = jasmine.createSpy('onSubmit');
+          onSubmitError = jest.fn().and.returnValue(errors);
+          onSubmit = jest.fn();
           onSubmit.and.callFake(() => new Promise((res, rej) => {
             resolve = res;
             reject = rej;
           }));
           Buttons.calls.reset();
-          subject::setProps({onSubmitError, onSubmit});
+          subject.setProps({onSubmitError, onSubmit});
           $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
         });
 
@@ -300,7 +300,7 @@ describe('Form', () => {
 
           beforeEach(() => {
             onSubmit.and.throwError(error);
-            subject::setProps({onSubmit});
+            subject.setProps({onSubmit});
             try {
               subject.onSubmit();
             } catch (e) {
@@ -327,7 +327,7 @@ describe('Form', () => {
       let validator;
 
       beforeEach(() => {
-        validator = jasmine.createSpy('validator');
+        validator = jest.fn();
         const children = ({fields: {name}, ...rest}) => (
           <Grid>
             <FlexCol>{name}</FlexCol>
@@ -335,7 +335,7 @@ describe('Form', () => {
           </Grid>
         );
         children.propTypes = {fields: PropTypes.object};
-        subject::setProps({fields: {name: {initialValue: 'some-name', validator}, age: false}, children});
+        subject.setProps({fields: {name: {initialValue: 'some-name', validator}, age: false}, children});
       });
 
       describe('when the validator returns an error', () => {
@@ -350,8 +350,8 @@ describe('Form', () => {
         });
 
         it('renders the error text', () => {
-          expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').toHaveClass('has-error');
-          expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('some-error');
+          expect(subject.find('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').hasClass('has-error')).toBeTruthy();
+          expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row'.text()).toBe('some-error');
         });
 
         it('disables the submit button', () => {
@@ -369,8 +369,8 @@ describe('Form', () => {
           });
 
           it('removes the error text', () => {
-            expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').not.toHaveClass('has-error');
-            expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('');
+            expect(subject.find('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').hasClass('has-error')).toBeFalsy();
+            expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row'.text()).toBe('');
           });
 
           it('enables the submit button', () => {
@@ -389,8 +389,8 @@ describe('Form', () => {
         });
 
         it('does not render error text', () => {
-          expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').not.toHaveClass('has-error');
-          expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('');
+          expect(subject.find('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').hasClass('has-error')).toBeFalsy();
+          expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row'.text()).toBe('');
         });
       });
     });
@@ -401,7 +401,7 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: ''}};
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -409,7 +409,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -423,7 +423,7 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: undefined}};
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -431,7 +431,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -445,7 +445,7 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: null}};
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -453,7 +453,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -467,7 +467,7 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: false}};
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -475,7 +475,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -489,7 +489,7 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: 0}};
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -497,7 +497,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -508,7 +508,7 @@ describe('Form', () => {
 
   describe('with two required fields', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {}}}}>
           {({fields: {name, password}, ...rest}) => (
             <Grid>
@@ -517,7 +517,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('renders inputs without values', () => {
@@ -526,11 +526,11 @@ describe('Form', () => {
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
+      expect(subject.find('.grid:eq(0) .col:eq(2)').hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('.grid:eq(0) .col:eq(2) .save').prop('type')).toBe('submit');
+      expect('.grid:eq(0) .col:eq(2) .save'.text()).toBe('Save');
       expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
+      expect('.grid:eq(0) .col:eq(2) .cancel'.text()).toBe('Cancel');
       expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
     });
 
@@ -544,7 +544,7 @@ describe('Form', () => {
       });
 
       it('renders buttons ', () => {
-        expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+        expect(subject.find('.grid:eq(0) .col:eq(2)').hasClass('col-fixed')).toBeTruthy();
         expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
         expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
       });
@@ -555,7 +555,7 @@ describe('Form', () => {
         });
 
         it('renders enabled buttons ', () => {
-          expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+          expect(subject.find('.grid:eq(0) .col:eq(2)').hasClass('col-fixed')).toBeTruthy();
           expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
           expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
         });
@@ -567,8 +567,8 @@ describe('Form', () => {
     let optional;
 
     beforeEach(() => {
-      optional = jasmine.createSpy('optional');
-      subject = ReactDOM.render(
+      optional = jest.fn();
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {optional}}}}>
           {({fields: {name, password}, ...rest}) => (
             <Grid>
@@ -577,7 +577,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('renders inputs without values', () => {
@@ -586,11 +586,11 @@ describe('Form', () => {
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
+      expect(subject.find('.grid:eq(0) .col:eq(2)').hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('.grid:eq(0) .col:eq(2) .save').prop('type')).toBe('submit');
+      expect('.grid:eq(0) .col:eq(2) .save'.text()).toBe('Save');
       expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
+      expect('.grid:eq(0) .col:eq(2) .cancel'.text()).toBe('Cancel');
       expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
     });
 
@@ -604,7 +604,7 @@ describe('Form', () => {
       });
 
       it('renders buttons ', () => {
-        expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
+        expect(subject.find('.grid:eq(0) .col:eq(2)').hasClass('col-fixed')).toBeTruthy();
         expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
         expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
       });
@@ -613,7 +613,7 @@ describe('Form', () => {
 
   describe('with one optional field', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{
           className: 'some-form',
           afterSubmit,
@@ -625,19 +625,19 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('renders an optional text for the input', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(0) .label-row').toHaveText('Some label(Optional)');
+      expect('fieldset > .grid:eq(0) > .col:eq(0) .label-row'.text()).toBe('Some label(Optional)');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveAttr('type', 'submit');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveText('Save');
+      expect(subject.find('fieldset > .grid:eq(0) > .col:eq(1)').hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('fieldset > .grid:eq(0) > .col:eq(1) .save').prop('type')).toBe('submit');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .save'.text()).toBe('Save');
       expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toHaveText('Cancel');
+      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel'.text()).toBe('Cancel');
       expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
     });
 
@@ -666,7 +666,7 @@ describe('Form', () => {
 
   describe('with one required and one optional field', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{
           className: 'some-form',
           afterSubmit,
@@ -679,15 +679,15 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
+      expect(subject.find('.grid:eq(0) .col:eq(2)').hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('.grid:eq(0) .col:eq(2) .save').prop('type')).toBe('submit');
+      expect('.grid:eq(0) .col:eq(2) .save'.text()).toBe('Save');
       expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
+      expect('.grid:eq(0) .col:eq(2) .cancel'.text()).toBe('Cancel');
       expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
     });
 
@@ -739,7 +739,7 @@ describe('Form', () => {
   describe('with two checkbox fields', () => {
     beforeEach(() => {
       const children = () => <input type="checkbox"/>;
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{fields: {check1: {initialValue: false, children}, check2: {children}}}}>
           {({fields: {check1, check2}, ...rest}) => (
             <Grid>
@@ -748,7 +748,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('sets the initial state correctly', () => {
@@ -764,9 +764,9 @@ describe('Form', () => {
     let onChange;
 
     beforeEach(() => {
-      onChange = jasmine.createSpy('onChange');
+      onChange = jest.fn();
 
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields: {}}}>
           {() => (
             <Grid>
@@ -778,7 +778,7 @@ describe('Form', () => {
               </FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     it('does not store their values in the state', () => {
@@ -812,7 +812,7 @@ describe('Form', () => {
     let checkRequiredFields;
 
     beforeEach(() => {
-      checkRequiredFields = jasmine.createSpy('checkRequiredFields');
+      checkRequiredFields = jest.fn();
       Buttons.and.callFake(({canSubmit}) => (
         <DefaultButton {...{
           className: 'save',
@@ -821,7 +821,7 @@ describe('Form', () => {
         }}>Save</DefaultButton>
       ));
 
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, fields: {name: {}}}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -829,7 +829,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
       $('input').val('some-name').simulate('change');
     });
 
@@ -860,9 +860,9 @@ describe('Form', () => {
     let onModified;
 
     beforeEach(() => {
-      onModified = jasmine.createSpy('onModified');
+      onModified = jest.fn();
 
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, onModified, fields: {name: {initialValue: 'some-name'}}}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -870,7 +870,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
     });
 
     describe('when modifying', () => {
@@ -936,7 +936,7 @@ describe('Form', () => {
 
   describe('resetOnSubmit', () => {
     beforeEach(() => {
-      ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', resetOnSubmit: true, fields: {name: {initialValue: 'some-name'}}}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -944,7 +944,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
       $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
       $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
     });
@@ -957,14 +957,14 @@ describe('Form', () => {
 
   describe('when passed extra props', () => {
     beforeEach(() => {
-      ReactDOM.render(
-        <Form {...{className: 'some-form', id: 'some-id', name: 'some-name', method: 'some-method'}}/>, root);
+      subject = shallow(
+        <Form {...{className: 'some-form', id: 'some-id', name: 'some-name', method: 'some-method'}}/>);
     });
 
     it('passes them to the form tag', () => {
-      expect('.some-form').toHaveAttr('id', 'some-id');
-      expect('.some-form').toHaveAttr('name', 'some-name');
-      expect('.some-form').toHaveAttr('method', 'some-method');
+      expect(subject.find('.some-form').prop('id')).toBe('some-id');
+      expect(subject.find('.some-form').prop('name')).toBe('some-name');
+      expect(subject.find('.some-form').prop('method')).toBe('some-method');
     });
   });
 
@@ -996,7 +996,7 @@ describe('Form', () => {
         }
       }
 
-      subject = ReactDOM.render(<Page/>, root);
+      subject = shallow(<Page/>);
       $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-name').simulate('change');
     });
 
@@ -1052,10 +1052,10 @@ describe('Form', () => {
 
     describe('when passed an event', () => {
       beforeEach(() => {
-        subject = ReactDOM.render(
+        subject = shallow(
           <Form {...{fields: {title: {}}}}>
             {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
-          </Form>, root);
+          </Form>);
         $('.form input').val('mytitle').simulate('change');
       });
 
@@ -1068,10 +1068,10 @@ describe('Form', () => {
       beforeEach(() => {
         const Component = ({onChange}) => <input {...{onChange}}/>;
         Component.propTypes = {onChange: PropTypes.func};
-        subject = ReactDOM.render(
+        subject = shallow(
           <Form {...{fields: {title: {children: <Component/>}}}}>
             {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
-          </Form>, root);
+          </Form>);
         $('.form input').val('some-title').simulate('change');
       });
 
@@ -1085,8 +1085,8 @@ describe('Form', () => {
     let persist;
 
     beforeEach(() => {
-      persist = jasmine.createSpy('persist');
-      subject = ReactDOM.render(
+      persist = jest.fn();
+      subject = shallow(
         <Form {...{
           fields: {
             title: {
@@ -1095,7 +1095,7 @@ describe('Form', () => {
           }
         }}>
           {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
-        </Form>, root);
+        </Form>);
       $('.form input').val('some-title').simulate('change', {target: {value: 'some-title'}, persist});
     });
 
@@ -1110,7 +1110,7 @@ describe('Form', () => {
 
   describe('when a checkbox field has a custom onChange', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{
           fields: {
             title: {
@@ -1119,7 +1119,7 @@ describe('Form', () => {
           }
         }}>
           {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
-        </Form>, root);
+        </Form>);
       $('.form input').click();
     });
 
@@ -1130,7 +1130,7 @@ describe('Form', () => {
 
   describe('when updating current values programmatically', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{
           className: 'some-form',
           afterSubmit,
@@ -1143,7 +1143,7 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>);
 
       subject.setValues({name: 'new-name'});
     });
@@ -1164,9 +1164,9 @@ describe('Form', () => {
         }
       }
 
-      ReactDOM.render(<Form {...{
+      subject = shallow(<Form {...{
         fields: {input: {initialValue: CustomInput.defaultProps.value, children: <CustomInput/>}}
-      }}>{({fields: {input}}) => input}</Form>, root);
+      }}>{({fields: {input}}) => input}</Form>);
     });
 
     it('renders the initial value', () => {
@@ -1195,9 +1195,9 @@ describe('Form', () => {
         }
       }
 
-      ReactDOM.render(<Form {...{
+      subject = shallow(<Form {...{
         fields: {checkbox: {initialValue: CustomCheckbox.defaultProps.checked, children: <CustomCheckbox/>}}
-      }}>{({fields: {checkbox}}) => checkbox}</Form>, root);
+      }}>{({fields: {checkbox}}) => checkbox}</Form>);
     });
 
     it('renders the initial value', () => {
@@ -1220,9 +1220,9 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: 'some-name'}};
-      subject = ReactDOM.render(<Form {...{fields}}>{({fields: {name}}) => name}</Form>, root);
+      subject = shallow(<Form {...{fields}}>{({fields: {name}}) => name}</Form>);
       fields = {name: {initialValue: 'some-other-name'}};
-      subject::setProps({fields});
+      subject.setProps({fields});
     });
 
     it('changes the state', () => {

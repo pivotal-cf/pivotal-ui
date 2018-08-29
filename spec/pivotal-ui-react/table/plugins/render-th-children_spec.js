@@ -16,11 +16,11 @@ describe('withRenderThChildren', () => {
     }];
 
     const ComposedTable = withRenderThChildren(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('renders the correct header', () => {
-    expect('table thead th:eq(0) .custom').toHaveText('some header');
-    expect('table thead th:eq(1)').toHaveText('Attr2');
+    expect('table thead th:eq(0) .custom'.text()).toBe('some header');
+    expect('table thead th:eq(1)'.text()).toBe('Attr2');
   });
 });

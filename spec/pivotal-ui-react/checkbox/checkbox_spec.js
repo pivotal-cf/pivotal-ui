@@ -1,25 +1,25 @@
-import '../spec_helper';
+import React from 'react';
 import {Checkbox} from '../../../src/react/checkbox';
 import {Icon} from '../../../src/react/iconography';
 
-describe('Checkbox', () => {
+describe.only('Checkbox', () => {
   let subject;
 
   beforeEach(() => {
     spyOnRender(Icon);
-    subject = ReactDOM.render(<Checkbox/>, root);
+    subject = testRender(<Checkbox/>);
   });
 
   it('renders a pui checkbox', () => {
-    expect('.pui-checkbox').toExist();
+    expect(subject.find('.pui-checkbox').exists()).toBeTruthy();
   });
 
   it('renders a hidden checkbox', () => {
-    expect('.pui-checkbox input').toHaveAttr('type', 'checkbox');
+    expect(subject.find('.pui-checkbox input').prop('type')).toBe('checkbox');
   });
 
   it('renders a label', () => {
-    expect('.pui-checkbox label').toHaveText('');
+    expect(subject.find('.pui-checkbox label').text()).toBe('');
   });
 
   it('renders an unchecked control', () => {
@@ -36,13 +36,12 @@ describe('Checkbox', () => {
   });
 
   it('does not render an indeterminate checkbox', () => {
-    expect(subject.el.indeterminate).toBeFalsy();
+    expect(subject.instance().el.indeterminate).toBeFalsy();
   });
 
   describe('when checked', () => {
     beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-      subject = ReactDOM.render(<Checkbox checked onChange={() => null}/>, root);
+      subject = testRender(<Checkbox checked onChange={() => null}/>);
     });
 
     it('renders an checked control', () => {
@@ -52,10 +51,12 @@ describe('Checkbox', () => {
 
   describe('when clicked', () => {
     beforeEach(() => {
+      subject = testRender(<Checkbox onChange={() => console.log('onChange')} onClick={() => console.log('onClick')}/>);
       $('.pui-checkbox input').click();
     });
 
     it('renders an checked control', () => {
+      console.log(subject.debug());
       expect('.pui-checkbox input').toBeChecked();
     });
 
@@ -72,17 +73,17 @@ describe('Checkbox', () => {
 
   describe('children', () => {
     beforeEach(() => {
-      subject::setProps({children: <div className="label-content">hello</div>});
+      subject.setProps({children: <div className="label-content">hello</div>});
     });
 
     it('renders the children inside the label', () => {
-      expect('.pui-checkbox label .label-content').toHaveText('hello');
+      expect(subject.find('.pui-checkbox label .label-content').text()).toBe('hello');
     });
   });
 
   describe('style', () => {
     beforeEach(() => {
-      subject::setProps({style: {color: 'green', backgroundColor: 'red'}});
+      subject.setProps({style: {color: 'green', backgroundColor: 'red'}});
     });
 
     it('puts the style on the outer div', () => {
@@ -92,17 +93,17 @@ describe('Checkbox', () => {
 
   describe('labelClassName', () => {
     beforeEach(() => {
-      subject::setProps({labelClassName: 'some-class'});
+      subject.setProps({labelClassName: 'some-class'});
     });
 
     it('renders a label with the class name', () => {
-      expect('.pui-checkbox label').toHaveClass('some-class');
+      expect(subject.find('.pui-checkbox label').hasClass('some-class')).toBeTruthy();
     });
   });
 
   describe('indeterminate', () => {
     beforeEach(() => {
-      subject::setProps({indeterminate: true});
+      subject.setProps({indeterminate: true});
     });
 
     it('renders a remove Icon', () => {
@@ -115,7 +116,7 @@ describe('Checkbox', () => {
     });
 
     it('renders an indeterminate checkbox', () => {
-      expect(subject.el.indeterminate).toBeTruthy();
+      expect(subject.el.indeterminate.exists()).toBeTruthy();
     });
 
     describe('when clicked', () => {

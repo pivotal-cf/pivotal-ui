@@ -5,7 +5,7 @@ describe('withCellClassName', () => {
   let className;
 
   beforeEach(() => {
-    className = jasmine.createSpy('className')
+    className = jest.fn()
       .and.callFake(rowDatum => `class-${rowDatum.attr1}-${rowDatum.attr2}`);
     const columns = [{
       attribute: 'attr1', className: 'class-attr1'
@@ -19,18 +19,18 @@ describe('withCellClassName', () => {
     }];
 
     const ComposedTable = withCellClassName(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('renders th elements with class name', () => {
-    expect('table tr:eq(0) th:eq(0)').toHaveClass('class-attr1');
-    expect('table tr:eq(0) th:eq(1)').toHaveClass('class-undefined-undefined');
+    expect(subject.find('table tr:eq(0) th:eq(0)').hasClass('class-attr1')).toBeTruthy();
+    expect(subject.find('table tr:eq(0) th:eq(1)').hasClass('class-undefined-undefined')).toBeTruthy();
   });
 
   it('renders td elements with class name', () => {
-    expect('table tr:eq(1) td:eq(0)').toHaveClass('class-attr1');
-    expect('table tr:eq(1) td:eq(1)').toHaveClass('class-row1-value1-row1-value2');
-    expect('table tr:eq(2) td:eq(0)').toHaveClass('class-attr1');
-    expect('table tr:eq(2) td:eq(1)').toHaveClass('class-row2-value1-row2-value2');
+    expect(subject.find('table tr:eq(1) td:eq(0)').hasClass('class-attr1')).toBeTruthy();
+    expect(subject.find('table tr:eq(1) td:eq(1)').hasClass('class-row1-value1-row1-value2')).toBeTruthy();
+    expect(subject.find('table tr:eq(2) td:eq(0)').hasClass('class-attr1')).toBeTruthy();
+    expect(subject.find('table tr:eq(2) td:eq(1)').hasClass('class-row2-value1-row2-value2')).toBeTruthy();
   });
 });

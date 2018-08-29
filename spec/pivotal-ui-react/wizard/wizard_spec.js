@@ -5,16 +5,16 @@ describe('Wizard', () => {
   let finish, pages, subject, nextEnabled;
 
   beforeEach(() => {
-    finish = jasmine.createSpy('finish');
-    nextEnabled = jasmine.createSpy('nextEnabled');
+    finish = jest.fn();
+    nextEnabled = jest.fn();
     nextEnabled.and.returnValue(true);
     pages = [{
-      render: jasmine.createSpy('pageOneRender').and.returnValue((<div className="wizard-page-one">pageOne</div>)),
+      render: jest.fn().and.returnValue((<div className="wizard-page-one">pageOne</div>)),
       nextEnabled
     }, {
-      render: jasmine.createSpy('pageTwoRender').and.returnValue((<div className="wizard-page-two">pageTwo</div>))
+      render: jest.fn().and.returnValue((<div className="wizard-page-two">pageTwo</div>))
     }];
-    subject = ReactDOM.render(<Wizard {...{finish, pages}}/>, root);
+    subject = shallow(<Wizard {...{finish, pages}}/>);
   });
 
   describe('#getPage', () => {
@@ -63,8 +63,8 @@ describe('Wizard', () => {
     let cancel;
 
     beforeEach(() => {
-      cancel = jasmine.createSpy('cancel');
-      subject::setProps({cancel});
+      cancel = jest.fn();
+      subject.setProps({cancel});
       subject.onClickCancel();
     });
 
@@ -92,13 +92,13 @@ describe('Wizard', () => {
       let onClickBack;
 
       beforeEach(() => {
-        onClickBack = jasmine.createSpy('onClickBack');
+        onClickBack = jest.fn();
         onClickBack.and.returnValue(0);
         pages.push({
-          render: jasmine.createSpy('pageThreeRender'),
+          render: jest.fn(),
           onClickBack
         });
-        subject::setProps({pages});
+        subject.setProps({pages});
         subject.setState({currentPage: 2});
         subject.onClickBack();
       });
@@ -124,22 +124,22 @@ describe('Wizard', () => {
       let onClickBack;
 
       beforeEach(() => {
-        onClickBack = jasmine.createSpy('onClickBack');
+        onClickBack = jest.fn();
         pages.push({
-          render: jasmine.createSpy('pageThreeRender'),
+          render: jest.fn(),
           onClickBack,
           backComponent: <button className="some-back-button"/>
         });
-        subject::setProps({pages});
+        subject.setProps({pages});
         subject.setState({currentPage: 2});
       });
 
       it('renders the back component', () => {
-        expect('.wizard .wizard-footer .col:eq(0) .some-back-button').toExist();
+        expect(subject.find('.wizard .wizard-footer .col:eq(0) .some-back-button').exists()).toBeTruthy();
       });
 
       it('does not render the back button', () => {
-        expect('.wizard-back-btn').not.toExist();
+        expect(subject.find('.wizard-back-btn').exists()).toBeFalsy();
       });
 
       describe('when clicking the back component', () => {
@@ -169,15 +169,15 @@ describe('Wizard', () => {
       let onClickNext;
 
       beforeEach(() => {
-        onClickNext = jasmine.createSpy('onClickNext');
+        onClickNext = jest.fn();
         pages.push({
-          render: jasmine.createSpy('pageThreeRender'),
+          render: jest.fn(),
           onClickNext
         });
         pages.push({
-          render: jasmine.createSpy('pageFourRender')
+          render: jest.fn()
         });
-        subject::setProps({pages});
+        subject.setProps({pages});
         subject.setState({currentPage: pages.length - 2});
         subject.onClickNext();
       });
@@ -218,42 +218,42 @@ describe('Wizard', () => {
         setPage: subject.setPage,
         getPage: subject.getPage
       });
-      expect('.wizard-page-one').toExist();
+      expect(subject.find('.wizard-page-one').exists()).toBeTruthy();
     });
 
     it('does not render a cancel button', () => {
-      expect('.wizard-cancel-btn').not.toExist();
+      expect(subject.find('.wizard-cancel-btn').exists()).toBeFalsy();
     });
 
     describe('with cancel callback', () => {
       let cancel;
 
       beforeEach(() => {
-        cancel = jasmine.createSpy('cancel');
-        subject::setProps({cancel});
+        cancel = jest.fn();
+        subject.setProps({cancel});
       });
 
       it('renders a cancel button', () => {
-        expect('.wizard-cancel-btn.pui-btn-primary-alt').toHaveText('Cancel');
+        expect(subject.find('.wizard-cancel-btn.pui-btn-primary-alt').text()).toBe('Cancel');
       });
 
       describe('with custom cancel text', () => {
         beforeEach(() => {
-          subject::setProps({cancelText: 'Close'});
+          subject.setProps({cancelText: 'Close'});
         });
 
         it('renders a cancel button with custom text', () => {
-          expect('.wizard-cancel-btn.pui-btn-primary-alt').toHaveText('Close');
+          expect(subject.find('.wizard-cancel-btn.pui-btn-primary-alt').text()).toBe('Close');
         });
       });
     });
 
     it('does not render a back button', () => {
-      expect('.wizard-back-btn').not.toExist();
+      expect(subject.find('.wizard-back-btn').exists()).toBeFalsy();
     });
 
     it('renders a "next" PrimaryButton', () => {
-      expect('.wizard-next-btn.pui-btn-primary').toHaveText('Next');
+      expect(subject.find('.wizard-next-btn.pui-btn-primary').text()).toBe('Next');
     });
 
     it('checks if the next button is enabled', () => {
@@ -266,8 +266,8 @@ describe('Wizard', () => {
       });
 
       it('renders the next page', () => {
-        expect('.wizard-page-one').not.toExist();
-        expect('.wizard-page-two').toExist();
+        expect(subject.find('.wizard-page-one').exists()).toBeFalsy();
+        expect(subject.find('.wizard-page-two').exists()).toBeTruthy();
         expect(subject.state.currentPage).toEqual(1);
       });
     });
@@ -279,7 +279,7 @@ describe('Wizard', () => {
       });
 
       it('does not render the next button', () => {
-        expect('.wizard-next-btn.pui-btn-primary').not.toExist();
+        expect(subject.find('.wizard-next-btn.pui-btn-primary').exists()).toBeFalsy();
       });
     });
 
@@ -290,7 +290,7 @@ describe('Wizard', () => {
       });
 
       it('renders the custom text', () => {
-        expect('.wizard-next-btn.pui-btn-primary').toHaveText('customNext');
+        expect(subject.find('.wizard-next-btn.pui-btn-primary').text()).toBe('customNext');
       });
     });
 
@@ -306,18 +306,18 @@ describe('Wizard', () => {
       });
 
       it('disables the "next" button', () => {
-        expect('.wizard-next-btn.pui-btn-primary').toHaveAttr('disabled');
+        expect(subject.find('.wizard-next-btn.pui-btn-primary').prop('disabled');
       });
     });
   });
 
-  describe('when on the last page', () => {
+  describe('when on the last page')).toBe(() => {
     beforeEach(() => {
       subject.setState({currentPage: pages.length - 1});
     });
 
     it('renders a "finish" PrimaryButton', () => {
-      expect('.wizard-finish-btn.pui-btn-primary').toHaveText('Finish');
+      expect(subject.find('.wizard-finish-btn.pui-btn-primary').text()).toBe('Finish');
     });
 
     describe('when "hideFinishButton" is true', () => {
@@ -328,7 +328,7 @@ describe('Wizard', () => {
       });
 
       it('does not render a "finish" Button', () => {
-        expect('.wizard-finish-btn').not.toExist();
+        expect(subject.find('.wizard-finish-btn').exists()).toBeFalsy();
       });
     });
 
@@ -340,16 +340,16 @@ describe('Wizard', () => {
       });
 
       it('does not render a "back" Button', () => {
-        expect('.wizard-back-btn').not.toExist();
+        expect(subject.find('.wizard-back-btn').exists()).toBeFalsy();
       });
     });
 
     it('does not render a "next" PrimaryButton', () => {
-      expect('.wizard-next-btn.pui-btn-primary').not.toExist();
+      expect(subject.find('.wizard-next-btn.pui-btn-primary').exists()).toBeFalsy();
     });
 
     it('renders a "back" alt PrimaryButton', () => {
-      expect('.wizard-back-btn.pui-btn-primary-alt').toHaveText('Back');
+      expect(subject.find('.wizard-back-btn.pui-btn-primary-alt').text()).toBe('Back');
     });
 
     describe('when clicking the "back" button', () => {
@@ -358,19 +358,19 @@ describe('Wizard', () => {
       });
 
       it('renders the previous page', () => {
-        expect('.wizard-page-one').toExist();
-        expect('.wizard-page-two').not.toExist();
+        expect(subject.find('.wizard-page-one').exists()).toBeTruthy();
+        expect(subject.find('.wizard-page-two').exists()).toBeFalsy();
         expect(subject.state.currentPage).toEqual(0);
       });
     });
 
     describe('with custom finish text', () => {
       beforeEach(() => {
-        subject::setProps({finishText: 'customFinish'});
+        subject.setProps({finishText: 'customFinish'});
       });
 
       it('renders the custom text', () => {
-        expect('.wizard-finish-btn.pui-btn-primary').toHaveText('customFinish');
+        expect(subject.find('.wizard-finish-btn.pui-btn-primary').text()).toBe('customFinish');
       });
     });
 
@@ -378,8 +378,8 @@ describe('Wizard', () => {
       let finish;
 
       beforeEach(() => {
-        finish = jasmine.createSpy('finish');
-        subject::setProps({
+        finish = jest.fn();
+        subject.setProps({
           finish
         });
         $('.wizard-finish-btn').simulate('click');
@@ -392,11 +392,11 @@ describe('Wizard', () => {
 
     describe('when "saving" is true and savingText is provided', () => {
       beforeEach(() => {
-        subject::setProps({saving: true, savingText: 'Creating'});
+        subject.setProps({saving: true, savingText: 'Creating'});
       });
 
       it('renders a spinner', () => {
-        expect('.wizard-finish-btn .icon-spinner-sm').toExist();
+        expect(subject.find('.wizard-finish-btn .icon-spinner-sm').exists()).toBeTruthy();
       });
 
       it('changes the button text to savingText', () => {
@@ -404,13 +404,13 @@ describe('Wizard', () => {
       });
 
       it('disables the back button', () => {
-        expect('.wizard-back-btn').toHaveAttr('disabled');
+        expect(subject.find('.wizard-back-btn').prop('disabled');
       });
     });
 
-    describe('when "saving" is true and savingText is not provided', () => {
+    describe('when "saving" is true and savingText is not provided')).toBe(() => {
       beforeEach(() => {
-        subject::setProps({saving: true});
+        subject.setProps({saving: true});
       });
 
       it('changes the button text to the default saving text', () => {
@@ -420,7 +420,7 @@ describe('Wizard', () => {
 
     describe('when "saving" is false', () => {
       it('does not render a spinner', () => {
-        expect('.wizard-finish-btn .icon-spinner-sm').not.toExist();
+        expect(subject.find('.wizard-finish-btn .icon-spinner-sm').exists()).toBeFalsy();
       });
 
       it('does not change the button text', () => {
@@ -439,11 +439,11 @@ describe('Wizard', () => {
       });
 
       it('renders the finish component', () => {
-        expect('.wizard .wizard-footer .col:eq(1) .some-custom-button').toExist();
+        expect(subject.find('.wizard .wizard-footer .col:eq(1) .some-custom-button').exists()).toBeTruthy();
       });
 
       it('does not render the finish button', () => {
-        expect('.wizard-finish-btn').not.toExist();
+        expect(subject.find('.wizard-finish-btn').exists()).toBeFalsy();
       });
 
       describe('when clicking the finish component', () => {
