@@ -1,6 +1,6 @@
 import React from 'react';
 import {configure as configureEnzyme, mount} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-15';
 configureEnzyme({adapter: new Adapter()});
 import {matcherResult} from './common';
 import jestDiff from 'jest-diff';
