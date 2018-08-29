@@ -12,7 +12,7 @@ export class Media extends React.Component {
     innerClassName: PropTypes.string,
     mediaSpacing: PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
     stackSize: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
-    vAlign: PropTypes.oneOf(['middle', 'bottom']),
+    vAlign: PropTypes.oneOf(['middle', 'bottom', 'top']),
     placement: PropTypes.oneOf(['left', 'right']),
     className: PropTypes.string
   };

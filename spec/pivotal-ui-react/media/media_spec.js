@@ -81,7 +81,7 @@ describe('Media', () => {
   });
 
   it('confers the appropriate classes to both children based on vAlign', () => {
-    ['middle', 'bottom'].forEach(vAlign => {
+    ['middle', 'bottom', 'top'].forEach(vAlign => {
       result = renderComponent({image, vAlign});
       const media = findByClass(result, 'media');
 
