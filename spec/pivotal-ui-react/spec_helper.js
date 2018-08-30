@@ -1,10 +1,10 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MockNextTick from './support/mock_next_tick';
 import MockPromises from 'mock-promises';
-import MockNow from 'performance-now';
-import MockRaf from 'raf';
+import MockNextTick from './support/mock_next_tick';
+import MockNow from './support/mock_performance_now';
+import MockRaf from './support/mock_raf';
 import './support/bluebird';
 import './support/set_immediate';
 import $ from 'jquery';
@@ -14,15 +14,16 @@ import Adapter from 'enzyme-adapter-react-15';
 configureEnzyme({adapter: new Adapter()});
 
 Object.assign(global, {
+  MockPromises,
   MockNextTick,
   MockNow,
-  MockPromises,
-  $,
   MockRaf,
+  $,
   React,
   ReactDOM,
   shallow,
-  mount
+  mount,
+  spyOn: jest.spyOn
 });
 
 beforeEach(() => {
@@ -31,6 +32,8 @@ beforeEach(() => {
 
 afterEach(() => {
   MockNextTick.next();
+  MockPromises.contracts.reset();
   MockPromises.uninstall();
-  jest.clearAllMocks();
+  MockNow.reset();
+  MockRaf.reset();
 });
