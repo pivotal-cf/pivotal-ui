@@ -1,5 +1,6 @@
 import 'babel-polyfill';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import MockNextTick from './support/mock_next_tick';
 import MockPromises from 'mock-promises';
 import MockNow from 'performance-now';
@@ -20,6 +21,7 @@ Object.assign(global, {
   $: jQuery,
   MockRaf,
   React,
+  ReactDOM,
   shallow
 });
 
