@@ -7,18 +7,17 @@ import MockNow from 'performance-now';
 import MockRaf from 'raf';
 import './support/bluebird';
 import './support/set_immediate';
-import jQuery from 'jquery';
+import $ from 'jquery';
 import {configure as configureEnzyme, shallow, mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 configureEnzyme({adapter: new Adapter()});
 
 Object.assign(global, {
-  jQuery,
   MockNextTick,
   MockNow,
   MockPromises,
-  $: jQuery,
+  $,
   MockRaf,
   React,
   ReactDOM,
