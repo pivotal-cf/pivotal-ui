@@ -2,11 +2,10 @@ import '../../spec_helper';
 import {Table, withCellClassName} from '../../../../src/react/table';
 
 describe('withCellClassName', () => {
-  let className;
+  let className, subject;
 
   beforeEach(() => {
-    className = jasmine.createSpy('className')
-      .and.callFake(rowDatum => `class-${rowDatum.attr1}-${rowDatum.attr2}`);
+    className = jest.fn().mockName('className').mockImplementation(rowDatum => `class-${rowDatum.attr1}-${rowDatum.attr2}`);
     const columns = [{
       attribute: 'attr1', className: 'class-attr1'
     }, {
@@ -19,18 +18,18 @@ describe('withCellClassName', () => {
     }];
 
     const ComposedTable = withCellClassName(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('renders th elements with class name', () => {
-    expect('table tr:eq(0) th:eq(0)').toHaveClass('class-attr1');
-    expect('table tr:eq(0) th:eq(1)').toHaveClass('class-undefined-undefined');
+    expect(subject.find('table tr').at(0).find('th').at(0).hasClass('class-attr1')).toBeTruthy();
+    expect(subject.find('table tr').at(0).find('th').at(1).hasClass('class-undefined-undefined')).toBeTruthy();
   });
 
   it('renders td elements with class name', () => {
-    expect('table tr:eq(1) td:eq(0)').toHaveClass('class-attr1');
-    expect('table tr:eq(1) td:eq(1)').toHaveClass('class-row1-value1-row1-value2');
-    expect('table tr:eq(2) td:eq(0)').toHaveClass('class-attr1');
-    expect('table tr:eq(2) td:eq(1)').toHaveClass('class-row2-value1-row2-value2');
+    expect(subject.find('table tr').at(1).find('td').at(0).hasClass('class-attr1')).toBeTruthy();
+    expect(subject.find('table tr').at(1).find('td').at(1).hasClass('class-row1-value1-row1-value2')).toBeTruthy();
+    expect(subject.find('table tr').at(2).find('td').at(0).hasClass('class-attr1')).toBeTruthy();
+    expect(subject.find('table tr').at(2).find('td').at(1).hasClass('class-row2-value1-row2-value2')).toBeTruthy();
   });
 });

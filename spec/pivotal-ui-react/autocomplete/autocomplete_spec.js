@@ -20,12 +20,11 @@ describe('Autocomplete', () => {
         {'lily.water': {name: 'lily.water', age: 44}},
         {'water lilies': {name: 'water lilies', age: 64}}
       ]);
-    pickSpy = jasmine.createSpy('pick');
-    subject = ReactDOM.render(
-      <Autocomplete {...{
-        onInitializeItems,
-        onPick: pickSpy
-      }} />, root);
+    pickSpy = jest.fn().mockName('pick');
+    subject = shallow(<Autocomplete {...{
+      onInitializeItems,
+      onPick: pickSpy
+    }} />);
     MockNextTick.next();
     MockPromises.tick();
   });
@@ -38,32 +37,31 @@ describe('Autocomplete', () => {
     };
     const CustomList = () => (<ul className="my-custom-list"/>);
 
-    subject = ReactDOM.render(
-      <Autocomplete {...{
-        onInitializeItems,
-        input: (<CustomInput/>),
-        disabled: true,
-        placeholder: 'Best autocomplete ever...'
-      }}>
-        <CustomList/>
-      </Autocomplete>, root);
+    subject = shallow(<Autocomplete {...{
+      onInitializeItems,
+      input: (<CustomInput/>),
+      disabled: true,
+      placeholder: 'Best autocomplete ever...'
+    }}>
+      <CustomList/>
+    </Autocomplete>);
 
     MockNextTick.next();
     MockPromises.tick();
 
     subject.showList();
 
-    expect('.autocomplete input').toHaveAttr('disabled');
-    expect('.autocomplete input').toHaveAttr('placeholder', 'Best autocomplete ever...');
-    expect('.autocomplete input').toHaveClass('input-thing');
-    expect('.my-custom-list').toExist();
-    expect('.autocomplete-list').not.toExist();
+    expect(subject.find('.autocomplete input').prop('disabled')).toBeTruthy();
+    expect(subject.find('.autocomplete input').prop('placeholder')).toBe('Best autocomplete ever...');
+    expect(subject.find('.autocomplete input').hasClass('input-thing')).toBeTruthy();
+    expect(subject.find('.my-custom-list').exists()).toBeTruthy();
+    expect(subject.find('.autocomplete-list').exists()).toBeFalsy();
   });
 
   describe('when nothing is entered into input and the list is shown with a list of objects', () => {
     beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-      subject = ReactDOM.render(<Autocomplete {...{onInitializeItems}} />, root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      subject = shallow(<Autocomplete {...{onInitializeItems}} />);
 
       MockNextTick.next();
       MockPromises.tick();
@@ -73,34 +71,38 @@ describe('Autocomplete', () => {
 
     it('renders the list items in order', () => {
       expect('.autocomplete li').toHaveLength(5);
-      expect('.autocomplete a:eq(0)').toHaveText('watson');
-      expect('.autocomplete a:eq(1)').toHaveText('coffee');
-      expect('.autocomplete a:eq(2)').toHaveText('advil');
-      expect('.autocomplete a:eq(3)').toHaveText('lily.water');
-      expect('.autocomplete a:eq(4)').toHaveText('water lilies');
+      expect(subject.find('.autocomplete a').at(0).text()).toBe('watson');
+      expect(subject.find('.autocomplete a').at(1).text()).toBe('coffee');
+      expect(subject.find('.autocomplete a').at(2).text()).toBe('advil');
+      expect(subject.find('.autocomplete a').at(3).text()).toBe('lily.water');
+      expect(subject.find('.autocomplete a').at(4).text()).toBe('water lilies');
     });
   });
 
   describe('when the user starts to type into the input', () => {
     beforeEach(() => {
-      pickSpy.calls.reset();
+      pickSpy.mockReset();
       MockNextTick.next();
       MockPromises.tick();
 
-      $('.autocomplete input').val('wat').simulate('change');
+      subject.find('.autocomplete input').simulate('change', {
+        target: {
+          value: 'wat'
+        }
+      });
     });
 
     it('renders the list', () => {
       expect('.autocomplete li').toHaveLength(2);
-      expect('.autocomplete a:eq(0)').toHaveText('watson');
-      expect('.autocomplete a:eq(0)').toHaveAttr('title', 'watson');
-      expect('.autocomplete a:eq(1)').toHaveText('water lilies');
-      expect('.autocomplete a:eq(1)').toHaveAttr('title', 'water lilies');
+      expect(subject.find('.autocomplete a').at(0).text()).toBe('watson');
+      expect(subject.find('.autocomplete a').at(0).prop('title')).toBe('watson');
+      expect(subject.find('.autocomplete a').at(1).text()).toBe('water lilies');
+      expect(subject.find('.autocomplete a').at(1).prop('title')).toBe('water lilies');
     });
 
     it('highlights (but does not select) the first item', () => {
-      expect('.autocomplete a:eq(0)').toHaveClass('highlighted');
-      expect('.autocomplete a:eq(0)').not.toHaveClass('selected');
+      expect(subject.find('.autocomplete a').at(0).hasClass('highlighted')).toBeTruthy();
+      expect(subject.find('.autocomplete a').at(0).hasClass('selected')).toBeFalsy();
     });
 
     describe('when the enter key is pressed', () => {
@@ -109,7 +111,7 @@ describe('Autocomplete', () => {
       });
 
       it('hides the list', () => {
-        expect('.autocomplete-list').not.toExist();
+        expect(subject.find('.autocomplete-list').exists()).toBeFalsy();
       });
 
       it('calls the autocomplete callback', () => {
@@ -123,7 +125,7 @@ describe('Autocomplete', () => {
       });
 
       it('hides the list', () => {
-        expect('.autocomplete-list').not.toExist();
+        expect(subject.find('.autocomplete-list').exists()).toBeFalsy();
       });
 
       it('calls the autocomplete callback', () => {
@@ -137,7 +139,7 @@ describe('Autocomplete', () => {
       });
 
       it('hides the list', () => {
-        expect('.autocomplete-list').not.toExist();
+        expect(subject.find('.autocomplete-list').exists()).toBeFalsy();
       });
     });
 
@@ -147,7 +149,7 @@ describe('Autocomplete', () => {
       });
 
       it('unhighlights any autocomplete suggestions', () => {
-        expect('.highlighted').not.toExist();
+        expect(subject.find('.highlighted').exists()).toBeFalsy();
       });
 
       describe('when the down key is then pressed', () => {
@@ -156,7 +158,7 @@ describe('Autocomplete', () => {
         });
 
         it('adds highlighted class to the first autocomplete item', () => {
-          expect('.autocomplete-item:eq(0)').toHaveClass('highlighted');
+          expect(subject.find('.autocomplete-item').at(0).hasClass('highlighted')).toBeTruthy();
         });
       });
     });
@@ -167,8 +169,8 @@ describe('Autocomplete', () => {
       });
 
       it('adds highlighted class to the next autocomplete item', () => {
-        expect('.autocomplete-item:eq(0)').not.toHaveClass('highlighted');
-        expect('.autocomplete-item:eq(1)').toHaveClass('highlighted');
+        expect(subject.find('.autocomplete-item').at(0).hasClass('highlighted')).toBeFalsy();
+        expect(subject.find('.autocomplete-item').at(1).hasClass('highlighted')).toBeTruthy();
       });
 
       describe('when the up key is then pressed', () => {
@@ -177,8 +179,8 @@ describe('Autocomplete', () => {
         });
 
         it('adds highlighted class to the first autocomplete item', () => {
-          expect('.autocomplete-item:eq(0)').toHaveClass('highlighted');
-          expect('.autocomplete-item:eq(1)').not.toHaveClass('highlighted');
+          expect(subject.find('.autocomplete-item').at(0).hasClass('highlighted')).toBeTruthy();
+          expect(subject.find('.autocomplete-item').at(1).hasClass('highlighted')).toBeFalsy();
         });
       });
     });
@@ -190,7 +192,7 @@ describe('Autocomplete', () => {
       });
 
       it('opens the list', () => {
-        expect('.autocomplete-list').toExist();
+        expect(subject.find('.autocomplete-list').exists()).toBeTruthy();
       });
     });
 
@@ -202,19 +204,23 @@ describe('Autocomplete', () => {
       });
 
       it('hides the list', () => {
-        expect('.autocomplete-list').not.toExist();
+        expect(subject.find('.autocomplete-list').exists()).toBeFalsy();
       });
     });
   });
 
   describe('when the user tries to apply a selection that is not in the list', () => {
     beforeEach(() => {
-      pickSpy.calls.reset();
-      subject::setProps({onPick: pickSpy});
+      pickSpy.mockReset();
+      subject.setProps({onPick: pickSpy});
       MockNextTick.next();
       MockPromises.tick();
 
-      $('.autocomplete input').val('does not exist').simulate('change');
+      subject.find('.autocomplete input').simulate('change', {
+        target: {
+          value: 'does not exist'
+        }
+      });
       simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ENTER_KEY);
     });
 
@@ -225,101 +231,108 @@ describe('Autocomplete', () => {
 
   describe('when one of the autocomplete items is the selected suggestion', () => {
     beforeEach(() => {
-      subject::setProps({selectedSuggestion: 'lily.water'});
+      subject.setProps({selectedSuggestion: 'lily.water'});
       MockNextTick.next();
       MockPromises.tick();
 
-      $('.autocomplete input').simulate('change');
+      subject.find('.autocomplete input').simulate('change');
     });
 
     it('sets the selected class (but not highlighted) on the autocomplete item', () => {
-      expect('.autocomplete a:eq(3)').toHaveText('lily.water');
-      expect('.autocomplete a:eq(3)').not.toHaveClass('highlighted');
-      expect('.autocomplete a:eq(3)').toHaveClass('selected');
+      expect(subject.find('.autocomplete a').at(3).text()).toBe('lily.water');
+      expect(subject.find('.autocomplete a').at(3).hasClass('highlighted')).toBeFalsy();
+      expect(subject.find('.autocomplete a').at(3).hasClass('selected')).toBeTruthy();
     });
   });
 
   describe('when there are no suggested autocomplete results', () => {
     describe('when the showNoSearchResultsProp is true', () => {
       beforeEach(() => {
-        subject::setProps({showNoSearchResults: true});
-        $('input[aria-label="Search"]').val('zzzz').simulate('change');
+        subject.setProps({showNoSearchResults: true});
+        subject.find('input[aria-label="Search"]').simulate('change', {
+          target: {
+            value: 'zzzz'
+          }
+        });
       });
 
       it('shows "No Search Results', () => {
-        expect('.autocomplete-item-no-results').toExist();
+        expect(subject.find('.autocomplete-item-no-results').exists()).toBeTruthy();
       });
     });
   });
 
   describe('when maxItems is provided', () => {
     it('caps length of displayed list', () => {
-      subject::setProps({maxItems: 1});
+      subject.setProps({maxItems: 1});
       MockNextTick.next();
       MockPromises.tick();
 
-      $('.autocomplete input').simulate('change');
+      subject.find('.autocomplete input').simulate('change');
 
       expect('.autocomplete-list li').toHaveLength(1);
-      expect('.autocomplete-list li').toHaveText('watson');
+      expect(subject.find('.autocomplete-list li').text()).toBe('watson');
     });
   });
 
   describe('when a custom filter function is provided', () => {
     it('filters results', () => {
       const containsLetterE = items => items.filter(item => item.value.name.indexOf('e') !== -1);
-      subject::setProps({onFilter: containsLetterE});
+      subject.setProps({onFilter: containsLetterE});
       MockNextTick.next();
       MockPromises.tick();
 
-      $('.autocomplete input').simulate('change');
+      subject.find('.autocomplete input').simulate('change');
 
-      expect('.autocomplete-list').not.toContainText('advil');
-      expect('.autocomplete-list').not.toContainText('watson');
-      expect('.autocomplete-list').toContainText('water lilies');
-      expect('.autocomplete-list').toContainText('coffee');
+      expect(subject.find('.autocomplete-list').text()).not.toContain('advil');
+      expect(subject.find('.autocomplete-list').text()).not.toContain('watson');
+      expect(subject.find('.autocomplete-list').text()).toContain('water lilies');
+      expect(subject.find('.autocomplete-list').text()).toContain('coffee');
     });
   });
 
   describe('when custom trieOptions are provided', () => {
     beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-      subject = ReactDOM.render(
-        <Autocomplete {...{
-          onInitializeItems,
-          trieOptions: {splitOnRegEx: /\./}
-        }} />, root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      subject = shallow(<Autocomplete {...{
+        onInitializeItems,
+        trieOptions: {splitOnRegEx: /\./}
+      }} />);
       MockNextTick.next();
       MockPromises.tick();
-      $('.autocomplete input').val('wat').simulate('change');
+      subject.find('.autocomplete input').simulate('change', {
+        target: {
+          value: 'wat'
+        }
+      });
     });
 
     it('uses the trieOptions to render the list', () => {
       expect('.autocomplete-list a').toHaveLength(3);
-      expect('.autocomplete-list a:eq(0)').toHaveText('watson');
-      expect('.autocomplete-list a:eq(0)').toHaveAttr('title', 'watson');
-      expect('.autocomplete-list a:eq(1)').toHaveText('lily.water');
-      expect('.autocomplete-list a:eq(1)').toHaveAttr('title', 'lily.water');
-      expect('.autocomplete-list a:eq(2)').toHaveText('water lilies');
-      expect('.autocomplete-list a:eq(2)').toHaveAttr('title', 'water lilies');
+      expect(subject.find('.autocomplete-list a').at(0).text()).toBe('watson');
+      expect(subject.find('.autocomplete-list a').at(0).prop('title')).toBe('watson');
+      expect(subject.find('.autocomplete-list a').at(1).text()).toBe('lily.water');
+      expect(subject.find('.autocomplete-list a').at(1).prop('title')).toBe('lily.water');
+      expect(subject.find('.autocomplete-list a').at(2).text()).toBe('water lilies');
+      expect(subject.find('.autocomplete-list a').at(2).prop('title')).toBe('water lilies');
     });
   });
 
   describe('when the values are scalar', () => {
     it('renders and maintains the order', () => {
-      ReactDOM.unmountComponentAtNode(root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
       const props = {onInitializeItems: cb => cb(['d', 'a', 'c', 'b'])};
-      subject = ReactDOM.render(<Autocomplete {...props}/>, root);
+      subject = shallow(<Autocomplete {...props}/>);
       MockNextTick.next();
       MockPromises.tick();
 
-      $('.autocomplete input').simulate('change');
+      subject.find('.autocomplete input').simulate('change');
 
-      expect('.autocomplete-list').toHaveText('dacb');
-      expect('.autocomplete-list a:eq(0)').toHaveText('d');
-      expect('.autocomplete-list a:eq(1)').toHaveText('a');
-      expect('.autocomplete-list a:eq(2)').toHaveText('c');
-      expect('.autocomplete-list a:eq(3)').toHaveText('b');
+      expect(subject.find('.autocomplete-list').text()).toBe('dacb');
+      expect(subject.find('.autocomplete-list a').at(0).text()).toBe('d');
+      expect(subject.find('.autocomplete-list a').at(1).text()).toBe('a');
+      expect(subject.find('.autocomplete-list a').at(2).text()).toBe('c');
+      expect(subject.find('.autocomplete-list a').at(3).text()).toBe('b');
     });
   });
 
@@ -327,18 +340,18 @@ describe('Autocomplete', () => {
     let promise;
 
     beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
       let cb;
       const props = {onInitializeItems: callback => cb = callback};
-      subject = ReactDOM.render(<Autocomplete {...props}/>, root);
+      subject = shallow(<Autocomplete {...props}/>);
       promise = cb(['a', 'b', 'c', 'd']);
       MockNextTick.next();
       MockPromises.tick();
     });
 
     it('still populates the list properly', () => {
-      $('.autocomplete input').simulate('change');
-      expect('.autocomplete-list').toHaveText('abcd');
+      subject.find('.autocomplete input').simulate('change');
+      expect(subject.find('.autocomplete-list').text()).toBe('abcd');
     });
 
     it('returns the trie', () => {
@@ -349,7 +362,7 @@ describe('Autocomplete', () => {
 
   describe('when a initial value is provided', () => {
     beforeEach(() => {
-      subject::setProps({value: 'lily.water'});
+      subject.setProps({value: 'lily.water'});
     });
 
     it('defaults to that value being selected', () => {
@@ -360,19 +373,23 @@ describe('Autocomplete', () => {
   describe('when a custom (possibly asynchronous) search function is provided', () => {
     let cb;
     beforeEach(() => {
-      subject::setProps({
+      subject.setProps({
         onSearch: (_, callback) => cb = callback
       });
       MockNextTick.next();
       MockPromises.tick();
 
-      $('.autocomplete input').val('zo').simulate('change');
+      subject.find('.autocomplete input').simulate('change', {
+        target: {
+          value: 'zo'
+        }
+      });
 
       cb([{value: 'a'}, {value: 'b'}, {value: 'c'}, {value: 'd'}]);
     });
 
     it('uses that search callback', () => {
-      expect('.autocomplete-list').toHaveText('abcd');
+      expect(subject.find('.autocomplete-list').text()).toBe('abcd');
     });
   });
 });

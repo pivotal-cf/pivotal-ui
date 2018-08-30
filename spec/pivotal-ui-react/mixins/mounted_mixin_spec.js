@@ -13,9 +13,9 @@ describe('MountedMixin', () => {
 
   describe('#mounted', () => {
     it('returns true when the component is mounted', () => {
-      subject = ReactDOM.render(<Component/>, root);
+      subject = shallow(<Component/>);
       expect(subject.mounted()).toBe(true);
-      ReactDOM.unmountComponentAtNode(root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
       expect(subject.mounted()).toBe(false);
     });
   });

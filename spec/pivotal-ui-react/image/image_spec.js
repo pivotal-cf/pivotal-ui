@@ -2,8 +2,8 @@ import '../spec_helper';
 import {Image} from '../../../src/react/images';
 
 describe('Image', () => {
-  const renderComponent = props => ReactDOM.render(
-    <Image src="http://placehold.it/20x20" {...props} />, root);
+  let subject;
+  const renderComponent = props => subject = shallow(<Image src="http://placehold.it/20x20" {...props} />);
 
   it('adds classname, id, style to the component', () => {
     const result = renderComponent({className: 'foo', id: 'bar', style: {color: 'red'}});
@@ -20,7 +20,7 @@ describe('Image', () => {
       const result = renderComponent({responsive: true});
       const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'img');
       expect(component).not.toBeNull();
-      expect(component).toHaveClass('img-responsive');
+      expect(subject.find(component).hasClass('img-responsive')).toBeTruthy();
     });
 
     describe('when the href is set', () => {
@@ -43,6 +43,6 @@ describe('Image', () => {
   it('when responsive is set to be false does not add the image-responsive class to the image', () => {
     const result = renderComponent({responsive: false});
     const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'img');
-    expect(component).not.toHaveClass('img-responsive');
+    expect(subject.find(component).hasClass('img-responsive')).toBeFalsy();
   });
 });

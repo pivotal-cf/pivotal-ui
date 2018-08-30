@@ -2,95 +2,96 @@ import '../spec_helper';
 import {Pagination} from '../../../src/react/pagination';
 
 describe('Pagination', () => {
-  const renderComponent = props => ReactDOM.render(<Pagination {...props}/>, root);
+  let subject;
+  const renderComponent = props => subject = shallow(<Pagination {...props}/>);
 
   beforeEach(() => {
     renderComponent();
   });
 
   it('renders a pagination component', () => {
-    expect('div.pagination').toExist();
+    expect(subject.find('div.pagination').exists()).toBeTruthy();
   });
 
   it('has the "group" role', () => {
-    expect('div.pagination').toHaveAttr('role', 'group');
+    expect(subject.find('div.pagination').prop('role')).toBe('group');
   });
 
   it('renders 1 .pui-btn when no items are specified', () => {
-    expect($('.pagination .pui-btn').length).toBe(3);
-    expect('.pagination .pui-btn:eq(0) .icon svg').toHaveClass('icon-chevron_left');
-    expect('.pagination .pui-btn:eq(1)').toHaveText('1');
-    expect('.pagination .pui-btn:eq(2) .icon svg').toHaveClass('icon-chevron_right');
+    expect(subject.find('.pagination .pui-btn').length).toBe(3);
+    expect(subject.find('.pagination .pui-btn').at(0).find('.icon svg').hasClass('icon-chevron_left')).toBeTruthy();
+    expect(subject.find('.pagination .pui-btn').at(1).text()).toBe('1');
+    expect(subject.find('.pagination .pui-btn').at(2).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
   });
 
   it('renders all buttons with flat class', () => {
-    expect('.pagination .pui-btn:eq(0)').toHaveClass('pui-btn-default-flat');
-    expect('.pagination .pui-btn:eq(1)').toHaveClass('pui-btn-brand-flat');
-    expect('.pagination .pui-btn:eq(2)').toHaveClass('pui-btn-default-flat');
+    expect(subject.find('.pagination .pui-btn').at(0).hasClass('pui-btn-default-flat')).toBeTruthy();
+    expect(subject.find('.pagination .pui-btn').at(1).hasClass('pui-btn-brand-flat')).toBeTruthy();
+    expect(subject.find('.pagination .pui-btn').at(2).hasClass('pui-btn-default-flat')).toBeTruthy();
   });
 
   describe('props', () => {
     it('renders the number of buttons specified in items, plus next and prev buttons', () => {
       renderComponent({items: 5});
 
-      expect('.pagination .pui-btn:eq(0) .icon svg').toHaveClass('icon-chevron_left');
-      expect('.pagination .pui-btn:eq(1)').toHaveText('1');
-      expect('.pagination .pui-btn:eq(5)').toHaveText('5');
-      expect('.pagination .pui-btn:eq(6) .icon svg').toHaveClass('icon-chevron_right');
-      expect($('.pagination .pui-btn').length).toBe(7);
+      expect(subject.find('.pagination .pui-btn').at(0).find('.icon svg').hasClass('icon-chevron_left')).toBeTruthy();
+      expect(subject.find('.pagination .pui-btn').at(1).text()).toBe('1');
+      expect(subject.find('.pagination .pui-btn').at(5).text()).toBe('5');
+      expect(subject.find('.pagination .pui-btn').at(6).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
+      expect(subject.find('.pagination .pui-btn').length).toBe(7);
     });
 
     it('does not render next when next is false', () => {
       renderComponent({next: false});
 
-      expect($('.pagination .pui-btn').length).toBe(2);
-      expect('.pagination .pui-btn:eq(0) .icon svg').toHaveClass('icon-chevron_left');
-      expect('.pagination .pui-btn:eq(1)').toHaveText('1');
+      expect(subject.find('.pagination .pui-btn').length).toBe(2);
+      expect(subject.find('.pagination .pui-btn').at(0).find('.icon svg').hasClass('icon-chevron_left')).toBeTruthy();
+      expect(subject.find('.pagination .pui-btn').at(1).text()).toBe('1');
     });
 
     it('does not render prev when prev is false', () => {
       renderComponent({prev: false});
 
-      expect($('.pagination .pui-btn').length).toBe(2);
-      expect('.pagination .pui-btn:eq(0)').toHaveText('1');
-      expect('.pagination .pui-btn:eq(1) .icon svg').toHaveClass('icon-chevron_right');
+      expect(subject.find('.pagination .pui-btn').length).toBe(2);
+      expect(subject.find('.pagination .pui-btn').at(0).text()).toBe('1');
+      expect(subject.find('.pagination .pui-btn').at(1).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
     });
 
     it('renders an active .pui-btn when activePage number is specified', () => {
       renderComponent({activePage: 1});
-      expect('.pagination .pui-btn:eq(1)').toHaveClass('pui-btn-brand-flat');
-      expect('.pagination .pui-btn:eq(1)').toHaveClass('active');
+      expect(subject.find('.pagination .pui-btn').at(1).hasClass('pui-btn-brand-flat')).toBeTruthy();
+      expect(subject.find('.pagination .pui-btn').at(1).hasClass('active')).toBeTruthy();
     });
 
     it('passes the className to the top element', () => {
       renderComponent({className: 'my-class'});
-      expect('div.pagination').toHaveClass('my-class');
+      expect(subject.find('div.pagination').hasClass('my-class')).toBeTruthy();
     });
 
     describe('onSelect', () => {
       let onSelect;
 
       beforeEach(() => {
-        onSelect = jasmine.createSpy('onSelect');
+        onSelect = jest.fn().mockName('onSelect');
         renderComponent({onSelect, items: 5, activePage: 2});
       });
 
       it('calls on .pui-btn click', () => {
-        $('.pagination .pui-btn:eq(4)').simulate('click');
+        subject.find('.pagination .pui-btn').at(4).simulate('click');
 
-        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 4, newActivePage: 4});
+        expect(onSelect).toHaveBeenCalledWith(expect.any(Object), {eventKey: 4, newActivePage: 4});
       });
 
       it('calls on prev click', () => {
-        $('.pagination .pui-btn:eq(0)').simulate('click');
+        subject.find('.pagination .pui-btn').at(0).simulate('click');
 
-        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'prev', newActivePage: 1});
+        expect(onSelect).toHaveBeenCalledWith(expect.any(Object), {eventKey: 'prev', newActivePage: 1});
       });
 
       it('calls on next click', () => {
-        $('.pagination .pui-btn:eq(6)').simulate('click');
+        subject.find('.pagination .pui-btn').at(6).simulate('click');
 
-        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'next', newActivePage: 3});
+        expect(onSelect).toHaveBeenCalledWith(expect.any(Object), {eventKey: 'next', newActivePage: 3});
       });
     });
   });
@@ -101,7 +102,7 @@ describe('Pagination', () => {
     });
 
     it('disables the left chevron', () => {
-      expect('.pagination .pui-btn:eq(0)').toBeDisabled();
+      expect(subject.find('.pagination .pui-btn').at(0).prop('disabled')).toBeTruthy();
     });
   });
 
@@ -111,7 +112,7 @@ describe('Pagination', () => {
     });
 
     it('disables the left chevron', () => {
-      expect('.pagination .pui-btn:last').toBeDisabled();
+      expect(subject.find('.pagination .pui-btn:last').prop('disabled')).toBeTruthy();
     });
   });
 
@@ -121,16 +122,16 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 2, 3, 4, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('2');
-      expect('button:eq(2)').toHaveText('3');
-      expect('button:eq(3)').toHaveText('4');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('2');
+      expect(subject.find('button').at(2).text()).toBe('3');
+      expect(subject.find('button').at(3).text()).toBe('4');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(3) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(3).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 
@@ -140,16 +141,16 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 2, 3, 4, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('2');
-      expect('button:eq(2)').toHaveText('3');
-      expect('button:eq(3)').toHaveText('4');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('2');
+      expect(subject.find('button').at(2).text()).toBe('3');
+      expect(subject.find('button').at(3).text()).toBe('4');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(3) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(3).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 
@@ -159,16 +160,16 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 2, 3, 4, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('2');
-      expect('button:eq(2)').toHaveText('3');
-      expect('button:eq(3)').toHaveText('4');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('2');
+      expect(subject.find('button').at(2).text()).toBe('3');
+      expect(subject.find('button').at(3).text()).toBe('4');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(3) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(3).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 
@@ -178,17 +179,17 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 3, 4, 5, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('3');
-      expect('button:eq(2)').toHaveText('4');
-      expect('button:eq(3)').toHaveText('5');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('3');
+      expect(subject.find('button').at(2).text()).toBe('4');
+      expect(subject.find('button').at(3).text()).toBe('5');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(0) + span').toHaveText(String.fromCharCode(8230));
-      expect('button:eq(3) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(0).find('+ span').text()).toBe(String.fromCharCode(8230));
+      expect(subject.find('button').at(3).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 
@@ -198,17 +199,17 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 9, 10, 11, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('9');
-      expect('button:eq(2)').toHaveText('10');
-      expect('button:eq(3)').toHaveText('11');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('9');
+      expect(subject.find('button').at(2).text()).toBe('10');
+      expect(subject.find('button').at(3).text()).toBe('11');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(0) + span').toHaveText(String.fromCharCode(8230));
-      expect('button:eq(3) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(0).find('+ span').text()).toBe(String.fromCharCode(8230));
+      expect(subject.find('button').at(3).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 
@@ -218,17 +219,17 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 16, 17, 18, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('16');
-      expect('button:eq(2)').toHaveText('17');
-      expect('button:eq(3)').toHaveText('18');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('16');
+      expect(subject.find('button').at(2).text()).toBe('17');
+      expect(subject.find('button').at(3).text()).toBe('18');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(0) + span').toHaveText(String.fromCharCode(8230));
-      expect('button:eq(3) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(0).find('+ span').text()).toBe(String.fromCharCode(8230));
+      expect(subject.find('button').at(3).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 
@@ -238,16 +239,16 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 17, 18, 19, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('17');
-      expect('button:eq(2)').toHaveText('18');
-      expect('button:eq(3)').toHaveText('19');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('17');
+      expect(subject.find('button').at(2).text()).toBe('18');
+      expect(subject.find('button').at(3).text()).toBe('19');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(0) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(0).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 
@@ -257,16 +258,16 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 17, 18, 19, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('17');
-      expect('button:eq(2)').toHaveText('18');
-      expect('button:eq(3)').toHaveText('19');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('17');
+      expect(subject.find('button').at(2).text()).toBe('18');
+      expect(subject.find('button').at(3).text()).toBe('19');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(0) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(0).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 
@@ -276,16 +277,16 @@ describe('Pagination', () => {
     });
 
     it('renders pages for 1, 17, 18, 19, 20', () => {
-      expect($('button').length).toBe(5);
-      expect('button:eq(0)').toHaveText('1');
-      expect('button:eq(1)').toHaveText('17');
-      expect('button:eq(2)').toHaveText('18');
-      expect('button:eq(3)').toHaveText('19');
-      expect('button:eq(4)').toHaveText('20');
+      expect(subject.find('button').length).toBe(5);
+      expect(subject.find('button').at(0).text()).toBe('1');
+      expect(subject.find('button').at(1).text()).toBe('17');
+      expect(subject.find('button').at(2).text()).toBe('18');
+      expect(subject.find('button').at(3).text()).toBe('19');
+      expect(subject.find('button').at(4).text()).toBe('20');
     });
 
     it('renders ellipses (…)', () => {
-      expect('button:eq(0) + span').toHaveText(String.fromCharCode(8230));
+      expect(subject.find('button').at(0).find('+ span').text()).toBe(String.fromCharCode(8230));
     });
   });
 });

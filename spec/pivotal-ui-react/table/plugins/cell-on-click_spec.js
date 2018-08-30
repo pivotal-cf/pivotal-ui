@@ -2,10 +2,10 @@ import '../../spec_helper';
 import {Table, withCellOnClick} from '../../../../src/react/table';
 
 describe('withCellOnClick', () => {
-  let onClick, data;
+  let onClick, data, subject;
 
   beforeEach(() => {
-    onClick = jasmine.createSpy('onClick');
+    onClick = jest.fn().mockName('onClick');
     const columns = [{
       attribute: 'attr1',
       onClick
@@ -13,11 +13,11 @@ describe('withCellOnClick', () => {
     data = [{attr1: 'my value'}];
 
     const ComposedTable = withCellOnClick(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('calls the onClick callback', () => {
-    $('table tr:eq(1) td:eq(0)').simulate('click');
-    expect(onClick).toHaveBeenCalledWith(jasmine.any(Object), data[0]);
+    subject.find('table tr').at(1).find('td').at(0).simulate('click');
+    expect(onClick).toHaveBeenCalledWith(expect.any(Object), data[0]);
   });
 });

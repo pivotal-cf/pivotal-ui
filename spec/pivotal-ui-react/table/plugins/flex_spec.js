@@ -2,6 +2,7 @@ import '../../spec_helper';
 import {Table, withFlex} from '../../../../src/react/table';
 
 describe('withFlex', () => {
+  let subject;
   describe('without tag overrides', () => {
     beforeEach(() => {
       const columns = [{
@@ -16,64 +17,64 @@ describe('withFlex', () => {
       }];
 
       const ComposedTable = withFlex(Table);
-      ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+      subject = shallow(<ComposedTable {...{columns, data}}/>);
     });
 
     it('renders a div.table element', () => {
-      expect('div.table').toExist();
+      expect(subject.find('div.table').exists()).toBeTruthy();
     });
 
     it('renders a div.thead element', () => {
-      expect('.table > div:eq(0)').toHaveClass('thead');
+      expect(subject.find('.table > div').at(0).hasClass('thead')).toBeTruthy();
     });
 
     it('renders a div.tr header row', () => {
-      expect('.table .thead > div').toHaveClass('tr');
+      expect(subject.find('.table .thead > div').hasClass('tr')).toBeTruthy();
     });
 
     it('renders div.th header cells', () => {
-      expect('.table .thead .tr > div:eq(0)').toHaveClass('th');
-      expect('.table .thead .tr > div:eq(1)').toHaveClass('th');
+      expect(subject.find('.table .thead .tr > div').at(0).hasClass('th')).toBeTruthy();
+      expect(subject.find('.table .thead .tr > div').at(1).hasClass('th')).toBeTruthy();
     });
 
     it('renders a div.tbody element', () => {
-      expect('div.table > div:eq(1)').toHaveClass('tbody');
+      expect(subject.find('div.table > div').at(1).hasClass('tbody')).toBeTruthy();
     });
 
     it('renders div.tr body rows', () => {
-      expect('.table .tbody > div:eq(0)').toHaveClass('tr');
-      expect('.table .tbody > div:eq(1)').toHaveClass('tr');
+      expect(subject.find('.table .tbody > div').at(0).hasClass('tr')).toBeTruthy();
+      expect(subject.find('.table .tbody > div').at(1).hasClass('tr')).toBeTruthy();
     });
 
     it('renders div.td body cells', () => {
-      expect('.table .tbody .tr:eq(0) > div:eq(0)').toHaveClass('td');
-      expect('.table .tbody .tr:eq(0) > div:eq(1)').toHaveClass('td');
+      expect(subject.find('.table .tbody .tr').at(0).find('> div').at(0).hasClass('td')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).find('> div').at(1).hasClass('td')).toBeTruthy();
 
-      expect('.table .tbody .tr:eq(0) > div:eq(0)').toHaveClass('td');
-      expect('.table .tbody .tr:eq(0) > div:eq(1)').toHaveClass('td');
+      expect(subject.find('.table .tbody .tr').at(0).find('> div').at(0).hasClass('td')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).find('> div').at(1).hasClass('td')).toBeTruthy();
     });
 
     it('renders all tr rows as grids', () => {
-      expect('.table .thead .tr').toHaveClass('grid');
-      expect('.table .tbody .tr:eq(0)').toHaveClass('grid');
-      expect('.table .tbody .tr:eq(0)').toHaveClass('grid');
+      expect(subject.find('.table .thead .tr').hasClass('grid')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).hasClass('grid')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).hasClass('grid')).toBeTruthy();
     });
 
     it('renders all th cells as cols', () => {
-      expect('.table .thead .tr .th:eq(0)').toHaveClass('col');
-      expect('.table .thead .tr .th:eq(1)').toHaveClass('col');
+      expect(subject.find('.table .thead .tr .th').at(0).hasClass('col')).toBeTruthy();
+      expect(subject.find('.table .thead .tr .th').at(1).hasClass('col')).toBeTruthy();
     });
 
     it('renders all td cells as cols', () => {
-      expect('.table .tbody .tr:eq(0) .td:eq(0)').toHaveClass('col');
-      expect('.table .tbody .tr:eq(0) .td:eq(1)').toHaveClass('col');
+      expect(subject.find('.table .tbody .tr').at(0).find('.td').at(0).hasClass('col')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).find('.td').at(1).hasClass('col')).toBeTruthy();
 
-      expect('.table .tbody .tr:eq(1) .td:eq(0)').toHaveClass('col');
-      expect('.table .tbody .tr:eq(1) .td:eq(1)').toHaveClass('col');
+      expect(subject.find('.table .tbody .tr').at(1).find('.td').at(0).hasClass('col')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(1).find('.td').at(1).hasClass('col')).toBeTruthy();
     });
 
     it('renders a div.tfoot element', () => {
-      expect('.table > div:eq(2)').toHaveClass('tfoot');
+      expect(subject.find('.table > div').at(2).hasClass('tfoot')).toBeTruthy();
     });
   });
 
@@ -91,7 +92,7 @@ describe('withFlex', () => {
       }];
 
       const ComposedTable = withFlex(Table);
-      ReactDOM.render(<ComposedTable {...{
+      subject = shallow(<ComposedTable {...{
         columns,
         data,
         tableTag: () => 'span',
@@ -101,64 +102,64 @@ describe('withFlex', () => {
         trTag: () => 'span',
         thTag: () => 'span',
         tdTag: () => 'span'
-      }}/>, root);
+      }}/>);
     });
 
     it('renders a span.table element', () => {
-      expect('span.table').toExist();
+      expect(subject.find('span.table').exists()).toBeTruthy();
     });
 
     it('renders a span.thead element', () => {
-      expect('.table > span:eq(0)').toHaveClass('thead');
+      expect(subject.find('.table > span').at(0).hasClass('thead')).toBeTruthy();
     });
 
     it('renders a span.tr header row', () => {
-      expect('.table .thead > span').toHaveClass('tr');
+      expect(subject.find('.table .thead > span').hasClass('tr')).toBeTruthy();
     });
 
     it('renders span.th header cells', () => {
-      expect('.table .thead .tr > span:eq(0)').toHaveClass('th');
-      expect('.table .thead .tr > span:eq(1)').toHaveClass('th');
+      expect(subject.find('.table .thead .tr > span').at(0).hasClass('th')).toBeTruthy();
+      expect(subject.find('.table .thead .tr > span').at(1).hasClass('th')).toBeTruthy();
     });
 
     it('renders a span.tbody element', () => {
-      expect('span.table > span:eq(1)').toHaveClass('tbody');
+      expect(subject.find('span.table > span').at(1).hasClass('tbody')).toBeTruthy();
     });
 
     it('renders span.tr body rows', () => {
-      expect('.table .tbody > span:eq(0)').toHaveClass('tr');
-      expect('.table .tbody > span:eq(1)').toHaveClass('tr');
+      expect(subject.find('.table .tbody > span').at(0).hasClass('tr')).toBeTruthy();
+      expect(subject.find('.table .tbody > span').at(1).hasClass('tr')).toBeTruthy();
     });
 
     it('renders span.td body cells', () => {
-      expect('.table .tbody .tr:eq(0) > span:eq(0)').toHaveClass('td');
-      expect('.table .tbody .tr:eq(0) > span:eq(1)').toHaveClass('td');
+      expect(subject.find('.table .tbody .tr').at(0).find('> span').at(0).hasClass('td')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).find('> span').at(1).hasClass('td')).toBeTruthy();
 
-      expect('.table .tbody .tr:eq(0) > span:eq(0)').toHaveClass('td');
-      expect('.table .tbody .tr:eq(0) > span:eq(1)').toHaveClass('td');
+      expect(subject.find('.table .tbody .tr').at(0).find('> span').at(0).hasClass('td')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).find('> span').at(1).hasClass('td')).toBeTruthy();
     });
 
     it('renders all tr rows as grids', () => {
-      expect('.table .thead .tr').toHaveClass('grid');
-      expect('.table .tbody .tr:eq(0)').toHaveClass('grid');
-      expect('.table .tbody .tr:eq(0)').toHaveClass('grid');
+      expect(subject.find('.table .thead .tr').hasClass('grid')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).hasClass('grid')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).hasClass('grid')).toBeTruthy();
     });
 
     it('renders all th cells as cols', () => {
-      expect('.table .thead .tr .th:eq(0)').toHaveClass('col');
-      expect('.table .thead .tr .th:eq(1)').toHaveClass('col');
+      expect(subject.find('.table .thead .tr .th').at(0).hasClass('col')).toBeTruthy();
+      expect(subject.find('.table .thead .tr .th').at(1).hasClass('col')).toBeTruthy();
     });
 
     it('renders all td cells as cols', () => {
-      expect('.table .tbody .tr:eq(0) .td:eq(0)').toHaveClass('col');
-      expect('.table .tbody .tr:eq(0) .td:eq(1)').toHaveClass('col');
+      expect(subject.find('.table .tbody .tr').at(0).find('.td').at(0).hasClass('col')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(0).find('.td').at(1).hasClass('col')).toBeTruthy();
 
-      expect('.table .tbody .tr:eq(1) .td:eq(0)').toHaveClass('col');
-      expect('.table .tbody .tr:eq(1) .td:eq(1)').toHaveClass('col');
+      expect(subject.find('.table .tbody .tr').at(1).find('.td').at(0).hasClass('col')).toBeTruthy();
+      expect(subject.find('.table .tbody .tr').at(1).find('.td').at(1).hasClass('col')).toBeTruthy();
     });
 
     it('renders a span.tfoot element', () => {
-      expect('.table > span:eq(2)').toHaveClass('tfoot');
+      expect(subject.find('.table > span').at(2).hasClass('tfoot')).toBeTruthy();
     });
   });
 });

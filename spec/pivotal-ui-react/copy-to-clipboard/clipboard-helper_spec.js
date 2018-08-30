@@ -6,18 +6,20 @@ describe('ClipboardHelper', () => {
 
   describe('copy', () => {
     beforeEach(() => {
-      document = jasmine.createSpyObj('document', [
-        'execCommand',
-        'createElement'
-      ]);
+      document = {
+        execCommand: jest.fn().mockName('execCommand'),
+        createElement: jest.fn().mockName('createElement')
+      };
 
-      document.body = jasmine.createSpyObj('body', [
-        'appendChild',
-        'removeChild'
-      ]);
+      document.body = {
+        appendChild: jest.fn().mockName('appendChild'),
+        removeChild: jest.fn().mockName('removeChild')
+      };
 
-      textarea = jasmine.createSpyObj('textarea', ['select']);
-      document.createElement.and.returnValue(textarea);
+      textarea = {
+        select: jest.fn().mockName('select')
+      };
+      document.createElement.mockReturnValue(textarea);
 
       copyText = 'Text to be copied';
       copy(document, copyText);

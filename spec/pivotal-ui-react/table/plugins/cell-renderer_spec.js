@@ -2,13 +2,13 @@ import '../../spec_helper';
 import {Table, withCellRenderer} from '../../../../src/react/table';
 
 describe('withCellRenderer', () => {
-  let renderer1, renderer2, data;
+  let renderer1, renderer2, data, subject;
 
   beforeEach(() => {
     spyOn(console, 'warn');
 
-    renderer1 = jasmine.createSpy('renderer1').and.callFake(({attr1}) => <span>{attr1.toUpperCase()}</span>);
-    renderer2 = jasmine.createSpy('renderer2').and.callFake(({attr2}) => <span>{attr2.toUpperCase()}</span>);
+    renderer1 = jest.fn().mockName('renderer1').mockImplementation(({attr1}) => <span>{attr1.toUpperCase()}</span>);
+    renderer2 = jest.fn().mockName('renderer2').mockImplementation(({attr2}) => <span>{attr2.toUpperCase()}</span>);
     const columns = [{
       attribute: 'attr1', CellRenderer: renderer1
     }, {
@@ -21,14 +21,14 @@ describe('withCellRenderer', () => {
     }];
 
     const ComposedTable = withCellRenderer(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('renders td elements with expected text', () => {
-    expect('table tbody tr:eq(0) td:eq(0)').toHaveText(data[0].attr1.toUpperCase());
-    expect('table tbody tr:eq(1) td:eq(0)').toHaveText(data[1].attr1.toUpperCase());
+    expect(subject.find('table tbody tr').at(0).find('td').at(0).text()).toBe(data[0].attr1.toUpperCase());
+    expect(subject.find('table tbody tr').at(1).find('td').at(0).text()).toBe(data[1].attr1.toUpperCase());
 
-    expect('table tbody tr:eq(0) td:eq(1)').toHaveText(data[0].attr2.toUpperCase());
-    expect('table tbody tr:eq(1) td:eq(1)').toHaveText(data[1].attr2.toUpperCase());
+    expect(subject.find('table tbody tr').at(0).find('td').at(1).text()).toBe(data[0].attr2.toUpperCase());
+    expect(subject.find('table tbody tr').at(1).find('td').at(1).text()).toBe(data[1].attr2.toUpperCase());
   });
 });

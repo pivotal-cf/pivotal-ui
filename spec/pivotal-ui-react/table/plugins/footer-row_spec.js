@@ -2,7 +2,7 @@ import '../../spec_helper';
 import {Table, withFooterRow} from '../../../../src/react/table';
 
 describe('withFooterRow', () => {
-  let footerRowText;
+  let footerRowText, subject;
 
   beforeEach(() => {
     const columns = [{
@@ -22,10 +22,10 @@ describe('withFooterRow', () => {
     </tr>);
 
     const ComposedTable = withFooterRow(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data, footerRow}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data, footerRow}}/>);
   });
 
   it('renders footerRow', () => {
-    expect('tfoot tr.footer-row').toHaveText(footerRowText);
+    expect(subject.find('tfoot tr.footer-row').text()).toBe(footerRowText);
   });
 });

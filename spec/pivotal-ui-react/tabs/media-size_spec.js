@@ -8,16 +8,16 @@ describe('MediaSize', () => {
     });
 
     it('returns the result of the media query', () => {
-      window.matchMedia.and.returnValue({matches: true});
+      window.matchMedia.mockReturnValue({matches: true});
       expect(MediaSize.matches('sm')).toBe(true);
 
-      window.matchMedia.and.returnValue({matches: false});
+      window.matchMedia.mockReturnValue({matches: false});
       expect(MediaSize.matches('sm')).toBe(false);
     });
 
     describe('screen sizes', () => {
       beforeEach(() => {
-        window.matchMedia.and.returnValue({matches: true});
+        window.matchMedia.mockReturnValue({matches: true});
       });
 
       it('xs = min-width of 0', () => {

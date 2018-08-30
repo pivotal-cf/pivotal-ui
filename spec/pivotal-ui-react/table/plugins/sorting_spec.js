@@ -2,7 +2,7 @@ import '../../spec_helper';
 import {Table, withSorting} from '../../../../src/react/table';
 
 describe('withSorting', () => {
-  let data, ComposedTable;
+  let data, ComposedTable, subject;
   beforeEach(() => {
     data = [{
       attr1: 'row1-value1', attr2: 'row1-value2'
@@ -22,20 +22,20 @@ describe('withSorting', () => {
         attribute: 'attr2', displayName: 'Display2'
       }];
 
-      subject = ReactDOM.render(<ComposedTable {...{columns, data, className: 'sorting-table'}}/>, root);
+      subject = shallow(<ComposedTable {...{columns, data, className: 'sorting-table'}}/>);
     });
 
     it('renders', () => {
-      expect('.sorting-table').toExist();
+      expect(subject.find('.sorting-table').exists()).toBeTruthy();
     });
 
     describe('when sorted in descending order', () => {
       beforeEach(() => {
-        $('.sortable:eq(0)').click();
+        subject.find('.sortable').at(0).simulate('click');
       });
 
       it('sorts in descending order', () => {
-        expect('.sortable:eq(0)').toHaveClass('sorted-desc');
+        expect(subject.find('.sortable').at(0).hasClass('sorted-desc')).toBeTruthy();
       });
 
       describe('when new data is added', () => {
@@ -43,12 +43,12 @@ describe('withSorting', () => {
           data.push({
             attr1: 'row3-value1', attr2: 'row3-value2'
           });
-          subject::setProps({data});
+          subject.setProps({data});
         });
 
         it('retains the sort order', () => {
-          expect('.sortable:eq(0)').toHaveClass('sorted-desc');
-          expect('tbody tr:eq(0) td:eq(0)').toHaveText('row3-value1');
+          expect(subject.find('.sortable').at(0).hasClass('sorted-desc')).toBeTruthy();
+          expect(subject.find('tbody tr').at(0).find('td').at(0).text()).toBe('row3-value1');
         });
       });
     });
@@ -56,11 +56,11 @@ describe('withSorting', () => {
 
   describe('without columns', () => {
     beforeEach(() => {
-      ReactDOM.render(<ComposedTable {...{data, className: 'sorting-table'}}/>, root);
+      subject = shallow(<ComposedTable {...{data, className: 'sorting-table'}}/>);
     });
 
     it('renders', () => {
-      expect('.sorting-table').toExist();
+      expect(subject.find('.sorting-table').exists()).toBeTruthy();
     });
   });
 });

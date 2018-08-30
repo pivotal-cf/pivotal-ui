@@ -12,25 +12,25 @@ describe('Svg', () => {
       }
     };
 
-    subject = ReactDOM.render(<MySvg src="search"/>, root);
+    subject = shallow(<MySvg src="search"/>);
   });
 
   it('renders an svg', () => {
-    expect('svg').toExist();
-    expect('svg path').toExist();
+    expect(subject.find('svg').exists()).toBeTruthy();
+    expect(subject.find('svg path').exists()).toBeTruthy();
   });
 
   it('renders the svg with the html attributes', () => {
-    expect('svg').toHaveAttr('x', '0px');
-    expect('svg').toHaveAttr('y', '0px');
-    expect('svg').toHaveAttr('viewBox', '0 0 225 225');
+    expect(subject.find('svg').prop('x')).toBe('0px');
+    expect(subject.find('svg').prop('y')).toBe('0px');
+    expect(subject.find('svg').prop('viewBox')).toBe('0 0 225 225');
   });
 
   describe('when there are props on the svg', () => {
     it('overrides the html attributes', () => {
-      subject::setProps({x: '10px', y: '20px'});
-      expect('svg').toHaveAttr('x', '10px');
-      expect('svg').toHaveAttr('y', '20px');
+      subject.setProps({x: '10px', y: '20px'});
+      expect(subject.find('svg').prop('x')).toBe('10px');
+      expect(subject.find('svg').prop('y')).toBe('20px');
     });
   });
 
@@ -42,7 +42,7 @@ describe('Svg', () => {
   describe('when updating the src prop', () => {
     beforeEach(() => {
       spyOn(Svg.prototype, 'setComponent');
-      subject::setProps({src: 'add'});
+      subject.setProps({src: 'add'});
     });
 
     it('updates the Component state', () => {

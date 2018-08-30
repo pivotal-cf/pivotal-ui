@@ -2,6 +2,7 @@ import '../../spec_helper';
 import {Table, withCellWidth} from '../../../../src/react/table';
 
 describe('withCellWidth', () => {
+  let subject;
   beforeEach(() => {
     const columns = [{
       attribute: 'attr1', width: '100px'
@@ -15,32 +16,32 @@ describe('withCellWidth', () => {
     }];
 
     const ComposedTable = withCellWidth(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('renders th elements with col-fixed class', () => {
-    expect('table tr:eq(0) th:eq(0)').toHaveClass('col-fixed');
-    expect('table tr:eq(0) th:eq(1)').toHaveClass('col-fixed');
+    expect(subject.find('table tr').at(0).find('th').at(0).hasClass('col-fixed')).toBeTruthy();
+    expect(subject.find('table tr').at(0).find('th').at(1).hasClass('col-fixed')).toBeTruthy();
   });
 
   it('renders th elements with width style', () => {
-    expect('table tr:eq(0) th:eq(0)').toHaveStyle({width: '100px'});
-    expect('table tr:eq(0) th:eq(1)').toHaveStyle({width: '200px'});
+    expect(subject.find('table tr').at(0).find('th').at(0).prop('style')).toEqual({width: '100px'});
+    expect(subject.find('table tr').at(0).find('th').at(1).prop('style')).toEqual({width: '200px'});
   });
 
   it('renders td elements with col-fixed class', () => {
-    expect('table tr:eq(1) td:eq(0)').toHaveClass('col-fixed');
-    expect('table tr:eq(1) td:eq(1)').toHaveClass('col-fixed');
+    expect(subject.find('table tr').at(1).find('td').at(0).hasClass('col-fixed')).toBeTruthy();
+    expect(subject.find('table tr').at(1).find('td').at(1).hasClass('col-fixed')).toBeTruthy();
 
-    expect('table tr:eq(2) td:eq(0)').toHaveClass('col-fixed');
-    expect('table tr:eq(2) td:eq(1)').toHaveClass('col-fixed');
+    expect(subject.find('table tr').at(2).find('td').at(0).hasClass('col-fixed')).toBeTruthy();
+    expect(subject.find('table tr').at(2).find('td').at(1).hasClass('col-fixed')).toBeTruthy();
   });
 
   it('renders td elements with width style', () => {
-    expect('table tr:eq(1) td:eq(0)').toHaveStyle({width: '100px'});
-    expect('table tr:eq(1) td:eq(1)').toHaveStyle({width: '200px'});
+    expect(subject.find('table tr').at(1).find('td').at(0).prop('style')).toEqual({width: '100px'});
+    expect(subject.find('table tr').at(1).find('td').at(1).prop('style')).toEqual({width: '200px'});
 
-    expect('table tr:eq(2) td:eq(0)').toHaveStyle({width: '100px'});
-    expect('table tr:eq(2) td:eq(1)').toHaveStyle({width: '200px'});
+    expect(subject.find('table tr').at(2).find('td').at(0).prop('style')).toEqual({width: '100px'});
+    expect(subject.find('table tr').at(2).find('td').at(1).prop('style')).toEqual({width: '200px'});
   });
 });

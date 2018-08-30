@@ -4,7 +4,7 @@ import {default as mixin} from '../../../src/react/mixins';
 
 
 describe('ScrimMixin', () => {
-  let Component;
+  let Component, subject;
 
   beforeEach(() => {
     class Klass extends mixin(React.Component).with(ScrimMixin) {
@@ -18,7 +18,7 @@ describe('ScrimMixin', () => {
   describe('when there is no document', () => {
     it('does not throw an exception', () => {
       expect(() => {
-        ReactDOM.render(<Component getDocument={() => undefined}/>, root);
+        subject = shallow(<Component getDocument={() => undefined}/>);
       }).not.toThrow();
     });
   });

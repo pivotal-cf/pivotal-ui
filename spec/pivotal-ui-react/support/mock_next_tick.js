@@ -4,7 +4,7 @@ const {default: defaultSetImmediate} = require('babel-runtime/core-js/set-immedi
 
 let callbacks = [];
 
-const nextTick = jasmine.createSpy('nextTick').and.callFake(function(callback) {
+const nextTick = jest.fn().mockName('nextTick').mockImplementation(function(callback) {
   callbacks.push(callback);
 });
 

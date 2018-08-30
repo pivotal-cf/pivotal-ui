@@ -7,61 +7,61 @@ describe('CopyToClipboard', () => {
 
   beforeEach(() => {
     text = 'some copy text';
-    onClick = jasmine.createSpy('onClick');
+    onClick = jest.fn().mockName('onClick');
 
     spyOn(ClipboardHelper, 'copy');
 
-    subject = ReactDOM.render(<CopyToClipboard {...{
+    subject = shallow(<CopyToClipboard {...{
       text,
       onClick
-    }}/>, root);
+    }}/>);
   });
 
   it('renders an anchor', () => {
-    expect('a.pui-copy-to-clipboard').toExist();
-    expect('a.pui-copy-to-clipboard').toHaveAttr('role', 'button');
+    expect(subject.find('a.pui-copy-to-clipboard').exists()).toBeTruthy();
+    expect(subject.find('a.pui-copy-to-clipboard').prop('role')).toBe('button');
   });
 
   it('renders a hidden tooltip with default text', () => {
-    expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
-    expect('.tooltip-content').toHaveText('Copied');
+    expect(subject.find('.tooltip-container').hasClass('tooltip-container-hidden')).toBeTruthy();
+    expect(subject.find('.tooltip-content').text()).toBe('Copied');
   });
 
   describe('when given tooltip text', () => {
     beforeEach(() => {
-      subject::setProps({tooltip: 'Copied successfully!'});
+      subject.setProps({tooltip: 'Copied successfully!'});
     });
 
     it('uses the custom tooltip text', () => {
-      expect('.tooltip-content').toHaveText('Copied successfully!');
+      expect(subject.find('.tooltip-content').text()).toBe('Copied successfully!');
     });
   });
 
   describe('when given additional props', () => {
     beforeEach(() => {
-      subject::setProps({className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
+      subject.setProps({className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
     });
 
     it('passes the props to the anchor', () => {
-      expect('a.pui-copy-to-clipboard').toHaveClass('test-class');
-      expect('a.pui-copy-to-clipboard').toHaveAttr('id', 'test-id');
-      expect('a.pui-copy-to-clipboard').toHaveCss({opacity: '0.5'});
+      expect(subject.find('a.pui-copy-to-clipboard').hasClass('test-class')).toBeTruthy();
+      expect(subject.find('a.pui-copy-to-clipboard').prop('id')).toBe('test-id');
+      expect(subject.find('a.pui-copy-to-clipboard').prop('style')).toEqual({opacity: '0.5'});
     });
   });
 
   describe('clicking on the element', () => {
     beforeEach(() => {
-      $('.pui-copy-to-clipboard .tooltip').click();
-      $('.pui-copy-to-clipboard').click();
+      subject.find('.pui-copy-to-clipboard .tooltip').simulate('click');
+      subject.find('.pui-copy-to-clipboard').simulate('click');
     });
 
     it('makes tooltip visible', () => {
-      expect('.tooltip-container').toHaveClass('tooltip-container-visible');
+      expect(subject.find('.tooltip-container').hasClass('tooltip-container-visible')).toBeTruthy();
     });
 
     it('hides tooltip after 1 seconds', () => {
       jasmine.clock().tick(2000);
-      expect('.tooltip-container').not.toHaveClass('tooltip-container-visible');
+      expect(subject.find('.tooltip-container').hasClass('tooltip-container-visible')).toBeFalsy();
     });
 
     it('copies the text to the clipboard', () => {

@@ -4,13 +4,14 @@ import {BasePane, Pane} from '../../../src/react/panes';
 
 let subject;
 describe('BasePane', () => {
-  const renderComponent = props => ReactDOM.render(<BasePane {...props}>Pane content here</BasePane>, root);
+  let subject;
+  const renderComponent = props => subject = shallow(<BasePane {...props}>Pane content here</BasePane>);
 
   it('renders a pane and container', () => {
     subject = renderComponent();
     const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
 
-    expect(pane.getElementsByClassName('container')).toHaveText('Pane content here');
+    expect(subject.find(pane.getElementsByClassName('container')).text()).toBe('Pane content here');
   });
 
   describe('pass-through attributes', () => {
@@ -26,24 +27,25 @@ describe('BasePane', () => {
 
     it('add classes, id, and styles to the pane and container', () => {
       const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
-      expect(pane).toHaveClass('bg-dark-2');
-      expect(pane).toHaveAttr('id', 'outer-id');
-      expect(pane).toHaveCss({opacity: '0.5'});
-      expect(pane).toHaveAttr('data-foo', 'baz');
+      expect(subject.find(pane).hasClass('bg-dark-2')).toBeTruthy();
+      expect(subject.find(pane).prop('id')).toBe('outer-id');
+      expect(subject.find(pane).prop('style')).toEqual({opacity: '0.5'});
+      expect(subject.find(pane).prop('data-foo')).toBe('baz');
 
-      expect(pane.getElementsByClassName('container')).toHaveClass('bg-glow');
+      expect(subject.find(pane.getElementsByClassName('container')).hasClass('bg-glow')).toBeTruthy();
     });
   });
 });
 
 describe('Pane', () => {
-  const renderComponent = props => ReactDOM.render(<Pane {...props}>Pane content here</Pane>, root);
+  let subject;
+  const renderComponent = props => subject = shallow(<Pane {...props}>Pane content here</Pane>);
 
   it('renders a pane and container', () => {
     subject = renderComponent();
     const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
 
-    expect(pane.getElementsByClassName('container')).toHaveText('Pane content here');
+    expect(subject.find(pane.getElementsByClassName('container')).text()).toBe('Pane content here');
   });
 
   describe('pass-through attributes', () => {
@@ -59,12 +61,12 @@ describe('Pane', () => {
 
     it('add classes, id, and styles to the pane and container', () => {
       const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
-      expect(pane).toHaveClass('bg-dark-2');
-      expect(pane).toHaveAttr('id', 'outer-id');
-      expect(pane).toHaveCss({opacity: '0.5'});
-      expect(pane).toHaveAttr('data-foo', 'baz');
+      expect(subject.find(pane).hasClass('bg-dark-2')).toBeTruthy();
+      expect(subject.find(pane).prop('id')).toBe('outer-id');
+      expect(subject.find(pane).prop('style')).toEqual({opacity: '0.5'});
+      expect(subject.find(pane).prop('data-foo')).toBe('baz');
 
-      expect(pane.getElementsByClassName('container')).toHaveClass('bg-glow');
+      expect(subject.find(pane.getElementsByClassName('container')).hasClass('bg-glow')).toBeTruthy();
     });
   });
 });

@@ -2,7 +2,7 @@ import '../../spec_helper';
 import {Table, withCellEllipsis} from '../../../../src/react/table';
 
 describe('withCellEllipsis', () => {
-  let data, columns, ComposedTable;
+  let data, columns, ComposedTable, subject;
 
   beforeEach(() => {
     columns = [{attribute: 'attr1'}];
@@ -13,22 +13,22 @@ describe('withCellEllipsis', () => {
   describe('when ellipsis is true', () => {
     beforeEach(() => {
       columns[0].ellipsis = true;
-      ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+      subject = shallow(<ComposedTable {...{columns, data}}/>);
     });
 
     it('renders with the "type-ellipsis" class', () => {
-      expect('table tr:eq(1) td:eq(0) span').toHaveClass('type-ellipsis');
+      expect(subject.find('table tr').at(1).find('td').at(0).find('span').hasClass('type-ellipsis')).toBeTruthy();
     });
   });
 
   describe('when ellipsis is false', () => {
     beforeEach(() => {
       columns[0].ellipsis = false;
-      ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+      subject = shallow(<ComposedTable {...{columns, data}}/>);
     });
 
     it('does not render with the "type-ellipsis" class', () => {
-      expect('table tr:eq(1) td:eq(0) span').not.toExist();
+      expect(subject.find('table tr').at(1).find('td').at(0).find('span').exists()).toBeFalsy();
     });
   });
 });

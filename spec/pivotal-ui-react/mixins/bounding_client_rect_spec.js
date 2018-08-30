@@ -2,6 +2,7 @@ import '../spec_helper';
 import {useBoundingClientRect} from '../../../src/react/mixins/components/bounding_client_rect';
 
 describe('BoundingClientRect', () => {
+  let subject;
   const width = 100;
   const height = 200;
   let Klass, subject, resizeSpy;
@@ -14,12 +15,14 @@ describe('BoundingClientRect', () => {
     spyOn(Base.prototype, 'render').and.callThrough();
     Klass = Base;
     const Component = useBoundingClientRect(Klass);
-    subject = ReactDOM.render(<Component/>, root);
+    subject = shallow(<Component/>);
     resizeSpy = spyOn(subject, 'resize').and.callThrough();
   });
 
   it('renders the component with a bounding rect and container', () => {
-    expect(Klass).toHaveBeenRenderedWithProps({container: $('.klass')[0], boundingClientRect: jasmine.any(Object), containerReady: jasmine.any(Promise)});
+    expect(subject.find(Klass).props()).toEqual(
+      {container: subject.find('.klass')[0], boundingClientRect: expect.any(Object), containerReady: expect.any(Promise)}
+    );
   });
 
   describe('containerReady', () => {
@@ -29,7 +32,7 @@ describe('BoundingClientRect', () => {
       });
 
       it('returns a promise with the container', () => {
-        const containerReadySpy = jasmine.createSpy('containerReady');
+        const containerReadySpy = jest.fn().mockName('containerReady');
         subject.state.containerReady.then(containerReadySpy);
         MockPromises.tick();
         expect(containerReadySpy).toHaveBeenCalledWith(subject.state.container);
@@ -39,7 +42,7 @@ describe('BoundingClientRect', () => {
 
   describe('when the props change', () => {
     beforeEach(() => {
-      subject::setProps({someProp: 'changed'});
+      subject.setProps({someProp: 'changed'});
     });
 
     it('calls resize', () => {
@@ -47,7 +50,7 @@ describe('BoundingClientRect', () => {
     });
 
     it('does not do call forceUpdate if unmounted', () => {
-      ReactDOM.render(<div/>, root);
+      subject = shallow(<div/>);
       expect(() => MockRaf.next()).not.toThrow();
     });
   });
@@ -57,7 +60,7 @@ describe('BoundingClientRect', () => {
       const width = 200;
       const height = 400;
       beforeEach(() => {
-        Klass.prototype.render.calls.reset();
+        Klass.prototype.render.mockReset();
         const el = ReactDOM.findDOMNode(subject);
         $(el).css({width, height});
         const event = document.createEvent('HTMLEvents');
@@ -75,7 +78,7 @@ describe('BoundingClientRect', () => {
       let boundingClientRect;
       beforeEach(() => {
         boundingClientRect = subject.props.boundingClientRect;
-        Klass.prototype.render.calls.reset();
+        Klass.prototype.render.mockReset();
         const event = document.createEvent('HTMLEvents');
         event.initEvent('resize', true, false);
         window.dispatchEvent(event);

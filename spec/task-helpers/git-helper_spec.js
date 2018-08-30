@@ -12,7 +12,7 @@ describe('GitHelper', () => {
     describe('when the tag does not exist', () => {
       describe('when the major version branch exists', () => {
         beforeEach(async(done) => {
-          spyOn(gitHelper, 'git').and.callFake(command => {
+          spyOn(gitHelper, 'git').mockImplementation(command => {
             if (command === 'branch') {
               return Promise.resolve('  v8\n  v9\n* v10\n  master');
             } else if (command.startsWith('rev-parse')) {
@@ -31,7 +31,7 @@ describe('GitHelper', () => {
 
       describe('when the major version branch does not exists', () => {
         beforeEach(async(done) => {
-          spyOn(gitHelper, 'git').and.callFake(command => {
+          spyOn(gitHelper, 'git').mockImplementation(command => {
             if (command === 'branch') {
               return Promise.resolve('  v8\n  v9\n* master');
             } else if (command.startsWith('rev-parse')) {
@@ -51,7 +51,7 @@ describe('GitHelper', () => {
 
     describe('when the tag does exist', () => {
       beforeEach(async(done) => {
-        spyOn(gitHelper, 'git').and.returnValue(Promise.resolve(''));
+        spyOn(gitHelper, 'git').mockReturnValue(Promise.resolve(''));
         await gitHelper.getLatestCommit('10.0.0');
         done();
       });

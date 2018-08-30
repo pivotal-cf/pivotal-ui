@@ -6,28 +6,27 @@ describe('Checkbox', () => {
   let subject;
 
   beforeEach(() => {
-    spyOnRender(Icon);
-    subject = ReactDOM.render(<Checkbox/>, root);
+    subject = shallow(<Checkbox/>);
   });
 
   it('renders a pui checkbox', () => {
-    expect('.pui-checkbox').toExist();
+    expect(subject.find('.pui-checkbox').exists()).toBeTruthy();
   });
 
   it('renders a hidden checkbox', () => {
-    expect('.pui-checkbox input').toHaveAttr('type', 'checkbox');
+    expect(subject.find('.pui-checkbox input').prop('type')).toBe('checkbox');
   });
 
   it('renders a label', () => {
-    expect('.pui-checkbox label').toHaveText('');
+    expect(subject.find('.pui-checkbox label').text()).toBe('');
   });
 
   it('renders an unchecked control', () => {
-    expect('.pui-checkbox input').not.toBeChecked();
+    expect(subject.find('.pui-checkbox input').prop('checked')).toBeFalsy();
   });
 
   it('renders a check Icon', () => {
-    expect(Icon).toHaveBeenRenderedWithProps({
+    expect(subject.find(Icon).props()).toEqual({
       src: 'check',
       size: 'inherit',
       style: {},
@@ -41,72 +40,72 @@ describe('Checkbox', () => {
 
   describe('when checked', () => {
     beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-      subject = ReactDOM.render(<Checkbox checked onChange={() => null}/>, root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      subject = shallow(<Checkbox checked onChange={() => null}/>);
     });
 
     it('renders an checked control', () => {
-      expect('.pui-checkbox input').toBeChecked();
+      expect(subject.find('.pui-checkbox input').prop('checked')).toBeTruthy();
     });
   });
 
   describe('when clicked', () => {
     beforeEach(() => {
-      $('.pui-checkbox input').click();
+      subject.find('.pui-checkbox input').simulate('click');
     });
 
     it('renders an checked control', () => {
-      expect('.pui-checkbox input').toBeChecked();
+      expect(subject.find('.pui-checkbox input').prop('checked')).toBeTruthy();
     });
 
     describe('when clicked again', () => {
       beforeEach(() => {
-        $('.pui-checkbox input').click();
+        subject.find('.pui-checkbox input').simulate('click');
       });
 
       it('renders an unchecked control', () => {
-        expect('.pui-checkbox input').not.toBeChecked();
+        expect(subject.find('.pui-checkbox input').prop('checked')).toBeFalsy();
       });
     });
   });
 
   describe('children', () => {
     beforeEach(() => {
-      subject::setProps({children: <div className="label-content">hello</div>});
+      subject.setProps({children: <div className="label-content">hello</div>});
     });
 
     it('renders the children inside the label', () => {
-      expect('.pui-checkbox label .label-content').toHaveText('hello');
+      expect(subject.find('.pui-checkbox label .label-content').text()).toBe('hello');
     });
   });
 
   describe('style', () => {
     beforeEach(() => {
-      subject::setProps({style: {color: 'green', backgroundColor: 'red'}});
+      subject.setProps({style: {color: 'green', backgroundColor: 'red'}});
     });
 
     it('puts the style on the outer div', () => {
-      expect('.pui-checkbox').toHaveStyle({color: 'green', backgroundColor: 'red'});
+      expect(subject.find('.pui-checkbox').prop('style')).toEqual({color: 'green', backgroundColor: 'red'});
     });
   });
 
   describe('labelClassName', () => {
     beforeEach(() => {
-      subject::setProps({labelClassName: 'some-class'});
+      subject.setProps({labelClassName: 'some-class'});
     });
 
     it('renders a label with the class name', () => {
-      expect('.pui-checkbox label').toHaveClass('some-class');
+      expect(subject.find('.pui-checkbox label').hasClass('some-class')).toBeTruthy();
     });
   });
 
   describe('indeterminate', () => {
     beforeEach(() => {
-      subject::setProps({indeterminate: true});
+      subject.setProps({indeterminate: true});
     });
 
     it('renders a remove Icon', () => {
-      expect(Icon).toHaveBeenRenderedWithProps({
+      expect(subject.find(Icon).props()).toEqual({
         src: 'remove',
         size: 'inherit',
         style: {},
@@ -120,11 +119,11 @@ describe('Checkbox', () => {
 
     describe('when clicked', () => {
       beforeEach(() => {
-        $('.pui-checkbox input').click();
+        subject.find('.pui-checkbox input').simulate('click');
       });
 
       it('renders an checked control', () => {
-        expect('.pui-checkbox input').toBeChecked();
+        expect(subject.find('.pui-checkbox input').prop('checked')).toBeTruthy();
       });
     });
   });

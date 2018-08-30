@@ -4,30 +4,29 @@ import {ExpanderContent, ExpanderTrigger} from '../../../src/react/expander';
 import {findByClass, findByTag, clickOn} from '../spec_helper';
 
 describe('ExpanderContent', () => {
-  const renderIntoDom = props => ReactDOM.render(
-    <ExpanderContent {...props}>
-      <div>You won a brand new car!</div>
-    </ExpanderContent>, root
-  );
+  let subject, children;
+  const renderIntoDom = props => subject = shallow(<ExpanderContent {...props}>
+    {children}
+  </ExpanderContent>);
 
   describe('when expanded is unset', () => {
     it('hides the content', () => {
       const result = renderIntoDom({expanded: false});
-      expect(findByClass(result, 'pui-collapsible')).not.toHaveClass('in');
+      expect(result.find(Collapsible).props()).toEqual({expanded: false, children});
     });
   });
 
   describe('when expanded is set to false', () => {
     it('hides the content', () => {
       const result = renderIntoDom({expanded: false});
-      expect(findByClass(result, 'pui-collapsible')).not.toHaveClass('in');
+      expect(result.find(Collapsible).props()).toEqual({expanded: false, children});
     });
   });
 
   describe('when expanded is set to true', () => {
     it('shows the content', () => {
       const result = renderIntoDom({expanded: true});
-      expect(findByClass(result, 'pui-collapsible')).toHaveClass('in');
+      expect(result.find(Collapsible).props()).toEqual({expanded: true, children});
     });
   });
 
@@ -36,49 +35,55 @@ describe('ExpanderContent', () => {
 
     describe('when the content was already visible', () => {
       beforeEach(() => {
-        onExitedSpy = jasmine.createSpy('on exited');
+        onExitedSpy = jest.fn().mockName('on exited');
         expanderContent = renderIntoDom({expanded: true, onExited: onExitedSpy, delay: 0});
-        expanderContent.toggle();
+        expanderContent.instance().toggle();
       });
 
       it('hides the content', () => {
-        expect(findByClass(expanderContent, 'pui-collapsible')).not.toHaveClass('in');
-        expect(onExitedSpy).toHaveBeenCalled();
+        expect(expanderContent.find(Collapsible).props()).toEqual({
+          expanded: false,
+          delay: 0,
+          children,
+          onExited: onExitedSpy
+        });
       });
     });
 
     describe('when the content is not visible', () => {
       beforeEach(() => {
-        onEnteredSpy = jasmine.createSpy('onEntered');
+        onEnteredSpy = jest.fn().mockName('onEntered');
         expanderContent = renderIntoDom({expanded: false, onEntered: onEnteredSpy, delay: 0});
-        expanderContent.toggle();
+        expanderContent.instance().toggle();
       });
 
       it('shows the content', () => {
-        expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
-        expect(onEnteredSpy).toHaveBeenCalled();
+        expect(expanderContent.find(Collapsible).props()).toEqual({
+          expanded: true,
+          delay: 0,
+          children,
+          onEntered: onEnteredSpy
+        });
       });
     });
 
     it('can be invoked ad nauseum', () => {
       expanderContent = renderIntoDom({expanded: false, delay: 0});
-      expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
-      expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).not.toHaveClass('in');
-      expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
+      expanderContent.instance().toggle();
+      expect(expanderContent.find(Collapsible).props()).toEqual({expanded: true, delay: 0, children});
+      expanderContent.instance().toggle();
+      expect(expanderContent.find(Collapsible).props()).toEqual({expanded: false, delay: 0, children});
+      expanderContent.instance().toggle();
+      expect(expanderContent.find(Collapsible).props()).toEqual({expanded: true, delay: 0, children});
     });
   });
 });
 
 describe('ExpanderTrigger', () => {
-  const renderComponent = props => ReactDOM.render(
-    <ExpanderTrigger>
-      <button>Click here to trigger</button>
-    </ExpanderTrigger>,
-    root
-  );
+  let subject;
+  const renderComponent = props => subject = shallow(<ExpanderTrigger>
+    <button>Click here to trigger</button>
+  </ExpanderTrigger>);
 
   let expanderTrigger;
 
@@ -86,13 +91,15 @@ describe('ExpanderTrigger', () => {
     describe('when target is set on state', () => {
       let expanderContent;
       beforeEach(() => {
-        expanderContent = jasmine.createSpyObj('expanderContent', ['toggle']);
+        expanderContent = {
+          toggle: jest.fn().mockName('toggle')
+        };
         expanderTrigger = renderComponent();
-        expanderTrigger.setTarget(expanderContent);
+        expanderTrigger.instance().setTarget(expanderContent);
       });
 
       it('invokes the #toggle method on the provided target', () => {
-        clickOn(findByTag(expanderTrigger, 'button'));
+        expanderTrigger.find('button').simulate('click', fakeEvent);
         expect(expanderContent.toggle).toHaveBeenCalled();
       });
     });
@@ -102,7 +109,7 @@ describe('ExpanderTrigger', () => {
         spyOn(console, 'warn');
 
         expanderTrigger = renderComponent();
-        clickOn(findByTag(expanderTrigger, 'button'));
+        expanderTrigger.find('button').simulate('click', fakeEvent);
 
         expect(console.warn).toHaveBeenCalledWith('No ExpanderContent provided to ExpanderTrigger.');
       });

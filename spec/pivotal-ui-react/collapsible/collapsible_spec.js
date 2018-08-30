@@ -4,8 +4,8 @@ describe('Collapsible', () => {
   let onEnteredSpy, onExitedSpy, subject;
 
   const render = delay => {
-    onEnteredSpy = jasmine.createSpy('onEntered');
-    onExitedSpy = jasmine.createSpy('onExited');
+    onEnteredSpy = jest.fn().mockName('onEntered');
+    onExitedSpy = jest.fn().mockName('onExited');
     class Klass extends React.Component {
       constructor(props, context) {
         super(props, context);
@@ -28,7 +28,7 @@ describe('Collapsible', () => {
       }
     }
 
-    subject = ReactDOM.render(<Klass />, root);
+    subject = shallow(<Klass />);
   };
 
   beforeEach(() => {
@@ -40,31 +40,31 @@ describe('Collapsible', () => {
   });
 
   it('renders children hidden by default', () => {
-    expect('.pui-collapsible').not.toHaveClass('in');
+    expect(subject.find('.pui-collapsible').hasClass('in')).toBeFalsy();
   });
 
   it('shows children if expanded is true', () => {
-    $('.pui-collapse-toggle').simulate('click');
+    subject.find('.pui-collapse-toggle').simulate('click');
 
     MockNow.tick(200);
     MockRaf.next();
 
-    expect('.pui-collapsible').toHaveClass('in');
-    expect('.pui-collapsible .maybe').toExist();
+    expect(subject.find('.pui-collapsible').hasClass('in')).toBeTruthy();
+    expect(subject.find('.pui-collapsible .maybe').exists()).toBeTruthy();
   });
 
   it('animates while expanding', () => {
-    $('.pui-collapse-toggle').simulate('click');
+    subject.find('.pui-collapse-toggle').simulate('click');
 
     MockNow.tick(200);
     MockRaf.next();
     MockRaf.next();
 
-    expect('.pui-collapsible-shield').toHaveCss({marginBottom: '0px'});
+    expect(subject.find('.pui-collapsible-shield').prop('style')).toEqual({marginBottom: '0px'});
   });
 
   it('calls onEntered when done opening', () => {
-    $('.pui-collapse-toggle').simulate('click');
+    subject.find('.pui-collapse-toggle').simulate('click');
 
     expect(onEnteredSpy).not.toHaveBeenCalled();
     MockNow.tick(200);
@@ -75,15 +75,15 @@ describe('Collapsible', () => {
   });
 
   it('calls onExited when done closing', () => {
-    $('.pui-collapse-toggle').simulate('click');
+    subject.find('.pui-collapse-toggle').simulate('click');
 
     MockNow.tick(200);
     MockRaf.next();
     MockRaf.next();
-    $('.pui-collapse-toggle').simulate('click');
+    subject.find('.pui-collapse-toggle').simulate('click');
 
     expect(onExitedSpy).not.toHaveBeenCalled();
-    onEnteredSpy.calls.reset();
+    onEnteredSpy.mockReset();
     MockNow.tick(200);
     MockRaf.next();
     MockRaf.next();
@@ -97,23 +97,23 @@ describe('Collapsible', () => {
     });
 
     it('expands instantly', () => {
-      $('.pui-collapse-toggle').simulate('click');
+      subject.find('.pui-collapse-toggle').simulate('click');
 
-      expect('.pui-collapsible-shield').toHaveCss({marginBottom: '0px'});
+      expect(subject.find('.pui-collapsible-shield').prop('style')).toEqual({marginBottom: '0px'});
     });
 
     it('calls onEntered when done opening', () => {
-      $('.pui-collapse-toggle').simulate('click');
+      subject.find('.pui-collapse-toggle').simulate('click');
 
       expect(onEnteredSpy).toHaveBeenCalled();
       expect(onExitedSpy).not.toHaveBeenCalled();
     });
 
     it('calls onExited when done closing', () => {
-      $('.pui-collapse-toggle').simulate('click');
+      subject.find('.pui-collapse-toggle').simulate('click');
 
-      onEnteredSpy.calls.reset();
-      $('.pui-collapse-toggle').simulate('click');
+      onEnteredSpy.mockReset();
+      subject.find('.pui-collapse-toggle').simulate('click');
 
       expect(onExitedSpy).toHaveBeenCalled();
       expect(onEnteredSpy).not.toHaveBeenCalled();

@@ -3,6 +3,7 @@ import {mergeProps} from '../../../src/react/helpers';
 import {UnorderedList, OrderedList, ListItem, BreadcrumbList, InlineList} from '../../../src/react/lists';
 
 describe('lists', () => {
+  let subject;
   function itRenders(Element, identifier, props = {}) {
     const testProps = {
       className: 'test-class',
@@ -13,16 +14,14 @@ describe('lists', () => {
     };
 
     beforeEach(() => {
-      ReactDOM.render(
-        <Element {...mergeProps(props, testProps)}>
-          <ListItem>A</ListItem>
-          <ListItem>B</ListItem>
-        </Element>,
-        root);
+      subject = shallow(<Element {...mergeProps(props, testProps)}>
+        <ListItem>A</ListItem>
+        <ListItem>B</ListItem>
+      </Element>);
     });
 
     afterEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
     });
 
     it('renders', () => {
@@ -30,9 +29,9 @@ describe('lists', () => {
     });
 
     it('adds given attributes to the correct component', () => {
-      expect(identifier).toHaveClass(testProps.className);
-      expect(identifier).toHaveAttr('id', testProps.id);
-      expect(identifier).toHaveCss(testProps.style);
+      expect(subject.find(identifier).hasClass(testProps.className)).toBeTruthy();
+      expect(subject.find(identifier).prop('id')).toBe(testProps.id);
+      expect(subject.find(identifier).prop('style')).toEqual(testProps.style);
     });
   }
 
@@ -40,8 +39,8 @@ describe('lists', () => {
     itRenders(UnorderedList, '#root ul');
 
     it('adds list-unordered class', () => {
-      expect('#root ul').toHaveClass('list-unordered');
-      expect('#root ul').not.toHaveClass('list-divider');
+      expect(subject.find('#root ul').hasClass('list-unordered')).toBeTruthy();
+      expect(subject.find('#root ul').hasClass('list-divider')).toBeFalsy();
     });
   });
 
@@ -49,7 +48,7 @@ describe('lists', () => {
     itRenders(UnorderedList, '#root ul', {'divider': true});
 
     it('adds list-divider class', () => {
-      expect('#root ul').toHaveClass('list-divider');
+      expect(subject.find('#root ul').hasClass('list-divider')).toBeTruthy();
     });
   });
 
@@ -57,7 +56,7 @@ describe('lists', () => {
     itRenders(OrderedList, '#root ol');
 
     it('does not add the list-divider class', () => {
-      expect('#root ol').not.toHaveClass('list-divider');
+      expect(subject.find('#root ol').hasClass('list-divider')).toBeFalsy();
     });
   });
 
@@ -65,7 +64,7 @@ describe('lists', () => {
     itRenders(OrderedList, '#root ol', {divider: true});
 
     it('does not add the list-divider class', () => {
-      expect('#root ol').toHaveClass('list-divider');
+      expect(subject.find('#root ol').hasClass('list-divider')).toBeTruthy();
     });
   });
 
@@ -73,7 +72,7 @@ describe('lists', () => {
     itRenders(UnorderedList, '#root ul', {'unstyled': true});
 
     it('adds the list-unstyled class', () => {
-      expect('#root ul').toHaveClass('list-unstyled');
+      expect(subject.find('#root ul').hasClass('list-unstyled')).toBeTruthy();
     });
   });
 
@@ -81,7 +80,7 @@ describe('lists', () => {
     itRenders(BreadcrumbList, '#root ul');
 
     it('adds the list-breadcrumb class', () => {
-      expect('#root ul').toHaveClass('list-breadcrumb');
+      expect(subject.find('#root ul').hasClass('list-breadcrumb')).toBeTruthy();
     });
   });
 
@@ -89,8 +88,8 @@ describe('lists', () => {
     itRenders(InlineList, '#root ul');
 
     it('adds list-inline classes', () => {
-      expect('#root ul').toHaveClass('list-inline');
-      expect('#root ul').not.toHaveClass('list-inline-divider');
+      expect(subject.find('#root ul').hasClass('list-inline')).toBeTruthy();
+      expect(subject.find('#root ul').hasClass('list-inline-divider')).toBeFalsy();
     });
   });
 
@@ -98,7 +97,7 @@ describe('lists', () => {
     itRenders(InlineList, '#root ul', {'divider': true});
 
     it('adds list-inline-divider classes', () => {
-      expect('#root ul').toHaveClass('list-inline-divider');
+      expect(subject.find('#root ul').hasClass('list-inline-divider')).toBeTruthy();
     });
   });
 
@@ -112,18 +111,15 @@ describe('lists', () => {
     };
 
     beforeEach(() => {
-      ReactDOM.render(
-        <ul>
-          <ListItem {...testItemProps}>A</ListItem>
-        </ul>,
-        root
-      );
+      subject = shallow(<ul>
+        <ListItem {...testItemProps}>A</ListItem>
+      </ul>);
     });
 
     it('adds given attributes to the correct component', () => {
-      expect('#root li:first').toHaveClass(testItemProps.className);
-      expect('#root li:first').toHaveAttr('id', testItemProps.id);
-      expect('#root li:first').toHaveCss(testItemProps.style);
+      expect(subject.find('#root li').at(0).hasClass(testItemProps.className)).toBeTruthy();
+      expect(subject.find('#root li').at(0).prop('id')).toBe(testItemProps.id);
+      expect(subject.find('#root li').at(0).prop('style')).toEqual(testItemProps.style);
     });
   });
 });

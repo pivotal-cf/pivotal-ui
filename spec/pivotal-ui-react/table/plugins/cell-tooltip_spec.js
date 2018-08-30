@@ -2,10 +2,10 @@ import '../../spec_helper';
 import {Table, withCellTooltip} from '../../../../src/react/table';
 
 describe('withCellTooltip', () => {
-  let tooltip, data;
+  let tooltip, data, subject;
 
   beforeEach(() => {
-    tooltip = jasmine.createSpy('tooltip').and.callFake(({isHeader}) => {
+    tooltip = jest.fn().mockName('tooltip').mockImplementation(({isHeader}) => {
       return {
         text: `is header? ${isHeader}`,
         size: isHeader ? 'md' : undefined,
@@ -25,7 +25,7 @@ describe('withCellTooltip', () => {
     }];
 
     const ComposedTable = withCellTooltip(Table);
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('calls tooltip callback for header and body cells', () => {
@@ -35,49 +35,57 @@ describe('withCellTooltip', () => {
   });
 
   it('renders a hidden tooltip', () => {
-    expect('thead tr:eq(0) th:eq(0) .tooltip .tooltip-container').toHaveClass('tooltip-container-hidden');
-    expect('tbody tr:eq(0) td:eq(0) .tooltip .tooltip-container').toHaveClass('tooltip-container-hidden');
-    expect('tbody tr:eq(1) td:eq(0) .tooltip .tooltip-container').toHaveClass('tooltip-container-hidden');
+    expect(
+      subject.find('thead tr').at(0).find('th').at(0).find('.tooltip .tooltip-container').hasClass('tooltip-container-hidden')
+    ).toBeTruthy();
+    expect(
+      subject.find('tbody tr').at(0).find('td').at(0).find('.tooltip .tooltip-container').hasClass('tooltip-container-hidden')
+    ).toBeTruthy();
+    expect(
+      subject.find('tbody tr').at(1).find('td').at(0).find('.tooltip .tooltip-container').hasClass('tooltip-container-hidden')
+    ).toBeTruthy();
   });
 
   it('renders an Icon for the first header', () => {
-    expect('th:eq(0) svg').toHaveClass('icon-info_outline');
+    expect(subject.find('th').at(0).find('svg').hasClass('icon-info_outline')).toBeTruthy();
   });
 
   it('does not render an Icon for the second header or any body cells', () => {
-    expect('th:eq(1) svg').not.toExist();
-    expect('tr:eq(1) td:eq(0) svg').not.toExist();
-    expect('tr:eq(2) td:eq(1) svg').not.toExist();
-    expect('tr:eq(3) td:eq(0) svg').not.toExist();
-    expect('tr:eq(4) td:eq(1) svg').not.toExist();
+    expect(subject.find('th').at(1).find('svg').exists()).toBeFalsy();
+    expect(subject.find('tr').at(1).find('td').at(0).find('svg').exists()).toBeFalsy();
+    expect(subject.find('tr').at(2).find('td').at(1).find('svg').exists()).toBeFalsy();
+    expect(subject.find('tr').at(3).find('td').at(0).find('svg').exists()).toBeFalsy();
+    expect(subject.find('tr').at(4).find('td').at(1).find('svg').exists()).toBeFalsy();
   });
 
   describe('when hovering the first header', () => {
     beforeEach(() => {
-      $('tr:eq(0) th:eq(0) .tooltip').simulate('mouseOver');
+      subject.find('tr').at(0).find('th').at(0).find('.tooltip').simulate('mouseOver');
     });
 
     afterEach(() => {
-      $('tr:eq(0) th:eq(0) .tooltip').simulate('mouseOut');
+      subject.find('tr').at(0).find('th').at(0).find('.tooltip').simulate('mouseOut');
     });
 
     it('renders a tooltip', () => {
-      expect('thead th:eq(0) .tooltip .tooltip-container').toHaveClass('tooltip-container-visible');
-      expect('thead th:eq(0) .tooltip-content').toHaveText('is header? true');
+      expect(
+        subject.find('thead th').at(0).find('.tooltip .tooltip-container').hasClass('tooltip-container-visible')
+      ).toBeTruthy();
+      expect(subject.find('thead th').at(0).find('.tooltip-content').text()).toBe('is header? true');
     });
   });
 
   describe('when hovering the first body row first column', () => {
     beforeEach(() => {
-      $('tr:eq(1) td:eq(0) .tooltip').simulate('mouseOver');
+      subject.find('tr').at(1).find('td').at(0).find('.tooltip').simulate('mouseOver');
     });
 
     afterEach(() => {
-      $('tr:eq(1) td:eq(0) .tooltip').simulate('mouseOut');
+      subject.find('tr').at(1).find('td').at(0).find('.tooltip').simulate('mouseOut');
     });
 
     it('renders a tooltip', () => {
-      expect('tr:eq(1) td:eq(0) .tooltip-content').toHaveText('is header? false');
+      expect(subject.find('tr').at(1).find('td').at(0).find('.tooltip-content').text()).toBe('is header? false');
     });
   });
 });

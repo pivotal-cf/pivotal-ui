@@ -2,6 +2,7 @@ import '../spec_helper';
 import {TablePlugin} from '../../../src/react/table';
 
 describe('TablePlugin', () => {
+  let subject;
   it('has a plugTag defaultProp that returns the tag', () => {
     const tag = 'some-tag';
     expect(TablePlugin.defaultProps.plugTag(null, tag)).toBe(tag);
@@ -16,16 +17,16 @@ describe('TablePlugin', () => {
     let tableTag, context, subject, returned;
 
     beforeEach(() => {
-      tableTag = jasmine.createSpy('tableTag');
+      tableTag = jest.fn().mockName('tableTag');
       context = {a: 1, b: 2};
     });
 
     describe('when the props callback provides a value', () => {
       beforeEach(() => {
-        tableTag.and.returnValue('some-value');
-        subject = ReactDOM.render(<TablePlugin {...{
+        tableTag.mockReturnValue('some-value');
+        subject = shallow(<TablePlugin {...{
           columns: [], data: [], tableTag
-        }}/>, root);
+        }}/>);
         returned = subject.plugTag('table', null, context);
       });
 
@@ -42,11 +43,11 @@ describe('TablePlugin', () => {
       let tagCb;
 
       beforeEach(() => {
-        tagCb = jasmine.createSpy('tagCb');
-        tagCb.and.returnValue('cb-value');
-        subject = ReactDOM.render(<TablePlugin {...{
+        tagCb = jest.fn().mockName('tagCb');
+        tagCb.mockReturnValue('cb-value');
+        subject = shallow(<TablePlugin {...{
           columns: [], data: [], tableTag
-        }}/>, root);
+        }}/>);
         returned = subject.plugTag('table', 'cb-value', context);
       });
 
@@ -70,10 +71,10 @@ describe('TablePlugin', () => {
         style: {old: 'style-old'},
         old: 'prop-old'
       };
-      table = jasmine.createSpy('table').and.returnValue(oldProps);
-      subject = ReactDOM.render(<TablePlugin {...{
+      table = jest.fn().mockName('table').mockReturnValue(oldProps);
+      subject = shallow(<TablePlugin {...{
         columns: [], data: [], table
-      }}/>, root);
+      }}/>);
 
       newProps = {
         className: 'new-class-name',

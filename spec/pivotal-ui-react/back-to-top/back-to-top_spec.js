@@ -3,7 +3,7 @@ import {BackToTop} from '../../../src/react/back-to-top';
 import ScrollTop from '../../../src/react/back-to-top/scroll-top';
 
 describe('BackToTop', () => {
-  let scrollTop;
+  let scrollTop, subject;
 
   const triggerScroll = () => {
     const event = document.createEvent('Event');
@@ -13,8 +13,8 @@ describe('BackToTop', () => {
 
   beforeEach(() => {
     scrollTop = 0;
-    spyOn(ScrollTop, 'getScrollTop').and.callFake(() => scrollTop || 0);
-    spyOn(ScrollTop, 'setScrollTop').and.callFake(value => scrollTop = value);
+    spyOn(ScrollTop, 'getScrollTop').mockImplementation(() => scrollTop || 0);
+    spyOn(ScrollTop, 'setScrollTop').mockImplementation(value => scrollTop = value);
   });
 
   describe('without scrollableId', () => {
@@ -23,7 +23,7 @@ describe('BackToTop', () => {
     beforeEach(done => {
       spyOn(window, 'addEventListener').and.callThrough();
       spyOn(window, 'removeEventListener').and.callThrough();
-      subject = ReactDOM.render(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>, root);
+      subject = shallow(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>);
 
       jasmine.clock().uninstall();
       setTimeout(() => {
@@ -39,31 +39,31 @@ describe('BackToTop', () => {
     });
 
     it('passes down the className, id, and style properties', () => {
-      expect('.pui-back-to-top').toHaveClass('foo');
+      expect(subject.find('.pui-back-to-top').hasClass('foo')).toBeTruthy();
       expect('.pui-back-to-top').toHaveProp('id', 'bar');
-      expect('.pui-back-to-top').toHaveCss({'font-size': '200px'});
+      expect(subject.find('.pui-back-to-top').prop('style')).toEqual({'font-size': '200px'});
     });
 
     it('renders a back to top link that is visible', () => {
-      expect('.pui-back-to-top').toExist();
+      expect(subject.find('.pui-back-to-top').exists()).toBeTruthy();
     });
 
     it('renders a arrow upward icon', () => {
-      expect('svg.icon-arrow_upward').toExist();
+      expect(subject.find('svg.icon-arrow_upward').exists()).toBeTruthy();
     });
 
     it('fades in the button', () => {
-      expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 0, 'font-size': '200px'});
+      expect(subject.find('.pui-back-to-top').prop('style')).toEqual({display: 'inline', opacity: 0, 'font-size': '200px'});
       MockNow.tick(BackToTop.FADE_DURATION / 2);
       MockRaf.next();
-      expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 0.5, 'font-size': '200px'});
+      expect(subject.find('.pui-back-to-top').prop('style')).toEqual({display: 'inline', opacity: 0.5, 'font-size': '200px'});
       MockNow.tick(BackToTop.FADE_DURATION / 2);
       MockRaf.next();
-      expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 1, 'font-size': '200px'});
+      expect(subject.find('.pui-back-to-top').prop('style')).toEqual({display: 'inline', opacity: 1, 'font-size': '200px'});
     });
 
     it('removes an event listener from the window', () => {
-      ReactDOM.unmountComponentAtNode(root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
       expect(window.removeEventListener).toHaveBeenCalledWith('scroll', subject.updateScroll);
     });
 
@@ -71,26 +71,26 @@ describe('BackToTop', () => {
       beforeEach(() => {
         MockNow.tick(BackToTop.FADE_DURATION);
         MockRaf.next();
-        expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 1, 'font-size': '200px'});
+        expect(subject.find('.pui-back-to-top').prop('style')).toEqual({display: 'inline', opacity: 1, 'font-size': '200px'});
 
         ScrollTop.setScrollTop(0);
         triggerScroll();
       });
 
       it('fades out the button', () => {
-        expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 1, 'font-size': '200px'});
+        expect(subject.find('.pui-back-to-top').prop('style')).toEqual({display: 'inline', opacity: 1, 'font-size': '200px'});
         MockNow.tick(BackToTop.FADE_DURATION / 2);
         MockRaf.next();
-        expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 0.5, 'font-size': '200px'});
+        expect(subject.find('.pui-back-to-top').prop('style')).toEqual({display: 'inline', opacity: 0.5, 'font-size': '200px'});
         MockNow.tick(BackToTop.FADE_DURATION / 2);
         MockRaf.next();
-        expect('.pui-back-to-top').toHaveStyle({display: 'inline', opacity: 0, 'font-size': '200px'});
+        expect(subject.find('.pui-back-to-top').prop('style')).toEqual({display: 'inline', opacity: 0, 'font-size': '200px'});
       });
     });
 
     describe('when the back to top link is clicked', () => {
       beforeEach(() => {
-        $('.pui-back-to-top').simulate('click');
+        subject.find('.pui-back-to-top').simulate('click');
       });
 
       it('animates the body scroll to the top', () => {
@@ -124,9 +124,12 @@ describe('BackToTop', () => {
 
     beforeEach(done => {
       scrollableId = 'scrollable';
-      element = jasmine.createSpyObj('element', ['addEventListener', 'removeEventListener']);
-      spyOn(document, 'getElementById').and.returnValue(element);
-      ReactDOM.render(<div id={scrollableId} style={{height: '100px', maxHeight: '100px', overflowY: 'scroll'}}>
+      element = {
+        addEventListener: jest.fn().mockName('addEventListener'),
+        removeEventListener: jest.fn().mockName('removeEventListener')
+      };
+      spyOn(document, 'getElementById').mockReturnValue(element);
+      subject = shallow(<div id={scrollableId} style={{height: '100px', maxHeight: '100px', overflowY: 'scroll'}}>
         <div {...{height: '500px'}}/>
         <BackToTop {...{
           ref: el => {
@@ -136,7 +139,7 @@ describe('BackToTop', () => {
           id: 'bar',
           style: {fontSize: '500px'}, scrollableId
         }}/>
-      </div>, root);
+      </div>);
 
       jasmine.clock().uninstall();
       setTimeout(() => {
@@ -152,13 +155,13 @@ describe('BackToTop', () => {
     });
 
     it('removes an event listener from the window', () => {
-      ReactDOM.unmountComponentAtNode(root);
+      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
       expect(element.removeEventListener).toHaveBeenCalledWith('scroll', updateScroll);
     });
 
     describe('when the back to top link is clicked', () => {
       beforeEach(() => {
-        $('.pui-back-to-top').simulate('click');
+        subject.find('.pui-back-to-top').simulate('click');
       });
 
       it('calls getScrollTop', () => {

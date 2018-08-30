@@ -11,9 +11,9 @@ describe('Form', () => {
   let Buttons, subject, afterSubmit;
 
   beforeEach(() => {
-    afterSubmit = jasmine.createSpy('afterSubmit');
-    Buttons = jasmine.createSpy('Buttons');
-    Buttons.and.callFake(({canSubmit, canReset, reset}) => (
+    afterSubmit = jest.fn().mockName('afterSubmit');
+    Buttons = jest.fn().mockName('Buttons');
+    Buttons.mockImplementation(({canSubmit, canReset, reset}) => (
       <div>
         <DefaultButton {...{className: 'save', type: 'submit', disabled: !canSubmit()}}>Save</DefaultButton>
         <DefaultButton {...{className: 'cancel', disabled: !canReset(), onClick: reset}}>Cancel</DefaultButton>
@@ -26,27 +26,26 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: 'some-name'}};
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields}}>
-          {({fields: {name}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields}}>
+        {({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('uses the form classname', () => {
-      expect('form').toHaveClass('some-form');
+      expect(subject.find('form').hasClass('some-form')).toBeTruthy();
     });
 
     it('does not disable the top-level fieldset', () => {
-      expect('form > fieldset').not.toBeDisabled();
+      expect(subject.find('form > fieldset').prop('disabled')).toBeFalsy();
     });
 
     it('renders an input with a default value', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-name');
     });
 
     it('renders Buttons', () => {
@@ -63,18 +62,18 @@ describe('Form', () => {
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveAttr('type', 'submit');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveText('Save');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toHaveText('Cancel');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('type')).toBe('submit');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').text()).toBe('Save');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeTruthy();
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').text()).toBe('Cancel');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeTruthy();
     });
 
     describe('when adding a field', () => {
       beforeEach(() => {
         fields.age = {initialValue: '0'};
-        subject::setProps({fields});
+        subject.setProps({fields});
       });
 
       it('updates the state', () => {
@@ -85,52 +84,60 @@ describe('Form', () => {
 
     describe('when deleting the name', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: ''
+          }
+        });
       });
 
       it('allows the name to change', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('');
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('');
       });
 
       it('renders buttons ', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).hasClass('col-fixed')).toBeTruthy();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeTruthy();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeFalsy();
       });
 
       describe('when clicking the cancel button', () => {
         beforeEach(() => {
-          $('fieldset > .grid:eq(0) > .col:eq(1) .cancel').simulate('click');
+          subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').simulate('click');
         });
 
         it('resets the name', () => {
-          expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
+          expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-name');
         });
       });
     });
 
     describe('when changing the name', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: 'some-other-name'
+          }
+        });
       });
 
       it('allows the name to change', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-other-name');
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-other-name');
       });
 
       it('renders enabled buttons ', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).hasClass('col-fixed')).toBeTruthy();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeFalsy();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeFalsy();
       });
 
       describe('when clicking the cancel button', () => {
         beforeEach(() => {
-          $('fieldset > .grid:eq(0) > .col:eq(1) .cancel').simulate('click');
+          subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').simulate('click');
         });
 
         it('resets the name', () => {
-          expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
+          expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-name');
         });
       });
 
@@ -138,18 +145,18 @@ describe('Form', () => {
         let error, errors, onSubmitError, onSubmit, resolve, reject;
 
         beforeEach(() => {
-          Promise.onPossiblyUnhandledRejection(jasmine.createSpy('reject'));
+          Promise.onPossiblyUnhandledRejection(jest.fn().mockName('reject'));
           error = new Error('invalid');
           errors = {name: 'invalid'};
-          onSubmitError = jasmine.createSpy('onSubmitError').and.returnValue(errors);
-          onSubmit = jasmine.createSpy('onSubmit');
-          onSubmit.and.callFake(() => new Promise((res, rej) => {
+          onSubmitError = jest.fn().mockName('onSubmitError').mockReturnValue(errors);
+          onSubmit = jest.fn().mockName('onSubmit');
+          onSubmit.mockImplementation(() => new Promise((res, rej) => {
             resolve = res;
             reject = rej;
           }));
-          Buttons.calls.reset();
-          subject::setProps({onSubmitError, onSubmit});
-          $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
+          Buttons.mockReset();
+          subject.setProps({onSubmitError, onSubmit});
+          subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').simulate('submit');
         });
 
         it('calls onSubmit', () => {
@@ -157,12 +164,12 @@ describe('Form', () => {
         });
 
         it('disables the top-level fieldset', () => {
-          expect('form > fieldset').toBeDisabled();
+          expect(subject.find('form > fieldset').prop('disabled')).toBeTruthy();
         });
 
         it('disables the buttons', () => {
-          expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
-          expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
+          expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeTruthy();
+          expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeTruthy();
         });
 
         it('renders Buttons', () => {
@@ -185,7 +192,7 @@ describe('Form', () => {
           });
 
           it('enables the top-level fieldset', () => {
-            expect('form > fieldset').not.toBeDisabled();
+            expect(subject.find('form > fieldset').prop('disabled')).toBeFalsy();
           });
 
           it('renders Buttons', () => {
@@ -202,8 +209,8 @@ describe('Form', () => {
           });
 
           it('makes both buttons disabled', () => {
-            expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
-            expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
+            expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeTruthy();
+            expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeTruthy();
           });
 
           it('resets the initial state', () => {
@@ -231,7 +238,7 @@ describe('Form', () => {
           });
 
           it('enables the top-level fieldset', () => {
-            expect('form > fieldset').not.toBeDisabled();
+            expect(subject.find('form > fieldset').prop('disabled')).toBeFalsy();
           });
 
           it('renders Buttons', () => {
@@ -248,8 +255,8 @@ describe('Form', () => {
           });
 
           it('re-enables both buttons disabled', () => {
-            expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
-            expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
+            expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeFalsy();
+            expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeFalsy();
           });
 
           it('retains the initial state', () => {
@@ -270,11 +277,11 @@ describe('Form', () => {
 
           describe('when clicking the cancel button', () => {
             beforeEach(() => {
-              $('fieldset > .grid:eq(0) > .col:eq(1) .cancel').simulate('click');
+              subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').simulate('click');
             });
 
             it('resets the name', () => {
-              expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
+              expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-name');
             });
 
             it('clears the errors', () => {
@@ -284,8 +291,8 @@ describe('Form', () => {
 
           describe('when clicking the save button and the submit action resolves', () => {
             beforeEach(() => {
-              onSubmit.and.returnValue(Promise.resolve());
-              $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
+              onSubmit.mockReturnValue(Promise.resolve());
+              subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').simulate('submit');
               MockPromises.tick(1);
             });
 
@@ -300,7 +307,7 @@ describe('Form', () => {
 
           beforeEach(() => {
             onSubmit.and.throwError(error);
-            subject::setProps({onSubmit});
+            subject.setProps({onSubmit});
             try {
               subject.onSubmit();
             } catch (e) {
@@ -327,7 +334,7 @@ describe('Form', () => {
       let validator;
 
       beforeEach(() => {
-        validator = jasmine.createSpy('validator');
+        validator = jest.fn().mockName('validator');
         const children = ({fields: {name}, ...rest}) => (
           <Grid>
             <FlexCol>{name}</FlexCol>
@@ -335,14 +342,18 @@ describe('Form', () => {
           </Grid>
         );
         children.propTypes = {fields: PropTypes.object};
-        subject::setProps({fields: {name: {initialValue: 'some-name', validator}, age: false}, children});
+        subject.setProps({fields: {name: {initialValue: 'some-name', validator}, age: false}, children});
       });
 
       describe('when the validator returns an error', () => {
         beforeEach(() => {
-          validator.and.returnValue('some-error');
-          $('fieldset > .grid:eq(0) > .col:eq(0) input').val('invalid value').simulate('change');
-          $('fieldset > .grid:eq(0) > .col:eq(0) input').simulate('blur');
+          validator.mockReturnValue('some-error');
+          subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+            target: {
+              value: 'invalid value'
+            }
+          });
+          subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('blur');
         });
 
         it('calls the validator', () => {
@@ -350,18 +361,22 @@ describe('Form', () => {
         });
 
         it('renders the error text', () => {
-          expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').toHaveClass('has-error');
-          expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('some-error');
+          expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('.form-unit').hasClass('has-error')).toBeTruthy();
+          expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('.help-row').text()).toBe('some-error');
         });
 
         it('disables the submit button', () => {
-          expect('.save').toBeDisabled();
+          expect(subject.find('.save').prop('disabled')).toBeTruthy();
         });
 
         describe('when the validation error is corrected', () => {
           beforeEach(() => {
-            validator.and.returnValue(undefined);
-            $('fieldset > .grid:eq(0) > .col:eq(0) input').val('valid value').simulate('change');
+            validator.mockReturnValue(undefined);
+            subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+              target: {
+                value: 'valid value'
+              }
+            });
           });
 
           it('calls the validator', () => {
@@ -369,19 +384,19 @@ describe('Form', () => {
           });
 
           it('removes the error text', () => {
-            expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').not.toHaveClass('has-error');
-            expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('');
+            expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('.form-unit').hasClass('has-error')).toBeFalsy();
+            expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('.help-row').text()).toBe('');
           });
 
           it('enables the submit button', () => {
-            expect('.save').not.toBeDisabled();
+            expect(subject.find('.save').prop('disabled')).toBeFalsy();
           });
         });
       });
 
       describe('when the validator returns nothing', () => {
         beforeEach(() => {
-          $('fieldset > .grid:eq(0) > .col:eq(0) input').simulate('blur');
+          subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('blur');
         });
 
         it('calls the validator', () => {
@@ -389,8 +404,8 @@ describe('Form', () => {
         });
 
         it('does not render error text', () => {
-          expect('fieldset > .grid:eq(0) > .col:eq(0) .form-unit').not.toHaveClass('has-error');
-          expect('fieldset > .grid:eq(0) > .col:eq(0) .help-row').toHaveText('');
+          expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('.form-unit').hasClass('has-error')).toBeFalsy();
+          expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('.help-row').text()).toBe('');
         });
       });
     });
@@ -401,15 +416,14 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: ''}};
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields}}>
-          {({fields: {name}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields}}>
+        {({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -423,15 +437,14 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: undefined}};
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields}}>
-          {({fields: {name}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields}}>
+        {({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -445,15 +458,14 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: null}};
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields}}>
-          {({fields: {name}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields}}>
+        {({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -467,15 +479,14 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: false}};
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields}}>
-          {({fields: {name}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields}}>
+        {({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -489,15 +500,14 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: 0}};
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields}}>
-          {({fields: {name}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields}}>
+        {({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('stores empty string in the state', () => {
@@ -508,56 +518,63 @@ describe('Form', () => {
 
   describe('with two required fields', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {}}}}>
-          {({fields: {name, password}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol>{password}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {}}}}>
+        {({fields: {name, password}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol>{password}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('renders inputs without values', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').prop('value')).toBe('');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
-      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
-      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
+      expect(subject.find('.grid').at(0).find('.col').at(2).hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('type')).toBe('submit');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').text()).toBe('Save');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeTruthy();
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').text()).toBe('Cancel');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeTruthy();
     });
 
     describe('when setting the name', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: 'some-other-name'
+          }
+        });
       });
 
       it('allows the name to change', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-other-name');
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-other-name');
       });
 
       it('renders buttons ', () => {
-        expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect(subject.find('.grid').at(0).find('.col').at(2).hasClass('col-fixed')).toBeTruthy();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeTruthy();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeFalsy();
       });
 
       describe('when setting the password', () => {
         beforeEach(() => {
-          $('fieldset > .grid:eq(0) > .col:eq(1) input').val('some-password').simulate('change');
+          subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').simulate('change', {
+            target: {
+              value: 'some-password'
+            }
+          });
         });
 
         it('renders enabled buttons ', () => {
-          expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-          expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-          expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+          expect(subject.find('.grid').at(0).find('.col').at(2).hasClass('col-fixed')).toBeTruthy();
+          expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeFalsy();
+          expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeFalsy();
         });
       });
     });
@@ -567,171 +584,196 @@ describe('Form', () => {
     let optional;
 
     beforeEach(() => {
-      optional = jasmine.createSpy('optional');
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {optional}}}}>
-          {({fields: {name, password}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol>{password}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      optional = jest.fn().mockName('optional');
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {optional}}}}>
+        {({fields: {name, password}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol>{password}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('renders inputs without values', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').prop('value')).toBe('');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
-      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
-      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
+      expect(subject.find('.grid').at(0).find('.col').at(2).hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('type')).toBe('submit');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').text()).toBe('Save');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeTruthy();
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').text()).toBe('Cancel');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeTruthy();
     });
 
     describe('when setting the name', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: 'some-other-name'
+          }
+        });
       });
 
       it('allows the name to change', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-other-name');
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-other-name');
       });
 
       it('renders buttons ', () => {
-        expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect(subject.find('.grid').at(0).find('.col').at(2).hasClass('col-fixed')).toBeTruthy();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeTruthy();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeFalsy();
       });
     });
   });
 
   describe('with one optional field', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
-        <Form {...{
-          className: 'some-form',
-          afterSubmit,
-          fields: {name: {initialValue: 'some-name', label: 'Some label', optional: true}}
-        }}>
-          {({fields: {name}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{
+        className: 'some-form',
+        afterSubmit,
+        fields: {name: {initialValue: 'some-name', label: 'Some label', optional: true}}
+      }}>
+        {({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('renders an optional text for the input', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(0) .label-row').toHaveText('Some label(Optional)');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('.label-row').text()).toBe('Some label(Optional)');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveAttr('type', 'submit');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toHaveText('Save');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toHaveText('Cancel');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').toBeDisabled();
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('type')).toBe('submit');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').text()).toBe('Save');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeTruthy();
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').text()).toBe('Cancel');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeTruthy();
     });
 
     describe('when changing the optional field', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: 'some-other-name'
+          }
+        });
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeFalsy();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeFalsy();
       });
     });
 
     describe('when deleting the optional field', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: ''
+          }
+        });
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').prop('disabled')).toBeFalsy();
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.cancel').prop('disabled')).toBeFalsy();
       });
     });
   });
 
   describe('with one required and one optional field', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
-        <Form {...{
-          className: 'some-form',
-          afterSubmit,
-          fields: {name: {initialValue: 'some-name'}, password: {initialValue: 'some-password', optional: true}}
-        }}>
-          {({fields: {name, password}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol>{password}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{
+        className: 'some-form',
+        afterSubmit,
+        fields: {name: {initialValue: 'some-name'}, password: {initialValue: 'some-password', optional: true}}
+      }}>
+        {({fields: {name, password}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol>{password}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
-      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
-      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
+      expect(subject.find('.grid').at(0).find('.col').at(2).hasClass('col-fixed')).toBeTruthy();
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('type')).toBe('submit');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').text()).toBe('Save');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeTruthy();
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').text()).toBe('Cancel');
+      expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeTruthy();
     });
 
     describe('when changing the optional field', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(1) input').val('some-other-password').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').simulate('change', {
+          target: {
+            value: 'some-other-password'
+          }
+        });
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeFalsy();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeFalsy();
       });
     });
 
     describe('when deleting the optional field', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(1) input').val('').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').simulate('change', {
+          target: {
+            value: ''
+          }
+        });
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeFalsy();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeFalsy();
       });
     });
 
     describe('when changing the required field', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: 'some-other-name'
+          }
+        });
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeFalsy();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeFalsy();
       });
     });
 
     describe('when deleting the required field', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: ''
+          }
+        });
       });
 
       it('renders buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.save').prop('disabled')).toBeTruthy();
+        expect(subject.find('.grid').at(0).find('.col').at(2).find('.cancel').prop('disabled')).toBeFalsy();
       });
     });
   });
@@ -739,16 +781,15 @@ describe('Form', () => {
   describe('with two checkbox fields', () => {
     beforeEach(() => {
       const children = () => <input type="checkbox"/>;
-      subject = ReactDOM.render(
-        <Form {...{fields: {check1: {initialValue: false, children}, check2: {children}}}}>
-          {({fields: {check1, check2}, ...rest}) => (
-            <Grid>
-              <FlexCol>{check1}</FlexCol>
-              <FlexCol>{check2}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{fields: {check1: {initialValue: false, children}, check2: {children}}}}>
+        {({fields: {check1, check2}, ...rest}) => (
+          <Grid>
+            <FlexCol>{check1}</FlexCol>
+            <FlexCol>{check2}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('sets the initial state correctly', () => {
@@ -764,21 +805,20 @@ describe('Form', () => {
     let onChange;
 
     beforeEach(() => {
-      onChange = jasmine.createSpy('onChange');
+      onChange = jest.fn().mockName('onChange');
 
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields: {}}}>
-          {() => (
-            <Grid>
-              <FlexCol>
-                <Input className="field1" onChange={onChange}/>
-              </FlexCol>
-              <FlexCol>
-                <Input className="field2"/>
-              </FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields: {}}}>
+        {() => (
+          <Grid>
+            <FlexCol>
+              <Input className="field1" onChange={onChange}/>
+            </FlexCol>
+            <FlexCol>
+              <Input className="field2"/>
+            </FlexCol>
+          </Grid>
+        )}
+      </Form>);
     });
 
     it('does not store their values in the state', () => {
@@ -787,7 +827,11 @@ describe('Form', () => {
 
     describe('when one field is updated', () => {
       beforeEach(() => {
-        $('.field1').val('hello').simulate('change');
+        subject.find('.field1').simulate('change', {
+          target: {
+            value: 'hello'
+          }
+        });
       });
 
       it('does not update the state', () => {
@@ -795,15 +839,15 @@ describe('Form', () => {
       });
 
       it('does not update the other', () => {
-        expect($('.field2').val()).toEqual('');
+        expect(subject.find('.field2').val()).toEqual('');
       });
 
       it('retains the value in the input', () => {
-        expect($('.field1').val()).toEqual('hello');
+        expect(subject.find('.field1').val()).toEqual('hello');
       });
 
       it('calls the given onChange callback', () => {
-        expect(onChange).toHaveBeenCalledWith(jasmine.any(Object));
+        expect(onChange).toHaveBeenCalledWith(expect.any(Object));
       });
     });
   });
@@ -812,8 +856,8 @@ describe('Form', () => {
     let checkRequiredFields;
 
     beforeEach(() => {
-      checkRequiredFields = jasmine.createSpy('checkRequiredFields');
-      Buttons.and.callFake(({canSubmit}) => (
+      checkRequiredFields = jest.fn().mockName('checkRequiredFields');
+      Buttons.mockImplementation(({canSubmit}) => (
         <DefaultButton {...{
           className: 'save',
           type: 'submit',
@@ -821,37 +865,40 @@ describe('Form', () => {
         }}>Save</DefaultButton>
       ));
 
-      subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}}}}>
-          {({fields: {name}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
-      $('input').val('some-name').simulate('change');
+      subject = shallow(<Form {...{className: 'some-form', afterSubmit, fields: {name: {}}}}>
+        {({fields: {name}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
+      subject.find('input').simulate('change', {
+        target: {
+          value: 'some-name'
+        }
+      });
     });
 
     describe('when checking required fields returns true', () => {
       beforeEach(() => {
-        checkRequiredFields.and.returnValue(true);
-        subject.forceUpdate();
+        checkRequiredFields.mockReturnValue(true);
+        subject.update();
       });
 
       it('renders an enabled save button', () => {
-        expect('.save').not.toBeDisabled();
+        expect(subject.find('.save').prop('disabled')).toBeFalsy();
       });
     });
 
     describe('when checking required fields returns false', () => {
       beforeEach(() => {
-        checkRequiredFields.and.returnValue(false);
-        subject.forceUpdate();
+        checkRequiredFields.mockReturnValue(false);
+        subject.update();
       });
 
       it('renders a disabled save button', () => {
-        expect('.save').toBeDisabled();
+        expect(subject.find('.save').prop('disabled')).toBeTruthy();
       });
     });
   });
@@ -860,9 +907,9 @@ describe('Form', () => {
     let onModified;
 
     beforeEach(() => {
-      onModified = jasmine.createSpy('onModified');
+      onModified = jest.fn().mockName('onModified');
 
-      subject = ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', afterSubmit, onModified, fields: {name: {initialValue: 'some-name'}}}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -870,12 +917,17 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
+        </Form>
+      );
     });
 
     describe('when modifying', () => {
       beforeEach(() => {
-        $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
+        subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+          target: {
+            value: 'some-other-name'
+          }
+        });
       });
 
       it('calls the onModified callback with true', () => {
@@ -885,8 +937,12 @@ describe('Form', () => {
 
       describe('when resetting manually', () => {
         beforeEach(() => {
-          onModified.calls.reset();
-          $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-name').simulate('change');
+          onModified.mockReset();
+          subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+            target: {
+              value: 'some-name'
+            }
+          });
         });
 
         it('calls the onModified callback with false', () => {
@@ -897,8 +953,8 @@ describe('Form', () => {
 
       describe('when resetting with the reset callback', () => {
         beforeEach(() => {
-          onModified.calls.reset();
-          $('.cancel').click();
+          onModified.mockReset();
+          subject.find('.cancel').simulate('click');
         });
 
         it('calls the onModified callback with false', () => {
@@ -909,8 +965,8 @@ describe('Form', () => {
 
       describe('when submitting', () => {
         beforeEach(() => {
-          onModified.calls.reset();
-          $('.save').click();
+          onModified.mockReset();
+          subject.find('.save').simulate('click');
           MockPromises.tick();
         });
 
@@ -922,8 +978,8 @@ describe('Form', () => {
 
       describe('when unmounting', () => {
         beforeEach(() => {
-          onModified.calls.reset();
-          ReactDOM.unmountComponentAtNode(root);
+          onModified.mockReset();
+          // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
         });
 
         it('calls the onModified callback with false', () => {
@@ -936,7 +992,7 @@ describe('Form', () => {
 
   describe('resetOnSubmit', () => {
     beforeEach(() => {
-      ReactDOM.render(
+      subject = shallow(
         <Form {...{className: 'some-form', resetOnSubmit: true, fields: {name: {initialValue: 'some-name'}}}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
@@ -944,27 +1000,31 @@ describe('Form', () => {
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
-        </Form>, root);
-      $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
-      $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
+        </Form>
+      );
+      subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+        target: {
+          value: 'some-other-name'
+        }
+      });
+      subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('.save').simulate('submit');
     });
 
     it('resets the form to its initial state', () => {
       MockPromises.tick();
-      expect($('fieldset > .grid:eq(0) > .col:eq(0) input').val()).toEqual('some-name');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').val()).toEqual('some-name');
     });
   });
 
   describe('when passed extra props', () => {
     beforeEach(() => {
-      ReactDOM.render(
-        <Form {...{className: 'some-form', id: 'some-id', name: 'some-name', method: 'some-method'}}/>, root);
+      subject = shallow(<Form {...{className: 'some-form', id: 'some-id', name: 'some-name', method: 'some-method'}}/>);
     });
 
     it('passes them to the form tag', () => {
-      expect('.some-form').toHaveAttr('id', 'some-id');
-      expect('.some-form').toHaveAttr('name', 'some-name');
-      expect('.some-form').toHaveAttr('method', 'some-method');
+      expect(subject.find('.some-form').prop('id')).toBe('some-id');
+      expect(subject.find('.some-form').prop('name')).toBe('some-name');
+      expect(subject.find('.some-form').prop('method')).toBe('some-method');
     });
   });
 
@@ -996,14 +1056,18 @@ describe('Form', () => {
         }
       }
 
-      subject = ReactDOM.render(<Page/>, root);
-      $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-name').simulate('change');
+      subject = shallow(<Page/>);
+      subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').simulate('change', {
+        target: {
+          value: 'some-name'
+        }
+      });
     });
 
     it('renders inputs without values', () => {
       expect('.grid:eq(0) .col').toHaveLength(2);
-      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-name');
+      expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').prop('value')).toBe('');
     });
 
     it('sets the form state', () => {
@@ -1013,22 +1077,22 @@ describe('Form', () => {
         initial: {name: '', other: ''},
         current: {name: 'some-name', other: ''},
         ids: {
-          name: jasmine.any(String),
-          other: jasmine.any(String)
+          name: expect.any(String),
+          other: expect.any(String)
         }
       });
     });
 
     describe('when adding a new col', () => {
       beforeEach(() => {
-        $('.col-toggle input').click();
+        subject.find('.col-toggle input').simulate('click');
       });
 
       it('renders the new col', () => {
         expect('.grid:eq(0) .col').toHaveLength(3);
-        expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
-        expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
-        expect('fieldset > .grid:eq(0) > .col:eq(2) input').toHaveValue('');
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-name');
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').prop('value')).toBe('');
+        expect(subject.find('fieldset > .grid').at(0).find('> .col').at(2).find('input').prop('value')).toBe('');
       });
 
       it('updates the form state', () => {
@@ -1038,9 +1102,9 @@ describe('Form', () => {
           initial: {name: '', password: '', other: ''},
           current: {name: 'some-name', password: '', other: ''},
           ids: {
-            name: jasmine.any(String),
-            password: jasmine.any(String),
-            other: jasmine.any(String)
+            name: expect.any(String),
+            password: expect.any(String),
+            other: expect.any(String)
           }
         });
       });
@@ -1052,11 +1116,14 @@ describe('Form', () => {
 
     describe('when passed an event', () => {
       beforeEach(() => {
-        subject = ReactDOM.render(
-          <Form {...{fields: {title: {}}}}>
-            {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
-          </Form>, root);
-        $('.form input').val('mytitle').simulate('change');
+        subject = shallow(<Form {...{fields: {title: {}}}}>
+          {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+        </Form>);
+        subject.find('.form input').simulate('change', {
+          target: {
+            value: 'mytitle'
+          }
+        });
       });
 
       it('parses the value from the event', () => {
@@ -1068,11 +1135,14 @@ describe('Form', () => {
       beforeEach(() => {
         const Component = ({onChange}) => <input {...{onChange}}/>;
         Component.propTypes = {onChange: PropTypes.func};
-        subject = ReactDOM.render(
-          <Form {...{fields: {title: {children: <Component/>}}}}>
-            {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
-          </Form>, root);
-        $('.form input').val('some-title').simulate('change');
+        subject = shallow(<Form {...{fields: {title: {children: <Component/>}}}}>
+          {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+        </Form>);
+        subject.find('.form input').simulate('change', {
+          target: {
+            value: 'some-title'
+          }
+        });
       });
 
       it('uses the value', () => {
@@ -1085,18 +1155,21 @@ describe('Form', () => {
     let persist;
 
     beforeEach(() => {
-      persist = jasmine.createSpy('persist');
-      subject = ReactDOM.render(
-        <Form {...{
-          fields: {
-            title: {
-              children: ({setValues}) => <input {...{onChange: () => setValues({name: 'Jane'})}}/>
-            }, name: {initialValue: 'John'}
-          }
-        }}>
-          {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
-        </Form>, root);
-      $('.form input').val('some-title').simulate('change', {target: {value: 'some-title'}, persist});
+      persist = jest.fn().mockName('persist');
+      subject = shallow(<Form {...{
+        fields: {
+          title: {
+            children: ({setValues}) => <input {...{onChange: () => setValues({name: 'Jane'})}}/>
+          }, name: {initialValue: 'John'}
+        }
+      }}>
+        {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+      </Form>);
+      subject.find('.form input').simulate('change', {
+        target: {
+          value: 'some-title'
+        }
+      });
     });
 
     it('persists the event', () => {
@@ -1110,17 +1183,16 @@ describe('Form', () => {
 
   describe('when a checkbox field has a custom onChange', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
-        <Form {...{
-          fields: {
-            title: {
-              children: ({setValues}) => <Checkbox {...{onChange: () => setValues({name: 'Jane'})}}/>
-            }, name: {initialValue: 'John'}
-          }
-        }}>
-          {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
-        </Form>, root);
-      $('.form input').click();
+      subject = shallow(<Form {...{
+        fields: {
+          title: {
+            children: ({setValues}) => <Checkbox {...{onChange: () => setValues({name: 'Jane'})}}/>
+          }, name: {initialValue: 'John'}
+        }
+      }}>
+        {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
+      </Form>);
+      subject.find('.form input').simulate('click');
     });
 
     it('updates the current state', () => {
@@ -1130,20 +1202,19 @@ describe('Form', () => {
 
   describe('when updating current values programmatically', () => {
     beforeEach(() => {
-      subject = ReactDOM.render(
-        <Form {...{
-          className: 'some-form',
-          afterSubmit,
-          fields: {name: {initialValue: 'some-name'}, password: {initialValue: 'some-password', optional: true}}
-        }}>
-          {({fields: {name, password}, ...rest}) => (
-            <Grid>
-              <FlexCol>{name}</FlexCol>
-              <FlexCol>{password}</FlexCol>
-              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
-            </Grid>
-          )}
-        </Form>, root);
+      subject = shallow(<Form {...{
+        className: 'some-form',
+        afterSubmit,
+        fields: {name: {initialValue: 'some-name'}, password: {initialValue: 'some-password', optional: true}}
+      }}>
+        {({fields: {name, password}, ...rest}) => (
+          <Grid>
+            <FlexCol>{name}</FlexCol>
+            <FlexCol>{password}</FlexCol>
+            <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+          </Grid>
+        )}
+      </Form>);
 
       subject.setValues({name: 'new-name'});
     });
@@ -1164,22 +1235,26 @@ describe('Form', () => {
         }
       }
 
-      ReactDOM.render(<Form {...{
+      subject = shallow(<Form {...{
         fields: {input: {initialValue: CustomInput.defaultProps.value, children: <CustomInput/>}}
-      }}>{({fields: {input}}) => input}</Form>, root);
+      }}>{({fields: {input}}) => input}</Form>);
     });
 
     it('renders the initial value', () => {
-      expect('input').toHaveValue('some-default-value');
+      expect(subject.find('input').prop('value')).toBe('some-default-value');
     });
 
     describe('when changing the input value', () => {
       beforeEach(() => {
-        $('input').val('some-new-value').simulate('change');
+        subject.find('input').simulate('change', {
+          target: {
+            value: 'some-new-value'
+          }
+        });
       });
 
       it('renders the new value', () => {
-        expect('input').toHaveValue('some-new-value');
+        expect(subject.find('input').prop('value')).toBe('some-new-value');
       });
     });
   });
@@ -1195,22 +1270,22 @@ describe('Form', () => {
         }
       }
 
-      ReactDOM.render(<Form {...{
+      subject = shallow(<Form {...{
         fields: {checkbox: {initialValue: CustomCheckbox.defaultProps.checked, children: <CustomCheckbox/>}}
-      }}>{({fields: {checkbox}}) => checkbox}</Form>, root);
+      }}>{({fields: {checkbox}}) => checkbox}</Form>);
     });
 
     it('renders the initial value', () => {
-      expect('input').toBeChecked();
+      expect(subject.find('input').prop('checked')).toBeTruthy();
     });
 
     describe('when changing the input value', () => {
       beforeEach(() => {
-        $('input').click();
+        subject.find('input').simulate('click');
       });
 
       it('renders the new value', () => {
-        expect('input').not.toBeChecked();
+        expect(subject.find('input').prop('checked')).toBeFalsy();
       });
     });
   });
@@ -1220,9 +1295,9 @@ describe('Form', () => {
 
     beforeEach(() => {
       fields = {name: {initialValue: 'some-name'}};
-      subject = ReactDOM.render(<Form {...{fields}}>{({fields: {name}}) => name}</Form>, root);
+      subject = shallow(<Form {...{fields}}>{({fields: {name}}) => name}</Form>);
       fields = {name: {initialValue: 'some-other-name'}};
-      subject::setProps({fields});
+      subject.setProps({fields});
     });
 
     it('changes the state', () => {

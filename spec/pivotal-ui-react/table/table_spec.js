@@ -5,13 +5,13 @@ describe('Table', () => {
   let data, columns, table, thead, tbody, tfoot, tr, th, td, subject;
 
   beforeEach(() => {
-    table = jasmine.createSpy('table').and.returnValue({className: 'table-class'});
-    thead = jasmine.createSpy('thead').and.returnValue({className: 'thead-class'});
-    tbody = jasmine.createSpy('tbody').and.returnValue({className: 'tbody-class'});
-    tfoot = jasmine.createSpy('tfoot').and.returnValue({className: 'tfoot-class'});
-    tr = jasmine.createSpy('tr').and.returnValue({className: 'tr-class'});
-    th = jasmine.createSpy('th').and.returnValue({className: 'th-class'});
-    td = jasmine.createSpy('td').and.returnValue({className: 'td-class'});
+    table = jest.fn().mockName('table').mockReturnValue({className: 'table-class'});
+    thead = jest.fn().mockName('thead').mockReturnValue({className: 'thead-class'});
+    tbody = jest.fn().mockName('tbody').mockReturnValue({className: 'tbody-class'});
+    tfoot = jest.fn().mockName('tfoot').mockReturnValue({className: 'tfoot-class'});
+    tr = jest.fn().mockName('tr').mockReturnValue({className: 'tr-class'});
+    th = jest.fn().mockName('th').mockReturnValue({className: 'th-class'});
+    td = jest.fn().mockName('td').mockReturnValue({className: 'td-class'});
   });
 
   describe('with columns', () => {
@@ -29,39 +29,39 @@ describe('Table', () => {
         attribute: 'attr3.usage.name'
       }];
 
-      subject = ReactDOM.render(<Table {...{
+      subject = shallow(<Table {...{
         className: 'some-class-name',
         columns, data, table, thead, tbody, tfoot, tr, th, td
-      }}/>, root);
+      }}/>);
     });
 
     it('calls the table callback with props and empty context', () => {
       expect(table).toHaveBeenCalledWith({
         className: 'table some-class-name',
-        children: jasmine.any(Array)
+        children: expect.any(Array)
       }, {});
     });
 
     it('calls the thead callback with props and empty context', () => {
-      expect(thead).toHaveBeenCalledWith({children: jasmine.any(Object)}, {});
+      expect(thead).toHaveBeenCalledWith({children: expect.any(Object)}, {});
     });
 
     it('calls the tbody callback with props and empty context', () => {
-      expect(tbody).toHaveBeenCalledWith({children: jasmine.any(Array)}, {});
+      expect(tbody).toHaveBeenCalledWith({children: expect.any(Array)}, {});
     });
 
     it('calls the tfoot callback with props and empty context', () => {
-      expect(tfoot).toHaveBeenCalledWith({children: jasmine.any(Array)}, {});
+      expect(tfoot).toHaveBeenCalledWith({children: expect.any(Array)}, {});
     });
 
     it('calls the tr callback with props and isHeader context', () => {
-      expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {isHeader: true, rowIndex: -1});
-      expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {
+      expect(tr).toHaveBeenCalledWith({children: expect.any(Array)}, {isHeader: true, rowIndex: -1});
+      expect(tr).toHaveBeenCalledWith({children: expect.any(Array)}, {
         isHeader: false,
         rowDatum: data[0],
         rowIndex: 0
       });
-      expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {
+      expect(tr).toHaveBeenCalledWith({children: expect.any(Array)}, {
         isHeader: false,
         rowDatum: data[1],
         rowIndex: 1
@@ -83,60 +83,60 @@ describe('Table', () => {
     });
 
     it('renders a table element with the expected classes', () => {
-      expect('table').toHaveClass('table');
-      expect('table').toHaveClass('table-class');
+      expect(subject.find('table').hasClass('table')).toBeTruthy();
+      expect(subject.find('table').hasClass('table-class')).toBeTruthy();
     });
 
     it('renders a thead element with the expected class', () => {
-      expect('table thead').toHaveClass('thead-class');
+      expect(subject.find('table thead').hasClass('thead-class')).toBeTruthy();
     });
 
     it('renders a header tr element with the expected class', () => {
-      expect('table thead tr').toHaveClass('tr-class');
+      expect(subject.find('table thead tr').hasClass('tr-class')).toBeTruthy();
     });
 
     it('renders th elements with the expected class and text', () => {
-      expect('table thead tr th:eq(0)').toHaveClass('th-class');
-      expect('table thead tr th:eq(0)').toHaveText('attr1');
+      expect(subject.find('table thead tr th').at(0).hasClass('th-class')).toBeTruthy();
+      expect(subject.find('table thead tr th').at(0).text()).toBe('attr1');
 
-      expect('table thead tr th:eq(1)').toHaveClass('th-class');
-      expect('table thead tr th:eq(1)').toHaveText('Display2');
+      expect(subject.find('table thead tr th').at(1).hasClass('th-class')).toBeTruthy();
+      expect(subject.find('table thead tr th').at(1).text()).toBe('Display2');
 
-      expect('table thead tr th:eq(2)').toHaveClass('th-class');
-      expect('table thead tr th:eq(2)').toHaveText('attr3.usage.name');
+      expect(subject.find('table thead tr th').at(2).hasClass('th-class')).toBeTruthy();
+      expect(subject.find('table thead tr th').at(2).text()).toBe('attr3.usage.name');
     });
 
     it('renders a tbody element with the expected class', () => {
-      expect('table tbody').toHaveClass('tbody-class');
+      expect(subject.find('table tbody').hasClass('tbody-class')).toBeTruthy();
     });
 
     it('renders body tr elements with the expected class', () => {
-      expect('table tbody tr:eq(0)').toHaveClass('tr-class');
-      expect('table tbody tr:eq(1)').toHaveClass('tr-class');
+      expect(subject.find('table tbody tr').at(0).hasClass('tr-class')).toBeTruthy();
+      expect(subject.find('table tbody tr').at(1).hasClass('tr-class')).toBeTruthy();
     });
 
     it('renders td elements with the expected class and text', () => {
-      expect('table tbody tr:eq(0) td:eq(0)').toHaveClass('td-class');
-      expect('table tbody tr:eq(0) td:eq(0)').toHaveText('row1-value1');
-      expect('table tbody tr:eq(0) td:eq(1)').toHaveClass('td-class');
-      expect('table tbody tr:eq(0) td:eq(1)').toHaveText('row1-value2');
-      expect('table tbody tr:eq(0) td:eq(2)').toHaveClass('td-class');
-      expect('table tbody tr:eq(0) td:eq(2)').toHaveText('name1');
+      expect(subject.find('table tbody tr').at(0).find('td').at(0).hasClass('td-class')).toBeTruthy();
+      expect(subject.find('table tbody tr').at(0).find('td').at(0).text()).toBe('row1-value1');
+      expect(subject.find('table tbody tr').at(0).find('td').at(1).hasClass('td-class')).toBeTruthy();
+      expect(subject.find('table tbody tr').at(0).find('td').at(1).text()).toBe('row1-value2');
+      expect(subject.find('table tbody tr').at(0).find('td').at(2).hasClass('td-class')).toBeTruthy();
+      expect(subject.find('table tbody tr').at(0).find('td').at(2).text()).toBe('name1');
 
-      expect('table tbody tr:eq(1) td:eq(0)').toHaveClass('td-class');
-      expect('table tbody tr:eq(1) td:eq(0)').toHaveText('row2-value1');
-      expect('table tbody tr:eq(1) td:eq(1)').toHaveClass('td-class');
-      expect('table tbody tr:eq(1) td:eq(1)').toHaveText('row2-value2');
-      expect('table tbody tr:eq(1) td:eq(2)').toHaveClass('td-class');
-      expect('table tbody tr:eq(1) td:eq(2)').toHaveText('');
+      expect(subject.find('table tbody tr').at(1).find('td').at(0).hasClass('td-class')).toBeTruthy();
+      expect(subject.find('table tbody tr').at(1).find('td').at(0).text()).toBe('row2-value1');
+      expect(subject.find('table tbody tr').at(1).find('td').at(1).hasClass('td-class')).toBeTruthy();
+      expect(subject.find('table tbody tr').at(1).find('td').at(1).text()).toBe('row2-value2');
+      expect(subject.find('table tbody tr').at(1).find('td').at(2).hasClass('td-class')).toBeTruthy();
+      expect(subject.find('table tbody tr').at(1).find('td').at(2).text()).toBe('');
     });
 
     it('renders a tfoot element with the expected class', () => {
-      expect('table tfoot').toHaveClass('tfoot-class');
+      expect(subject.find('table tfoot').hasClass('tfoot-class')).toBeTruthy();
     });
 
     describe('with custom html tags', () => {
-      beforeEach(() => subject::setProps({
+      beforeEach(() => subject.setProps({
         tableTag: () => 'div',
         theadTag: () => 'div',
         tbodyTag: () => 'div',
@@ -147,60 +147,60 @@ describe('Table', () => {
       }));
 
       it('renders a table div element with the expected classes', () => {
-        expect('div.table').toHaveClass('table-class');
+        expect(subject.find('div.table').hasClass('table-class')).toBeTruthy();
       });
 
       it('renders a thead div element with the expected classes', () => {
-        expect('.table > div:eq(0)').toExist('thead-class');
+        expect(subject.find('.table > div').at(0).exists()).toBeTruthy('thead-class');
       });
 
       it('renders a header tr div element with the expected class', () => {
-        expect('.thead-class > div').toHaveClass('tr-class');
+        expect(subject.find('.thead-class > div').hasClass('tr-class')).toBeTruthy();
       });
 
       it('renders th div elements with the expected class and text', () => {
-        expect('.thead-class .tr-class div:eq(0)').toHaveClass('th-class');
-        expect('.thead-class .tr-class div:eq(0)').toHaveText('attr1');
+        expect(subject.find('.thead-class .tr-class div').at(0).hasClass('th-class')).toBeTruthy();
+        expect(subject.find('.thead-class .tr-class div').at(0).text()).toBe('attr1');
 
-        expect('.thead-class .tr-class div:eq(1)').toHaveClass('th-class');
-        expect('.thead-class .tr-class div:eq(1)').toHaveText('Display2');
+        expect(subject.find('.thead-class .tr-class div').at(1).hasClass('th-class')).toBeTruthy();
+        expect(subject.find('.thead-class .tr-class div').at(1).text()).toBe('Display2');
 
-        expect('.thead-class .tr-class div:eq(2)').toHaveClass('th-class');
-        expect('.thead-class .tr-class div:eq(2)').toHaveText('attr3.usage.name');
+        expect(subject.find('.thead-class .tr-class div').at(2).hasClass('th-class')).toBeTruthy();
+        expect(subject.find('.thead-class .tr-class div').at(2).text()).toBe('attr3.usage.name');
       });
 
       it('renders a tbody div element with the expected classes', () => {
-        expect('div.table > div:eq(1)').toHaveClass('tbody-class');
+        expect(subject.find('div.table > div').at(1).hasClass('tbody-class')).toBeTruthy();
       });
 
       it('renders body tr div elements with the expected class', () => {
-        expect('.tbody-class .tr-class:eq(0)').toHaveClass('tr-class');
-        expect('.tbody-class .tr-class:eq(1)').toHaveClass('tr-class');
+        expect(subject.find('.tbody-class .tr-class').at(0).hasClass('tr-class')).toBeTruthy();
+        expect(subject.find('.tbody-class .tr-class').at(1).hasClass('tr-class')).toBeTruthy();
       });
 
       it('renders td div elements with the expected class and text', () => {
-        expect('.tbody-class .tr-class:eq(0) div:eq(0)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(0) div:eq(0)').toHaveText('row1-value1');
-        expect('.tbody-class .tr-class:eq(0) div:eq(1)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(0) div:eq(1)').toHaveText('row1-value2');
-        expect('.tbody-class .tr-class:eq(0) div:eq(2)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(0) div:eq(2)').toHaveText('name1');
+        expect(subject.find('.tbody-class .tr-class').at(0).find('div').at(0).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('.tbody-class .tr-class').at(0).find('div').at(0).text()).toBe('row1-value1');
+        expect(subject.find('.tbody-class .tr-class').at(0).find('div').at(1).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('.tbody-class .tr-class').at(0).find('div').at(1).text()).toBe('row1-value2');
+        expect(subject.find('.tbody-class .tr-class').at(0).find('div').at(2).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('.tbody-class .tr-class').at(0).find('div').at(2).text()).toBe('name1');
 
-        expect('.tbody-class .tr-class:eq(1) div:eq(0)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(1) div:eq(0)').toHaveText('row2-value1');
-        expect('.tbody-class .tr-class:eq(1) div:eq(1)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(1) div:eq(1)').toHaveText('row2-value2');
-        expect('.tbody-class .tr-class:eq(1) div:eq(2)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(1) div:eq(2)').toHaveText('');
+        expect(subject.find('.tbody-class .tr-class').at(1).find('div').at(0).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('.tbody-class .tr-class').at(1).find('div').at(0).text()).toBe('row2-value1');
+        expect(subject.find('.tbody-class .tr-class').at(1).find('div').at(1).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('.tbody-class .tr-class').at(1).find('div').at(1).text()).toBe('row2-value2');
+        expect(subject.find('.tbody-class .tr-class').at(1).find('div').at(2).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('.tbody-class .tr-class').at(1).find('div').at(2).text()).toBe('');
       });
 
       it('renders a tfoot div element with the expected classes', () => {
-        expect('div.table > div:eq(2)').toHaveClass('tfoot-class');
+        expect(subject.find('div.table > div').at(2).hasClass('tfoot-class')).toBeTruthy();
       });
     });
 
     describe('with opt-out custom html tags', () => {
-      beforeEach(() => subject::setProps({
+      beforeEach(() => subject.setProps({
         tableTag: () => null,
         theadTag: () => null,
         tbodyTag: () => null,
@@ -211,56 +211,56 @@ describe('Table', () => {
       }));
 
       it('renders a table element with the expected classes', () => {
-        expect('table').toHaveClass('table');
-        expect('table').toHaveClass('table-class');
+        expect(subject.find('table').hasClass('table')).toBeTruthy();
+        expect(subject.find('table').hasClass('table-class')).toBeTruthy();
       });
 
       it('renders a thead element with the expected class', () => {
-        expect('table thead').toHaveClass('thead-class');
+        expect(subject.find('table thead').hasClass('thead-class')).toBeTruthy();
       });
 
       it('renders a header tr element with the expected class', () => {
-        expect('table thead tr').toHaveClass('tr-class');
+        expect(subject.find('table thead tr').hasClass('tr-class')).toBeTruthy();
       });
 
       it('renders th elements with the expected class and text', () => {
-        expect('table thead tr th:eq(0)').toHaveClass('th-class');
-        expect('table thead tr th:eq(0)').toHaveText('attr1');
+        expect(subject.find('table thead tr th').at(0).hasClass('th-class')).toBeTruthy();
+        expect(subject.find('table thead tr th').at(0).text()).toBe('attr1');
 
-        expect('table thead tr th:eq(1)').toHaveClass('th-class');
-        expect('table thead tr th:eq(1)').toHaveText('Display2');
+        expect(subject.find('table thead tr th').at(1).hasClass('th-class')).toBeTruthy();
+        expect(subject.find('table thead tr th').at(1).text()).toBe('Display2');
 
-        expect('table thead tr th:eq(2)').toHaveClass('th-class');
-        expect('table thead tr th:eq(2)').toHaveText('attr3.usage.name');
+        expect(subject.find('table thead tr th').at(2).hasClass('th-class')).toBeTruthy();
+        expect(subject.find('table thead tr th').at(2).text()).toBe('attr3.usage.name');
       });
 
       it('renders a tbody element with the expected class', () => {
-        expect('table tbody').toHaveClass('tbody-class');
+        expect(subject.find('table tbody').hasClass('tbody-class')).toBeTruthy();
       });
 
       it('renders body tr elements with the expected class', () => {
-        expect('table tbody tr:eq(0)').toHaveClass('tr-class');
-        expect('table tbody tr:eq(1)').toHaveClass('tr-class');
+        expect(subject.find('table tbody tr').at(0).hasClass('tr-class')).toBeTruthy();
+        expect(subject.find('table tbody tr').at(1).hasClass('tr-class')).toBeTruthy();
       });
 
       it('renders td elements with the expected class and text', () => {
-        expect('table tbody tr:eq(0) td:eq(0)').toHaveClass('td-class');
-        expect('table tbody tr:eq(0) td:eq(0)').toHaveText('row1-value1');
-        expect('table tbody tr:eq(0) td:eq(1)').toHaveClass('td-class');
-        expect('table tbody tr:eq(0) td:eq(1)').toHaveText('row1-value2');
-        expect('table tbody tr:eq(0) td:eq(2)').toHaveClass('td-class');
-        expect('table tbody tr:eq(0) td:eq(2)').toHaveText('name1');
+        expect(subject.find('table tbody tr').at(0).find('td').at(0).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('table tbody tr').at(0).find('td').at(0).text()).toBe('row1-value1');
+        expect(subject.find('table tbody tr').at(0).find('td').at(1).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('table tbody tr').at(0).find('td').at(1).text()).toBe('row1-value2');
+        expect(subject.find('table tbody tr').at(0).find('td').at(2).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('table tbody tr').at(0).find('td').at(2).text()).toBe('name1');
 
-        expect('table tbody tr:eq(1) td:eq(0)').toHaveClass('td-class');
-        expect('table tbody tr:eq(1) td:eq(0)').toHaveText('row2-value1');
-        expect('table tbody tr:eq(1) td:eq(1)').toHaveClass('td-class');
-        expect('table tbody tr:eq(1) td:eq(1)').toHaveText('row2-value2');
-        expect('table tbody tr:eq(1) td:eq(2)').toHaveClass('td-class');
-        expect('table tbody tr:eq(1) td:eq(2)').toHaveText('');
+        expect(subject.find('table tbody tr').at(1).find('td').at(0).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('table tbody tr').at(1).find('td').at(0).text()).toBe('row2-value1');
+        expect(subject.find('table tbody tr').at(1).find('td').at(1).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('table tbody tr').at(1).find('td').at(1).text()).toBe('row2-value2');
+        expect(subject.find('table tbody tr').at(1).find('td').at(2).hasClass('td-class')).toBeTruthy();
+        expect(subject.find('table tbody tr').at(1).find('td').at(2).text()).toBe('');
       });
 
       it('renders a tfoot element with the expected class', () => {
-        expect('table tfoot').toHaveClass('tfoot-class');
+        expect(subject.find('table tfoot').hasClass('tfoot-class')).toBeTruthy();
       });
     });
   });
@@ -273,16 +273,16 @@ describe('Table', () => {
         attr1: 'row2-value1', attr2: 'row2-value2'
       }];
 
-      ReactDOM.render(<Table {...{
+      subject = shallow(<Table {...{
         className: 'some-class-name',
         data, table, thead, tbody, tfoot, tr, th, td
-      }}/>, root);
+      }}/>);
     });
 
     it('renders the data keys as column headers', () => {
-      expect('table thead tr th:eq(0)').toHaveText('attr1');
-      expect('table thead tr th:eq(1)').toHaveText('attr2');
-      expect('table thead tr th:eq(2)').toHaveText('attr3');
+      expect(subject.find('table thead tr th').at(0).text()).toBe('attr1');
+      expect(subject.find('table thead tr th').at(1).text()).toBe('attr2');
+      expect(subject.find('table thead tr th').at(2).text()).toBe('attr3');
     });
   });
 
@@ -296,10 +296,10 @@ describe('Table', () => {
 
       columns = ['attr3', 'attr1'];
 
-      ReactDOM.render(<Table {...{
+      subject = shallow(<Table {...{
         className: 'some-class-name',
         data, columns, table, thead, tbody, tfoot, tr, th, td
-      }}/>, root);
+      }}/>);
     });
 
     it('renders 2 columns', () => {
@@ -307,8 +307,8 @@ describe('Table', () => {
     });
 
     it('uses the given strings as the column attributes', () => {
-      expect('table thead tr th:eq(0)').toHaveText('attr3');
-      expect('table thead tr th:eq(1)').toHaveText('attr1');
+      expect(subject.find('table thead tr th').at(0).text()).toBe('attr3');
+      expect(subject.find('table thead tr th').at(1).text()).toBe('attr1');
     });
   });
 });

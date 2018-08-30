@@ -2,7 +2,7 @@ import '../../spec_helper';
 import {Table, withRowDrawer, withFlex} from '../../../../src/react/table';
 
 describe('withRowDrawer', () => {
-  let ComposedTable, columns, data;
+  let ComposedTable, columns, data, subject;
 
   beforeEach(() => {
     columns = [{
@@ -22,17 +22,17 @@ describe('withRowDrawer', () => {
 
   describe('without rowDrawer', () => {
     beforeEach(() => {
-      ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+      subject = shallow(<ComposedTable {...{columns, data}}/>);
     });
 
     it('the first column does not have an > icon', () => {
-      expect('.thead .tr:eq(0) .th:eq(0) svg').not.toExist();
-      expect('.table .tr:eq(0) .td:eq(0) svg').not.toExist();
-      expect('.tbody .tr:eq(1) .td:eq(0) svg').not.toExist();
+      expect(subject.find('.thead .tr').at(0).find('.th').at(0).find('svg').exists()).toBeFalsy();
+      expect(subject.find('.table .tr').at(0).find('.td').at(0).find('svg').exists()).toBeFalsy();
+      expect(subject.find('.tbody .tr').at(1).find('.td').at(0).find('svg').exists()).toBeFalsy();
     });
 
     it('none of the rows has expandable class', () => {
-      expect('.expandable').not.toExist();
+      expect(subject.find('.expandable').exists()).toBeFalsy();
     });
   });
 
@@ -40,55 +40,55 @@ describe('withRowDrawer', () => {
     let rowDrawer;
 
     beforeEach(() => {
-      rowDrawer = jasmine.createSpy('rowDrawer');
+      rowDrawer = jest.fn().mockName('rowDrawer');
     });
 
     describe('without drawer content', () => {
       beforeEach(() => {
-        ReactDOM.render(<ComposedTable {...{columns, data, rowDrawer, keyboardNavigation: true}}/>, root);
+        subject = shallow(<ComposedTable {...{columns, data, rowDrawer, keyboardNavigation: true}}/>);
       });
 
       it('renders a header row without "no-drawer-content"', () => {
-        expect('.thead > div:eq(0) > .tr').not.toHaveClass('no-drawer-content');
+        expect(subject.find('.thead > div').at(0).find('> .tr').hasClass('no-drawer-content')).toBeFalsy();
       });
 
       it('renders an empty th for the first column in the header', () => {
-        expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveClass('th');
-        expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveClass('col');
-        expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveClass('col-fixed');
-        expect('.thead > div:eq(0) > .tr > div:eq(0)').toHaveStyle({borderRightWidth: '0px', width: '36px'});
+        expect(subject.find('.thead > div').at(0).find('> .tr > div').at(0).hasClass('th')).toBeTruthy();
+        expect(subject.find('.thead > div').at(0).find('> .tr > div').at(0).hasClass('col')).toBeTruthy();
+        expect(subject.find('.thead > div').at(0).find('> .tr > div').at(0).hasClass('col-fixed')).toBeTruthy();
+        expect(subject.find('.thead > div').at(0).find('> .tr > div').at(0).prop('style')).toEqual({borderRightWidth: '0px', width: '36px'});
       });
 
       it('renders an > icon on the first column', () => {
-        expect('.thead .tr:eq(0) .th:eq(0) svg').not.toExist();
-        expect('.tbody .tr:eq(0) .icon svg').toHaveClass('icon-chevron_right');
-        expect('.tbody .tr:eq(1) .icon svg').toHaveClass('icon-chevron_right');
+        expect(subject.find('.thead .tr').at(0).find('.th').at(0).find('svg').exists()).toBeFalsy();
+        expect(subject.find('.tbody .tr').at(0).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
+        expect(subject.find('.tbody .tr').at(1).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
       });
 
       it('body rows has an expandable class', () => {
-        expect('.thead .tr:eq(0)').not.toHaveClass('expandable');
-        expect('.tbody .tr:eq(0)').toHaveClass('expandable');
-        expect('.tbody .tr:eq(1)').toHaveClass('expandable');
+        expect(subject.find('.thead .tr').at(0).hasClass('expandable')).toBeFalsy();
+        expect(subject.find('.tbody .tr').at(0).hasClass('expandable')).toBeTruthy();
+        expect(subject.find('.tbody .tr').at(1).hasClass('expandable')).toBeTruthy();
       });
 
       it('has collapsed rows', () => {
-        expect('.tbody > div:eq(0) .pui-collapsible').not.toHaveClass('in');
-        expect('.tbody > div:eq(1) .pui-collapsible').not.toHaveClass('in');
+        expect(subject.find('.tbody > div').at(0).find('.pui-collapsible').hasClass('in')).toBeFalsy();
+        expect(subject.find('.tbody > div').at(1).find('.pui-collapsible').hasClass('in')).toBeFalsy();
       });
 
       describe('when clicking a row', () => {
         beforeEach(() => {
-          $('.tbody .tr:eq(0)').simulate('click');
+          subject.find('.tbody .tr').at(0).simulate('click');
         });
 
         it('does not expand the row', () => {
-          expect('.tbody > div:eq(0) .pui-collapsible').not.toHaveClass('in');
+          expect(subject.find('.tbody > div').at(0).find('.pui-collapsible').hasClass('in')).toBeFalsy();
         });
 
         it('does not change the icon from > to chevron_down', () => {
-          expect('.tbody .tr:eq(0) .icon svg').not.toHaveClass('icon-chevron_down');
-          expect('.tbody .tr:eq(0) .icon svg').toHaveClass('icon-chevron_right');
-          expect('.tbody .tr:eq(1) .icon svg').toHaveClass('icon-chevron_right');
+          expect(subject.find('.tbody .tr').at(0).find('.icon svg').hasClass('icon-chevron_down')).toBeFalsy();
+          expect(subject.find('.tbody .tr').at(0).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
+          expect(subject.find('.tbody .tr').at(1).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
         });
       });
 
@@ -101,7 +101,7 @@ describe('withRowDrawer', () => {
         }
 
         it('initially has no selectedRow', () => {
-          expect('.tr-selected').not.toExist();
+          expect(subject.find('.tr-selected').exists()).toBeFalsy();
         });
 
         describe('when pressing down (keyCode=40)', () => {
@@ -110,7 +110,7 @@ describe('withRowDrawer', () => {
           });
 
           it('selects the first row', () => {
-            expect('.tr:eq(1)').toHaveClass('tr-selected');
+            expect(subject.find('.tr').at(1).hasClass('tr-selected')).toBeTruthy();
           });
 
           describe('when pressing right (keyCode=39)', () => {
@@ -119,7 +119,7 @@ describe('withRowDrawer', () => {
             });
 
             it('expands the first row', () => {
-              expect('.tr:eq(1)').not.toHaveClass('expanded');
+              expect(subject.find('.tr').at(1).hasClass('expanded')).toBeFalsy();
             });
           });
 
@@ -129,7 +129,7 @@ describe('withRowDrawer', () => {
             });
 
             it('selects the first row', () => {
-              expect('.tr:eq(1)').toHaveClass('tr-selected');
+              expect(subject.find('.tr').at(1).hasClass('tr-selected')).toBeTruthy();
             });
           });
 
@@ -139,7 +139,7 @@ describe('withRowDrawer', () => {
             });
 
             it('selects the second row', () => {
-              expect('.tr:eq(2)').toHaveClass('tr-selected');
+              expect(subject.find('.tr').at(2).hasClass('tr-selected')).toBeTruthy();
             });
 
             describe('when pressing up (keyCode=38)', () => {
@@ -148,7 +148,7 @@ describe('withRowDrawer', () => {
               });
 
               it('selects the first row', () => {
-                expect('.tr:eq(1)').toHaveClass('tr-selected');
+                expect(subject.find('.tr').at(1).hasClass('tr-selected')).toBeTruthy();
               });
             });
 
@@ -158,7 +158,7 @@ describe('withRowDrawer', () => {
               });
 
               it('selects the third row', () => {
-                expect('.tr:eq(3)').toHaveClass('tr-selected');
+                expect(subject.find('.tr').at(3).hasClass('tr-selected')).toBeTruthy();
               });
 
               describe('when pressing up (keyCode=38)', () => {
@@ -167,7 +167,7 @@ describe('withRowDrawer', () => {
                 });
 
                 it('selects the second row', () => {
-                  expect('.tr:eq(2)').toHaveClass('tr-selected');
+                  expect(subject.find('.tr').at(2).hasClass('tr-selected')).toBeTruthy();
                 });
               });
 
@@ -177,7 +177,7 @@ describe('withRowDrawer', () => {
                 });
 
                 it('remains on the third row', () => {
-                  expect('.tr:eq(3)').toHaveClass('tr-selected');
+                  expect(subject.find('.tr').at(3).hasClass('tr-selected')).toBeTruthy();
                 });
 
                 describe('when pressing up (keyCode=38)', () => {
@@ -186,7 +186,7 @@ describe('withRowDrawer', () => {
                   });
 
                   it('selects the second row', () => {
-                    expect('.tr:eq(2)').toHaveClass('tr-selected');
+                    expect(subject.find('.tr').at(2).hasClass('tr-selected')).toBeTruthy();
                   });
                 });
               });
@@ -198,8 +198,8 @@ describe('withRowDrawer', () => {
 
     describe('with drawer content', () => {
       beforeEach(() => {
-        rowDrawer.and.returnValue('some-drawer-content');
-        ReactDOM.render(<ComposedTable {...{columns, data, rowDrawer, keyboardNavigation: true}}/>, root);
+        rowDrawer.mockReturnValue('some-drawer-content');
+        subject = shallow(<ComposedTable {...{columns, data, rowDrawer, keyboardNavigation: true}}/>);
       });
 
       it('calls rowDrawer with the correct arguments', () => {
@@ -209,48 +209,48 @@ describe('withRowDrawer', () => {
       });
 
       it('renders an > icon on the first column', () => {
-        expect('.thead .tr:eq(0) .th:eq(0) svg').not.toExist();
-        expect('.tbody .tr:eq(0) .icon svg').toHaveClass('icon-chevron_right');
-        expect('.tbody .tr:eq(1) .icon svg').toHaveClass('icon-chevron_right');
+        expect(subject.find('.thead .tr').at(0).find('.th').at(0).find('svg').exists()).toBeFalsy();
+        expect(subject.find('.tbody .tr').at(0).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
+        expect(subject.find('.tbody .tr').at(1).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
       });
 
       it('body rows has an expandable class', () => {
-        expect('.thead .tr:eq(0)').not.toHaveClass('expandable');
-        expect('.tbody .tr:eq(0)').toHaveClass('expandable');
-        expect('.tbody .tr:eq(1)').toHaveClass('expandable');
+        expect(subject.find('.thead .tr').at(0).hasClass('expandable')).toBeFalsy();
+        expect(subject.find('.tbody .tr').at(0).hasClass('expandable')).toBeTruthy();
+        expect(subject.find('.tbody .tr').at(1).hasClass('expandable')).toBeTruthy();
       });
 
       it('has collapsed rows', () => {
-        expect('.tbody > div:eq(0) .pui-collapsible').not.toHaveClass('in');
-        expect('.tbody > div:eq(1) .pui-collapsible').not.toHaveClass('in');
+        expect(subject.find('.tbody > div').at(0).find('.pui-collapsible').hasClass('in')).toBeFalsy();
+        expect(subject.find('.tbody > div').at(1).find('.pui-collapsible').hasClass('in')).toBeFalsy();
       });
 
       describe('when clicking a row', () => {
         beforeEach(() => {
-          $('.tbody .tr:eq(0)').simulate('click');
+          subject.find('.tbody .tr').at(0).simulate('click');
         });
 
         it('expands the row', () => {
-          expect('.tbody > div:eq(0) .pui-collapsible').toHaveClass('in');
+          expect(subject.find('.tbody > div').at(0).find('.pui-collapsible').hasClass('in')).toBeTruthy();
         });
 
         it('changes the icon from > to chevron_down', () => {
-          expect('.tbody .tr:eq(0) .icon svg').toHaveClass('icon-chevron_down');
-          expect('.tbody .tr:eq(1) .icon svg').toHaveClass('icon-chevron_right');
+          expect(subject.find('.tbody .tr').at(0).find('.icon svg').hasClass('icon-chevron_down')).toBeTruthy();
+          expect(subject.find('.tbody .tr').at(1).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
         });
 
         describe('when clicking an expanded row', () => {
           beforeEach(() => {
-            $('.tbody .tr:eq(0)').simulate('click');
+            subject.find('.tbody .tr').at(0).simulate('click');
           });
 
           it('collapses that row', () => {
-            expect('.tbody > div:eq(0) .pui-collapsible').not.toHaveClass('in');
+            expect(subject.find('.tbody > div').at(0).find('.pui-collapsible').hasClass('in')).toBeFalsy();
           });
 
           it('changes the chevron_down back to >', () => {
-            expect('.tbody .tr:eq(0) .icon svg').toHaveClass('icon-chevron_right');
-            expect('.tbody .tr:eq(1) .icon svg').toHaveClass('icon-chevron_right');
+            expect(subject.find('.tbody .tr').at(0).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
+            expect(subject.find('.tbody .tr').at(1).find('.icon svg').hasClass('icon-chevron_right')).toBeTruthy();
           });
         });
       });
@@ -264,7 +264,7 @@ describe('withRowDrawer', () => {
         }
 
         it('initially has no selectedRow', () => {
-          expect('.tr-selected').not.toExist();
+          expect(subject.find('.tr-selected').exists()).toBeFalsy();
         });
 
         describe('when pressing down (keyCode=40)', () => {
@@ -273,17 +273,17 @@ describe('withRowDrawer', () => {
           });
 
           it('selects the first row', () => {
-            expect('.tr:eq(1)').toHaveClass('tr-selected');
+            expect(subject.find('.tr').at(1).hasClass('tr-selected')).toBeTruthy();
           });
 
           describe('when pressing right (keyCode=39)', () => {
             beforeEach(() => {
-              rowDrawer.calls.reset();
+              rowDrawer.mockReset();
               keyDown(39);
             });
 
             it('expands the first row', () => {
-              expect('.tr:eq(1)').toHaveClass('expanded');
+              expect(subject.find('.tr').at(1).hasClass('expanded')).toBeTruthy();
             });
 
             it('calls the rowDrawer function with the correct arguments', () => {
@@ -296,7 +296,7 @@ describe('withRowDrawer', () => {
               });
 
               it('collapses the first row', () => {
-                expect('.tr:eq(1)').not.toHaveClass('expanded');
+                expect(subject.find('.tr').at(1).hasClass('expanded')).toBeFalsy();
               });
             });
           });
@@ -307,7 +307,7 @@ describe('withRowDrawer', () => {
             });
 
             it('selects the first row', () => {
-              expect('.tr:eq(1)').toHaveClass('tr-selected');
+              expect(subject.find('.tr').at(1).hasClass('tr-selected')).toBeTruthy();
             });
           });
 
@@ -317,7 +317,7 @@ describe('withRowDrawer', () => {
             });
 
             it('selects the second row', () => {
-              expect('.tr:eq(2)').toHaveClass('tr-selected');
+              expect(subject.find('.tr').at(2).hasClass('tr-selected')).toBeTruthy();
             });
 
             describe('when pressing up (keyCode=38)', () => {
@@ -326,7 +326,7 @@ describe('withRowDrawer', () => {
               });
 
               it('selects the first row', () => {
-                expect('.tr:eq(1)').toHaveClass('tr-selected');
+                expect(subject.find('.tr').at(1).hasClass('tr-selected')).toBeTruthy();
               });
             });
 
@@ -336,7 +336,7 @@ describe('withRowDrawer', () => {
               });
 
               it('selects the third row', () => {
-                expect('.tr:eq(3)').toHaveClass('tr-selected');
+                expect(subject.find('.tr').at(3).hasClass('tr-selected')).toBeTruthy();
               });
 
               describe('when pressing up (keyCode=38)', () => {
@@ -345,7 +345,7 @@ describe('withRowDrawer', () => {
                 });
 
                 it('selects the second row', () => {
-                  expect('.tr:eq(2)').toHaveClass('tr-selected');
+                  expect(subject.find('.tr').at(2).hasClass('tr-selected')).toBeTruthy();
                 });
               });
 
@@ -355,7 +355,7 @@ describe('withRowDrawer', () => {
                 });
 
                 it('remains on the third row', () => {
-                  expect('.tr:eq(3)').toHaveClass('tr-selected');
+                  expect(subject.find('.tr').at(3).hasClass('tr-selected')).toBeTruthy();
                 });
 
                 describe('when pressing up (keyCode=38)', () => {
@@ -364,7 +364,7 @@ describe('withRowDrawer', () => {
                   });
 
                   it('selects the second row', () => {
-                    expect('.tr:eq(2)').toHaveClass('tr-selected');
+                    expect(subject.find('.tr').at(2).hasClass('tr-selected')).toBeTruthy();
                   });
                 });
               });

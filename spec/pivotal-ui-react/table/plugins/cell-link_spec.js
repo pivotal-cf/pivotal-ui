@@ -2,10 +2,10 @@ import '../../spec_helper';
 import {Table, withFlex, withCellLink} from '../../../../src/react/table';
 
 describe('withCellLink', () => {
-  let link;
+  let link, subject;
 
   beforeEach(() => {
-    link = jasmine.createSpy('link').and.returnValue('some-href');
+    link = jest.fn().mockName('link').mockReturnValue('some-href');
     const columns = [{
       attribute: 'attr1'
     }, {
@@ -18,21 +18,21 @@ describe('withCellLink', () => {
     }];
 
     const ComposedTable = withCellLink(withFlex(Table));
-    ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
+    subject = shallow(<ComposedTable {...{columns, data}}/>);
   });
 
   it('renders div.th elements without href', () => {
-    expect('.table .tr:eq(0) > div.th:eq(0)').not.toHaveAttr('href');
-    expect('.table .tr:eq(0) > div.th:eq(1)').not.toHaveAttr('href');
+    expect(subject.find('.table .tr').at(0).find('> div.th').at(0).prop('href')).toBeFalsy();
+    expect(subject.find('.table .tr').at(0).find('> div.th').at(1).prop('href')).toBeFalsy();
   });
 
   it('renders a.td elements with href', () => {
-    expect('.table .tr:eq(1) > a.td').toHaveAttr('href', 'some-href');
-    expect('.table .tr:eq(2) > a.td').toHaveAttr('href', 'some-href');
+    expect(subject.find('.table .tr').at(1).find('> a.td').prop('href')).toBe('some-href');
+    expect(subject.find('.table .tr').at(2).find('> a.td').prop('href')).toBe('some-href');
   });
 
   it('renders div.td elements without href', () => {
-    expect('.table .tr:eq(1) > div.td').not.toHaveAttr('href');
-    expect('.table .tr:eq(2) > div.td').not.toHaveAttr('href');
+    expect(subject.find('.table .tr').at(1).find('> div.td').prop('href')).toBeFalsy();
+    expect(subject.find('.table .tr').at(2).find('> div.td').prop('href')).toBeFalsy();
   });
 });

@@ -23,7 +23,8 @@ Object.assign(global, {
   ReactDOM,
   shallow,
   mount,
-  spyOn: jest.spyOn
+  spyOn: jest.spyOn,
+  fakeEvent: { preventDefault: jest.fn()},
 });
 
 beforeEach(() => {
