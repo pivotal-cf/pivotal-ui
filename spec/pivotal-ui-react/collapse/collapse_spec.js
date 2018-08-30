@@ -42,7 +42,7 @@ describe('BaseCollapse', () => {
 
   describe('when the defaultExpanded property is set to true', () => {
     beforeEach(() => {
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       subject = shallow(<BaseCollapse header="ima header" defaultExpanded={true}>
         <h1>Child</h1>
       </BaseCollapse>);

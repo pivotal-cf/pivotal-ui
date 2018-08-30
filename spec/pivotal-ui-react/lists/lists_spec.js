@@ -21,11 +21,11 @@ describe('lists', () => {
     });
 
     afterEach(() => {
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
     });
 
     it('renders', () => {
-      expect('#root li').toHaveLength(2);
+      expect(subject.find('#root li')).toHaveLength(2);
     });
 
     it('adds given attributes to the correct component', () => {

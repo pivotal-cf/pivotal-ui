@@ -318,7 +318,7 @@ describe('Tabs', () => {
         });
 
         it('generates a default value', () => {
-          // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+          // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'});
 
           const tabPane = subject.find('.in');
@@ -340,7 +340,7 @@ describe('Tabs', () => {
         });
 
         it('generates a default value', () => {
-          // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+          // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'});
 
           const tabPane = subject.find('.tab-pane');

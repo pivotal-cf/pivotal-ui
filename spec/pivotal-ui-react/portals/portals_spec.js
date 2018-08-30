@@ -19,7 +19,7 @@ describe('Portals', () => {
   const container = document.createElement('div');
 
   afterEach(() => {
-    // ReactDOM.unmountComponentAtNode(container); // TODO: remove?
+    // // ReactDOM.unmountComponentAtNode(container); // TODO: remove? // TODO: remove?
   });
 
   describe('when there is more than one destination portal with the same name', () => {
@@ -62,12 +62,12 @@ describe('Portals', () => {
       </div>);
 
       const orange = subject.getElementsByClassName('orange')[0];
-      expect(orange.getElementsByClassName('potato')).toHaveLength(1);
-      expect(orange.getElementsByClassName('lemon')).toHaveLength(1);
+      expect(subject.find(orange.getElementsByClassName('potato'))).toHaveLength(1);
+      expect(subject.find(orange.getElementsByClassName('lemon'))).toHaveLength(1);
 
       const blue = subject.getElementsByClassName('blue')[0];
-      expect(blue.getElementsByClassName('potato')).toHaveLength(0);
-      expect(blue.getElementsByClassName('lemon')).toHaveLength(0);
+      expect(subject.find(blue.getElementsByClassName('potato'))).toHaveLength(0);
+      expect(subject.find(blue.getElementsByClassName('lemon'))).toHaveLength(0);
     });
   });
 
@@ -126,7 +126,7 @@ describe('Portals', () => {
         subject.setState({visible: false});
         const orange = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'orange');
 
-        expect(orange.getElementsByTagName('div')).toHaveLength(1);
+        expect(subject.find(orange.getElementsByTagName('div'))).toHaveLength(1);
       });
     });
   });

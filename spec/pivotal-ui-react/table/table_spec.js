@@ -303,7 +303,7 @@ describe('Table', () => {
     });
 
     it('renders 2 columns', () => {
-      expect('table thead tr th').toHaveLength(2);
+      expect(subject.find('table thead tr th')).toHaveLength(2);
     });
 
     it('uses the given strings as the column attributes', () => {

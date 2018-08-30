@@ -78,7 +78,7 @@ describe('Panel', () => {
     });
 
     it('renders the title cols', () => {
-      expect('.pui-panel-container > .pui-panel-title > .col').toHaveLength(2);
+      expect(subject.find('.pui-panel-container > .pui-panel-title > .col')).toHaveLength(2);
       expect(subject.find('.pui-panel-container > .pui-panel-title > .col').at(0).text()).toBe('Col 1');
       expect(subject.find('.pui-panel-container > .pui-panel-title > .col').at(1).text()).toBe('Col 2');
     });
@@ -89,7 +89,7 @@ describe('Panel', () => {
       });
 
       it('renders the title before the title cols', () => {
-        expect('.pui-panel-container > .pui-panel-title > .col').toHaveLength(3);
+        expect(subject.find('.pui-panel-container > .pui-panel-title > .col')).toHaveLength(3);
         expect(subject.find('.pui-panel-container > .pui-panel-title > .col').at(0).text()).toBe('My Title');
         expect(subject.find('.pui-panel-container > .pui-panel-title > .col').at(1).text()).toBe('Col 1');
         expect(subject.find('.pui-panel-container > .pui-panel-title > .col').at(2).text()).toBe('Col 2');
@@ -139,7 +139,7 @@ describe('Panel', () => {
     });
 
     it('renders the header cols', () => {
-      expect('.pui-panel > .pui-panel-header > .col').toHaveLength(2);
+      expect(subject.find('.pui-panel > .pui-panel-header > .col')).toHaveLength(2);
       expect(subject.find('.pui-panel > .pui-panel-header > .col').at(0).text()).toBe('Col 1');
       expect(subject.find('.pui-panel > .pui-panel-header > .col').at(1).text()).toBe('Col 2');
     });
@@ -150,7 +150,7 @@ describe('Panel', () => {
       });
 
       it('renders the header before the header cols', () => {
-        expect('.pui-panel > .pui-panel-header > .col').toHaveLength(3);
+        expect(subject.find('.pui-panel > .pui-panel-header > .col')).toHaveLength(3);
         expect(subject.find('.pui-panel > .pui-panel-header > .col').at(0).text()).toBe('My Header');
         expect(subject.find('.pui-panel > .pui-panel-header > .col').at(1).text()).toBe('Col 1');
         expect(subject.find('.pui-panel > .pui-panel-header > .col').at(2).text()).toBe('Col 2');

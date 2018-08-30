@@ -33,7 +33,7 @@ describe('OverlayTrigger', () => {
   describe('with the tooltip closed', () => {
     it('hides the tooltip', () => {
       subject = renderIntoDom({overlay: tooltip});
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       expect(subject.find(subject.find('.tooltip-text')).exists()).toBeFalsy();
     });
   });
@@ -126,7 +126,7 @@ describe('OverlayTrigger', () => {
       ReactTestUtils.Simulate.simulate('click');
 
       jasmine.clock().tick(4999);
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       jasmine.clock().tick(1);
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
     });
@@ -145,7 +145,7 @@ describe('OverlayTrigger', () => {
       jasmine.clock().tick(4999);
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
       jasmine.clock().tick(1);
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
     });
 
     it('respects "delay"', () => {
@@ -159,7 +159,7 @@ describe('OverlayTrigger', () => {
       ReactTestUtils.Simulate.simulate('click');
 
       jasmine.clock().tick(4999);
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       jasmine.clock().tick(1);
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
 
@@ -168,7 +168,7 @@ describe('OverlayTrigger', () => {
       jasmine.clock().tick(4999);
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
       jasmine.clock().tick(1);
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
     });
 
     it('only waits for the most recent action', () => {
@@ -182,16 +182,16 @@ describe('OverlayTrigger', () => {
 
       ReactTestUtils.Simulate.mouseOver(launcher);
       jasmine.clock().tick(2000);
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       ReactTestUtils.Simulate.mouseOut(launcher);
 
       jasmine.clock().tick(3000);
 
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
 
       jasmine.clock().tick(2000);
 
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
     });
 
     it('does not delay an action if it happens repeatedly', () => {
@@ -205,7 +205,7 @@ describe('OverlayTrigger', () => {
 
       ReactTestUtils.Simulate.simulate('click');
       jasmine.clock().tick(2000);
-      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+      expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       ReactTestUtils.Simulate.simulate('click');
 
       jasmine.clock().tick(3000);
@@ -227,7 +227,7 @@ describe('OverlayTrigger', () => {
     ReactTestUtils.Simulate.simulate('click');
 
     jasmine.clock().tick(3000);
-    // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+    // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
     jasmine.clock().tick(2000);
 
     expect(onEnteredSpy).not.toHaveBeenCalled();
@@ -286,7 +286,7 @@ describe('OverlayTrigger', () => {
       });
 
       it('triggers on hover', () => {
-        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+        expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
 
         ReactTestUtils.Simulate.mouseOver(launcher);
 
@@ -294,7 +294,7 @@ describe('OverlayTrigger', () => {
 
         ReactTestUtils.Simulate.mouseOut(launcher);
 
-        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+        expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       });
 
       it('calls the callbacks', () => {
@@ -345,7 +345,7 @@ describe('OverlayTrigger', () => {
       });
 
       it('triggers on hover', () => {
-        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+        expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
 
         ReactTestUtils.Simulate.simulate('click');
 
@@ -353,7 +353,7 @@ describe('OverlayTrigger', () => {
 
         ReactTestUtils.Simulate.simulate('click');
 
-        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+        expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       });
 
       it('calls the callback', () => {
@@ -377,7 +377,7 @@ describe('OverlayTrigger', () => {
       });
 
       it('triggers on focus', () => {
-        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+        expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
 
         ReactTestUtils.Simulate.focus(launcher);
 
@@ -385,7 +385,7 @@ describe('OverlayTrigger', () => {
 
         ReactTestUtils.Simulate.blur(launcher);
 
-        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+        expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       });
 
       it('calls the callbacks', () => {
@@ -441,7 +441,7 @@ describe('OverlayTrigger', () => {
         evt.initEvent('click', true, true);
         document.documentElement.dispatchEvent(evt);
 
-        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
+        expect(subject.find(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled'))).toHaveLength(0);
       });
 
       it('does not close when clicking on the launcher', () => {

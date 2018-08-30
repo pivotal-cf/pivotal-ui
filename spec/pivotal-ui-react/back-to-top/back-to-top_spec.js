@@ -63,7 +63,7 @@ describe('BackToTop', () => {
     });
 
     it('removes an event listener from the window', () => {
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       expect(window.removeEventListener).toHaveBeenCalledWith('scroll', subject.updateScroll);
     });
 
@@ -155,7 +155,7 @@ describe('BackToTop', () => {
     });
 
     it('removes an event listener from the window', () => {
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       expect(element.removeEventListener).toHaveBeenCalledWith('scroll', updateScroll);
     });
 

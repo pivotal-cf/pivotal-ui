@@ -353,7 +353,7 @@ describe('Dialog', () => {
 
     describe('when unmounting', () => {
       beforeEach(() => {
-        // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+        // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       });
 
       it('re-enables scrolling on the document body', () => {
@@ -365,7 +365,7 @@ describe('Dialog', () => {
   describe('when the modal is initially rendered with show=true', () => {
     beforeEach(() => {
       spyOn(global.document, 'addEventListener').and.callThrough();
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       subject.find('#some-button').focus();
       subject = shallow(<Dialog {...{show: true, onHide}}>
         <span id="non-focusable"/>

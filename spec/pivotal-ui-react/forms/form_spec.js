@@ -979,7 +979,7 @@ describe('Form', () => {
       describe('when unmounting', () => {
         beforeEach(() => {
           onModified.mockReset();
-          // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+          // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
         });
 
         it('calls the onModified callback with false', () => {
@@ -1065,7 +1065,7 @@ describe('Form', () => {
     });
 
     it('renders inputs without values', () => {
-      expect('.grid:eq(0) .col').toHaveLength(2);
+      expect(subject.find('.grid').at(0).find('.col')).toHaveLength(2);
       expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-name');
       expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').prop('value')).toBe('');
     });
@@ -1089,7 +1089,7 @@ describe('Form', () => {
       });
 
       it('renders the new col', () => {
-        expect('.grid:eq(0) .col').toHaveLength(3);
+        expect(subject.find('.grid').at(0).find('.col')).toHaveLength(3);
         expect(subject.find('fieldset > .grid').at(0).find('> .col').at(0).find('input').prop('value')).toBe('some-name');
         expect(subject.find('fieldset > .grid').at(0).find('> .col').at(1).find('input').prop('value')).toBe('');
         expect(subject.find('fieldset > .grid').at(0).find('> .col').at(2).find('input').prop('value')).toBe('');

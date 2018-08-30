@@ -15,7 +15,7 @@ describe('RadioGroup', () => {
   });
 
   it('renders', () => {
-    expect('.pui-radio-group input[type="radio"]').toHaveLength(3);
+    expect(subject.find('.pui-radio-group input[type="radio"]')).toHaveLength(3);
     expect(subject.find('.pui-radio-group input[type="radio"]').at(0).prop('value')).toBe('one');
     expect(subject.find('.pui-radio-group input[type="radio"]').at(1).prop('value')).toBe('two');
     expect(subject.find('.pui-radio-group input[type="radio"]').at(2).prop('value')).toBe('three');

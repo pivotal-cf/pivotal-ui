@@ -368,7 +368,7 @@ describe('Dropdown', () => {
     });
 
     it('wraps each child in an li tag', () => {
-      expect('.dropdown li').toHaveLength(2);
+      expect(subject.find('.dropdown li')).toHaveLength(2);
       expect(subject.find('.dropdown li').at(0).find('a').prop('href')).toBe('/link1');
       expect(subject.find('.dropdown li').at(1).find('a').prop('href')).toBe('/link2');
     });
@@ -387,7 +387,7 @@ describe('Dropdown', () => {
     });
 
     it('applies the class name to each li', () => {
-      expect('.dropdown li').toHaveLength(2);
+      expect(subject.find('.dropdown li')).toHaveLength(2);
       expect(subject.find('.dropdown li').at(0).hasClass('custom-li-class')).toBeTruthy();
       expect(subject.find('.dropdown li').at(1).hasClass('custom-li-class')).toBeTruthy();
     });

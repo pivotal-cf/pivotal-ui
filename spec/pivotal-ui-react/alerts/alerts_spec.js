@@ -7,7 +7,7 @@ describe('Alert Component', () => {
 
   describe('Success Alert', () => {
     beforeEach(() => {
-      subject = shallow(<SuccessAlert>alert body</SuccessAlert>);
+      subject = mount(<SuccessAlert>alert body</SuccessAlert>);
     });
 
     it('renders', () => {
@@ -19,7 +19,7 @@ describe('Alert Component', () => {
 
       expect(subject.find('.pui-alert').hasClass('foo')).toBeTruthy();
       expect(subject.find('.pui-alert').prop('id')).toBe('bar');
-      expect(subject.find('.pui-alert').prop('style')).toEqual({'font-size': '200px'});
+      expect(subject.find('.pui-alert').prop('style')).toEqual({fontSize: '200px'});
     });
 
     it('renders a sr-only alert description', () => {
@@ -37,20 +37,19 @@ describe('Alert Component', () => {
       });
 
       it('has a close button', () => {
-        expect('.pui-alert button').toHaveLength(1);
+        expect(subject.find('.pui-alert button')).toHaveLength(1);
         expect(subject.find('.pui-btn-default-flat.pui-btn-icon').hasClass('pui-alert-close-btn')).toBeTruthy();
         expect(subject.find('.pui-btn-default-flat.pui-btn-icon .icon-close').exists()).toBeTruthy();
       });
 
       it('has an sr-only close button', () => {
-        expect('.pui-alert button').toHaveLength(1);
+        expect(subject.find('.pui-alert button')).toHaveLength(1);
         expect(subject.find('.pui-alert button').at(0).prop('aria-label')).toBeTruthy();
       });
 
       it('adds the closeLabel to the close button', () => {
         subject.setProps({dismissable: true, closeLabel: 'click to close the alert'});
-        expect(subject.find('.pui-alert button').at(0).prop('aria-label')).toBeTruthy();
-        expect(subject.find('.pui-alert button').at(0).attr('aria-label')).toBe('click to close the alert');
+        expect(subject.find('.pui-alert button').at(0).prop('aria-label')).toBe('click to close the alert');
       });
 
       it('disappears when close button is clicked', () => {
@@ -116,7 +115,7 @@ describe('Alert Component', () => {
     let subject;
 
     beforeEach(() => {
-      subject = shallow(<InfoAlert {...{withIcon: true}}>alert body</InfoAlert>);
+      subject = mount(<InfoAlert {...{withIcon: true}}>alert body</InfoAlert>);
     });
 
     it('renders an info alert', () => {
@@ -137,7 +136,7 @@ describe('Alert Component', () => {
     let subject;
 
     beforeEach(() => {
-      subject = shallow(<WarningAlert {...{withIcon: true}}>alert body</WarningAlert>);
+      subject = mount(<WarningAlert {...{withIcon: true}}>alert body</WarningAlert>);
     });
 
     it('renders an warning alert', () => {
@@ -157,7 +156,7 @@ describe('Alert Component', () => {
     let subject;
 
     beforeEach(() => {
-      subject = shallow(<ErrorAlert {...{withIcon: true}}>alert body</ErrorAlert>);
+      subject = mount(<ErrorAlert {...{withIcon: true}}>alert body</ErrorAlert>);
     });
 
     it('renders an error alert', () => {

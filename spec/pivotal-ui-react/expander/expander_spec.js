@@ -37,7 +37,7 @@ describe('ExpanderContent', () => {
       beforeEach(() => {
         onExitedSpy = jest.fn().mockName('on exited');
         expanderContent = renderIntoDom({expanded: true, onExited: onExitedSpy, delay: 0});
-        expanderContent.instance().toggle();
+        expanderContent.instance().instance().toggle();
       });
 
       it('hides the content', () => {
@@ -54,7 +54,7 @@ describe('ExpanderContent', () => {
       beforeEach(() => {
         onEnteredSpy = jest.fn().mockName('onEntered');
         expanderContent = renderIntoDom({expanded: false, onEntered: onEnteredSpy, delay: 0});
-        expanderContent.instance().toggle();
+        expanderContent.instance().instance().toggle();
       });
 
       it('shows the content', () => {
@@ -69,11 +69,11 @@ describe('ExpanderContent', () => {
 
     it('can be invoked ad nauseum', () => {
       expanderContent = renderIntoDom({expanded: false, delay: 0});
-      expanderContent.instance().toggle();
+      expanderContent.instance().instance().toggle();
       expect(expanderContent.find(Collapsible).props()).toEqual({expanded: true, delay: 0, children});
-      expanderContent.instance().toggle();
+      expanderContent.instance().instance().toggle();
       expect(expanderContent.find(Collapsible).props()).toEqual({expanded: false, delay: 0, children});
-      expanderContent.instance().toggle();
+      expanderContent.instance().instance().toggle();
       expect(expanderContent.find(Collapsible).props()).toEqual({expanded: true, delay: 0, children});
     });
   });
@@ -95,7 +95,7 @@ describe('ExpanderTrigger', () => {
           toggle: jest.fn().mockName('toggle')
         };
         expanderTrigger = renderComponent();
-        expanderTrigger.instance().setTarget(expanderContent);
+        expanderTrigger.instance().instance().setTarget(expanderContent);
       });
 
       it('invokes the #toggle method on the provided target', () => {

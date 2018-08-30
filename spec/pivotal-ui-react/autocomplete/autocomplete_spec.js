@@ -60,7 +60,7 @@ describe('Autocomplete', () => {
 
   describe('when nothing is entered into input and the list is shown with a list of objects', () => {
     beforeEach(() => {
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       subject = shallow(<Autocomplete {...{onInitializeItems}} />);
 
       MockNextTick.next();
@@ -70,7 +70,7 @@ describe('Autocomplete', () => {
     });
 
     it('renders the list items in order', () => {
-      expect('.autocomplete li').toHaveLength(5);
+      expect(subject.find('.autocomplete li')).toHaveLength(5);
       expect(subject.find('.autocomplete a').at(0).text()).toBe('watson');
       expect(subject.find('.autocomplete a').at(1).text()).toBe('coffee');
       expect(subject.find('.autocomplete a').at(2).text()).toBe('advil');
@@ -93,7 +93,7 @@ describe('Autocomplete', () => {
     });
 
     it('renders the list', () => {
-      expect('.autocomplete li').toHaveLength(2);
+      expect(subject.find('.autocomplete li')).toHaveLength(2);
       expect(subject.find('.autocomplete a').at(0).text()).toBe('watson');
       expect(subject.find('.autocomplete a').at(0).prop('title')).toBe('watson');
       expect(subject.find('.autocomplete a').at(1).text()).toBe('water lilies');
@@ -270,7 +270,7 @@ describe('Autocomplete', () => {
 
       subject.find('.autocomplete input').simulate('change');
 
-      expect('.autocomplete-list li').toHaveLength(1);
+      expect(subject.find('.autocomplete-list li')).toHaveLength(1);
       expect(subject.find('.autocomplete-list li').text()).toBe('watson');
     });
   });
@@ -293,7 +293,7 @@ describe('Autocomplete', () => {
 
   describe('when custom trieOptions are provided', () => {
     beforeEach(() => {
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       subject = shallow(<Autocomplete {...{
         onInitializeItems,
         trieOptions: {splitOnRegEx: /\./}
@@ -308,7 +308,7 @@ describe('Autocomplete', () => {
     });
 
     it('uses the trieOptions to render the list', () => {
-      expect('.autocomplete-list a').toHaveLength(3);
+      expect(subject.find('.autocomplete-list a')).toHaveLength(3);
       expect(subject.find('.autocomplete-list a').at(0).text()).toBe('watson');
       expect(subject.find('.autocomplete-list a').at(0).prop('title')).toBe('watson');
       expect(subject.find('.autocomplete-list a').at(1).text()).toBe('lily.water');
@@ -320,7 +320,7 @@ describe('Autocomplete', () => {
 
   describe('when the values are scalar', () => {
     it('renders and maintains the order', () => {
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       const props = {onInitializeItems: cb => cb(['d', 'a', 'c', 'b'])};
       subject = shallow(<Autocomplete {...props}/>);
       MockNextTick.next();
@@ -340,7 +340,7 @@ describe('Autocomplete', () => {
     let promise;
 
     beforeEach(() => {
-      // ReactDOM.unmountComponentAtNode(root); // TODO: remove?
+      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
       let cb;
       const props = {onInitializeItems: callback => cb = callback};
       subject = shallow(<Autocomplete {...props}/>);
