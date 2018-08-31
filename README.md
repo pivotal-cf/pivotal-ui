@@ -30,8 +30,9 @@ import React from 'react';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 
 class MyTestPage extends React.Component {
- getInitialState() {
-   return {showMessage: false};
+ constructor(props) {
+   super(props);
+   this.state = {showMessage: false};
  }
 
  showMessage() {
