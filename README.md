@@ -25,7 +25,7 @@ We assume your project has the following:
 
 Javascript:
 
-```
+```jsx harmony
 import React from 'react';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 
@@ -42,7 +42,7 @@ class MyTestPage extends React.Component {
    return (
      <div className="container">
        <DefaultButton onClick={this.showMessage}>Show Message</DefaultButton>
-       { this.state.showMessage ? <h1>Hello world!</h1> : null }
+       {this.state.showMessage ? <h1>Hello world!</h1> : null}
      </div>
    );
  }
