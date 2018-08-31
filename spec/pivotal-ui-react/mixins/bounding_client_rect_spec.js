@@ -33,9 +33,9 @@ describe('BoundingClientRect', () => {
 
       it('returns a promise with the container', () => {
         const containerReadySpy = jest.fn().mockName('containerReady');
-        subject.state.containerReady.then(containerReadySpy);
+        subject.state().containerReady.then(containerReadySpy);
         MockPromises.tick();
-        expect(containerReadySpy).toHaveBeenCalledWith(subject.state.container);
+        expect(containerReadySpy).toHaveBeenCalledWith(subject.state().container);
       });
     });
   });

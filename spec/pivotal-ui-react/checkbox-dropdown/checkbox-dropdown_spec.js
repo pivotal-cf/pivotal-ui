@@ -10,7 +10,7 @@ describe('checkbox dropdown', () => {
 
   describe('on initial render', () => {
     it('on initialization state.open is false', () => {
-      expect(subject.state.open).toBeFalsy();
+      expect(subject.state().open).toBeFalsy();
     });
 
     it('renders the items passed in props', () => {
@@ -39,7 +39,7 @@ describe('checkbox dropdown', () => {
     });
 
     it('initializes the state to true for all the options', () => {
-      expect(Object.values(subject.state.options).every(val => val)).toBeTruthy();
+      expect(Object.values(subject.state().options).every(val => val)).toBeTruthy();
     });
 
     it('all selected returns true', () => {

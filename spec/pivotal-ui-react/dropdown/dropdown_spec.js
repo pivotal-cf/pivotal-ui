@@ -45,13 +45,13 @@ describe('Dropdown', () => {
     it('opens the dropdown when the dropdown button is clicked', () => {
       subject.find('.dropdown-toggle').simulate('click');
       expect(onClickSpy.toHaveBeenCalled);
-      expect(subject.state.open).toBeTruthy();
+      expect(subject.state().open).toBeTruthy();
     });
 
     it('does not open the dropdown when the split text is clicked', () => {
       subject.find('.split-title').simulate('click');
       expect(onClickSpy).not.toHaveBeenCalled();
-      expect(subject.state.open).toBeFalsy();
+      expect(subject.state().open).toBeFalsy();
     });
   });
 

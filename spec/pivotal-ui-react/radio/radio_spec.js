@@ -9,7 +9,7 @@ describe('Radio', () => {
   });
 
   afterEach(() => {
-    // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+    // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
   });
 
   it('renders the radio button', () => {
@@ -33,7 +33,7 @@ describe('Radio', () => {
 
   describe('when the checked property is passed', () => {
     beforeEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
     });
 
     it('renders a checked radio', () => {
@@ -50,7 +50,7 @@ describe('Radio', () => {
 
   describe('when the defaultChecked property is passed', () => {
     beforeEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
     });
 
     it('renders a checked radio', () => {
@@ -62,7 +62,7 @@ describe('Radio', () => {
 
   describe('changing the value of the radio button', () => {
     beforeEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
     });
 
     it('triggers the onChange callback', () => {
@@ -77,7 +77,7 @@ describe('Radio', () => {
 
   describe('when disabled property is passed', () => {
     beforeEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
     });
 
     it('disables the radio button', () => {

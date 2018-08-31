@@ -19,7 +19,7 @@ describe('Wizard', () => {
 
   describe('#getPage', () => {
     beforeEach(() => {
-      subject.state.currentPage = 5;
+      subject.state().currentPage = 5;
     });
 
     it('gets the page', () => {
@@ -34,7 +34,7 @@ describe('Wizard', () => {
       });
 
       it('gets the page', () => {
-        expect(subject.state.currentPage).toBe(1);
+        expect(subject.state().currentPage).toBe(1);
       });
     });
 
@@ -44,7 +44,7 @@ describe('Wizard', () => {
       });
 
       it('gets the page', () => {
-        expect(subject.state.currentPage).toBe(0);
+        expect(subject.state().currentPage).toBe(0);
       });
     });
 
@@ -54,7 +54,7 @@ describe('Wizard', () => {
       });
 
       it('gets the page', () => {
-        expect(subject.state.currentPage).toBe(1);
+        expect(subject.state().currentPage).toBe(1);
       });
     });
   });
@@ -75,7 +75,7 @@ describe('Wizard', () => {
 
   describe('#onClickBack', () => {
     beforeEach(() => {
-      subject.state.currentPage = 1;
+      subject.state().currentPage = 1;
     });
 
     describe('without custom onClickBack', () => {
@@ -84,7 +84,7 @@ describe('Wizard', () => {
       });
 
       it('goes back one page', () => {
-        expect(subject.state.currentPage).toBe(0);
+        expect(subject.state().currentPage).toBe(0);
       });
     });
 
@@ -116,7 +116,7 @@ describe('Wizard', () => {
       });
 
       it('goes back one page', () => {
-        expect(subject.state.currentPage).toBe(0);
+        expect(subject.state().currentPage).toBe(0);
       });
     });
 
@@ -161,7 +161,7 @@ describe('Wizard', () => {
       });
 
       it('advances internal state to the next page', () => {
-        expect(subject.state.currentPage).toBe(1);
+        expect(subject.state().currentPage).toBe(1);
       });
     });
 
@@ -187,7 +187,7 @@ describe('Wizard', () => {
       });
 
       it('advances internal state to the next page', () => {
-        expect(subject.state.currentPage).toBe(pages.length - 1);
+        expect(subject.state().currentPage).toBe(pages.length - 1);
       });
 
       it('renders the fourth page', () => {
@@ -268,7 +268,7 @@ describe('Wizard', () => {
       it('renders the next page', () => {
         expect(subject.find('.wizard-page-one').exists()).toBeFalsy();
         expect(subject.find('.wizard-page-two').exists()).toBeTruthy();
-        expect(subject.state.currentPage).toEqual(1);
+        expect(subject.state().currentPage).toEqual(1);
       });
     });
 
@@ -302,7 +302,7 @@ describe('Wizard', () => {
 
       it('moving to the next page is disabled', () => {
         subject.find('.wizard-next-btn').simulate('click');
-        expect(subject.state.currentPage).toBe(0);
+        expect(subject.state().currentPage).toBe(0);
       });
 
       it('disables the "next" button', () => {
@@ -360,7 +360,7 @@ describe('Wizard', () => {
       it('renders the previous page', () => {
         expect(subject.find('.wizard-page-one').exists()).toBeTruthy();
         expect(subject.find('.wizard-page-two').exists()).toBeFalsy();
-        expect(subject.state.currentPage).toEqual(0);
+        expect(subject.state().currentPage).toEqual(0);
       });
     });
 

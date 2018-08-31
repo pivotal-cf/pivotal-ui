@@ -227,7 +227,7 @@ describe('OverlayTrigger', () => {
     ReactTestUtils.Simulate.simulate('click');
 
     jasmine.clock().tick(3000);
-    // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+    // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
     jasmine.clock().tick(2000);
 
     expect(onEnteredSpy).not.toHaveBeenCalled();

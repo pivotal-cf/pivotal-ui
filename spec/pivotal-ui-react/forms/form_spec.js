@@ -54,7 +54,7 @@ describe('Form', () => {
         canReset: subject.canReset,
         reset: subject.reset,
         onSubmit: subject.onSubmit,
-        state: subject.state,
+        state: subject.state(),
         onBlur: subject.onBlur,
         setValues: subject.setValues,
         submitting: false
@@ -77,8 +77,8 @@ describe('Form', () => {
       });
 
       it('updates the state', () => {
-        expect(subject.state.initial.age).toBe('0');
-        expect(subject.state.current.age).toBe('0');
+        expect(subject.state().initial.age).toBe('0');
+        expect(subject.state().current.age).toBe('0');
       });
     });
 
@@ -178,7 +178,7 @@ describe('Form', () => {
             canReset: subject.canReset,
             reset: subject.reset,
             onSubmit: subject.onSubmit,
-            state: subject.state,
+            state: subject.state(),
             onBlur: subject.onBlur,
             setValues: subject.setValues,
             submitting: true
@@ -201,7 +201,7 @@ describe('Form', () => {
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
-              state: subject.state,
+              state: subject.state(),
               onBlur: subject.onBlur,
               setValues: subject.setValues,
               submitting: false
@@ -214,17 +214,17 @@ describe('Form', () => {
           });
 
           it('resets the initial state', () => {
-            expect(subject.state.initial).toEqual({name: 'some-other-name'});
+            expect(subject.state().initial).toEqual({name: 'some-other-name'});
           });
 
           it('retains the current state', () => {
-            expect(subject.state.current).toEqual({name: 'some-other-name'});
+            expect(subject.state().current).toEqual({name: 'some-other-name'});
           });
 
           it('calls the afterSubmit callback', () => {
             MockPromises.tick();
             expect(afterSubmit).toHaveBeenCalledWith({
-              state: subject.state,
+              state: subject.state(),
               response: {result: 'success'},
               reset: subject.reset
             });
@@ -247,7 +247,7 @@ describe('Form', () => {
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
-              state: subject.state,
+              state: subject.state(),
               onBlur: subject.onBlur,
               setValues: subject.setValues,
               submitting: false
@@ -260,11 +260,11 @@ describe('Form', () => {
           });
 
           it('retains the initial state', () => {
-            expect(subject.state.initial).toEqual({name: 'some-name'});
+            expect(subject.state().initial).toEqual({name: 'some-name'});
           });
 
           it('retains the current state', () => {
-            expect(subject.state.current).toEqual({name: 'some-other-name'});
+            expect(subject.state().current).toEqual({name: 'some-other-name'});
           });
 
           it('calls the onSubmitError', () => {
@@ -272,7 +272,7 @@ describe('Form', () => {
           });
 
           it('sets the errors on the state', () => {
-            expect(subject.state.errors).toBe(errors);
+            expect(subject.state().errors).toBe(errors);
           });
 
           describe('when clicking the cancel button', () => {
@@ -285,7 +285,7 @@ describe('Form', () => {
             });
 
             it('clears the errors', () => {
-              expect(subject.state.errors).toEqual({});
+              expect(subject.state().errors).toEqual({});
             });
           });
 
@@ -297,7 +297,7 @@ describe('Form', () => {
             });
 
             it('clears the errors', () => {
-              expect(subject.state.errors).toEqual({});
+              expect(subject.state().errors).toEqual({});
             });
           });
         });
@@ -320,7 +320,7 @@ describe('Form', () => {
           });
 
           it('sets the errors on the state', () => {
-            expect(subject.state.errors).toBe(errors);
+            expect(subject.state().errors).toBe(errors);
           });
 
           it('re-throws the error', () => {
@@ -427,8 +427,8 @@ describe('Form', () => {
     });
 
     it('stores empty string in the state', () => {
-      expect(subject.state.initial.name).toBe('');
-      expect(subject.state.current.name).toBe('');
+      expect(subject.state().initial.name).toBe('');
+      expect(subject.state().current.name).toBe('');
     });
   });
 
@@ -448,8 +448,8 @@ describe('Form', () => {
     });
 
     it('stores empty string in the state', () => {
-      expect(subject.state.initial.name).toBe('');
-      expect(subject.state.current.name).toBe('');
+      expect(subject.state().initial.name).toBe('');
+      expect(subject.state().current.name).toBe('');
     });
   });
 
@@ -469,8 +469,8 @@ describe('Form', () => {
     });
 
     it('stores empty string in the state', () => {
-      expect(subject.state.initial.name).toBe('');
-      expect(subject.state.current.name).toBe('');
+      expect(subject.state().initial.name).toBe('');
+      expect(subject.state().current.name).toBe('');
     });
   });
 
@@ -490,8 +490,8 @@ describe('Form', () => {
     });
 
     it('stores empty string in the state', () => {
-      expect(subject.state.initial.name).toBe(false);
-      expect(subject.state.current.name).toBe(false);
+      expect(subject.state().initial.name).toBe(false);
+      expect(subject.state().current.name).toBe(false);
     });
   });
 
@@ -511,8 +511,8 @@ describe('Form', () => {
     });
 
     it('stores empty string in the state', () => {
-      expect(subject.state.initial.name).toBe(0);
-      expect(subject.state.current.name).toBe(0);
+      expect(subject.state().initial.name).toBe(0);
+      expect(subject.state().current.name).toBe(0);
     });
   });
 
@@ -793,11 +793,11 @@ describe('Form', () => {
     });
 
     it('sets the initial state correctly', () => {
-      expect(subject.state.initial).toEqual({check1: false, check2: ''});
+      expect(subject.state().initial).toEqual({check1: false, check2: ''});
     });
 
     it('sets the current state correctly', () => {
-      expect(subject.state.current).toEqual({check1: false, check2: ''});
+      expect(subject.state().current).toEqual({check1: false, check2: ''});
     });
   });
 
@@ -822,7 +822,7 @@ describe('Form', () => {
     });
 
     it('does not store their values in the state', () => {
-      expect(subject.state.initial).toEqual({});
+      expect(subject.state().initial).toEqual({});
     });
 
     describe('when one field is updated', () => {
@@ -835,7 +835,7 @@ describe('Form', () => {
       });
 
       it('does not update the state', () => {
-        expect(subject.state.initial).toEqual({});
+        expect(subject.state().initial).toEqual({});
       });
 
       it('does not update the other', () => {
@@ -979,7 +979,7 @@ describe('Form', () => {
       describe('when unmounting', () => {
         beforeEach(() => {
           onModified.mockReset();
-          // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+          // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
         });
 
         it('calls the onModified callback with false', () => {
@@ -1127,7 +1127,7 @@ describe('Form', () => {
       });
 
       it('parses the value from the event', () => {
-        expect(subject.state.current).toEqual({title: 'mytitle'});
+        expect(subject.state().current).toEqual({title: 'mytitle'});
       });
     });
 
@@ -1146,7 +1146,7 @@ describe('Form', () => {
       });
 
       it('uses the value', () => {
-        expect(subject.state.current).toEqual({title: 'some-title'});
+        expect(subject.state().current).toEqual({title: 'some-title'});
       });
     });
   });
@@ -1177,7 +1177,7 @@ describe('Form', () => {
     });
 
     it('updates the current state', () => {
-      expect(subject.state.current).toEqual({title: 'some-title', name: 'Jane'});
+      expect(subject.state().current).toEqual({title: 'some-title', name: 'Jane'});
     });
   });
 
@@ -1196,7 +1196,7 @@ describe('Form', () => {
     });
 
     it('updates the current state', () => {
-      expect(subject.state.current).toEqual({title: true, name: 'Jane'});
+      expect(subject.state().current).toEqual({title: true, name: 'Jane'});
     });
   });
 
@@ -1220,7 +1220,7 @@ describe('Form', () => {
     });
 
     it('changes the form state without updating un-passed values', () => {
-      expect(subject.state.current).toEqual({name: 'new-name', password: 'some-password'});
+      expect(subject.state().current).toEqual({name: 'new-name', password: 'some-password'});
     });
   });
 
@@ -1301,8 +1301,8 @@ describe('Form', () => {
     });
 
     it('changes the state', () => {
-      expect(subject.state.initial).toEqual({name: 'some-other-name'});
-      expect(subject.state.current).toEqual({name: 'some-other-name'});
+      expect(subject.state().initial).toEqual({name: 'some-other-name'});
+      expect(subject.state().current).toEqual({name: 'some-other-name'});
     });
   });
 });

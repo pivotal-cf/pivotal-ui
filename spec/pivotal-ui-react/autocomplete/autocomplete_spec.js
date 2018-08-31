@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {Autocomplete, AutocompleteInput} from '../../../src/react/autocomplete';
+import {Autocomplete, AutocompleteInput, AutocompleteList} from '../../../src/react/autocomplete';
 
 const simulateKeyDown = (selector, keyCode) => {
   $(selector)[0].dispatchEvent(new KeyboardEvent('keydown', {keyCode, bubbles: true}));
@@ -21,7 +21,7 @@ describe('Autocomplete', () => {
         {'water lilies': {name: 'water lilies', age: 64}}
       ]);
     pickSpy = jest.fn().mockName('pick');
-    subject = shallow(<Autocomplete {...{
+    subject = mount(<Autocomplete {...{
       onInitializeItems,
       onPick: pickSpy
     }} />);
@@ -37,7 +37,7 @@ describe('Autocomplete', () => {
     };
     const CustomList = () => (<ul className="my-custom-list"/>);
 
-    subject = shallow(<Autocomplete {...{
+    subject = mount(<Autocomplete {...{
       onInitializeItems,
       input: (<CustomInput/>),
       disabled: true,
@@ -60,16 +60,16 @@ describe('Autocomplete', () => {
 
   describe('when nothing is entered into input and the list is shown with a list of objects', () => {
     beforeEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
-      subject = shallow(<Autocomplete {...{onInitializeItems}} />);
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
+      subject = mount(<Autocomplete {...{onInitializeItems}} />);
 
       MockNextTick.next();
       MockPromises.tick();
 
-      subject.showList();
+      subject.instance().showList();
     });
 
-    it('renders the list items in order', () => {
+    it.only('renders the list items in order', () => {
       expect(subject.find('.autocomplete li')).toHaveLength(5);
       expect(subject.find('.autocomplete a').at(0).text()).toBe('watson');
       expect(subject.find('.autocomplete a').at(1).text()).toBe('coffee');
@@ -293,8 +293,8 @@ describe('Autocomplete', () => {
 
   describe('when custom trieOptions are provided', () => {
     beforeEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
-      subject = shallow(<Autocomplete {...{
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
+      subject = mount(<Autocomplete {...{
         onInitializeItems,
         trieOptions: {splitOnRegEx: /\./}
       }} />);
@@ -320,9 +320,9 @@ describe('Autocomplete', () => {
 
   describe('when the values are scalar', () => {
     it('renders and maintains the order', () => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
       const props = {onInitializeItems: cb => cb(['d', 'a', 'c', 'b'])};
-      subject = shallow(<Autocomplete {...props}/>);
+      subject = mount(<Autocomplete {...props}/>);
       MockNextTick.next();
       MockPromises.tick();
 
@@ -340,10 +340,10 @@ describe('Autocomplete', () => {
     let promise;
 
     beforeEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
       let cb;
       const props = {onInitializeItems: callback => cb = callback};
-      subject = shallow(<Autocomplete {...props}/>);
+      subject = mount(<Autocomplete {...props}/>);
       promise = cb(['a', 'b', 'c', 'd']);
       MockNextTick.next();
       MockPromises.tick();
@@ -366,19 +366,20 @@ describe('Autocomplete', () => {
     });
 
     it('defaults to that value being selected', () => {
-      expect(subject.state.value).toEqual('lily.water');
+      expect(subject.state().value).toEqual('lily.water');
     });
   });
 
   describe('when a custom (possibly asynchronous) search function is provided', () => {
-    let cb;
+    let cb, onSearch;
     beforeEach(() => {
+      onSearch = jest.fn().mockImplementation((_, callback) => cb = callback)
       subject.setProps({
-        onSearch: (_, callback) => cb = callback
+        onSearch
       });
       MockNextTick.next();
       MockPromises.tick();
-
+      console.log(subject.debug())
       subject.find('.autocomplete input').simulate('change', {
         target: {
           value: 'zo'
@@ -389,7 +390,7 @@ describe('Autocomplete', () => {
     });
 
     it('uses that search callback', () => {
-      expect(subject.find('.autocomplete-list').text()).toBe('abcd');
+      expect(onSearch).toHaveBeenCalledWith('', expect.any(Function));
     });
   });
 });

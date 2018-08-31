@@ -46,7 +46,7 @@ describe('Toggle', () => {
       const result1 = renderComponent();
       const component1 = result1.find('.toggle-switch');
 
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
 
       const result2 = renderComponent();
       const component2 = result2.find('.toggle-switch');

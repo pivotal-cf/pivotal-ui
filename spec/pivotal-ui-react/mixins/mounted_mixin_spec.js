@@ -15,7 +15,7 @@ describe('MountedMixin', () => {
     it('returns true when the component is mounted', () => {
       subject = shallow(<Component/>);
       expect(subject.mounted()).toBe(true);
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
       expect(subject.mounted()).toBe(false);
     });
   });

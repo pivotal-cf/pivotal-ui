@@ -19,7 +19,7 @@ describe('Portals', () => {
   const container = document.createElement('div');
 
   afterEach(() => {
-    // // ReactDOM.unmountComponentAtNode(container); // TODO: remove? // TODO: remove?
+    // // // ReactDOM.unmountComponentAtNode(container); // TODO: remove? // TODO: remove? // TODO: remove?
   });
 
   describe('when there is more than one destination portal with the same name', () => {

@@ -13,6 +13,7 @@ describe('BackToTop', () => {
 
   beforeEach(() => {
     scrollTop = 0;
+    spyOn(Date, 'now').mockImplementation(() => 12345);
     spyOn(ScrollTop, 'getScrollTop').mockImplementation(() => scrollTop || 0);
     spyOn(ScrollTop, 'setScrollTop').mockImplementation(value => scrollTop = value);
   });
@@ -21,21 +22,17 @@ describe('BackToTop', () => {
     let subject;
 
     beforeEach(done => {
-      spyOn(window, 'addEventListener').and.callThrough();
-      spyOn(window, 'removeEventListener').and.callThrough();
+      spyOn(window, 'addEventListener');
+      spyOn(window, 'removeEventListener');
       subject = shallow(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>);
 
-      jasmine.clock().uninstall();
-      setTimeout(() => {
-        jasmine.clock().install();
-        ScrollTop.setScrollTop(500);
-        triggerScroll();
-        done();
-      }, 0);
+      ScrollTop.setScrollTop(500);
+      triggerScroll();
+      done();
     });
 
     it('adds an event listener to the window', () => {
-      expect(window.addEventListener).toHaveBeenCalledWith('scroll', subject.updateScroll);
+      expect(window.addEventListener).toHaveBeenCalledWith('scroll', subject.instance().updateScroll);
     });
 
     it('passes down the className, id, and style properties', () => {
@@ -63,7 +60,7 @@ describe('BackToTop', () => {
     });
 
     it('removes an event listener from the window', () => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
       expect(window.removeEventListener).toHaveBeenCalledWith('scroll', subject.updateScroll);
     });
 
@@ -90,17 +87,32 @@ describe('BackToTop', () => {
 
     describe('when the back to top link is clicked', () => {
       beforeEach(() => {
+        // spyOn(subject.instance(), 'animate').mockImplementation((a, b, c, options) => {
+        subject.instance().animate = jest.fn((a, b, c, options) => {
+          if (!options) return;
+          const {startValue} = options;
+          if (startValue === 500) return 62.5;
+          if (startValue === 62.5) return 0;
+        });
         subject.find('.pui-back-to-top').simulate('click');
       });
 
-      it('animates the body scroll to the top', () => {
-        expect(ScrollTop.getScrollTop()).toEqual(500);
-        MockNow.tick(BackToTop.SCROLL_DURATION / 2);
-        MockRaf.next();
+      it.only('animates the body scroll to the top', () => {
+        //expect animate gets call with values
+        //expect element scrolltop to be value returned by animate
+        console.log('num calls', subject.instance().animate.mock.calls)
+        expect(subject.instance().animate).toHaveBeenCalledWith('pui-back-to-top-12345', 0, 200, {startValue: 500, easing: 'easeOutCubic'});
+        //when 0, expect state.key is null
         expect(ScrollTop.getScrollTop()).toEqual(62.5);
-        MockNow.tick(BackToTop.SCROLL_DURATION / 2);
-        MockRaf.next();
-        expect(ScrollTop.getScrollTop()).toEqual(0);
+
+        expect(subject.instance().animate).toHaveBeenCalledWith('pui-back-to-top-12345', 0, 200, {startValue: 62.5, easing: 'easeOutCubic'});
+
+        // MockNow.tick(BackToTop.SCROLL_DURATION / 2);
+        // MockRaf.next();
+        // expect(ScrollTop.getScrollTop()).toEqual(62.5);
+        // MockNow.tick(BackToTop.SCROLL_DURATION / 2);
+        // MockRaf.next();
+        // expect(ScrollTop.getScrollTop()).toEqual(0);
       });
 
       it('calls getScrollTop', () => {
@@ -155,7 +167,7 @@ describe('BackToTop', () => {
     });
 
     it('removes an event listener from the window', () => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
       expect(element.removeEventListener).toHaveBeenCalledWith('scroll', updateScroll);
     });
 

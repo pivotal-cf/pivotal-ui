@@ -21,7 +21,7 @@ describe('lists', () => {
     });
 
     afterEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
     });
 
     it('renders', () => {

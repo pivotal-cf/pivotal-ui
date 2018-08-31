@@ -40,7 +40,7 @@ describe('Checkbox', () => {
 
   describe('when checked', () => {
     beforeEach(() => {
-      // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+      // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
       subject = shallow(<Checkbox checked onChange={() => null}/>);
     });
 

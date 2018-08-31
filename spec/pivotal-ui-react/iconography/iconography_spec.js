@@ -4,7 +4,7 @@ import {Icon} from '../../../src/react/iconography';
 describe('iconography', () => {
   let subject;
   afterEach(() => {
-    // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove?
+    // // // ReactDOM.unmountComponentAtNode(root); // TODO: remove? // TODO: remove? // TODO: remove?
   });
 
   it('works', () => {
