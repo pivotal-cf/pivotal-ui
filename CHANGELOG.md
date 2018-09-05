@@ -1,3 +1,10 @@
+<a name="17.0.2"></a>
+## 17.0.2 (2018-09-05)
+#### React
+* **back-to-top**:
+  * BackToTop alwaysVisible should listen to scroll on element, when provided [[:beetle:#160151510](https://www.pivotaltracker.com/story/show/160151510)] ([d8e544c1](https://github.com/pivotal-cf/pivotal-ui/commit/d8e544c1))
+  * fix backToTop in Chrome when scrollableId not set [[:beetle:#160149375](https://www.pivotaltracker.com/story/show/160149375)] ([0cb028f9](https://github.com/pivotal-cf/pivotal-ui/commit/0cb028f9))
+* **media**: Allow passing vAlign='top' to Media without warning [[:beetle:#160148430](https://www.pivotaltracker.com/story/show/160148430)] ([9ae41c55](https://github.com/pivotal-cf/pivotal-ui/commit/9ae41c55))
 <a name="17.0.1"></a>
 ## 17.0.1 (2018-08-23)
 #### CSS
