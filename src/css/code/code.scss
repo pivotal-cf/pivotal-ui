@@ -107,6 +107,18 @@ pre.pre-scrollable {
       display: inline-block;
       margin-right: 15px;
     }
+    
+    &.color li {
+      &:nth-child(1){
+        background-color: $terminal-dot-close;
+      }
+      &:nth-child(2){
+        background-color: $terminal-dot-minimize;
+      }
+      &:nth-child(3){
+        background-color: $terminal-dot-maximize;
+      }
+    }
   }
 
   pre[class*="language-"] {
