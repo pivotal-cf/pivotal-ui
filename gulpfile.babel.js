@@ -9,7 +9,7 @@ Jasmine.install({
     includeStackTrace: true,
     random: undefined,
     isVerbose: false,
-    port: 8888,
+    port: 9999,
     driver: 'chrome'
   },
   appGlobs: ['./spec/pivotal-ui-react/**/*_spec.js'],
