@@ -29,6 +29,17 @@ export default {
     return ['components', 'modifiers', 'concepts'].indexOf(category) === -1
       ? 'info'
       : category;
+  },
 
+  getText: mdAst => {
+    const getTextNodes = childNodes => {
+      return childNodes.reduce((memo, {type, value, children}) => {
+        if (type === 'text' || type === 'inlineCode') return [...memo, value.trim()];
+        if (children) return [...memo, ...getTextNodes(children)];
+        return memo;
+      }, []);
+    };
+
+    return getTextNodes(mdAst.children).join(' ');
   }
 };

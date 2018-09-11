@@ -9,12 +9,7 @@ let searchItems;
 class SearchBar extends PureComponent {
   constructor(props) {
     super(props);
-    const {routes} = props;
-
-    searchItems = Object.values(routes).map(route => {
-      if (route.route === '/' || route.route === '/404') return;
-      return route;
-    }).filter(Boolean);
+    searchItems = Object.values(props.routes).filter(({route}) => route !== '/' && route !== '/404');
   }
 
   onPick = route => {
@@ -27,32 +22,30 @@ class SearchBar extends PureComponent {
     const titleMatches = [];
     const subtitleMatches = [];
 
-    searchItems.forEach(({parentTitle: title, pageTitle: subtitle, category, route}) => {
+    searchItems.forEach(({parentTitle: title, pageTitle: subtitle, category, route, text}) => {
       if (titleMatches.length + subtitleMatches.length > 50) return;
       const matchLength = searchText.length;
+      const resultProps = {title, subtitle, text, category, matchLength};
 
       if (title) {
         const matchIndex = title.toLowerCase().indexOf(searchText);
-        if (matchIndex > -1) {
-          titleMatches.push({
-            route, value: <SearchResult {...{
-              title, subtitle, category, matchIndex, matchLength, matched: 'title'
-            }}/>
-          });
-          return;
-        }
+        if (matchIndex > -1) return titleMatches.push({
+          route, value: <SearchResult {...{...resultProps, matchIndex, matched: 'title'}}/>
+        });
       }
 
       if (subtitle) {
         const matchIndex = subtitle.toLowerCase().indexOf(searchText);
-        if (matchIndex > -1) {
-          subtitleMatches.push({
-            route, value: <SearchResult {...{
-              title, subtitle, category, matchIndex, matchLength, matched: 'subtitle'
-            }}/>
-          });
-          return;
-        }
+        if (matchIndex > -1) return subtitleMatches.push({
+          route, value: <SearchResult {...{...resultProps, matchIndex, matched: 'subtitle'}}/>
+        });
+      }
+
+      if (text) {
+        const matchIndex = text.toLowerCase().indexOf(searchText);
+        if (matchIndex > -1) return subtitleMatches.push({
+          route, value: <SearchResult {...{...resultProps, matchIndex, matched: 'text'}}/>
+        });
       }
     });
 

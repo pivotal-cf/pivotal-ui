@@ -1,5 +1,5 @@
 import '../spec_helper';
-import RoutesHelper from '../../src/helpers/routes_helper';
+import * as RoutesHelper from '../../src/helpers/routes_helper';
 import MarkdownFileHelper from '../../src/helpers/markdown_file_helper';
 
 describe('RoutesHelper', () => {
@@ -15,6 +15,7 @@ describe('RoutesHelper', () => {
       jest.spyOn(MarkdownFileHelper, 'getPageTitle');
       jest.spyOn(MarkdownFileHelper, 'getParentTitle');
       jest.spyOn(MarkdownFileHelper, 'getCategory');
+      jest.spyOn(MarkdownFileHelper, 'getText').mockImplementation(() => 'All page text');
       jest.spyOn(MarkdownFileHelper, 'process').mockImplementation(({json}) => ({processed: json}));
       requireFunc = jest.fn(file => file === './parent1/file1.md' ? json1 : json2);
       requireFunc.keys = jest.fn().mockReturnValue(['./parent1/file1.md', './components/parent2/file2.md']);
@@ -65,7 +66,8 @@ describe('RoutesHelper', () => {
           tabHeaderIndex: 1,
           pageTitle: 'file1',
           parentTitle: 'parent1',
-          category: 'info'
+          category: 'info',
+          text: 'All page text'
         },
         '/components/parent2/file2': {
           file: './components/parent2/file2.md',
@@ -74,7 +76,8 @@ describe('RoutesHelper', () => {
           tabHeaderIndex: 2,
           pageTitle: 'file2',
           parentTitle: 'parent2',
-          category: 'components'
+          category: 'components',
+          text: 'All page text'
         }
       });
     });

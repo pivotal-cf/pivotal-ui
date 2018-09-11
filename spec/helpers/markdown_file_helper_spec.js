@@ -201,4 +201,59 @@ describe('MarkdownFileHelper', () => {
       });
     });
   });
+
+  describe('#getText', () => {
+    it('combines text nodes into a single string', () => {
+      expect(MarkdownFileHelper.getText({
+        children: [
+          {type: 'text', value: 'This is some text with '},
+          {type: 'inlineCode', value: 'inline code in it'},
+          {
+            type: 'paragraph', children: [
+              {type: 'text', value: 'some text in a paragraph'},
+              {type: 'text', value: 'and some more text'}
+            ]
+          }
+        ]
+      })).toBe('This is some text with inline code in it some text in a paragraph and some more text');
+    });
+
+    it('handles headings', () => {
+      expect(MarkdownFileHelper.getText({
+        children: [
+          {type: 'text', value: 'some text before'},
+          {type: 'heading', children: [{type: 'text', value: 'heading text'}]},
+          {type: 'text', value: 'some text after'}
+        ]
+      })).toBe('some text before heading text some text after');
+    });
+
+    it('handles text nodes in tables', () => {
+      expect(MarkdownFileHelper.getText({
+        children: [{
+          type: 'table', children: [{
+            type: 'tableRow', children: [
+              {type: 'tableCell', children: [{type: 'text', value: 'cell one'}]},
+              {type: 'tableCell', children: [{type: 'text', value: 'cell two'}]}
+            ]
+          }, {
+            type: 'tableRow', children: [
+              {type: 'tableCell', children: [{type: 'text', value: 'cell three'}]},
+              {type: 'tableCell', children: [{type: 'text', value: 'cell four'}]}
+            ]
+          }]
+        }]
+      })).toBe('cell one cell two cell three cell four');
+    });
+
+    it('excludes content of code blocks', () => {
+      expect(MarkdownFileHelper.getText({
+        children: [
+          {type: 'text', value: 'some text before'},
+          {type: 'code', value: 'some code'},
+          {type: 'text', value: 'some text after'}
+        ]
+      })).toBe('some text before some text after');
+    });
+  });
 });
