@@ -3,14 +3,17 @@ import Sidebar from './components/sidebar';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Page from './components/page';
 import '../stylesheets/app.scss';
+import {getRoutes} from './helpers/routes_helper';
+import processor from './helpers/markdown_processor';
 
 const requirePuiCss = require.context('pivotal-ui/css/', true, /\.scss$/);
 requirePuiCss.keys().map(requirePuiCss);
 
 const requirePuiReact = require.context('pivotal-ui/react/', true, /index\.js$/);
-requirePuiReact.keys().map(file => {
-  Object.entries(requirePuiReact(file)).forEach(([key, value]) => window[key] = value);
-});
+requirePuiReact.keys().map(file => Object.entries(requirePuiReact(file))
+  .forEach(([key, value]) => window[key] = value));
+
+const routes = getRoutes({processor, requireFunc: require.context('../docs', true, /\.md$/)});
 
 window.Icons = require('pivotal-ui/react/iconography/icons');
 window.colorPalette = {
@@ -30,7 +33,7 @@ const ScrollToTop = () => {
 
 export default class App extends Component {
   render() {
-    const {routes, location} = this.props;
+    const {location} = this.props;
     const currentDate = new Date();
     const year = currentDate.getFullYear();
 
