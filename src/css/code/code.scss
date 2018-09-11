@@ -91,12 +91,13 @@ pre.pre-scrollable {
 
 .terminal {
   background-color: $gray-7;
-  padding: 6px 10px 12px 10px;
+  padding: 10px 10px 12px 10px;
   border-radius: $code-chrome-border-radius;
   box-shadow: 0 2px 0 $shadow-1;
 
   .terminal-dots {
-    margin-bottom: 0;
+    margin-top: 0;
+    margin-bottom: $base-unit;
     padding: 0;
 
     li {
@@ -105,7 +106,7 @@ pre.pre-scrollable {
       height: 12px;
       background-color: $gray-4;
       display: inline-block;
-      margin-right: 15px;
+      margin-right: $base-unit;
     }
   }
 
