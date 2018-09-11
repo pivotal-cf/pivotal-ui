@@ -4,15 +4,13 @@ import ReactDOM from 'react-dom';
 import shallowEqual from 'fbjs/lib/shallowEqual';
 import mixin from '../mixins';
 import Mounted from '../mixins/mounted_mixin';
-import ShallowCompare from '../mixins/shallow_compare_mixin';
 
-const Component = mixin(React.Component).with(ShallowCompare);
 const rafify = callback => (...args) => raf(() => callback.call(this, ...args));
 const privates = new WeakMap();
 const properties = ['width', 'height', 'top', 'right', 'bottom', 'left'];
 
 export const useBoundingClientRect = Klass => {
-  return class BoundingClientRect extends mixin(Component).with(Mounted) {
+  return class BoundingClientRect extends mixin(React.PureComponent).with(Mounted) {
     constructor(props, context) {
       super(props, context);
       let resolver;
