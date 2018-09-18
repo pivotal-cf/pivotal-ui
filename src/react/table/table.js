@@ -21,7 +21,7 @@ export class Table extends TablePlugin {
     }
 
     const renderedColumns = (columns || dataColumns || [])
-      .map(attribute => typeof attribute === 'string' ? {attribute} : attribute);
+      .map(column => typeof column === 'string' ? {attribute: column} : column);
 
     const headers = renderedColumns.map((column, key) => {
       const Th = this.plugTag('th', 'th');
@@ -35,7 +35,7 @@ export class Table extends TablePlugin {
     const headerRow = <HeaderTr {...this.plugProps('tr', {children: headers}, headerTrContext)}/>;
 
     const bodyCols = rowDatum => renderedColumns.map((column, key) => {
-      const keys = column.attribute.split('.');
+      const keys = (column.attribute || '').split('.');
       let children = rowDatum;
       keys.forEach(key => children = (children || {})[key]);
       const tdContext = {column, rowDatum};
