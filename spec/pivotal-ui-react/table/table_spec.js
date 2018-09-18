@@ -96,6 +96,8 @@ describe('Table', () => {
     });
 
     it('renders th elements with the expected class and text', () => {
+      expect('table thead tr th').toHaveLength(3);
+
       expect('table thead tr th:eq(0)').toHaveClass('th-class');
       expect('table thead tr th:eq(0)').toHaveText('attr1');
 
@@ -261,6 +263,18 @@ describe('Table', () => {
 
       it('renders a tfoot element with the expected class', () => {
         expect('table tfoot').toHaveClass('tfoot-class');
+      });
+    });
+
+    describe('with empty column attribute', () => {
+      beforeEach(() => {
+        subject::setProps({ columns: [...columns, {}] });
+      });
+
+      it('renders empty column', () => {
+        expect('table thead tr th').toHaveLength(4);
+        expect('table thead tr th:eq(3)').toHaveClass('th-class');
+        expect('table thead tr th:eq(3)').toHaveText('');
       });
     });
   });
