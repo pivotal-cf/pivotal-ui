@@ -16,7 +16,7 @@ export class CheckboxDropdown extends React.Component {
     onChange: PropTypes.func,
     size: PropTypes.oneOf(['normal', 'large', 'small']),
     split: PropTypes.bool,
-    labels: PropTypes.array
+    labels: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   };
 
   static defaultProps = {
@@ -27,10 +27,13 @@ export class CheckboxDropdown extends React.Component {
   constructor(props, context) {
     super(props, context);
     const {labels} = this.props;
-    const options = labels.reduce((result, item) => {
-      result[item] = true;
-      return result;
-    }, {});
+    let options = labels;
+    if (Array.isArray(labels) === true) {
+      options = labels.reduce((result, item) => {
+        result[item] = true;
+        return result;
+      }, {});
+    }
     this.state = {open: false, options};
   }
 
@@ -79,12 +82,13 @@ export class CheckboxDropdown extends React.Component {
     const {labels, onChange, className, ...dropDownProps} = this.props;
     const {options} = this.state;
 
-    const dropdownItems = labels.map(label => {
+    const dropdownItems = Object.entries(options).map(([label, checked]) => {
+
       return (
         <Checkbox className="checkbox-dropdown-item-checkbox man"
                   labelClassName="pui-checkbox-dropdown-item-label"
                   key={label}
-                  checked={options[label]}
+                  checked={checked}
                   onChange={doNothing}
                   onClick={e => this.toggleOption(e, label)}>{label}</Checkbox>
       );
