@@ -117,13 +117,18 @@ export class Form extends React.Component {
   canSubmit = ({checkRequiredFields} = {}) => {
     const {fields} = this.props;
     const {initial, current, submitting} = this.state;
+
+    const isDiffFromInitial = find(Object.keys(initial), key => !deepEqual(initial[key], current[key]));
+    const requiredFields = Object.keys(fields).filter(name => fields[name] && !isOptional(fields[name], current));
+    const requiredFieldsHaveValue = requiredFields.every(name => current[name] || current[name] === 0);
+    const passesValidators = getFieldEntries(fields).every(([name, {validator}]) => !(validator && validator(this.state.current[name])));
+
     return !submitting
-      && find(Object.keys(initial), key => !deepEqual(initial[key], current[key]))
+      && isDiffFromInitial
       && (checkRequiredFields
         ? checkRequiredFields(this.state.current)
-        : !find(Object.keys(fields)
-          .filter(name => fields[name] && !isOptional(fields[name], current)), name => !current[name]))
-      && !find(getFieldEntries(fields), ([name, {validator}]) => validator && validator(this.state.current[name]));
+        : requiredFieldsHaveValue)
+      && passesValidators;
   };
 
   onSubmit = e => {

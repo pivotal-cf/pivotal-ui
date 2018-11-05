@@ -563,6 +563,38 @@ describe('Form', () => {
     });
   });
 
+  describe('with two required number fields, with one field that has an initial value of 0', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(
+        <Form {...{
+          className: 'some-form', afterSubmit,
+          fields: {
+            number1: {children: <Input type="number"/>, initialValue: 1},
+            number2: {children: <Input type="number"/>, initialValue: 0}
+          }
+        }}>
+          {({fields: {number1, number2}, ...rest}) => (
+            <Grid>
+              <FlexCol>{number1}</FlexCol>
+              <FlexCol>{number2}</FlexCol>
+              <FlexCol fixed>{Buttons({...rest})}</FlexCol>
+            </Grid>
+          )}
+        </Form>, root
+      );
+    });
+
+    describe('when we increment the non-zero field', () => {
+      beforeEach(() => {
+        $('fieldset > .grid > .col:eq(0) input').val(2).simulate('change');
+      });
+
+      it('allows the form to submit', () => {
+        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
+      });
+    });
+  });
+
   describe('with two required fields, one required based on optional callback', () => {
     let optional;
 
