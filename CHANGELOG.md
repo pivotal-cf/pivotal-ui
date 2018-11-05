@@ -1,3 +1,14 @@
+<a name="17.0.3"></a>
+## 17.0.3 (2018-11-05)
+#### CSS
+* **code**:
+  * Fix spacing around terminal dots in Code component [[:beetle:#160367470](https://www.pivotaltracker.com/story/show/160367470)] ([20b1dccd](https://github.com/pivotal-cf/pivotal-ui/commit/20b1dccd))
+  * Style Close Min Max Terminal Buttons (#568) ([bf5c58a1](https://github.com/pivotal-cf/pivotal-ui/commit/bf5c58a1))
+* **pui-variables.scss**: Style Close Min Max Terminal Buttons (#568) ([bf5c58a1](https://github.com/pivotal-cf/pivotal-ui/commit/bf5c58a1))
+#### React
+* **checkbox-dropdown**: CheckboxDropdown accepts initial state for box checked-ness. ([338ab471](https://github.com/pivotal-cf/pivotal-ui/commit/338ab471))
+* **forms**: Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([35c2a68a](https://github.com/pivotal-cf/pivotal-ui/commit/35c2a68a))
+* **table**: Table should not require 'attribute' on column [[:beetle:#159752146](https://www.pivotaltracker.com/story/show/159752146)] ([99653fa7](https://github.com/pivotal-cf/pivotal-ui/commit/99653fa7))
 <a name="17.0.2"></a>
 ## 17.0.2 (2018-09-05)
 #### React
