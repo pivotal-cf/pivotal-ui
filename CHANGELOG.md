@@ -1,4 +1,7 @@
-
+<a name="16.2.1"></a>
+## 16.2.1 (2018-11-05)
+#### React
+* **forms**: Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([546c08b7](https://github.com/pivotal-cf/pivotal-ui/commit/546c08b7))
 <a name="16.2.0"></a>
 # 16.2.0 (2018-08-07)
 #### CSS
