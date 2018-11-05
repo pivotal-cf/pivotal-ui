@@ -454,6 +454,35 @@ describe('Form', () => {
     });
   });
 
+  describe('with two required number fields, with one field that has an initial value of 0', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(
+        <Form {...{className: 'some-form', afterSubmit}}>
+          <FormRow>
+            <FormCol {...{name: 'number1', initialValue: 1}}>
+              <Input type="number"/>
+            </FormCol>
+            <FormCol {...{name: 'number2', initialValue: 0}}>
+              <Input type="number"/>
+            </FormCol>
+            <FormCol {...{className: 'col-fixed'}}>
+              {Buttons}
+            </FormCol>
+          </FormRow>
+        </Form>, root);
+    });
+
+    describe('when we increment the non-zero field', () => {
+      beforeEach(() => {
+        $('.form-row:eq(0) .form-col:eq(0) input').val(2).simulate('change');
+      });
+
+      it('allows the form to submit', () => {
+        expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
+      });
+    });
+  });
+
   describe('with one optional field', () => {
     beforeEach(() => {
       subject = ReactDOM.render(

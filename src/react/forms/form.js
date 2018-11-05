@@ -126,16 +126,21 @@ export class Form extends React.Component {
   canSubmit({checkRequiredFields} = {}) {
     const {children} = this.props;
     const {initial, current, submitting, requiredFields} = this.state;
+
+    const isDiffFromInitial = find(Object.keys(initial), key => !deepEqual(initial[key], current[key]));
+    const requiredFieldsHaveValue = requiredFields.every(key => current[key] || current[key] === 0);
+    const passesValidators = !find(
+      React.Children.toArray(children),
+      row => find(
+        React.Children.toArray(row.props.children),
+        ({props: {name, validator}}) => validator && validator(this.state.current[name])));
+
     return !submitting
-      && find(Object.keys(initial), key => !deepEqual(initial[key], current[key]))
+      && isDiffFromInitial
       && (checkRequiredFields
         ? checkRequiredFields(this.state.current)
-        : !find(requiredFields, key => !current[key]))
-      && !find(
-        React.Children.toArray(children),
-        row => find(
-          React.Children.toArray(row.props.children),
-          ({props: {name, validator}}) => validator && validator(this.state.current[name])));
+        : requiredFieldsHaveValue)
+      && passesValidators;
   }
 
   canReset() {
