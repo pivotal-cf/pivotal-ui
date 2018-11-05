@@ -1,3 +1,7 @@
+<a name="15.1.1"></a>
+## 15.1.1 (2018-11-05)
+#### React
+* **forms**: Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([9a10ac01](https://github.com/pivotal-cf/pivotal-ui/commit/9a10ac01))
 <a name="15.1.0"></a>
 # 15.1.0 (2018-07-06)
 React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
@@ -30,6 +34,10 @@ React 16 is no longer a direct dependency. Now, React is a peer dependency, requ
   * Pagination component calls onSelect with newActivePage [[:star:#156202613](https://www.pivotaltracker.com/story/show/156202613)] ([cafffdb0](https://github.com/pivotal-cf/pivotal-ui/commit/cafffdb0))
   * Rewrite Pagination component [#155640854] ([9f1b2262](https://github.com/pivotal-cf/pivotal-ui/commit/9f1b2262))
 * **tabs**: Load styles when tabs mount [[:beetle:#154842004](https://www.pivotaltracker.com/story/show/154842004)] ([e0a56d30](https://github.com/pivotal-cf/pivotal-ui/commit/e0a56d30))
+<a name="14.1.0"></a>
+# 14.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
 <a name="14.0.0"></a>
 # 14.0.0 (2018-02-16)
 #### CSS
@@ -95,6 +103,11 @@ React 16 is no longer a direct dependency. Now, React is a peer dependency, requ
 * **tabs**:
   * Load styles when tabs mount [[:beetle:#154842004](https://www.pivotaltracker.com/story/show/154842004)] ([16d52229](https://github.com/pivotal-cf/pivotal-ui/commit/16d52229))
   * Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+<a name="13.1.0"></a>
+# 13.1.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+#### React
+* **copy-to-clipboard**: Make CopyToClipboard work for text with newlines [[:beetle:#154782444](https://www.pivotaltracker.com/story/show/154782444)] (#555) ([572e4192](https://github.com/pivotal-cf/pivotal-ui/commit/572e4192))
 <a name="13.0.2"></a>
 ## 13.0.2 (2018-02-14)
 #### CSS
@@ -137,6 +150,11 @@ React 16 is no longer a direct dependency. Now, React is a peer dependency, requ
 * **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([cb751ce1](https://github.com/pivotal-cf/pivotal-ui/commit/cb751ce1))
 * **tabs**: Pull title prop off TabContent so it does not end up on inner div [[:beetle:#153425866](https://www.pivotaltracker.com/story/show/153425866)] ([30564caa](https://github.com/pivotal-cf/pivotal-ui/commit/30564caa))
 * **wizard**: Update Wizard component with backComponent, finishComponent, and hideFinishButton [[:star:#153856072](https://www.pivotaltracker.com/story/show/153856072)] ([2525046e](https://github.com/pivotal-cf/pivotal-ui/commit/2525046e))
+<a name="12.4.0"></a>
+# 12.4.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+#### React
+* **copy-to-clipboard**: Make CopyToClipboard work for text with newlines [[:beetle:#154782444](https://www.pivotaltracker.com/story/show/154782444)] (#555) ([54740944](https://github.com/pivotal-cf/pivotal-ui/commit/54740944))
 <a name="12.3.0"></a>
 # 12.3.0 (2018-01-11)
 #### CSS
@@ -213,6 +231,10 @@ React 16 is no longer a direct dependency. Now, React is a peer dependency, requ
   * when table columns are implicit, do not set the display name [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([c1c27f61](https://github.com/pivotal-cf/pivotal-ui/commit/c1c27f61))
   * table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([9537c680](https://github.com/pivotal-cf/pivotal-ui/commit/9537c680))
 * **toggle**: include form css from toggle component [[:gear:#153427216](https://www.pivotaltracker.com/story/show/153427216)] ([abde0a56](https://github.com/pivotal-cf/pivotal-ui/commit/abde0a56))
+<a name="11.2.0"></a>
+# 11.2.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+
 <a name="11.1.4"></a>
 ## 11.1.4 (2018-01-04)
 #### React
@@ -328,6 +350,13 @@ React 16 is no longer a direct dependency. Now, React is a peer dependency, requ
   * Always allow the 'display' prop to set visibility ([2f738702](https://github.com/pivotal-cf/pivotal-ui/commit/2f738702))
   * Allow manual control of TooltipTrigger visibility ([ab89565d](https://github.com/pivotal-cf/pivotal-ui/commit/ab89565d))
 * **wizard**: Add saving and savingText props to Wizard [[:star:#151932325](https://www.pivotaltracker.com/story/show/151932325)] ([66e8b923](https://github.com/pivotal-cf/pivotal-ui/commit/66e8b923))
+<a name="10.4.0"></a>
+# 10.4.0 (2018-07-06)
+React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
+#### CSS
+* **tables**: Fix missing bottom border on table footer row [#153578787] ([c15f4380](https://github.com/pivotal-cf/pivotal-ui/commit/c15f4380))
+#### React
+* **iconography**: use react 15 as a dev dep, allow react 15 or 16 as peer dependencies [[:gear:#157639580](https://www.pivotaltracker.com/story/show/157639580)] ([2c9e294d](https://github.com/pivotal-cf/pivotal-ui/commit/2c9e294d))
 <a name="10.3.3"></a>
 ## 10.3.3 (2018-01-04)
 #### React
