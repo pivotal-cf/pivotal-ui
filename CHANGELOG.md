@@ -1,3 +1,6 @@
+<a name="17.0.4"></a>
+## 17.0.4 (2018-11-09)
+
 <a name="17.0.3"></a>
 ## 17.0.3 (2018-11-05)
 #### CSS
@@ -75,6 +78,10 @@
   * Introduce renderThChildren table plugin [[:gear:#159899107](https://www.pivotaltracker.com/story/show/159899107)] ([0ab59be2](https://github.com/pivotal-cf/pivotal-ui/commit/0ab59be2))
   * Use TooltipTrigger instead of OverlayTrigger in Table plugin ([b2247290](https://github.com/pivotal-cf/pivotal-ui/commit/b2247290))
 * **toggle**: Add position: relative to div that wraps Toggle component [[:beetle:#158548185](https://www.pivotaltracker.com/story/show/158548185)] ([b322c772](https://github.com/pivotal-cf/pivotal-ui/commit/b322c772))
+<a name="16.2.1"></a>
+## 16.2.1 (2018-11-05)
+#### React
+* **forms**: Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([546c08b7](https://github.com/pivotal-cf/pivotal-ui/commit/546c08b7))
 <a name="16.2.0"></a>
 # 16.2.0 (2018-08-07)
 #### CSS
@@ -186,6 +193,10 @@ React 16 is no longer a direct dependency. Now, React is a peer dependency, requ
 * **stream-list**: delete stream-list [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([aa0222de](https://github.com/pivotal-cf/pivotal-ui/commit/aa0222de))
 * **table**: Add withRenderTdChildren table plugin [[:beetle:#157580060](https://www.pivotaltracker.com/story/show/157580060)] ([4893562c](https://github.com/pivotal-cf/pivotal-ui/commit/4893562c))
 * **toggle**: Move toggle css from form.scss into its own file [[:beetle:#157613435](https://www.pivotaltracker.com/story/show/157613435)] ([14e244e8](https://github.com/pivotal-cf/pivotal-ui/commit/14e244e8))
+<a name="15.1.1"></a>
+## 15.1.1 (2018-11-05)
+#### React
+* **forms**: Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([9a10ac01](https://github.com/pivotal-cf/pivotal-ui/commit/9a10ac01))
 <a name="15.1.0"></a>
 # 15.1.0 (2018-07-06)
 React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.
