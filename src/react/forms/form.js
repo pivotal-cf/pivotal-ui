@@ -45,7 +45,6 @@ export class Form extends React.Component {
   static defaultProps = {
     children: noop,
     fields: {},
-    onModified: noop,
     onSubmit: noop,
     onSubmitError: () => ({}),
     afterSubmit: noop
@@ -83,7 +82,7 @@ export class Form extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.onModified(false);
+    if (this.props.onModified) this.props.onModified(false);
   }
 
   onChangeCheckbox = (name, cb = noop) => val => {
@@ -93,7 +92,6 @@ export class Form extends React.Component {
 
   onChange = (name, validator, cb = noop) => val => {
     const {initial} = this.state;
-    const {onModified} = this.props;
     const value = val.target && 'value' in val.target ? val.target.value : val;
     const nextState = {current: {...this.state.current, [name]: value}};
     const error = validator && validator(value);
@@ -103,7 +101,8 @@ export class Form extends React.Component {
     }
     if (typeof val.persist === 'function') val.persist();
     this.setState(nextState, () => cb(val));
-    onModified(!deepEqual(initial, nextState.current));
+
+    if (this.props.onModified) this.props.onModified(!deepEqual(initial, nextState.current));
   };
 
   onBlur = ({name, validator}) => ({target: {value}}) => {
@@ -114,9 +113,8 @@ export class Form extends React.Component {
   canReset = () => !this.state.submitting && !deepEqual(this.state.initial, this.state.current);
 
   reset = () => {
-    const {onModified} = this.props;
     const {initial} = this.state;
-    onModified(false);
+    if (this.props.onModified) this.props.onModified(false);
     this.setState({current: deepClone(initial), errors: {}});
   };
 
@@ -162,7 +160,7 @@ export class Form extends React.Component {
         errors: {}
       });
       const after = () => afterSubmit({state: this.state, response, reset: this.reset});
-      const onModifiedPromise = onModified(false);
+      const onModifiedPromise = onModified && onModified(false);
       return isPromise(onModifiedPromise) ? onModifiedPromise.then(after) : after();
     };
 
