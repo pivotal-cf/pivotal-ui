@@ -8,22 +8,29 @@ import {Input} from '../inputs';
 import crypto from 'crypto';
 
 const deepClone = o => JSON.parse(JSON.stringify(o));
-// eslint-disable-next-line no-unused-vars
-const getFieldEntries = fields => Object.entries(fields).filter(([name, props]) => props);
 const isOptional = ({optional}, current) => typeof optional === 'function' ? optional({current}) : optional;
 const isPromise = promise => promise && typeof promise.then === 'function';
 const newId = () => crypto.randomBytes(16).toString('base64');
 const noop = () => undefined;
 
-const newFormState = (fields, ids, cb) => getFieldEntries(fields)
-  .reduce((memo, [name, props]) => {
+const newFormState = (fields, ids, cb) => {
+  const state = {initial: {}, current: {}, ids, submitting: false, errors: {}};
+
+  for (const name in fields) {
+    const props = fields[name];
+    if (!props) continue;
+
     const {initialValue, currentValue} = cb({...props, name});
-    memo.initial[name] = initialValue;
-    memo.current[name] = currentValue;
-    memo.ids[name] = ids[name] || newId();
-    return memo;
-  }, {initial: {}, current: {}, ids, submitting: false, errors: {}});
-const newInitialValue = initialValue => [null, undefined].includes(initialValue) ? '' : initialValue;
+    state.initial[name] = initialValue;
+    state.current[name] = currentValue;
+    state.ids[name] = ids[name] || newId();
+  }
+
+  return state;
+};
+
+const newInitialValue = initialValue =>
+  initialValue === null || initialValue === undefined ? '' : initialValue;
 
 export class Form extends React.Component {
   static propTypes = {
@@ -121,12 +128,22 @@ export class Form extends React.Component {
     const isDiffFromInitial = find(Object.keys(initial), key => !deepEqual(initial[key], current[key]));
     const requiredFields = Object.keys(fields).filter(name => fields[name] && !isOptional(fields[name], current));
     const requiredFieldsHaveValue = requiredFields.every(name => current[name] || current[name] === 0);
-    const passesValidators = getFieldEntries(fields).every(([name, {validator}]) => !(validator && validator(this.state.current[name])));
+
+    let passesValidators = true;
+    for (const name in fields) {
+      const props = fields[name];
+      if (!props) continue;
+
+      if (props.validator && props.validator(current[name])) {
+        passesValidators = false;
+        break;
+      }
+    }
 
     return !submitting
       && isDiffFromInitial
       && (checkRequiredFields
-        ? checkRequiredFields(this.state.current)
+        ? checkRequiredFields(current)
         : requiredFieldsHaveValue)
       && passesValidators;
   };
@@ -211,6 +228,8 @@ export class Form extends React.Component {
     const formUnits = {};
     for (const name in fields) {
       const props = fields[name];
+      if (!props) continue;
+
       const error = state.errors[name];
       const children = this.controlField({...props, name, ids});
       const help = error || props.help;
