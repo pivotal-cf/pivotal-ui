@@ -208,21 +208,23 @@ export class Form extends React.Component {
     const {canSubmit, canReset, reset, onSubmit, setValues, state, onBlur} = this;
     const {current, submitting, ids} = state;
 
-    const formUnits = getFieldEntries(fields).reduce((memo, [name, props]) => {
+    const formUnits = {};
+    for (const name in fields) {
+      const props = fields[name];
       const error = state.errors[name];
       const children = this.controlField({...props, name, ids});
       const help = error || props.help;
       const labelFor = props.labelFor || children.props.id;
       // eslint-disable-next-line no-unused-vars
       const {className: _, ...rest} = props;
-      const formUnit = (
+
+      formUnits[name] = (
         <FormUnit {...{
           ...rest, key: name, optional: isOptional(rest, current), setValues, state, name, hasError: !!error,
           help, labelFor, children
         }}/>
       );
-      return {...memo, [name]: formUnit};
-    }, {});
+    }
 
     return (
       <form {...{...others, className: classnames('form', className), onSubmit: this.onSubmit}}>
