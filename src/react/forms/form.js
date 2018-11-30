@@ -57,7 +57,6 @@ export class Form extends React.Component {
       initialValue = newInitialValue(initialValue);
       return {initialValue, currentValue: deepClone(initialValue)};
     });
-    this.setState = this.setState.bind(this);
   }
 
   componentDidMount() {
