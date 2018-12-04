@@ -1,3 +1,13 @@
+<a name="17.0.5"></a>
+## 17.0.5 (2018-12-04)
+#### React
+* **forms**:
+  * Use lodash.cloneDeep in Form to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([00fb9212](https://github.com/pivotal-cf/pivotal-ui/commit/00fb9212))
+  * Form: only pass callback to setState when custom onChange is provided [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([2eeb0907](https://github.com/pivotal-cf/pivotal-ui/commit/2eeb0907))
+  * Form: defer deepEqual comparison until we know onModified prop is set [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([726a82b8](https://github.com/pivotal-cf/pivotal-ui/commit/726a82b8))
+  * In Form, remove unnecessary binding of setState [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([9229f99c](https://github.com/pivotal-cf/pivotal-ui/commit/9229f99c))
+  * In Form, loop over fields more efficiently to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([f4dbb3eb](https://github.com/pivotal-cf/pivotal-ui/commit/f4dbb3eb))
+  * Use for-in to loop over form fields in Form render method to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([9ae1f209](https://github.com/pivotal-cf/pivotal-ui/commit/9ae1f209))
 <a name="17.0.4"></a>
 ## 17.0.4 (2018-11-09)
 
