@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import deepEqual from 'deep-equal';
+import cloneDeep from 'lodash.clonedeep';
 import {FormUnit} from './form-unit';
 import {find} from '../helpers';
 import {Input} from '../inputs';
 import crypto from 'crypto';
 
-const deepClone = o => JSON.parse(JSON.stringify(o));
 const isOptional = ({optional}, current) => typeof optional === 'function' ? optional({current}) : optional;
 const isPromise = promise => promise && typeof promise.then === 'function';
 const newId = () => crypto.randomBytes(16).toString('base64');
@@ -54,7 +54,7 @@ export class Form extends React.Component {
     super(props);
     this.state = newFormState(props.fields, {}, ({initialValue}) => {
       initialValue = newInitialValue(initialValue);
-      return {initialValue, currentValue: deepClone(initialValue)};
+      return {initialValue, currentValue: cloneDeep(initialValue)};
     });
   }
 
@@ -71,8 +71,8 @@ export class Form extends React.Component {
         return {
           initialValue: initialValue,
           currentValue: current.hasOwnProperty(name)
-            ? current[name] === this.state.initial[name] ? deepClone(initialValue) : current[name]
-            : deepClone(initialValue)
+            ? current[name] === this.state.initial[name] ? cloneDeep(initialValue) : current[name]
+            : cloneDeep(initialValue)
         };
       });
     nextState.initial = isStateChange ? initial : newInitial;
@@ -122,7 +122,7 @@ export class Form extends React.Component {
   reset = () => {
     const {initial} = this.state;
     if (this.props.onModified) this.props.onModified(false);
-    this.setState({current: deepClone(initial), errors: {}});
+    this.setState({current: cloneDeep(initial), errors: {}});
   };
 
   canSubmit = ({checkRequiredFields} = {}) => {
@@ -162,8 +162,8 @@ export class Form extends React.Component {
     const onSuccess = response => {
       this.setState({
         ...nextState,
-        current: resetOnSubmit ? deepClone(initial) : current,
-        initial: resetOnSubmit ? initial : deepClone(current),
+        current: resetOnSubmit ? cloneDeep(initial) : current,
+        initial: resetOnSubmit ? initial : cloneDeep(current),
         errors: {}
       });
       const after = () => afterSubmit({state: this.state, response, reset: this.reset});
