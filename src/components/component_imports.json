@@ -246,6 +246,13 @@
   "select": {
     "cssPath": "pivotal-ui/css/select"
   },
+  "siteframe": {
+    "cssPath": "pivotal-ui/css/siteframe",
+    "reactComponents": [
+      "Siteframe"
+    ],
+    "reactPath": "pivotal-ui/react/siteframe"
+  },
   "svg": {
     "reactComponents": [
       "Svg"
