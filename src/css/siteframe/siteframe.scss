@@ -1,0 +1,145 @@
+@import "../pui-variables";
+
+$header-height: $base-unit * 7;
+
+.pui-siteframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pui-siteframe-header {
+  background: $dark-2;
+  color: $neutral-11;
+  margin: 0;
+
+  & > .col {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+  }
+}
+
+.pui-siteframe-header .account-dropdown {
+  min-width: 96px;
+  text-align: right;
+
+  svg path {
+    fill: #fff !important;
+  }
+
+  .dropdown-menu {
+    color: $neutral-3;
+    z-index: 1500;
+  }
+
+  button.dropdown-toggle {
+    border: none;
+    color: $neutral-11;
+    text-transform: none;
+    font-weight: normal;
+    letter-spacing: normal;
+
+    &:hover, &:focus, &:hover:focus {
+      border: 0;
+      color: white;
+    }
+  }
+}
+
+.pui-siteframe-body {
+  flex: 1;
+  height: 100%;
+  max-height: calc(100vh - #{$header-height});
+
+  & > .col {
+    height: 100%;
+  }
+
+  .pui-siteframe-sidebar {
+    background-color: $navy-2;
+    display: flex;
+    flex-direction: column;
+    width: $base-unit * 22;
+    height: 100%;
+    overflow: auto;
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      text-decoration: none;
+    }
+
+    .pui-sidebar-li-content > a {
+      color: $neutral-6;
+      flex: 1;
+    }
+
+    .pui-sidebar-primary-links {
+      flex: 1;
+
+      a {
+        padding: $base-unit 2*$base-unit;
+      }
+
+      li {
+        display: flex;
+      }
+
+      div.pui-sidebar-li-content {
+        display: flex;
+        flex: 1;
+      }
+
+      .pui-sidebar-li-active {
+        background-color: $dark-3;
+        position: relative;
+
+        &:before {
+          content: '';
+          position: absolute;
+          display: block;
+          height: 100%;
+          width: $base-unit/2;
+          background-color: $brand-5;
+        }
+
+        a {
+          color: $neutral-11;
+        }
+      }
+    }
+
+    .pui-sidebar-secondary-links {
+      flex: 0 0 auto;
+
+      svg {
+        fill: $neutral-6;
+      }
+
+      .icon {
+        margin-left: $base-unit/2;
+      }
+
+      li {
+        padding: $base-unit/2 0;
+      }
+
+      .pui-sidebar-li-content > a {
+        padding: 0 2*$base-unit;
+      }
+    }
+  }
+}
+
+.pui-siteframe-footer {
+  background: $dark-2;
+  padding: 0 2*$base-unit;
+}
