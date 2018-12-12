@@ -1,0 +1,5 @@
+@import "../mixins";
+
+.pui-no-select {
+  @include no-select;
+}

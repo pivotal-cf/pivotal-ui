@@ -8,20 +8,22 @@ export class Checkbox extends React.Component {
   static propTypes = {
     checked: PropTypes.bool,
     className: PropTypes.string,
-    disabled: PropTypes.bool,
     defaultChecked: PropTypes.bool,
+    disabled: PropTypes.bool,
     id: PropTypes.string,
+    indeterminate: PropTypes.bool,
     labelClassName: PropTypes.string,
     name: PropTypes.string,
+    noSelect: PropTypes.bool,
     onChange: PropTypes.func,
     style: PropTypes.object,
-    type: PropTypes.string,
-    indeterminate: PropTypes.bool
+    type: PropTypes.string
   };
 
   static defaultProps = {
-    type: 'checkbox',
-    indeterminate: false
+    indeterminate: false,
+    noSelect: false,
+    type: 'checkbox'
   };
 
   componentDidMount() {
@@ -37,7 +39,7 @@ export class Checkbox extends React.Component {
   }
 
   render() {
-    const {indeterminate, className, disabled, children, labelClassName, style, id = uniqueId('checkbox'), ...others} = this.props;
+    const {noSelect, indeterminate, className, disabled, children, labelClassName, style, id = uniqueId('checkbox'), ...others} = this.props;
 
     return (
       <div {...{className: classnames('pui-checkbox', className), style}}>
@@ -50,7 +52,7 @@ export class Checkbox extends React.Component {
           ref: el => this.el = el,
           'aria-disabled': disabled
         }}/>
-        <label {...{className: classnames('pui-checkbox-label', labelClassName), htmlFor: id}}>
+        <label {...{className: classnames('pui-checkbox-label', labelClassName, {'pui-no-select': noSelect}), htmlFor: id}}>
           <span className="pui-checkbox-control">
             <Icon src={indeterminate ? 'remove' : 'check'}/>
           </span>

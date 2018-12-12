@@ -94,4 +94,14 @@ describe('Radio', () => {
 
     expect('div.pui-radio > .label-radio-class').toExist();
   });
+
+  describe('noSelect', () => {
+    beforeEach(() => {
+      ReactDOM.render(<Radio {...{value: 'bananas', noSelect: true}}>One!!!</Radio>, root);
+    });
+
+    it('puts the pui-no-select class on the inner label', () => {
+      expect('.pui-radio-label').toHaveClass('pui-no-select');
+    });
+  });
 });
