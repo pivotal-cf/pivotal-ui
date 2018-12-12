@@ -7,14 +7,19 @@ export class Radio extends React.Component {
   static propTypes = {
     checked: PropTypes.bool,
     className: PropTypes.string,
-    disabled: PropTypes.bool,
     defaultChecked: PropTypes.bool,
+    disabled: PropTypes.bool,
     id: PropTypes.string,
     labelClassName: PropTypes.string,
     name: PropTypes.string,
+    noSelect: PropTypes.bool,
     onChange: PropTypes.func,
     style: PropTypes.object,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired
+  };
+
+  static defaultProps = {
+    noSelect: false
   };
 
   componentDidMount() {
@@ -23,7 +28,7 @@ export class Radio extends React.Component {
   }
 
   render() {
-    const {className, disabled, children, labelClassName, style, id = uniqueId('radio'), ...others} = this.props;
+    const {className, disabled, children, labelClassName, noSelect, style, id = uniqueId('radio'), ...others} = this.props;
 
     return (
       <div {...{className: classnames('pui-radio', className), style}}>
@@ -35,7 +40,7 @@ export class Radio extends React.Component {
           disabled,
           'aria-disabled': disabled
         }}/>
-        <label {...{className: classnames('pui-radio-label', labelClassName), htmlFor: id}}>
+        <label {...{className: classnames('pui-radio-label', labelClassName, {'pui-no-select': noSelect}), htmlFor: id}}>
           <span className="pui-radio-circle"/>
           {children}
         </label>

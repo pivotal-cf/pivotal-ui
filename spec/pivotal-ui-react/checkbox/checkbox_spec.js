@@ -128,4 +128,14 @@ describe('Checkbox', () => {
       });
     });
   });
+
+  describe('noSelect', () => {
+    beforeEach(() => {
+      subject::setProps({noSelect: true});
+    });
+
+    it('adds the pui-no-select modifier class to the label', () => {
+      expect('.pui-checkbox-label').toHaveClass('pui-no-select');
+    });
+  });
 });
