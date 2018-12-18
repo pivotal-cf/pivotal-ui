@@ -5,9 +5,9 @@ import {Grid, FlexCol} from '../flex-grids';
 export class Header extends React.PureComponent {
   static propTypes = {
     cols: PropTypes.array,
-    companyName: PropTypes.string.isRequired,
+    companyName: PropTypes.node.isRequired,
     logo: PropTypes.node,
-    productName: PropTypes.string
+    productName: PropTypes.node
   };
 
   static defaultProps = {
