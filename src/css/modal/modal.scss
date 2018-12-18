@@ -20,12 +20,12 @@
   &.pui-modal-sm {
     width: $modal-sm;
   }
-}
 
-.pui-modal-close-btn {
-  position: absolute;
-  right: $base-unit * 2;
-  top: $base-unit * 2;
+  .pui-modal-close-btn {
+    position: absolute;
+    right: $base-unit * 2;
+    top: $base-unit * 2;
+  }
 }
 
 .pui-modal-header {
