@@ -1,3 +1,7 @@
+<a name="17.1.2"></a>
+## 17.1.2 (2018-12-18)
+#### CSS
+* **siteframe**: anchors within the Siteframe header should inherit color [[:beetle:#162746306](https://www.pivotaltracker.com/story/show/162746306)] ([a01c84a9](https://github.com/pivotal-cf/pivotal-ui/commit/a01c84a9))
 <a name="17.1.1"></a>
 ## 17.1.1 (2018-12-18)
 #### CSS
