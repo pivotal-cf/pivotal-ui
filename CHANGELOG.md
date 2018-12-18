@@ -1,3 +1,13 @@
+<a name="17.1.1"></a>
+## 17.1.1 (2018-12-18)
+#### CSS
+* **iconography**: Do not hardcode fill value in print and highlight icons [[:beetle:#162360007](https://www.pivotaltracker.com/story/show/162360007)] ([057f38b1](https://github.com/pivotal-cf/pivotal-ui/commit/057f38b1))
+* **modal**: Fix modal exit button positioning [[:beetle:#161400408](https://www.pivotaltracker.com/story/show/161400408)] ([e69275fd](https://github.com/pivotal-cf/pivotal-ui/commit/e69275fd))
+* **selection**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([0e4ea1de](https://github.com/pivotal-cf/pivotal-ui/commit/0e4ea1de))
+#### React
+* **checkbox**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([0e4ea1de](https://github.com/pivotal-cf/pivotal-ui/commit/0e4ea1de))
+* **radio**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([0e4ea1de](https://github.com/pivotal-cf/pivotal-ui/commit/0e4ea1de))
+* **siteframe**: Allow companyName and productName props in Siteframe to be a node [[:beetle:#162669087](https://www.pivotaltracker.com/story/show/162669087)] ([6ee29b48](https://github.com/pivotal-cf/pivotal-ui/commit/6ee29b48))
 <a name="17.1.0"></a>
 # 17.1.0 (2018-12-11)
 #### CSS
