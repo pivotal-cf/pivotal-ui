@@ -1,4 +1,4 @@
-import {Jasmine} from 'pui-react-tools';
+import Jasmine from './jasmine';
 import testWebpack from './config/webpack/test';
 import gulp from 'gulp';
 
