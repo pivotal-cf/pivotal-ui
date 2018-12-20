@@ -1,5 +1,6 @@
 #!/usr/bin/env bash -e
 
+yarn
 echo "git pulling with rebase"
 git pull -r
 yarn lint
