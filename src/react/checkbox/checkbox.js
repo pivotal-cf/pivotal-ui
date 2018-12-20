@@ -22,7 +22,6 @@ export class Checkbox extends React.Component {
 
   static defaultProps = {
     indeterminate: false,
-    noSelect: false,
     type: 'checkbox'
   };
 

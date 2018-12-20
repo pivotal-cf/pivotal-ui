@@ -18,10 +18,6 @@ export class Radio extends React.Component {
     value: PropTypes.string.isRequired
   };
 
-  static defaultProps = {
-    noSelect: false
-  };
-
   componentDidMount() {
     require('../../css/forms');
     require('../../css/radio');
