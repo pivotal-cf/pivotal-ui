@@ -3,6 +3,9 @@
 
   .search-input {
     border: none;
+    background: $neutral-11 !important;
+    color: initial !important;
+    font-size: initial !important;
 
     &:focus {
       border: none;
