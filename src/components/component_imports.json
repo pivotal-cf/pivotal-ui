@@ -246,6 +246,9 @@
   "select": {
     "cssPath": "pivotal-ui/css/select"
   },
+  "selection": {
+    "cssPath": "pivotal-ui/css/selection"
+  },
   "siteframe": {
     "cssPath": "pivotal-ui/css/siteframe",
     "reactComponents": [
