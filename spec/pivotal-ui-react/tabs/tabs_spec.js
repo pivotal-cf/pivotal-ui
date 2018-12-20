@@ -170,6 +170,7 @@ describe('Tabs', () => {
 
         const clickable = findAllByTag(subject, 'a')[0];
         expect(clickable).toHaveText('Tab1');
+        expect(clickable).toHaveAttr('href', '#');
         clickOn(clickable);
         jasmine.clock().tick(1);
 
@@ -359,11 +360,13 @@ describe('Tabs', () => {
         expect(activeTabLink.parentNode).toHaveClass('active');
         expect(activeTabLink).toHaveAttr('aria-controls', tabPane.id);
         expect(activeTabLink).toHaveAttr('aria-selected', 'true');
+        expect(activeTabLink).toHaveAttr('href', '#');
 
         const nonActiveTabLink = links[1];
         expect(nonActiveTabLink.parentNode).not.toHaveClass('active');
         expect(nonActiveTabLink).not.toHaveAttr('aria-controls', tabPane.id);
         expect(nonActiveTabLink).toHaveAttr('aria-selected', 'false');
+        expect(nonActiveTabLink).toHaveAttr('href', '#');
       });
 
       it('sets tabIndex on each link', () => {

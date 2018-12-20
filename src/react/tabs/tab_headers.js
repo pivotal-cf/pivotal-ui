@@ -27,7 +27,7 @@ export default class TabHeaders extends React.Component {
       return (
         <li key={key} role="presentation" className={classnames({active: isActive, disabled})} aria-expanded={isActive}>
           <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab" className={tabClassName} tabIndex="0"
-             onClick={onClick}>{title}</a>
+             onClick={onClick} href="#">{title}</a>
         </li>
       );
     });
