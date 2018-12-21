@@ -41,5 +41,11 @@ export default {
     };
 
     return getTextNodes(mdAst.children).join(' ');
+  },
+
+  getMetadata: mdAst => {
+    const yamlNode = (mdAst.children || []).find(node => node.type === 'yaml');
+    if (!yamlNode) return {};
+    return yamlNode.data.parsedValue;
   }
 };

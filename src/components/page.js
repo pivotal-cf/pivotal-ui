@@ -10,7 +10,6 @@ import 'prismjs/themes/prism.css';
 import 'prismjs/components/prism-bash.min.js';
 import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-ruby.min.js';
-import ImportInfo from './component_imports.json';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import {Divider} from 'pivotal-ui/react/dividers';
 
@@ -30,7 +29,7 @@ export default class Page extends PureComponent {
   render() {
     const {match, routes} = this.props;
     const {path} = match;
-    const {pageContent, file, tabHeaderIndex} = routes[path];
+    const {pageContent, file, tabHeaderIndex, metadata} = routes[path];
     const componentMatch = path.match(/(components|modifiers)\/(\w+)\/*/);
 
     const title = MarkdownFileHelper.getParentTitle(file);
@@ -72,9 +71,7 @@ export default class Page extends PureComponent {
             {componentMatch && tabHeaderIndex <= 1 && (
               <div>
                 <Divider className="mbxxl"/>
-                <ImportPreview {...{
-                  ...ImportInfo[componentMatch[2]]
-                }}/>
+                <ImportPreview {...metadata}/>
               </div>
             )}
           </div>

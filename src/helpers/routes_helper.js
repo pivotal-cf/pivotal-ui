@@ -8,7 +8,13 @@ export const getRoutes = ({requireFunc, processor}) => requireFunc.keys().reduce
   const parentTitle = MarkdownFileHelper.getParentTitle(file);
   const category = MarkdownFileHelper.getCategory(file);
   const text = MarkdownFileHelper.getText(json);
+  const metadata = MarkdownFileHelper.getMetadata(json);
   const pageContent = MarkdownFileHelper.process({processor, json});
 
-  return {...memo, [route]: {file, route, pageContent, tabHeaderIndex, pageTitle, parentTitle, category, text}};
+  return {
+    ...memo,
+    [route]: {
+      file, route, pageContent, tabHeaderIndex, pageTitle, parentTitle, category, text, metadata
+    }
+  };
 }, {});

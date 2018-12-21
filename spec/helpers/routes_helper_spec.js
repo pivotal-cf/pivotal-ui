@@ -17,6 +17,7 @@ describe('RoutesHelper', () => {
       jest.spyOn(MarkdownFileHelper, 'getCategory');
       jest.spyOn(MarkdownFileHelper, 'getText').mockImplementation(() => 'All page text');
       jest.spyOn(MarkdownFileHelper, 'process').mockImplementation(({json}) => ({processed: json}));
+      jest.spyOn(MarkdownFileHelper, 'getMetadata').mockImplementation(() => ({meta: 'data'}));
       requireFunc = jest.fn(file => file === './parent1/file1.md' ? json1 : json2);
       requireFunc.keys = jest.fn().mockReturnValue(['./parent1/file1.md', './components/parent2/file2.md']);
       result = RoutesHelper.getRoutes({requireFunc, processor});
@@ -52,6 +53,11 @@ describe('RoutesHelper', () => {
       expect(MarkdownFileHelper.getCategory).toHaveBeenCalledWith('./components/parent2/file2.md');
     });
 
+    it('gets the metadata for each file', () => {
+      expect(MarkdownFileHelper.getMetadata).toHaveBeenCalledWith(json1);
+      expect(MarkdownFileHelper.getMetadata).toHaveBeenCalledWith(json2);
+    });
+
     it('processes each file', () => {
       expect(MarkdownFileHelper.process).toHaveBeenCalledWith({json: json1, processor});
       expect(MarkdownFileHelper.process).toHaveBeenCalledWith({json: json2, processor});
@@ -61,6 +67,7 @@ describe('RoutesHelper', () => {
       expect(result).toEqual({
         '/parent1/file1': {
           file: './parent1/file1.md',
+          metadata: {meta: 'data'},
           route: '/parent1/file1',
           pageContent: {processed: json1},
           tabHeaderIndex: 1,
@@ -71,6 +78,7 @@ describe('RoutesHelper', () => {
         },
         '/components/parent2/file2': {
           file: './components/parent2/file2.md',
+          metadata: {meta: 'data'},
           route: '/components/parent2/file2',
           pageContent: {processed: json2},
           tabHeaderIndex: 2,
