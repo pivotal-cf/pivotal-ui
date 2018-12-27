@@ -112,10 +112,12 @@
   }
 }
 
-.pui-btn.disabled, .pui-btn[disabled], .btn.disabled, .btn[disabled] {
-  opacity: .5;
-  cursor: default;
-  pointer-events: none;
+.pui-btn, .btn {
+  &.disabled, &[disabled], fieldset[disabled] & {
+    opacity: .5;
+    cursor: default;
+    pointer-events: none;
+  }
 }
 
 //Default Button
