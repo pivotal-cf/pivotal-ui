@@ -23,10 +23,6 @@ $header-height: $base-unit * 7;
     flex-direction: column;
     display: flex;
   }
-
-  a, a:hover {
-    color: inherit;
-  }
 }
 
 .pui-siteframe-header .account-dropdown {
@@ -53,6 +49,12 @@ $header-height: $base-unit * 7;
       border: 0;
       color: white;
     }
+  }
+}
+
+.pui-siteframe-header-title {
+  a, a:hover {
+    color: inherit;
   }
 }
 

@@ -24,7 +24,7 @@ export class Header extends React.PureComponent {
           logo && <FlexCol fixed>
             {logo}
           </FlexCol>,
-          <FlexCol fixed>
+          <FlexCol fixed className="pui-siteframe-header-title">
             <h4>{companyName} {productName && <span className="em-high">{productName}</span>}</h4>
           </FlexCol>,
           ...cols
