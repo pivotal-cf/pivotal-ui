@@ -10,16 +10,16 @@ describe('Header', () => {
 
     it('renders a grid with one column', () => {
       expect('.pui-siteframe-header').toHaveClass('grid');
-      expect('.pui-siteframe-header > .col').toHaveLength(1);
+      expect('.pui-siteframe-header > .col.pui-siteframe-header-title').toHaveLength(1);
     });
 
     it('renders a fixed column with the company name', () => {
-      expect('.pui-siteframe-header .col:eq(0)').toHaveClass('col-fixed');
-      expect('.pui-siteframe-header .col:eq(0) h4').toContainText('Pivotal');
+      expect('.pui-siteframe-header .col.pui-siteframe-header-title').toHaveClass('col-fixed');
+      expect('.pui-siteframe-header .col.pui-siteframe-header-title h4').toContainText('Pivotal');
     });
 
     it('does not render a span containing the product name', () => {
-      expect('.pui-siteframe-header .col:eq(0) h4 span').not.toExist();
+      expect('.pui-siteframe-header .col.pui-siteframe-header-title h4 span').not.toExist();
     });
   });
 
@@ -30,16 +30,16 @@ describe('Header', () => {
 
     it('renders a grid with one column', () => {
       expect('.pui-siteframe-header').toHaveClass('grid');
-      expect('.pui-siteframe-header > .col').toHaveLength(1);
+      expect('.pui-siteframe-header > .col.pui-siteframe-header-title').toHaveLength(1);
     });
 
     it('renders a fixed column with the company name', () => {
-      expect('.pui-siteframe-header .col:eq(0)').toHaveClass('col-fixed');
-      expect('.pui-siteframe-header .col:eq(0) h4 a').toContainText('Pivotal');
+      expect('.pui-siteframe-header .col.pui-siteframe-header-title').toHaveClass('col-fixed');
+      expect('.pui-siteframe-header .col.pui-siteframe-header-title h4 a').toContainText('Pivotal');
     });
 
     it('does not render a span containing the product name', () => {
-      expect('.pui-siteframe-header .col:eq(0) h4 span').not.toExist();
+      expect('.pui-siteframe-header .col.pui-siteframe-header-title h4 span').not.toExist();
     });
   });
 
