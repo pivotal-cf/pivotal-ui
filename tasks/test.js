@@ -10,7 +10,6 @@ gulp.task('lint', function() {
     'spec/pivotal-ui-react/**/*.js',
     'spec/task-helpers/**/*.js'
   ], {base: '.'})
-    .pipe(plumber())
     .pipe(eslint({fix}))
     .pipe(eslint.format('stylish'))
     .pipe(gulpIf(file => {
