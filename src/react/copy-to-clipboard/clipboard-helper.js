@@ -13,4 +13,4 @@ const copy = (document, text) => {
   }
 };
 
-export default {copy};
+export {copy};

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {TablePlugin} from '../table-plugin';
 
 export function withRenderThChildren(Table) {

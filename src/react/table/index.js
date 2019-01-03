@@ -8,7 +8,6 @@ import {withCellOnClick} from './plugins/cell-on-click';
 import {withCellRenderer} from './plugins/cell-renderer';
 import {withCellTooltip} from './plugins/cell-tooltip';
 import {withCellWidth} from './plugins/cell-width';
-import {withFlex} from './plugins/flex';
 import {withFooterRow} from './plugins/footer-row';
 import {withRenderTdChildren} from './plugins/render-td-children';
 import {withRenderThChildren} from './plugins/render-th-children';
@@ -28,7 +27,6 @@ export {withCellOnClick} from './plugins/cell-on-click';
 export {withCellRenderer} from './plugins/cell-renderer';
 export {withCellTooltip} from './plugins/cell-tooltip';
 export {withCellWidth} from './plugins/cell-width';
-export {withFlex} from './plugins/flex';
 export {withFooterRow} from './plugins/footer-row';
 export {withRenderTdChildren} from './plugins/render-td-children';
 export {withRenderThChildren} from './plugins/render-th-children';
@@ -39,10 +37,7 @@ export {withScrollableTbody} from './plugins/scrollable-tbody';
 export {withSorting} from './plugins/sorting';
 
 export const SortableTable = withSorting(Table);
-export const FlexTable = withFlex(Table);
-export const SortableFlexTable = withFlex(SortableTable);
 export const AdvancedTable = flow(
-  withFlex,
   withCellLink,
   withCellClassName,
   withCellEllipsis,

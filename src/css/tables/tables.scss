@@ -1,2 +1,241 @@
-@import "html_tables";
-@import "css_tables";
+@import "../pui-variables";
+
+.table {
+  background-color: $table-bg;
+  font-size: $table-font-size;
+  margin-bottom: $base-unit * 2;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  .grid {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  tr {
+    border-top: solid 1px $table-border-color;
+    border-left: solid 1px $table-border-color;
+    border-right: solid 1px $table-border-color;
+
+    &.tr-hover:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+
+  tbody, tfoot {
+    tr:last-child {
+      border-bottom: solid 1px $table-border-color;
+    }
+  }
+
+  tbody .tr-drawer:last-child {
+    border-bottom: solid 1px $table-border-color;
+  }
+
+  th {
+    font-weight: $table-header-font-weight;
+    border-bottom: solid 1px $table-border-color;
+  }
+
+  td, th {
+    border-right: solid 1px $table-border-color;
+    padding: $base-unit ($base-unit * 2);
+    flex-direction: column;
+    justify-content: center;
+    text-align: inherit;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+
+  &.tr-hover {
+    tr:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+
+  &.td-hover {
+    tr:hover {
+      background-color: $table-bg;
+    }
+
+    tr td:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+
+  tr.tr-no-h-borders {
+    td, th {
+      border-right: none;
+    }
+  }
+
+  &.tr-no-h-borders {
+    td, th {
+      border-right: none;
+    }
+  }
+
+  &.table-no-ext-borders {
+    th {
+      border-bottom: solid 2px $table-border-color;
+    }
+
+    tr, tbody .tr-drawer {
+      border-left: none;
+      border-right: none;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    tbody .tr-drawer {
+      tr {
+        border-top: solid 1px $table-border-color;
+      }
+    }
+
+    thead .tr-drawer {
+      border-top: none;
+      border-bottom: none;
+
+      tr {
+        border: none;
+      }
+    }
+  }
+
+  &.table-no-borders {
+    tr,
+    tr td,
+    tr th {
+      border: none;
+    }
+
+    tbody, tfoot {
+      tr:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .scrollable-body {
+    overflow-y: auto;
+  }
+
+  &:not(.table-no-borders):not(.table-no-ext-borders) {
+    .scrollable-body {
+      border-bottom: solid 1px $table-border-color;
+
+      tr:last-child {
+        border-bottom: none;
+
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+.table-scrollable {
+  max-height: 164px;
+  overflow-y: scroll;
+  margin-bottom: $base-unit * 2;
+  border-bottom: solid 1px $table-border-color;
+
+  .table {
+    margin-bottom: 0;
+
+    tr:first-child {
+      border-top: none;
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.table-td-pal {
+  td, th {
+    padding: $base-unit;
+  }
+}
+
+.table-td-paxl {
+  td, th {
+    padding: $base-unit * 2;
+  }
+}
+
+.table-td-pal {
+  tr td, tr th {
+    padding: $base-unit;
+  }
+}
+
+.table-td-paxl {
+  tr td, tr th {
+    padding: $base-unit * 2;
+  }
+}
+
+tr.expandable {
+  padding-left: $whitespace-xl;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.expanded {
+    border-left: 3px solid $accent-2;
+    padding-left: 14px;
+  }
+
+  .icon.expand-icon {
+    height: 20px;
+    width: 20px;
+
+    svg {
+      fill: $dark-5;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+.table-drawer {
+  background: $dark-11;
+  border: 1px solid $dark-9;
+  border-bottom: 0;
+  padding: $whitespace-xl;
+
+  .table-drawer-content {
+    background: white;
+    overflow-x: auto;
+    padding: $whitespace-xl 0;
+    white-space: nowrap;
+
+    .table-drawer-container {
+      width: 0;
+      min-width: 100%;
+    }
+  }
+}
+
+.tr-selected {
+  background-color: $dark-11;
+}

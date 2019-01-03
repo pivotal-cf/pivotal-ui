@@ -12,4 +12,4 @@ const matches = screenSizeString => {
   return window.matchMedia(`(min-width: ${minWidth}px)`).matches;
 };
 
-export default {matches};
+export {matches};

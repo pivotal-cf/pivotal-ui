@@ -1,7 +1,5 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {TablePlugin} from '../table-plugin';
 
 export function withFooterRow(Table) {
@@ -10,9 +8,11 @@ export function withFooterRow(Table) {
 
     render() {
       const {footerRow, ...props} = this.props;
-      const children = [...props.children, footerRow]
+
+      const children = [...(props.children || []), footerRow]
         .filter(el => el)
         .map((el, key) => React.cloneElement(el, {key}));
+
       return this.renderTable(Table, {
         tfoot: props => ({children})
       }, props);
