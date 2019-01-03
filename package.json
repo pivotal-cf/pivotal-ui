@@ -78,7 +78,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^pivotal-ui/react/(.*)": "<rootDir>/../pivotal-ui/src/react/$1"
+      "^pivotal-ui/(.*)": "<rootDir>/../pivotal-ui/src/$1",
+      "\\.(css|scss)$": "<rootDir>/spec/support/style_mock.js"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/spec/spec_helper.js",
     "testRegex": ".*_spec\\.js$"
