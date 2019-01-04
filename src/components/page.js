@@ -12,6 +12,7 @@ import 'prismjs/components/prism-jsx.min.js';
 import 'prismjs/components/prism-ruby.min.js';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import {Divider} from 'pivotal-ui/react/dividers';
+import {WarningAlert} from 'pivotal-ui/react/alerts';
 
 const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${file}`;
 const issueUrl = `${Config.get('puiRepository')}/issues/new`;
@@ -40,6 +41,16 @@ export default class Page extends PureComponent {
       </li>
     ));
 
+    let alert, deprecationMessage;
+    deprecationMessage = metadata.deprecationMessage;
+    if (deprecationMessage) {
+      if (deprecationMessage !== true) {
+        alert = <WarningAlert withIcon>{deprecationMessage}</WarningAlert>;
+      } else {
+        alert = <WarningAlert withIcon>This component has been deprecated and will be removed in the next major version of Pivotal UI. Reach out to the Pivotal UI team if you have any questions.</WarningAlert>;
+      }
+    }
+
     return (
       <div className="styleguide-page">
         <header
@@ -65,6 +76,7 @@ export default class Page extends PureComponent {
             {tabLinks}
           </ul>
         </nav>}
+        {alert}
         <main className="styleguide-page-main">
           <div className="styleguide-tab-content paxxxl">
             {pageContent}
