@@ -86,11 +86,17 @@ export class Form extends React.Component {
   }
 
   onChangeCheckbox = (name, cb) => val => {
+    const {initial, current} = this.state;
+    const value = !this.state.current[name];
+    const nextState = {current: {...current, [name]: value}};
+
     if (typeof val.persist === 'function') val.persist();
 
-    const nextValue = {[name]: !this.state.current[name]};
+    const nextValue = {[name]: value};
     if (cb) this.setValues(nextValue, () => cb(val));
     else this.setValues(nextValue);
+
+    if (this.props.onModified) this.props.onModified(!deepEqual(initial, nextState.current));
   };
 
   onChange = (name, validator, cb) => val => {
