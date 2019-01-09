@@ -131,13 +131,11 @@ export class Form extends React.Component {
     this.setState({current: cloneDeep(initial), errors: {}});
   };
 
-  canSubmit = ({checkRequiredFields} = {}) => {
+  canSubmit = ({checkRequiredFields = () => true} = {}) => {
     const {fields} = this.props;
     const {initial, current, submitting} = this.state;
 
     const isDiffFromInitial = find(Object.keys(initial), key => !deepEqual(initial[key], current[key]));
-    const requiredFields = Object.keys(fields).filter(name => fields[name] && !isOptional(fields[name], current));
-    const requiredFieldsHaveValue = requiredFields.every(name => current[name] || current[name] === 0);
 
     let passesValidators = true;
     for (const name in fields) {
@@ -150,20 +148,26 @@ export class Form extends React.Component {
       }
     }
 
-    return !submitting
-      && isDiffFromInitial
-      && (checkRequiredFields
-        ? checkRequiredFields(current)
-        : requiredFieldsHaveValue)
-      && passesValidators;
+    return !submitting && isDiffFromInitial && checkRequiredFields(current) && passesValidators;
   };
 
   onSubmit = e => {
     e && e.preventDefault();
-    const {onSubmit, onSubmitError, afterSubmit, onModified, resetOnSubmit} = this.props;
+    const {fields, onSubmit, onSubmitError = noop, afterSubmit, onModified, resetOnSubmit} = this.props;
     const {initial, current} = this.state;
     this.setState({submitting: true});
     const nextState = {submitting: false};
+
+    const requiredFields = Object.keys(fields).filter(name => fields[name] && !isOptional(fields[name], current));
+    const missingFields = requiredFields.filter(name => !current[name] && current[name] !== 0);
+
+    if (missingFields.length) {
+      const errors = missingFields.reduce((memo, name) => ({...memo, [name]: 'Please enter a value.'}), {});
+      this.setState({...nextState, errors});
+      const e = new Error('Please enter values for all required fields.');
+      onSubmitError(e);
+      throw e;
+    }
 
     const onSuccess = response => {
       this.setState({
