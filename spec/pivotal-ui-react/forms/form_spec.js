@@ -8,10 +8,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 describe('Form', () => {
-  let Buttons, subject, afterSubmit;
+  let Buttons, subject, afterSubmit, onSubmitError;
 
   beforeEach(() => {
     afterSubmit = jasmine.createSpy('afterSubmit');
+    onSubmitError = jasmine.createSpy('onSubmitError');
     Buttons = jasmine.createSpy('Buttons');
     Buttons.and.callFake(({canSubmit, canReset, reset}) => (
       <div>
@@ -27,7 +28,7 @@ describe('Form', () => {
     beforeEach(() => {
       fields = {name: {initialValue: 'some-name'}};
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields}}>
+        <Form {...{className: 'some-form', onSubmitError, afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
             <Grid>
               <FlexCol>{name}</FlexCol>
@@ -94,7 +95,7 @@ describe('Form', () => {
 
       it('renders buttons ', () => {
         expect('fieldset > .grid:eq(0) > .col:eq(1)').toHaveClass('col-fixed');
-        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').toBeDisabled();
+        expect('fieldset > .grid:eq(0) > .col:eq(1) .save').not.toBeDisabled();
         expect('fieldset > .grid:eq(0) > .col:eq(1) .cancel').not.toBeDisabled();
       });
 
@@ -105,6 +106,32 @@ describe('Form', () => {
 
         it('resets the name', () => {
           expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
+        });
+      });
+
+      describe('when submitting the form', () => {
+        let caught;
+
+        beforeEach(() => {
+          try {
+            $('.form').simulate('submit');
+          } catch (e) {
+            caught = e;
+          }
+        });
+
+        it('sets errors in the form state', () => {
+          expect(subject.state.errors).toEqual({name: 'Please enter a value.'});
+        });
+
+        it('calls the onSubmitError callback', () => {
+          expect(onSubmitError).toHaveBeenCalledWith(jasmine.objectContaining({
+            message: 'Please enter values for all required fields.'
+          }));
+        });
+
+        it('throws the error', () => {
+          expect(caught).toEqual(jasmine.objectContaining({message: 'Please enter values for all required fields.'}));
         });
       });
     });
@@ -135,13 +162,13 @@ describe('Form', () => {
       });
 
       describe('when clicking the update button', () => {
-        let error, errors, onSubmitError, onSubmit, resolve, reject;
+        let error, errors, onSubmit, resolve, reject;
 
         beforeEach(() => {
           Promise.onPossiblyUnhandledRejection(jasmine.createSpy('reject'));
           error = new Error('invalid');
           errors = {name: 'invalid'};
-          onSubmitError = jasmine.createSpy('onSubmitError').and.returnValue(errors);
+          onSubmitError.and.returnValue(errors);
           onSubmit = jasmine.createSpy('onSubmit');
           onSubmit.and.callFake(() => new Promise((res, rej) => {
             resolve = res;
@@ -509,7 +536,7 @@ describe('Form', () => {
   describe('with two required fields', () => {
     beforeEach(() => {
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {}}}}>
+        <Form {...{className: 'some-form', afterSubmit, onSubmitError, fields: {name: {}, password: {}}}}>
           {({fields: {name, password}, ...rest}) => (
             <Grid>
               <FlexCol>{name}</FlexCol>
@@ -545,8 +572,34 @@ describe('Form', () => {
 
       it('renders buttons ', () => {
         expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
         expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+      });
+
+      describe('when submitting the form', () => {
+        let caught;
+
+        beforeEach(() => {
+          try {
+            $('.form').simulate('submit');
+          } catch (e) {
+            caught = e;
+          }
+        });
+
+        it('sets errors in the form state', () => {
+          expect(subject.state.errors).toEqual({password: 'Please enter a value.'});
+        });
+
+        it('calls the onSubmitError callback', () => {
+          expect(onSubmitError).toHaveBeenCalledWith(jasmine.objectContaining({
+            message: 'Please enter values for all required fields.'
+          }));
+        });
+
+        it('throws the error', () => {
+          expect(caught).toEqual(jasmine.objectContaining({message: 'Please enter values for all required fields.'}));
+        });
       });
 
       describe('when setting the password', () => {
@@ -601,7 +654,7 @@ describe('Form', () => {
     beforeEach(() => {
       optional = jasmine.createSpy('optional');
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {optional}}}}>
+        <Form {...{className: 'some-form', afterSubmit, onSubmitError, fields: {name: {}, password: {optional}}}}>
           {({fields: {name, password}, ...rest}) => (
             <Grid>
               <FlexCol>{name}</FlexCol>
@@ -637,8 +690,34 @@ describe('Form', () => {
 
       it('renders buttons ', () => {
         expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
         expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+      });
+
+      describe('when submitting the form', () => {
+        let caught;
+
+        beforeEach(() => {
+          try {
+            $('.form').simulate('submit');
+          } catch (e) {
+            caught = e;
+          }
+        });
+
+        it('sets errors in the form state', () => {
+          expect(subject.state.errors).toEqual({password: 'Please enter a value.'});
+        });
+
+        it('calls the onSubmitError callback', () => {
+          expect(onSubmitError).toHaveBeenCalledWith(jasmine.objectContaining({
+            message: 'Please enter values for all required fields.'
+          }));
+        });
+
+        it('throws the error', () => {
+          expect(caught).toEqual(jasmine.objectContaining({message: 'Please enter values for all required fields.'}));
+        });
       });
     });
   });
@@ -702,6 +781,7 @@ describe('Form', () => {
         <Form {...{
           className: 'some-form',
           afterSubmit,
+          onSubmitError,
           fields: {name: {initialValue: 'some-name'}, password: {initialValue: 'some-password', optional: true}}
         }}>
           {({fields: {name, password}, ...rest}) => (
@@ -762,8 +842,34 @@ describe('Form', () => {
       });
 
       it('renders buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
+        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
         expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+      });
+
+      describe('when submitting the form', () => {
+        let caught;
+
+        beforeEach(() => {
+          try {
+            $('.form').simulate('submit');
+          } catch (e) {
+            caught = e;
+          }
+        });
+
+        it('sets errors in the form state', () => {
+          expect(subject.state.errors).toEqual({name: 'Please enter a value.'});
+        });
+
+        it('calls the onSubmitError callback', () => {
+          expect(onSubmitError).toHaveBeenCalledWith(jasmine.objectContaining({
+            message: 'Please enter values for all required fields.'
+          }));
+        });
+
+        it('throws the error', () => {
+          expect(caught).toEqual(jasmine.objectContaining({message: 'Please enter values for all required fields.'}));
+        });
       });
     });
   });
