@@ -3,7 +3,7 @@ import Animation from '../mixins/mixins/animation_mixin';
 import {LargeTabs} from './large_tabs';
 import {default as mixin} from '../mixins';
 import PropTypes from 'prop-types';
-import {matches} from './media-size';
+import MediaSize from './media-size';
 import {SmallTabs} from './small_tabs';
 import uniqueid from 'lodash.uniqueid';
 
@@ -89,7 +89,7 @@ export class Tabs extends mixin(React.Component).with(Animation) {
   };
 
   checkScreenSize = () => {
-    if (matches(this.props.responsiveBreakpoint)) {
+    if (MediaSize.matches(this.props.responsiveBreakpoint)) {
       this.setState({smallScreen: false});
     } else {
       this.setState({smallScreen: true});
@@ -151,7 +151,7 @@ export class Tabs extends mixin(React.Component).with(Animation) {
       ...props
     } = this.props;
     const {activeKey, previousActiveKey} = this.state;
-    
+
     return <LargeTabs {...{...props, childArray, activeKey, previousActiveKey, id, handleClick: this.handleClick, transitionProgress}}/>;
   }
 }
