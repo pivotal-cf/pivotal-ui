@@ -10,6 +10,7 @@ const publicUrl = '';
 const env = getClientEnvironment(publicUrl);
 
 module.exports = {
+  mode: 'development',
   devtool: 'cheap-module-source-map',
   entry: [
     require.resolve('react-dev-utils/webpackHotDevClient'),
@@ -37,9 +38,6 @@ module.exports = {
     strictExportPresence: true,
     rules: [
       {
-        // "oneOf" will traverse all following loaders until one will
-        // match the requirements. When no loader matches it will fall
-        // back to the "file" loader at the end of the loader list.
         oneOf: [
           {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -54,7 +52,14 @@ module.exports = {
             include: [paths.appIndexJs, paths.appSrc, paths.puiReactSrc, paths.puiJsSrc],
             loader: require.resolve('babel-loader'),
             options: {
-              cacheDirectory: true,
+              presets: [
+                require.resolve("@babel/preset-env"),
+                require.resolve("@babel/preset-react")
+              ],
+              plugins: [
+                require.resolve("@babel/plugin-proposal-class-properties")
+              ],
+              cacheDirectory: true
             }
           },
           {
