@@ -24,8 +24,19 @@ cd sandbox
 yarn
 ```
 
-4. Start up the sandbox dev server.
+4. Create a file called `sandbox.js` in this directory (alongside the sandbox's `index.js`). You can start with something like this:
+
+```js
+import React from 'react';
+import {DefaultButton} from 'pivotal-ui/react/buttons';
+
+export default () => <DefaultButton>Hello!</DefaultButton>;
+```
+
+5. Start up the sandbox dev server.
 
 ```
 yarn start
 ```
+
+You should then be able to edit your `sandbox.js` as needed (importing components from `pivotal-ui/react/...`).
