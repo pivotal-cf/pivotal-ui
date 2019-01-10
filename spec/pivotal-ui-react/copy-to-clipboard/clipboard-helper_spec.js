@@ -1,5 +1,5 @@
 import '../spec_helper' ;
-import {copy} from '../../../src/react/copy-to-clipboard/clipboard-helper';
+import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard-helper';
 
 describe('ClipboardHelper', () => {
   let document, copyText, textarea;
@@ -20,7 +20,7 @@ describe('ClipboardHelper', () => {
       document.createElement.and.returnValue(textarea);
 
       copyText = 'Text to be copied';
-      copy(document, copyText);
+      ClipboardHelper.copy(document, copyText);
     });
 
     it('creates a textarea and appends it to the body', () => {

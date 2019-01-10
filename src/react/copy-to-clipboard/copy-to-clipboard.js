@@ -1,5 +1,5 @@
 import React from 'react';
-import {copy} from './clipboard-helper';
+import ClipboardHelper from './clipboard-helper';
 import {mergeProps} from '../helpers';
 import PropTypes from 'prop-types';
 import {TooltipTrigger} from '../tooltip';
@@ -16,7 +16,7 @@ export class CopyToClipboard extends React.PureComponent {
   }
 
   click = ({onClick, text}, e) => {
-    copy(document, text);
+    ClipboardHelper.copy(document, text);
     if (onClick) onClick(e);
   };
 
