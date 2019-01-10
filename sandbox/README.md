@@ -24,14 +24,13 @@ cd sandbox
 yarn
 ```
 
-4. Create a file called `sandbox.js` in this directory (alongside the sandbox's `index.js`). You can start with something like this:
+4. Run the following script to create your `sandbox.js` file:
 
 ```js
-import React from 'react';
-import {DefaultButton} from 'pivotal-ui/react/buttons';
-
-export default () => <DefaultButton>Hello!</DefaultButton>;
+yarn create-sandbox
 ```
+
+This will write a new file (if one doesn't already exist) with some starter code in it. From now on, you can work in `sandbox.js` while developing.
 
 5. Start up the sandbox dev server.
 
