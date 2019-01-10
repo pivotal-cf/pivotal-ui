@@ -4,14 +4,16 @@ import {useBoundingClientRect} from '../../../src/react/mixins/components/boundi
 describe('BoundingClientRect', () => {
   const width = 100;
   const height = 200;
+
   let Klass, subject, resizeSpy;
+
   beforeEach(() => {
     class Base extends React.Component {
       render() {
         return (<div className="klass" style={{width, height}}/>);
       }
     }
-    spyOn(Base.prototype, 'render').and.callThrough();
+    spyOnRender(Base).and.callThrough();
     Klass = Base;
     const Component = useBoundingClientRect(Klass);
     subject = ReactDOM.render(<Component/>, root);
@@ -19,7 +21,11 @@ describe('BoundingClientRect', () => {
   });
 
   it('renders the component with a bounding rect and container', () => {
-    expect(Klass).toHaveBeenRenderedWithProps({container: $('.klass')[0], boundingClientRect: jasmine.any(Object), containerReady: jasmine.any(Promise)});
+    expect(Klass).toHaveBeenRenderedWithProps({
+      container: $('.klass')[0],
+      boundingClientRect: jasmine.any(Object),
+      containerReady: jasmine.any(Promise)
+    });
   });
 
   describe('containerReady', () => {
