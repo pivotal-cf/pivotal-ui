@@ -17,6 +17,11 @@
     "react",
     "jasmine"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "block-scoped-var": 2,
     "camelcase": 0,
