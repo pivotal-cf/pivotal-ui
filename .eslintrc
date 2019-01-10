@@ -82,7 +82,9 @@
     "jasmine/no-focused-tests": 2,
     "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 2,
-    "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"], "skipUndeclared": true}],
+//     temporarily disabling react/prop-types to avoid this bug:
+//       https://github.com/yannickcr/eslint-plugin-react/issues/2124
+//     "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"], "skipUndeclared": true}],
     "react/self-closing-comp": 2,
     "react/jsx-wrap-multilines": 2,
     "strict": 0,
