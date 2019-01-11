@@ -5,7 +5,7 @@ import {Icon} from '../../iconography';
 import sortBy from 'lodash.sortby';
 import {find} from '../../helpers';
 
-import {TablePlugin} from '../table-plugin';
+import {TablePlugin} from '../table_plugin';
 
 const SORT_ORDER = {
   asc: 0,

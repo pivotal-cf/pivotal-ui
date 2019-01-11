@@ -1,3 +1,3 @@
 export {Autocomplete} from './autocomplete';
-export {AutocompleteInput} from './autocomplete-input';
-export {AutocompleteList} from './autocomplete-list';
+export {AutocompleteInput} from './autocomplete_input';
+export {AutocompleteList} from './autocomplete_list';

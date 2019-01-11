@@ -1,7 +1,7 @@
 import '../spec_helper';
 import {Dialog} from '../../../src/react/dialog';
 import React from 'react';
-import DomHelpers from '../../../src/react/helpers/dom-helpers';
+import DomHelpers from '../../../src/react/helpers/dom_helpers';
 import {Icon} from '../../../src/react/iconography';
 
 describe('Dialog', () => {

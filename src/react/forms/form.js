@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import deepEqual from 'deep-equal';
 import cloneDeep from 'lodash.clonedeep';
-import {FormUnit} from './form-unit';
+import {FormUnit} from './form_unit';
 import {find} from '../helpers';
 import {Input} from '../inputs';
 import crypto from 'crypto';

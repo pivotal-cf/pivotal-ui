@@ -3,7 +3,7 @@ import Animation from '../mixins/mixins/animation_mixin';
 import {LargeTabs} from './large_tabs';
 import {default as mixin} from '../mixins';
 import PropTypes from 'prop-types';
-import MediaSize from './media-size';
+import MediaSize from './media_size';
 import {SmallTabs} from './small_tabs';
 import uniqueid from 'lodash.uniqueid';
 

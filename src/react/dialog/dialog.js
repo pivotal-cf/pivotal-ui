@@ -1,5 +1,5 @@
 import React from 'react';
-import DomHelpers from '../helpers/dom-helpers';
+import DomHelpers from '../helpers/dom_helpers';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 

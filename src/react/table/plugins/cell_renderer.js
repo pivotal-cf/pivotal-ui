@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 
-import {TablePlugin} from '../table-plugin';
+import {TablePlugin} from '../table_plugin';
 
 export function withCellRenderer(Table) {
   return class TableWithCellRenderer extends TablePlugin {

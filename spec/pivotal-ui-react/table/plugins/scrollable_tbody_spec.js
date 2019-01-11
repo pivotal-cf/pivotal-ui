@@ -1,6 +1,6 @@
 import '../../spec_helper';
 import {Table} from '../../../../src/react/table';
-import {withScrollableTbody} from '../../../../src/react/table/plugins/scrollable-tbody';
+import {withScrollableTbody} from '../../../../src/react/table/plugins/scrollable_tbody';
 
 describe('withScrollableTbody', () => {
   let data, columns, ComposedTable;

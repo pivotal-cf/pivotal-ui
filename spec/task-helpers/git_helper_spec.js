@@ -1,11 +1,11 @@
-import GitHelper from '../../tasks/helpers/git-helper';
+import Git_helper from '../../tasks/helpers/git_helper';
 import MockPromises from 'mock-promises';
 
 describe('GitHelper', () => {
   let gitHelper;
 
   beforeEach(() => {
-    gitHelper = new GitHelper();
+    gitHelper = new Git_helper();
   });
 
   describe('#getLatestCommit', () => {

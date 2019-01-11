@@ -39,7 +39,7 @@ function formatStory(storyNumber, stories) {
 
 const privates = new WeakMap();
 
-export default class ChangelogHelper {
+export default class Changelog_helper {
   constructor(gitHelper, trackerHelper) {
     privates.set(this, {gitHelper, trackerHelper});
   }

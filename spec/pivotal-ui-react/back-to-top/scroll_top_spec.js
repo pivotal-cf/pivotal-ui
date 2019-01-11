@@ -1,4 +1,4 @@
-import ScrollTop from '../../../src/react/back-to-top/scroll-top';
+import ScrollTop from '../../../src/react/back-to-top/scroll_top';
 
 describe('ScrollTop', () => {
   describe('getScrollTop', () => {

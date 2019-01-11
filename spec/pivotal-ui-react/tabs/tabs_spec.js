@@ -1,6 +1,6 @@
 import '../spec_helper';
 import {Tab, LeftTabs, Tabs} from '../../../src/react/tabs';
-import MediaSize from '../../../src/react/tabs/media-size';
+import MediaSize from '../../../src/react/tabs/media_size';
 
 import {findAllByClass, findByClass, findAllByTag, clickOn} from '../spec_helper';
 

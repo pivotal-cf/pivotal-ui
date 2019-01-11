@@ -1,4 +1,4 @@
-import DomHelpers from '../../../src/react/helpers/dom-helpers';
+import DomHelpers from '../../../src/react/helpers/dom_helpers';
 
 describe('DomHelpers', () => {
   describe('findTabbableElements', () => {

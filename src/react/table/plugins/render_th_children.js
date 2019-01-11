@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {TablePlugin} from '../table-plugin';
+import {TablePlugin} from '../table_plugin';
 
 export function withRenderThChildren(Table) {
   return class TableWithRenderTdChildren extends TablePlugin {

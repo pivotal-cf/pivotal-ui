@@ -1,1 +1,1 @@
-export {BackToTop} from './back-to-top';
+export {BackToTop} from './back_to_top';

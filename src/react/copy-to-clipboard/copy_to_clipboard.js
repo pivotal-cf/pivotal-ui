@@ -1,5 +1,5 @@
 import React from 'react';
-import ClipboardHelper from './clipboard-helper';
+import ClipboardHelper from './clipboard_helper';
 import {mergeProps} from '../helpers';
 import PropTypes from 'prop-types';
 import {TooltipTrigger} from '../tooltip';

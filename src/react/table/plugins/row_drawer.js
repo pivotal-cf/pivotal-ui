@@ -5,7 +5,7 @@ import {Collapsible} from '../../collapsible';
 import {Icon} from '../../iconography';
 import classnames from 'classnames';
 
-import {TablePlugin} from '../table-plugin';
+import {TablePlugin} from '../table_plugin';
 
 const privates = new WeakMap();
 const TABLE_KEYS = {
