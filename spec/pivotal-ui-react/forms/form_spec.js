@@ -895,17 +895,23 @@ describe('Form', () => {
       onModified = jasmine.createSpy('onModified');
 
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, onModified, fields: {name: {initialValue: 'some-name'}}}}>
-          {({fields: {name}, ...rest}) => (
+        <Form {...{
+          className: 'some-form', afterSubmit, onModified, fields: {
+            name: {initialValue: 'some-name', optional: true},
+            checkboxField: {children: <Checkbox/>, optional: true}
+          }
+        }}>
+          {({fields: {name, checkboxField}, ...rest}) => (
             <Grid>
               <FlexCol>{name}</FlexCol>
+              <FlexCol>{checkboxField}</FlexCol>
               <FlexCol fixed>{Buttons({...rest})}</FlexCol>
             </Grid>
           )}
         </Form>, root);
     });
 
-    describe('when modifying', () => {
+    describe('when modifying the text field', () => {
       beforeEach(() => {
         $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-other-name').simulate('change');
       });
@@ -919,6 +925,66 @@ describe('Form', () => {
         beforeEach(() => {
           onModified.calls.reset();
           $('fieldset > .grid:eq(0) > .col:eq(0) input').val('some-name').simulate('change');
+        });
+
+        it('calls the onModified callback with false', () => {
+          expect(onModified).toHaveBeenCalledWith(false);
+          expect(onModified).not.toHaveBeenCalledWith(true);
+        });
+      });
+
+      describe('when resetting with the reset callback', () => {
+        beforeEach(() => {
+          onModified.calls.reset();
+          $('.cancel').click();
+        });
+
+        it('calls the onModified callback with false', () => {
+          expect(onModified).toHaveBeenCalledWith(false);
+          expect(onModified).not.toHaveBeenCalledWith(true);
+        });
+      });
+
+      describe('when submitting', () => {
+        beforeEach(() => {
+          onModified.calls.reset();
+          $('.save').click();
+          MockPromises.tick();
+        });
+
+        it('calls the onModified callback with false', () => {
+          expect(onModified).toHaveBeenCalledWith(false);
+          expect(onModified).not.toHaveBeenCalledWith(true);
+        });
+      });
+
+      describe('when unmounting', () => {
+        beforeEach(() => {
+          onModified.calls.reset();
+          ReactDOM.unmountComponentAtNode(root);
+        });
+
+        it('calls the onModified callback with false', () => {
+          expect(onModified).toHaveBeenCalledWith(false);
+          expect(onModified).not.toHaveBeenCalledWith(true);
+        });
+      });
+    });
+
+    describe('when modifying the checkbox field', () => {
+      beforeEach(() => {
+        $('fieldset > .grid:eq(0) > .col:eq(1) input').val(true).simulate('change');
+      });
+
+      it('calls the onModified callback with true', () => {
+        expect(onModified).toHaveBeenCalledWith(true);
+        expect(onModified).not.toHaveBeenCalledWith(false);
+      });
+
+      describe('when resetting manually', () => {
+        beforeEach(() => {
+          onModified.calls.reset();
+          $('fieldset > .grid:eq(0) > .col:eq(1) input').val(false).simulate('change');
         });
 
         it('calls the onModified callback with false', () => {
