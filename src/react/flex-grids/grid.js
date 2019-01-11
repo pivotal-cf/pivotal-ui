@@ -6,7 +6,8 @@ import classnames from 'classnames';
 export class Grid extends React.PureComponent {
   static propTypes = {
     gutter: PropTypes.bool,
-    justifyContent: PropTypes.oneOf(['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'])
+    justifyContent: PropTypes.oneOf(['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
+    flexDirection: PropTypes.oneOf(['row', 'row-reverse', 'column', 'column-reverse'])
   };
 
   static defaultProps = {
@@ -18,8 +19,15 @@ export class Grid extends React.PureComponent {
   }
 
   render() {
-    const {gutter, justifyContent, ...props} = this.props;
-    const newProps = mergeProps(props, {className: classnames('grid', gutter ? '' : 'grid-nogutter', {[`justify-content-${justifyContent}`]: justifyContent})});
+    const {gutter, justifyContent, flexDirection, ...props} = this.props;
+    const newProps = mergeProps(props, {
+      className: classnames('grid', gutter ? '' : 'grid-nogutter',
+        {
+          [`justify-content-${justifyContent}`]: justifyContent,
+          [`flex-direction-${flexDirection}`]: flexDirection
+        }
+      )
+    });
     return <div {...newProps}/>;
   }
 };
