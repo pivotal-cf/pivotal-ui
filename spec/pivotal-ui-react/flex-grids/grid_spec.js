@@ -42,4 +42,15 @@ describe('Grid', () => {
       expect('.grid').toHaveClass('justify-content-space-between');
     });
   });
+
+  describe('flexDirection prop', () => {
+    beforeEach(() => {
+      gridProps = {flexDirection: 'column'};
+      ReactDOM.render(<Grid {...gridProps}/>, root);
+    });
+
+    it('adds the flex-direction-column class ', () => {
+      expect('.grid').toHaveClass('flex-direction-column');
+    });
+  });
 });
