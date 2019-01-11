@@ -2,6 +2,7 @@
 
 $base-unit: 8px;
 $justifyContentProps: flex-start flex-end center space-between space-around space-evenly;
+$flexDirectionProps: row row-reverse column column-reverse;
 
 .grid {
   box-sizing: border-box;
@@ -34,6 +35,12 @@ $justifyContentProps: flex-start flex-end center space-between space-around spac
   @each $prop in $justifyContentProps {
     &.justify-content-#{$prop} {
       justify-content: $prop;
+    }
+  }
+
+  @each $prop in $flexDirectionProps {
+    &.flex-direction-#{$prop} {
+      flex-direction: $prop;
     }
   }
 }
