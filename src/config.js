@@ -1,4 +1,4 @@
-import {version as puiVersion, homepage as puiRepository} from 'pivotal-ui/../package.json';
+import {version as puiVersion, homepage as puiRepository} from '../../pivotal-ui/package.json';
 import {repository} from '../package.json';
 
 const config = {

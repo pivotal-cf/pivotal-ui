@@ -73,6 +73,7 @@
   },
   "jest": {
     "moduleNameMapper": {
+      "^pivotal-ui/react/iconography/icons$": "<rootDir>/../pivotal-ui/src/iconography/icons.js",
       "^pivotal-ui/(.*)": "<rootDir>/../pivotal-ui/src/$1",
       "\\.(css|scss)$": "<rootDir>/spec/support/style_mock.js"
     },
