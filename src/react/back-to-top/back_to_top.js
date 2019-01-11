@@ -2,7 +2,7 @@ import {Icon} from '../iconography';
 import React from 'react';
 import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
-import ScrollTop from './scroll-top';
+import ScrollTop from './scroll_top';
 import {mergeProps} from '../helpers';
 import {default as mixin} from '../mixins';
 import Animation from '../mixins/mixins/animation_mixin';

@@ -1,5 +1,5 @@
 import '../spec_helper' ;
-import MediaSize from '../../../src/react/tabs/media-size';
+import MediaSize from '../../../src/react/tabs/media_size';
 
 describe('MediaSize', () => {
   describe('.matches', () => {

@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {TablePlugin} from '../table-plugin';
+import {TablePlugin} from '../table_plugin';
 
 export function withFooterRow(Table) {
   return class TableWithFooterRow extends TablePlugin {

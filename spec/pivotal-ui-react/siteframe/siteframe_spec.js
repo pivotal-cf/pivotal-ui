@@ -2,7 +2,7 @@ import '../spec_helper';
 import {Siteframe} from '../../../src/react/siteframe';
 import {Header} from '../../../src/react/siteframe/header';
 import {Sidebar} from '../../../src/react/siteframe/sidebar';
-import {SidebarLinks} from '../../../src/react/siteframe/sidebar-links';
+import {SidebarLinks} from '../../../src/react/siteframe/sidebar_links';
 
 describe('Siteframe', () => {
   let headerProps, sidebarProps;

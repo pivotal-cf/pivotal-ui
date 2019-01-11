@@ -1,6 +1,6 @@
 import '../spec_helper';
 import {BackToTop} from '../../../src/react/back-to-top';
-import ScrollTop from '../../../src/react/back-to-top/scroll-top';
+import ScrollTop from '../../../src/react/back-to-top/scroll_top';
 
 describe('BackToTop', () => {
   let scrollTop;

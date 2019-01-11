@@ -1,6 +1,6 @@
 import '../spec_helper';
 import {CopyToClipboard} from '../../../src/react/copy-to-clipboard';
-import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard-helper';
+import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard_helper';
 
 describe('CopyToClipboard', () => {
   let text, onClick, subject;

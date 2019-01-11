@@ -3,7 +3,7 @@ import React from 'react';
 import {TooltipTrigger} from '../../tooltip';
 import {Icon} from '../../iconography';
 
-import {TablePlugin} from '../table-plugin';
+import {TablePlugin} from '../table_plugin';
 
 export function withCellTooltip(Table) {
   function cellTooltip(props, tooltip, rowDatum, isHeader) {

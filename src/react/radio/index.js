@@ -1,2 +1,2 @@
 export {Radio} from './radio';
-export {RadioGroup} from './radio-group';
+export {RadioGroup} from './radio_group';

@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "create-sandbox": "node scripts/create-sandbox.js"
+    "create-sandbox": "node scripts/create_sandbox.js"
   },
   "eslintConfig": {
     "extends": "react-app"

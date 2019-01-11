@@ -1,1 +1,1 @@
-export {CopyToClipboard} from './copy-to-clipboard';
+export {CopyToClipboard} from './copy_to_clipboard';

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {SidebarLinks} from './sidebar-links';
+import {SidebarLinks} from './sidebar_links';
 
 export class Sidebar extends React.PureComponent {
   static propTypes = {

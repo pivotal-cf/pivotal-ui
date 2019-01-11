@@ -1,1 +1,1 @@
-export {CheckboxDropdown} from './checkbox-dropdown';
+export {CheckboxDropdown} from './checkbox_dropdown';

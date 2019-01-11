@@ -1,1 +1,1 @@
-export {TileLayout, TileLayoutItem} from './tile-layout';
+export {TileLayout, TileLayoutItem} from './tile_layout';

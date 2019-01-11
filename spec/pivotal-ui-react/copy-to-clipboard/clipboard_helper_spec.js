@@ -1,5 +1,5 @@
 import '../spec_helper' ;
-import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard-helper';
+import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard_helper';
 
 describe('ClipboardHelper', () => {
   let document, copyText, textarea;
