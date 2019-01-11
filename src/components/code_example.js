@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import ReactDOMServer from 'react-dom/server';
-import * as Babel from 'babel-standalone';
+import * as Babel from '@babel/standalone';
 import {AllHtmlEntities} from 'html-entities';
 import PropTypes from 'prop-types';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';

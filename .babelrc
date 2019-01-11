@@ -1,17 +1,10 @@
 {
-  "env": {
-    "development": {
-      "plugins": [
-        "stack-trace-sourcemap"
-      ]
-    }
-  },
   "presets": [
-    "es2015",
-    "react",
-    "stage-0"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ],
   "plugins": [
-    "add-module-exports"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-function-bind"
   ]
 }
