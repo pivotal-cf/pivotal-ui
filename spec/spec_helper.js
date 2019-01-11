@@ -1,4 +1,3 @@
-import '@babel/polyfill';
 import './support/matchers/jest_dom';
 import jQuery from 'jquery';
 import React from 'react';
