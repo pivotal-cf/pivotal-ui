@@ -1,3 +1,13 @@
+<a name="17.2.0"></a>
+# 17.2.0 (2019-01-11)
+#### CSS
+* **alerts**: Fix nested flex issue on Alerts (#586) ([aedcd84e](https://github.com/pivotal-cf/pivotal-ui/commit/aedcd84e))
+* **flex-grids**: Add flexDirection prop to Grid component (#588) ([b97db226](https://github.com/pivotal-cf/pivotal-ui/commit/b97db226))
+* **siteframe**: Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([0fb0b737](https://github.com/pivotal-cf/pivotal-ui/commit/0fb0b737))
+#### React
+* **flex-grids**: Add flexDirection prop to Grid component (#588) ([b97db226](https://github.com/pivotal-cf/pivotal-ui/commit/b97db226))
+* **forms**: when modifying a checkbox field, call the onModified callback (#587) ([6b9310fd](https://github.com/pivotal-cf/pivotal-ui/commit/6b9310fd))
+* **siteframe**: Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([0fb0b737](https://github.com/pivotal-cf/pivotal-ui/commit/0fb0b737))
 <a name="17.1.2"></a>
 ## 17.1.2 (2018-12-18)
 #### CSS
