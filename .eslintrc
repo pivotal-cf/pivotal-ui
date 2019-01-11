@@ -16,6 +16,11 @@
     "jest",
     "markdown"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     "arrow-parens": ["error", "as-needed"],
     "block-scoped-var": 2,
@@ -63,7 +68,6 @@
     "no-sequences": 0,
     "no-shadow": 0,
     "no-trailing-spaces": 2,
-    "no-undef": 2,
     "no-underscore-dangle": 0,
     "no-unused-expressions": 0,
     "no-unused-vars":  ["error", { "varsIgnorePattern": "React" }],
@@ -74,11 +78,10 @@
     "radix": 2,
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
-    "react/jsx-no-undef": 2,
     "react/jsx-tag-spacing": [2, {"beforeClosing": "never", "beforeSelfClosing": "never"}],
     "jsx-quotes": [2, "prefer-double"],
     "react/no-did-mount-set-state": 0,
-    "react/no-did-update-set-state": 2,
+    "react/no-did-update-set-state": 0,
     "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"], "skipUndeclared": true}],
     "react/self-closing-comp": 2,
     "react/jsx-wrap-multilines": 2,
