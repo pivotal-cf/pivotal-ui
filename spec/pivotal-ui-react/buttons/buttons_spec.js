@@ -52,11 +52,29 @@ describe('UIButton', () => {
 
     describe('when icon-only', () => {
       beforeEach(() => {
-        subject::setProps({iconOnly: true});
+        spyOn(console, 'error');
       });
 
-      it('has no aria-label attribute for icon-only buttons', () => {
-        expect('.pui-btn').not.toHaveAttr('aria-label');
+      describe('when no aria-label attribute is provided', () => {
+        beforeEach(() => {
+          subject::setProps({iconOnly: true});
+        });
+
+        it('throws an error in the console', () => {
+          expect(console.error).toHaveBeenCalledWith(
+            'Icon-only buttons should have an accessible title set via the "aria-label" prop.'
+          );
+        });
+      });
+
+      describe('when aria-label attribute is provided', () => {
+        beforeEach(() => {
+          subject::setProps({iconOnly: true, 'aria-label': 'some-label'});
+        });
+
+        it('does not throw an error in the console', () => {
+          expect(console.error).not.toHaveBeenCalled();
+        });
       });
     });
 
@@ -183,7 +201,7 @@ describe('UIButton', () => {
 
   describe('when iconOnly is true', () => {
     beforeEach(() => {
-      subject::setProps({iconOnly: true});
+      subject::setProps({iconOnly: true, 'aria-label': 'Large Button'});
     });
 
     it('adds the large button class', () => {

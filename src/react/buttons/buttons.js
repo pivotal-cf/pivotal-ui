@@ -28,6 +28,9 @@ export class UIButton extends React.Component {
   render() {
     const {alt, flat, icon, iconPosition, iconOnly, large, small, kind, children, fullWidth, ...others} = this.props;
 
+    if (iconOnly && !others['aria-label'] && process.env.NODE_ENV === 'development') {
+      console.error('Icon-only buttons should have an accessible title set via the "aria-label" prop.');
+    }
 
     const buttonClasses = {
       className: [
