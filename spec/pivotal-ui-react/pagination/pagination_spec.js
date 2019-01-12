@@ -16,6 +16,11 @@ describe('Pagination', () => {
     expect('div.pagination').toHaveAttr('role', 'group');
   });
 
+  it('adds appropriate aria-labels to previous/next buttons', () => {
+    expect('.pagination .pui-btn:eq(0)').toHaveAttr('aria-label', 'Previous page');
+    expect('.pagination .pui-btn:eq(2)').toHaveAttr('aria-label', 'Next page');
+  });
+
   it('renders 1 .pui-btn when no items are specified', () => {
     expect($('.pagination .pui-btn').length).toBe(3);
     expect('.pagination .pui-btn:eq(0) .icon svg').toHaveClass('icon-chevron_left');
