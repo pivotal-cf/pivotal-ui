@@ -63,19 +63,20 @@ export class Form extends React.Component {
   }
 
   shouldComponentUpdate({fields}, nextState) {
-    const isStateChange = nextState !== this.state;
     const {current, initial} = nextState;
     const {initial: newInitial, ids, current: newCurrent} = newFormState(fields, nextState.ids,
       ({name, initialValue}) => {
         initialValue = newInitialValue(initialValue);
         return {
-          initialValue: initialValue,
+          initialValue: initial.hasOwnProperty(name)
+            ? initial[name] === this.state.initial[name] ? cloneDeep(initialValue) : initial[name]
+            : cloneDeep(initialValue),
           currentValue: current.hasOwnProperty(name)
             ? current[name] === this.state.initial[name] ? cloneDeep(initialValue) : current[name]
             : cloneDeep(initialValue)
         };
       });
-    nextState.initial = isStateChange ? initial : newInitial;
+    nextState.initial = newInitial;
     nextState.current = newCurrent;
     nextState.ids = ids;
     return true;
