@@ -1,5 +1,5 @@
-import {AutocompleteList} from './autocomplete-list';
-import {AutocompleteInput} from './autocomplete-input';
+import {AutocompleteList} from './autocomplete_list';
+import {AutocompleteInput} from './autocomplete_input';
 import classnames from 'classnames';
 import Cursor from 'pui-cursor';
 import from from 'from';

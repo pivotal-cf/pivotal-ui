@@ -1,1 +1,1 @@
-export {DraggableList, DraggableListItem} from './draggable-list';
+export {DraggableList, DraggableListItem} from './draggable_list';

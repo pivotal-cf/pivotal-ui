@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import deepEqual from 'deep-equal';
 import cloneDeep from 'lodash.clonedeep';
-import {FormUnit} from './form-unit';
+import {FormUnit} from './form_unit';
 import {find} from '../helpers';
 import {Input} from '../inputs';
 import crypto from 'crypto';
@@ -86,11 +86,17 @@ export class Form extends React.Component {
   }
 
   onChangeCheckbox = (name, cb) => val => {
+    const {initial, current} = this.state;
+    const value = !this.state.current[name];
+    const nextState = {current: {...current, [name]: value}};
+
     if (typeof val.persist === 'function') val.persist();
 
-    const nextValue = {[name]: !this.state.current[name]};
+    const nextValue = {[name]: value};
     if (cb) this.setValues(nextValue, () => cb(val));
     else this.setValues(nextValue);
+
+    if (this.props.onModified) this.props.onModified(!deepEqual(initial, nextState.current));
   };
 
   onChange = (name, validator, cb) => val => {

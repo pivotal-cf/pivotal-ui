@@ -149,7 +149,8 @@ export class Pagination extends React.PureComponent {
       eventKey: 'prev',
       content: <Icon src="chevron_left"/>,
       iconOnly: true,
-      activePage
+      activePage,
+      'aria-label': 'Previous page'
     }}/>);
 
     const nextButton = (<PaginationButton {...{
@@ -158,7 +159,8 @@ export class Pagination extends React.PureComponent {
       eventKey: 'next',
       content: <Icon src="chevron_right"/>,
       iconOnly: true,
-      activePage
+      activePage,
+      'aria-label': 'Next page'
     }}/>);
 
     return (<div className={classnames('pagination', className)} role="group">

@@ -1,21 +1,11 @@
 {
-  "env": {
-    "development": {
-      "plugins": [
-        "stack-trace-sourcemap"
-      ]
-    },
-    "test": {
-      "plugins": [
-        "stack-trace-sourcemap"
-      ]
-    }
-  },
-  "presets": [["es2015", {"loose": true}], "react", "stage-0"],
+  "presets": [
+    ["@babel/preset-env", {"loose": true}],
+    "@babel/preset-react"
+  ],
   "plugins": [
-    "add-module-exports",
-    "transform-object-assign",
-    "transform-react-display-name",
-    "transform-runtime"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-function-bind"
   ]
 }

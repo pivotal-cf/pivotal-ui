@@ -17,9 +17,9 @@ Jasmine.install({
   webpack: {test: () => testWebpack}
 });
 
-require('./tasks/css-components');
-require('./tasks/react-components');
-require('./tasks/js-components');
+require('./tasks/css_components');
+require('./tasks/react_components');
+require('./tasks/js_components');
 require('./tasks/test');
 require('./tasks/dev');
 require('./tasks/release');

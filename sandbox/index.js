@@ -13,5 +13,5 @@ if (module.hot) {
   module.hot.accept('./sandbox', () => {
     const NextSandbox = require('./sandbox').default;
     ReactDOM.render(<NextSandbox/>, root);
-  })
+  });
 }

@@ -60,7 +60,10 @@ jasmine.pp = function (obj) {
   const stringifierInstance = stringifier({maxDepth: 5, indent: '  '});
   return stringifierInstance(obj);
 };
-jasmine.getEnv().randomizeTests(false);
+
+jasmine.getEnv().configure({
+  random: false
+});
 
 Object.assign(global, {
   jQuery,

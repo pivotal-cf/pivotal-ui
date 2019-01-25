@@ -1,1 +1,1 @@
-export {OverlayTrigger} from './overlay-trigger';
+export {OverlayTrigger} from './overlay_trigger';

@@ -1,6 +1,6 @@
 import '../spec_helper';
 import {Sidebar} from '../../../src/react/siteframe/sidebar';
-import {SidebarLinks} from '../../../src/react/siteframe/sidebar-links';
+import {SidebarLinks} from '../../../src/react/siteframe/sidebar_links';
 
 describe('Sidebar', () => {
   let primaryLinks, secondaryLinks, renderLink;
