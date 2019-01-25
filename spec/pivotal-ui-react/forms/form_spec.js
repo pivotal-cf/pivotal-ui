@@ -421,6 +421,18 @@ describe('Form', () => {
         });
       });
     });
+
+    describe('when initial value changes', () => {
+      beforeEach(() => {
+        fields = {name: {initialValue: 'some-other-name'}};
+        subject::setProps({fields});
+      });
+
+      it('changes the state', () => {
+        expect(subject.state.initial).toEqual({name: 'some-other-name'});
+        expect(subject.state.current).toEqual({name: 'some-other-name'});
+      });
+    });
   });
 
   describe('with one required field where initialValue is empty string', () => {
@@ -1419,19 +1431,61 @@ describe('Form', () => {
     });
   });
 
-  describe('when initial value changes', () => {
-    let fields;
+  describe('when one field controls the initial value of another field', () => {
+    class Container extends React.Component {
+      state = {type: 'type1'};
+
+      render() {
+        return (
+          <Form {...{
+            ref: ref => this.formRef = ref,
+            fields: {
+              type: {
+                children: () => (
+                  <div>
+                    {['type1', 'type2'].map((type, key) => (
+                      <input {...{
+                        key,
+                        type: 'radio',
+                        value: type,
+                        checked: type === this.state.type,
+                        className: type,
+                        onChange: () => this.setState({type})
+                      }}/>
+                    ))}
+                  </div>
+                )
+              },
+              check1: {initialValue: this.state.type === 'type1'},
+              check2: {initialValue: this.state.type !== 'type1'}
+            }
+          }}>{({fields: {type}}) => type}</Form>
+        );
+      };
+    }
 
     beforeEach(() => {
-      fields = {name: {initialValue: 'some-name'}};
-      subject = ReactDOM.render(<Form {...{fields}}>{({fields: {name}}) => name}</Form>, root);
-      fields = {name: {initialValue: 'some-other-name'}};
-      subject::setProps({fields});
+      subject = ReactDOM.render(<Container/>, root);
     });
 
-    it('changes the state', () => {
-      expect(subject.state.initial).toEqual({name: 'some-other-name'});
-      expect(subject.state.current).toEqual({name: 'some-other-name'});
+    it('it sets initial and current state', () => {
+      expect(subject.formRef.state.initial.check1).toBe(true);
+      expect(subject.formRef.state.initial.check2).toBe(false);
+      expect(subject.formRef.state.current.check1).toBe(true);
+      expect(subject.formRef.state.current.check2).toBe(false);
+    });
+
+    describe('when changing the type field', () => {
+      beforeEach(() => {
+        $('input.type2').val(true).simulate('change');
+      });
+
+      it('it sets initial and current state', () => {
+        expect(subject.formRef.state.initial.check1).toBe(false);
+        expect(subject.formRef.state.initial.check2).toBe(true);
+        expect(subject.formRef.state.current.check1).toBe(false);
+        expect(subject.formRef.state.current.check2).toBe(true);
+      });
     });
   });
 });
