@@ -18,7 +18,7 @@
     max-height: 200px;
     overflow-x: hidden;
     overflow-y: auto;
-    border: solid 1px $neutral-9;
+    border: solid 1px $light-gray;
     border-top: 0;
   }
 
@@ -32,30 +32,30 @@
     display: block;
     white-space: nowrap;
     color: inherit;
-    background: $neutral-11;
+    background: $white;
 
     &:hover {
       text-decoration: none;
     }
     &:active {
-      background: $neutral-9;
+      background: $light-gray;
     }
     &.selected {
       font-weight: $font-weight-em-high;
     }
     &.highlighted {
-      background: $neutral-9;
+      background: $light-gray;
       text-decoration: none;
     }
   }
 
   &.disabled {
-    background-color: $neutral-10;
+    background-color: $white;
     border-radius: 4px;
 
     input {
       box-shadow: none;
-      color: $neutral-5;
+      color: $accent-gray;
       background-color: transparent;
       cursor: default;
     }

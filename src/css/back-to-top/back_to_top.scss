@@ -1,7 +1,7 @@
 @import "../pui-variables";
 
 .pui-back-to-top, .back-to-top {
-  color: $neutral-11;
+  color: $white;
   text-align: center;
   font-size: $font-size-h3;
 
@@ -16,18 +16,18 @@
 
   border: 0;
   border-radius: 50%;
-  background: $brand-8;
+  background: $accent-teal;
   box-shadow: 0 0 9px rgba(153, 153, 153, 0.8);
 
   &:hover {
-    background: $brand-5;
-    color: $neutral-11;
+    background: $teal;
+    color: $white;
   }
 
   // TODO: rename all occurrences of .icon to .pui-icon
   .icon {
     font-size: 20px;
-    stroke: $neutral-11;
+    stroke: $white;
     path {
       stroke-width: 5;
     }

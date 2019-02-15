@@ -192,7 +192,7 @@
   }
 
   &.expanded {
-    border-left: 3px solid $accent-2;
+    border-left: 3px solid $dark-blue;
     padding-left: 14px;
   }
 
@@ -201,7 +201,7 @@
     width: 20px;
 
     svg {
-      fill: $dark-5;
+      fill: $gray;
       height: 100%;
       width: 100%;
       margin: 0;
@@ -210,8 +210,8 @@
 }
 
 .table-drawer {
-  background: $dark-11;
-  border: 1px solid $dark-9;
+  background: $white;
+  border: 1px solid $light-gray;
   border-bottom: 0;
   padding: $whitespace-xl;
 
@@ -229,5 +229,5 @@
 }
 
 .tr-selected {
-  background-color: $dark-11;
+  background-color: $white;
 }

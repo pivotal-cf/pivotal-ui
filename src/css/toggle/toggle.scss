@@ -12,8 +12,8 @@
   + label {
     position: relative;
     display: block;
-    background-color: $neutral-7;
-    color: $neutral-1;
+    background-color: $accent-gray;
+    color: $black;
     transition: background 0.4s;
     cursor: pointer;
     outline: none;
@@ -67,7 +67,7 @@
     &:after {
       position: absolute;
       display: block;
-      background-color: $neutral-11;
+      background-color: $white;
       transition: margin 0.4s, background 0.4s;
       content: "";
       border-radius: 50%;
@@ -75,7 +75,7 @@
   }
 
   &:checked + label {
-    background-color: $blue-2;
+    background-color: $dark-blue;
   }
 
   &:checked + label.small:after {
@@ -98,6 +98,6 @@
   }
 
   &:focus + label {
-    box-shadow: 0 0 0 2px transparentize($accent-3, 0.8);
+    box-shadow: 0 0 0 2px transparentize($blue, 0.8);
   }
 }

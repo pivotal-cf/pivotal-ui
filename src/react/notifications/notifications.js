@@ -8,7 +8,7 @@ import {mergeProps} from '../helpers';
 const defaultChild = (icon, message) =>
   (<div className="dropdown-notifications-none" role="presentation">
     <Icon src={icon}/>
-    <p className="type-neutral-4 em-alt mbn">{message}</p>
+    <p className="type-gray em-alt mbn">{message}</p>
   </div>);
 
 export class Notifications extends React.PureComponent {

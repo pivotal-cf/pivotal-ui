@@ -39,7 +39,7 @@
       right: 100%;
       width: 40%;
       height: 3px;
-      background-color: $dark-7;
+      background-color: $accent-gray;
       animation: pui-panel-loading-slide 3s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
       -webkit-animation: pui-panel-loading-slide 3s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
     }
@@ -62,7 +62,7 @@
   }
 
   .pui-panel-header {
-    border-bottom: 3px solid $dark-9;
+    border-bottom: 3px solid $light-gray;
   }
 
   .pui-panel-header, .pui-panel-footer {

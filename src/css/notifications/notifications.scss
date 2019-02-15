@@ -5,7 +5,7 @@
     .btn-link {
       &.dropdown-toggle {
         box-shadow: none;
-        fill: $neutral-6;
+        fill: $accent-gray;
       }
     }
 
@@ -40,7 +40,7 @@
     .dropdown-notifications-badge {
       background-color: $notifications-badge-default-bg;
       border-radius: 0.75em;
-      color: $neutral-11;
+      color: $white;
       font-weight: $notifications-badge-font-weight;
       line-height: 0.75em;
       min-width: 1.25em;
@@ -50,7 +50,7 @@
 
     .dropdown-notifications-has-notifications, .dropdown-notifications-has-alerts {
       svg {
-        fill: $navy-5;
+        fill: $gray;
       }
     }
 
@@ -80,7 +80,7 @@
     svg {
       height: 1.4em;
       width: 1.4em;
-      fill: $neutral-6;
+      fill: $accent-gray;
     }
   }
 }

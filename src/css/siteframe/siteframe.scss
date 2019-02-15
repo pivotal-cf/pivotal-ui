@@ -14,8 +14,8 @@ $header-height: $base-unit * 7;
 }
 
 .pui-siteframe-header {
-  background: $dark-2;
-  color: $neutral-11;
+  background: $dark-gray;
+  color: $white;
   margin: 0;
 
   & > .col {
@@ -34,13 +34,13 @@ $header-height: $base-unit * 7;
   }
 
   .dropdown-menu {
-    color: $neutral-3;
+    color: $gray;
     z-index: 1500;
   }
 
   button.dropdown-toggle {
     border: none;
-    color: $neutral-11;
+    color: $white;
     text-transform: none;
     font-weight: normal;
     letter-spacing: normal;
@@ -68,7 +68,7 @@ $header-height: $base-unit * 7;
   }
 
   .pui-siteframe-sidebar {
-    background-color: $navy-2;
+    background-color: $dark-gray;
     display: flex;
     flex-direction: column;
     width: $base-unit * 22;
@@ -84,7 +84,7 @@ $header-height: $base-unit * 7;
     }
 
     .pui-sidebar-li-content > a {
-      color: $neutral-6;
+      color: $accent-gray;
       flex: 1;
     }
 
@@ -105,7 +105,7 @@ $header-height: $base-unit * 7;
       }
 
       .pui-sidebar-li-active {
-        background-color: $dark-3;
+        background-color: $dark-gray;
         position: relative;
 
         &:before {
@@ -114,11 +114,11 @@ $header-height: $base-unit * 7;
           display: block;
           height: 100%;
           width: $base-unit/2;
-          background-color: $brand-5;
+          background-color: $teal;
         }
 
         a {
-          color: $neutral-11;
+          color: $white;
         }
       }
     }
@@ -127,7 +127,7 @@ $header-height: $base-unit * 7;
       flex: 0 0 auto;
 
       svg {
-        fill: $neutral-6;
+        fill: $accent-gray;
       }
 
       .icon {
@@ -146,6 +146,6 @@ $header-height: $base-unit * 7;
 }
 
 .pui-siteframe-footer {
-  background: $dark-2;
+  background: $dark-gray;
   padding: 0 2*$base-unit;
 }

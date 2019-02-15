@@ -1,21 +1,21 @@
 @import "../pui-variables";
 
 %dropdown {
-  background-color: $neutral-11;
-  border: 1px solid $gray-6;
-  border-bottom: 1px solid $gray-6;
+  background-color: $white;
+  border: 1px solid $accent-gray;
+  border-bottom: 1px solid $accent-gray;
   border-radius: 2px;
   position: relative;
 
   &.open, &:hover, &:focus, &:focus:hover {
-    border-color: $gray-3;
+    border-color: $gray;
   }
 }
 
 %dropdown-toggle {
   background-color: transparent;
   border: 0;
-  color: $gray-3;
+  color: $gray;
   font-weight: normal;
   display: inline;
 
@@ -29,14 +29,14 @@
 
   .icon {
     vertical-align: sub;
-    fill: $gray-6;
+    fill: $accent-gray;
   }
 
   &:hover, &:focus, &:focus:hover {
     background-color: transparent;
 
     .icon {
-      fill: $gray-3;
+      fill: $gray;
     }
   }
 }
@@ -53,8 +53,8 @@
   z-index: $zindex-dropdown;
 
   > ul {
-    background-color: $neutral-11;
-    border: 1px solid $gray-3;
+    background-color: $white;
+    border: 1px solid $gray;
     border-radius: 0 0 2px 2px;
     border-top: none;
     list-style: none;
@@ -62,11 +62,11 @@
     padding-left: 0;
 
     > li {
-      color: $gray-2;
+      color: $dark-gray;
       display: block;
       padding: 2px $whitespace-l;
       &:hover {
-        background-color: darken($neutral-11, 6%);
+        background-color: darken($white, 6%);
       }
     }
   }
@@ -85,6 +85,6 @@
   }
 
   .icon {
-    fill: $gray-3;
+    fill: $gray;
   }
 }

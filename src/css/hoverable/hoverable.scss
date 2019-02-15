@@ -1,7 +1,7 @@
 @import "../pui-variables";
 
 [hoverable]:hover, [hoverable].clicked {
-  background-color: $gray-9;
+  background-color: $light-gray;
 
   .hovered {
     visibility: visible;

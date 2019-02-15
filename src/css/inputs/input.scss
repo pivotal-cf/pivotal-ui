@@ -21,7 +21,7 @@ input:not([type]) {
   -webkit-appearance: none;
   box-shadow: none;
   box-sizing: border-box;
-  color: $dark-2;
+  color: $dark-gray;
 
   &::-ms-expand {
     display: none;
@@ -68,7 +68,7 @@ html body {
     &.disabled, &:disabled {
       background-color: $input-disabled;
       cursor: not-allowed;
-      color: $dark-5;
+      color: $gray;
       border-color: $input-border;
     }
   }
@@ -134,7 +134,7 @@ input:not([type]).valid {
   position: relative;
 
   & > .icon {
-    fill: $dark-5;
+    fill: $gray;
     position: absolute;
     top: 50%;
     left: 7px;

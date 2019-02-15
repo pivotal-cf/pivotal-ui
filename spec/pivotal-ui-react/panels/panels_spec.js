@@ -18,7 +18,7 @@ describe('Panel', () => {
   });
 
   it('renders a panel with the expected classes', () => {
-    expect('.pui-panel-container > .pui-panel').toHaveClass('bg-neutral-11');
+    expect('.pui-panel-container > .pui-panel').toHaveClass('bg-white');
     expect('.pui-panel-container > .pui-panel').toHaveClass('box-shadow-1');
     expect('.pui-panel-container > .pui-panel').toHaveClass('border-rounded');
   });

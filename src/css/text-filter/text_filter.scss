@@ -3,7 +3,7 @@
 .text-filter {
   & > .grid:first-child {
     .icon > svg {
-      fill: $dark-5;
+      fill: $gray;
     }
 
     input {
@@ -11,7 +11,7 @@
     }
 
     .text-filter-counts {
-      color: $dark-5;
+      color: $gray;
       font-size: 14px;
     }
   }

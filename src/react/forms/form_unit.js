@@ -54,7 +54,7 @@ export class FormUnit extends React.Component {
         {label}
         {tooltipIcon}
         {label && optional && <span
-          className="optional-text type-neutral-4">
+          className="optional-text type-gray">
                   {optionalText || optionalText === '' ? optionalText : '(Optional)'}
                 </span>}
       </label>
@@ -110,7 +110,7 @@ export class FormUnit extends React.Component {
 
   newHelpRow = () => {
     const {inline, hasError, help} = this.props;
-    const helpRowClassName = classnames('help-row', {'type-dark-5': !hasError});
+    const helpRowClassName = classnames('help-row', {'type-gray': !hasError});
     if (inline) {
       return (
         <Grid key="bottom">

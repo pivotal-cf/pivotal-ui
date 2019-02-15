@@ -1,7 +1,7 @@
 @import "../pui-variables";
 
 .progress, .pui-progress {
-  background-color: $navy-9;
+  background-color: $light-gray;
 
   overflow: hidden;
 
@@ -12,7 +12,7 @@
   -webkit-transition: width .6s ease;
   transition: width .6s ease;
 
-  background: $blue-3;
+  background: $blue;
 
   min-height: $base-unit;
 

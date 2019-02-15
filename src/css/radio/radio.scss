@@ -22,13 +22,13 @@
       cursor: not-allowed;
 
       > .pui-radio-circle:hover {
-        border: 1px solid $dark-7;
+        border: 1px solid $accent-gray;
       }
     }
   }
 
   &:checked ~ .pui-radio-label > .pui-radio-circle {
-    border: 1px solid $accent-3;
+    border: 1px solid $blue;
 
     &:before {
       opacity: 1;
@@ -38,12 +38,12 @@
   }
 
   &:focus ~ .pui-radio-label > .pui-radio-circle {
-    box-shadow: 0 0 0 2px transparentize($accent-3, 0.8);
+    box-shadow: 0 0 0 2px transparentize($blue, 0.8);
   }
 }
 
 .pui-radio-circle {
-  border: 1px solid $dark-7;
+  border: 1px solid $accent-gray;
   border-radius: 100%;
   width: 14px;
   height: 14px;
@@ -53,7 +53,7 @@
   vertical-align: middle;
 
   &:hover {
-    border: 1px solid $accent-3;
+    border: 1px solid $blue;
   }
 
   &:before {
@@ -63,7 +63,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 100%;
-    background-color: $accent-3;
+    background-color: $blue;
     opacity: 0;
     width: 4px;
     height: 4px;

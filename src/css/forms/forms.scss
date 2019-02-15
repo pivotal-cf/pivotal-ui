@@ -17,7 +17,7 @@ select {
   -webkit-appearance: none;
   box-shadow: none;
   box-sizing: border-box;
-  color: $dark-2;
+  color: $dark-gray;
 
   &::-ms-expand {
     display: none;
@@ -65,7 +65,7 @@ fieldset {
 
 label,
 legend {
-  color: $dark-2;
+  color: $dark-gray;
 }
 
 html body {
@@ -73,7 +73,7 @@ html body {
     &.disabled, &:disabled {
       background-color: $input-disabled;
       cursor: not-allowed;
-      color: $dark-5;
+      color: $gray;
       border-color: $input-border;
     }
   }
@@ -170,7 +170,7 @@ select {
     bottom: $form-icon-padding;
     font-size: $form-icon-size;
     svg {
-      fill: $dark-5;
+      fill: $gray;
     }
     &.valid,
     &.invalid {
@@ -390,7 +390,7 @@ textarea.valid {
     margin-left: $base-unit / 2;
 
     svg {
-      fill: $dark-5;
+      fill: $gray;
     }
   }
 

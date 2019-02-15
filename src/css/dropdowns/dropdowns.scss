@@ -21,7 +21,7 @@
     border: 1px solid $input-border;
     border-radius: 2px;
     text-align: left;
-    color: $dark-2;
+    color: $dark-gray;
     -webkit-appearance: none;
     cursor: pointer;
     position: relative;
@@ -38,7 +38,7 @@
       font-size: 18px;
 
       svg {
-        fill: $dark-5;
+        fill: $gray;
       }
     }
   }
@@ -109,11 +109,11 @@
         font-size: 14px;
 
         &:hover {
-          background-color: $dark-11;
+          background-color: $white;
         }
 
         &:focus {
-          background-color: $dark-10;
+          background-color: $white;
           outline: none;
         }
 

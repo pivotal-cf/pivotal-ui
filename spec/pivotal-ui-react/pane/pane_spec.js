@@ -16,7 +16,7 @@ describe('BasePane', () => {
   describe('pass-through attributes', () => {
     beforeEach(() => {
       subject = renderComponent({
-        className: 'bg-dark-2 more-outer',
+        className: 'bg-dark-gray more-outer',
         innerClassName: 'bg-glow',
         id: 'outer-id',
         'data-foo': 'baz',
@@ -26,7 +26,7 @@ describe('BasePane', () => {
 
     it('add classes, id, and styles to the pane and container', () => {
       const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
-      expect(pane).toHaveClass('bg-dark-2');
+      expect(pane).toHaveClass('bg-dark-gray');
       expect(pane).toHaveAttr('id', 'outer-id');
       expect(pane).toHaveCss({opacity: '0.5'});
       expect(pane).toHaveAttr('data-foo', 'baz');
@@ -49,7 +49,7 @@ describe('Pane', () => {
   describe('pass-through attributes', () => {
     beforeEach(() => {
       subject = renderComponent({
-        className: 'bg-dark-2 more-outer',
+        className: 'bg-dark-gray more-outer',
         innerClassName: 'bg-glow',
         id: 'outer-id',
         'data-foo': 'baz',
@@ -59,7 +59,7 @@ describe('Pane', () => {
 
     it('add classes, id, and styles to the pane and container', () => {
       const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
-      expect(pane).toHaveClass('bg-dark-2');
+      expect(pane).toHaveClass('bg-dark-gray');
       expect(pane).toHaveAttr('id', 'outer-id');
       expect(pane).toHaveCss({opacity: '0.5'});
       expect(pane).toHaveAttr('data-foo', 'baz');

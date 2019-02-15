@@ -279,7 +279,7 @@ describe('FormUnit', () => {
 
     it('renders the help block', () => {
       expect('.form-unit .help-row div pre').toContainText('help');
-      expect('.form-unit .help-row').toHaveClass('type-dark-5');
+      expect('.form-unit .help-row').toHaveClass('type-gray');
     });
   });
 
@@ -368,8 +368,8 @@ describe('FormUnit', () => {
       expect('.form-unit').toHaveClass('has-error');
     });
 
-    it('removes the type-dark-5 class from the help block', () => {
-      expect('.form-unit .help-row').not.toHaveClass('type-dark-5');
+    it('removes the type-gray class from the help block', () => {
+      expect('.form-unit .help-row').not.toHaveClass('type-gray');
     });
   });
 

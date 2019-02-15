@@ -22,17 +22,17 @@
       cursor: not-allowed;
 
       > .pui-checkbox-control:hover {
-        border: 1px solid $dark-7;
+        border: 1px solid $accent-gray;
       }
     }
   }
 
   &:indeterminate ~ .pui-checkbox-label > .pui-checkbox-control {
-    background: $accent-3;
-    border-color: $accent-3;
+    background: $blue;
+    border-color: $blue;
 
     svg {
-      fill: $gray-11 !important;
+      fill: $white !important;
     }
 
     .icon {
@@ -41,11 +41,11 @@
   }
 
   &:checked ~ .pui-checkbox-label > .pui-checkbox-control {
-    background: $accent-3;
-    border-color: $accent-3;
+    background: $blue;
+    border-color: $blue;
 
     svg {
-      fill: $gray-11 !important;
+      fill: $white !important;
     }
 
     .icon {
@@ -54,7 +54,7 @@
   }
 
   &:focus ~ .pui-checkbox-label > .pui-checkbox-control {
-    box-shadow: 0 0 0 2px transparentize($accent-3, 0.8);
+    box-shadow: 0 0 0 2px transparentize($blue, 0.8);
   }
 }
 
@@ -64,8 +64,8 @@
 }
 
 .pui-checkbox-control {
-  background: $gray-11;
-  border: 1px solid $dark-7;
+  background: $white;
+  border: 1px solid $accent-gray;
   border-radius: 2px;
   height: 12px;
   width: 12px;
@@ -76,7 +76,7 @@
   top: -1px;
 
   &:hover {
-    border: 1px solid $accent-3;
+    border: 1px solid $blue;
   }
 
   .icon {
