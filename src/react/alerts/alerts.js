@@ -39,11 +39,8 @@ class Alert extends React.PureComponent {
     const props = mergeProps(others, {
       role: 'alert',
       className: classnames(
-        'alert',
         'pui-alert',
-        `alert-${bsStyle}`,
         `pui-alert-${bsStyle}`,
-        {'alert-dismissable': dismissable},
         {'pui-alert-dismissable': dismissable})
     });
 
