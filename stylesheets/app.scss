@@ -18,9 +18,9 @@ body {
     content: attr(class) '\a' attr(grid-content);
     white-space: pre;
     display: block;
-    background-color: $neutral-10;
+    background-color: $white;
     padding: 10px 0;
-    outline: 1px solid $neutral-5;
+    outline: 1px solid $accent-gray;
   }
 }
 

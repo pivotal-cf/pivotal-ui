@@ -81,7 +81,7 @@ export default class CodeExample extends PureComponent {
 
     return (
       <div {...{className: 'code-example border mbxxl'}}>
-        <div className="code-example-title pal border-bottom bg-neutral-10">
+        <div className="code-example-title pal border-bottom bg-white">
           <Grid gutter={false}>
             <FlexCol className="em-high">{title}</FlexCol>
             {hasReact && <FlexCol fixed>

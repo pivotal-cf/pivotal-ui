@@ -50,7 +50,7 @@ export default class Sidebar extends PureComponent {
     others.sort((a, b) => parseInt(a.file.match(fileNumRegex)[1], 10) > parseInt(b.file.match(fileNumRegex)[1], 10));
 
     return (
-      <nav className="sidebar bg-dark-2">
+      <nav className="sidebar bg-dark-gray">
         <div className="sidebar-header">
           <Link to="/"><Icon className="sidebar-icon" src="pivotal_ui_white"/></Link>
           <div className="sidebar-title plxl">

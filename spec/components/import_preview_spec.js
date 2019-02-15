@@ -23,7 +23,7 @@ describe('ImportPreview', () => {
 
     it('renders the correct label and text', () => {
       expect('.styleguide-import-preview').toHaveClass('border');
-      expect('.styleguide-import-preview > .border-bottom.em-high.pal.bg-neutral-10')
+      expect('.styleguide-import-preview > .border-bottom.em-high.pal.bg-white')
         .toHaveText('Import CSS');
       expect('.styleguide-import-preview > .pre-unstyled.man.md-pre.language-js > code')
         .toHaveText('import \'pivotal-ui/css/alerts\';');
@@ -47,7 +47,7 @@ describe('ImportPreview', () => {
 
       it('renders the correct label and text', () => {
         expect('.styleguide-import-preview').toHaveClass('border');
-        expect('.styleguide-import-preview > .border-bottom.em-high.pal.bg-neutral-10')
+        expect('.styleguide-import-preview > .border-bottom.em-high.pal.bg-white')
           .toHaveText('Import React component');
         expect('.styleguide-import-preview > .pre-unstyled.man.md-pre.language-js > code')
           .toHaveText('import {Component1} from \'pivotal-ui/react/alerts\';');
@@ -61,7 +61,7 @@ describe('ImportPreview', () => {
 
       it('renders the correct label and text', () => {
         expect('.styleguide-import-preview').toHaveClass('border');
-        expect('.styleguide-import-preview > .border-bottom.em-high.pal.bg-neutral-10')
+        expect('.styleguide-import-preview > .border-bottom.em-high.pal.bg-white')
           .toHaveText('Import React components');
         expect('.styleguide-import-preview > .pre-unstyled.man.md-pre.language-js > code')
           .toHaveText('import {Component1, Component2} from \'pivotal-ui/react/alerts\';');
@@ -86,7 +86,7 @@ describe('ImportPreview', () => {
 
     it('renders the correct label and text for the React import', () => {
       expect('.styleguide-import-preview:eq(0)').toHaveClass('border');
-      expect('.styleguide-import-preview:eq(0) > .border-bottom.em-high.pal.bg-neutral-10')
+      expect('.styleguide-import-preview:eq(0) > .border-bottom.em-high.pal.bg-white')
         .toHaveText('Import React components');
       expect('.styleguide-import-preview:eq(0) > .pre-unstyled.man.md-pre.language-js > code')
         .toHaveText('import {Component1, Component2} from \'pivotal-ui/react/alerts\';');
@@ -94,7 +94,7 @@ describe('ImportPreview', () => {
 
     it('renders the correct label and text for the CSS import', () => {
       expect('.styleguide-import-preview:eq(1)').toHaveClass('border');
-      expect('.styleguide-import-preview:eq(1) > .border-bottom.em-high.pal.bg-neutral-10')
+      expect('.styleguide-import-preview:eq(1) > .border-bottom.em-high.pal.bg-white')
         .toHaveText('Import CSS only');
       expect('.styleguide-import-preview:eq(1) > .pre-unstyled.man.md-pre.language-js > code')
         .toHaveText('import \'pivotal-ui/css/alerts\';');

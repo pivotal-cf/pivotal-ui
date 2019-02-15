@@ -54,7 +54,7 @@ export default class Page extends PureComponent {
     return (
       <div className="styleguide-page">
         <header
-          className={classnames('styleguide-page-header bg-neutral-10 pvxl phxxxl', {'border-bottom': tabLinks.length <= 1})}>
+          className={classnames('styleguide-page-header bg-white pvxl phxxxl', {'border-bottom': tabLinks.length <= 1})}>
           <Grid className="mtl">
             <FlexCol>
               <h1 className="em-high">{title}</h1>
@@ -71,7 +71,7 @@ export default class Page extends PureComponent {
             </FlexCol>
           </Grid>
         </header>
-        {tabLinks.length > 1 && <nav className="tab-simple phxl bg-neutral-10 border-bottom">
+        {tabLinks.length > 1 && <nav className="tab-simple phxl bg-white border-bottom">
           <ul className="styleguide-tabs nav nav-tabs">
             {tabLinks}
           </ul>

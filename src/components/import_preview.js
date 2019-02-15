@@ -23,7 +23,7 @@ export default class ImportPreview extends PureComponent {
 
     const preview = (label, code, className) => (
       <div {...{className: classnames('border styleguide-import-preview', className)}}>
-        <div className="border-bottom em-high pal bg-neutral-10">{label}</div>
+        <div className="border-bottom em-high pal bg-white">{label}</div>
         <pre className="pre-unstyled man md-pre language-js"><code className="styleguide-import-preview-code">{code}</code></pre>
       </div>
     );

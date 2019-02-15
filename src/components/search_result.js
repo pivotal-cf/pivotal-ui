@@ -37,7 +37,7 @@ export default class SearchResult extends PureComponent {
       <div className="search-result">
         <div className="search-result-category">{category}</div>
         <div className="search-result-title">
-          {renderedTitle}{subtitle && <span className="type-dark-6 mhm">{'>'}</span>}{renderedSubtitle}
+          {renderedTitle}{subtitle && <span className="type-gray mhm">{'>'}</span>}{renderedSubtitle}
         </div>
         {renderedText}
       </div>

@@ -3,13 +3,13 @@
 
   .search-input {
     border: none;
-    background: $neutral-11 !important;
+    background: $white !important;
     color: initial !important;
     font-size: initial !important;
 
     &:focus {
       border: none;
-      box-shadow: 0 0 0 2px $brand-8;
+      box-shadow: 0 0 0 2px $accent-teal;
     }
   }
 
@@ -27,11 +27,11 @@
     .autocomplete-item, .autocomplete-item-no-results {
       font-size: 14px;
       min-width: 100%;
-      color: $dark-2;
+      color: $dark-gray;
       opacity: 1;
 
       &:hover {
-        background: $dark-11;
+        background: $black;
       }
     }
   }

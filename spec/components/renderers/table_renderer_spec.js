@@ -33,7 +33,7 @@ describe('TableRenderer', () => {
   });
 
   it('gives correct class names to thead rows', () => {
-    expect('table.md-table thead tr').toHaveClass(['tr-no-h-borders', 'bg-neutral-10']);
+    expect('table.md-table thead tr').toHaveClass(['tr-no-h-borders', 'bg-white']);
   });
 
   it('gives correct class names to tbody rows', () => {

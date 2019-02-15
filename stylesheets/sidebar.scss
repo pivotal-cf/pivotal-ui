@@ -4,7 +4,7 @@ $sidebar-item-left-padding: $base-unit * 2;
 $active-item-border-size: $base-unit / 2;
 
 .sidebar {
-  color: $gray-9;
+  color: $light-gray;
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 40px;
@@ -13,8 +13,8 @@ $active-item-border-size: $base-unit / 2;
   height: 100%;
 
   .autocomplete input {
-    background-color: $dark-1;
-    color: $gray-9;
+    background-color: $black;
+    color: $light-gray;
   }
 }
 
@@ -28,7 +28,7 @@ $active-item-border-size: $base-unit / 2;
 
   .sidebar-icon {
     padding: $base-unit;
-    background-color: $brand-8;
+    background-color: $accent-teal;
     border-radius: 2px;
     height: $base-unit * 6;
     width: $base-unit * 6;
@@ -41,7 +41,7 @@ $active-item-border-size: $base-unit / 2;
 
   .sidebar-title {
     display: inline;
-    color: $gray-9;
+    color: $light-gray;
     font-size: $font-size-large;
     align-self: center;
   }
@@ -49,24 +49,24 @@ $active-item-border-size: $base-unit / 2;
 
 .sidebar-link {
   align-self: center;
-  color: $gray-9;
+  color: $light-gray;
   padding: $base-unit $base-unit $base-unit $sidebar-item-left-padding;
   display: block;
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
-    color: $gray-9;
+    color: $light-gray;
     text-decoration: underline;
   }
 
   &.active {
-    background-color: $dark-1;
-    border-left: $active-item-border-size solid $brand-8;
+    background-color: $black;
+    border-left: $active-item-border-size solid $accent-teal;
     padding-left: $sidebar-item-left-padding - $active-item-border-size;
   }
 
   svg {
-    fill: $gray-9;
+    fill: $light-gray;
   }
 }

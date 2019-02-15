@@ -16,15 +16,14 @@ requirePuiReact.keys().map(file => Object.entries(requirePuiReact(file))
 const routes = getRoutes({processor, requireFunc: require.context('../docs', true, /\.md$/)});
 
 window.Icons = require('pivotal-ui/react/iconography/icons');
-window.colorPalette = {
-  neutral: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-  dark: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-  brand: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-  accent: [1, 2, 3, 4, 5, 6],
-  error: [1, 2, 3, 4, 5, 6],
-  warn: [1, 2, 3, 4, 5, 6],
-  success: [1, 2, 3, 4, 5, 6]
-};
+window.colorPalette = [
+  ['black', 'dark-gray', 'gray', 'accent-gray', 'light-gray', 'white'],
+  ['teal', 'accent-teal', 'light-teal'],
+  ['dark-blue', 'blue', 'accent-blue', 'light-blue'],
+  ['dark-red', 'red', 'light-red'],
+  ['green', 'accent-green', 'light-green'],
+  ['decorative-yellow', 'light-yellow']
+];
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);

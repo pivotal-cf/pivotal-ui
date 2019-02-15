@@ -7,6 +7,6 @@
 
 .code-example-button {
   &:focus {
-    box-shadow: 0 0 0 2px transparentize($accent-3, 0.8);
+    box-shadow: 0 0 0 2px transparentize($blue, 0.8);
   }
 }

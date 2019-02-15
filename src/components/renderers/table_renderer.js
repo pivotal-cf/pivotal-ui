@@ -11,7 +11,7 @@ export default class TableRenderer extends PureComponent {
       <table {...props} {...{className: classnames(className, 'table', 'md-table')}}>
         <thead>
           {React.Children.map(thead.props.children, child => {
-            return React.cloneElement(child, {className: 'tr-no-h-borders bg-neutral-10'});
+            return React.cloneElement(child, {className: 'tr-no-h-borders bg-white'});
           })}
         </thead>
         <tbody>
