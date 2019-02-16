@@ -1,16 +1,24 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {spyOnRender} from '../../support/jest_spy_on_render';
 import {Siteframe} from '../../../src/react/siteframe';
 import {Header} from '../../../src/react/siteframe/header';
 import {Sidebar} from '../../../src/react/siteframe/sidebar';
 import {SidebarLinks} from '../../../src/react/siteframe/sidebar_links';
+
+jest.mock('../../../src/react/siteframe/header', () => ({
+  Header: jest.fn(() => <div/>)
+}));
+
+jest.mock('../../../src/react/siteframe/sidebar', () => ({
+  Sidebar: jest.fn(() => <div/>)
+}));
 
 describe('Siteframe', () => {
   let headerProps, sidebarProps;
 
   beforeEach(() => {
     spyOnRender(SidebarLinks);
-    spyOnRender(Header).and.callThrough();
-    spyOnRender(Sidebar).and.callThrough();
 
     headerProps = {
       cols: [],
@@ -66,7 +74,6 @@ describe('Siteframe', () => {
 
     it('renders the header', () => {
       expect(Header).toHaveBeenRenderedWithProps(headerProps);
-      expect('.pui-siteframe > div:eq(0)').toHaveClass('pui-siteframe-header');
     });
 
     it('renders the siteframe body', () => {
@@ -86,8 +93,8 @@ describe('Siteframe', () => {
   });
 
   describe('with sidebar and children', () => {
-
     beforeEach(() => {
+      Header.mockClear();
       ReactDOM.render(<Siteframe {...{sidebarProps}}>
         <div className="siteframe-child">siteframe-child</div>
       </Siteframe>, root);
@@ -106,7 +113,6 @@ describe('Siteframe', () => {
     it('renders the sidebar', () => {
       expect(Sidebar).toHaveBeenRenderedWithProps(sidebarProps);
       expect('.pui-siteframe > .pui-siteframe-body > .col:eq(0)').toHaveClass('col-fixed');
-      expect('.pui-siteframe > .pui-siteframe-body > .col:eq(0) > .pui-siteframe-sidebar').toExist();
     });
 
     it('renders the child', () => {
@@ -124,7 +130,6 @@ describe('Siteframe', () => {
 
     it('renders the header', () => {
       expect(Header).toHaveBeenRenderedWithProps(headerProps);
-      expect('.pui-siteframe > div:eq(0)').toHaveClass('pui-siteframe-header');
     });
 
     it('renders the siteframe body', () => {
@@ -136,7 +141,6 @@ describe('Siteframe', () => {
     it('renders the sidebar', () => {
       expect(Sidebar).toHaveBeenRenderedWithProps(sidebarProps);
       expect('.pui-siteframe > .pui-siteframe-body > .col:eq(0)').toHaveClass('col-fixed');
-      expect('.pui-siteframe > .pui-siteframe-body > .col:eq(0) > .pui-siteframe-sidebar').toExist();
     });
 
     it('renders the child', () => {

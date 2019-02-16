@@ -1,5 +1,7 @@
-import '../../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import {setProps} from '../../../support/jest-helpers';
 import {Table, withRenderTdChildren} from '../../../../src/react/table';
 
 describe('withRenderTdChildren', () => {

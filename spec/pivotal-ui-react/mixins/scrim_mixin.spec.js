@@ -1,7 +1,7 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {default as ScrimMixin} from '../../../src/react/mixins/mixins/scrim_mixin';
 import {default as mixin} from '../../../src/react/mixins';
-
 
 describe('ScrimMixin', () => {
   let Component;

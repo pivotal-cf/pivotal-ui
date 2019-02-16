@@ -1,4 +1,5 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {FlexCol} from '../../../src/react/flex-grids';
 import {Header} from '../../../src/react/siteframe/header';
 

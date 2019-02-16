@@ -1,4 +1,5 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {TablePlugin} from '../../../src/react/table';
 
 describe('TablePlugin', () => {

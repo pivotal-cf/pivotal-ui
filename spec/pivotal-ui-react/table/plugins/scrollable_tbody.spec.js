@@ -1,4 +1,5 @@
-import '../../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {Table} from '../../../../src/react/table';
 import {withScrollableTbody} from '../../../../src/react/table/plugins/scrollable_tbody';
 

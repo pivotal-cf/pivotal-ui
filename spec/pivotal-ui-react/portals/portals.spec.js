@@ -1,8 +1,9 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-dom/test-utils';
 import {PortalSource, PortalDestination} from '../../../src/react/portals';
 
-
-describe('Portals', function() {
+describe('Portals', () => {
   let subject;
 
   class Potato extends React.Component {
@@ -18,12 +19,12 @@ describe('Portals', function() {
 
   const container = document.createElement('div');
 
-  afterEach(function() {
+  afterEach(() => {
     ReactDOM.unmountComponentAtNode(container);
   });
 
-  describe('when there is more than one destination portal with the same name', function() {
-    it('warns', function() {
+  describe('when there is more than one destination portal with the same name', () => {
+    it('warns', () => {
       spyOn(console, 'warn');
       subject = ReactDOM.render(
         <div>
@@ -44,8 +45,8 @@ describe('Portals', function() {
     });
   });
 
-  describe('when there is more than one source portal with the same name', function() {
-    it('renders the content for both source portals in the destination portal', function() {
+  describe('when there is more than one source portal with the same name', () => {
+    it('renders the content for both source portals in the destination portal', () => {
       subject = ReactDOM.render(
         <div>
           <div className="orange">
@@ -73,7 +74,7 @@ describe('Portals', function() {
     });
   });
 
-  describe('when the portals are rendered source first then destination', function() {
+  describe('when the portals are rendered source first then destination', () => {
     class Context extends React.Component {
       constructor(props, context) {
         super(props, context);
@@ -96,22 +97,22 @@ describe('Portals', function() {
       }
     }
 
-    it('does not render the source portal content', function() {
+    it('does not render the source portal content', () => {
       subject = ReactDOM.render(<Context/>, container);
       const blue = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'blue');
 
       expect(blue).not.toHaveText('Potato');
     });
 
-    it('renders the source portal into the destination portal', function() {
+    it('renders the source portal into the destination portal', () => {
       subject = ReactDOM.render(<Context/>, container);
       const orange = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'orange');
 
       expect(orange).toHaveText('Potato');
     });
 
-    describe('when the blue contents change', function() {
-      it('updates in the destination portal', function() {
+    describe('when the blue contents change', () => {
+      it('updates in the destination portal', () => {
         subject = ReactDOM.render(<Context/>, container);
         const potato = subject.refs.potato;
         potato.setState({cake: true});
@@ -122,8 +123,8 @@ describe('Portals', function() {
       });
     });
 
-    describe('when the blue contents unmount', function() {
-      it('cleans up the div in the destination portal', function() {
+    describe('when the blue contents unmount', () => {
+      it('cleans up the div in the destination portal', () => {
         subject = ReactDOM.render(<Context/>, container);
         subject.setState({visible: false});
         const orange = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'orange');
@@ -133,7 +134,7 @@ describe('Portals', function() {
     });
   });
 
-  describe('when the portals are rendered destination first then source', function() {
+  describe('when the portals are rendered destination first then source', () => {
     const renderComponent = () => ReactDOM.render(
         <div>
           <div className="orange">
@@ -147,14 +148,14 @@ describe('Portals', function() {
         </div>, container);
 
 
-    it('does not render the source portal content', function() {
+    it('does not render the source portal content', () => {
       subject = renderComponent();
       const blue = subject.getElementsByClassName('blue')[0];
 
       expect(blue).not.toHaveText('Potato');
     });
 
-    it('renders the source portal into the destination portal', function() {
+    it('renders the source portal into the destination portal', () => {
       subject = renderComponent();
       const orange = subject.getElementsByClassName('orange')[0];
 
@@ -162,8 +163,8 @@ describe('Portals', function() {
     });
   });
 
-  describe('with multiple portal pairs', function() {
-    it('renders the source portal contents in the correct destination portals', function() {
+  describe('with multiple portal pairs', () => {
+    it('renders the source portal contents in the correct destination portals', () => {
       subject = ReactDOM.render(
         <div>
           <div className="orange-chell">

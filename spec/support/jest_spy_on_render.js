@@ -87,8 +87,9 @@ export const matchers = {
     let result = {};
 
     const displayClass = getDisplayName(actual);
+    const propsByRender = getPropsByRender(actual);
 
-    if (actual.prototype.render.mock.calls.length !== 0) {
+    if (propsByRender.length !== 0) {
       result.pass = true;
       result.message = () => `Expected ${displayClass} not to have been rendered`;
     } else {

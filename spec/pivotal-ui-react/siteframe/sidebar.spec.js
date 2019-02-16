@@ -1,4 +1,6 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {spyOnRender} from '../../support/jest_spy_on_render';
 import {Sidebar} from '../../../src/react/siteframe/sidebar';
 import {SidebarLinks} from '../../../src/react/siteframe/sidebar_links';
 

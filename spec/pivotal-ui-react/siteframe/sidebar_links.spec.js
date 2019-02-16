@@ -1,4 +1,5 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {SidebarLinks} from '../../../src/react/siteframe/sidebar_links';
 
 describe('SidebarLinks', () => {

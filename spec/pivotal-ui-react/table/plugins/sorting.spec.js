@@ -1,4 +1,7 @@
-import '../../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../../support/jest-helpers';
 import {Table, withSorting} from '../../../../src/react/table';
 
 describe('withSorting', () => {

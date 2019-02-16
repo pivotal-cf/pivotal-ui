@@ -1,4 +1,5 @@
-import '../../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {Table, withCellClassName} from '../../../../src/react/table';
 
 describe('withCellClassName', () => {
