@@ -36,7 +36,7 @@ describe('Flyout', () => {
   });
 
   it('renders a Dialog', () => {
-    expect(Dialog).toHaveBeenCalledWith({
+    expect(Dialog).toHaveBeenRenderedWithProps({
       show: true,
       onHide,
       animationDuration: 0,
@@ -48,7 +48,7 @@ describe('Flyout', () => {
       hideOnEscKeyDown: false,
       width: '100px',
       updateParentZIndex: true
-    }, expect.anything(), expect.anything());
+    });
   });
 
   it('renders an icon button', () => {

@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {spyOnRender} from '../../../../spec/support/jest_spy_on_render';
+import {setProps} from '../../../../spec/support/jest-helpers';
 import PreRenderer from '../../../src/components/renderers/pre_renderer';
 import CodeExample from '../../../src/components/code_example';
 
@@ -7,11 +11,11 @@ describe('PreRenderer', () => {
   beforeEach(() => {
     code = ['echo "hello";', 'echo "world";'].join('\n');
     spyOnRender(CodeExample);
-    subject = testRender(<PreRenderer {...{
+    subject = ReactDOM.render(<PreRenderer {...{
       children: [
         <span className="language-bash" children={[code]}/>
       ]
-    }}/>);
+    }}/>, root);
   });
 
   it('renders a pre tag', () => {
@@ -22,7 +26,7 @@ describe('PreRenderer', () => {
   describe('when the language is JavaScript', () => {
     beforeEach(() => {
       code = ['const x = "hello";', 'const y = "world";'].join('\n');
-      subject.setProps({children: [
+      subject::setProps({children: [
         <span className="language-js" children={[code]}/>
       ]});
     });
@@ -39,7 +43,7 @@ describe('PreRenderer', () => {
 
     describe('when a //title is given', () => {
       beforeEach(() => {
-        subject.setProps({children: [
+        subject::setProps({children: [
           <span className="language-js" children={[`//title=My example\n${code}`]}/>
         ]});
       });
@@ -57,7 +61,7 @@ describe('PreRenderer', () => {
 
     describe('when a //description is given', () => {
       beforeEach(() => {
-        subject.setProps({children: [
+        subject::setProps({children: [
           <span className="language-js" children={[`//description=My description\n${code}`]}/>
         ]});
       });
@@ -75,7 +79,7 @@ describe('PreRenderer', () => {
 
     describe('when //noToolbar is given', () => {
       beforeEach(() => {
-        subject.setProps({children: [
+        subject::setProps({children: [
           <span className="language-js" children={[`//noToolbar\n${code}`]}/>
         ]});
       });
@@ -93,7 +97,7 @@ describe('PreRenderer', () => {
 
     describe('when //nonInteractive is given', () => {
       beforeEach(() => {
-        subject.setProps({children: [
+        subject::setProps({children: [
           <span className="language-js" children={[`//nonInteractive\n${code}`]}/>
         ]});
       });

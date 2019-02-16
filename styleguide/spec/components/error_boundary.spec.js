@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import ErrorBoundary from '../../src/components/error_boundary';
 
 describe('ErrorBoundary', () => {
@@ -6,7 +8,7 @@ describe('ErrorBoundary', () => {
   beforeEach(() => {
     error = new Error('some error');
     info = {ComponentStack: 'here'};
-    subject = testRender(<ErrorBoundary><div className="hello">hello</div></ErrorBoundary>);
+    subject = ReactDOM.render(<ErrorBoundary><div className="hello">hello</div></ErrorBoundary>, root);
   });
 
   describe('when an error was caught', () => {

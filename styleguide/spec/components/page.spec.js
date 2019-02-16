@@ -1,6 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Page from '../../src/components/page';
-import {testRender} from '../support/matchers/jest_react';
 import MarkdownFileHelper from '../../src/helpers/markdown_file_helper';
 
 describe('Page', () => {
@@ -21,7 +21,7 @@ describe('Page', () => {
 
     jest.spyOn(MarkdownFileHelper, 'getParentTitle').mockImplementation(() => 'Test Title');
 
-    testRender(<Page match={match} routes={routes}/>);
+    ReactDOM.render(<Page match={match} routes={routes}/>, root);
   });
 
   it('renders a page', () => {
@@ -40,14 +40,16 @@ describe('Page', () => {
     beforeEach(() => {
       routes['/my-component'].metadata.deprecationMessage = true;
 
-      testRender(<Page match={match} routes={routes}/>);
+      ReactDOM.unmountComponentAtNode(root);
+      ReactDOM.render(<Page match={match} routes={routes}/>, root);
     });
 
     it('renders a warning alert', () => {
-      expect('.alert.pui-alert.alert-warning.pui-alert-warning').toExist();
+      expect('.pui-alert.pui-alert-warning').toExist();
     });
+
     it('renders the default deprecation message', () => {
-      expect('.alert.pui-alert.alert-warning.pui-alert-warning').toContainText('This component has been deprecated and will be removed in the next major version of Pivotal UI. Reach out to the Pivotal UI team if you have any questions.');
+      expect('.pui-alert.pui-alert-warning').toContainText('This component has been deprecated and will be removed in the next major version of Pivotal UI. Reach out to the Pivotal UI team if you have any questions.');
     });
   });
 
@@ -55,15 +57,16 @@ describe('Page', () => {
     beforeEach(() => {
       routes['/my-component'].metadata.deprecationMessage = 'custom deprecation message';
 
-      testRender(<Page match={match} routes={routes}/>);
+      ReactDOM.unmountComponentAtNode(root);
+      ReactDOM.render(<Page match={match} routes={routes}/>, root);
     });
 
     it('renders a warning alert', () => {
-      expect('.alert.pui-alert.alert-warning.pui-alert-warning').toExist();
+      expect('.pui-alert.pui-alert-warning').toExist();
     });
 
     it('renders the custom deprecation message', () => {
-      expect('.alert.pui-alert.alert-warning.pui-alert-warning').toContainText('custom deprecation message');
+      expect('.pui-alert.pui-alert-warning').toContainText('custom deprecation message');
     });
   });
 });

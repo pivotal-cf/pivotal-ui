@@ -35,7 +35,7 @@ describe('Modal', () => {
   });
 
   it('renders a Dialog', () => {
-    expect(Dialog).toHaveBeenCalledWith({
+    expect(Dialog).toHaveBeenRenderedWithProps({
       show: true,
       onHide,
       animationDuration: 0,
@@ -46,7 +46,7 @@ describe('Modal', () => {
       ariaLabelledBy: jasmine.any(String),
       hideOnBackdropClick: true,
       hideOnEscKeyDown: true
-    }, expect.anything(), expect.anything());
+    });
   });
 
   it('renders a close button', () => {
@@ -79,10 +79,8 @@ describe('Modal', () => {
 
     it('sets the aria-labelledby attribute on the dialog to be the ID of the title', () => {
       const titleId = $('.pui-modal-header h3.pui-modal-title').attr('id');
-      expect(Dialog).toHaveBeenCalledWith(
-        expect.objectContaining({ariaLabelledBy: titleId}),
-        expect.anything(),
-        expect.anything()
+      expect(Dialog).toHaveBeenRenderedWithProps(
+        expect.objectContaining({ariaLabelledBy: titleId})
       );
     });
   });
@@ -116,12 +114,10 @@ describe('Modal', () => {
       });
 
       it('adds the corresponding className to the dialog', () => {
-        expect(Dialog).toHaveBeenCalledWith(
+        expect(Dialog).toHaveBeenRenderedWithProps(
           expect.objectContaining({
             dialogClassName: 'pui-modal-dialog some-dialog-class pui-modal-sm'
-          }),
-          expect.anything(),
-          expect.anything()
+          })
         );
       });
     });
@@ -132,12 +128,10 @@ describe('Modal', () => {
       });
 
       it('adds the corresponding className to the dialog', () => {
-        expect(Dialog).toHaveBeenCalledWith(
+        expect(Dialog).toHaveBeenRenderedWithProps(
           expect.objectContaining({
             dialogClassName: 'pui-modal-dialog some-dialog-class pui-modal-sm'
-          }),
-          expect.anything(),
-          expect.anything()
+          })
         );
       });
     });
@@ -148,12 +142,10 @@ describe('Modal', () => {
       });
 
       it('adds the corresponding className to the dialog', () => {
-        expect(Dialog).toHaveBeenCalledWith(
+        expect(Dialog).toHaveBeenRenderedWithProps(
           expect.objectContaining({
             dialogClassName: 'pui-modal-dialog some-dialog-class pui-modal-lg'
-          }),
-          expect.anything(),
-          expect.anything()
+          })
         );
       });
     });
@@ -164,12 +156,10 @@ describe('Modal', () => {
       });
 
       it('adds the corresponding className to the dialog', () => {
-        expect(Dialog).toHaveBeenCalledWith(
+        expect(Dialog).toHaveBeenRenderedWithProps(
           expect.objectContaining({
             dialogClassName: 'pui-modal-dialog some-dialog-class pui-modal-lg'
-          }),
-          expect.anything(),
-          expect.anything()
+          })
         );
       });
     });
@@ -180,20 +170,16 @@ describe('Modal', () => {
       });
 
       it('does not add a className to the dialog', () => {
-        expect(Dialog).toHaveBeenCalledWith(
+        expect(Dialog).toHaveBeenRenderedWithProps(
           expect.objectContaining({
             dialogClassName: 'pui-modal-dialog some-dialog-class'
-          }),
-          expect.anything(),
-          expect.anything()
+          })
         );
       });
 
       it('sets the style on the dialog', () => {
-        expect(Dialog).toHaveBeenCalledWith(
-          expect.objectContaining({width: '240px'}),
-          expect.anything(),
-          expect.anything()
+        expect(Dialog).toHaveBeenRenderedWithProps(
+          expect.objectContaining({width: '240px'})
         );
       });
     });

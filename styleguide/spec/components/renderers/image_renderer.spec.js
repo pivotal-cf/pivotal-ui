@@ -1,13 +1,14 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import ImageRenderer from '../../../src/components/renderers/image_renderer';
-import {testRender} from '../../support/matchers/jest_react';
 
 describe('ImageRenderer', () => {
   beforeEach(() => {
-    testRender(<ImageRenderer {...{
+    ReactDOM.render(<ImageRenderer {...{
       id: 'test-img-id',
       className: 'test-img-class',
       title: 'Test title'
-    }}/>);
+    }}/>, root);
   });
 
   it('renders an image', () => {

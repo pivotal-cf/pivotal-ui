@@ -1,9 +1,10 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import TableRenderer from '../../../src/components/renderers/table_renderer';
-import {testRender} from '../../support/matchers/jest_react';
 
 describe('TableRenderer', () => {
   beforeEach(() => {
-    testRender(<TableRenderer {...{
+    ReactDOM.render(<TableRenderer {...{
       className: 'test-table-class',
       id: 'test-table-id',
       children: [
@@ -24,7 +25,7 @@ describe('TableRenderer', () => {
         </tr>
         </tbody>
       ]
-    }}/>);
+    }}/>, root);
   });
 
   it('renders a table', () => {

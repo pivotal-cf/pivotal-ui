@@ -33,7 +33,7 @@ describe('Toggle', () => {
     renderComponent({defaultChecked: true});
     const component = $('.toggle-switch');
 
-    expect(component).not.toHaveAttr('checked');
+    expect(component).toHaveAttr('checked', '');
 
     $(component).simulate('change');
 

@@ -1,7 +1,9 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {spyOnRender} from '../../../../spec/support/jest_spy_on_render';
 import LinkRenderer from '../../../src/components/renderers/link_renderer';
 import {Link} from 'react-router-dom';
 import {BrowserRouter as Router} from 'react-router-dom';
-import {testRender} from '../../support/matchers/jest_react';
 
 describe('LinkRenderer', () => {
   let href, children;
@@ -14,7 +16,7 @@ describe('LinkRenderer', () => {
     beforeEach(() => {
       href = 'http://www.some_website.com';
       children = ['external link'];
-      testRender(<LinkRenderer {...{href, children}}/>);
+      ReactDOM.render(<LinkRenderer {...{href, children}}/>, root);
     });
 
     it('renders an <a> tag', () => {
@@ -27,7 +29,7 @@ describe('LinkRenderer', () => {
     beforeEach(() => {
       href = '/static/versions/v205';
       children = ['Version 205'];
-      testRender(<LinkRenderer {...{href, children}}/>);
+      ReactDOM.render(<LinkRenderer {...{href, children}}/>, root);
     });
 
     it('renders an <a> tag', () => {
@@ -40,7 +42,7 @@ describe('LinkRenderer', () => {
     beforeEach(() => {
       href = '/some/page/on/this/domain';
       children = ['name of page'];
-      testRender(<Router><LinkRenderer {...{href, children}}/></Router>);
+      ReactDOM.render(<Router><LinkRenderer {...{href, children}}/></Router>, root);
     });
 
     it('renders a react router Link', () => {

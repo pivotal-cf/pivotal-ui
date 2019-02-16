@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {spyOnRender} from '../../../spec/support/jest_spy_on_render';
 import AceEditor from 'react-ace';
 import Editor from '../../src/components/editor';
 
@@ -5,16 +8,12 @@ describe('Editor', () => {
   let code, changeHandler, mode, readOnly;
 
   beforeEach(() => {
-    spyOnRender(AceEditor, <div className="mock-editor"/>);
+    spyOnRender(AceEditor);
     code = 'i++';
     mode = 'js';
     readOnly = true;
     changeHandler = jest.fn();
-    testRender(<Editor {...{code, changeHandler, mode, readOnly}}/>);
-  });
-
-  it('renders the editor inside a div', () => {
-    expect('div.pal.border-top > .mock-editor').toExist();
+    ReactDOM.render(<Editor {...{code, changeHandler, mode, readOnly}}/>, root);
   });
 
   it('renders the AceEditor with the correct props', () => {

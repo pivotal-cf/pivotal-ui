@@ -1,4 +1,3 @@
-import '../spec_helper';
 import * as RoutesHelper from '../../src/helpers/routes_helper';
 import MarkdownFileHelper from '../../src/helpers/markdown_file_helper';
 
