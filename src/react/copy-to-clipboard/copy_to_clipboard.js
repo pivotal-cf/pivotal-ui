@@ -24,7 +24,7 @@ export class CopyToClipboard extends React.PureComponent {
     const {children, text, onClick, tooltip = 'Copied', ...others} = this.props;
 
     const anchorProps = mergeProps(others, {
-      className: 'copy-to-clipboard pui-copy-to-clipboard',
+      className: 'pui-copy-to-clipboard',
       onClick: this.click.bind(null, this.props),
       role: 'button'
     });
