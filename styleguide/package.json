@@ -68,8 +68,7 @@
     "start": "npm run copy-files && webpack-dev-server --config ./webpack.config.js",
     "build": "webpack --config ./webpack.config.js -p && npm run copy-files",
     "build-dev": "webpack --config ./webpack.config.js && npm run copy-files",
-    "test": "jest",
-    "lint": "eslint src docs spec --ext .js,.md --fix"
+    "test": "jest"
   },
   "jest": {
     "moduleNameMapper": {

@@ -31,6 +31,8 @@
     "del": "^3.0.0",
     "eslint": "^5.12.0",
     "eslint-plugin-jasmine": "^2.10.1",
+    "eslint-plugin-jest": "^22.1.3",
+    "eslint-plugin-markdown": "^1.0.0",
     "eslint-plugin-react": "^7.12.4",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "fancy-log": "^1.3.2",
@@ -108,6 +110,7 @@
   "scripts": {
     "build": "gulp build",
     "build:styleguide": "cd styleguide && yarn build",
+    "lint": "eslint src spec styleguide/src styleguide/spec --ext .js,.md --fix",
     "start": "cd styleguide && yarn start",
     "test": "jest"
   }
