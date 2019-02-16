@@ -10,7 +10,7 @@ function url(storyNumber) {
 
 const privates = new WeakMap();
 
-export default class Tracker_helper {
+export default class TrackerHelper {
   constructor(trackerToken) {
     privates.set(this, {trackerToken});
   }

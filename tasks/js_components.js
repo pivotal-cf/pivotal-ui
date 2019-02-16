@@ -1,6 +1,8 @@
 import del from 'del';
 import gulp from 'gulp';
-const plugins = require('gulp-load-plugins')();
+import loadPlugins from 'gulp-load-plugins';
+
+const plugins = loadPlugins();
 
 const COPYRIGHT = '/*(c) Copyright 2018 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const buildFolder = 'dist/js';

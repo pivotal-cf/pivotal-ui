@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+
 const buildFolder = 'dist';
 
 gulp.task('build-license', () =>

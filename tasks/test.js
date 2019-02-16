@@ -1,8 +1,11 @@
 import gulp from 'gulp';
-const plugins = require('gulp-load-plugins')();
+import loadPlugins from 'gulp-load-plugins';
+
+const plugins = loadPlugins();
+
 const {plumber, eslint, if: gulpIf, util: {log, colors}, jasmine} = plugins;
 
-gulp.task('lint', function() {
+gulp.task('lint', () => {
   const {FIX: fix = true} = process.env;
   return gulp.src([
     'src/react/**/*.js',
@@ -26,7 +29,7 @@ gulp.task('lint', function() {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('jasmine-task-helpers', function() {
+gulp.task('jasmine-task-helpers', () => {
   return gulp.src(['spec/task-helpers/**/*_spec.js'])
     .pipe(plumber())
     .pipe(jasmine({includeStackTrace: true}));

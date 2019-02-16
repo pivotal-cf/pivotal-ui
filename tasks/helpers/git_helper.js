@@ -15,7 +15,7 @@ const sortSemversReverse = ([majorA, minorA, patchA], [majorB, minorB, patchB]) 
   return 0;
 };
 
-export default class Git_helper {
+export default class GitHelper {
   git(cmd, noTrim) {
     return new Promise((res, rej) => exec(`git ${cmd}`, {maxBuffer: 1024 * 1024}, (err, out) => {
       if (err) return rej(err);

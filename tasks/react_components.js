@@ -2,38 +2,17 @@ import del from 'del';
 import gulp from 'gulp';
 import svgToJs from 'svg-to-jsx';
 import fs from 'fs';
+import {promisify} from 'util';
+import loadPlugins from 'gulp-load-plugins';
 
-const plugins = require('gulp-load-plugins')();
+const plugins = loadPlugins();
 const COPYRIGHT = '/*(c) Copyright 2018 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const srcFolder = 'src/react';
 const buildFolder = 'dist/react';
 
-function readdir(path) {
-  return new Promise((res, rej) => {
-    fs.readdir(path, (err, items) => {
-      if (err) return rej(err);
-      res(items);
-    });
-  });
-}
-
-function readFile(path) {
-  return new Promise((res, rej) => {
-    fs.readFile(path, (err, data) => {
-      if (err) return rej(err);
-      res(data);
-    });
-  });
-}
-
-function writeFile(path, data) {
-  return new Promise((res, rej) => {
-    fs.writeFile(path, data, err => {
-      if (err) return rej(err);
-      res();
-    });
-  });
-}
+const readdir = promisify(fs.readdir);
+const readFile = promisify(fs.readFile);
+const writeFile = promisify(fs.writeFile);
 
 gulp.task('react-build-src', function () {
   return gulp.src(`${srcFolder}/**/*.js`)
