@@ -2,6 +2,7 @@
 
 echo "git pulling with rebase"
 git pull -r
+
 gulp
 yarn test
 yarn lint

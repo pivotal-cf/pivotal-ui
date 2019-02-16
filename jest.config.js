@@ -8,6 +8,8 @@ module.exports = {
     '<rootDir>/spec/support/jest-babel-polyfill.js'
   ],
   moduleNameMapper: {
+    '^pivotal-ui/react/iconography/icons$': '<rootDir>/src/iconography/icons.js',
+    '^pivotal-ui/(.*)': '<rootDir>/src/$1',
     '\\.(css|scss)$': '<rootDir>/spec/support/jest-empty-mock.js'
   }
 };
