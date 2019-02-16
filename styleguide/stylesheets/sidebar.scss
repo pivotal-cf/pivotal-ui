@@ -1,0 +1,72 @@
+@import '~pivotal-ui/css/pui-variables';
+
+$sidebar-item-left-padding: $base-unit * 2;
+$active-item-border-size: $base-unit / 2;
+
+.sidebar {
+  color: $light-gray;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 40px;
+  position: fixed;
+  width: 240px;
+  height: 100%;
+
+  .autocomplete input {
+    background-color: $black;
+    color: $light-gray;
+  }
+}
+
+.sidebar-header {
+  padding: $base-unit * 2;
+  display: flex;
+
+  a {
+    align-self: center;
+  }
+
+  .sidebar-icon {
+    padding: $base-unit;
+    background-color: $accent-teal;
+    border-radius: 2px;
+    height: $base-unit * 6;
+    width: $base-unit * 6;
+
+    svg {
+      height: $base-unit * 4;
+      width: $base-unit * 4;
+    }
+  }
+
+  .sidebar-title {
+    display: inline;
+    color: $light-gray;
+    font-size: $font-size-large;
+    align-self: center;
+  }
+}
+
+.sidebar-link {
+  align-self: center;
+  color: $light-gray;
+  padding: $base-unit $base-unit $base-unit $sidebar-item-left-padding;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: $light-gray;
+    text-decoration: underline;
+  }
+
+  &.active {
+    background-color: $black;
+    border-left: $active-item-border-size solid $accent-teal;
+    padding-left: $sidebar-item-left-padding - $active-item-border-size;
+  }
+
+  svg {
+    fill: $light-gray;
+  }
+}

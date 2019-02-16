@@ -1,0 +1,12 @@
+.code-example-title {
+  p {
+    margin-top: $base-unit;
+    margin-bottom: 0;
+  }
+}
+
+.code-example-button {
+  &:focus {
+    box-shadow: 0 0 0 2px transparentize($blue, 0.8);
+  }
+}

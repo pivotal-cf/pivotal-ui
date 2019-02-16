@@ -1,0 +1,47 @@
+.styleguide-page {
+  .styleguide-import-preview-code {
+    word-break: normal;
+  }
+
+  table.md-table {
+    margin-bottom: 40px;
+    table-layout: auto;
+  }
+
+  .md-image {
+    width: 100%;
+  }
+
+  .md-heading:first-child {
+    margin-top: 0 !important;
+  }
+
+  .md-pre {
+    background: transparent;
+    padding: $base-unit;
+  }
+
+  .styleguide-page-header {
+    a {
+      color: $text-color;
+
+      svg {
+        fill: $gray;
+      }
+    }
+  }
+
+  .styleguide-page-main {
+    max-width: 960px;
+  }
+
+  .styleguide-tabs {
+    border-bottom: none !important;
+  }
+
+  .styleguide-tab-content {
+    > .tab-content {
+      background: transparent;
+    }
+  }
+}

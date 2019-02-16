@@ -1,0 +1,65 @@
+@import '~pivotal-ui/css/pui-variables';
+@import 'sidebar';
+@import 'page';
+@import 'code_example';
+@import 'search_bar';
+@import 'search_result';
+
+body {
+  margin: 0;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+.grid-show {
+  margin-bottom: $grid-gutter-width;
+  text-align: center;
+  [class*=col]:before {
+    content: attr(class) '\a' attr(grid-content);
+    white-space: pre;
+    display: block;
+    background-color: $white;
+    padding: 10px 0;
+    outline: 1px solid $accent-gray;
+  }
+}
+
+h1.h1 {
+  line-height: 40px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+h2.h2 {
+  margin-bottom: 16px;
+}
+
+.example-form {
+  .label-row {
+    outline: 1px solid green;
+  }
+
+  .field-row {
+    outline: 1px solid cadetblue;
+  }
+
+  .help-row {
+    outline: 1px solid darkred;
+  }
+}
+
+#content {
+  padding-left: 240px;
+
+  .policy-link {
+    &:not(:empty):before {
+      content: "•";
+      margin: 0 8px;
+    }
+
+    &:first-child:before {
+      content: "";
+      margin-right: 0;
+    }
+  }
+}
