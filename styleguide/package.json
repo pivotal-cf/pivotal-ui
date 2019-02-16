@@ -51,8 +51,8 @@
   },
   "scripts": {
     "copy-files": "mkdir -p dist && cp public/* dist/ && cp -R static dist/",
-    "start": "npm run copy-files && webpack-dev-server --config ./webpack.config.js",
-    "build": "webpack --config ./webpack.config.js -p && npm run copy-files",
-    "build-dev": "webpack --config ./webpack.config.js && npm run copy-files"
+    "start": "npm run copy-files && webpack-dev-server --config ./webpack.config.babel.js",
+    "build": "webpack --config ./webpack.config.babel.js -p && npm run copy-files",
+    "build-dev": "webpack --config ./webpack.config.babel.js && npm run copy-files"
   }
 }
