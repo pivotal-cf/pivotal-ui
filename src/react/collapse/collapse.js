@@ -36,21 +36,19 @@ export class BaseCollapse extends React.PureComponent {
     const props = mergeProps(others, {
       className: [
         'pui-collapse',
-        {'pui-collapse-divider': divider},
-        'panel',
-        {'panel-divider': divider}
+        {'pui-collapse-divider': divider}
       ]
     });
     const {expanded} = this.state;
 
     return (<div {...props}>
-      <div className="pui-collapse-panel-heading panel-heading" onClick={this.handleSelect}>
-        <div className="pui-collapse-panel-title panel-title" role="presentation">
+      <div className="pui-collapse-panel-heading" onClick={this.handleSelect}>
+        <div className="pui-collapse-panel-title" role="presentation">
           {this.renderHeader()}
         </div>
       </div>
-      <div className="pui-collapse-panel panel-collapse">
-        <Collapsible className="pui-collapse-panel-body panel-body" expanded={expanded} delay={200}>
+      <div className="pui-collapse-panel">
+        <Collapsible className="pui-collapse-panel-body" expanded={expanded} delay={200}>
           {children}
         </Collapsible>
       </div>
