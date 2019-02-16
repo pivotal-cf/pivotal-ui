@@ -1,4 +1,6 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-dom/test-utils';
 import {Tooltip} from '../../../src/react/tooltip';
 
 describe('Tooltip Component', () => {

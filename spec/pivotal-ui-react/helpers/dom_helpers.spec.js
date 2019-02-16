@@ -5,7 +5,7 @@ describe('DomHelpers', () => {
     let el;
 
     beforeEach(() => {
-      el = jasmine.createSpyObj('el', ['querySelectorAll']);
+      el = {querySelectorAll: jest.fn()};
       DomHelpers.findTabbableElements(el);
     });
 
@@ -34,9 +34,9 @@ describe('DomHelpers', () => {
 
     describe('when there is a document', () => {
       beforeEach(() => {
-        document = jasmine.createSpyObj('document', ['createElement']);
-        document.body = jasmine.createSpyObj('body', ['appendChild', 'removeChild']);
-        document.createElement.and.returnValue({offsetWidth: 100, clientWidth: 67, style: {}});
+        document = {createElement: jest.fn()};
+        document.body = {appendChild: jest.fn(), removeChild: jest.fn()};
+        document.createElement.mockReturnValue({offsetWidth: 100, clientWidth: 67, style: {}});
         scrollbarWidth = DomHelpers.getScrollbarWidth(document);
       });
 

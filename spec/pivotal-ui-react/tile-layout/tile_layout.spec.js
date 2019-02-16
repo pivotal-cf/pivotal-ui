@@ -1,7 +1,7 @@
-import '../spec_helper';
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import {TileLayout, TileLayoutItem} from '../../../src/react/tile-layout';
-import {findByClass} from '../spec_helper';
 
 describe('TileLayout', () => {
   const renderComponent = (tileLayoutProps, tileItemProps) => ReactDOM.render(
@@ -17,13 +17,13 @@ describe('TileLayout', () => {
   );
 
   it('creates tile-layout', () => {
-    const result = renderComponent();
-    expect(findByClass(result, 'tile-layout')).toBeTruthy();
+    renderComponent();
+    expect('.tile-layout').toExist();
   });
 
   it('creates tile-items', () => {
-    const result = renderComponent();
-    const tileLayout = findByClass(result, 'tile-layout');
+    renderComponent();
+    const tileLayout = $('.tile-layout')[0];
     expect(tileLayout.childNodes.length).toEqual(2);
 
     expect(tileLayout.childNodes[0].className).toEqual('tile-item');
@@ -34,42 +34,38 @@ describe('TileLayout', () => {
 
   describe('columns', () => {
     it('supports setting number of columns', () => {
-      const result = renderComponent({columns: 4});
+      renderComponent({columns: 4});
 
-      const tileLayout = findByClass(result, 'tile-layout');
-      expect(tileLayout).toHaveClass('tile-layout-xs-4');
+      expect('.tile-layout').toHaveClass('tile-layout-xs-4');
     });
 
     it('supports supports setting number of columns for different screen sizes', () => {
-      const result = renderComponent({columns: {sm: 4, md: 3, lg: 2, xl: 1}});
+      renderComponent({columns: {sm: 4, md: 3, lg: 2, xl: 1}});
 
-      const tileLayout = findByClass(result, 'tile-layout');
-      expect(tileLayout).toHaveClass('tile-layout-sm-4');
-      expect(tileLayout).toHaveClass('tile-layout-md-3');
-      expect(tileLayout).toHaveClass('tile-layout-lg-2');
-      expect(tileLayout).toHaveClass('tile-layout-xl-1');
+      expect('.tile-layout').toHaveClass('tile-layout-sm-4');
+      expect('.tile-layout').toHaveClass('tile-layout-md-3');
+      expect('.tile-layout').toHaveClass('tile-layout-lg-2');
+      expect('.tile-layout').toHaveClass('tile-layout-xl-1');
     });
   });
 
   describe('gutters', () => {
     it('supports no gutter', () => {
-      const result = renderComponent({noGutter: true});
-      const tileLayout = findByClass(result, 'tile-layout');
+      renderComponent({noGutter: true});
 
-      expect(tileLayout).not.toHaveClass('tile-gutter');
+      expect('.tile-layout').not.toHaveClass('tile-gutter');
     });
 
     it('has a gutter by default', () => {
-      const result = renderComponent();
-      const tileLayout = findByClass(result, 'tile-layout');
+      renderComponent();
 
-      expect(tileLayout).toHaveClass('tile-gutter');
+      expect('.tile-layout').toHaveClass('tile-gutter');
     });
   });
 
   describe('attributes', () => {
     it('respects the passed-in class, id and style attributes', () => {
-      const result = renderComponent({
+      renderComponent({
         className: 'outer-class',
         id: 'outer-id',
         style: {opacity: '0.5'}
@@ -79,7 +75,7 @@ describe('TileLayout', () => {
         style: {opacity: '0.75'}
       });
 
-      const tileLayout = findByClass(result, 'tile-layout');
+      const tileLayout = $('.tile-layout')[0];
       expect(tileLayout).toHaveClass('outer-class');
       expect(tileLayout).toHaveAttr('id', 'outer-id');
       expect(tileLayout).toHaveCss({opacity: '0.5'});

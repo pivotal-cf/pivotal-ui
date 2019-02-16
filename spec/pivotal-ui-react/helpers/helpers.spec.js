@@ -1,9 +1,9 @@
-import '../spec_helper';
 import {mergeProps} from '../../../src/react/helpers';
 
 describe('mergeProps', () => {
   let subject;
   let defaultProps;
+
   beforeEach(() => {
     subject = {props: {}};
   });

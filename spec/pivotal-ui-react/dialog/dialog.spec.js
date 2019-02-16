@@ -1,8 +1,13 @@
-import '../spec_helper';
-import {Dialog} from '../../../src/react/dialog';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
+import {spyOnRender} from '../../support/jest_spy_on_render';
+import {Dialog} from '../../../src/react/dialog';
 import DomHelpers from '../../../src/react/helpers/dom_helpers';
 import {Icon} from '../../../src/react/iconography';
+
+jest.useFakeTimers();
 
 describe('Dialog', () => {
   let onHide, button, subject;
@@ -38,24 +43,13 @@ describe('Dialog', () => {
 
   it('renders a hidden backdrop', () => {
     expect('.pui-dialog-backdrop').not.toHaveClass('pui-dialog-show');
-    expect('.pui-dialog-backdrop').toHaveStyle({
-      visibility: 'hidden',
-      transitionDuration: '200ms',
-      transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-      transitionDelay: '0s',
-      transitionProperty: 'opacity'
-    });
+    expect('.pui-dialog-backdrop').toHaveStyle({visibility: 'hidden'});
     expect('.pui-dialog-backdrop').toHaveAttr('aria-hidden', 'true');
   });
 
   it('renders a hidden dialog', () => {
     expect('.pui-dialog').not.toHaveClass('pui-dialog-show');
-    expect('.pui-dialog').toHaveStyle({
-      transitionDuration: '200ms',
-      transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-      transitionDelay: '0s',
-      transitionProperty: 'transform'
-    });
+    expect('.pui-dialog').toHaveStyle({});
   });
 
   it('does not render the children', () => {
@@ -115,13 +109,7 @@ describe('Dialog', () => {
     });
 
     it('renders a modal', () => {
-      expect('.pui-dialog-backdrop').toHaveStyle({
-        visibility: 'visible',
-        transitionDuration: '200ms',
-        transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-        transitionDelay: '0s',
-        transitionProperty: 'opacity'
-      });
+      expect('.pui-dialog-backdrop').toHaveStyle({visibility: 'visible'});
       expect('.pui-dialog-backdrop').toHaveClass('pui-dialog-show');
     });
 
@@ -182,7 +170,6 @@ describe('Dialog', () => {
           expect(escEvent.preventDefault).not.toHaveBeenCalled();
         });
       });
-
     });
 
     describe('when the backdrop is clicked', () => {
@@ -317,7 +304,7 @@ describe('Dialog', () => {
     describe('when show becomes false and animation is enabled', () => {
       beforeEach(() => {
         subject::setProps({show: false});
-        jasmine.clock().tick(Dialog.defaultProps.animationDuration);
+        jest.advanceTimersByTime(Dialog.defaultProps.animationDuration);
       });
 
       it('removes the keydown event listener', () => {

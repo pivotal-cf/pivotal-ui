@@ -1,4 +1,8 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
+import {spyOnRender} from '../../support/jest_spy_on_render';
 import {Checkbox} from '../../../src/react/checkbox';
 import {Icon} from '../../../src/react/iconography';
 

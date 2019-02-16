@@ -1,4 +1,7 @@
-import '../spec_helper' ;
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
 import {BaseCollapse, Collapse, AltCollapse} from '../../../src/react/collapse';
 import {Collapsible} from '../../../src/react/collapsible';
 
@@ -6,7 +9,7 @@ describe('BaseCollapse', () => {
   let subject;
 
   beforeEach(() => {
-    spyOn(Collapsible.prototype, 'render').and.callThrough();
+    jest.spyOn(Collapsible.prototype, 'render');
     subject = ReactDOM.render((
       <BaseCollapse header="ima header">
         <h1>Child</h1>

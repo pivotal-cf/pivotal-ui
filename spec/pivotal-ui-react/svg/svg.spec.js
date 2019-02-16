@@ -1,4 +1,6 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {setProps} from '../../support/jest-helpers';
 import {Svg} from '../../../src/react/svg';
 import ReactDOMServer from 'react-dom/server';
 
@@ -8,7 +10,11 @@ describe('Svg', () => {
   beforeEach(() => {
     MySvg = class extends Svg {
       svgPathLoader(src) {
-        return require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!./${src}.svg`);
+        return props => (
+          <svg x="0px" y="0px" viewBox="0 0 225 225" {...props}>
+            <path/>
+          </svg>
+        );
       }
     };
 

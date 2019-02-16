@@ -1,6 +1,9 @@
-import '../spec_helper';
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import {TooltipTrigger} from '../../../src/react/tooltip';
+
+jest.useFakeTimers();
 
 describe('TooltipTrigger Component', () => {
   const renderComponent = (props, triggerContent) => ReactDOM.render(
@@ -51,7 +54,7 @@ describe('TooltipTrigger Component', () => {
     renderComponent({onEntered, tooltip: 'Some tooltip content'});
 
     $('.tooltip').simulate('mouseEnter');
-    jasmine.clock().tick(1);
+    jest.advanceTimersByTime(1);
 
     expect(onEntered).toHaveBeenCalledWith();
   });
@@ -61,9 +64,9 @@ describe('TooltipTrigger Component', () => {
     renderComponent({onExited, tooltip: 'Some tooltip content'});
 
     $('.tooltip').simulate('mouseEnter');
-    jasmine.clock().tick(1);
+    jest.advanceTimersByTime(1);
     $('.tooltip').simulate('mouseLeave');
-    jasmine.clock().tick(1);
+    jest.advanceTimersByTime(1);
 
     expect(onExited).toHaveBeenCalledWith();
   });
@@ -112,11 +115,11 @@ describe('TooltipTrigger Component', () => {
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
 
       $('.tooltip').simulate('mouseEnter');
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect('.tooltip-container').toHaveClass('tooltip-container-visible');
 
       $('.tooltip').simulate('mouseLeave');
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
     });
 
@@ -125,7 +128,7 @@ describe('TooltipTrigger Component', () => {
       renderComponent({tooltip: 'Some tooltip content', onClick});
 
       $('.tooltip').simulate('click');
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect(onClick).toHaveBeenCalledWith(jasmine.any(Object));
     });
 
@@ -153,7 +156,7 @@ describe('TooltipTrigger Component', () => {
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
 
       $('.tooltip').simulate('click');
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect('.tooltip-container').toHaveClass('tooltip-container-visible');
     });
 
@@ -163,7 +166,7 @@ describe('TooltipTrigger Component', () => {
       renderComponent({trigger: 'click', tooltip: 'Some tooltip content', onClick});
 
       $('.tooltip').simulate('click');
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect(TooltipTrigger.prototype.clickHandler).toHaveBeenCalledWith(jasmine.any(Object), onClick);
       expect(onClick).toHaveBeenCalledWith(jasmine.any(Object));
     });
@@ -172,9 +175,9 @@ describe('TooltipTrigger Component', () => {
       renderComponent({trigger: 'click', tooltip: 'Some tooltip content'});
 
       $('.tooltip').simulate('click');
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect('.tooltip-container').toHaveClass('tooltip-container-visible');
-      jasmine.clock().tick(6000);
+      jest.runAllTimers();
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
     });
 

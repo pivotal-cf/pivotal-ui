@@ -1,14 +1,21 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
+import {spyOnRender} from '../../support/jest_spy_on_render';
 import {Flyout} from '../../../src/react/flyout';
 import {Icon} from '../../../src/react/iconography';
 import {Dialog} from '../../../src/react/dialog';
+
+jest.mock('../../../src/react/dialog', () => ({
+  Dialog: jest.fn(props => <div>{props.children}</div>)
+}));
 
 describe('Flyout', () => {
   let onHide, children, header, subject;
 
   beforeEach(() => {
-    spyOnRender(Dialog).and.callThrough();
-    spyOnRender(Icon).and.callThrough();
+    spyOnRender(Icon);
 
     onHide = jasmine.createSpy('onHide');
     children = (<div>some-flyout-body</div>);
@@ -29,7 +36,7 @@ describe('Flyout', () => {
   });
 
   it('renders a Dialog', () => {
-    expect(Dialog).toHaveBeenRenderedWithProps({
+    expect(Dialog).toHaveBeenCalledWith({
       show: true,
       onHide,
       animationDuration: 0,
@@ -41,13 +48,13 @@ describe('Flyout', () => {
       hideOnEscKeyDown: false,
       width: '100px',
       updateParentZIndex: true
-    });
+    }, expect.anything(), expect.anything());
   });
 
   it('renders an icon button', () => {
-    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn-default-flat');
-    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn-icon');
-    expect('.pui-dialog .pui-flyout-icon-btn').toHaveAttr('aria-label', 'Close');
+    expect('.pui-flyout-icon-btn').toHaveClass('pui-btn-default-flat');
+    expect('.pui-flyout-icon-btn').toHaveClass('pui-btn-icon');
+    expect('.pui-flyout-icon-btn').toHaveAttr('aria-label', 'Close');
     expect(Icon).toHaveBeenRenderedWithProps({
       src: 'chevron_left',
       size: 'inherit',
@@ -57,7 +64,7 @@ describe('Flyout', () => {
   });
 
   it('renders the children', () => {
-    expect('.pui-flyout-dialog .pui-flyout-body').toHaveText('some-flyout-body');
+    expect('.pui-flyout-body').toHaveText('some-flyout-body');
   });
 
   describe('bodyClassName', () => {
@@ -76,17 +83,7 @@ describe('Flyout', () => {
     });
 
     it('sets the aria-label on the icon button accordingly', () => {
-      expect('.pui-dialog .pui-flyout-icon-btn').toHaveAttr('aria-label', 'Back');
-    });
-  });
-
-  describe('open prop', () => {
-    beforeEach(() => {
-      subject::setProps({open: true});
-    });
-
-    it('renders the flyout with the flyout-open class', () => {
-      expect('.pui-flyout-dialog').toHaveClass('pui-dialog-show');
+      expect('.pui-flyout-icon-btn').toHaveAttr('aria-label', 'Back');
     });
   });
 
@@ -99,10 +96,6 @@ describe('Flyout', () => {
       it('sets the given className on the header', () => {
         expect('.pui-flyout-header').toHaveClass('pan');
       });
-    });
-
-    it('renders the specified icon', () => {
-      expect('.pui-flyout-header.grid > .col.col-fixed .pui-btn.pui-btn-default-flat.pui-btn-icon .icon.icon-middle .icon-chevron_left').toHaveText('');
     });
 
     describe('when clicking the icon button', () => {
@@ -127,7 +120,12 @@ describe('Flyout', () => {
       });
 
       it('renders that icon instead of the close icon', () => {
-        expect(`.pui-flyout-header.grid > .col.col-fixed .pui-btn.pui-btn-default-flat.pui-btn-icon .icon.icon-middle .icon-${iconSrc}`).toHaveText('');
+        expect(Icon).toHaveBeenRenderedWithProps({
+          src: 'arrow_back',
+          size: 'inherit',
+          style: {},
+          verticalAlign: 'middle'
+        });
       });
     });
   });

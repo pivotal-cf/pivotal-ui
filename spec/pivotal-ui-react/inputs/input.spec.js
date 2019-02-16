@@ -1,5 +1,7 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {Input} from '../../../src/react/inputs';
+import {setProps} from '../../support/jest-helpers';
 
 describe('Input', () => {
   let subject;
