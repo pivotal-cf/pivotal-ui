@@ -25,7 +25,7 @@ export class Toggle extends React.PureComponent {
     const toggleId = id || uniqueid('toggle');
 
     const inputProps = mergeProps(others, {
-      className: 'toggle-switch pui-toggle-switch',
+      className: 'pui-toggle-switch',
       id: toggleId,
       type: 'checkbox'
     });
