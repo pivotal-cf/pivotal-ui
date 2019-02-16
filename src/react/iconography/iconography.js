@@ -2,7 +2,13 @@ import {mergeProps} from '../helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classnames from 'classnames';
-import Icons from './icons';
+import * as Icons from './icons';
+
+const aliases = {
+  'spinner-lg': 'spinner_lg',
+  'spinner-md': 'spinner_md',
+  'spinner-sm': 'spinner_sm'
+};
 
 export class Icon extends React.Component {
   static propTypes = {
@@ -23,12 +29,16 @@ export class Icon extends React.Component {
 
   render() {
     const {src, verticalAlign, ...others} = this.props;
+
+    const isSpinner = src.indexOf('spinner') === 0;
+
     const props = mergeProps(
       others,
-      {className: classnames('icon', `icon-${verticalAlign}`, {'spinner': src.indexOf('spinner') === 0})}
+      {className: classnames('icon', `icon-${verticalAlign}`, {'spinner': isSpinner})}
     );
 
-    let renderedIcon = Icons[src], iconSrc = src;
+    let iconSrc = src;
+    let renderedIcon = Icons[iconSrc] || Icons[aliases[iconSrc]];
 
     if (!renderedIcon) {
       renderedIcon = Icons.help;
@@ -36,8 +46,10 @@ export class Icon extends React.Component {
       console.warn(`Icon "${src}" is not recognized.`);
     }
 
+    const iconClassName = `icon-${isSpinner ? iconSrc.replace('_', '-') : iconSrc}`;
+
     return (<div {...props}>
-      {React.cloneElement(renderedIcon, {className: `icon-${iconSrc}`, key: iconSrc})}
+      {React.cloneElement(renderedIcon, {className: iconClassName, key: iconSrc})}
     </div>);
   }
 }

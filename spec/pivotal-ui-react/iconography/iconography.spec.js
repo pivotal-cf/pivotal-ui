@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Icon} from '../../../src/react/iconography';
+import * as Icons from '../../../src/react/iconography/icons';
 
 describe('iconography', () => {
   afterEach(() => {
@@ -16,6 +17,47 @@ describe('iconography', () => {
     ReactDOM.render(<Icon src="add" className="foo" id="bar"/>, root);
     expect('.icon').toHaveClass('foo');
     expect('.icon').toHaveAttr('id', 'bar');
+  });
+
+  Object.keys(Icons).filter(iconName => {
+    return !iconName.startsWith('_') && !iconName.includes('spinner');
+  }).forEach(iconName => {
+    it(`works with src "${iconName}"`, () => {
+      ReactDOM.render(<Icon src={iconName} className="foo" id="bar"/>, root);
+      expect('.icon svg').toHaveClass(`icon-${iconName}`);
+    });
+  });
+
+  describe('spinner icons', () => {
+    it('works with src "spinner_lg"', () => {
+      ReactDOM.render(<Icon src="spinner_lg" className="foo" id="bar"/>, root);
+      expect('.icon svg').toHaveClass('icon-spinner-lg');
+    });
+
+    it('works with src "spinner-lg" (for backwards compatibility)', () => {
+      ReactDOM.render(<Icon src="spinner-lg" className="foo" id="bar"/>, root);
+      expect('.icon svg').toHaveClass('icon-spinner-lg');
+    });
+
+    it('works with src "spinner_md"', () => {
+      ReactDOM.render(<Icon src="spinner_md" className="foo" id="bar"/>, root);
+      expect('.icon svg').toHaveClass('icon-spinner-md');
+    });
+
+    it('works with src "spinner-md" (for backwards compatibility)', () => {
+      ReactDOM.render(<Icon src="spinner-md" className="foo" id="bar"/>, root);
+      expect('.icon svg').toHaveClass('icon-spinner-md');
+    });
+
+    it('works with src "spinner_sm"', () => {
+      ReactDOM.render(<Icon src="spinner_sm" className="foo" id="bar"/>, root);
+      expect('.icon svg').toHaveClass('icon-spinner-sm');
+    });
+
+    it('works with src "spinner-sm" (for backwards compatibility)', () => {
+      ReactDOM.render(<Icon src="spinner-sm" className="foo" id="bar"/>, root);
+      expect('.icon svg').toHaveClass('icon-spinner-sm');
+    });
   });
 
   describe('verticalAlign', () => {

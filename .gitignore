@@ -54,5 +54,3 @@ spec/css/regressionRunner.js
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 vendor/ruby
-
-src/react/iconography/icons.js

@@ -75,7 +75,6 @@
     "sass-loader": "^7.1.0",
     "stringifier": "^2.0.0",
     "style-loader": "^0.23.1",
-    "svg-to-jsx": "^1.0.0",
     "url-loader": "^1.1.2",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1",
