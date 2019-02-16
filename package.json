@@ -106,6 +106,9 @@
     "react-dom": "^15.0.0 || ^16.0.0"
   },
   "scripts": {
+    "build": "gulp build",
+    "build:styleguide": "cd styleguide && yarn build",
+    "start": "cd styleguide && yarn start",
     "test": "jest"
   }
 }

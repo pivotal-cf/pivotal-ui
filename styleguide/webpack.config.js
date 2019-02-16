@@ -49,8 +49,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'node_modules/pivotal-ui': path.resolve(__dirname, '../pivotal-ui/src'),
-      'pivotal-ui': path.resolve(__dirname, '../pivotal-ui/src')
+      'node_modules/pivotal-ui': path.resolve(__dirname, '../src'),
+      'pivotal-ui': path.resolve(__dirname, '../src')
     }
   },
   module: {
@@ -63,7 +63,7 @@ module.exports = {
           // This is necessary to make sure babel-loader knows
           // to load the .babelrc both here and in ../pivotal-ui.
           // see: https://babeljs.io/docs/en/options#babelrcroots
-          babelrcRoots: ['.', '../pivotal-ui']
+          babelrcRoots: ['.', '..']
         }
       },
       {
