@@ -9,13 +9,13 @@ describe('Toggle', () => {
   it('renders', () => {
     const result = renderComponent();
     expect(findByClass(result, 'pui-toggle')).toBeDefined();
-    expect(findByClass(result, 'toggle-switch')).toBeDefined();
+    expect(findByClass(result, 'pui-toggle-switch')).toBeDefined();
   });
 
   it('calls the onChange callback on click', () => {
     const onChangeSpy = jasmine.createSpy('onChange');
     const result = renderComponent({onChange: onChangeSpy});
-    const component = findByClass(result, 'toggle-switch');
+    const component = findByClass(result, 'pui-toggle-switch');
 
     ReactTestUtils.Simulate.change(component);
 
@@ -24,14 +24,14 @@ describe('Toggle', () => {
 
   it('uses provided id attribute', () => {
     const result = renderComponent({id: 'foo'});
-    const component = findByClass(result, 'toggle-switch');
+    const component = findByClass(result, 'pui-toggle-switch');
 
     expect(component).toHaveAttr('id', 'foo');
   });
 
   it('uses provided checked attribute', () => {
     const result = renderComponent({defaultChecked: true});
-    const component = findByClass(result, 'toggle-switch');
+    const component = findByClass(result, 'pui-toggle-switch');
 
     expect(component).not.toHaveAttr('checked');
 
@@ -43,12 +43,12 @@ describe('Toggle', () => {
   describe('when no id is provided', () => {
     it('generates a unique id', () => {
       const result1 = renderComponent();
-      const component1 = findByClass(result1, 'toggle-switch');
+      const component1 = findByClass(result1, 'pui-toggle-switch');
 
       ReactDOM.unmountComponentAtNode(root);
 
       const result2 = renderComponent();
-      const component2 = findByClass(result2, 'toggle-switch');
+      const component2 = findByClass(result2, 'pui-toggle-switch');
 
       expect(component1.id).toBeTruthy();
       expect(component2.id).toBeTruthy();
@@ -58,7 +58,7 @@ describe('Toggle', () => {
     it('calls the onChange callback on click', () => {
       const onChangeSpy = jasmine.createSpy('onChange');
       const result = renderComponent({onChange: onChangeSpy});
-      const component = findByClass(result, 'toggle-switch');
+      const component = findByClass(result, 'pui-toggle-switch');
 
       ReactTestUtils.Simulate.change(component);
 
