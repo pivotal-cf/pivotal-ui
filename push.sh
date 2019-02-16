@@ -3,10 +3,11 @@
 echo "git pulling with rebase"
 git pull -r
 gulp
+yarn lint
+
 git status
 
 pushd styleguide
-  yarn lint
   yarn test
 popd
 
