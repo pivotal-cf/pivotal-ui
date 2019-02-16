@@ -1,7 +1,7 @@
-import '../spec_helper';
-import {Collapsible} from '../../../src/react/collapsible';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import {ExpanderContent, ExpanderTrigger} from '../../../src/react/expander';
-import {findByClass, findByTag, clickOn} from '../spec_helper';
 
 describe('ExpanderContent', () => {
   const renderIntoDom = props => ReactDOM.render(
@@ -12,22 +12,22 @@ describe('ExpanderContent', () => {
 
   describe('when expanded is unset', () => {
     it('hides the content', () => {
-      const result = renderIntoDom({expanded: false});
-      expect(findByClass(result, 'pui-collapsible')).not.toHaveClass('in');
+      renderIntoDom({expanded: false});
+      expect('.pui-collapsible').not.toHaveClass('in');
     });
   });
 
   describe('when expanded is set to false', () => {
     it('hides the content', () => {
-      const result = renderIntoDom({expanded: false});
-      expect(findByClass(result, 'pui-collapsible')).not.toHaveClass('in');
+      renderIntoDom({expanded: false});
+      expect('.pui-collapsible').not.toHaveClass('in');
     });
   });
 
   describe('when expanded is set to true', () => {
     it('shows the content', () => {
-      const result = renderIntoDom({expanded: true});
-      expect(findByClass(result, 'pui-collapsible')).toHaveClass('in');
+      renderIntoDom({expanded: true});
+      expect('.pui-collapsible').toHaveClass('in');
     });
   });
 
@@ -42,7 +42,7 @@ describe('ExpanderContent', () => {
       });
 
       it('hides the content', () => {
-        expect(findByClass(expanderContent, 'pui-collapsible')).not.toHaveClass('in');
+        expect('.pui-collapsible').not.toHaveClass('in');
         expect(onExitedSpy).toHaveBeenCalled();
       });
     });
@@ -55,7 +55,7 @@ describe('ExpanderContent', () => {
       });
 
       it('shows the content', () => {
-        expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
+        expect('.pui-collapsible').toHaveClass('in');
         expect(onEnteredSpy).toHaveBeenCalled();
       });
     });
@@ -63,11 +63,11 @@ describe('ExpanderContent', () => {
     it('can be invoked ad nauseum', () => {
       expanderContent = renderIntoDom({expanded: false, delay: 0});
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
+      expect('.pui-collapsible').toHaveClass('in');
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).not.toHaveClass('in');
+      expect('.pui-collapsible').not.toHaveClass('in');
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
+      expect('.pui-collapsible').toHaveClass('in');
     });
   });
 });
@@ -85,14 +85,15 @@ describe('ExpanderTrigger', () => {
   describe('on click', () => {
     describe('when target is set on state', () => {
       let expanderContent;
+
       beforeEach(() => {
-        expanderContent = jasmine.createSpyObj('expanderContent', ['toggle']);
+        expanderContent = {toggle: jest.fn()};
         expanderTrigger = renderComponent();
         expanderTrigger.setTarget(expanderContent);
       });
 
       it('invokes the #toggle method on the provided target', () => {
-        clickOn(findByTag(expanderTrigger, 'button'));
+        $('button').simulate('click');
         expect(expanderContent.toggle).toHaveBeenCalled();
       });
     });
@@ -102,7 +103,7 @@ describe('ExpanderTrigger', () => {
         spyOn(console, 'warn');
 
         expanderTrigger = renderComponent();
-        clickOn(findByTag(expanderTrigger, 'button'));
+        $('button').simulate('click');
 
         expect(console.warn).toHaveBeenCalledWith('No ExpanderContent provided to ExpanderTrigger.');
       });

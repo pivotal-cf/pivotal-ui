@@ -1,4 +1,7 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
 import {TextFilter} from '../../../src/react/text-filter';
 
 describe('TextFilter', () => {

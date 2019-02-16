@@ -1,14 +1,20 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
+import {spyOnRender} from '../../support/jest_spy_on_render';
 import {Modal} from '../../../src/react/modal';
 import {Dialog} from '../../../src/react/dialog';
 import {Icon} from '../../../src/react/iconography';
-import React from 'react';
+
+jest.mock('../../../src/react/dialog', () => ({
+  Dialog: jest.fn(props => <div>{props.children}</div>)
+}));
 
 describe('Modal', () => {
   let onHide, subject;
 
   beforeEach(() => {
-    spyOnRender(Dialog).and.callThrough();
     spyOnRender(Icon);
     onHide = jasmine.createSpy('onHide');
 
@@ -29,7 +35,7 @@ describe('Modal', () => {
   });
 
   it('renders a Dialog', () => {
-    expect(Dialog).toHaveBeenRenderedWithProps({
+    expect(Dialog).toHaveBeenCalledWith({
       show: true,
       onHide,
       animationDuration: 0,
@@ -40,25 +46,25 @@ describe('Modal', () => {
       ariaLabelledBy: jasmine.any(String),
       hideOnBackdropClick: true,
       hideOnEscKeyDown: true
-    });
+    }, expect.anything(), expect.anything());
   });
 
   it('renders a close button', () => {
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveAttr('aria-label', 'Close');
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveClass('pui-btn-default-flat');
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveClass('pui-btn-icon');
+    expect('.pui-modal-close-btn').toHaveAttr('aria-label', 'Close');
+    expect('.pui-modal-close-btn').toHaveClass('pui-btn-default-flat');
+    expect('.pui-modal-close-btn').toHaveClass('pui-btn-icon');
     expect(Icon).toHaveBeenRenderedWithProps({src: 'close', size: 'inherit', style: {}, verticalAlign: 'middle'});
   });
 
   it('renders the children', () => {
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-body #non-focusable').toExist();
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-body input').toExist();
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-body a').toExist();
+    expect('.pui-modal-body #non-focusable').toExist();
+    expect('.pui-modal-body input').toExist();
+    expect('.pui-modal-body a').toExist();
   });
 
   it('does not render a footer', () => {
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-footer').not.toExist();
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-body').not.toHaveClass('pui-modal-has-footer');
+    expect('.pui-modal-footer').not.toExist();
+    expect('.pui-modal-body').not.toHaveClass('pui-modal-has-footer');
   });
 
   describe('when given a title', () => {
@@ -67,13 +73,17 @@ describe('Modal', () => {
     });
 
     it('renders the title in a heading tag', () => {
-      expect('.pui-dialog.pui-modal-dialog .pui-modal-header h3.pui-modal-title').toHaveText('This is a modal');
-      expect('.pui-dialog.pui-modal-dialog .pui-modal-header h3.pui-modal-title').toHaveClass('em-high');
+      expect('.pui-modal-header h3.pui-modal-title').toHaveText('This is a modal');
+      expect('.pui-modal-header h3.pui-modal-title').toHaveClass('em-high');
     });
 
     it('sets the aria-labelledby attribute on the dialog to be the ID of the title', () => {
-      const titleId = $('.pui-dialog.pui-modal-dialog .pui-modal-header h3.pui-modal-title').attr('id');
-      expect('.pui-dialog.pui-modal-dialog').toHaveAttr('aria-labelledby', titleId);
+      const titleId = $('.pui-modal-header h3.pui-modal-title').attr('id');
+      expect(Dialog).toHaveBeenCalledWith(
+        expect.objectContaining({ariaLabelledBy: titleId}),
+        expect.anything(),
+        expect.anything()
+      );
     });
   });
 
@@ -83,7 +93,7 @@ describe('Modal', () => {
     });
 
     it('renders the footer in the dialog', () => {
-      expect('.pui-dialog.pui-modal-dialog .pui-modal-body').toHaveClass('some-body-class');
+      expect('.pui-modal-body').toHaveClass('some-body-class');
     });
   });
 
@@ -93,9 +103,9 @@ describe('Modal', () => {
     });
 
     it('renders the footer in the dialog', () => {
-      expect('.pui-dialog.pui-modal-dialog .pui-modal-footer h6').toHaveText('a footer');
-      expect('.pui-dialog.pui-modal-dialog .pui-modal-footer').toHaveClass('some-footer-class');
-      expect('.pui-dialog.pui-modal-dialog .pui-modal-body').toHaveClass('pui-modal-has-footer');
+      expect('.pui-modal-footer h6').toHaveText('a footer');
+      expect('.pui-modal-footer').toHaveClass('some-footer-class');
+      expect('.pui-modal-body').toHaveClass('pui-modal-has-footer');
     });
   });
 
@@ -106,7 +116,13 @@ describe('Modal', () => {
       });
 
       it('adds the corresponding className to the dialog', () => {
-        expect('.pui-dialog.pui-modal-dialog').toHaveClass('pui-modal-sm');
+        expect(Dialog).toHaveBeenCalledWith(
+          expect.objectContaining({
+            dialogClassName: 'pui-modal-dialog some-dialog-class pui-modal-sm'
+          }),
+          expect.anything(),
+          expect.anything()
+        );
       });
     });
 
@@ -116,7 +132,13 @@ describe('Modal', () => {
       });
 
       it('adds the corresponding className to the dialog', () => {
-        expect('.pui-dialog.pui-modal-dialog').toHaveClass('pui-modal-sm');
+        expect(Dialog).toHaveBeenCalledWith(
+          expect.objectContaining({
+            dialogClassName: 'pui-modal-dialog some-dialog-class pui-modal-sm'
+          }),
+          expect.anything(),
+          expect.anything()
+        );
       });
     });
 
@@ -126,7 +148,13 @@ describe('Modal', () => {
       });
 
       it('adds the corresponding className to the dialog', () => {
-        expect('.pui-dialog.pui-modal-dialog').toHaveClass('pui-modal-lg');
+        expect(Dialog).toHaveBeenCalledWith(
+          expect.objectContaining({
+            dialogClassName: 'pui-modal-dialog some-dialog-class pui-modal-lg'
+          }),
+          expect.anything(),
+          expect.anything()
+        );
       });
     });
 
@@ -136,7 +164,13 @@ describe('Modal', () => {
       });
 
       it('adds the corresponding className to the dialog', () => {
-        expect('.pui-dialog.pui-modal-dialog').toHaveClass('pui-modal-lg');
+        expect(Dialog).toHaveBeenCalledWith(
+          expect.objectContaining({
+            dialogClassName: 'pui-modal-dialog some-dialog-class pui-modal-lg'
+          }),
+          expect.anything(),
+          expect.anything()
+        );
       });
     });
 
@@ -146,36 +180,22 @@ describe('Modal', () => {
       });
 
       it('does not add a className to the dialog', () => {
-        expect('.pui-dialog.pui-modal-dialog').not.toHaveClass('pui-modal-sm');
-        expect('.pui-dialog.pui-modal-dialog').not.toHaveClass('pui-modal-lg');
+        expect(Dialog).toHaveBeenCalledWith(
+          expect.objectContaining({
+            dialogClassName: 'pui-modal-dialog some-dialog-class'
+          }),
+          expect.anything(),
+          expect.anything()
+        );
       });
 
       it('sets the style on the dialog', () => {
-        expect('.pui-dialog.pui-modal-dialog').toHaveCss({width: '240px'});
+        expect(Dialog).toHaveBeenCalledWith(
+          expect.objectContaining({width: '240px'}),
+          expect.anything(),
+          expect.anything()
+        );
       });
-    });
-  });
-
-  describe('when the backdrop is clicked', () => {
-    beforeEach(() => {
-      onHide.calls.reset();
-      $('.pui-dialog-backdrop').simulate('click');
-    });
-
-    it('calls the onHide prop', () => {
-      expect(onHide).toHaveBeenCalledWith();
-    });
-  });
-
-  describe('when esc is pressed', () => {
-    beforeEach(() => {
-      onHide.calls.reset();
-      const escEvent = new KeyboardEvent('keydown', {keyCode: Dialog.ESC_KEY, bubbles: true});
-      document.documentElement.dispatchEvent(escEvent);
-    });
-
-    it('calls the onHide prop', () => {
-      expect(onHide).toHaveBeenCalledWith();
     });
   });
 });

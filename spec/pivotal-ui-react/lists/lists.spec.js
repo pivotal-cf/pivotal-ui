@@ -1,4 +1,5 @@
-import '../spec_helper' ;
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {mergeProps} from '../../../src/react/helpers';
 import {UnorderedList, OrderedList, ListItem, BreadcrumbList, InlineList} from '../../../src/react/lists';
 

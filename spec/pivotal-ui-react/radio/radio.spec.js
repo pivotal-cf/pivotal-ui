@@ -1,14 +1,12 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
 import {Radio} from '../../../src/react/radio';
 
 describe('Radio', () => {
   beforeEach(() => {
     const props = {value: 'I am a button', defaultChecked: true, id: 'some-id'};
     ReactDOM.render(<Radio {...props}>One!!!</Radio>, root);
-  });
-
-  afterEach(() => {
-    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('renders the radio button', () => {
@@ -60,10 +58,6 @@ describe('Radio', () => {
   });
 
   describe('changing the value of the radio button', () => {
-    beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-    });
-
     it('triggers the onChange callback', () => {
       const changeSpy = jasmine.createSpy('change');
       const props = {value: 'bananas', onChange: changeSpy};
@@ -75,10 +69,6 @@ describe('Radio', () => {
   });
 
   describe('when disabled property is passed', () => {
-    beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-    });
-
     it('disables the radio button', () => {
       const props = {value: 'bananas', disabled: true};
       ReactDOM.render(<Radio {...props}>Testing</Radio>, root);

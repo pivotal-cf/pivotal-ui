@@ -1,10 +1,12 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
 import {Grid, FlexCol} from '../../../src/react/flex-grids';
 import {Form} from '../../../src/react/forms';
 import {Input} from '../../../src/react/inputs';
 import {DefaultButton} from '../../../src/react/buttons';
 import {Checkbox} from '../../../src/react/checkbox';
-import React from 'react';
 import PropTypes from 'prop-types';
 
 describe('Form', () => {
@@ -138,7 +140,6 @@ describe('Form', () => {
         let error, errors, onSubmitError, onSubmit, resolve, reject;
 
         beforeEach(() => {
-          Promise.onPossiblyUnhandledRejection(jasmine.createSpy('reject'));
           error = new Error('invalid');
           errors = {name: 'invalid'};
           onSubmitError = jasmine.createSpy('onSubmitError').and.returnValue(errors);
@@ -181,7 +182,6 @@ describe('Form', () => {
         describe('when the submit promise resolves', () => {
           beforeEach(() => {
             resolve({result: 'success'});
-            MockPromises.tick(1);
           });
 
           it('enables the top-level fieldset', () => {
@@ -215,7 +215,6 @@ describe('Form', () => {
           });
 
           it('calls the afterSubmit callback', () => {
-            MockPromises.tick();
             expect(afterSubmit).toHaveBeenCalledWith({
               state: subject.state,
               response: {result: 'success'},
@@ -227,7 +226,6 @@ describe('Form', () => {
         describe('when the submit promise rejects', () => {
           beforeEach(() => {
             reject(error);
-            MockPromises.tick(2);
           });
 
           it('enables the top-level fieldset', () => {
@@ -286,7 +284,6 @@ describe('Form', () => {
             beforeEach(() => {
               onSubmit.and.returnValue(Promise.resolve());
               $('fieldset > .grid:eq(0) > .col:eq(1) .save').simulate('submit');
-              MockPromises.tick(1);
             });
 
             it('clears the errors', () => {
@@ -949,7 +946,6 @@ describe('Form', () => {
         beforeEach(() => {
           onModified.calls.reset();
           $('.save').click();
-          MockPromises.tick();
         });
 
         it('calls the onModified callback with false', () => {
@@ -1009,7 +1005,6 @@ describe('Form', () => {
         beforeEach(() => {
           onModified.calls.reset();
           $('.save').click();
-          MockPromises.tick();
         });
 
         it('calls the onModified callback with false', () => {
@@ -1048,7 +1043,6 @@ describe('Form', () => {
     });
 
     it('resets the form to its initial state', () => {
-      MockPromises.tick();
       expect($('fieldset > .grid:eq(0) > .col:eq(0) input').val()).toEqual('some-name');
     });
   });

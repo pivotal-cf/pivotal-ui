@@ -1,4 +1,7 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {setProps} from '../../support/jest-helpers';
+import {spyOnRender} from '../../support/jest_spy_on_render';
 import {FormUnit} from '../../../src/react/forms';
 import {TooltipTrigger} from '../../../src/react/tooltip';
 
@@ -6,7 +9,7 @@ describe('FormUnit', () => {
   let subject;
 
   beforeEach(() => {
-    spyOnRender(TooltipTrigger).and.callThrough();
+    spyOnRender(TooltipTrigger);
     subject = ReactDOM.render(<FormUnit {...{
       className: 'my-class',
       children: (<div><span>hello</span></div>)
@@ -189,15 +192,12 @@ describe('FormUnit', () => {
       });
     });
 
-    it('shows a tooltip', () => {
-      expect('.form-unit .label-row .tooltip .icon').toExist();
-      expect('.form-unit .label-row .tooltip .tooltip-content').toHaveText('This is a tooltip.');
-    });
-
     it('renders tooltip with default placement and default size', () => {
       expect(TooltipTrigger).toHaveBeenRenderedWithProps(jasmine.objectContaining({
         placement: 'top',
-        size: 'lg'
+        size: 'lg',
+        tooltip: <span>This is a tooltip.</span>,
+        children: jasmine.any(Object)
       }));
     });
   });

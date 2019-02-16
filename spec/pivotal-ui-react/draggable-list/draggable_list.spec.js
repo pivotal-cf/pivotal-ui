@@ -1,6 +1,11 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
 import {DraggableList, DraggableListItem} from '../../../src/react/draggable-list';
 import move from '../../../src/react/draggable-list/move_helper';
+
+jest.useFakeTimers();
 
 describe('DraggableList', () => {
   let subject;
@@ -48,8 +53,8 @@ describe('DraggableList', () => {
 
     describe('dragStart', () => {
       beforeEach(() => {
-        $('.draggable-item-content:eq(1)').simulateNative('dragStart', {dataTransfer: dataTransferStub});
-        jasmine.clock().tick(1);
+        $('.draggable-item-content:eq(1)').simulate('dragStart', {dataTransfer: dataTransferStub});
+        jest.advanceTimersByTime(1);
       });
 
       it('adds the dragging class', () => {
@@ -67,10 +72,10 @@ describe('DraggableList', () => {
 
     describe('dragEnter', () => {
       beforeEach(() => {
-        $('.draggable-item-content:eq(1)').simulateNative('dragStart', {dataTransfer: dataTransferStub});
-        jasmine.clock().tick(1);
-        $('.draggable-grip:eq(0)').simulateNative('dragEnter', {dataTransfer: dataTransferStub});
-        jasmine.clock().tick(1);
+        $('.draggable-item-content:eq(1)').simulate('dragStart', {dataTransfer: dataTransferStub});
+        jest.advanceTimersByTime(1);
+        $('.draggable-grip:eq(0)').simulate('dragEnter', {dataTransfer: dataTransferStub});
+        jest.advanceTimersByTime(1);
       });
 
       it('reorders the list', () => {
@@ -82,12 +87,12 @@ describe('DraggableList', () => {
 
     describe('dragEnd', () => {
       beforeEach(() => {
-        $('.draggable-item-content:eq(1)').simulateNative('dragStart', {dataTransfer: dataTransferStub});
-        jasmine.clock().tick(1);
-        $('.draggable-grip:eq(0)').simulateNative('dragEnter', {dataTransfer: dataTransferStub});
-        jasmine.clock().tick(1);
-        $('.draggable-grip:eq(0)').simulateNative('dragEnd', {dataTransfer: dataTransferStub});
-        jasmine.clock().tick(1);
+        $('.draggable-item-content:eq(1)').simulate('dragStart', {dataTransfer: dataTransferStub});
+        jest.advanceTimersByTime(1);
+        $('.draggable-grip:eq(0)').simulate('dragEnter', {dataTransfer: dataTransferStub});
+        jest.advanceTimersByTime(1);
+        $('.draggable-grip:eq(0)').simulate('dragEnd', {dataTransfer: dataTransferStub});
+        jest.advanceTimersByTime(1);
       });
 
       it('calls the callback only once', () => {

@@ -1,10 +1,10 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {Divider} from '../../../src/react/dividers';
-
-import {findByTag} from '../spec_helper';
 
 describe('Divider', () => {
   let result, renderComponent;
+
   beforeEach(() => {
     renderComponent = props => ReactDOM.render(<Divider {...props}/>, root);
   });
@@ -18,7 +18,7 @@ describe('Divider', () => {
     });
 
     it('creates a divider', () => {
-      expect(findByTag(result, 'hr')).toHaveClass('divider-alternate-1');
+      expect('hr').toHaveClass('divider-alternate-1');
     });
 
     it('adds provided attributes to the correct component', () => {
@@ -34,7 +34,7 @@ describe('Divider', () => {
     });
 
     it('creates a divider with -2 appended to the classname', () => {
-      expect(findByTag(result, 'hr')).toHaveClass('divider-alternate-2');
+      expect('hr').toHaveClass('divider-alternate-2');
     });
   });
 
@@ -44,7 +44,7 @@ describe('Divider', () => {
     });
 
     it('creates a divider without the -alternate in the class', () => {
-      expect(findByTag(result, 'hr')).toHaveClass('divider-1');
+      expect('hr').toHaveClass('divider-1');
     });
   });
 
@@ -54,7 +54,7 @@ describe('Divider', () => {
     });
 
     it('creates a divider without the -alternate in the class and -2 appended to the classname', () => {
-      expect(findByTag(result, 'hr')).toHaveClass('divider-2');
+      expect('hr').toHaveClass('divider-2');
     });
   });
 
@@ -64,7 +64,7 @@ describe('Divider', () => {
     });
 
     it('passes the data attribute through to the divider', () => {
-      expect(findByTag(result, 'hr')).toHaveAttr('data-behavior', 'myAttr');
+      expect('hr').toHaveAttr('data-behavior', 'myAttr');
     });
   });
 });

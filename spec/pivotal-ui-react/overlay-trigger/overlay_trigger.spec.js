@@ -1,5 +1,11 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-dom/test-utils';
+import $ from 'jquery';
 import {Tooltip} from '../../../src/react/tooltip';
 import {OverlayTrigger} from '../../../src/react/overlay-trigger';
+
+jest.useFakeTimers();
 
 describe('OverlayTrigger', () => {
   let subject;
@@ -115,9 +121,9 @@ describe('OverlayTrigger', () => {
       launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
       ReactTestUtils.Simulate.click(launcher);
 
-      jasmine.clock().tick(4999);
+      jest.advanceTimersByTime(4999);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
     });
 
@@ -132,9 +138,9 @@ describe('OverlayTrigger', () => {
       launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
       ReactTestUtils.Simulate.click(launcher);
 
-      jasmine.clock().tick(4999);
+      jest.advanceTimersByTime(4999);
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
     });
 
@@ -148,16 +154,16 @@ describe('OverlayTrigger', () => {
       launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
       ReactTestUtils.Simulate.click(launcher);
 
-      jasmine.clock().tick(4999);
+      jest.advanceTimersByTime(4999);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
 
       ReactTestUtils.Simulate.click(launcher);
 
-      jasmine.clock().tick(4999);
+      jest.advanceTimersByTime(4999);
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
-      jasmine.clock().tick(1);
+      jest.advanceTimersByTime(1);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
     });
 
@@ -171,15 +177,15 @@ describe('OverlayTrigger', () => {
       launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
 
       ReactTestUtils.Simulate.mouseOver(launcher);
-      jasmine.clock().tick(2000);
+      jest.advanceTimersByTime(2000);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
       ReactTestUtils.Simulate.mouseOut(launcher);
 
-      jasmine.clock().tick(3000);
+      jest.advanceTimersByTime(3000);
 
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
 
-      jasmine.clock().tick(2000);
+      jest.advanceTimersByTime(2000);
 
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
     });
@@ -194,11 +200,11 @@ describe('OverlayTrigger', () => {
       launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
 
       ReactTestUtils.Simulate.click(launcher);
-      jasmine.clock().tick(2000);
+      jest.advanceTimersByTime(2000);
       expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tether-enabled')).toHaveLength(0);
       ReactTestUtils.Simulate.click(launcher);
 
-      jasmine.clock().tick(3000);
+      jest.advanceTimersByTime(3000);
 
       expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
     });
@@ -216,9 +222,9 @@ describe('OverlayTrigger', () => {
     const launcher = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher');
     ReactTestUtils.Simulate.click(launcher);
 
-    jasmine.clock().tick(3000);
+    jest.advanceTimersByTime(3000);
     ReactDOM.unmountComponentAtNode(root);
-    jasmine.clock().tick(2000);
+    jest.advanceTimersByTime(2000);
 
     expect(onEnteredSpy).not.toHaveBeenCalled();
   });
@@ -308,15 +314,15 @@ describe('OverlayTrigger', () => {
 
         $('.launcher').simulate('mouseOut');
 
-        jasmine.clock().tick(49);
+        jest.advanceTimersByTime(49);
         expect('.tooltip-text').toExist();
 
         $('.tooltip-text').simulate('mouseOver');
-        jasmine.clock().tick(2);
+        jest.advanceTimersByTime(2);
         expect('.tooltip-text').toExist();
 
         $('.tooltip-text').simulate('mouseOut');
-        jasmine.clock().tick(50);
+        jest.advanceTimersByTime(50);
         expect('.tooltip-text').not.toExist();
       });
     });

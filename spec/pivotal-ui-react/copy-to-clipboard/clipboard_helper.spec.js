@@ -1,4 +1,3 @@
-import '../spec_helper' ;
 import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard_helper';
 
 describe('ClipboardHelper', () => {
@@ -6,18 +5,18 @@ describe('ClipboardHelper', () => {
 
   describe('copy', () => {
     beforeEach(() => {
-      document = jasmine.createSpyObj('document', [
-        'execCommand',
-        'createElement'
-      ]);
+      document = {
+        execCommand: jest.fn(),
+        createElement: jest.fn()
+      };
 
-      document.body = jasmine.createSpyObj('body', [
-        'appendChild',
-        'removeChild'
-      ]);
+      document.body = {
+        appendChild: jest.fn(),
+        removeChild: jest.fn()
+      };
 
-      textarea = jasmine.createSpyObj('textarea', ['select']);
-      document.createElement.and.returnValue(textarea);
+      textarea = {select: jest.fn()};
+      document.createElement.mockReturnValue(textarea);
 
       copyText = 'Text to be copied';
       ClipboardHelper.copy(document, copyText);

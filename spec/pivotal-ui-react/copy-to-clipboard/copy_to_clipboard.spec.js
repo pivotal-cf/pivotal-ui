@@ -1,6 +1,11 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
 import {CopyToClipboard} from '../../../src/react/copy-to-clipboard';
 import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard_helper';
+
+jest.useFakeTimers();
 
 describe('CopyToClipboard', () => {
   let text, onClick, subject;
@@ -60,7 +65,7 @@ describe('CopyToClipboard', () => {
     });
 
     it('hides tooltip after 1 seconds', () => {
-      jasmine.clock().tick(2000);
+      jest.advanceTimersByTime(2000);
       expect('.tooltip-container').not.toHaveClass('tooltip-container-visible');
     });
 
