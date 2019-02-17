@@ -2,11 +2,9 @@
 title: Upgrade guide
 ---
 
-Below are the upgrade guides for recent major versions of Pivotal UI.
-
 Pivotal UI follows [semantic versioning](https://semver.org/). Major version bumps (e.g. 10.x.x -> 11.0.0) may contain major new features and breaking changes, which will be documented below. Minor version bumps (e.g. 10.5.x -> 10.6.0) may contain additive, non-breaking new features. Bug fixes will be released in patch versions (e.g. 10.5.1 -> 10.5.2).
 
-For more details about minor and patch releases, see the [changelog](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md) for the branch in question.
+Below are the upgrade guides for recent major versions of Pivotal UI. For more details about minor and patch releases, see the [changelog](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md) on the branch in question (e.g. `v17` for version 17).
 
 ## v17
 
