@@ -75,6 +75,11 @@ export class TooltipTrigger extends React.Component {
 
   componentDidMount() {
     require('../../css/tooltips');
+    this.mounted = true;
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   hoverHandler(e) {
@@ -85,7 +90,7 @@ export class TooltipTrigger extends React.Component {
     this.setState({visible: true});
     onClick(e);
     setTimeout(() => {
-      this.setState({visible: false});
+      this.mounted && this.setState({visible: false});
     }, this.props.clickHideDelay);
   }
 
