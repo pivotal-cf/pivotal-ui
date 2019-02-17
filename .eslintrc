@@ -11,11 +11,10 @@
   "env": {
     "es6": true,
     "node": true,
-    "jasmine": true
+    "jest": true
   },
   "plugins": [
     "react",
-    "jasmine",
     "jest",
     "markdown"
   ],
@@ -34,7 +33,6 @@
     "dot-notation": 2,
     "eqeqeq": 2,
     "eol-last": 0,
-    "jasmine/no-focused-tests": 2,
     "jest/no-focused-tests": 2,
     "jsx-quotes": [2, "prefer-double"],
     "no-caller": 2,

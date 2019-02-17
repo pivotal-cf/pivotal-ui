@@ -1,1 +1,0 @@
-global.setImmediate = require('./mock_set_immediate');

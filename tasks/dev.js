@@ -22,6 +22,5 @@ gulp.task('build', gulp.series(
   'build-readme',
   'build-package',
   'css-build',
-  'react-build',
-  'js-build'
+  'react-build'
 ));
