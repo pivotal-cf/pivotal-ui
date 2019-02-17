@@ -3,10 +3,10 @@ import SidebarWrapper from './sidebar_wrapper';
 import '../../stylesheets/main.scss';
 
 const Main = ({children}) => (
-  <div className="styleguide-content-wrapper">
+  <div className="sg-content">
     <SidebarWrapper/>
-    <main className="styleguide-main" tabIndex="-1">
-      <div className="styleguide-main-content">
+    <main className="sg-main" tabIndex="-1">
+      <div className="sg-main--content">
         {children}
       </div>
     </main>

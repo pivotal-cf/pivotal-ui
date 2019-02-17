@@ -2,7 +2,7 @@ import puiPackage from '../../package.json';
 
 export const siteMetadata = {
   title: 'Pivotal UI',
-  description: 'Style guide for Pivotal UI, Pivotal\'s design system',
+  description: 'Style guide for Pivotal UI, design system and component library of Pivotal Software',
   author: 'Pivotal',
   repoUrl: puiPackage.homepage,
   version: puiPackage.version,

@@ -3,9 +3,6 @@
 html {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -19,38 +16,12 @@ body {
   color: inherit !important;
 }
 
-.styleguide-siteframe-wrapper {
-  position: relative;
-  height: 100vh;
-
-  > .pui-siteframe > .pui-siteframe-header {
-    padding: $base-unit / 2;
-  }
-
-  > .pui-siteframe > .pui-siteframe-header input[type=search]:focus {
-    border-color: $accent-teal;
-  }
-
-  > .pui-siteframe > .pui-siteframe-header > .col {
-    padding: 0;
-  }
-
-  .styleguide-header-logo {
-    display: flex;
-    align-items: center;
-    padding: $base-unit;
-  }
-
-  .styleguide-header-icon {
-    border-radius: 2px;
-    height: $base-unit * 4;
-    width: $base-unit * 4;
-    padding: $base-unit / 2;
-    background: $teal;
-
-    svg {
-      height: $base-unit * 3;
-      width: $base-unit * 3;
-    }
-  }
+.sg-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
 }

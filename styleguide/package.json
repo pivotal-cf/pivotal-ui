@@ -42,7 +42,8 @@
     "unified": "^7.1.0"
   },
   "scripts": {
-    "build": "gatsby build",
-    "start": "gatsby develop"
+    "build": "rm -rf ./public && gatsby build",
+    "start": "gatsby develop",
+    "serve": "gatsby serve"
   }
 }

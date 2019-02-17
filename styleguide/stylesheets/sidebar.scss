@@ -1,6 +1,6 @@
 @import "./variables.scss";
 
-.styleguide-sidebar {
+.sg-sidebar {
   width: 240px;
   height: 100%;
   flex-grow: 0;
@@ -10,34 +10,34 @@
   overflow-y: auto;
 }
 
-.styleguide-sidebar-list {
+.sg-sidebar__list {
   list-style-type: none;
   padding: 0;
 }
 
-.styleguide-sidebar-group {
+.sg-sidebar__group {
   padding: $base-unit * 2;
 
-  + .styleguide-sidebar-group {
+  + .sg-sidebar__group {
     border-top: 1px solid $accent-gray;
   }
 }
 
-.styleguide-sidebar-group-list {
+.sg-sidebar__group-list {
   list-style-type: none;
   padding: 0;
 }
 
-.styleguide-sidebar-list-item-active {
+.sg-sidebar__list-item--active {
   font-weight: 600;
   position: relative;
 
-  ~ .styleguide-sidebar-list-item-sections {
+  ~ .sg-sidebar__list-item-sections {
     display: block;
   }
 }
 
-.styleguide-sidebar-list-item {
+.sg-sidebar__list-item {
   padding: ($base-unit / 2) 0;
 
   a:hover {
@@ -45,7 +45,7 @@
   }
 }
 
-.styleguide-sidebar-list-item-sections {
+.sg-sidebar__list-item-sections {
   display: none;
   border-left: 2px solid $accent-gray;
   margin-left: 2px;
@@ -59,7 +59,7 @@
 }
 
 @media screen and (max-width: $responsive-breakpoint) {
-  .styleguide-sidebar {
+  .sg-sidebar {
     display: none;
   }
 }

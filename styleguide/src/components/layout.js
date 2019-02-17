@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link, StaticQuery, graphql} from 'gatsby';
-import {Siteframe} from '../../../src/react/siteframe';
 import {Icon} from '../../../src/react/iconography';
-import {FlexCol} from '../../../src/react/flex-grids';
+import {Grid, FlexCol} from '../../../src/react/flex-grids';
 import {Input} from '../../../src/react/inputs';
 import Main from './main';
+import Header from './header';
 import '../../stylesheets/layout.scss';
 import '../../stylesheets/prism-theme.scss';
 
@@ -21,33 +21,9 @@ const Layout = ({children}) => (
   <StaticQuery
     query={SiteHeaderQuery}
     render={data => (
-      <div className="styleguide-siteframe-wrapper">
-        <Siteframe {...{
-          headerProps: {
-            companyName: 'Pivotal',
-            productName: 'UI',
-            logo: (
-              <Link className="styleguide-header-logo" to="/">
-                <Icon src="pivotal_ui_white" className="styleguide-header-icon"/>
-              </Link>
-            ),
-            cols: [
-              <FlexCol/>,
-              <FlexCol fixed className="prm">
-                v{data.site.siteMetadata.version}
-              </FlexCol>,
-              <FlexCol fixed className="phl">
-                <Input {...{
-                  icon: 'search',
-                  type: 'search',
-                  placeholder: 'Search',
-                  style: {width: '240px'}
-                }}/>
-              </FlexCol>
-            ]
-          },
-          children: <Main>{children}</Main>
-        }}/>
+      <div className="sg-wrapper">
+        <Header siteMetadata={data.siteMetadata}/>
+        <Main>{children}</Main>
       </div>
     )}
   />
