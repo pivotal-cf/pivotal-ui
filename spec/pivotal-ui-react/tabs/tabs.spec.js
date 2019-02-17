@@ -1,8 +1,21 @@
-import '../spec_helper';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-dom/test-utils';
+import $ from 'jquery';
 import {Tab, LeftTabs, Tabs} from '../../../src/react/tabs';
 import MediaSize from '../../../src/react/tabs/media_size';
 
-import {findAllByClass, findByClass, findAllByTag, clickOn} from '../spec_helper';
+jest.useFakeTimers();
+
+const mockGetTransitionProgress = jest.fn(() => 1);
+
+jest.mock('../../../src/react/mixins/mixins/animation_mixin',
+  () => ParentClass => class MockAnimation extends ParentClass {
+    animate() {
+      return mockGetTransitionProgress();
+    }
+  }
+);
 
 describe('Tabs', () => {
   let subject, onEnterSpy, onExitSpy;
@@ -37,6 +50,7 @@ describe('Tabs', () => {
   };
 
   beforeEach(() => {
+    mockGetTransitionProgress.mockReturnValue(1);
     spyOn(MediaSize, 'matches').and.returnValue(true);
   });
 
@@ -62,81 +76,83 @@ describe('Tabs', () => {
         });
 
         it('switches tabs on click with animation, and calls onEntered/onExited when animation is done', () => {
-          let tabContent = findAllByClass(subject, 'tab-content');
-          expect(tabContent[0]).not.toHaveClass('in');
-          expect(tabContent[1]).toHaveClass('in');
+          expect('.tab-content:eq(0)').toHaveAttr('aria-hidden', 'true');
+          expect('.tab-content:eq(1)').toHaveAttr('aria-hidden', 'false');
 
-          const firstTab = findAllByTag(subject, 'a')[0];
-          clickOn(firstTab);
+          mockGetTransitionProgress.mockReturnValue(0);
+          $('a:eq(0)').simulate('click');
 
           expect(onEnterSpy).not.toHaveBeenCalled();
           expect(onExitSpy).not.toHaveBeenCalled();
 
-          MockNow.tick(Tabs.ANIMATION_TIME);
-          MockRaf.next();
+          mockGetTransitionProgress.mockReturnValue(1);
+          subject.forceUpdate();
 
           expect(onEnterSpy).toHaveBeenCalledWith(1);
           expect(onExitSpy).toHaveBeenCalledWith(2);
 
-          tabContent = findAllByClass(subject, 'tab-content');
-
-          expect(tabContent[0]).toHaveClass('in');
-          expect(tabContent[1]).not.toHaveClass('in');
+          expect('.tab-content:eq(0)').toHaveAttr('aria-hidden', 'false');
+          expect('.tab-content:eq(1)').toHaveAttr('aria-hidden', 'true');
         });
 
         it('renders an accordion', () => {
-          expect(findByClass(subject, 'panel-group')).toBeTruthy();
-          expect(findAllByClass(subject, 'tab-simple').length).toEqual(0);
+          expect('.panel-group').toExist();
+          expect('.tab-simple').not.toExist();
         });
 
         it('passes small-screen classes', () => {
-          const panelGroup = findByClass(subject, 'panel-group');
-          expect(panelGroup).toHaveClass('small-class');
+          expect('.panel-group').toHaveClass('small-class');
         });
       });
 
       describe('when screen size is greater than breakpoint', () => {
         it('switches tabs on click with animation, and calls onEntered/onExited when animation is done', () => {
-          let tabContent = findByClass(subject, 'tab-content');
-          expect(tabContent).toHaveText('Content2');
-          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('');
+          expect('.tab-content').toHaveText('Content2');
+          expect($('.tab-content .tab-pane')[0].style.opacity).toEqual('');
 
-          const clickable = findAllByTag(subject, 'a')[0];
-          expect(clickable).toHaveText('Tab1');
-          clickOn(clickable);
-          jasmine.clock().tick(1);
+          expect('a:eq(0)').toHaveText('Tab1');
 
-          MockNow.tick(Tabs.ANIMATION_TIME / 4);
-          MockRaf.next();
-          tabContent = findByClass(subject, 'tab-content');
-          expect(tabContent).toHaveText('Content2');
-          expect(tabContent.getElementsByClassName('tab-pane')[0]).toHaveCss({opacity: '0.5'});
+          mockGetTransitionProgress.mockReturnValue(0);
+          $('a:eq(0)').simulate('click');
+          jest.advanceTimersByTime(1);
 
-          MockNow.tick(Tabs.ANIMATION_TIME / 2);
-          MockRaf.next();
-          tabContent = findByClass(subject, 'tab-content');
-          expect(tabContent).toHaveText('Content1');
-          expect(tabContent.getElementsByClassName('tab-pane')[0]).toHaveCss({opacity: '0.5'});
+          mockGetTransitionProgress.mockReturnValue(0.25);
+          subject.forceUpdate();
+
+          expect('.tab-content').toHaveText('Content2');
+          expect('.tab-content .tab-pane:eq(0)').toHaveCss({opacity: '0.5'});
+
+          mockGetTransitionProgress.mockReturnValue(0.5);
+          subject.forceUpdate();
+
+          expect('.tab-content').toHaveText('Content1');
+          expect('.tab-content .tab-pane:eq(0)').toHaveCss({opacity: '0'});
+
           expect(onEnterSpy).not.toHaveBeenCalled();
           expect(onExitSpy).not.toHaveBeenCalled();
 
-          MockNow.tick(Tabs.ANIMATION_TIME / 2);
-          MockRaf.next();
+          mockGetTransitionProgress.mockReturnValue(0.75);
+          subject.forceUpdate();
+
+          expect('.tab-content').toHaveText('Content1');
+          expect('.tab-content .tab-pane:eq(0)').toHaveCss({opacity: '0.5'});
+
+          mockGetTransitionProgress.mockReturnValue(1);
+          subject.forceUpdate();
+
           expect(onEnterSpy).toHaveBeenCalledWith(1);
           expect(onExitSpy).toHaveBeenCalledWith(2);
-          tabContent = findByClass(subject, 'tab-content');
-          expect(tabContent).toHaveText('Content1');
-          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('');
+          expect('.tab-content').toHaveText('Content1');
+          expect($('.tab-content .tab-pane')[0].style.opacity).toEqual('');
         });
 
         it('renders a tabs', () => {
-          expect(findByClass(subject, 'tab-simple')).toBeTruthy();
-          expect(findAllByClass(subject, 'panel-group').length).toEqual(0);
+          expect('.tab-simple').toExist();
+          expect('.panel-group').not.toExist();
         });
 
         it('passes large-screen classes', () => {
-          const panelGroup = findByClass(subject, 'tab-simple');
-          expect(panelGroup).toHaveClass('large-class');
+          expect('.tab-simple').toHaveClass('large-class');
         });
       });
     });
@@ -157,9 +173,8 @@ describe('Tabs', () => {
         MediaSize.matches.and.returnValue(true);
         triggerResize();
 
-        const clickable = findAllByTag(subject, 'a')[0];
-        expect(clickable).toHaveText('Tab1');
-        clickOn(clickable);
+        expect('a:eq(0)').toHaveText('Tab1');
+        $('a:eq(0)').simulate('click');
 
         expect(onSelectSpy).toHaveBeenCalled();
       });
@@ -168,11 +183,11 @@ describe('Tabs', () => {
         MediaSize.matches.and.returnValue(false);
         triggerResize();
 
-        const clickable = findAllByTag(subject, 'a')[0];
-        expect(clickable).toHaveText('Tab1');
-        expect(clickable).toHaveAttr('href', '#');
-        clickOn(clickable);
-        jasmine.clock().tick(1);
+        expect('a:eq(0)').toHaveText('Tab1');
+        expect('a:eq(0)').toHaveAttr('href', '#');
+
+        $('a:eq(0)').simulate('click');
+        jest.advanceTimersByTime(1);
 
         expect(onSelectSpy).toHaveBeenCalled();
       });
@@ -191,7 +206,7 @@ describe('Tabs', () => {
       });
 
       it('renders the actions for large screens', () => {
-        const actionTabs = findByClass(subject, 'tabs-action');
+        const actionTabs = $('.tabs-action')[0];
 
         expect(actionTabs.parentNode).toHaveClass('tab-simple');
         expect(actionTabs.childNodes[0].className).toEqual('my-actions');
@@ -202,7 +217,7 @@ describe('Tabs', () => {
         MediaSize.matches.and.returnValue(false);
         triggerResize();
 
-        const actionTabs = findByClass(subject, 'tabs-action');
+        const actionTabs = $('.tabs-action')[0];
 
         expect(actionTabs.parentNode).toHaveClass('tab-simple-small-screen');
         expect(actionTabs.childNodes[0].className).toEqual('my-actions');
@@ -220,9 +235,8 @@ describe('Tabs', () => {
       });
 
       it('passes through class and style', () => {
-        const tab = findByClass(subject, 'tab-simple');
-        expect(tab).toHaveClass('test-class');
-        expect(tab).toHaveCss({opacity: '0.5'});
+        expect('.tab-simple').toHaveClass('test-class');
+        expect('.tab-simple').toHaveCss({opacity: '0.5'});
       });
     });
 
@@ -234,8 +248,7 @@ describe('Tabs', () => {
       });
 
       it('attaches it as a class to the tabs', () => {
-        const tab = findByClass(subject, 'tab-simple-alt');
-        expect(tab.childNodes[0]).toHaveClass('nav-tabs');
+        expect('.tab-simple-alt > *:eq(0)').toHaveClass('nav-tabs');
       });
     });
 
@@ -245,50 +258,41 @@ describe('Tabs', () => {
       });
 
       it('applies the tabClassName to the clickable tab element', () => {
-        const tab = findAllByTag(subject, 'a')[0];
+        const tab = $('a')[0];
 
         expect(tab.parentNode.parentNode).toHaveClass('nav-tabs');
         expect(tab).toHaveClass('tab-class');
       });
 
       it('applies the className on the tab to the tab content pane', () => {
-        const tabContent = findByClass(subject, 'tab-content');
-
-        expect(tabContent).toHaveClass('tab-content-class');
-        expect(tabContent).toHaveText('Content1');
+        expect('.tab-content').toHaveClass('tab-content-class');
+        expect('.tab-content').toHaveText('Content1');
       });
     });
 
     describe('animation: false', () => {
       beforeEach(() => {
+        mockGetTransitionProgress.mockReturnValue(1);
         subject = renderComponent({defaultActiveKey: 1, animation: false});
       });
 
       it('calls onEntered and onExited immediately', () => {
-        const secondTab = findAllByTag(subject, 'a')[1];
-        clickOn(secondTab);
-        jasmine.clock().tick(1);
+        $('a:eq(1)').simulate('click');
+        jest.advanceTimersByTime(1);
 
         expect(onEnterSpy).toHaveBeenCalledWith(2);
         expect(onExitSpy).toHaveBeenCalledWith(1);
       });
 
       it('changes tabs immediately, without animation', () => {
-        let activeTab = findAllByClass(subject, 'active')[0];
-        let tabContent = findByClass(subject, 'tab-content');
+        expect('.active:eq(0)').toHaveText('Tab1');
+        expect('.tab-content').toHaveText('Content1');
 
-        expect(activeTab).toHaveText('Tab1');
-        expect(tabContent).toHaveText('Content1');
+        $('a:eq(1)').simulate('click');
+        jest.advanceTimersByTime(1);
 
-        const secondTab = findAllByTag(subject, 'a')[1];
-        clickOn(secondTab);
-        jasmine.clock().tick(1);
-
-        activeTab = findAllByClass(subject, 'active')[0];
-        tabContent = findByClass(subject, 'tab-content');
-
-        expect(activeTab).toHaveText('Tab2');
-        expect(tabContent).toHaveText('Content2');
+        expect('.active:eq(0)').toHaveText('Tab2');
+        expect('.tab-content').toHaveText('Content2');
       });
     });
   });
@@ -305,28 +309,24 @@ describe('Tabs', () => {
       });
 
       it('respects disabled tabs', () => {
-        const disabledTab = findAllByTag(subject, 'a')[2];
-        expect(disabledTab).toHaveClass('disabled');
+        expect('a:eq(2)').toHaveClass('disabled');
 
-        clickOn(disabledTab);
-        jasmine.clock().tick(1);
+        $('a:eq(2)').simulate('click');
+        jest.runAllTimers();
 
-        const activeTab = findByClass(subject, 'in');
-        expect(activeTab).toHaveText('Content1');
+        expect('.in:eq(0)').toHaveText('Content1');
       });
 
       describe('aria-labelledby', () => {
         it('uses the provided value, if given', () => {
-          const tabPane = findByClass(subject, 'in');
-          expect(tabPane).toHaveAttr('aria-labelledby', 'provided-aria-label');
+          expect('.in:eq(0)').toHaveAttr('aria-labelledby', 'provided-aria-label');
         });
 
         it('generates a default value', () => {
           ReactDOM.unmountComponentAtNode(root);
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'});
 
-          const tabPane = findByClass(subject, 'in');
-          expect(tabPane).toHaveAttr('aria-labelledby', 'foo-tab-1');
+          expect('.in:eq(1)').toHaveAttr('aria-labelledby', 'foo-tab-1');
         });
       });
     });
@@ -339,22 +339,20 @@ describe('Tabs', () => {
 
       describe('aria-labelledby', () => {
         it('uses the provided value, if given', () => {
-          const tabPane = findByClass(subject, 'tab-pane');
-          expect(tabPane).toHaveAttr('aria-labelledby', 'provided-aria-label');
+          expect('.tab-pane').toHaveAttr('aria-labelledby', 'provided-aria-label');
         });
 
         it('generates a default value', () => {
           ReactDOM.unmountComponentAtNode(root);
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'});
 
-          const tabPane = findByClass(subject, 'tab-pane');
-          expect(tabPane).toHaveAttr('aria-labelledby', 'foo-tab-1');
+          expect('.tab-pane').toHaveAttr('aria-labelledby', 'foo-tab-1');
         });
       });
 
       it('sets up the correct aria-controls relationship and aria-selected value', () => {
-        const tabPane = findByClass(subject, 'tab-pane');
-        const links = findAllByTag(subject, 'a');
+        const tabPane = $('.tab-pane')[0];
+        const links = $('a');
         const activeTabLink = links[0];
 
         expect(activeTabLink.parentNode).toHaveClass('active');
@@ -370,31 +368,25 @@ describe('Tabs', () => {
       });
 
       it('sets tabIndex on each link', () => {
-        const links = findAllByTag(subject, 'a');
+        const links = $('a').toArray();
         links.forEach(link => expect(link).toHaveAttr('tabIndex', '0'));
       });
 
       it('sets aria-expanded to the correct values on the list items', () => {
-        const listItems = findAllByTag(subject, 'li');
+        expect('li:eq(0)').toHaveClass('active');
+        expect('li:eq(0)').toHaveAttr('aria-expanded', 'true');
 
-        const activeListItem = listItems[0];
-        expect(activeListItem).toHaveClass('active');
-        expect(activeListItem).toHaveAttr('aria-expanded', 'true');
-
-        const nonActiveListItem = listItems[1];
-        expect(nonActiveListItem).not.toHaveClass('active');
-        expect(nonActiveListItem).toHaveAttr('aria-expanded', 'false');
+        expect('li:eq(1)').not.toHaveClass('active');
+        expect('li:eq(1)').toHaveAttr('aria-expanded', 'false');
       });
 
       it('respects disabled tabs', () => {
-        const disabledTab = findAllByTag(subject, 'li')[2];
-        expect(disabledTab).toHaveClass('disabled');
+        expect('li:eq(2)').toHaveClass('disabled');
 
-        clickOn(disabledTab.getElementsByTagName('a')[0]);
-        jasmine.clock().tick(1);
+        $('li:eq(2) a:eq(0)').simulate('click');
+        jest.advanceTimersByTime(1);
 
-        const activeTab = findAllByClass(subject, 'active')[0];
-        expect(activeTab).toHaveText('Tab1');
+        expect('a:eq(0)').toHaveText('Tab1');
       });
     });
   });
@@ -410,6 +402,10 @@ describe('LeftTabs', () => {
     </LeftTabs>,
     root
   );
+
+  beforeEach(() => {
+    jest.spyOn(MediaSize, 'matches').mockReturnValue(true);
+  });
 
   it('passes all properties', () => {
     const onSelectSpy = jasmine.createSpy();
