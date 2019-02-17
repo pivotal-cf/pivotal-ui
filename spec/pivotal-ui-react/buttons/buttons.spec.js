@@ -54,8 +54,16 @@ describe('UIButton', () => {
     });
 
     describe('when icon-only', () => {
+      const OLD_ENV = process.env;
+
       beforeEach(() => {
+        process.env = {...OLD_ENV, NODE_ENV: 'development'};
         jest.spyOn(console, 'error').mockImplementation(() => null);
+      });
+
+      afterEach(() => {
+        process.env = OLD_ENV;
+        console.error.mockClear();
       });
 
       describe('when no aria-label attribute is provided', () => {
@@ -63,7 +71,7 @@ describe('UIButton', () => {
           subject::setProps({iconOnly: true});
         });
 
-        xit('throws an error in the console', () => {
+        it('throws an error in the console', () => {
           expect(console.error).toHaveBeenCalledWith(
             'Icon-only buttons should have an accessible title set via the "aria-label" prop.'
           );
@@ -75,7 +83,7 @@ describe('UIButton', () => {
           subject::setProps({iconOnly: true, 'aria-label': 'some-label'});
         });
 
-        xit('does not throw an error in the console', () => {
+        it('does not throw an error in the console', () => {
           expect(console.error).not.toHaveBeenCalled();
         });
       });
