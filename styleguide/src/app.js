@@ -13,7 +13,7 @@ const requirePuiReact = require.context('pivotal-ui/react/', true, /index\.js$/)
 requirePuiReact.keys().map(file => Object.entries(requirePuiReact(file))
   .forEach(([key, value]) => window[key] = value));
 
-const routes = getRoutes({processor, requireFunc: require.context('../docs', true, /\.md$/)});
+const routes = getRoutes({processor, requireFunc: require.context('../../docs', true, /\.md$/)});
 
 window.Icons = require('pivotal-ui/react/iconography/icons');
 window.colorPalette = [
