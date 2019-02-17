@@ -1,3 +1,7 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import $ from 'jquery';
+import {setProps} from '../../support/jest-helpers';
 import PropTypes from 'prop-types';
 import {Autocomplete, AutocompleteInput} from '../../../src/react/autocomplete';
 
@@ -6,28 +10,28 @@ const simulateKeyDown = (selector, keyCode) => {
 };
 
 describe('Autocomplete', () => {
-  let subject, onInitializeItems, pickSpy;
+  let subject, onInitializeItems, pickSpy, initializePromise;
 
   beforeEach(() => {
     const Cursor = require('pui-cursor');
     Cursor.async = false;
 
-    onInitializeItems = cb =>
-      cb([
+    onInitializeItems = cb => {
+      initializePromise = cb([
         {watson: {name: 'watson', age: 4}},
         {coffee: {name: 'coffee', age: 2}},
         {advil: {name: 'advil', age: 5}},
         {'lily.water': {name: 'lily.water', age: 44}},
         {'water lilies': {name: 'water lilies', age: 64}}
       ]);
+    };
+
     pickSpy = jasmine.createSpy('pick');
     subject = ReactDOM.render(
       <Autocomplete {...{
         onInitializeItems,
         onPick: pickSpy
       }} />, root);
-    MockNextTick.next();
-    MockPromises.tick();
   });
 
   it('passes through custom props', () => {
@@ -48,9 +52,6 @@ describe('Autocomplete', () => {
         <CustomList/>
       </Autocomplete>, root);
 
-    MockNextTick.next();
-    MockPromises.tick();
-
     subject.showList();
 
     expect('.autocomplete input').toHaveAttr('disabled');
@@ -61,12 +62,11 @@ describe('Autocomplete', () => {
   });
 
   describe('when nothing is entered into input and the list is shown with a list of objects', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       ReactDOM.unmountComponentAtNode(root);
       subject = ReactDOM.render(<Autocomplete {...{onInitializeItems}} />, root);
 
-      MockNextTick.next();
-      MockPromises.tick();
+      await initializePromise;
 
       subject.showList();
     });
@@ -82,10 +82,9 @@ describe('Autocomplete', () => {
   });
 
   describe('when the user starts to type into the input', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       pickSpy.calls.reset();
-      MockNextTick.next();
-      MockPromises.tick();
+      await initializePromise;
 
       $('.autocomplete input').val('wat').simulate('change');
     });
@@ -208,11 +207,10 @@ describe('Autocomplete', () => {
   });
 
   describe('when the user tries to apply a selection that is not in the list', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       pickSpy.calls.reset();
       subject::setProps({onPick: pickSpy});
-      MockNextTick.next();
-      MockPromises.tick();
+      await initializePromise;
 
       $('.autocomplete input').val('does not exist').simulate('change');
       simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ENTER_KEY);
@@ -224,10 +222,9 @@ describe('Autocomplete', () => {
   });
 
   describe('when one of the autocomplete items is the selected suggestion', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       subject::setProps({selectedSuggestion: 'lily.water'});
-      MockNextTick.next();
-      MockPromises.tick();
+      await initializePromise;
 
       $('.autocomplete input').simulate('change');
     });
@@ -253,10 +250,9 @@ describe('Autocomplete', () => {
   });
 
   describe('when maxItems is provided', () => {
-    it('caps length of displayed list', () => {
+    it('caps length of displayed list', async () => {
       subject::setProps({maxItems: 1});
-      MockNextTick.next();
-      MockPromises.tick();
+      await initializePromise;
 
       $('.autocomplete input').simulate('change');
 
@@ -266,11 +262,10 @@ describe('Autocomplete', () => {
   });
 
   describe('when a custom filter function is provided', () => {
-    it('filters results', () => {
+    it('filters results', async () => {
       const containsLetterE = items => items.filter(item => item.value.name.indexOf('e') !== -1);
       subject::setProps({onFilter: containsLetterE});
-      MockNextTick.next();
-      MockPromises.tick();
+      await initializePromise;
 
       $('.autocomplete input').simulate('change');
 
@@ -282,15 +277,15 @@ describe('Autocomplete', () => {
   });
 
   describe('when custom trieOptions are provided', () => {
-    beforeEach(() => {
+    beforeEach(async () => {
       ReactDOM.unmountComponentAtNode(root);
       subject = ReactDOM.render(
         <Autocomplete {...{
           onInitializeItems,
           trieOptions: {splitOnRegEx: /\./}
         }} />, root);
-      MockNextTick.next();
-      MockPromises.tick();
+
+      await initializePromise;
       $('.autocomplete input').val('wat').simulate('change');
     });
 
@@ -306,12 +301,11 @@ describe('Autocomplete', () => {
   });
 
   describe('when the values are scalar', () => {
-    it('renders and maintains the order', () => {
+    it('renders and maintains the order', async () => {
       ReactDOM.unmountComponentAtNode(root);
       const props = {onInitializeItems: cb => cb(['d', 'a', 'c', 'b'])};
       subject = ReactDOM.render(<Autocomplete {...props}/>, root);
-      MockNextTick.next();
-      MockPromises.tick();
+      await initializePromise;
 
       $('.autocomplete input').simulate('change');
 
@@ -332,18 +326,17 @@ describe('Autocomplete', () => {
       const props = {onInitializeItems: callback => cb = callback};
       subject = ReactDOM.render(<Autocomplete {...props}/>, root);
       promise = cb(['a', 'b', 'c', 'd']);
-      MockNextTick.next();
-      MockPromises.tick();
     });
 
-    it('still populates the list properly', () => {
+    it('still populates the list properly', async () => {
+      await promise;
       $('.autocomplete input').simulate('change');
       expect('.autocomplete-list').toHaveText('abcd');
     });
 
-    it('returns the trie', () => {
-      promise.then(actual => expect(actual).toBeUndefined());
-      MockPromises.tick();
+    it('returns the trie', async () => {
+      const actual = await promise;
+      expect(actual).toBeUndefined();
     });
   });
 
@@ -359,12 +352,12 @@ describe('Autocomplete', () => {
 
   describe('when a custom (possibly asynchronous) search function is provided', () => {
     let cb;
-    beforeEach(() => {
+
+    beforeEach(async () => {
       subject::setProps({
         onSearch: (_, callback) => cb = callback
       });
-      MockNextTick.next();
-      MockPromises.tick();
+      await initializePromise;
 
       $('.autocomplete input').val('zo').simulate('change');
 
