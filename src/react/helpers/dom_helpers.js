@@ -21,7 +21,7 @@ const DomHelpers = {
     scrollDiv.style.position = 'absolute';
     scrollDiv.style.top = '-9999px';
     document.body.appendChild(scrollDiv);
-    const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
 
     return scrollbarWidth;

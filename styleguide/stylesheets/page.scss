@@ -1,47 +1,24 @@
-.styleguide-page {
-  .styleguide-import-preview-code {
-    word-break: normal;
-  }
+@import "./variables.scss";
 
-  table.md-table {
-    margin-bottom: 40px;
-    table-layout: auto;
-  }
-
-  .md-image {
-    width: 100%;
-  }
-
-  .md-heading:first-child {
-    margin-top: 0 !important;
-  }
-
-  .md-pre {
+.gatsby-highlight {
+  pre[class*="language-"] {
+    padding: $base-unit * 2;
+    margin: 0 0 ($base-unit * 2) 0;
     background: transparent;
-    padding: $base-unit;
+    border-radius: 0;
   }
+}
 
-  .styleguide-page-header {
-    a {
-      color: $text-color;
+table.table.styleguide-table {
+  table-layout: auto;
+}
 
-      svg {
-        fill: $gray;
-      }
-    }
-  }
+.styleguide-img {
+  width: 100%;
+}
 
-  .styleguide-page-main {
-    max-width: 960px;
-  }
-
-  .styleguide-tabs {
-    border-bottom: none !important;
-  }
-
-  .styleguide-tab-content {
-    > .tab-content {
-      background: transparent;
-    }
-  }
+.styleguide-heading-link {
+  opacity: 0.8;
+  color: inherit;
+  margin-left: -$base-unit;
 }

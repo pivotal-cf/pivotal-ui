@@ -1,72 +1,65 @@
-@import '~pivotal-ui/css/pui-variables';
+@import "./variables.scss";
 
-$sidebar-item-left-padding: $base-unit * 2;
-$active-item-border-size: $base-unit / 2;
-
-.sidebar {
-  color: $light-gray;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-bottom: 40px;
-  position: fixed;
+.styleguide-sidebar {
   width: 240px;
   height: 100%;
-
-  .autocomplete input {
-    background-color: $black;
-    color: $light-gray;
-  }
+  flex-grow: 0;
+  flex-shrink: 0;
+  background: $white;
+  border-right: 1px solid $accent-gray;
+  overflow-y: auto;
 }
 
-.sidebar-header {
+.styleguide-sidebar-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.styleguide-sidebar-group {
   padding: $base-unit * 2;
-  display: flex;
 
-  a {
-    align-self: center;
-  }
-
-  .sidebar-icon {
-    padding: $base-unit;
-    background-color: $accent-teal;
-    border-radius: 2px;
-    height: $base-unit * 6;
-    width: $base-unit * 6;
-
-    svg {
-      height: $base-unit * 4;
-      width: $base-unit * 4;
-    }
-  }
-
-  .sidebar-title {
-    display: inline;
-    color: $light-gray;
-    font-size: $font-size-large;
-    align-self: center;
+  + .styleguide-sidebar-group {
+    border-top: 1px solid $accent-gray;
   }
 }
 
-.sidebar-link {
-  align-self: center;
-  color: $light-gray;
-  padding: $base-unit $base-unit $base-unit $sidebar-item-left-padding;
-  display: block;
-  cursor: pointer;
-  text-decoration: none;
+.styleguide-sidebar-group-list {
+  list-style-type: none;
+  padding: 0;
+}
 
-  &:hover {
-    color: $light-gray;
+.styleguide-sidebar-list-item-active {
+  font-weight: 600;
+  position: relative;
+
+  ~ .styleguide-sidebar-list-item-sections {
+    display: block;
+  }
+}
+
+.styleguide-sidebar-list-item {
+  padding: ($base-unit / 2) 0;
+
+  a:hover {
     text-decoration: underline;
   }
+}
 
-  &.active {
-    background-color: $black;
-    border-left: $active-item-border-size solid $accent-teal;
-    padding-left: $sidebar-item-left-padding - $active-item-border-size;
+.styleguide-sidebar-list-item-sections {
+  display: none;
+  border-left: 2px solid $accent-gray;
+  margin-left: 2px;
+  padding-left: $base-unit;
+
+  a, a:hover {
+    display: inline-block;
+    padding: ($base-unit / 2) 0;
+    color: inherit;
   }
+}
 
-  svg {
-    fill: $light-gray;
+@media screen and (max-width: $responsive-breakpoint) {
+  .styleguide-sidebar {
+    display: none;
   }
 }

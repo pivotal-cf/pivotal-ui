@@ -1,0 +1,18 @@
+@import "./variables.scss";
+
+.styleguide-content-wrapper {
+  height: 100%;
+  display: flex;
+}
+
+.styleguide-main {
+  flex-grow: 1;
+  overflow-y: auto;
+  outline: none !important;
+}
+
+.styleguide-main-content {
+  max-width: $base-unit * 103;
+  padding: ($base-unit * 2) ($base-unit * 4);
+  margin: 0 auto;
+}

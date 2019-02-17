@@ -1,0 +1,19 @@
+@import "./variables.scss";
+
+.styleguide-index {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon, h1 {
+    font-size: 8em;
+    font-weight: 600;
+  }
+}
+
+.styleguide-index-box {
+  padding: $base-unit * 2;
+  border: 1px solid $accent-gray;
+}

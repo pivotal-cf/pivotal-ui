@@ -15,10 +15,6 @@ export class Tooltip extends React.PureComponent {
     isSticky: false
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     require('../../css/tooltips');
   }
