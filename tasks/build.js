@@ -1,6 +1,5 @@
 import gulp from 'gulp';
-
-const buildFolder = 'dist';
+import {buildFolder} from './common';
 
 gulp.task('build-license', () =>
   gulp.src('LICENSE')
