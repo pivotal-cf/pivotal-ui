@@ -2,5 +2,5 @@
 applications:
 - name: styleguide-master
   buildpack: staticfile_buildpack
-  path: dist
+  path: public
   memory: 64MB
