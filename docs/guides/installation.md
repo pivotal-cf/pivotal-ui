@@ -1,0 +1,15 @@
+---
+title: Installation
+---
+
+To use Pivotal UI in a Node.js project, first install the latest version of Node LTS. [See here for instructions.](https://docs.npmjs.com/getting-started/installing-node)
+
+Then, install the `pivotal-ui` Node module:
+
+```bash
+# if using yarn:
+yarn add pivotal-ui
+
+# if using npm:
+npm install --save pivotal-ui
+```
