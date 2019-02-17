@@ -3,7 +3,7 @@ import gulp from 'gulp';
 import mergeStream from 'merge-stream';
 import loadPlugins from 'gulp-load-plugins';
 import cssnextPlugin from 'postcss-cssnext';
-import {cssSrcFolder, cssBuildFolder} from './common';
+import {cssSrcFolder, cssBuildFolder, copyrightHeader} from './common';
 
 const plugins = loadPlugins();
 
@@ -11,6 +11,7 @@ gulp.task('css-build-src', () => {
   return gulp.src([`${cssSrcFolder}/**/*.scss`, `!${cssSrcFolder}/*.scss`])
     .pipe(plugins.sass({outputStyle: 'compressed'}))
     .pipe(plugins.postcss([cssnextPlugin()]))
+    .pipe(plugins.header(copyrightHeader))
     .pipe(gulp.dest(cssBuildFolder));
 });
 
