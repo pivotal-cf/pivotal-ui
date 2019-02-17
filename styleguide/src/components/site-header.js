@@ -3,7 +3,7 @@ import {Link} from 'gatsby';
 import {Input} from '../../../src/react/inputs';
 import {Icon} from '../../../src/react/iconography';
 import {siteMetadata} from '../../gatsby-config';
-import '../../stylesheets/header.scss';
+import '../../stylesheets/site-header.scss';
 
 const SiteHeader = () => (
   <header className="sg-header">
