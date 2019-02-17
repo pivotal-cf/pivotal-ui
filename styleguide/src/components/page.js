@@ -1,14 +1,15 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {graphql} from 'gatsby';
 import {Icon} from '../../../src/react/iconography';
 import {Grid, FlexCol} from '../../../src/react/flex-grids';
 import {WarningAlert} from '../../../src/react/alerts';
 import Head from './head';
-import renderMarkdown from '../helpers/render_markdown';
+import renderMarkdown from '../helpers/render-markdown';
+import {siteMetadata} from '../../gatsby-config';
 import '../../stylesheets/page.scss';
 
-export default function Page({data}) {
-  const {markdownRemark: pageData, site: {siteMetadata}} = data;
+const Page = ({data}) => {
+  const {markdownRemark: pageData} = data;
   const {
     htmlAst,
     fields: {route, group},
@@ -21,7 +22,7 @@ export default function Page({data}) {
   const groupLabel = pageGroup ? pageGroup.label : '';
 
   return (
-    <Fragment>
+    <>
       <Head title={title} />
 
       <header>
@@ -50,18 +51,14 @@ export default function Page({data}) {
       )}
 
       {renderMarkdown(htmlAst)}
-    </Fragment>
+    </>
   );
-}
+};
+
+export default Page;
 
 export const pageQuery = graphql`
   query DocPageByPath($path: String!) {
-    site {
-      siteMetadata {
-        repoUrl
-        sidebarGroups { id label }
-      }
-    }
     markdownRemark(fields: { route: { eq: $path } }) {
       htmlAst
       fields { route group }

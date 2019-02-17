@@ -2,5 +2,42 @@
 
 .sg-header {
   background: $dark-gray;
-  flex-grow: 0;
+  min-height: $base-unit * 8;
+  flex: 0 0 ($base-unit * 8);
+  display: flex;
+  padding: ($base-unit * 2);
+  color: $white;
+  font-size: $font-size-large;
+  align-items: center;
+
+  .sg-header__link {
+    display: block;
+    height: $base-unit * 4;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sg-header__logo {
+    display: block;
+    border-radius: 2px;
+    background: $teal;
+    height: $base-unit * 4;
+    width: $base-unit * 4;
+    text-align: center;
+
+    svg {
+      height: $base-unit * 4;
+      width: $base-unit * 4;
+      padding: $base-unit / 2;
+    }
+  }
+
+  .sg-header__name {
+    display: inline-block;
+    margin-left: $base-unit;
+  }
+
+  .sg-header__search {
+    width: 200px;
+  }
 }

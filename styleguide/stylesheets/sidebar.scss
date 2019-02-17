@@ -5,9 +5,14 @@
   height: 100%;
   flex-grow: 0;
   flex-shrink: 0;
-  background: $white;
+  // background: $white;
+  background: $light-gray;
   border-right: 1px solid $accent-gray;
   overflow-y: auto;
+
+  a {
+    color: $dark-gray;
+  }
 }
 
 .sg-sidebar__list {
@@ -47,7 +52,7 @@
 
 .sg-sidebar__list-item-sections {
   display: none;
-  border-left: 2px solid $accent-gray;
+  border-left: 2px solid $accent-teal;
   margin-left: 2px;
   padding-left: $base-unit;
 

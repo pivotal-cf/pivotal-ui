@@ -1,8 +1,8 @@
 import React from 'react';
 import rehypeReact from 'rehype-react';
 import {H1, H2, H3, H4, H5, H6, Table, Img} from '../components/markdown';
-import ColorContrastTool from '../tools/color_contrast_tool';
-import ColorSearch from '../tools/color_search';
+import ColorContrastTool from '../tools/color-contrast-tool';
+import ColorPalette from '../tools/color-palette';
 
 const renderMarkdownAst = new rehypeReact({
   createElement: React.createElement,
@@ -16,7 +16,7 @@ const renderMarkdownAst = new rehypeReact({
     'table': Table,
     'img': Img,
     'color-contrast-tool': ColorContrastTool,
-    'color-search': ColorSearch
+    'color-palette': ColorPalette
   }
 }).Compiler;
 

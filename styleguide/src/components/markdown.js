@@ -1,12 +1,12 @@
 import React from 'react';
-import {headingNodeToSlug} from '../helpers/markdown_utils';
+import {headingNodeToSlug} from '../helpers/markdown-utils';
 import '../../stylesheets/markdown.scss';
 
 const createHeading = (Tag, link) => mdNode => {
   const slug = headingNodeToSlug(mdNode);
 
   const tag = (
-    <Tag className={`em-high mbxl mtxxl border-bottom styleguide-${Tag}`} id={slug}>
+    <Tag className={`em-high mbxl mtxxl border-bottom sg-${Tag}`} id={slug}>
       {mdNode.children}
     </Tag>
   );
@@ -28,7 +28,7 @@ export const H6 = createHeading('h6', false);
 
 export function Img(props) {
   return (
-    <img {...props} alt={props.alt || ''} className="styleguide-img"/>
+    <img {...props} alt={props.alt || ''} className="sg-img"/>
   );
 }
 
@@ -37,7 +37,7 @@ export function Table({children, ...props}) {
   const tbody = children.find(child => child.type === 'tbody');
 
   return (
-    <table {...props} {...{className: 'table styleguide-table'}}>
+    <table {...props} {...{className: 'table sg-table'}}>
       <thead>
         {React.Children.map(thead.props.children, child => {
           return React.cloneElement(child, {className: 'tr-no-h-borders bg-neutral-10'});

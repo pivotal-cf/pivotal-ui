@@ -21,8 +21,6 @@ Prepend any color name with `bg-` to apply that color to an element's background
 
 ## Color palette
 
-Search through Pivotal UI's color palette.
-
 <div>
-<color-search></color-search>
+<color-palette></color-palette>
 </div>

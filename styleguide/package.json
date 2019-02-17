@@ -37,12 +37,12 @@
     "react-ace": "^6.3.2",
     "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0",
-    "remark-parse": "^5.0.0",
-    "remark-react": "^4.0.3",
+    "remark-parse": "^6.0.3",
+    "remark-react": "^5.0.1",
     "unified": "^7.1.0"
   },
   "scripts": {
-    "build": "rm -rf ./public && gatsby build",
+    "build": "gatsby build",
     "start": "gatsby develop",
     "serve": "gatsby serve"
   }

@@ -1,14 +1,13 @@
-export const colorPalette = {
-  neutral: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-  dark: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-  accent: [1, 2, 3, 4, 5, 6],
-  error: [1, 2, 3, 4, 5, 6],
-  warn: [1, 2, 3, 4, 5, 6],
-  success: [1, 2, 3, 4, 5, 6],
-  brand: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+export const colorGroups = {
+  gray: ['black', 'dark-gray', 'gray', 'accent-gray', 'light-gray', 'white'],
+  teal: ['teal', 'accent-teal', 'light-teal'],
+  blue: ['dark-blue', 'blue', 'accent-blue', 'light-blue'],
+  red: ['dark-red', 'red', 'light-red'],
+  green: ['green', 'accent-green', 'light-green'],
+  yellow: ['decorative-yellow', 'light-yellow']
 };
 
-export const colorNames = Object.keys(colorPalette).reduce((memo, key) => [
+export const colorNames = Object.keys(colorGroups).reduce((memo, key) => [
   ...memo,
-  ...colorPalette[key].map(number => `${key}-${number}`)
+  ...colorGroups[key]
 ], []);

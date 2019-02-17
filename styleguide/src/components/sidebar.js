@@ -2,16 +2,16 @@ import React from 'react';
 import {Link} from 'gatsby';
 import '../../stylesheets/sidebar.scss';
 
-const SidebarListItem = page => (
+const SidebarListItem = ({route, title, sections}) => (
   <li className="sg-sidebar__list-item">
     <Link
       activeClassName="sg-sidebar__list-item--active"
-      to={page.route}>
-      {page.title}
+      to={route}>
+      {title}
     </Link>
-    {page.sections.length > 0 && (
+    {sections.length > 0 && (
       <div className="sg-sidebar__list-item-sections">
-        {page.sections.map(section => (
+        {sections.map(section => (
           <div key={section.route}>
             <Link to={section.route}>{section.title}</Link>
           </div>

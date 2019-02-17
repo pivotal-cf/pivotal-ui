@@ -23,7 +23,7 @@ const calculateContrastRatio = (bg, text) => {
 export default class ColorContrastTool extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {bg: 'bg-neutral-11', type: 'type-neutral-1', ratio: '14.74'};
+    this.state = {bg: 'bg-white', type: 'type-black', ratio: '21.00'};
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -58,7 +58,7 @@ export default class ColorContrastTool extends React.Component {
                 value={bg}
                 onChange={evt => this.setState({bg: evt.target.value})}>
                 {colorNames.map(key =>
-                  <option {...{key, value: `bg-${key}`}}>bg-{key}</option>)}
+                  <option {...{key, value: `bg-${key}`}}>{key}</option>)}
               </select>
             </FormUnit>
           </FlexCol>
@@ -69,7 +69,7 @@ export default class ColorContrastTool extends React.Component {
                 value={type}
                 onChange={evt => this.setState({type: evt.target.value})}>
                 {colorNames.map(key =>
-                  <option {...{key, value: `type-${key}`}}>type-{key}</option>)}
+                  <option {...{key, value: `type-${key}`}}>{key}</option>)}
               </select>
             </FormUnit>
           </FlexCol>

@@ -1,15 +1,11 @@
 import React from 'react';
 import {StaticQuery, graphql} from 'gatsby';
 import Sidebar from './sidebar';
-import {headingTextToSlug} from '../helpers/markdown_utils';
+import {siteMetadata} from '../../gatsby-config';
+import {headingTextToSlug} from '../helpers/markdown-utils';
 
 const SidebarQuery = graphql`
   query SidebarQuery {
-    site {
-      siteMetadata {
-        sidebarGroups { id label }
-      }
-    }
     allMarkdownRemark(limit: 1000) {
       edges {
         node {
@@ -44,7 +40,7 @@ const renderSidebar = data => {
   return (
     <Sidebar
       pages={collectPages(data)}
-      groups={data.site.siteMetadata.sidebarGroups}
+      groups={siteMetadata.sidebarGroups}
     />
   );
 };
