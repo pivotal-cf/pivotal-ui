@@ -43,7 +43,24 @@ exports.createPages = ({graphql, actions}) => {
   });
 };
 
-exports.onCreateWebpackConfig = ({actions}) => {
+exports.onCreateWebpackConfig = ({stage, actions, loaders}) => {
+  if (stage === 'build-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            // CodeMirror refers to some browser globals which are
+            // unavailable during the static rendering phase. This
+            // rule tells Webpack not to try to load it during this
+            // phase. See: https://www.gatsbyjs.org/docs/debugging-html-builds
+            test: /node_modules\/codemirror/,
+            use: loaders.null(),
+          }
+        ]
+      }
+    });
+  }
+
   actions.setWebpackConfig({
     module: {
       rules: [
@@ -53,7 +70,7 @@ exports.onCreateWebpackConfig = ({actions}) => {
           // Here, we tell Webpack to not try to load the CSS. Instead,
           // we import PUI .scss files directly elsewhere.
           test: /\/src\/css\/.*index.js$/,
-          use: 'null-loader'
+          use: loaders.null()
         }
       ]
     }
