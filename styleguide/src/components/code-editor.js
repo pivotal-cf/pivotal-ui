@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {DefaultButton} from '../../../src/react/buttons';
-import {Icon} from '../../../src/react/iconography';
 import {transform as babelify} from '@babel/standalone';
 import CodeMirror from 'react-codemirror';
 import 'codemirror/mode/javascript/javascript';
@@ -42,7 +41,6 @@ const CodeEditor = props => {
   const output = getOutput(value, language);
   const buttonText = language === 'html' ? 'HTML' : 'React';
   const mode = language === 'html' ? 'htmlmixed' : 'jsx';
-  const iconSrc = language === 'html' ? 'html5' : 'react';
 
   return (
     <figure className="sg-code-editor">
@@ -52,7 +50,6 @@ const CodeEditor = props => {
           <DefaultButton
             small flat
             className="sg-code-editor__button phn"
-            icon={<Icon src={iconSrc}/>}
             onClick={() => setShowCode(!showCode)}>
             {showCode ? 'hide' : 'show'} {buttonText}
           </DefaultButton>
