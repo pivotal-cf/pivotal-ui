@@ -11,7 +11,6 @@
   align-items: center;
 
   .sg-header__link {
-    display: block;
     height: $base-unit * 4;
     display: flex;
     justify-content: center;
@@ -38,6 +37,6 @@
   }
 
   .sg-header__search {
-    width: 200px;
+    width: $base-unit * 37;
   }
 }

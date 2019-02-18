@@ -1,8 +1,17 @@
-const visit = require('unist-util-visit');
-const generateImportStatements = require('./generate_import_statements');
+const mapAst = require('./map-ast');
+const generateImportStatements = require('./generate-import-statements');
+const transformCodeBlock = require('./transform-code-block');
 
-module.exports = ({markdownAST, markdownNode}) => {
-  const {fields, frontmatter} = markdownNode;
+module.exports = remarkData => {
+  const {frontmatter} = remarkData.markdownNode;
 
-  markdownAST.children.push(...generateImportStatements(frontmatter));
+  remarkData.markdownAST.children.push(
+    ...generateImportStatements(frontmatter)
+  );
+
+  remarkData.markdownAST = mapAst(remarkData.markdownAST, node => {
+    if (node.type === 'code') {
+      return transformCodeBlock(node);
+    }
+  });
 };

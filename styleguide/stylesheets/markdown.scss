@@ -3,3 +3,11 @@
 .sg-h1 {
   font-size: $base-unit * 6;
 }
+
+table.table.sg-table {
+  table-layout: auto;
+}
+
+.sg-img {
+  width: 100%;
+}

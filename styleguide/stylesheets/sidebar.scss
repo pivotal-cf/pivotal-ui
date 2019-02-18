@@ -1,11 +1,10 @@
 @import "./variables.scss";
 
 .sg-sidebar {
-  width: 240px;
+  width: $base-unit * 30;
   height: 100%;
   flex-grow: 0;
   flex-shrink: 0;
-  // background: $white;
   background: $light-gray;
   border-right: 1px solid $accent-gray;
   overflow-y: auto;
