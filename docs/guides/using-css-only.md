@@ -38,5 +38,5 @@ Click "Show HTML" to to see how the React components render. Use this as a guide
 
 ```jsx
 //title=Primary button
-<PrimaryButton>Create Thing</PrimaryButton>;
+<PrimaryButton>Create Thing</PrimaryButton>
 ```

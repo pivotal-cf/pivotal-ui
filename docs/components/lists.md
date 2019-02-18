@@ -14,7 +14,7 @@ reactComponents:
   <ListItem><a href="#">Home</a></ListItem>
   <ListItem><a href="#react">React</a></ListItem>
   <ListItem className="current"><span>Lists</span></ListItem>
-</BreadcrumbList>;
+</BreadcrumbList>
 ```
 
 ```html
@@ -39,7 +39,7 @@ reactComponents:
   <ListItem>Item 1</ListItem>
   <ListItem>Item 2</ListItem>
   <ListItem>Item 3</ListItem>
-</InlineList>;
+</InlineList>
 ```
 
 ## Props

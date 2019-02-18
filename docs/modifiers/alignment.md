@@ -24,7 +24,7 @@ Note that the vertical alignment classes listed here (`txt-t`, `txt-m`, `txt-b`)
   <p className="txt-l"><code>txt-l</code></p>
   <p className="txt-c"><code>txt-c</code></p>
   <p className="txt-r"><code>txt-r</code></p>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -48,5 +48,5 @@ Note that the vertical alignment classes listed here (`txt-t`, `txt-m`, `txt-b`)
       </td>
     </tr>
   </tbody>
-</table>;
+</table>
 ```

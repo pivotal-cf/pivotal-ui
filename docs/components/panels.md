@@ -16,7 +16,7 @@ Set the `title` or `header` prop to give a name to the panel. Use whichever is m
   <Panel {...{title: 'Domains'}}>
     These are the domains.
   </Panel>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -25,7 +25,7 @@ Set the `title` or `header` prop to give a name to the panel. Use whichever is m
   <Panel {...{header: 'Domains'}}>
     These are the domains.
   </Panel>
-</div>;
+</div>
 ```
 
 Use the footer for information that does not belong in the panel body.
@@ -36,7 +36,7 @@ Use the footer for information that does not belong in the panel body.
   <Panel {...{header: 'Domains', footer: <a href="#">Click here for more info</a>}}>
     These are the domains.
   </Panel>
-</div>;
+</div>
 ```
 
 When the panel has associated calls-to-action, set the `titleCols` or `headerCols` prop to include buttons to the right of the panel name.
@@ -52,7 +52,7 @@ Because the panel is built on the `Grid` component, these buttons should be wrap
   }}>
     These are the domains.
   </Panel>
-</div>;
+</div>
 ```
 
 When including a button in a panel header, make it small to keep the panel header size the same.
@@ -66,7 +66,7 @@ When including a button in a panel header, make it small to keep the panel heade
   }}>
     These are the domains.
   </Panel>
-</div>;
+</div>
 ```
 
 When the panel has content loading, set the `loading` prop to add a loading indicator to the top of the panel body.
@@ -77,7 +77,7 @@ When the panel has content loading, set the `loading` prop to add a loading indi
   <Panel loading={true} title="Apps">
     Loading apps...
   </Panel>
-</div>;
+</div>
 ```
 
 When using multiple panels that are related, the first panel should have a title that names the grouping. Each panel header should name its subgroups.
@@ -91,7 +91,7 @@ When using multiple panels that are related, the first panel should have a title
   <Panel {...{header: 'Reptiles', className: 'mtxxl'}}>
     alligator, snake
   </Panel>
-</div>;
+</div>
 ```
 
 ## Props

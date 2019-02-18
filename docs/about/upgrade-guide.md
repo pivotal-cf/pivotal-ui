@@ -87,7 +87,7 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
         )}
       </FormCol>
     </FormRow>
-  </Form>;
+  </Form>
   ```
 
 1. Create a new `fields` prop:
@@ -106,7 +106,7 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
     }
   }}>
     {/* ... */}
-  </Form>;
+  </Form>
   ```
 1. Create a callback for the `Form` child:
   ```jsx
@@ -134,7 +134,7 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
         </FormRow>
       </Fragment>
     )}
-  </Form>;
+  </Form>
   ```
 
 1. Extract `FormRow` wrappers into the layout:
@@ -165,7 +165,7 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
         </FormRow>
       </Fragment>
     )}
-  </Form>;
+  </Form>
   ```
 
 1. Replace `FormRow` with `Grid` and `FormCol` with `FlexCol`, and remove unnecessary props from the FlexCols:
@@ -196,7 +196,7 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
         </Grid>
       </Fragment>
     )}
-  </Form>;
+  </Form>
   ```
 
 1. Remove all that `FormCol` child callbacks, and use the `Form` methods provided by the `Form` child callback instead:
@@ -214,7 +214,7 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
         </Grid>
       </Fragment>
     )}
-  </Form>;
+  </Form>
   ```
 
 1. Place the fields in the layout:
@@ -243,7 +243,7 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
         </Grid>
       </Fragment>
     )}
-  </Form>;
+  </Form>
   ```
 
 1. Consider removing Grids and FlexCols for fields that are alone on a row:
@@ -264,7 +264,7 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
         </Grid>
       </Fragment>
     )}
-  </Form>;
+  </Form>
   ```
 
 ## v16
@@ -469,7 +469,7 @@ Deprecated Bootstrap-based Grid:
 <Row>
   <Col md={8}>...</Col>
   <Col md={16}>...</Col>
-</Row>;
+</Row>
 ```
 
 FlexGrid:
@@ -478,7 +478,7 @@ FlexGrid:
 <Grid>
   <FlexCol>...</FlexCol>
   <FlexCol grow={2}>...</FlexCol>
-</Grid>;
+</Grid>
 ```
 
 ##### CSS-only
@@ -546,7 +546,7 @@ The goals of the 13.0 release are:
   bodyClassName: 'panel-body',
   headerClassName: 'panel-header',
   footerClassName: 'panel-footer'
-}}/>;
+}}/>
 ```
 
 #### Dropdown/CheckboxDropdown
@@ -635,7 +635,7 @@ and into the Form component.
       <Input {...{placeholder: 'The field and the label lines up when inline'}}/>
     </FormCol>
   </FormRow>
-</Form>;
+</Form>
 ```
 
 ##### Form Unit

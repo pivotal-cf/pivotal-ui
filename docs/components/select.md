@@ -21,7 +21,7 @@ Native HTML `select`s are excellent to use because they will automatically behav
     <option>Option 1</option>
     <option>Option 2</option>
   </select>
-</div>;
+</div>
 ```
 
 ## Props

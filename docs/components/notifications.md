@@ -10,7 +10,7 @@ reactComponents:
 
 ```jsx
 //title=No notifications
-<Notifications/>;
+<Notifications/>
 ```
 
 ```jsx
@@ -22,7 +22,7 @@ reactComponents:
       <p className="type-sm type-neutral-5 mvn">Click for Gif</p>
     </Flag>
   </NotificationItem>
-</Notifications>;
+</Notifications>
 ```
 
 ```jsx
@@ -55,12 +55,12 @@ reactComponents:
   <AlertNotifications size="h5">
     <NotificationItem>Stuff</NotificationItem>
   </AlertNotifications>
-</div>;
+</div>
 ```
 
 ```jsx
 //title=No alerts
-<AlertNotifications/>;
+<AlertNotifications/>
 ```
 
 ```jsx
@@ -74,7 +74,7 @@ reactComponents:
       </Flag>
     </NotificationItem>
   </AlertNotifications>
-</div>;
+</div>
 ```
 
 If you want to customize the notification dropdown, you can use `className` to

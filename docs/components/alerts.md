@@ -20,21 +20,21 @@ For example, here are alerts for various outcomes of uploading a file:
   <ErrorAlert>File 'abc.txt' failed to upload.</ErrorAlert>
   <InfoAlert>Upload started: 'abc.txt'</InfoAlert>
   <WarningAlert>'abc.txt' is now publicly available</WarningAlert>
-</div>;
+</div>
 ```
 
 To allow the user to hide the alert after reading it, set the `dismissable` prop to add a clickable close icon:
 
 ```jsx
 //title=Dismissable alert
-<SuccessAlert dismissable>File 'abc.txt' uploaded successfully!</SuccessAlert>;
+<SuccessAlert dismissable>File 'abc.txt' uploaded successfully!</SuccessAlert>
 ```
 
 To perform some action when the user dismisses an alert, set the `onDismiss` prop:
 
 ```jsx
 //title=Dismissable alert with callback
-<ErrorAlert dismissable onDismiss={() => alert('Alert dismissed')}>File 'abc.txt' failed to upload.</ErrorAlert>;
+<ErrorAlert dismissable onDismiss={() => alert('Alert dismissed')}>File 'abc.txt' failed to upload.</ErrorAlert>
 ```
 
 Use the `withIcon` prop to add an icon to the alert:
@@ -46,7 +46,7 @@ Use the `withIcon` prop to add an icon to the alert:
   <ErrorAlert withIcon>File 'abc.txt' failed to upload.</ErrorAlert>
   <InfoAlert withIcon>Upload started: 'abc.txt'</InfoAlert>
   <WarningAlert withIcon>'abc.txt' is now publicly available</WarningAlert>
-</div>;
+</div>
 ```
 
 Alerts can contain any content. To have links within this content styled correctly, apply the `pui-alert-link` class to any `<a>` tag that appears inside the alert.
@@ -59,7 +59,7 @@ Alerts can contain any content. To have links within this content styled correct
     <li>Item one. <a href="#" className="pui-alert-link">Click here</a> for more information.</li>
     <li>Item two. <a href="#" className="pui-alert-link">Click here</a> for more information.</li>
   </ul>
-</WarningAlert>;
+</WarningAlert>
 ```
 
 By default, alerts maintain their dismissed/not dismissed state internally. To hold this state at a higher level (in a parent component), pass the `show` prop to the alert.
@@ -76,7 +76,7 @@ class AlertController extends React.Component {
     const {alertVisible} = this.state;
 
     if (!alertVisible) {
-      return <DefaultButton onClick={() => this.setState({alertVisible: true})}>Show alert</DefaultButton>;
+      return <DefaultButton onClick={() => this.setState({alertVisible: true})}>Show alert</DefaultButton>
     }
 
     return (
@@ -85,7 +85,7 @@ class AlertController extends React.Component {
   }
 }
 
-<AlertController/>;
+<AlertController/>
 ```
 
 ## Props

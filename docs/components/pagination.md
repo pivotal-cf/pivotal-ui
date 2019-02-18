@@ -20,7 +20,7 @@ Use when the dataset is in some way ordered. |
 
 ```jsx
 //title=Without extra props
-<Pagination/>;
+<Pagination/>
 ```
 
 ```jsx
@@ -50,7 +50,7 @@ class PaginationAdvanced extends React.Component {
   }
 }
 
-<PaginationAdvanced/>;
+<PaginationAdvanced/>
 ```
 
 ## Props

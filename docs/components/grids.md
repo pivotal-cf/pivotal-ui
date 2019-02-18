@@ -16,7 +16,7 @@ Flex grids use flexbox to position columns within rows.
   <FlexCol fixed {...{style: {width: '150px'}}}/>
   <FlexCol/>
   <FlexCol className="col-grow-2"/>
-</Grid>;
+</Grid>
 ```
 
 ```jsx
@@ -33,7 +33,7 @@ Flex grids use flexbox to position columns within rows.
     <FlexCol/>
     <FlexCol/>
   </Grid>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -52,7 +52,7 @@ Flex grids use flexbox to position columns within rows.
     <FlexCol fixed/>
     <FlexCol fixed/>
   </Grid>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -89,7 +89,7 @@ Flex grids use flexbox to position columns within rows.
     <FlexCol col={12}/>
     <FlexCol col={12}/>
   </Grid>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -106,7 +106,7 @@ Flex grids use flexbox to position columns within rows.
     <FlexCol grow={2}/>
     <FlexCol grow={5}/>
   </Grid>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -116,7 +116,7 @@ Flex grids use flexbox to position columns within rows.
   <FlexCol fixed {...{style: {width: '150px'}}}/>
   <FlexCol/>
   <FlexCol/>
-</Grid>;
+</Grid>
 ```
 
 ```jsx
@@ -138,7 +138,7 @@ Flex grids use flexbox to position columns within rows.
      <FlexCol {...{breakpoint: 'lg'}}/>
      <FlexCol {...{breakpoint: 'lg'}}/>
    </Grid>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -148,7 +148,7 @@ Flex grids use flexbox to position columns within rows.
   <FlexCol {...{alignment: 'top'}}/>
   <FlexCol {...{alignment: 'middle'}}/>
   <FlexCol {...{alignment: 'bottom'}}/>
-</Grid>;
+</Grid>
 ```
 
 ```jsx
@@ -158,7 +158,7 @@ Flex grids use flexbox to position columns within rows.
   <FlexCol {...{contentAlignment: 'top', style: {height: '100px', border: '1px solid #b4b4b4', background: '#f8f8f8', margin: '0 8px'}}}>Some content that sits at the top of the column</FlexCol>
   <FlexCol {...{contentAlignment: 'middle', style: {height: '100px', border: '1px solid #b4b4b4', background: '#f8f8f8', margin: '0 8px'}}}>Some content that sits in the middle of the column</FlexCol>
   <FlexCol {...{contentAlignment: 'bottom', style: {height: '100px', border: '1px solid #b4b4b4', background: '#f8f8f8', margin: '0 8px'}}}>Some content that sits at the bottom of the column</FlexCol>
-</Grid>;
+</Grid>
 ```
 
 ## Props

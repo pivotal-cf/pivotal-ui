@@ -14,7 +14,7 @@ reactComponents:
     <FlexCol>60 MB / 100 MB</FlexCol>
     <FlexCol fixed>60%</FlexCol>
   </Grid>
-</div>;
+</div>
 ```
 
 ## Props

@@ -16,7 +16,7 @@ To use an icon, specify the name of the icon as the `src` prop.
   <Icon src="react"/>
   <Icon src="account_circle"/>
   <Icon src="add_circle"/>
-</div>;
+</div>
 ```
 
 By default, the icons are quite small. They inherit the font size of their parent. This means they can be resized by, for example, wrapping them in an `<h1>` or explicitly setting a font size on the parent.
@@ -27,7 +27,7 @@ By default, the icons are quite small. They inherit the font size of their paren
   <Icon src="react"/>
   <Icon src="account_circle"/>
   <Icon src="add_circle"/>
-</div>;
+</div>
 ```
 
 When styling the SVGs, use the `fill` or `stroke` attributes instead of `color`. These can be set directly on the `Icon` as a `style` prop or via CSS. A useful trick is to set `fill` to `currentColor`, so that the fill color is inherited from the text color of the icon's container.
@@ -38,14 +38,14 @@ When styling the SVGs, use the `fill` or `stroke` attributes instead of `color`.
   <Icon src="react" style={{stroke: 'red'}}/>
   <Icon src="account_circle" style={{fill: 'currentColor'}}/>
   <Icon src="add_circle" style={{fill: 'blue'}}/>
-</div>;
+</div>
 ```
 
 Set the `verticalAlign` prop to `"baseline"` to align the icon to the text baseline.
 
 ```jsx
 //title=Alignment with text
-<h1>Exit <Icon src="exit_to_app" verticalAlign="baseline"/></h1>;
+<h1>Exit <Icon src="exit_to_app" verticalAlign="baseline"/></h1>
 ```
 
 Images can be used like icons by wrapping them in a container with the `icon` class.
@@ -77,7 +77,7 @@ Pivotal UI provides three variations on the spinner icon, differing in their spe
     <div className="mbl"><code>spinner-sm</code></div>
     <Icon style={{'fontSize': '16px'}} src="spinner-sm"/>
   </div>
-</div>;
+</div>
 ```
 
 To use icons in buttons, see the [Buttons](/components/buttons/usage) page.
@@ -108,7 +108,7 @@ To use icons in buttons, see the [Buttons](/components/buttons/usage) page.
       })}
     </Grid>
   )
-}}/>;
+}}/>
 ```
 
 ## Props

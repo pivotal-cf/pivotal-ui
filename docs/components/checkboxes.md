@@ -14,7 +14,7 @@ Checkboxes can be either checked, unchecked or indeterminate.
   <Checkbox>Checkbox one (click me)</Checkbox>
   <Checkbox disabled>Checkbox two (disabled)</Checkbox>
   <Checkbox indeterminate>Checkbox three (indeterminate)</Checkbox>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -60,7 +60,7 @@ Checkboxes can be either checked, unchecked or indeterminate.
     </div>
   </div>
 )}
-</Form>;
+</Form>
 ```
 
 ## Props

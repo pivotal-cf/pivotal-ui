@@ -27,7 +27,7 @@ anywhere without knowing about `<body>`.
     <span>To here:</span>
     <PortalDestination name="modal"/>
   </section>
-</div>;
+</div>
 ```
 
 ## Props

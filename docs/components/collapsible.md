@@ -30,7 +30,7 @@ class CollapsibleExample extends React.Component {
   }
 }
 
-<CollapsibleExample/>;
+<CollapsibleExample/>
 ```
 
 ## Props

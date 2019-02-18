@@ -28,7 +28,7 @@ A `Form` will generally look like this:
     </div>
   );
 }}
-</Form>;
+</Form>
 ```
 
 ### Basic Forms
@@ -63,7 +63,7 @@ all fields will revert to their `initialValue`, if provided. In the Email Form b
     </div>
   );
 }}
-</Form>;
+</Form>
 ```
 #### Optional Fields
 
@@ -121,7 +121,7 @@ to place the label on the right.
     </div>
   );
 }}
-</Form>;
+</Form>
 ```
 
 ### Tooltips
@@ -163,7 +163,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
     </div>
   );
 }}
-</Form>;
+</Form>
 ```
 
 ### Accessing the Form state
@@ -197,7 +197,7 @@ For example, one field can determine whether to hide or show another field.
     </div>
   );
 }}
-</Form>;
+</Form>
 ```
 
 Or use one field to determine the contents of another field.
@@ -226,7 +226,7 @@ Or use one field to determine the contents of another field.
       </div>
     </div>
   )}
-</Form>;
+</Form>
 ```
 
 ### Client-side Validation
@@ -278,7 +278,7 @@ Due to the above behavior, we recommend against using a validator on the final f
     </div>
   );
 }}
-</Form>;
+</Form>
 ```
 
 ### Field `id`s & label `for`s
@@ -301,7 +301,7 @@ input.
     {fields.path}
   </div>
 )}
-</Form>;
+</Form>
 ```
 
 ### Composite fields
@@ -355,7 +355,7 @@ Use `stopPropagation` within `onChange` to stop the `Form` from overriding its c
     </Grid>
   </div>
 )}
-</Form>;
+</Form>
 ```
 
 ### Form submission
@@ -397,7 +397,7 @@ By default, a button within the `Form` that has `type="submit"` will trigger sub
     </div>
   );
 }}
-</Form>;
+</Form>
 ```
 
 ### Form error handling
@@ -433,7 +433,7 @@ Define a `onSubmitError` handler to map error messages to a specific field. Retu
     </Grid>
   );
 }}
-</Form>;
+</Form>
 ```
 
 ## Using the FormUnit
@@ -457,7 +457,7 @@ Note that state management and other `Form` features are not handled by the `For
     help: <span>Enter a value in the field above</span>
 }}>
   <Input id="basic-input" type="text"/>
-</FormUnit>;
+</FormUnit>
 ```
 
 ```jsx
@@ -489,7 +489,7 @@ Note that state management and other `Form` features are not handled by the `For
     }}>
       <Checkbox id="checkbox-input"/>
     </FormUnit>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -502,7 +502,7 @@ Note that state management and other `Form` features are not handled by the `For
     hasError: true
 }}>
   <Input id="username-input" type="text"/>
-</FormUnit>;
+</FormUnit>
 ```
 
 ```jsx
@@ -515,7 +515,7 @@ Note that state management and other `Form` features are not handled by the `For
     help: 'Username must be more than 8 characters'
 }}>
   <Input id="username-input2" type="text"/>
-</FormUnit>;
+</FormUnit>
 ```
 
 ```jsx
@@ -528,7 +528,7 @@ Note that state management and other `Form` features are not handled by the `For
       {name: 'Two', enabled: <Checkbox/>},
       {name: 'Three', enabled: <Checkbox/>}
   ]}/>
-</FormUnit>;
+</FormUnit>
 ```
 
 ## Props

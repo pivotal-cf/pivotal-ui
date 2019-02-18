@@ -13,7 +13,7 @@ reactComponents:
   <Divider/>
   Content
   <Divider size="large"/>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -31,7 +31,7 @@ reactComponents:
     <Divider inverse size="large"/>
     Here's some stuff below the divider
   </div>
-</div>;
+</div>
 ```
 
 ## Props

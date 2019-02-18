@@ -55,7 +55,7 @@ class Page extends React.Component {
   }
 }
 
-<Page/>;
+<Page/>
 ```
 
 ## Props

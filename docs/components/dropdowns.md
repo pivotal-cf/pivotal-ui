@@ -13,7 +13,7 @@ reactComponents:
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
-</Dropdown>;
+</Dropdown>
 ```
 
 ```jsx
@@ -22,7 +22,7 @@ reactComponents:
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
-</Dropdown>;
+</Dropdown>
 ```
 
 ```jsx
@@ -52,7 +52,7 @@ reactComponents:
     <a href="#">lorem ipsum</a>
  </Dropdown>
  </FlexCol>
-</Grid>;
+</Grid>
 ```
 
 ```jsx
@@ -69,7 +69,7 @@ reactComponents:
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
-</Dropdown>;
+</Dropdown>
 ```
 
 ```jsx
@@ -79,7 +79,7 @@ reactComponents:
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
-</Dropdown>;
+</Dropdown>
 ```
 
 ```jsx
@@ -89,7 +89,7 @@ reactComponents:
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
-</Dropdown>;
+</Dropdown>
 ```
 
 ```jsx
@@ -99,7 +99,7 @@ reactComponents:
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
-</Dropdown>;
+</Dropdown>
 ```
 
 ```jsx
@@ -109,7 +109,7 @@ reactComponents:
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
-</Dropdown>;
+</Dropdown>
 ```
 
 ```jsx
@@ -130,7 +130,7 @@ reactComponents:
     <a href="#">lorem ipsum</a>
     <a href="#">lorem ipsum</a>
   </Dropdown>
-</div>;
+</div>
 ```
 
 ## Props

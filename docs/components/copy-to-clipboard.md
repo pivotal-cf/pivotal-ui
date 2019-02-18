@@ -27,7 +27,7 @@ The copy to clipboard functionality can be applied to a variety of elements.
       alt: true
     }}>Click Me To Copy</DefaultButton>
   </CopyToClipboard>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -42,7 +42,7 @@ The copy to clipboard functionality can be applied to a variety of elements.
       }}/>
     </CopyToClipboard>
   </div>
-</div>;
+</div>
 ```
 
 ## Props

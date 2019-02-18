@@ -10,7 +10,7 @@ reactComponents:
 //title=Basic checkbox dropdown
 <CheckboxDropdown {...{
   labels: ['DEBUG', 'WARNING', 'ERROR']
-}}/>;
+}}/>
 ```
 
 ```jsx
@@ -35,7 +35,7 @@ class Example extends React.Component {
   }
 }
 
-<Example/>;
+<Example/>
 ```
 
 ## Props

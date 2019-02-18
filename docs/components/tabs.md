@@ -33,7 +33,7 @@ When a user would like to access each group of information separately. | When it
     <h2>Neat!</h2>
     <span>So much content.</span>
   </Tab>
-</Tabs>;
+</Tabs>
 ```
 
 ```jsx
@@ -44,7 +44,7 @@ When a user would like to access each group of information separately. | When it
     <h2>Neat!</h2>
     <span>So much content.</span>
   </Tab>
-</LeftTabs>;
+</LeftTabs>
 ```
 
 ```jsx
@@ -53,7 +53,7 @@ When a user would like to access each group of information separately. | When it
 <Tabs defaultActiveKey={1} responsiveBreakpoint="md">
   <Tab eventKey={1} title="Tab 1"> I'm so responsive </Tab>
   <Tab eventKey={2} title="Tab 2"> Me too </Tab>
-</Tabs>;
+</Tabs>
 ```
 
 ## Props

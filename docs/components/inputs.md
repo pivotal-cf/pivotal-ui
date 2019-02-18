@@ -12,12 +12,12 @@ Inputs will only be fully styled if their type is properly declared.
 
 ```jsx
 //title=Text field
- <Input placeholder="Text input" type="text"/>;
+ <Input placeholder="Text input" type="text"/>
 ```
 
 ```jsx
 //title=Password field
-<Input placeholder="Password" type="password"/>;
+<Input placeholder="Password" type="password"/>
 ```
 
 ```jsx
@@ -27,7 +27,7 @@ Inputs will only be fully styled if their type is properly declared.
     <Input placeholder="Date" type="date" size="small" className="mtxxl"/>
     <Input placeholder="Date" type="date" className="mtxxl"/>
     <Input placeholder="Date" type="date" size="large" className="mtxxl"/>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -35,7 +35,7 @@ Inputs will only be fully styled if their type is properly declared.
 <div>
     <Input placeholder="Search" icon="search"/>
     <Input placeholder="Success" icon="check" className="mtxxl"/>
-</div>;
+</div>
 ```
 
 ## Props

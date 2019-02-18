@@ -25,7 +25,7 @@ To apply the `BackToTop` component to a specific element, use the `scrollableId`
       <p key={n}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Interdum velit laoreet id donec. Adipiscing vitae proin sagittis nisl rhoncus. Maecenas volutpat blandit aliquam etiam erat velit. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Ac ut consequat semper viverra nam libero justo laoreet sit. Sed tempus urna et pharetra pharetra massa massa. Arcu dictum varius duis at consectetur. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Ac felis donec et odio pellentesque diam volutpat commodo. At risus viverra adipiscing at. Dui accumsan sit amet nulla facilisi. Tristique senectus et netus et malesuada fames ac. Iaculis urna id volutpat lacus laoreet non. Nullam non nisi est sit amet. Lectus sit amet est placerat in. Velit egestas dui id ornare arcu odio ut sem. Viverra nibh cras pulvinar mattis nunc sed blandit libero. Hendrerit gravida rutrum quisque non. Duis ultricies lacus sed turpis tincidunt id.</p>
       ))}
   </div>
-</div>;
+</div>
 ```
 
 By default, the button will appear when the container's `scrollTop` is greater than 400 pixels. To make it always visible, set the `alwaysVisible` prop.
@@ -35,7 +35,7 @@ By default, the button will appear when the container's `scrollTop` is greater t
 <div>
   <BackToTop alwaysVisible/>
   See the bottom right corner of your screen!
-</div>;
+</div>
 ```
 
 ## Props

@@ -13,7 +13,7 @@ By default, `Svg` looks for SVG files located in the `app/svgs` folder at the ro
 
 ```jsx
 //nonInteractive
-<Svg src="my-logo" width="20" height="20"/>;
+<Svg src="my-logo" width="20" height="20"/>
 ```
 
 ## Changing SVG file location
@@ -28,7 +28,7 @@ class MySvg extends Svg {
   }
 }
 
-<MySvg src="fileName"/>;
+<MySvg src="fileName"/>
 ```
 
 The path is relative to the file where you extend the `Svg` component.

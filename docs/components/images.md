@@ -12,7 +12,7 @@ reactComponents:
 <Image src="http://placehold.it/1000x100"
        responsive={true}
        href="http://google.com"
-       alt="A beautiful placeholder"/>;
+       alt="A beautiful placeholder"/>
 ```
 
 ```jsx
@@ -28,7 +28,7 @@ reactComponents:
   <FlexCol grow={11}>
     <img alt="Responsive image" className="img-responsive" src="/static/such-awesome.jpg"/>
   </FlexCol>
-</Grid>;
+</Grid>
 ```
 
 #### Responsive SVG
@@ -126,7 +126,7 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
       </svg>
     </div>
   </FlexCol>
-</Grid>;
+</Grid>
 ```
 
 ## Props

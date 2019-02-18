@@ -36,7 +36,7 @@ import {DefaultButton} from 'pivotal-ui/react/buttons';
 
 export default class App extends Component {
   render() {
-    return <DefaultButton>Click Me</DefaultButton>;
+    return <DefaultButton>Click Me</DefaultButton>
   }
 }
 ```

@@ -31,7 +31,7 @@ class MyComponent extends React.Component {
   }
 }
 
-<MyComponent/>;
+<MyComponent/>
 ```
 
 ## Props

@@ -9,13 +9,13 @@ reactComponents:
 ```jsx
 //title=Basic example
 //description=The Toggle component takes an `onChange` callback.
-<Toggle onChange={() => alert('I have been toggled!')}/>;
+<Toggle onChange={() => alert('I have been toggled!')}/>
 ```
 
 ```jsx
 //title=Toggle checked
 //description=Toggles accept a `checked` prop that turns on the switch. Note that you must handle the addition and removal of the `checked` property yourself.
-<Toggle checked onChange={() => alert('I should handle check changes!')}/>;
+<Toggle checked onChange={() => alert('I should handle check changes!')}/>
 ```
 
 ```jsx
@@ -37,7 +37,7 @@ reactComponents:
       <Toggle size="small"/>
     </FormUnit>
   </FlexCol>
-</Grid>;
+</Grid>
 ```
 
 ## Toggle

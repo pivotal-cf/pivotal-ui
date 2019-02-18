@@ -48,7 +48,7 @@ To mark a sidebar link as active (highlighted with a green left border), set `ac
       </Panel>
     </div>
   </Siteframe>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -72,7 +72,7 @@ To mark a sidebar link as active (highlighted with a green left border), set `ac
       </Panel>
     </div>
   </Siteframe>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -102,7 +102,7 @@ To mark a sidebar link as active (highlighted with a green left border), set `ac
       </Panel>
     </div>
   </Siteframe>
-</div>;
+</div>
 ```
 
 ```jsx
@@ -121,7 +121,7 @@ To mark a sidebar link as active (highlighted with a green left border), set `ac
       </Panel>
     </div>
   </Siteframe>
-</div>;
+</div>
 ```
 
 ## Props

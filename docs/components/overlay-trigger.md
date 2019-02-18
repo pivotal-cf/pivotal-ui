@@ -42,7 +42,7 @@ This makes them ideal for highly repeated layouts such as lists.
       <span className="overlay-trigger" tabIndex="0"> light tooltip.</span>
     </OverlayTrigger>
   </p>
-</div>;
+</div>
 ```
 
 ```html

@@ -36,7 +36,7 @@ class MyModal extends React.Component {
   }
 }
 
-<MyModal/>;
+<MyModal/>
 ```
 
 ## Props

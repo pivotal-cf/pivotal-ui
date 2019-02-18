@@ -22,7 +22,7 @@ Use Autocomplete to select from a finite list of names, objects or symbols |
 const onPick = item => alert('You selected ' + item.value);
 const onInitializeItems = callback => callback(['foo', 'food', 'bar']);
 
-<Autocomplete onInitializeItems={onInitializeItems} onPick={onPick}/>;
+<Autocomplete onInitializeItems={onInitializeItems} onPick={onPick}/>
 ```
 
 ```jsx
@@ -61,7 +61,7 @@ class AutocompleteExample extends React.Component {
   }
 }
 
-<AutocompleteExample/>;
+<AutocompleteExample/>
 ```
 
 #### onInitializeItems

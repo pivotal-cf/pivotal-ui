@@ -32,7 +32,7 @@ reactComponents:
   <DraggableListItem>
    Item 2
   </DraggableListItem>
-</DraggableList>;
+</DraggableList>
 ```
 
 ## DraggableList props

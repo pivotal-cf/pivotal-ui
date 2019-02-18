@@ -34,7 +34,7 @@ const data = [{
   instances: '2',
   bar: 8
 }];
-<Table data={data}/>;
+<Table data={data}/>
 ```
 
 ```jsx
@@ -54,7 +54,7 @@ const data = [{
   bar: 8
 }];
 const columns = ['title', 'instances'];
-<Table columns={columns} data={data}/>;
+<Table columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -92,7 +92,7 @@ const data = [{
   bar: 8,
   unsortable: '1'
 }];
-<SortableTable columns={columns} data={data} defaultSort="instances"/>;
+<SortableTable columns={columns} data={data} defaultSort="instances"/>
 ```
 
 ```jsx
@@ -117,7 +117,7 @@ const data = [{
   instances: '2',
   bar: 8
 }];
-<FlexTable columns={columns} data={data}/>;
+<FlexTable columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -154,7 +154,7 @@ const data = [{
   bar: 8,
   unsortable: '1'
 }];
-<SortableFlexTable columns={columns} data={data} defaultSort="instances"/>;
+<SortableFlexTable columns={columns} data={data} defaultSort="instances"/>
 ```
 
 ```jsx
@@ -163,7 +163,7 @@ const data = [{
 const ComposedTable = withRowClassName(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<ComposedTable columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'tr-hover'}/>;
+<ComposedTable columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'tr-hover'}/>
 ```
 
 ```jsx
@@ -171,7 +171,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 //description=Adding .td-hover to the table element will allow the user to highlight individual cells.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<Table columns={columns} data={data} className="td-hover"/>;
+<Table columns={columns} data={data} className="td-hover"/>
 ```
 
 ```jsx
@@ -179,7 +179,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 //description=Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<Table columns={columns} data={data} className="tr-no-h-borders"/>;
+<Table columns={columns} data={data} className="tr-no-h-borders"/>
 ```
 
 ```jsx
@@ -187,7 +187,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 //description=No external borders to rows using class .table-no-ext-borders on the table element.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<Table columns={columns} data={data} className="table-no-ext-borders"/>;
+<Table columns={columns} data={data} className="table-no-ext-borders"/>
 ```
 
 ```jsx
@@ -195,7 +195,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 //description=No borders to rows using class .table-no-borders on the table element.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<Table columns={columns} data={data} className="table-no-borders"/>;
+<Table columns={columns} data={data} className="table-no-borders"/>
 ```
 
 ## Using plugins
@@ -223,7 +223,7 @@ A composed table can be created by composing one or more of the above plugins:
 ```
 import {withFlex, withSorting, Table} from 'pivotal-ui/react/table';
 const ComposedTable = withFlex(withSorting(Table));
-ReactDOM.render(<ComposedTable columns={columns} data={data}/>;
+ReactDOM.render(<ComposedTable columns={columns} data={data}/>
 ```
 
 Or with `lodash.flow`:
@@ -240,7 +240,7 @@ The following examples demonstrate the individual usage of each of the above plu
 const TableWithFlex = withFlex(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithFlex columns={columns} data={data}/>;
+<TableWithFlex columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -251,7 +251,7 @@ const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Head
 columns[0].link = () => '/components/tables/usage';
 columns[2].link = () => '/components/tables/props';
 const data = [1, 2].map(() => ({header1: 'Link to Usage', header2: 'Cell 2', header3: 'Link to Props'}));
-<FlexTableWithCellLink columns={columns} data={data}/>;
+<FlexTableWithCellLink columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -261,7 +261,7 @@ const TableWithClassName = withCellClassName(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 columns[0].className = 'h4';
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithClassName columns={columns} data={data}/>;
+<TableWithClassName columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -270,7 +270,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 const TableWithRowClassName = withRowClassName(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithRowClassName columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'h4'}/>;
+<TableWithRowClassName columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'h4'}/>
 ```
 
 ```jsx
@@ -280,7 +280,7 @@ const FlexTableWithCellEllipsis = withCellEllipsis(FlexTable);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 columns[0].ellipsis = true;
 const data = [1, 2].map(() => ({header1: 'CellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCell', header2: 'Cell 2', header3: 'Cell 3'}));
-<FlexTableWithCellEllipsis columns={columns} data={data}/>;
+<FlexTableWithCellEllipsis columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -290,7 +290,7 @@ const TableWithCellOnClick = withCellOnClick(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 columns[0].onClick = (e, context) => alert(JSON.stringify(context, null, 2));
 const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
-<TableWithCellOnClick columns={columns} data={data}/>;
+<TableWithCellOnClick columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -300,7 +300,7 @@ const TableWithRenderTdChildren = withRenderTdChildren(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 columns[0].renderTdChildren = rowDatum => rowDatum.header1.toUpperCase();
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithRenderTdChildren columns={columns} data={data}/>;
+<TableWithRenderTdChildren columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -310,7 +310,7 @@ const TableWithRenderThChildren = withRenderThChildren(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 columns[0].renderThChildren = () => columns[0].displayName.toUpperCase();
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithRenderThChildren columns={columns} data={data}/>;
+<TableWithRenderThChildren columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -320,7 +320,7 @@ const TableWithCellTooltip = withCellTooltip(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 columns[0].tooltip = ({isHeader}, {header1} = {}) => ({text: (header1 || new Date().toLocaleString()).split('').reverse().join(''), theme: isHeader ? 'dark' : 'light', showIcon: true});
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithCellTooltip columns={columns} data={data}/>;
+<TableWithCellTooltip columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -331,7 +331,7 @@ const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Head
 columns[0].width = '100px';
 columns[1].width = '200px';
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithCellWidth columns={columns} data={data}/>;
+<TableWithCellWidth columns={columns} data={data}/>
 ```
 
 ```jsx
@@ -340,8 +340,8 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 const TableWithFooterRow = withFooterRow(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-const footerRow = <tr><td colSpan={3}><strong>I am a footer!</strong></td></tr>;
-<TableWithFooterRow columns={columns} data={data} footerRow={footerRow}/>;
+const footerRow = <tr><td colSpan={3}><strong>I am a footer!</strong></td></tr>
+<TableWithFooterRow columns={columns} data={data} footerRow={footerRow}/>
 ```
 
 ```jsx
@@ -359,7 +359,7 @@ const rowDrawer = (i, rowDatum) => (
     </div>
   </div>
 );
-<TableWithRowDrawer columns={columns} data={data} rowDrawer={rowDrawer}/>;
+<TableWithRowDrawer columns={columns} data={data} rowDrawer={rowDrawer}/>
 ```
 
 ```jsx
@@ -368,7 +368,7 @@ const rowDrawer = (i, rowDatum) => (
 const TableWithRowLink = withRowLink(FlexTable);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
-<TableWithRowLink columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '/components/tables/usage'}}/>;
+<TableWithRowLink columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '/components/tables/usage'}}/>
 ```
 
 ```jsx
@@ -407,7 +407,7 @@ const data = [{
   bar: 8,
   unsortable: '1'
 }];
-<TableWithSorting columns={columns} data={data} defaultSort="instances"/>;
+<TableWithSorting columns={columns} data={data} defaultSort="instances"/>
 ```
 
 ```jsx
@@ -416,7 +416,7 @@ const data = [{
 const ScrollableTable = withScrollableTbody(FlexTable);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
-<ScrollableTable scrollable tbodyHeight="200px" columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '#using-plugins'}}/>;
+<ScrollableTable scrollable tbodyHeight="200px" columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '#using-plugins'}}/>
 ```
 
 ## Writing plugins
@@ -480,7 +480,7 @@ columns[0].color = 'red';
 columns[1].color = 'green';
 columns[2].color = 'blue';
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithCellColor columns={columns} data={data}/>;
+<TableWithCellColor columns={columns} data={data}/>
 ```
 
 For additional examples, [review the plugins that Pivotal UI provides](https://github.com/pivotal-cf/pivotal-ui/tree/master/src/react/table/plugins).

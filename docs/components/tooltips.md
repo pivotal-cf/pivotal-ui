@@ -32,7 +32,7 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
       <button className="btn btn-default">Hover over me too!</button>
     </TooltipTrigger>
   </FlexCol>
-</Grid>;
+</Grid>
 ```
 
 ```jsx
@@ -40,7 +40,7 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 //description=Since the tooltip property is of type Node, you may add markup to the tooltip, such as links.
 <TooltipTrigger isSticky tooltip={<a href="#">clickable link</a>} theme="light">
   <button className="btn btn-default">Hover for clickable tooltip</button>
-</TooltipTrigger>;
+</TooltipTrigger>
 ```
 
 ```jsx
@@ -74,7 +74,7 @@ class ManualTooltipExample extends React.Component {
   }
 }
 
-<ManualTooltipExample/>;
+<ManualTooltipExample/>
 ```
 
 ## Props
