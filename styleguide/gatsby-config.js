@@ -34,5 +34,20 @@ exports.plugins = [
         'gatsby-pivotal-ui-styleguide'
       ]
     }
-  }
+  },
+  {
+    resolve: '@gatsby-contrib/gatsby-plugin-elasticlunr-search',
+    options: {
+      fields: ['title'],
+      resolvers: {
+        MarkdownRemark: {
+          title: node => node.frontmatter.title,
+          route: node => node.fields.route,
+          group: node => (exports.siteMetadata.sidebarGroups.find(
+            group => group.id === node.fields.group
+          ) || {}).label
+        }
+      }
+    }
+  },
 ];

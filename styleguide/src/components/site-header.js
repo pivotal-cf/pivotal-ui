@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'gatsby';
-import {Input} from '../../../src/react/inputs';
 import {Icon} from '../../../src/react/iconography';
 import {siteMetadata} from '../../gatsby-config';
+import SearchWrapper from './search-wrapper';
 import '../../stylesheets/site-header.scss';
 
 const SiteHeader = () => (
@@ -19,13 +19,7 @@ const SiteHeader = () => (
     <div style={{flexGrow: 1}}/>
     <div className="pal mrl">v{siteMetadata.version}</div>
     <div>
-      <Input
-        className="sg-header__search"
-        type="search"
-        icon="search"
-        placeholder="Search..."
-        aria-label="Search style guide content"
-      />
+      <SearchWrapper/>
     </div>
   </header>
 );
