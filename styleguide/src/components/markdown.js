@@ -1,17 +1,27 @@
 import React from 'react';
+import {Icon} from '../../../src/react/iconography';
 import {headingNodeToSlug} from '../helpers/markdown-utils';
 import '../../stylesheets/markdown.scss';
 
 const createHeading = (Tag, link) => mdNode => {
   const slug = headingNodeToSlug(mdNode);
 
-  const tag = (
-    <Tag className={`em-high mbxl mtxxl border-bottom sg-${Tag}`} id={slug}>
+  return (
+    <Tag className={`em-high mbxl mtxxl border-bottom sg-heading sg-${Tag}`} id={slug}>
       {mdNode.children}
+      {link && (
+        <a
+          href={`#${slug}`}
+          aria-label={`heading: ${slug}`}
+          className="sg-heading__link type-gray mlm ptl">
+          <Icon
+            verticalAlign="baseline"
+            src="link"
+          />
+        </a>
+      )}
     </Tag>
   );
-
-  return link ? <a href={`#${slug}`} className="type-inherit">{tag}</a> : tag;
 };
 
 export const H1 = createHeading('h1', true);
