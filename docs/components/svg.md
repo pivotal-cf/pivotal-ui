@@ -12,7 +12,6 @@ By default, `Svg` looks for SVG files located in the `app/svgs` folder at the ro
 (defined here as the location of your `package.json`). For example, the following will render the file `app/svgs/my-logo.svg`:
 
 ```jsx
-//nonInteractive
 <Svg src="my-logo" width="20" height="20"/>
 ```
 
@@ -21,7 +20,6 @@ By default, `Svg` looks for SVG files located in the `app/svgs` folder at the ro
 If you have SVG files in other folders, you can extend the `Svg` component and override the `svgPathLoader` method, as follows:
 
 ```jsx
-//nonInteractive
 class MySvg extends Svg {
   svgPathLoader(src) {
     return require(`!!babel-loader!react-svg-loader!./path/to/svgs/${src}.svg`);
@@ -39,7 +37,6 @@ Note that `react-svg-loader` will internally optimize your SVGs using [svgo](htt
 This optimization will sometimes change your SVG in undesirable ways. You can turn off parts of the optimization with loader params. For example, the `Svg` component itself uses:
 
 ```jsx
-//nonInteractive
 require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../../../app/svgs/${src}.svg`);
 ```
 

@@ -9,7 +9,6 @@ For non-React projects, Pivotal UI's styles can be included in two different way
 For projects that are using Webpack and the [css-loader](https://github.com/webpack-contrib/css-loader), the CSS for each component can be imported directly into JavaScript files like this:
 
 ```jsx
-//nonInteractive
 import 'pivotal-ui/css/alerts';
 ```
 
@@ -26,7 +25,6 @@ For example, CSS for version 16.0.0 is available at http://d2bsvk2etkq8vr.cloudf
 These files can be included with a `<link>` tag in an HTML file like this:
 
 ```html
-//nonInteractive
 <link rel="stylesheet" href="http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-16.0.0.css">
 ```
 

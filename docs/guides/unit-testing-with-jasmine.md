@@ -49,7 +49,6 @@ yarn add --dev react-spy-on-render
 Create a `.babelrc` file in your project root:
 
 ```json
-//nonInteractive
 {
   "presets": ["env", "react"]
 }
@@ -58,7 +57,6 @@ Create a `.babelrc` file in your project root:
 Create a file called `gulpfile.babel.js` at your project root to install Jasmine tasks from `pui-react-tools` with a Webpack config:
 
 ```jsx
-//nonInteractive
 import {Jasmine} from 'pui-react-tools';
 import 'babel-polyfill';
 
@@ -94,7 +92,6 @@ Jasmine.install({
 Create a `spec_helper.js` that imports necessary dependencies and sets up tests
 
 ```jsx
-//nonInteractive
 import $ from 'jquery';
 import 'jasmine_dom_matchers';
 import ReactDOM from 'react-dom';
@@ -118,7 +115,6 @@ afterEach(() => {
 Import `spec_helper.js` in each test file. Render into `root` and make assertions with jQuery selectors and matchers from `jasmine_dom_matchers`.
 
 ```jsx
-//nonInteractive
 import React from 'react';
 import App from './App';
 import '../path/to/spec_helper.js';

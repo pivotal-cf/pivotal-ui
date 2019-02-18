@@ -15,7 +15,6 @@ are defined. These `fields` can then be used within the `Form`
 A `Form` will generally look like this:
 
 ```jsx
-//nonInteractive
 <Form {...{
   fields: {
     fieldName: {/*...*/}

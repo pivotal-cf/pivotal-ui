@@ -30,7 +30,6 @@ yarn add pivotal-ui
 4. Open `src/App.js` and replace the contents with:
 
 ```jsx
-//nonInteractive
 import React, {Component} from 'react';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 
