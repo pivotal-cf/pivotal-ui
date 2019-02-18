@@ -29,7 +29,7 @@ const Sidebar = ({pages, groups}) => (
 
         return (
           <li className="sg-sidebar__group" key={group.id}>
-            <div className="em-high mbm">{group.label}</div>
+            <div className="em-high mbl type-lg">{group.label}</div>
             <ul className="sg-sidebar__group-list">
               {pagesInGroup.map(page => <SidebarListItem {...page} key={page.route}/>)}
             </ul>
