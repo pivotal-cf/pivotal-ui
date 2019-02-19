@@ -34,6 +34,7 @@ describe('DomHelpers', () => {
 
     describe('when there is a document', () => {
       beforeEach(() => {
+        DomHelpers.resetScrollbarWidth();
         document = {createElement: jest.fn()};
         document.body = {appendChild: jest.fn(), removeChild: jest.fn()};
         document.createElement.mockReturnValue({offsetWidth: 100, clientWidth: 67, style: {}});
@@ -74,6 +75,21 @@ describe('DomHelpers', () => {
 
       it('returns the difference between the offsetWidth and the clientWidth', () => {
         expect(scrollbarWidth).toBe(33);
+      });
+
+      describe('when called again', () => {
+        beforeEach(() => {
+          document.body.appendChild.mockClear();
+          scrollbarWidth = DomHelpers.getScrollbarWidth(document);
+        });
+
+        it('does not append another styled div', () => {
+          expect(document.body.appendChild).not.toHaveBeenCalled();
+        });
+
+        it('returns the saved value', () => {
+          expect(scrollbarWidth).toBe(33);
+        });
       });
     });
   });

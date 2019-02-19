@@ -5,6 +5,7 @@ const DomHelpers = {
   getActiveElement: () => global.document.activeElement,
   setTimeout: (handler, timeout) => global.setTimeout(handler, timeout),
   clearTimeout: handler => global.clearTimeout(handler),
+  resetScrollbarWidth: () => scrollbarWidth = undefined,
 
   findTabbableElements: el => el && el.querySelectorAll(
     '[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])'
