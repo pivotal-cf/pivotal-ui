@@ -92,8 +92,8 @@ const Search = props => {
         placeholder="Search..."
         aria-autocomplete="list"
         aria-label="Search style guide pages. Press up and down arrows to choose results, and enter to visit page."
-        aria-owns="sg-search__results"
-        aria-activedescendant={`sg-search__result-${cursor}`}
+        aria-owns={showResults ? 'sg-search__results' : null}
+        aria-activedescendant={showResults ? `sg-search__result-${cursor}` : null}
         value={query}
         onChange={onInputChange}
         onFocus={() => setFocused(true)}
