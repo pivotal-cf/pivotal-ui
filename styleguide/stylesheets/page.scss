@@ -8,3 +8,9 @@
     border-radius: 0;
   }
 }
+
+.sg-page__breadcrumbs {
+  @media screen and (max-width: $responsive-breakpoint) {
+    display: none;
+  }
+}

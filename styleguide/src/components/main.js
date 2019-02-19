@@ -4,7 +4,9 @@ import '../../stylesheets/main.scss';
 
 const Main = ({children}) => (
   <div className="sg-content">
-    <SidebarWrapper/>
+    <div className="sg-full-sidebar">
+      <SidebarWrapper/>
+    </div>
     <main className="sg-main" id="main" tabIndex="-1">
       <div id="main-content-target"/>
       <div className="sg-main__content">

@@ -35,4 +35,36 @@
     display: inline-block;
     margin-left: $base-unit;
   }
+
+  .sg-header__mobile-menu-btn {
+    display: none;
+  }
+
+  .sg-header__mobile-menu {
+    display: none;
+  }
+
+  @media screen and (max-width: $responsive-breakpoint) {
+    padding: $base-unit;
+    min-height: $base-unit * 6;
+    flex: 0 0 ($base-unit * 6);
+
+    .sg-header__search-container {
+      display: none;
+    }
+
+    .sg-header__mobile-menu-btn {
+      display: inline-flex;
+    }
+
+    .sg-header__mobile-menu {
+      display: block;
+      position: absolute;
+      top: $base-unit * 6;
+      left: 0;
+      bottom: 0;
+      z-index: 10;
+      box-shadow: $box-shadow-amb-3;
+    }
+  }
 }

@@ -26,7 +26,7 @@ const Page = ({data}) => {
       <Head title={title} />
 
       <header>
-        <Grid className="styleguide-page-breadcrumbs">
+        <Grid className="sg-page__breadcrumbs">
           <FlexCol className="type-sm">
             {groupLabel} / {title}
           </FlexCol>
@@ -41,7 +41,7 @@ const Page = ({data}) => {
             </a>
           </FlexCol>
         </Grid>
-        <h1 className="mvxxl pbl em-high border-bottom styleguide-h1">
+        <h1 className="mvxxl pbl em-high border-bottom sg-h1">
           {title}
         </h1>
       </header>

@@ -1,9 +1,5 @@
 @import "./variables.scss";
 
-.sg-h1 {
-  font-size: $base-unit * 6;
-}
-
 .sg-heading {
   &:hover {
     .sg-heading__link {
