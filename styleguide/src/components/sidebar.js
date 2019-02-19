@@ -10,19 +10,19 @@ const SidebarListItem = ({route, title, sections}) => (
       {title}
     </Link>
     {sections.length > 0 && (
-      <div className="sg-sidebar__list-item-sections">
+      <ul className="sg-sidebar__list-item-sections" aria-label="page sections">
         {sections.map(section => (
-          <div key={section.route}>
+          <li key={section.route}>
             <Link to={section.route}>{section.title}</Link>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     )}
   </li>
 );
 
 const Sidebar = ({pages, groups}) => (
-  <nav className="sg-sidebar">
+  <nav className="sg-sidebar" aria-label="pages">
     <ul className="sg-sidebar__list">
       {groups.map(group => {
         const pagesInGroup = pages.filter(page => page.group === group.id);
@@ -30,7 +30,7 @@ const Sidebar = ({pages, groups}) => (
         return (
           <li className="sg-sidebar__group" key={group.id}>
             <div className="em-high mbl type-lg">{group.label}</div>
-            <ul className="sg-sidebar__group-list">
+            <ul className="sg-sidebar__group-list" aria-label={group.label}>
               {pagesInGroup.map(page => <SidebarListItem {...page} key={page.route}/>)}
             </ul>
           </li>

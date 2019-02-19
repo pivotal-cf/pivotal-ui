@@ -48,6 +48,7 @@
 
 .sg-sidebar__list-item {
   padding: ($base-unit / 2) 0;
+  list-style-type: none;
 
   a:hover {
     text-decoration: underline;
@@ -59,6 +60,10 @@
   border-left: 2px solid $accent-teal;
   margin-left: 2px;
   padding-left: $base-unit;
+
+  li {
+    list-style-type: none;
+  }
 
   a, a:hover {
     display: inline-block;
