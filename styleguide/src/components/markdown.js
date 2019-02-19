@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'gatsby';
 import {Icon} from '../../../src/react/iconography';
 import {headingNodeToSlug} from '../helpers/markdown-utils';
 import '../../stylesheets/markdown.scss';
@@ -36,13 +37,18 @@ export const H5 = createHeading('h5', false);
 
 export const H6 = createHeading('h6', false);
 
-export function Img(props) {
+export const Anchor = ({href = '', ...props}) => {
+  if (href && href.startsWith('/')) return <Link {...props} to={href}/>;
+  return <a {...props} href={href}/>;
+};
+
+export const Img = props => {
   return (
     <img {...props} alt={props.alt || ''} className="sg-img"/>
   );
-}
+};
 
-export function Table({children, ...props}) {
+export const Table = ({children, ...props}) => {
   const thead = children.find(child => child.type === 'thead');
   const tbody = children.find(child => child.type === 'tbody');
 
