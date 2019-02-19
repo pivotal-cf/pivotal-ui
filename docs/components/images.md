@@ -37,7 +37,7 @@ SVG can be made responsive-friendly via the addition of the `.svg-responsive` cl
 wrapper div and the `.svg-content` class on the svg itself. You'll also need to to define
 the height to width ratio as an inline padding bottom style on the `.svg-responsive` element like so:
 
-```
+```html
 <div class="svg-responsive" style="padding-bottom: 78.31%">
   <svg class="svg-content" viewBox="38 45 125 120" preserveAspectRatio="xMinYMin meet">
     ...
