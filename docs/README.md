@@ -35,18 +35,18 @@ The rest of the file is standard Markdown, with only one exception: our editable
 Normal code blocks in Markdown look like:
 
 ```markdown
-\```js
+```js
 const someJavaScript = "hello, world!!";
-\```
+```
 ```
 
 To turn a code block into an editable example, add a line that says `//title=Example title goes here`:
 
 ```markdown
-\```js
+```js
 //title=A simple example
 const someJavaScript = "hello, world!!";
-\```
+```
 ```
 
 That's it! When the style guide is rebuilt with your change, this will turn into an editable block.
