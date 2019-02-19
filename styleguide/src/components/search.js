@@ -101,6 +101,12 @@ const Search = props => {
         onKeyDown={onInputKeyDown}
       />
 
+      {!focused && (
+        <div className="sg-search__press-slash" role="presentation">
+          press <span className="sg-search__slash">/</span>
+        </div>
+      )}
+
       {showResults && (
         <ul className="sg-search__results" role="listbox" id="sg-search__results">
           {results.map((result, index) => (
