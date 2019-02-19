@@ -2,6 +2,14 @@
 title: FAQ
 ---
 
+## How can I get help with Pivotal UI?
+
+The fastest way to get a question answered is to ask the Pivotal UI team in the #pivotal-ui Slack channel.
+
+The maintainers are open to pairing with other teams to help them incorporate and/or upgrade Pivotal UI. Reach out in Slack to set something up.
+
+If a question turns into a bug report or a feature request, we may ask you to [file an issue](https://github.com/pivotal-cf/pivotal-ui/issues/new) so we can keep these in a central location.
+
 ## What browsers are supported?
 
 On the desktop, Pivotal UI supports recent versions of Chrome, Firefox, Edge, and Safari as well as IE11. Pivotal UI also supports recent versions of mobile Chrome and Safari.
