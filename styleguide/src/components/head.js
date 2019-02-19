@@ -30,7 +30,9 @@ const Head = ({title, description, lang = 'en', meta = [], keywords = []}) => {
       titleTemplate={`%s | ${siteMetadata.title}`}
       link={link}
       meta={fullMeta}
-    />
+    >
+      <script async="async" src="https://consent.trustarc.com/notice?domain=pivotal.com&c=teconsent&js=nj&text=true&pcookie" crossorigin=""/>
+    </Helmet>
   );
 };
 
