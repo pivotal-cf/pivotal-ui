@@ -54,7 +54,12 @@ const CodeEditor = props => {
             {showCode ? 'hide' : 'show'} {buttonText}
           </DefaultButton>
         </div>
-        {description && <div className="type-sm mtm">{description}</div>}
+        {description && (
+          <div
+            className="type-sm mtm sg-code-editor__description"
+            dangerouslySetInnerHTML={{__html: description}}
+          />
+        )}
       </figcaption>
       <div className="pal">
         <ErrorBoundary>{output}</ErrorBoundary>

@@ -1,6 +1,20 @@
 const prism = require('prismjs');
 const loadLanguages = require('prismjs/components/index');
+const remark = require('remark');
+const remarkHtml = require('remark-html');
+const removeEmptyParagraphs = require('remark-squeeze-paragraphs');
+
 loadLanguages();
+
+const markdownProcessor = remark()
+  .use(remarkHtml)
+  .use(removeEmptyParagraphs);
+
+const markdownToHtml = markdown =>
+  markdownProcessor
+    .processSync(markdown.trim())
+    .contents
+    .toString();
 
 const escapeHTML = input =>
   input
@@ -37,7 +51,7 @@ module.exports = codeBlockNode => {
         <code-editor
           language="${escapeHTML(lang)}"
           title="${escapeHTML(title)}"
-          description="${escapeHTML(description)}"
+          description="${escapeHTML(markdownToHtml(description))}"
           code="${escapeHTML(strippedValue)}">
         </code-editor>
       `

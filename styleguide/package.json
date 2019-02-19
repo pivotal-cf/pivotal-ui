@@ -25,6 +25,9 @@
     "node-sass": "^4.11.0",
     "prismjs": "^1.15.0",
     "rehype-react": "^3.1.0",
+    "remark": "^10.0.1",
+    "remark-html": "^9.0.0",
+    "remark-squeeze-paragraphs": "^3.0.3",
     "webpack": "^4.28.4"
   },
   "dependencies": {
@@ -37,10 +40,7 @@
     "react": "^16.8.0",
     "react-codemirror": "^1.0.0",
     "react-dom": "^16.8.0",
-    "react-helmet": "^5.2.0",
-    "remark-parse": "^6.0.3",
-    "remark-react": "^5.0.1",
-    "unified": "^7.1.0"
+    "react-helmet": "^5.2.0"
   },
   "scripts": {
     "clean": "rm -rf public && rm -rf .cache",
