@@ -30,7 +30,7 @@ To mark a sidebar link as active (highlighted with a green left border), set `ac
       renderLink: ({text}) => <a href="#">{text}</a>
     }
   }}>
-    <div className="bg-neutral-8 pal" style={{height: '100%', overflow: 'auto'}}>
+    <div className="bg-light-gray pal" style={{height: '100%', overflow: 'auto'}}>
       <Panel {...{title: 'Domains'}}>
         These are the domains.
       </Panel>
@@ -66,7 +66,7 @@ To mark a sidebar link as active (highlighted with a green left border), set `ac
       renderLink: ({text}) => <a href="#">{text}</a>
     }
   }}>
-    <div className="bg-neutral-8 pal" style={{height: '100%'}}>
+    <div className="bg-light-gray pal" style={{height: '100%'}}>
       <Panel {...{title: 'Domains'}}>
         These are the domains.
       </Panel>
@@ -96,7 +96,7 @@ To mark a sidebar link as active (highlighted with a green left border), set `ac
       ]
     }
   }}>
-    <div className="bg-neutral-8 pal" style={{height: '100%'}}>
+    <div className="bg-light-gray pal" style={{height: '100%'}}>
       <Panel {...{title: 'Domains'}}>
         These are the domains.
       </Panel>
@@ -115,7 +115,7 @@ To mark a sidebar link as active (highlighted with a green left border), set `ac
       productName: 'Cloud Foundry'
     }
   }}>
-    <div className="bg-neutral-8 pal" style={{height: '100%'}}>
+    <div className="bg-light-gray pal" style={{height: '100%'}}>
       <Panel {...{title: 'Domains'}}>
         These are the domains.
       </Panel>

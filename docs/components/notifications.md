@@ -18,8 +18,8 @@ reactComponents:
 <Notifications>
   <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
     <Flag image={<h3 className="mvn btn btn-brand btn-sm phl">New</h3>}>
-      <h5 className="media-heading mbn type-dark-2">Notification</h5>
-      <p className="type-sm type-neutral-5 mvn">Click for Gif</p>
+      <h5 className="media-heading mbn type-dark-gray">Notification</h5>
+      <p className="type-sm type-accent-gray mvn">Click for Gif</p>
     </Flag>
   </NotificationItem>
 </Notifications>
@@ -69,8 +69,8 @@ reactComponents:
   <AlertNotifications>
     <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
       <Flag image={<Icon src="warning" className="h4 mrm" style={{fill: '#B38F1B'}}/>}>
-        <h5 className="media-heading mbn type-dark-2">WARNING</h5>
-        <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
+        <h5 className="media-heading mbn type-dark-gray">WARNING</h5>
+        <p className="type-sm type-accent-gray mvn">Click for Cute Gif</p>
       </Flag>
     </NotificationItem>
   </AlertNotifications>

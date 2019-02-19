@@ -12,7 +12,7 @@ Set the `title` or `header` prop to give a name to the panel. Use whichever is m
 
 ```jsx
 //title=Panel with title
-<div className="bg-neutral-8 pal">
+<div className="bg-light-gray pal">
   <Panel {...{title: 'Domains'}}>
     These are the domains.
   </Panel>
@@ -21,7 +21,7 @@ Set the `title` or `header` prop to give a name to the panel. Use whichever is m
 
 ```jsx
 //title=Panel with header
-<div className="bg-neutral-8 pal">
+<div className="bg-light-gray pal">
   <Panel {...{header: 'Domains'}}>
     These are the domains.
   </Panel>
@@ -32,7 +32,7 @@ Use the footer for information that does not belong in the panel body.
 
 ```jsx
 //title=Panel with header and footer
-<div className="bg-neutral-8 pal">
+<div className="bg-light-gray pal">
   <Panel {...{header: 'Domains', footer: <a href="#">Click here for more info</a>}}>
     These are the domains.
   </Panel>
@@ -45,7 +45,7 @@ Because the panel is built on the `Grid` component, these buttons should be wrap
 
 ```jsx
 //title=Panel with call-to-action in title
-<div className="bg-neutral-8 pal">
+<div className="bg-light-gray pal">
   <Panel {...{
     title: 'Domains',
     titleCols: [<FlexCol fixed><PrimaryButton>Add Domain</PrimaryButton></FlexCol>]
@@ -59,7 +59,7 @@ When including a button in a panel header, make it small to keep the panel heade
 
 ```jsx
 //title=Panel with call-to-action in header
-<div className="bg-neutral-8 pal">
+<div className="bg-light-gray pal">
   <Panel {...{
     header: 'Domains',
     headerCols: [<FlexCol fixed><PrimaryButton small>Add Domain</PrimaryButton></FlexCol>]
@@ -73,7 +73,7 @@ When the panel has content loading, set the `loading` prop to add a loading indi
 
 ```jsx
 //title=Panel with loading animation
-<div className="bg-neutral-8 pal">
+<div className="bg-light-gray pal">
   <Panel loading={true} title="Apps">
     Loading apps...
   </Panel>
@@ -84,7 +84,7 @@ When using multiple panels that are related, the first panel should have a title
 
 ```jsx
 //title=Multiple related panels
-<div className="bg-neutral-8 pal">
+<div className="bg-light-gray pal">
   <Panel {...{title: 'Zoo animals', header: 'Mammals'}}>
     monkey, mouse
   </Panel>

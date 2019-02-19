@@ -33,7 +33,7 @@ Now, let's add a bunch of modifier classes to the outer `div` and inner `span` e
 
 ```jsx
 //title=With several modifiers
-<div className="paxl bg-brand-8 type-neutral-11 border border-rounded h2 txt-c">
+<div className="paxl bg-accent-teal type-white border border-rounded h2 txt-c">
   <span className="em-high">current year:</span> <span className="em-low">{new Date().getFullYear()}</span>
 </div>
 ```

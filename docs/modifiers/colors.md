@@ -9,14 +9,14 @@ Prepend any color name with `bg-` to apply that color to an element's background
 
 ```html
 //title=Text colors
-<p class="type-brand-8">I'm a brand color!</p>
-<p class="type-error-2">I'm an error color!</p>
+<p class="type-accent-teal">I'm a brand color!</p>
+<p class="type-dark-red">I'm an error color!</p>
 ```
 
 ```html
 //title=Background colors
-<p class="bg-brand-8">I'm a brand color!</p>
-<p class="bg-warn-6">I'm a warning color!</p>
+<p class="bg-accent-teal">I'm a brand color!</p>
+<p class="bg-light-yellow">I'm a warning color!</p>
 ```
 
 ## Color palette

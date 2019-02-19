@@ -31,9 +31,9 @@ Modifier | Purpose
 
 ```html
 //title=Position Absolute
-<div class="border type-accent-5 paxxl">
+<div class="border type-accent-blue paxxl">
   Parent element
-  <div class="position-absolute paxxl type-neutral-1 bg-warn-6">
+  <div class="position-absolute paxxl type-black bg-light-yellow">
     Child element
   </div>
 </div>
@@ -62,7 +62,7 @@ Modifier | Purpose
 //title=Position Fixed
 <div>
   This example places a green box in the bottom-right corner of this page.
-  <div class="position-fixed bg-success-1 type-dark-11 paxxl"
+  <div class="position-fixed bg-green type-white paxxl"
        style="right: 0; bottom: 0;">
     I am fixed!
   </div>
@@ -72,29 +72,29 @@ Modifier | Purpose
 ```html
 //title=Display Flex
 <div class="display-flex">
-  <div class="bg-dark-6" style="flex: 1;">child1</div>
-  <div class="bg-dark-8" style="flex: 2;">child2</div>
-  <div class="bg-dark-10" style="flex: 3;">child3</div>
+  <div class="bg-gray" style="flex: 1;">child1</div>
+  <div class="bg-accent-gray" style="flex: 2;">child2</div>
+  <div class="bg-light-gray" style="flex: 3;">child3</div>
 </div>
 ```
 
 ```html
 //title=Display Block
-<span class="display-block bg-dark-10">
+<span class="display-block bg-light-gray">
   This span tag takes up all available width
 </span>
 ```
 
 ```html
 //title=Display Inline
-<div class="display-inline bg-dark-10">
+<div class="display-inline bg-light-gray">
   This div tag takes up only the space it needs
 </div>
 ```
 
 ```html
 //title=Display Inline-Block
-<div class="display-inline-block bg-dark-10" style="width: 600px">
+<div class="display-inline-block bg-light-gray" style="width: 600px">
   This div tag takes up a fixed amount of space (600px)
 </div>
 ```

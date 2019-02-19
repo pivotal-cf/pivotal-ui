@@ -20,13 +20,13 @@ reactComponents:
 //title=Inverse dividers
 //description=On a dark background, use these inverse dividers
 <div style={{background: '#232B2F'}}>
-  <div className="type-dark-11">
+  <div className="type-white">
     I am some content
     <Divider inverse/>
     Me too
   </div>
 
-  <div className="type-dark-11">
+  <div className="type-white">
     Here's some stuff above the divider
     <Divider inverse size="large"/>
     Here's some stuff below the divider
