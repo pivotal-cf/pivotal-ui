@@ -12,10 +12,6 @@ body {
   height: 100%;;
 }
 
-.type-inherit {
-  color: inherit !important;
-}
-
 .sg-wrapper {
   position: absolute;
   left: 0;
@@ -24,4 +20,18 @@ body {
   bottom: 0;
   display: flex;
   flex-direction: column;
+}
+
+.grid-show {
+  margin-bottom: $grid-gutter-width;
+  text-align: center;
+
+  [class*=col]:before {
+    content: attr(class) '\a' attr(grid-content);
+    white-space: pre;
+    display: block;
+    background-color: $white;
+    padding: 10px 0;
+    outline: 1px solid $accent-gray;
+  }
 }

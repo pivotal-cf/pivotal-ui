@@ -2,11 +2,11 @@
 
 .sg-code-editor {
   margin: 0;
+  margin-bottom: $base-unit * 2;
   border: 1px solid $light-gray;
 }
 
 .sg-code-editor__header {
-  background: $light-gray;
   border-bottom: 1px solid $light-gray;
 }
 

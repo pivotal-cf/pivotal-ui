@@ -32,6 +32,14 @@
   box-shadow: $box-shadow-key-2;
 }
 
-.sg-search__link--active {
-  font-weight: 600;
+.sg-search__link {
+  color: $black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.sg-search__link--active {
+    font-weight: 600;
+  }
 }

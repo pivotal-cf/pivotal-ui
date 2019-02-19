@@ -94,7 +94,10 @@ const Search = props => {
             <li key={result.id} className="sg-search__result">
               <Link
                 to={result.route}
-                className={classnames({'sg-search__link--active': index === cursor})}
+                className={classnames(
+                  'sg-search__link',
+                  {'sg-search__link--active': index === cursor}
+                )}
                 onClick={onResultClick}
                 tabIndex="-1">
                 {result.group} / {result.title}
