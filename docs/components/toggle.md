@@ -40,7 +40,7 @@ reactComponents:
 </Grid>
 ```
 
-## Toggle
+## Props
 
 Property       | Required | Type                              | Default  | Description
 ---------------|----------|-----------------------------------|----------|------------
