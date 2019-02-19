@@ -66,4 +66,4 @@ export const Table = ({children, ...props}) => {
       </tbody>
     </table>
   );
-}
+};
