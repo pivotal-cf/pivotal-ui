@@ -7,9 +7,11 @@ exports.onCreateNode = ({node, getNode, actions}) => {
   if (node.internal.type === 'MarkdownRemark') {
     const route = createFilePath({node, getNode});
     const group = route.split('/')[1];
+    const isReadme = /\/readme.md/i.test(node.fileAbsolutePath);
 
     actions.createNodeField({node, name: 'route', value: route});
     actions.createNodeField({node, name: 'group', value: group});
+    actions.createNodeField({node, name: 'isReadme', value: isReadme});
   }
 };
 
@@ -22,6 +24,7 @@ exports.createPages = ({graphql, actions}) => {
             node {
               fields {
                 route
+                isReadme
               }
             }
           }
@@ -31,6 +34,8 @@ exports.createPages = ({graphql, actions}) => {
       if (result.errors) reject(result.errors);
 
       result.data.allMarkdownRemark.edges.forEach(({node}) => {
+        if (node.fields.isReadme) return;
+
         actions.createPage({
           path: node.fields.route,
           component: pageTemplate,
