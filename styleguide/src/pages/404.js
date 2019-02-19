@@ -3,7 +3,7 @@ import Head from '../components/head';
 import {Link} from 'gatsby';
 
 const NotFoundPage = () => (
-  <>
+  <div className="sg-page">
     <Head title="404: Not found" />
 
     <header>
@@ -15,7 +15,7 @@ const NotFoundPage = () => (
     <p>It looks like this page doesn't exist. Sorry about that!</p>
 
     <p>Do you want to <Link to="/">go back home</Link>?</p>
-  </>
+  </div>
 );
 
 export default NotFoundPage;
