@@ -1,6 +1,6 @@
 ---
 applications:
 - name: styleguide-master
-  buildpack: staticfile_buildpack
+  buildpacks: [staticfile_buildpack]
   path: public
   memory: 64MB
