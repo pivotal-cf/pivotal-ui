@@ -1,11 +1,12 @@
 @import "./variables.scss";
 
-.gatsby-highlight {
-  pre[class*="language-"] {
+.sg-page {
+  max-width: $base-unit * 103;
+  padding: ($base-unit * 2) ($base-unit * 4);
+  margin: 0 auto;
+
+  @media screen and (max-width: $responsive-breakpoint) {
     padding: $base-unit * 2;
-    margin: 0 0 ($base-unit * 2) 0;
-    background: transparent;
-    border-radius: 0;
   }
 }
 

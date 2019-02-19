@@ -33,7 +33,7 @@ const Layout = ({children}) => (
     <SiteHeader/>
     <Main>
       {children}
-      <footer className="mtxxxl pvxl border-top">
+      <footer className="sg-footer mtxxxl pvxl border-top">
         © {year} <a href="https://pivotal.io" target="_blank" rel="noreferrer">Pivotal Software</a>, Inc. All Rights Reserved.
         <span className="pln">
           <span className="mll">

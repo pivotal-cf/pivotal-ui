@@ -22,7 +22,7 @@ const Page = ({data}) => {
   const groupLabel = pageGroup ? pageGroup.label : '';
 
   return (
-    <>
+    <div className="sg-page">
       <Head title={title} />
 
       <header>
@@ -51,7 +51,7 @@ const Page = ({data}) => {
       )}
 
       {renderMarkdown(htmlAst)}
-    </>
+    </div>
   );
 };
 

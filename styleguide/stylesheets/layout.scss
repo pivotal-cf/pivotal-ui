@@ -22,6 +22,12 @@ body {
   flex-direction: column;
 }
 
+.sg-footer {
+  padding: $base-unit * 2;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .grid-show {
   margin-bottom: $grid-gutter-width;
   text-align: center;

@@ -1,15 +1,21 @@
 @import "./variables.scss";
 
-.styleguide-index {
+.sg-home {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - (#{$base-unit} * 19));
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: $accent-teal;
-}
 
-.styleguide-index-box {
-  padding: $base-unit * 2;
-  border: 1px solid $accent-gray;
+  .sg-home__title {
+    font-size: $base-unit * 8;
+    margin-bottom: $base-unit * 2;
+  }
+
+  .sg-home__links {
+    a + a {
+      margin-left: $base-unit * 2;
+    }
+  }
 }
