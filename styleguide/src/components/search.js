@@ -48,23 +48,33 @@ const Search = props => {
   const onInputKeyDown = evt => {
     if (!showResults) return;
 
-    if (evt.key === 'ArrowDown') {
-      evt.preventDefault();
-      setCursor(cursor + 1 >= results.length ? 0 : cursor + 1);
-      return;
-    }
+    switch (evt.key) {
+      case 'ArrowDown':
+      case 'Down':
+        evt.preventDefault();
+        setCursor(cursor + 1 >= results.length ? 0 : cursor + 1);
+        return;
 
-    if (evt.key === 'ArrowUp') {
-      evt.preventDefault();
-      setCursor(cursor - 1 < 0 ? results.length - 1 : cursor - 1);
-      return;
-    }
+      case 'ArrowUp':
+      case 'Up':
+        evt.preventDefault();
+        setCursor(cursor - 1 < 0 ? results.length - 1 : cursor - 1);
+        return;
 
-    if (evt.key === 'Enter') {
-      evt.preventDefault();
-      setQuery('');
-      navigate(results[cursor].route);
-      return;
+      case 'Enter':
+        evt.preventDefault();
+        setQuery('');
+        navigate(results[cursor].route);
+        return;
+
+      case 'Escape':
+      case 'Esc':
+        evt.preventDefault();
+        setQuery('');
+        return;
+
+      default:
+        return;
     }
   };
 
@@ -73,14 +83,17 @@ const Search = props => {
   };
 
   return (
-    <div className="sg-search">
+    <div className="sg-search" role="search">
       <Input
         className="sg-search__input"
         innerRef={inputRef}
         type="search"
         icon="search"
         placeholder="Search..."
-        aria-label="Search style guide content"
+        aria-autocomplete="list"
+        aria-label="Search style guide pages. Press up and down arrows to choose results, and enter to visit page."
+        aria-owns="sg-search__results"
+        aria-activedescendant={`sg-search__result-${cursor}`}
         value={query}
         onChange={onInputChange}
         onFocus={() => setFocused(true)}
@@ -89,9 +102,15 @@ const Search = props => {
       />
 
       {showResults && (
-        <ul className="sg-search__results">
+        <ul className="sg-search__results" role="listbox" id="sg-search__results">
           {results.map((result, index) => (
-            <li key={result.id} className="sg-search__result">
+            <li
+              key={result.id}
+              id={`sg-search__result-${index}`}
+              className="sg-search__result"
+              role="option"
+              aria-selected={index === cursor}
+            >
               <Link
                 to={result.route}
                 className={classnames(
