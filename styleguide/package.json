@@ -43,7 +43,8 @@
     "unified": "^7.1.0"
   },
   "scripts": {
-    "build": "gatsby build",
+    "clean": "rm -rf public && rm -rf .cache",
+    "build": "yarn clean && gatsby build",
     "start": "gatsby develop",
     "serve": "gatsby serve"
   }
