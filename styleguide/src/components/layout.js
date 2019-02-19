@@ -34,13 +34,13 @@ const Layout = ({children}) => (
     <Main>
       {children}
       <footer className="mtxxxl pvxl border-top">
-        © {year} <a href="https://pivotal.io" target="_blank">Pivotal Software</a>, Inc. All Rights Reserved.
+        © {year} <a href="https://pivotal.io" target="_blank" rel="noreferrer">Pivotal Software</a>, Inc. All Rights Reserved.
         <span className="pln">
           <span className="mll">
-            <a href="https://pivotal.io/privacy-policy" target="_blank">Privacy Policy</a>
+            <a href="https://pivotal.io/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a>
           </span>
           <span className="mll">
-            <a href="https://pivotal.io/terms-of-use" target="_blank">Terms of Use</a>
+            <a href="https://pivotal.io/terms-of-use" target="_blank" rel="noreferrer">Terms of Use</a>
           </span>
           <span className="mll" id="teconsent"/>
         </span>
