@@ -245,7 +245,7 @@ $border-radius-none: 0;
 $table-font-size: $font-size-small;
 $table-header-font-weight: 600;
 $table-bg: transparent !default;
-$table-bg-hover: $white;
+$table-bg-hover: rgba($black, 0.03);
 $table-border-color: $light-gray;
 $table-border-radius: 2px;
 
