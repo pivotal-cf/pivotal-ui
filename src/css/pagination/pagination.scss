@@ -1,8 +1,10 @@
 @import "../pui-variables";
 
+$pagination-active-color: $blue;
+
 .pagination {
   .active {
-    color: $accent-teal;
+    color: $pagination-active-color;
     text-decoration: underline;
   }
 
