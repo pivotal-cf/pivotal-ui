@@ -1,4 +1,4 @@
 try {
-  require('./box-shadows.css');
+  require('./box_shadows.css');
 } catch (e) {
 }
