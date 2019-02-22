@@ -1,4 +1,4 @@
 try {
-  require('./progress-bar.css');
+  require('./progress_bar.css');
 } catch (e) {
 }

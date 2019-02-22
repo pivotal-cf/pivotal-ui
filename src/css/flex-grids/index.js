@@ -1,4 +1,4 @@
 try {
-  require('./flex-grids.css');
+  require('./flex_grids.css');
 } catch (e) {
 }

@@ -1,4 +1,4 @@
 try {
-  require('./tile-layout.css');
+  require('./tile_layout.css');
 } catch (e) {
 }
