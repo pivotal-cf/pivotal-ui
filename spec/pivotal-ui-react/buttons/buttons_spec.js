@@ -201,11 +201,15 @@ describe('UIButton', () => {
 
   describe('when iconOnly is true', () => {
     beforeEach(() => {
-      subject::setProps({iconOnly: true, 'aria-label': 'Large Button'});
+      subject::setProps({iconOnly: true, 'aria-label': 'Icon-only Button'});
     });
 
-    it('adds the large button class', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn--icon');
+    it('adds the appropriate button class', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn--icon-only');
+    });
+
+    it('has the required aria-label attribute set', () => {
+      expect('button.pui-btn').toHaveAttr('aria-label', 'Icon-only Button');
     });
   });
 

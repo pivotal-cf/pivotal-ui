@@ -47,7 +47,7 @@ describe('Flyout', () => {
   it('renders an icon button', () => {
     expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn--default');
     expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn--flat');
-    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn--icon');
+    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn--icon-only');
     expect('.pui-dialog .pui-flyout-icon-btn').toHaveAttr('aria-label', 'Close');
     expect(Icon).toHaveBeenRenderedWithProps({
       src: 'chevron_left',

@@ -42,7 +42,7 @@ export class UIButton extends React.Component {
           'pui-btn--flat': flat,
           'pui-btn--lg': large,
           'pui-btn--sm': small,
-          'pui-btn--icon': iconOnly,
+          'pui-btn--icon-only': iconOnly,
           'pui-btn--icon-right': !!icon && iconPosition === 'right',
           'pui-btn--full': fullWidth
         }

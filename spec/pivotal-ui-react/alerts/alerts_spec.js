@@ -38,8 +38,8 @@ describe('Alert Component', () => {
 
       it('has a close button', () => {
         expect('.pui-alert button').toHaveLength(1);
-        expect('.pui-btn--default.pui-btn--flat.pui-btn--icon').toHaveClass('pui-alert-close-btn');
-        expect('.pui-btn--default.pui-btn--flat.pui-btn--icon .icon-close').toExist();
+        expect('.pui-btn--default.pui-btn--flat.pui-btn--icon-only').toHaveClass('pui-alert-close-btn');
+        expect('.pui-btn--default.pui-btn--flat.pui-btn--icon-only .icon-close').toExist();
       });
 
       it('has an sr-only close button', () => {
