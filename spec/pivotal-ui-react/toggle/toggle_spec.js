@@ -33,10 +33,6 @@ describe('Toggle', () => {
     const result = renderComponent({defaultChecked: true});
     const component = findByClass(result, 'pui-toggle-switch');
 
-    expect(component).not.toHaveAttr('checked');
-
-    ReactTestUtils.Simulate.change(component);
-
     expect(component).toHaveAttr('checked');
   });
 
