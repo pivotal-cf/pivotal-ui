@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -80,10 +80,10 @@ export class UIButton extends React.Component {
     }
 
     const buttonContent = (
-      <span className="pui-btn__inner-content">
+      <Fragment>
         {iconPosition === 'right' ? btnChildren : icon}
         {iconPosition === 'right' ? icon : btnChildren}
-      </span>
+      </Fragment>
     );
 
     return this.props.href

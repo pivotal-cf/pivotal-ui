@@ -12,7 +12,7 @@ describe('UIButton', () => {
   it('creates a button', () => {
     expect('button').toHaveClass('pui-btn');
     expect('button').toHaveClass('pui-btn--default');
-    expect('button .pui-btn__inner-content').toHaveText('Click here');
+    expect('button').toHaveText('Click here');
   });
 
   describe('when href attribute is set', () => {
@@ -261,7 +261,7 @@ describe('UIButton', () => {
     });
 
     it('renders with an icon child node if one is passed in', () => {
-      expect('button.pui-btn span .icon').toExist();
+      expect('button.pui-btn .icon').toExist();
     });
   });
 
