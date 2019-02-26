@@ -6,14 +6,15 @@ export class UIButton extends React.Component {
   static propTypes = {
     alt: PropTypes.bool,
     flat: PropTypes.bool,
+    fullWidth: PropTypes.bool,
     href: PropTypes.string,
     icon: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+    iconPosition: PropTypes.oneOf(['left', 'right']),
     iconOnly: PropTypes.bool,
     kind: PropTypes.oneOf(['default', 'danger', 'primary', 'brand']),
     large: PropTypes.bool,
-    small: PropTypes.bool,
-    fullWidth: PropTypes.bool,
-    iconPosition: PropTypes.oneOf(['left', 'right'])
+    onDark: PropTypes.bool,
+    small: PropTypes.bool
   };
 
   static defaultProps = {
@@ -26,7 +27,21 @@ export class UIButton extends React.Component {
   }
 
   render() {
-    const {alt, className, flat, icon, iconPosition, iconOnly, large, small, kind, children, fullWidth, ...others} = this.props;
+    const {
+      alt,
+      className,
+      flat,
+      fullWidth,
+      icon,
+      iconPosition,
+      iconOnly,
+      kind,
+      large,
+      onDark,
+      small,
+      children,
+      ...others
+    } = this.props;
 
     if (iconOnly && !others['aria-label'] && process.env.NODE_ENV === 'development') {
       console.error('Icon-only buttons should have an accessible title set via the "aria-label" prop.');
@@ -40,19 +55,22 @@ export class UIButton extends React.Component {
         {
           'pui-btn--alt': alt,
           'pui-btn--flat': flat,
-          'pui-btn--lg': large,
-          'pui-btn--sm': small,
+          'pui-btn--full': fullWidth,
           'pui-btn--icon-only': iconOnly,
           'pui-btn--icon-right': !!icon && iconPosition === 'right',
-          'pui-btn--full': fullWidth
+          'pui-btn--lg': large,
+          'pui-btn--on-dark': onDark,
+          'pui-btn--sm': small
         }
       ),
       ...others
     };
 
-    const buttonText = Array.isArray(children) ?
-      children.filter(child => typeof child === 'string').join(' ') :
-      typeof children === 'string' ? children.toString() : null;
+    const buttonText = Array.isArray(children)
+      ? children.filter(child => typeof child === 'string').join(' ')
+      : typeof children === 'string'
+        ? children.toString()
+        : null;
 
     let btnChildren = children;
 

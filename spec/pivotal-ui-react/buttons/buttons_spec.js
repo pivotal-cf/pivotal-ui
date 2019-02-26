@@ -294,4 +294,14 @@ describe('UIButton', () => {
       });
     });
   });
+
+  describe('when onDark is true', () => {
+    beforeEach(() => {
+      subject::setProps({onDark: true});
+    });
+
+    it('adds appropriate class to the button', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn--on-dark');
+    });
+  });
 });
