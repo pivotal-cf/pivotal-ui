@@ -29,9 +29,9 @@ describe('Pagination', () => {
   });
 
   it('renders all buttons with flat class', () => {
-    expect('.pagination .pui-btn:eq(0)').toHaveClass('pui-btn-default-flat');
-    expect('.pagination .pui-btn:eq(1)').toHaveClass('pui-btn-brand-flat');
-    expect('.pagination .pui-btn:eq(2)').toHaveClass('pui-btn-default-flat');
+    expect('.pagination .pui-btn:eq(0)').toHaveClass(['pui-btn--default', 'pui-btn--flat']);
+    expect('.pagination .pui-btn:eq(1)').toHaveClass(['pui-btn--brand', 'pui-btn--flat']);
+    expect('.pagination .pui-btn:eq(2)').toHaveClass(['pui-btn--default', 'pui-btn--flat']);
   });
 
   describe('props', () => {
@@ -63,7 +63,7 @@ describe('Pagination', () => {
 
     it('renders an active .pui-btn when activePage number is specified', () => {
       renderComponent({activePage: 1});
-      expect('.pagination .pui-btn:eq(1)').toHaveClass('pui-btn-brand-flat');
+      expect('.pagination .pui-btn:eq(1)').toHaveClass(['pui-btn--brand', 'pui-btn--flat']);
       expect('.pagination .pui-btn:eq(1)').toHaveClass('active');
     });
 

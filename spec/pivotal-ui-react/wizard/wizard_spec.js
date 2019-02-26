@@ -234,7 +234,7 @@ describe('Wizard', () => {
       });
 
       it('renders a cancel button', () => {
-        expect('.wizard-cancel-btn.pui-btn-primary-alt').toHaveText('Cancel');
+        expect('.wizard-cancel-btn.pui-btn--primary.pui-btn--alt').toHaveText('Cancel');
       });
 
       describe('with custom cancel text', () => {
@@ -243,7 +243,7 @@ describe('Wizard', () => {
         });
 
         it('renders a cancel button with custom text', () => {
-          expect('.wizard-cancel-btn.pui-btn-primary-alt').toHaveText('Close');
+          expect('.wizard-cancel-btn.pui-btn--primary.pui-btn--alt').toHaveText('Close');
         });
       });
     });
@@ -253,7 +253,7 @@ describe('Wizard', () => {
     });
 
     it('renders a "next" PrimaryButton', () => {
-      expect('.wizard-next-btn.pui-btn-primary').toHaveText('Next');
+      expect('.wizard-next-btn.pui-btn--primary').toHaveText('Next');
     });
 
     it('checks if the next button is enabled', () => {
@@ -279,7 +279,7 @@ describe('Wizard', () => {
       });
 
       it('does not render the next button', () => {
-        expect('.wizard-next-btn.pui-btn-primary').not.toExist();
+        expect('.wizard-next-btn.pui-btn--primary').not.toExist();
       });
     });
 
@@ -290,7 +290,7 @@ describe('Wizard', () => {
       });
 
       it('renders the custom text', () => {
-        expect('.wizard-next-btn.pui-btn-primary').toHaveText('customNext');
+        expect('.wizard-next-btn.pui-btn--primary').toHaveText('customNext');
       });
     });
 
@@ -306,7 +306,7 @@ describe('Wizard', () => {
       });
 
       it('disables the "next" button', () => {
-        expect('.wizard-next-btn.pui-btn-primary').toHaveAttr('disabled');
+        expect('.wizard-next-btn.pui-btn--primary').toHaveAttr('disabled');
       });
     });
   });
@@ -317,7 +317,7 @@ describe('Wizard', () => {
     });
 
     it('renders a "finish" PrimaryButton', () => {
-      expect('.wizard-finish-btn.pui-btn-primary').toHaveText('Finish');
+      expect('.wizard-finish-btn.pui-btn--primary').toHaveText('Finish');
     });
 
     describe('when "hideFinishButton" is true', () => {
@@ -345,11 +345,11 @@ describe('Wizard', () => {
     });
 
     it('does not render a "next" PrimaryButton', () => {
-      expect('.wizard-next-btn.pui-btn-primary').not.toExist();
+      expect('.wizard-next-btn.pui-btn--primary').not.toExist();
     });
 
     it('renders a "back" alt PrimaryButton', () => {
-      expect('.wizard-back-btn.pui-btn-primary-alt').toHaveText('Back');
+      expect('.wizard-back-btn.pui-btn--primary.pui-btn--alt').toHaveText('Back');
     });
 
     describe('when clicking the "back" button', () => {
@@ -370,7 +370,7 @@ describe('Wizard', () => {
       });
 
       it('renders the custom text', () => {
-        expect('.wizard-finish-btn.pui-btn-primary').toHaveText('customFinish');
+        expect('.wizard-finish-btn.pui-btn--primary').toHaveText('customFinish');
       });
     });
 

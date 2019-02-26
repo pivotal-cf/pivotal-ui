@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {mergeProps} from '../helpers';
+import classnames from 'classnames';
 
 export class UIButton extends React.Component {
   static propTypes = {
@@ -26,28 +26,29 @@ export class UIButton extends React.Component {
   }
 
   render() {
-    const {alt, flat, icon, iconPosition, iconOnly, large, small, kind, children, fullWidth, ...others} = this.props;
+    const {alt, className, flat, icon, iconPosition, iconOnly, large, small, kind, children, fullWidth, ...others} = this.props;
 
     if (iconOnly && !others['aria-label'] && process.env.NODE_ENV === 'development') {
       console.error('Icon-only buttons should have an accessible title set via the "aria-label" prop.');
     }
 
-    const buttonClasses = {
-      className: [
+    let props = {
+      className: classnames(
+        className,
+        'pui-btn',
+        `pui-btn--${kind}`,
         {
-          'pui-btn': true,
-          [`pui-btn-${kind}-alt`]: alt,
-          [`pui-btn-${kind}-flat`]: flat,
-          [`pui-btn-${kind}`]: !alt && !flat,
-          'pui-btn-lg': large,
-          'pui-btn-sm': small,
-          'pui-btn-icon': iconOnly,
-          'pui-btn-icon-right': !!icon && iconPosition === 'right',
-          'pui-btn-full': fullWidth
+          'pui-btn--alt': alt,
+          'pui-btn--flat': flat,
+          'pui-btn--lg': large,
+          'pui-btn--sm': small,
+          'pui-btn--icon': iconOnly,
+          'pui-btn--icon-right': !!icon && iconPosition === 'right',
+          'pui-btn--full': fullWidth
         }
-      ]
+      ),
+      ...others
     };
-    let props = mergeProps(others, buttonClasses);
 
     const buttonText = Array.isArray(children) ?
       children.filter(child => typeof child === 'string').join(' ') :
@@ -56,32 +57,23 @@ export class UIButton extends React.Component {
     let btnChildren = children;
 
     if (buttonText && !iconOnly) {
-      props = mergeProps(props, {'aria-label': buttonText});
+      props = {'aria-label': buttonText, ...props};
       btnChildren = (<span>{children}</span>);
     }
 
-    let buttonContent = (
-      <span className="pui-btn-inner-content">
-        {icon}
-        {btnChildren}
-      </span>);
+    const buttonContent = (
+      <span className="pui-btn__inner-content">
+        {iconPosition === 'right' ? btnChildren : icon}
+        {iconPosition === 'right' ? icon : btnChildren}
+      </span>
+    );
 
-    if (iconPosition === 'right') {
-      buttonContent = (
-        <span className="pui-btn-inner-content">
-          {btnChildren}
-          {icon}
-        </span>);
-    }
-
-    return this.props.href ?
-      <a {...props}>{buttonContent}</a> :
-      <button {...mergeProps(props, {type: 'button'})}>
-        {buttonContent}
-      </button>;
-
+    return this.props.href
+      ? <a {...props}>{buttonContent}</a>
+      : <button type="button" {...props}>{buttonContent}</button>;
   }
 }
+
 const defButton = propOverrides => {
   return class extends React.Component {
     render() {

@@ -45,8 +45,9 @@ describe('Modal', () => {
 
   it('renders a close button', () => {
     expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveAttr('aria-label', 'Close');
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveClass('pui-btn-default-flat');
-    expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveClass('pui-btn-icon');
+    expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveClass('pui-btn--default');
+    expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveClass('pui-btn--flat');
+    expect('.pui-dialog.pui-modal-dialog .pui-modal-close-btn').toHaveClass('pui-btn--icon');
     expect(Icon).toHaveBeenRenderedWithProps({src: 'close', size: 'inherit', style: {}, verticalAlign: 'middle'});
   });
 

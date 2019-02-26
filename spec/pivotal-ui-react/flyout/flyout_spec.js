@@ -45,8 +45,9 @@ describe('Flyout', () => {
   });
 
   it('renders an icon button', () => {
-    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn-default-flat');
-    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn-icon');
+    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn--default');
+    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn--flat');
+    expect('.pui-dialog .pui-flyout-icon-btn').toHaveClass('pui-btn--icon');
     expect('.pui-dialog .pui-flyout-icon-btn').toHaveAttr('aria-label', 'Close');
     expect(Icon).toHaveBeenRenderedWithProps({
       src: 'chevron_left',
@@ -102,7 +103,7 @@ describe('Flyout', () => {
     });
 
     it('renders the specified icon', () => {
-      expect('.pui-flyout-header.grid > .col.col-fixed .pui-btn.pui-btn-default-flat.pui-btn-icon .icon.icon-middle .icon-chevron_left').toHaveText('');
+      expect('.pui-flyout-header.grid > .col.col-fixed .icon.icon-middle .icon-chevron_left').toExist();
     });
 
     describe('when clicking the icon button', () => {
@@ -127,7 +128,7 @@ describe('Flyout', () => {
       });
 
       it('renders that icon instead of the close icon', () => {
-        expect(`.pui-flyout-header.grid > .col.col-fixed .pui-btn.pui-btn-default-flat.pui-btn-icon .icon.icon-middle .icon-${iconSrc}`).toHaveText('');
+        expect(`.pui-flyout-header.grid > .col.col-fixed .icon.icon-middle .icon-${iconSrc}`).toExist();
       });
     });
   });

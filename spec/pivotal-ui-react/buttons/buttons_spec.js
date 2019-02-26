@@ -11,8 +11,8 @@ describe('UIButton', () => {
 
   it('creates a button', () => {
     expect('button').toHaveClass('pui-btn');
-    expect('button').toHaveClass('pui-btn-default');
-    expect('button').toHaveText('Click here');
+    expect('button').toHaveClass('pui-btn--default');
+    expect('button .pui-btn__inner-content').toHaveText('Click here');
   });
 
   describe('when href attribute is set', () => {
@@ -135,7 +135,7 @@ describe('UIButton', () => {
     });
 
     it('adds the kind class to the button', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn-default');
+      expect('button.pui-btn').toHaveClass('pui-btn--default');
     });
   });
 
@@ -145,7 +145,7 @@ describe('UIButton', () => {
     });
 
     it('adds the kind class to the button', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn-danger');
+      expect('button.pui-btn').toHaveClass('pui-btn--danger');
     });
   });
 
@@ -155,7 +155,7 @@ describe('UIButton', () => {
     });
 
     it('adds the kind class to the button', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn-brand');
+      expect('button.pui-btn').toHaveClass('pui-btn--brand');
     });
   });
 
@@ -165,7 +165,7 @@ describe('UIButton', () => {
     });
 
     it('adds the kind class to the button', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn-primary');
+      expect('button.pui-btn').toHaveClass('pui-btn--primary');
     });
   });
 
@@ -175,7 +175,7 @@ describe('UIButton', () => {
     });
 
     it('adds the large button class', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn-lg');
+      expect('button.pui-btn').toHaveClass('pui-btn--lg');
     });
   });
 
@@ -185,7 +185,7 @@ describe('UIButton', () => {
     });
 
     it('adds the large button class', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn-full');
+      expect('button.pui-btn').toHaveClass('pui-btn--full');
     });
   });
 
@@ -195,7 +195,7 @@ describe('UIButton', () => {
     });
 
     it('adds the large button class', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn-sm');
+      expect('button.pui-btn').toHaveClass('pui-btn--sm');
     });
   });
 
@@ -205,7 +205,7 @@ describe('UIButton', () => {
     });
 
     it('adds the large button class', () => {
-      expect('button.pui-btn').toHaveClass('pui-btn-icon');
+      expect('button.pui-btn').toHaveClass('pui-btn--icon');
     });
   });
 
@@ -214,44 +214,8 @@ describe('UIButton', () => {
       subject::setProps({alt: true});
     });
 
-    describe('when kind is default', () => {
-      beforeEach(() => {
-        subject::setProps({kind: 'default'});
-      });
-
-      it('adds appropriate alt class to the button', () => {
-        expect('button.pui-btn').toHaveClass('pui-btn-default-alt');
-      });
-    });
-
-    describe('when kind is danger', () => {
-      beforeEach(() => {
-        subject::setProps({kind: 'danger'});
-      });
-
-      it('adds appropriate alt class to the button', () => {
-        expect('button.pui-btn').toHaveClass('pui-btn-danger-alt');
-      });
-    });
-
-    describe('when kind is brand', () => {
-      beforeEach(() => {
-        subject::setProps({kind: 'brand'});
-      });
-
-      it('adds appropriate alt class to the button', () => {
-        expect('button.pui-btn').toHaveClass('pui-btn-brand-alt');
-      });
-    });
-
-    describe('when kind is primary', () => {
-      beforeEach(() => {
-        subject::setProps({kind: 'primary'});
-      });
-
-      it('adds appropriate alt class to the button', () => {
-        expect('button.pui-btn').toHaveClass('pui-btn-primary-alt');
-      });
+    it('adds appropriate alt class to the button', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn--alt');
     });
   });
 
@@ -260,44 +224,8 @@ describe('UIButton', () => {
       subject::setProps({flat: true});
     });
 
-    describe('when kind is default', () => {
-      beforeEach(() => {
-        subject::setProps({kind: 'default'});
-      });
-
-      it('adds appropriate flat class to the button', () => {
-        expect('button.pui-btn').toHaveClass('pui-btn-default-flat');
-      });
-    });
-
-    describe('when kind is danger', () => {
-      beforeEach(() => {
-        subject::setProps({kind: 'danger'});
-      });
-
-      it('adds appropriate flat class to the button', () => {
-        expect('button.pui-btn').toHaveClass('pui-btn-danger-flat');
-      });
-    });
-
-    describe('when kind is brand', () => {
-      beforeEach(() => {
-        subject::setProps({kind: 'brand'});
-      });
-
-      it('adds appropriate flat class to the button', () => {
-        expect('button.pui-btn').toHaveClass('pui-btn-brand-flat');
-      });
-    });
-
-    describe('when kind is primary', () => {
-      beforeEach(() => {
-        subject::setProps({kind: 'primary'});
-      });
-
-      it('adds appropriate flat class to the button', () => {
-        expect('button.pui-btn').toHaveClass('pui-btn-primary-flat');
-      });
+    it('adds appropriate flat class to the button', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn--flat');
     });
   });
 
