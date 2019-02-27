@@ -303,7 +303,7 @@ $input-color-hover: $accent-blue;
 $input-color-active: $blue;
 $input-border: $light-gray !default;
 $input-border-valid: $green;
-$input-border-invalid: $dark-red;
+$input-border-invalid: $error-color;
 $input-border-color-hover: $accent-gray !default;
 $input-border-radius: $border-radius-small !default;
 $input-border-radius-large: $border-radius-large !default;
@@ -311,7 +311,7 @@ $input-border-radius-small: $border-radius-small !default;
 $input-border-focus: $gray !default;
 $input-border-width: 1px !default;
 
-$input-invalid-text: $dark-red;
+$input-invalid-text: $error-color;
 $input-color-placeholder: $accent-gray !default;
 
 $form-label-color: $text-color !default;
