@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+.sg-skip-to-content {
+  position: absolute;
+  top: $base-unit;
+  left: $base-unit;
+  background: $white;
+  z-index: 10;
+  padding: ($base-unit / 2) $base-unit;
+  pointer-events: none;
+  opacity: 0;
+
+  &:focus {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,21 @@
+@import "./variables.scss";
+
+.sg-home {
+  width: 100%;
+  height: calc(100vh - (#{$base-unit} * 19));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .sg-home__title {
+    font-size: $base-unit * 8;
+    margin-bottom: $base-unit * 2;
+  }
+
+  .sg-home__links {
+    a + a {
+      margin-left: $base-unit * 2;
+    }
+  }
+}

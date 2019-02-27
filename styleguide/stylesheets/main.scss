@@ -1,0 +1,19 @@
+@import "./variables.scss";
+
+.sg-content {
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+
+.sg-main {
+  flex-grow: 1;
+  overflow-y: auto;
+  outline: none !important;
+}
+
+.sg-full-sidebar {
+  @media screen and (max-width: $responsive-breakpoint) {
+    display: none;
+  }
+}

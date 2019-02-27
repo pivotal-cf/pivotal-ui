@@ -11,11 +11,12 @@
   "env": {
     "es6": true,
     "node": true,
-    "jasmine": true
+    "jest": true
   },
   "plugins": [
     "react",
-    "jasmine"
+    "jest",
+    "markdown"
   ],
   "settings": {
     "react": {
@@ -32,7 +33,8 @@
     "dot-notation": 2,
     "eqeqeq": 2,
     "eol-last": 0,
-//    "guard-for-in": 2,
+    "jest/no-focused-tests": 2,
+    "jsx-quotes": [2, "prefer-double"],
     "no-caller": 2,
     "no-console": [2, {"allow": ["warn", "error"]}],
     "no-div-regex": 2,
@@ -49,6 +51,7 @@
     "no-labels": 2,
     "no-lone-blocks": 2,
     "no-loop-func": 2,
+    "no-mixed-operators": 0,
     "no-multi-spaces": 2,
     "no-multi-str": 2,
     "no-native-reassign": 2,
@@ -66,10 +69,8 @@
     "no-self-compare": 2,
     "no-sequences": 0,
     "no-shadow": 0,
-//    "no-undef": 2,
     "no-underscore-dangle": 0,
     "no-unused-expressions": 0,
-//    "no-unused-vars": 2,
     "no-void": 2,
     "no-warning-comments": 2,
     "no-with": 2,
@@ -77,16 +78,12 @@
     "radix": 2,
     "react/jsx-uses-vars": 2,
     "react/jsx-no-undef": 2,
-    "semi": 2,
-    "jsx-quotes": [2, "prefer-double"],
-    "jasmine/no-focused-tests": 2,
+    "react/jsx-wrap-multilines": 2,
     "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 2,
-//     temporarily disabling react/prop-types to avoid this bug:
-//       https://github.com/yannickcr/eslint-plugin-react/issues/2124
-//     "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"], "skipUndeclared": true}],
+    "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"], "skipUndeclared": true}],
     "react/self-closing-comp": 2,
-    "react/jsx-wrap-multilines": 2,
+    "semi": 2,
     "strict": 0,
     "vars-on-top": 0,
     "wrap-iife": [2, "inside"],

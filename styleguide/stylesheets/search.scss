@@ -1,0 +1,63 @@
+@import "./variables.scss";
+
+.sg-search {
+  position: relative;
+  width: $base-unit * 37;
+}
+
+.sg-search__press-slash {
+  position: absolute;
+  top: $base-unit / 2;
+  right: $base-unit;
+  color: $gray;
+  font-size: 0.8em;
+
+  .sg-search__slash {
+    height: $base-unit * 2;
+    width: $base-unit * 2;
+    padding: 2px ($base-unit / 2);
+    border-radius: 2px;
+    border: 1px solid $gray;
+    font-size: 0.8em;
+    font-weight: 600;
+  }
+}
+
+.sg-search__result {
+  list-style-type: none;
+  padding: ($base-unit / 2) $base-unit;
+
+  &:first-child {
+    padding-top: $base-unit;
+  }
+
+  &:last-child {
+    padding-bottom: $base-unit;
+  }
+}
+
+.sg-search__results {
+  position: absolute;
+  right: 0;
+  margin-top: $base-unit;
+  width: 100%;
+  padding: 0;
+  font-size: $font-size-medium;
+  border: 1px solid $accent-gray;
+  background: $light-gray;
+  z-index: 10;
+  color: $black;
+  box-shadow: $box-shadow-key-2;
+}
+
+.sg-search__link {
+  color: $black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.sg-search__link--active {
+    font-weight: 600;
+  }
+}

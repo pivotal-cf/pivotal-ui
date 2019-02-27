@@ -55,4 +55,6 @@ spec/css/regressionRunner.js
 .rvmrc
 vendor/ruby
 
-src/react/iconography/icons.js
+# Style guide:
+styleguide/.cache/
+styleguide/public/

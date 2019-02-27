@@ -5,6 +5,7 @@ const DomHelpers = {
   getActiveElement: () => global.document.activeElement,
   setTimeout: (handler, timeout) => global.setTimeout(handler, timeout),
   clearTimeout: handler => global.clearTimeout(handler),
+  resetScrollbarWidth: () => scrollbarWidth = undefined,
 
   findTabbableElements: el => el && el.querySelectorAll(
     '[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])'
@@ -21,7 +22,7 @@ const DomHelpers = {
     scrollDiv.style.position = 'absolute';
     scrollDiv.style.top = '-9999px';
     document.body.appendChild(scrollDiv);
-    const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+    scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
 
     return scrollbarWidth;

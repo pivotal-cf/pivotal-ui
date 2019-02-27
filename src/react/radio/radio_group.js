@@ -16,7 +16,7 @@ export class RadioGroup extends React.Component {
 
   render() {
     const {name, children, onChange, className, value, ...others} = this.props;
-    const radioProps = onChange ? {name, onChange} : {name};
+    const radioProps = onChange ? {name, onChange} : {name, readOnly: true};
 
     return (
       <div {...{...others, className: classnames('pui-radio-group', className)}}>
