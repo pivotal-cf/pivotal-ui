@@ -79,13 +79,13 @@ By default, the icon appears to the left of the text. To place the icon on the r
 <PrimaryButton icon={<Icon src="arrow_forward"/>} iconPosition="right">Next</PrimaryButton>
 ```
 
-To use a button with an icon and no text, set the `iconOnly` prop to make spacing even around the icon.
+To use a button with an icon and no text, set the `iconOnly` prop to make spacing even around the icon. Since they do not have text content, icon-only buttons must have an `aria-label` set so that screen readers understand their purpose.
 
 ```jsx
 //title=Icon-only buttons
 <div>
-  <DefaultButton icon={<Icon src="mode_edit"/>} iconOnly/>
-  <DefaultButton flat icon={<Icon src="close"/>} iconOnly/>
+  <DefaultButton icon={<Icon src="mode_edit"/>} iconOnly aria-label="Edit"/>
+  <DefaultButton flat icon={<Icon src="close"/>} iconOnly aria-label="Edit"/>
 </div>
 ```
 
