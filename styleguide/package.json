@@ -1,0 +1,51 @@
+{
+  "name": "pivotal-ui-styleguide",
+  "private": true,
+  "license": "ISC",
+  "version": "0.0.0",
+  "description": "Pivotal UI Style Guide",
+  "author": "",
+  "homepage": "https://github.com/pivotal-cf/pivotal-ui",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "repository": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui.git",
+    "type": "git"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/register": "^7.0.0",
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
+    "gatsby": "^2.0.88",
+    "gatsby-plugin-react-helmet": "^3.0.2",
+    "gatsby-plugin-sass": "^2.0.7",
+    "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-transformer-remark": "^2.2.0",
+    "node-sass": "^4.11.0",
+    "prismjs": "^1.15.0",
+    "rehype-react": "^3.1.0",
+    "remark": "^10.0.1",
+    "remark-html": "^9.0.0",
+    "remark-squeeze-paragraphs": "^3.0.3",
+    "webpack": "^4.28.4"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/standalone": "^7.0.0",
+    "classnames": "^2.2.5",
+    "codemirror": "^5.43.0",
+    "elasticlunr": "^0.9.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.8.0",
+    "react-codemirror": "^1.0.0",
+    "react-dom": "^16.8.0",
+    "react-helmet": "^5.2.0"
+  },
+  "scripts": {
+    "clean": "rm -rf public && rm -rf .cache",
+    "build": "yarn clean && gatsby build",
+    "start": "gatsby develop",
+    "serve": "gatsby serve"
+  }
+}

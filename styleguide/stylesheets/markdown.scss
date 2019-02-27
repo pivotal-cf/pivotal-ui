@@ -1,0 +1,34 @@
+@import "./variables.scss";
+
+.sg-heading {
+  &:hover {
+    .sg-heading__link {
+      opacity: 1;
+    }
+  }
+}
+
+.sg-heading__link {
+  opacity: 0;
+
+  &:focus {
+    opacity: 1;
+  }
+
+  svg {
+    fill: currentColor;
+  }
+}
+
+table.table.sg-table {
+  table-layout: auto;
+}
+
+.sg-img {
+  width: 100%;
+}
+
+.sg-pre {
+  border-radius: 0;
+  border-color: $light-gray;
+}

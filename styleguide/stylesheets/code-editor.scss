@@ -1,0 +1,35 @@
+@import "./variables.scss";
+
+.sg-code-editor {
+  margin: 0;
+  margin-bottom: $base-unit * 2;
+  border: 1px solid $light-gray;
+}
+
+.sg-code-editor__header {
+  border-bottom: 1px solid $light-gray;
+}
+
+.sg-code-editor__description {
+  p {
+    margin: 0;
+  }
+}
+
+.sg-code-editor__button {
+  background: transparent;
+  border: none;
+}
+
+.sg-code-editor__codemirror {
+  .CodeMirror {
+    height: auto;
+    max-height: 200px;
+    font-size: 14px;
+  }
+
+  .CodeMirror-scroll {
+    height: auto;
+    max-height: 200px;
+  }
+}
