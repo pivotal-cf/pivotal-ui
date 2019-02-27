@@ -78,7 +78,7 @@
   "scripts": {
     "build": "gulp build",
     "build:styleguide": "cd styleguide && yarn build",
-    "lint": "eslint src spec tasks styleguide/src styleguide/spec --ext .js --fix",
+    "lint": "eslint src spec tasks styleguide/src --ext .js --fix",
     "start": "cd styleguide && yarn start",
     "test": "jest"
   }
