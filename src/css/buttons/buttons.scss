@@ -10,12 +10,6 @@
     box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.2);
   }
 
-  &:focus {
-    outline: 2px dashed $dark-gray;
-    outline-offset: 4px;
-    z-index: 1;
-  }
-
   &.pui-btn--flat {
     background: transparent;
     color: $color;
@@ -89,8 +83,15 @@
   text-transform: uppercase;
   padding: 0 ($base-unit * 2);
   position: relative;
-  transition: all 200ms ease-in-out;
+  transition: color 200ms ease-in-out, background-color 200ms ease-in-out,
+  border-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
   white-space: nowrap;
+
+  &:focus {
+    outline: 2px dashed $dark-gray;
+    outline-offset: 4px;
+    z-index: 1;
+  }
 
   &.pui-btn--primary {
     @include button-kind(
