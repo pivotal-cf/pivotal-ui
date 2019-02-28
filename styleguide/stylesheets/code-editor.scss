@@ -21,6 +21,10 @@
     height: auto;
     max-height: 200px;
     font-size: 14px;
+
+    pre {
+      font-family: $font-family-monospace;
+    }
   }
 
   .CodeMirror-scroll {
