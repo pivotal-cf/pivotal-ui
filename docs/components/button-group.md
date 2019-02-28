@@ -8,9 +8,9 @@ Button groups wrap a series of buttons to clearly indicate their relation.
 ```html
 //title=Basic example
 <div class="pui-btn-group" role="group" aria-label="...">
-  <button type="button" class="pui-btn pui-btn-default-alt">Left</button>
-  <button type="button" class="pui-btn pui-btn-default-alt">Middle</button>
-  <button type="button" class="pui-btn pui-btn-default-alt">Right</button>
+  <button type="button" class="pui-btn pui-btn--default pui-btn--alt">Left</button>
+  <button type="button" class="pui-btn pui-btn--default pui-btn--alt">Middle</button>
+  <button type="button" class="pui-btn pui-btn--default pui-btn--alt">Right</button>
 </div>
 ```
 
@@ -18,9 +18,9 @@ Button groups wrap a series of buttons to clearly indicate their relation.
 //title=Selected button example
 //description=You can also mark buttons in the group as selected by swapping between alt button styles.
 <div class="pui-btn-group" role="group" aria-label="...">
-  <button type="button" class="pui-btn pui-btn-default-alt">Left</button>
-  <button type="button" class="pui-btn pui-btn-default">Middle</button>
-  <button type="button" class="pui-btn pui-btn-default-alt">Right</button>
+  <button type="button" class="pui-btn pui-btn--default pui-btn--alt">Left</button>
+  <button type="button" class="pui-btn pui-btn--default">Middle</button>
+  <button type="button" class="pui-btn pui-btn--default pui-btn--alt">Right</button>
 </div>
 ```
 
@@ -30,6 +30,6 @@ Button groups wrap a series of buttons to clearly indicate their relation.
 <div class="pui-btn-group-flat" role="group" aria-label="...">
   <button type="button" class="pui-btn">Left</button>
   <button type="button" class="pui-btn">Middle</button>
-  <button type="button" class="pui-btn pui-btn-default">Right</button>
+  <button type="button" class="pui-btn pui-btn--default">Right</button>
 </div>
 ```
