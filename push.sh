@@ -3,15 +3,15 @@
 echo "git pulling with rebase"
 git pull -r
 
-gulp
+yarn
+pushd styleguide
+  yarn
+popd
+
 yarn test
 yarn lint
 
 git status
-
-pushd styleguide
-  yarn test
-popd
 
 printf 'push commit(s)? [y/N]: '
 read input
