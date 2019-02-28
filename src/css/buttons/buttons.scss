@@ -84,7 +84,7 @@
   padding: 0 ($base-unit * 2);
   position: relative;
   transition: color 200ms ease-in-out, background-color 200ms ease-in-out,
-  border-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  border-color 200ms ease-in-out, box-shadow 200ms ease-in-out, outline 50ms ease-in-out;
   white-space: nowrap;
 
   &:focus {
