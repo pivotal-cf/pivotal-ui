@@ -1,582 +1,183 @@
 @import "../pui-variables";
 
-/* Buttons
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-
-.pui-btn {
-  display: inline-flex;
-  position: relative;
-  height: $base-unit*4;
-  padding: 0 ($base-unit*2);
-  vertical-align: middle;
-  color: $btn-default-color;
-  text-align: center;
-  font-size: $font-size-small;
-  font-weight: $btn-font-weight;
-  line-height: ($base-unit*4) - ($btn-border-width*2); //32px - 4px borders
-  letter-spacing: $btn-letter-spacing;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-  background-color: transparent;
-  border-radius: $btn-radius;
-  border: $btn-border-width solid transparent;
-  cursor: pointer;
-  box-sizing: border-box;
-  -webkit-transition: all 200ms ease-out;
-  transition: all 200ms ease-out;
-  -webkit-transition-property: background-color, color, opacity, border;
-  transition-property: background-color, color, opacity, border;
-  .icon {
-    font-size: $font-size-large;
-    fill: $btn-default-color;
-  }
+@mixin button-kind($color, $color-hover, $color-on-dark, $color-on-dark-hover) {
+  background: $color;
+  color: $white;
 
   &:hover,
-  &:focus,
-  &:hover:focus {
-    outline: none;
+  &:focus {
+    background: $color-hover;
+    box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.2);
   }
 
-  // Button Content Rules
-  span.pui-btn-inner-content {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    width: 100%;
-    position: relative;
+  &:focus {
+    outline: 2px dashed $dark-gray;
+    outline-offset: 4px;
+    z-index: 1;
   }
 
-  span.pui-btn-inner-content > * + * {
-    margin-left: 5px !important;
-  }
+  &.pui-btn--flat {
+    background: transparent;
+    color: $color;
 
-  // Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-default-color;
-    }
-    .path {
-      stroke: $btn-default-color;
+    &:hover,
+    &:focus {
+      color: $color-hover;
     }
   }
-}
 
-.pui-btn + .pui-btn {
-  margin-left: $base-unit;
-}
+  &.pui-btn--alt {
+    background: transparent;
+    border-color: currentColor;
+    color: $color;
 
-.pui-btn.pui-btn-icon {
-  padding: 0;
-  .icon {
-    margin: 5px;
-    svg {
-      fill: currentColor;
+    &:hover,
+    &:focus {
+      color: $color-hover;
     }
   }
-}
 
-.pui-btn-full {
-  width: 100%;
-}
+  &.pui-btn--on-dark {
+    background: $color-on-dark;
+    color: $black;
 
-.pui-btn-lg {
-  height: $base-unit*5;
-  line-height: ($base-unit*5) - ($btn-border-width*2); //40px - 4px borders
-  font-size: $font-size-medium;
-  &.pui-btn-icon {
-    padding: 0;
-    .icon {
-      margin: $base-unit;
+    &:hover,
+    &:focus {
+      background: $color-on-dark-hover;
+      outline-color: $light-gray;
     }
-  }
-  .icon {
-    font-size: $font-size-extra-large;
-  }
-}
 
-.pui-btn-sm {
-  height: ($base-unit*3);
-  line-height: ($base-unit*3) - ($btn-border-width*2); //24px - 4px borders
-  font-size: $font-size-extra-small;
-  &.pui-btn-icon {
-    padding: 0;
-    .icon {
-      margin: 3px;
+    &.pui-btn--flat {
+      background: transparent;
+      color: $color-on-dark;
+
+      &:hover,
+      &:focus {
+        color: $color-on-dark-hover;
+      }
     }
-  }
-  .icon {
-    font-size: $font-size-small;
+
+    &.pui-btn--alt {
+      background: transparent;
+      border-color: currentColor;
+      color: $color-on-dark;
+
+      &:hover,
+      &:focus {
+        color: $color-on-dark-hover;
+      }
+    }
   }
 }
 
 .pui-btn {
-  &.disabled, &[disabled], fieldset[disabled] & {
-    opacity: .5;
+  align-items: center;
+  background: none;
+  border: $btn-border-width solid transparent;
+  border-radius: $btn-border-radius;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 6px 2px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-size: $btn-font-size;
+  font-weight: $btn-font-weight;
+  height: $base-unit * 4;
+  justify-content: center;
+  letter-spacing: $btn-letter-spacing;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0 ($base-unit * 2);
+  position: relative;
+  transition: all 200ms ease-in-out;
+  white-space: nowrap;
+
+  &.pui-btn--primary {
+    @include button-kind(
+            $color: $btn-primary-color,
+            $color-hover: $btn-primary-color-hover,
+            $color-on-dark: $btn-primary-color-on-dark,
+            $color-on-dark-hover: $btn-primary-color-on-dark-hover
+    );
+  }
+
+  &.pui-btn--default {
+    @include button-kind(
+            $color: $btn-default-color,
+            $color-hover: $btn-default-color-hover,
+            $color-on-dark: $btn-default-color-on-dark,
+            $color-on-dark-hover: $btn-default-color-on-dark-hover
+    );
+  }
+
+  &.pui-btn--danger {
+    @include button-kind(
+            $color: $btn-danger-color,
+            $color-hover: $btn-danger-color-hover,
+            $color-on-dark: $btn-danger-color-on-dark,
+            $color-on-dark-hover: $btn-danger-color-on-dark-hover
+    );
+  }
+
+  &.pui-btn--brand {
+    @include button-kind(
+            $color: $btn-brand-color,
+            $color-hover: $btn-brand-color-hover,
+            $color-on-dark: $btn-brand-color-on-dark,
+            $color-on-dark-hover: $btn-brand-color-on-dark-hover
+    );
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
     cursor: default;
+    opacity: 0.5;
     pointer-events: none;
   }
-}
 
-//Default Button
-//---------------------------------------
-.pui-btn.pui-btn-default {
-  background-color: $btn-default-color;
-  color: $btn-light;
-  border-color: $btn-default-color;
-  .icon {
-    fill: $btn-light;
+  &.pui-btn--lg {
+    font-size: $btn-lg-font-size;
+    height: $base-unit * 5;
+    line-height: ($base-unit * 5) - ($btn-border-width * 2);
   }
 
-  //Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-light;
-    }
-    .path {
-      stroke: $btn-light;
-    }
-  }
-}
-
-.pui-btn.pui-btn-default:focus {
-  background-color: $btn-default-color-focus;
-  border-color: $btn-default-color-focus;
-  outline: none;
-}
-
-.pui-btn.pui-btn-default:hover,
-.pui-btn.pui-btn-default:focus:hover {
-  background-color: $btn-default-color-hover;
-  border-color: $btn-default-color-hover;
-  outline: none;
-}
-
-.pui-btn.pui-btn-default-flat:focus {
-  color: $btn-default-color-focus;
-  outline: none;
-}
-
-.pui-btn.pui-btn-default-flat:hover,
-.pui-btn.pui-btn-default-flat:focus:hover {
-  color: $btn-default-color-hover;
-  outline: none;
-}
-
-//Default Alt Button
-//---------------------------------------
-.pui-btn.pui-btn-default-alt {
-  background-color: transparent;
-  color: $btn-default-color;
-  border-color: $btn-default-color;
-  .icon {
-    fill: $btn-default-color;
+  &.pui-btn--sm {
+    font-size: $btn-sm-font-size;
+    height: $base-unit * 3;
+    line-height: ($base-unit * 3) - ($btn-border-width * 2);
+    padding: 0 $base-unit;
   }
 
-  //Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-default-color;
-    }
-    .path {
-      stroke: $btn-default-color;
-    }
-  }
-}
-
-.pui-btn.pui-btn-default-alt:focus {
-  background-color: transparent;
-  color: $btn-default-color-focus;
-  border-color: $btn-default-color-focus;
-  outline: none;
-  .icon {
-    fill: $btn-default-color-focus;
-  }
-}
-
-.pui-btn.pui-btn-default-alt:hover,
-.pui-btn.pui-btn-default-alt:focus:hover {
-  background-color: transparent;
-  color: $btn-default-color-hover;
-  border-color: $btn-default-color-hover;
-  outline: none;
-  .icon {
-    fill: $btn-default-color-hover;
-  }
-}
-
-//Default Alt Button WHITE
-//---------------------------------------
-.pui-btn.pui-btn-default-alt-wh {
-  background-color: transparent;
-  color: $btn-light;
-  border-color: $btn-light;
-  .icon {
-    fill: $btn-light;
+  &.pui-btn--full {
+    width: 100%;
   }
 
-  //Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-light;
-    }
-    .path {
-      stroke: $btn-light;
-    }
-  }
-}
+  &.pui-btn--icon-only {
+    padding: $base-unit;
 
-.pui-btn.pui-btn-default-alt-wh:focus {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: $btn-light;
-  border-color: $btn-light;
-  outline: none;
-  .icon {
-    fill: $btn-light;
-  }
-}
-
-.pui-btn.pui-btn-default-alt-wh:hover,
-.pui-btn.pui-btn-default-alt-wh:focus:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: $btn-light;
-  border-color: $btn-light;
-  outline: none;
-  .icon {
-    fill: $btn-light;
-  }
-}
-
-//primary Button
-//---------------------------------------
-.pui-btn.pui-btn-primary {
-  background-color: $btn-primary-color;
-  color: $btn-light;
-  border-color: $btn-primary-color;
-  .icon {
-    fill: $btn-light;
-  }
-
-  //Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-light;
-    }
-    .path {
-      stroke: $btn-light;
-    }
-  }
-}
-
-.pui-btn.pui-btn-primary:focus {
-  background-color: $btn-primary-color-focus;
-  border-color: $btn-primary-color-focus;
-  outline: none;
-}
-
-.pui-btn.pui-btn-primary:hover,
-.pui-btn.pui-btn-primary:focus:hover {
-  background-color: $btn-primary-color-hover;
-  border-color: $btn-primary-color-hover;
-  outline: none;
-}
-
-//Flat primary
-.pui-btn-primary-flat {
-  color: $btn-primary-color;
-  .icon {
-    fill: $btn-primary-color;
-  }
-  &:hover,
-  &:focus,
-  &:hover:focus {
-    color: $btn-primary-color-focus;
-    outline: none;
     .icon {
-      fill: $btn-primary-color-focus;
+      margin-right: 0;
     }
   }
-  // Spinner
+
+  .icon {
+    fill: currentColor;
+    margin-right: $base-unit;
+  }
+
   .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
-    .ring {
-      stroke: $btn-primary-color;
-    }
     .path {
-      stroke: $btn-primary-color;
+      stroke: currentColor;
     }
-  }
-}
 
-//primary Alt Button
-//---------------------------------------
-.pui-btn.pui-btn-primary-alt {
-  background-color: transparent;
-  color: $btn-primary-color;
-  border-color: $btn-primary-color;
-  .icon {
-    fill: $btn-primary-color;
-  }
-
-  //Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
     .ring {
-      stroke: $btn-primary-color;
-    }
-    .path {
-      stroke: $btn-primary-color;
-    }
-  }
-}
-
-.pui-btn.pui-btn-primary-alt:focus {
-  background-color: transparent;
-  color: $btn-primary-color-focus;
-  border-color: $btn-primary-color-focus;
-  outline: none;
-  .icon {
-    fill: $btn-primary-color-focus;
-  }
-}
-
-.pui-btn.pui-btn-primary-alt:hover,
-.pui-btn.pui-btn-primary-alt:focus:hover {
-  background-color: transparent;
-  color: $btn-primary-color-hover;
-  border-color: $btn-primary-color-hover;
-  outline: none;
-  .icon {
-    fill: $btn-primary-color-hover;
-  }
-}
-
-//brand Button
-//---------------------------------------
-.pui-btn.pui-btn-brand {
-  background-color: $btn-brand-color;
-  color: $btn-light;
-  border-color: $btn-brand-color;
-  .icon {
-    fill: $btn-light;
-  }
-
-  //Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-light;
-    }
-    .path {
-      stroke: $btn-light;
-    }
-  }
-}
-
-.pui-btn.pui-btn-brand:focus {
-  background-color: $btn-brand-color-focus;
-  border-color: $btn-brand-color-focus;
-  outline: none;
-}
-
-.pui-btn.pui-btn-brand:hover,
-.pui-btn.pui-btn-brand:focus:hover {
-  background-color: $btn-brand-color-hover;
-  border-color: $btn-brand-color-hover;
-  outline: none;
-}
-
-//Flat brand
-.pui-btn-brand-flat {
-  color: $btn-brand-color;
-  .icon {
-    fill: $btn-brand-color;
-  }
-  &:hover,
-  &:focus,
-  &:hover:focus {
-    color: $btn-brand-color-focus;
-    outline: none;
-    .icon {
-      fill: $btn-brand-color-focus;
+      stroke: currentColor;
     }
   }
 
-  // Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-brand-color;
-    }
-    .path {
-      stroke: $btn-brand-color;
-    }
-  }
-}
-
-//brand Alt Button
-//---------------------------------------
-.pui-btn.pui-btn-brand-alt {
-  background-color: transparent;
-  color: $btn-brand-color;
-  border-color: $btn-brand-color;
-  .icon {
-    fill: $btn-brand-color;
-  }
-
-  //Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-brand-color;
-    }
-    .path {
-      stroke: $btn-brand-color;
-    }
-  }
-}
-
-.pui-btn.pui-btn-brand-alt:focus {
-  background-color: transparent;
-  color: $btn-brand-color-focus;
-  border-color: $btn-brand-color-focus;
-  outline: none;
-  .icon {
-    fill: $btn-brand-color-focus;
-  }
-}
-
-.pui-btn.pui-btn-brand-alt:hover,
-.pui-btn.pui-btn-brand-alt:focus:hover {
-  background-color: transparent;
-  color: $btn-brand-color-hover;
-  border-color: $btn-brand-color-hover;
-  outline: none;
-  .icon {
-    fill: $btn-brand-color-hover;
-  }
-}
-
-//danger Button
-//---------------------------------------
-.pui-btn.pui-btn-danger {
-  background-color: $btn-danger-color;
-  color: $btn-light;
-  border-color: $btn-danger-color;
-  .icon {
-    fill: $btn-light;
-  }
-
-  // Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-light;
-    }
-    .path {
-      stroke: $btn-light;
-    }
-  }
-}
-
-.pui-btn.pui-btn-danger:focus {
-  background-color: $btn-danger-color-focus;
-  border-color: $btn-danger-color-focus;
-  outline: none;
-}
-
-.pui-btn.pui-btn-danger:hover,
-.pui-btn.pui-btn-danger:focus:hover {
-  background-color: $btn-danger-color-hover;
-  border-color: $btn-danger-color-hover;
-  outline: none;
-}
-
-//Flat danger
-.pui-btn-danger-flat {
-  color: $btn-danger-color;
-  .icon {
-    fill: $btn-danger-color;
-  }
-  &:hover,
-  &:focus,
-  &:hover:focus {
-    color: $btn-danger-color-focus;
-    outline: none;
-    .icon {
-      fill: $btn-danger-color-focus;
-    }
-  }
-
-  // Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-danger-color;
-    }
-    .path {
-      stroke: $btn-danger-color;
-    }
-  }
-}
-
-//danger Alt Button
-//---------------------------------------
-.pui-btn.pui-btn-danger-alt {
-  background-color: transparent;
-  color: $btn-danger-color;
-  border-color: $btn-danger-color;
-  .icon {
-    fill: $btn-danger-color;
-  }
-
-  // Spinner
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-danger-color;
-    }
-    .path {
-      stroke: $btn-danger-color;
-    }
-  }
-}
-
-.pui-btn.pui-btn-danger-alt:focus {
-  background-color: transparent;
-  color: $btn-danger-color-focus;
-  border-color: $btn-danger-color-focus;
-  outline: none;
-  .icon {
-    fill: $btn-danger-color-focus;
-  }
-}
-
-.pui-btn.pui-btn-danger-alt:hover,
-.pui-btn.pui-btn-danger-alt:focus:hover {
-  background-color: transparent;
-  color: $btn-danger-color-hover;
-  border-color: $btn-danger-color-hover;
-  outline: none;
-  .icon {
-    fill: $btn-danger-color-hover;
+  & + & {
+    margin-left: $base-unit;
   }
 }
