@@ -19,17 +19,17 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 <Grid>
   <FlexCol fixed>
     <TooltipTrigger tooltip="Some tooltip">
-      <button className="btn btn-default">Hover over me</button>
+      <DefaultButton>Hover over me</DefaultButton>
     </TooltipTrigger>
   </FlexCol>
   <FlexCol fixed>
     <TooltipTrigger tooltip="Some tooltip" trigger="click">
-      <button className="btn btn-default">Click me</button>
+      <DefaultButton>Click me</DefaultButton>
     </TooltipTrigger>
   </FlexCol>
   <FlexCol fixed>
     <TooltipTrigger tooltip="Some tooltip" isSticky={true} placement="right">
-      <button className="btn btn-default">Hover over me too!</button>
+      <DefaultButton>Hover over me too!</DefaultButton>
     </TooltipTrigger>
   </FlexCol>
 </Grid>
@@ -39,7 +39,7 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 //title=Markup example
 //description=Since the tooltip property is of type Node, you may add markup to the tooltip, such as links.
 <TooltipTrigger isSticky tooltip={<a href="#">clickable link</a>} theme="light">
-  <button className="btn btn-default">Hover for clickable tooltip</button>
+  <DefaultButton>Hover for clickable tooltip</DefaultButton>
 </TooltipTrigger>
 ```
 

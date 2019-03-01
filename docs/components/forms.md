@@ -315,6 +315,7 @@ An `onChange` callback needs to be provided for each input element. This callbac
 Use `stopPropagation` within `onChange` to stop the `Form` from overriding its composite value.
 
 ```jsx
+//title=Input with custom onChange
 <Form {...{
   id: 'composite-fields-example',
   fields: {

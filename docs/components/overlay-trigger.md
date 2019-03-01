@@ -45,33 +45,33 @@ This makes them ideal for highly repeated layouts such as lists.
 </div>
 ```
 
-```html
+```jsx
 //title=Resizable tooltips
 <div>
-<div class="tooltip">
-  <button class="btn btn-default">
+<div className="tooltip">
+  <DefaultButton>
     A small tooltip
-  </button>
-  <div class="tooltip-container tooltip-sm">
-    <div class="tooltip-content">Lorem ipsum dolor sit amet, consec</div>
+  </DefaultButton>
+  <div className="tooltip-container tooltip-sm">
+    <div className="tooltip-content">Lorem ipsum dolor sit amet, consec</div>
   </div>
 </div>
 
-<div class="tooltip">
-  <button class="btn btn-default">
+<div className="tooltip mll">
+  <DefaultButton>
     A medium tooltip
-  </button>
-  <div class="tooltip-container tooltip-md">
-    <div class="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
+  </DefaultButton>
+  <div className="tooltip-container tooltip-md">
+    <div className="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
   </div>
 </div>
 
-<div class="tooltip">
-  <button class="btn btn-default">
+<div className="tooltip mll">
+  <DefaultButton>
     A large tooltip
-  </button>
-  <div class="tooltip-container tooltip-lg">
-    <div class="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+  </DefaultButton>
+  <div className="tooltip-container tooltip-lg">
+    <div className="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
   </div>
 </div>
 </div>

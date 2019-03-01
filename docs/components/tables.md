@@ -220,14 +220,14 @@ Here are the plugins provided by Pivotal UI:
 
 A composed table can be created by composing one or more of the above plugins:
 
-```
+```jsx
 import {withFlex, withSorting, Table} from 'pivotal-ui/react/table';
 const ComposedTable = withFlex(withSorting(Table));
 ReactDOM.render(<ComposedTable columns={columns} data={data}/>
 ```
 
 Or with `lodash.flow`:
-```
+```jsx
 import flow from 'lodash.flow';
 const ComposedTable = flow(withFlex, withSorting)(Table);
 ```
@@ -340,7 +340,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 const TableWithFooterRow = withFooterRow(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-const footerRow = <tr><td colSpan={3}><strong>I am a footer!</strong></td></tr>
+const footerRow = <tr><td colSpan={3}><strong>I am a footer!</strong></td></tr>;
 <TableWithFooterRow columns={columns} data={data} footerRow={footerRow}/>
 ```
 
@@ -431,19 +431,19 @@ Table plugins provide the ability to:
 In order to write a new plugin:
 
 1. Create a new file that imports `TablePlugin` from `pivotal-ui/react/table`.
-  ```
+  ```jsx
   import {TablePlugin} from 'pivotal-ui/react/table';
   ```
 2. Export a function that takes a `Table` argument:
-  ```
+  ```jsx
   export function withCellColor(Table) { /* ... */ }
   ```
 3. Inside the function, return a class that extends `TablePlugin`:
-  ```
+  ```jsx
   return class TableWithCellColor extends TablePlugin { /* ... */}
   ```
 4. In the class, define a `render` function that returns the result of calling `this.renderTable` with the `Table` argument, and an Object:
-  ```
+  ```jsx
   render() {
     return this.renderTable(Table, { /* ... */ }
   }

@@ -7,6 +7,7 @@ reactComponents:
 ---
 
 ```jsx
+//title=Downloading...
 <div>
   <div>Downloading...</div>
   <ProgressBar value={60} barClassName="bar-class"/>
