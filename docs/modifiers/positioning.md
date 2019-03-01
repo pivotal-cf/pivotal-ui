@@ -31,9 +31,9 @@ Modifier | Purpose
 
 ```html
 //title=Position Absolute
-<div class="border type-accent-blue paxxl">
+<div class="position-relative border type-accent-blue paxxl">
   Parent element
-  <div class="position-absolute paxxl type-black bg-light-yellow">
+  <div class="position-absolute pal type-black bg-light-yellow">
     Child element
   </div>
 </div>
@@ -72,8 +72,8 @@ Modifier | Purpose
 ```html
 //title=Display Flex
 <div class="display-flex">
-  <div class="bg-gray" style="flex: 1;">child1</div>
-  <div class="bg-accent-gray" style="flex: 2;">child2</div>
+  <div class="bg-black type-white" style="flex: 1;">child1</div>
+  <div class="bg-gray type-white" style="flex: 2;">child2</div>
   <div class="bg-light-gray" style="flex: 3;">child3</div>
 </div>
 ```
