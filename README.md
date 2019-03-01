@@ -1,10 +1,12 @@
+# Pivotal UI
+
+Pivotal UI is Pivotal's design system & component library. It contains CSS & React components that are styled for the Pivotal brand. [Visit the live styleguide here.](http://styleguide.pivotal.io)
+
+Pivotal UI is most commonly consumed as an NPM package:
+
 [![NPM](https://nodei.co/npm/pivotal-ui.png?compact=true)](https://npmjs.org/package/pivotal-ui)
 
-# Welcome to Pivotal UI
-
-Pivotal UI is a collection of React components that are styled for the Pivotal brand. [Visit the live styleguide here.](http://styleguide.pivotal.io)
-
-# Using Pivotal UI - React Components
+## Using React components
 
 ### Environment
 
@@ -12,7 +14,6 @@ We assume your project has the following:
 
  - [node/npm](https://nodejs.org/en/)
  - A module loader such as [Webpack](http://webpack.github.io/) or [Browserify](http://browserify.org/) - Pivotal UI modules follow the CommonJS pattern
- - A JSX transpiler such as [Babel](https://babeljs.io/) - Pivotal UI components are written in JSX 
  - [React](https://facebook.github.io/react/) - Pivotal UI components are React components
 
 ### Install
@@ -63,14 +64,16 @@ HTML:
 </html>
 ```
 
-# Maintainers
+## Maintainers
 
 See [MAINTAINERS.md](MAINTAINERS.md).
 
-# Contributing
+## Contributing
 
 Please refer to our [contribution guidelines](https://styleguide.pivotal.io/contribute/index).
 
-# Copyright Notice
+Pivotal UI expects all maintainers, consumers, and contributors to adhere to our [code of conduct](CODE_OF_CONDUCT.md).
 
-Copyright 2018 Pivotal Software, Inc. All Rights Reserved.   
+## Copyright Notice
+
+Copyright 2015-2019 Pivotal Software, Inc. All Rights Reserved.   
