@@ -13,6 +13,7 @@
   &.pui-btn--flat {
     background: transparent;
     color: $color;
+    box-shadow: initial;
 
     &:hover,
     &:focus {
