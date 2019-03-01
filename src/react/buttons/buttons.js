@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {ThemeConsumer} from '../context';
 
 export class UIButton extends React.Component {
   static propTypes = {
@@ -92,15 +93,15 @@ export class UIButton extends React.Component {
   }
 }
 
-const defButton = propOverrides => {
-  return class extends React.Component {
-    render() {
-      return <UIButton {...this.props} {...propOverrides}/>;
-    }
-  };
+const defButton = kind => props => {
+  return (
+    <ThemeConsumer>
+      {theme => <UIButton {...props} kind={kind} onDark={theme === 'dark'}/>}
+    </ThemeConsumer>
+  );
 };
 
-export const DefaultButton = defButton();
-export const PrimaryButton = defButton({kind: 'primary'});
-export const DangerButton = defButton({kind: 'danger'});
-export const BrandButton = defButton({kind: 'brand'});
+export const DefaultButton = defButton('default');
+export const PrimaryButton = defButton('primary');
+export const DangerButton = defButton('danger');
+export const BrandButton = defButton('brand');
