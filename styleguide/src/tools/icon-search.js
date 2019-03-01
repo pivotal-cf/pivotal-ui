@@ -21,7 +21,7 @@ const IconSearch = () => (
           return (
             <FlexCol key={iconName} className="txt-c mvxxl" col={6} breakpoint="md">
               <Icon src={iconName} style={{fontSize: '48px'}}/>
-              <pre className="pre-unstyled mtl">{iconName}</pre>
+              <pre className="pre-unstyled mtl type-sm">{iconName}</pre>
             </FlexCol>
           );
         })}
