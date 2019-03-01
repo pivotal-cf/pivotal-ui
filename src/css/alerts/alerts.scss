@@ -77,15 +77,12 @@
   @extend .pui-alert-danger;
 }
 
-.pui-alert-close-btn.pui-btn {
-  height: $font-size-base * 1.5;
+button.pui-alert-close-btn.pui-btn {
+  height: unset;
+  padding: 0;
 
   &:hover,
   &:focus {
     color: $close-color;
-  }
-
-  &.pui-btn.btn-icon .icon {
-    margin: 0;
   }
 }

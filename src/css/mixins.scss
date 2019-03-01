@@ -147,7 +147,6 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
 @mixin pui-alert-variant($background, $border, $text-color) {
   background-color: $background;
   border-color: $border;
-  color: $text-color;
 
   hr {
     border-top-color: darken($border, 5%);
@@ -159,14 +158,6 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
     &:hover {
       color: darken($text-color, 10%);
     }
-  }
-
-  .pui-alert-close-btn {
-    color: $text-color;
-  }
-
-  svg {
-    fill: $text-color;
   }
 }
 

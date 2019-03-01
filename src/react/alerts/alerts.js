@@ -56,7 +56,7 @@ class Alert extends React.PureComponent {
     let dismissableColumn;
     if (dismissable) {
       dismissableColumn = (
-        <div className="col col-fixed pan">
+        <div className="col col-fixed col-middle pan">
           <DefaultButton {...{
             className: 'pui-alert-close-btn',
             iconOnly: true,
