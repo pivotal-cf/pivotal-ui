@@ -88,10 +88,38 @@
   border-color 200ms ease-in-out, box-shadow 200ms ease-in-out, outline 50ms ease-in-out;
   white-space: nowrap;
 
+  .icon {
+    fill: currentColor;
+    margin-right: $base-unit;
+  }
+
+  .icon-spinner-lg,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .path {
+      stroke: currentColor;
+    }
+
+    .ring {
+      stroke: currentColor;
+    }
+  }
+
+  & + & {
+    margin-left: $base-unit;
+  }
+
   &:focus {
     outline: 2px dashed $dark-gray;
     outline-offset: 4px;
     z-index: 1;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: default;
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   &.pui-btn--primary {
@@ -130,13 +158,6 @@
     );
   }
 
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: default;
-    opacity: 0.5;
-    pointer-events: none;
-  }
-
   &.pui-btn--lg {
     font-size: $btn-lg-font-size;
     height: $base-unit * 5;
@@ -162,24 +183,10 @@
     }
   }
 
-  .icon {
-    fill: currentColor;
-    margin-right: $base-unit;
-  }
-
-  .icon-spinner-lg,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .path {
-      stroke: currentColor;
+  &.pui-btn--icon-right {
+    .icon {
+      margin-right: 0;
+      margin-left: $base-unit;
     }
-
-    .ring {
-      stroke: currentColor;
-    }
-  }
-
-  & + & {
-    margin-left: $base-unit;
   }
 }
