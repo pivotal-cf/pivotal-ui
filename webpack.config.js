@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const glob = require('glob');
 
 module.exports = {
+  mode: 'production',
   entry: glob.sync('./dist/css/**/*.css'),
   output: {
     path: __dirname + '/dist',
