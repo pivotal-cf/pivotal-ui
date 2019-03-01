@@ -71,12 +71,18 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     }
   }
 
+  componentWillUnmount() {
+    super.componentWillUnmount();
+    this.mounted = false;
+  }
+
   componentDidMount() {
     super.componentDidMount();
+    this.mounted = true;
     require('../../css/autocomplete');
     this.props.onInitializeItems((searchableItems = []) => {
       return trieFromSearchableItems(searchableItems, this.props.trieOptions).then(trie => {
-        this.setState({searchableItems, trie});
+        if (this.mounted) this.setState({searchableItems, trie});
       });
     });
   }
