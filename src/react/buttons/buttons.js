@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {ThemeConsumer} from '../context';
+import {ThemeConsumer} from '../theme-context';
 
 export class UIButton extends React.Component {
   static propTypes = {

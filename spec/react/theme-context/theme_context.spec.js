@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {ThemeProvider, ThemeConsumer} from '../../../src/react/context';
+import {ThemeProvider, ThemeConsumer} from '../../../src/react/theme-context';
 
 describe('theme context', () => {
   it('has light theme by default (without provider)', () => {

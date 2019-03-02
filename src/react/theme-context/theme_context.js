@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 const ThemeContext = React.createContext('light');
 
 const ThemeProvider = ({theme = 'light', ...props}) => {
-  return <ThemeContext.Provider {...props} value={theme}/>;
+  return (
+    <ThemeContext.Provider {...props} value={theme}/>
+  );
 };
 
 ThemeProvider.propTypes = {
