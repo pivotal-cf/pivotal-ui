@@ -51,7 +51,7 @@ module.exports = codeBlockNode => {
         <code-editor
           language="${escapeHTML(lang)}"
           title="${escapeHTML(title)}"
-          description="${escapeHTML(markdownToHtml(description))}"
+          description="${description ? escapeHTML(markdownToHtml(description)) : ''}"
           code="${escapeHTML(strippedValue)}">
         </code-editor>
       `
