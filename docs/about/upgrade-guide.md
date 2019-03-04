@@ -67,7 +67,6 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
 
 1. Here is the old Form:
   ```jsx
-  //nonInteractive
   <Form>
     <FormRow wrapper={() => <Collapsible {...{expanded: this.state.expanded}}/>}>
       <FormCol name="firstName" initialValue="John" label="First Name">
@@ -92,7 +91,6 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
 
 1. Create a new `fields` prop:
   ```jsx
-  //nonInteractive
   <Form {...{
     fields: {
       firstName: {
@@ -110,7 +108,6 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
   ```
 1. Create a callback for the `Form` child:
   ```jsx
-  //nonInteractive
   <Form>
     {() => ( // new callback
       <Fragment>
@@ -139,7 +136,6 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
 
 1. Extract `FormRow` wrappers into the layout:
   ```jsx
-  //nonInteractive
   <Form>
     {() => ( // new callback
       <Fragment>
@@ -170,7 +166,6 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
 
 1. Replace `FormRow` with `Grid` and `FormCol` with `FlexCol`, and remove unnecessary props from the FlexCols:
   ```jsx
-  //nonInteractive
   <Form>
     {() => (
       <Fragment>
@@ -201,7 +196,6 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
 
 1. Remove all that `FormCol` child callbacks, and use the `Form` methods provided by the `Form` child callback instead:
   ```jsx
-  //nonInteractive
   <Form>
     {({canSubmit}) => ( // get "canSubmit" from the Form child callback
       <Fragment>
@@ -219,7 +213,6 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
 
 1. Place the fields in the layout:
   ```jsx
-  //nonInteractive
   <Form>
     {({canSubmit, fields}) => ( // obtain the fields from the Form child callback
       <Fragment>
@@ -248,7 +241,6 @@ Then replace all usages of `Form` with `GridForm`. These files are not maintaine
 
 1. Consider removing Grids and FlexCols for fields that are alone on a row:
   ```jsx
-  //nonInteractive
   <Form>
     {({canSubmit, fields}) => ( // obtain the fields from the Form child callback
       <Fragment>
@@ -465,7 +457,6 @@ This component was based on Bootstrap Grids, and has been removed. Use our Flex 
 Deprecated Bootstrap-based Grid:
 
 ```jsx
-//nonInteractive
 <Row>
   <Col md={8}>...</Col>
   <Col md={16}>...</Col>
@@ -486,7 +477,6 @@ FlexGrid:
 Deprecated Bootstrap-based Grid:
 
 ```html
-//nonInteractive
 <div class="row">
   <div class="col-md-8">...</div>
   <div class="col-md-16">...</div>
@@ -496,7 +486,6 @@ Deprecated Bootstrap-based Grid:
 FlexGrid:
 
 ```html
-//nonInteractive
 <div class="grid">
   <div class="col">...</div>
   <div class="col col-grow-2">...</div>
@@ -540,7 +529,6 @@ The goals of the 13.0 release are:
    - you can pass those classes in via the  `bodyClassName`, `headerClassName`, or `footerClassName` props.
 
 ```jsx
-//nonInteractive
 <Panel {...{
   className: 'panel',
   bodyClassName: 'panel-body',
@@ -609,7 +597,6 @@ and into the Form component.
 #### Forms
 
 ```jsx
-//nonInteractive
 <Form className="example-form">
   <FormRow className="mbxl">
     <FormCol {...{
