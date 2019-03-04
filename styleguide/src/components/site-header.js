@@ -28,6 +28,7 @@ const SiteHeader = () => {
       </div>
       <div className="sg-header__mobile-menu-wrapper">
         <BrandButton
+          onDark
           className="sg-header__mobile-menu-btn"
           iconOnly
           icon={<Icon src={showMobileMenu ? 'close' : 'menu'}/>}
