@@ -49,17 +49,18 @@ pre[class*="language-"] {
 .token.number,
 .token.constant,
 .token.symbol,
-.token.deleted {
-  color: $red;
+.token.deleted,
+.CodeMirror.cm-s-default .cm-tag {
+  color: $teal;
 }
 
 .token.selector,
 .token.attr-name,
-.token.string,
 .token.char,
 .token.builtin,
-.token.inserted {
-  color: $green;
+.token.inserted,
+.CodeMirror.cm-s-default .cm-attribute {
+  color: $blue;
 }
 
 .token.operator,
@@ -71,13 +72,17 @@ pre[class*="language-"] {
 }
 
 .token.atrule,
-.token.attr-value,
-.token.keyword {
+.token.keyword,
+.CodeMirror.cm-s-default .cm-keyword {
   color: $dark-blue;
 }
 
 .token.function,
-.token.class-name {
+.token.class-name,
+.token.string,
+.token.attr-value,
+.CodeMirror.cm-s-default .cm-string,
+.CodeMirror.cm-s-default .cm-def {
   color: $red;
 }
 
