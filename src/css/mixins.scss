@@ -144,7 +144,7 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
   user-select: $select;
 }
 
-@mixin pui-alert-variant($background, $border, $text-color) {
+@mixin pui-alert-variant($background, $border, $icon-color) {
   background-color: $background;
   border-color: $border;
 
@@ -152,11 +152,9 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
     border-top-color: darken($border, 5%);
   }
 
-  .pui-alert-link {
-    color: darken($text-color, 10%);
-
-    &:hover {
-      color: darken($text-color, 10%);
+  .icon {
+    svg {
+      fill: $icon-color;
     }
   }
 }

@@ -55,7 +55,7 @@ Alerts can contain any content. To have links within this content styled correct
 //title=Alert with complex content
 <WarningAlert>
   The following items need review:
-  <ul>
+  <ul className="man">
     <li>Item one. <a href="#" className="pui-alert-link">Click here</a> for more information.</li>
     <li>Item two. <a href="#" className="pui-alert-link">Click here</a> for more information.</li>
   </ul>

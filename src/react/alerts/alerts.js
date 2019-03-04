@@ -8,9 +8,10 @@ import {DefaultButton} from '../buttons';
 class Alert extends React.PureComponent {
   static propTypes = {
     alertIcon: PropTypes.string,
-    bsStyle: PropTypes.string,
     closeLabel: PropTypes.node,
     dismissable: PropTypes.bool,
+    kind: PropTypes.oneOf(['success', 'danger', 'info', 'warning']),
+    label: PropTypes.string,
     onDismiss: PropTypes.func,
     show: PropTypes.bool,
     withIcon: PropTypes.bool
@@ -34,13 +35,24 @@ class Alert extends React.PureComponent {
   };
 
   render() {
-    let {alertIcon, bsStyle, children, closeLabel, dismissable, onDismiss: __ignore, show, withIcon, ...others} = this.props;
+    let {
+      alertIcon,
+      kind,
+      children,
+      closeLabel,
+      dismissable,
+      label,
+      onDismiss: __ignore,
+      show,
+      withIcon,
+      ...others
+    } = this.props;
 
     const props = mergeProps(others, {
       role: 'alert',
       className: classnames(
         'pui-alert',
-        `pui-alert-${bsStyle}`,
+        `pui-alert-${kind}`,
         {'pui-alert-dismissable': dismissable})
     });
 
@@ -50,7 +62,11 @@ class Alert extends React.PureComponent {
 
     let iconColumn;
     if (withIcon) {
-      iconColumn = <div className="col col-fixed col-middle pan"><Icon src={alertIcon}/></div>;
+      iconColumn = (
+        <div className="col col-fixed col-middle pan">
+          <Icon src={alertIcon}/>
+        </div>
+      );
     }
 
     let dismissableColumn;
@@ -73,7 +89,12 @@ class Alert extends React.PureComponent {
       <div {...props}>
         <div className="grid">
           {iconColumn}
-          <div className="col col-middle">{children}</div>
+          <div className="col col-middle">
+            <div>
+              {label && <span className="em-high">{label}: </span>}
+              {children}
+            </div>
+          </div>
           {dismissableColumn}
         </div>
       </div>
@@ -93,18 +114,12 @@ const defAlert = props => {
     }
 
     render() {
-      const {children, ...others} = this.props;
-      return (<Alert {...props} {...others}>
-          <span className="sr-only">
-            {(props.bsStyle === 'danger' ? 'error' : props.bsStyle) + ' alert message,'}
-          </span>
-        {children}
-      </Alert>);
+      return <Alert {...props} {...this.props} />;
     }
   };
 };
 
-export const SuccessAlert = defAlert({bsStyle: 'success', alertIcon: 'check_circle'});
-export const InfoAlert = defAlert({bsStyle: 'info', alertIcon: 'info'});
-export const WarningAlert = defAlert({bsStyle: 'warning', alertIcon: 'warning'});
-export const ErrorAlert = defAlert({bsStyle: 'danger', alertIcon: 'report'});
+export const SuccessAlert = defAlert({kind: 'success', alertIcon: 'check_circle', label: 'Success'});
+export const InfoAlert = defAlert({kind: 'info', alertIcon: 'info', label: 'Info'});
+export const WarningAlert = defAlert({kind: 'warning', alertIcon: 'warning', label: 'Warning'});
+export const ErrorAlert = defAlert({kind: 'danger', alertIcon: 'report', label: 'Error'});

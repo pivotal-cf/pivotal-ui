@@ -772,23 +772,23 @@ $alert-border-radius: 0px;
 $alert-padding: 10px;
 $alert-close-size: 16px;
 $alert-border-radius: 0px;
-$alert-link-font-weight: inherit !default;
+$alert-text-color: $dark-gray;
 
 $alert-success-bg: $light-green;
-$alert-success-text: $green;
 $alert-success-border: $green;
+$alert-success-icon-color: $accent-green;
 
 $alert-info-bg: $light-blue !default;
-$alert-info-text: $dark-blue;
 $alert-info-border: #8AC0C4 !default;
+$alert-info-icon-color: $accent-blue;
 
 $alert-warning-bg: $light-yellow;
-$alert-warning-text: $black;
 $alert-warning-border: $black;
+$alert-warning-icon-color: $decorative-yellow;
 
 $alert-danger-bg: $light-red;
-$alert-danger-text: $dark-red;
 $alert-danger-border: $light-red;
+$alert-danger-icon-color: $red;
 
 // Progress bars
 // -------------------------

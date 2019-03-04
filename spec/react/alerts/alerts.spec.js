@@ -24,11 +24,6 @@ describe('Alert Component', () => {
       expect('.pui-alert').toHaveCss({'font-size': '200px'});
     });
 
-    it('renders a sr-only alert description', () => {
-      subject::setProps({withIcon: true});
-      expect('.sr-only').toHaveText('success alert message,');
-    });
-
     describe('when dismissable is set to true', () => {
       beforeEach(() => {
         subject::setProps({dismissable: true});
@@ -108,8 +103,8 @@ describe('Alert Component', () => {
         expect('svg').toHaveClass('icon-check_circle');
       });
 
-      it('has a "success alert" label', () => {
-        expect('.sr-only').toContainText('success');
+      it('has a "Success:" label', () => {
+        expect('.pui-alert').toHaveText('Success: alert body');
       });
     });
   });
@@ -130,8 +125,8 @@ describe('Alert Component', () => {
       expect('.pui-alert svg').toHaveClass('icon-info');
     });
 
-    it('has a "info alert" label', () => {
-      expect('.pui-alert .sr-only').toContainText('info');
+    it('has an "Info:" label', () => {
+      expect('.pui-alert').toHaveText('Info: alert body');
     });
   });
 
@@ -150,8 +145,8 @@ describe('Alert Component', () => {
       expect('.pui-alert svg').toHaveClass('icon-warning');
     });
 
-    it('has a "warning alert" label', () => {
-      expect('.pui-alert .sr-only').toContainText('warning');
+    it('has a "Warning:" label', () => {
+      expect('.pui-alert').toHaveText('Warning: alert body');
     });
   });
 
@@ -170,8 +165,8 @@ describe('Alert Component', () => {
       expect('.pui-alert svg').toHaveClass('icon-report');
     });
 
-    it('has a "error alert" label', () => {
-      expect('.pui-alert .sr-only').toContainText('error');
+    it('has an "Error:" label', () => {
+      expect('.pui-alert').toHaveText('Error: alert body');
     });
   });
 });
