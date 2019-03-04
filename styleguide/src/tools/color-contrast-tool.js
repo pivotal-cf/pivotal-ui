@@ -42,9 +42,9 @@ export default class ColorContrastTool extends React.Component {
     const {bg, type, ratio} = this.state;
     const ratioFloat = parseFloat(ratio);
 
-    const compliantText = (compliant, label) => (
+    const compliantText = (ratio, minimum, label) => (
       <div>
-        <span className="em-high">{label}:</span> {compliant ? 'yes' : 'no'}
+        Level <strong>{label}</strong>: {ratio >= minimum ? 'pass' : 'fail'}
       </div>
     );
 
@@ -57,8 +57,7 @@ export default class ColorContrastTool extends React.Component {
                 id="color-contrast-bg"
                 value={bg}
                 onChange={evt => this.setState({bg: evt.target.value})}>
-                {colorNames.map(key =>
-                  <option {...{key, value: `bg-${key}`}}>{key}</option>)}
+                {colorNames.map(key => <option {...{key, value: `bg-${key}`}}>{key}</option>)}
               </select>
             </FormUnit>
           </FlexCol>
@@ -79,10 +78,12 @@ export default class ColorContrastTool extends React.Component {
           <div className="h1 mtl">This is large sample text.</div>
         </div>
         <div><span className="em-high">Contrast ratio:</span> {ratio}:1</div>
-        {compliantText(ratioFloat >= 3, 'AA (large)')}
-        {compliantText(ratioFloat >= 4.5, 'AA')}
-        {compliantText(ratioFloat >= 4.5, 'AAA (large)')}
-        {compliantText(ratioFloat >= 7, 'AAA')}
+        <ul>
+          <li>{compliantText(ratioFloat, 3, 'AA (large text)')}</li>
+          <li>{compliantText(ratioFloat, 4.5, 'AA')}</li>
+          <li>{compliantText(ratioFloat, 4.5, 'AAA (large text)')}</li>
+          <li>{compliantText(ratioFloat, 7, 'AAA')}</li>
+        </ul>
       </div>
     );
   }
