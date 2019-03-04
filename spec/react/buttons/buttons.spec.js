@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import {setProps} from '../../support/jest-helpers';
-import {UIButton} from '../../../src/react/buttons';
+import {UIButton, DefaultButton} from '../../../src/react/buttons';
 import {Icon} from '../../../src/react/iconography';
+import {ThemeProvider} from '../../../src/react/theme-context';
 
 describe('UIButton', () => {
   let subject;
@@ -314,5 +315,40 @@ describe('UIButton', () => {
     it('adds appropriate class to the button', () => {
       expect('button.pui-btn').toHaveClass('pui-btn--on-dark');
     });
+  });
+});
+
+describe('themed buttons', () => {
+  it('theme provider can set dark theme', () => {
+    ReactDOM.render(
+      <ThemeProvider theme="dark">
+        <DefaultButton/>
+      </ThemeProvider>,
+      root
+    );
+
+    expect('button.pui-btn').toHaveClass('pui-btn--on-dark');
+  });
+
+  it('theme provider can set light theme', () => {
+    ReactDOM.render(
+      <ThemeProvider theme="light">
+        <DefaultButton/>
+      </ThemeProvider>,
+      root
+    );
+
+    expect('button.pui-btn').not.toHaveClass('pui-btn--on-dark');
+  });
+
+  it('onDark prop on button overrides theme provider', () => {
+    ReactDOM.render(
+      <ThemeProvider theme="dark">
+        <DefaultButton onDark={false}/>
+      </ThemeProvider>,
+      root
+    );
+
+    expect('button.pui-btn').not.toHaveClass('pui-btn--on-dark');
   });
 });

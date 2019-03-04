@@ -96,7 +96,7 @@ export class UIButton extends React.Component {
 const defButton = kind => props => {
   return (
     <ThemeConsumer>
-      {theme => <UIButton {...props} kind={kind} onDark={theme === 'dark'}/>}
+      {theme => <UIButton kind={kind} onDark={theme === 'dark'} {...props}/>}
     </ThemeConsumer>
   );
 };
