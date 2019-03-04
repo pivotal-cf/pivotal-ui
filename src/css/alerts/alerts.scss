@@ -3,13 +3,11 @@
 
 .pui-alert {
   border: none;
-  padding: 8px;
+  padding: $base-unit;
   margin: 0;
   color: $alert-text-color;
 
-  border-radius: $alert-border-radius;
-
-  a.pui-alert-link {
+  a, a:hover {
     color: inherit;
     text-decoration: underline;
     font-weight: 600;
