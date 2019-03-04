@@ -9,9 +9,14 @@ reactComponents:
 - BrandButton
 ---
 
-Use buttons as triggers for actions that are used in forms, toolbars, and as stand-alone action triggers. Try to avoid the usage of buttons for navigation. The main difference between actions and navigation is that **actions** are operations performed on objects, while **navigation** refers to elements on the screen or view that take you to another context in the application. For navigation, consider simply using links.
 
-Text within a button is all uppercase. The `aria-label` attribute will be populated with the button text, unless an `aria-label` prop is explicitly supplied. Buttons side-by-side will be separated by a margin of `8px`, per the [8-point grid](/concepts/8-point_grid/index).
+Use buttons as triggers for actions. Try to avoid the usage of buttons for navigation. The main difference between actions and navigation is that **actions** are operations performed on objects, while **navigation** refers to elements on the screen or view that take you to another context in the application. For navigation, consider simply using links.
+
+Pivotal UI provides four kinds of buttons: primary buttons, default buttons, danger buttons, and brand buttons. See below for examples.
+
+By default, each button is designed to have accessible color contrast over light backgrounds (`white` or `light-gray`). To use a button over a dark background (`black` or `dark-gray`), see the examples below.
+
+## Button types
 
 Primary buttons should be used for the main action of a view, eg. a page, flyout, or modal. There will likely only be one of these on-screen at a time.
 
@@ -30,9 +35,46 @@ If completing this action can have destructive effects, such as deletion, use a 
 Use a default button for other actions that could be taken on a view.
 
 ```jsx
-//title=Default buttons
+//title=Default button
 <DefaultButton>Secondary Call to Action</DefaultButton>
 ```
+
+Brand buttons can be used to incorporate Pivotal's teal color. In most cases, one of the other three button types should be used instead.
+
+```jsx
+//title=Brand button
+<BrandButton>Pivotal Button</BrandButton>
+```
+
+## Usage on dark backgrounds
+
+Buttons that appear over dark backgrounds are styled differently to achieve accessible color contrast. To make a button accessible against a dark background, set the `onDark` prop.
+
+```jsx
+//title=Using the onDark prop
+<div className="bg-dark-gray pal">
+  <PrimaryButton onDark>Primary Button</PrimaryButton>
+  <DefaultButton onDark>Default Button</DefaultButton>
+  <DangerButton onDark>Danger Button</DangerButton>
+  <BrandButton onDark>Brand Button</BrandButton>
+</div>
+```
+
+Alternatively, you can wrap components in the `ThemeProvider` component and set `theme="dark"`. This will make all buttons anywhere inside of the `ThemeProvider` use the dark theme without needing to set the `onDark` prop.
+
+```jsx
+//title=Using a ThemeProvider
+<div className="bg-dark-gray pal">
+  <ThemeProvider theme="dark">
+    <PrimaryButton>Primary Button</PrimaryButton>
+    <DefaultButton>Default Button</DefaultButton>
+    <DangerButton>Danger Button</DangerButton>
+    <BrandButton>Brand Button</BrandButton>
+  </ThemeProvider>
+</div>
+```
+
+## Common button patterns
 
 When an action can be cancelled (e.g. closing a payment modal without completing the transaction), use a pair of buttons. The button on the left should have `alt` and should allow the user to cancel the workflow. The button on the right should confirm the action and should not have the `alt` prop.
 
@@ -85,7 +127,7 @@ To use a button with an icon and no text, set the `iconOnly` prop to make spacin
 //title=Icon-only buttons
 <div>
   <DefaultButton icon={<Icon src="mode_edit"/>} iconOnly aria-label="Edit"/>
-  <DefaultButton flat icon={<Icon src="close"/>} iconOnly aria-label="Edit"/>
+  <DefaultButton flat icon={<Icon src="close"/>} iconOnly aria-label="Close"/>
 </div>
 ```
 
@@ -114,31 +156,26 @@ Set the `fullWidth` prop to make the button take up the full width of its contai
 <DefaultButton fullWidth>Full-width Button</DefaultButton>
 ```
 
-A common pattern is to have a button that triggers an action, then is disabled and shows a spinner until the action completes. This can be achieved with the `icon` and `disabled` props. Use this in a [Form](/components/forms/usage#form-submission).
+A common pattern is to have a button that triggers an action, then is disabled and shows a spinner until the action completes. This can be achieved with the `icon` and `disabled` props.
 
 ```jsx
 //title=Submit button
-class ButtonWithProgress extends React.PureComponent {
-  constructor(props) {
-   super(props);
-   this.doAsyncAction = this.doAsyncAction.bind(this);
-   this.state = {inProgress: false};
+function ButtonWithProgress() {
+  const [inProgress, setInProgress] = React.useState(false);
+
+  function doAsyncAction() {
+    setInProgress(true);
+    setTimeout(() => setInProgress(false), 3000);
   }
 
-  doAsyncAction() {
-    this.setState({inProgress: true});
-    setTimeout(() => this.setState({inProgress: false}), 3000);
-  };
-
-  render() {
-    const {inProgress} = this.state;
-    return (<PrimaryButton
+  return (
+    <PrimaryButton
       disabled={inProgress}
       icon={inProgress ? <Icon src="spinner-lg"/> : null}
-      onClick={this.doAsyncAction}>
+      onClick={doAsyncAction}>
         {inProgress ? 'Saving...' : 'Next Step'}
-    </PrimaryButton>);
-  }
+    </PrimaryButton>
+  );
 }
 
 <ButtonWithProgress/>
@@ -151,8 +188,8 @@ Property       | Required | Type    | Default | Description
 `alt`          | no       | Boolean | false   | Whether to render as 'alternate' button
 `flat`         | no       | Boolean | false   | Whether to render as a 'flat' button
 `fullWidth`    | no       | Boolean | false   | Whether to render the button full width
-`href`         | no       | String  |         | If specified, button clicks will redirect to this href
+`href`         | no       | String  |         | If specified, button will be rendered as an `<a>` tag with button-like styling that links to this `href`
 `iconOnly`     | no       | Boolean | false   | If specified, will render as an icon button
-`iconPosition` | no       | String  |         | If specified, places the icon to the left or the right of the text and or children
+`iconPosition` | no       | `"left"` or `"right"`  | `"left"` | If specified, places the icon to the left or the right of the text and or children
 `large`        | no       | Boolean | false   | Whether to render the button large
 `small`        | no       | Boolean | false   | Whether to render the button small
