@@ -49,7 +49,7 @@ const CodeEditor = props => {
           <span className="em-high">{title}</span>
           <DefaultButton
             small flat
-            className="sg-code-editor__button"
+            className="sg-code-editor__button phn"
             onClick={() => setShowCode(!showCode)}>
             {showCode ? 'hide' : 'show'} {buttonText}
           </DefaultButton>
