@@ -1,4 +1,4 @@
-# Pivotal-UI Maintainers
+# Pivotal UI maintainers
 
 ## Core maintainers
 
