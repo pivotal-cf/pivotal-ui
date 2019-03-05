@@ -1,4 +1,4 @@
-# Pivotal UI [![npm version](https://badge.fury.io/js/pivotal-ui.svg)](https://badge.fury.io/js/pivotal-ui)
+# Pivotal UI [![npm version](https://badge.fury.io/js/pivotal-ui.svg)](https://www.npmjs.com/package/pivotal-ui)
 
 Pivotal UI is Pivotal's design system & component library. It contains CSS & React components that are styled for the Pivotal brand.
 
