@@ -4,8 +4,8 @@
 
 * Nick Guerette ([@nguerette](https://github.com/nguerette))
 * Reid Mitchell ([@reid47](https://github.com/reid47))
+* Kenny Wang ([@kennyw12](https://github.com/kennyw12))
 * Sarah Weinstein ([@sweinstein22](https://github.com/sweinstein22))
-* Ming Xiao ([@mingxiao](https://github.com/mingxiao))
 
 ## Past maintainers
 
@@ -17,3 +17,5 @@
 * Steven Locke ([@StevenLocke](https://github.com/StevenLocke))
 * Anushka Makhija ([@amakhija](https://github.com/amakhija))
 * Elena Sharma ([@elenasharma](https://github.com/elenasharma))
+* August Toman-Yih ([@atomanyih](https://github.com/atomanyih))
+* Ming Xiao ([@mingxiao](https://github.com/mingxiao))
