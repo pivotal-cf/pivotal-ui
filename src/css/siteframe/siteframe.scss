@@ -25,33 +25,6 @@ $header-height: $base-unit * 7;
   }
 }
 
-.pui-siteframe-header .account-dropdown {
-  min-width: 96px;
-  text-align: right;
-
-  svg path {
-    fill: #fff !important;
-  }
-
-  .dropdown-menu {
-    color: $gray;
-    z-index: 1500;
-  }
-
-  button.dropdown-toggle {
-    border: none;
-    color: $white;
-    text-transform: none;
-    font-weight: normal;
-    letter-spacing: normal;
-
-    &:hover, &:focus, &:hover:focus {
-      border: 0;
-      color: white;
-    }
-  }
-}
-
 .pui-siteframe-header-title {
   a, a:hover {
     color: inherit;

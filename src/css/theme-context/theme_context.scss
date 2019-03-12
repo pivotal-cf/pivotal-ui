@@ -1,0 +1,11 @@
+@import "../pui-variables";
+
+.pui-theme-provider {
+  background-color: $white;
+  color: $dark-gray;
+
+  &.pui-theme-provider--dark {
+    background-color: $dark-gray;
+    color: $white;
+  }
+}
