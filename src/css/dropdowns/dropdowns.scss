@@ -17,7 +17,7 @@
     height: ($base-unit*4);
     line-height: ($base-unit*4) - 2px;
     font-size: 14px;
-    background-color: #fff;
+    background-color: $white;
     border: 1px solid $input-border;
     border-radius: 2px;
     text-align: left;
@@ -88,7 +88,7 @@
     width: 100%;
     z-index: $zindex-dropdown;
     margin-top: -1px;
-    background-color: #fff;
+    background-color: $white;
     border-top: none;
     border-left: 1px solid $input-border-focus;
     border-right: 1px solid $input-border-focus;
