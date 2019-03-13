@@ -74,8 +74,8 @@ reactComponents:
 
 ```jsx
 //title=Split dropdown
-//description=Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the focused state. Only appropriate as a float menu.
-<Dropdown title="Split Dropdown" split>
+//description=Primary action that can be executed by clicking on the dropdown label with additional actions hidden within the dropdown menu. Only appropriate as a float menu.
+<Dropdown title={<a href="#">Primary link</a>} split>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
   <a href="#">lorem ipsum</a>
