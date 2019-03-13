@@ -3,35 +3,48 @@ title: Select
 cssPath: pivotal-ui/css/select
 ---
 
-Native HTML `select`s are excellent to use because they will automatically behave as expected cross browser on different devices. Use `select` inside a form, not custom dropdowns. Use [Dropdowns](/components/dropdowns/usage) for navigation.
+Use the `select` element when the user can choose a single option out of a set of possible options.
 
-```jsx
+```html
 //title=Sizing
-//description=Set heights using the form control classes `.input-lg` and `.input-sm`. Create larger or smaller form controls that match button sizes.
+//description=Set heights using the CSS classes `.input-lg` and `.input-sm`. Create larger or smaller form controls that match button sizes.
 <div>
-  <select className="input-lg">
+  <select class="input-lg">
     <option>Option 1</option>
     <option>Option 2</option>
   </select>
-  <select className="mtxl">
+  <select class="mtxl">
     <option>Option 1</option>
     <option>Option 2</option>
   </select>
-  <select className="input-sm mtxl">
+  <select class="input-sm mtxl">
     <option>Option 1</option>
     <option>Option 2</option>
   </select>
 </div>
 ```
 
+In React, a `select` can be given `value` and `onChange` props to make it a controlled component.
+
+```jsx
+//title=Controlled React component
+function MyForm() {
+  const colors = ['red', 'green', 'blue', 'yellow'];
+  const [color, setColor] = React.useState('red');
+
+  return (
+    <div>
+      <div>currently selected: {color}</div>
+      <select value={color} onChange={evt => setColor(evt.target.value)}>
+        {colors.map(color => <option key={color} value={color}>{color}</option>)}
+      </select>
+    </div>
+  );
+}
+
+<MyForm/>
+```
+
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-`defaultValue` | no  | Any      | | The initial value for the select when the select is uncontrolled
-`name`         | no  | String   | | The name of the hidden input, useful when used in a form
-`onChange`     | no  | Function | | Callback that fires when the select is changed, must be provided for controlled inputs
-`onEntered`    | no  | Function | | Callback that fires after opening the select
-`onExited`     | no  | Function | | Callback that fires after closing the select
-`options`      | yes | Array    | | Options for the select, can be string or numbers or an object with label and value (e.g. `['one', 'two', 'three']`, `[1, 2, 3]`, `[{label: 'yes', value: 1}, {label: 'no', value: 0}]`)
-`value`        | no  | Any      | | The value for the select when it is controlled, must be used with an `onChange` function to update the value of the select
+The native HTML `select` takes standard HTML attributes as props. [Read more about the `select` element.](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select)
