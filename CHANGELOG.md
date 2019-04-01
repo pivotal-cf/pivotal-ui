@@ -1,3 +1,509 @@
+<a name="18.0.0-alpha.0"></a>
+# 18.0.0-alpha.0 (2019-04-01)
+#### CSS
+* **alerts**:
+  * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * Remove deprecated non-namespaced CSS classes from alerts ([c5502097](https://github.com/pivotal-cf/pivotal-ui/commit/c5502097))
+  * Fix nested flex issue on Alerts (#586) ([f7748a93](https://github.com/pivotal-cf/pivotal-ui/commit/f7748a93))
+* **autocomplete**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **back-to-top**:
+  * Remove deprecated non-namespaced CSS classes from back-to-top ([ae280091](https://github.com/pivotal-cf/pivotal-ui/commit/ae280091))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **button-group**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+* **buttons**:
+  * Remove box shadow from alt buttons [#164456663] ([54aff492](https://github.com/pivotal-cf/pivotal-ui/commit/54aff492))
+  * fix line-height calculation to center text in buttons ([89a26c7e](https://github.com/pivotal-cf/pivotal-ui/commit/89a26c7e))
+  * Fix margin next to icon in button with iconPosition=right, refactor button scss ([777d11ed](https://github.com/pivotal-cf/pivotal-ui/commit/777d11ed))
+  * Remove box-shadow from flat buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([048025b9](https://github.com/pivotal-cf/pivotal-ui/commit/048025b9))
+  * Add 50ms transition to button outlines on focus ([aa6efbb5](https://github.com/pivotal-cf/pivotal-ui/commit/aa6efbb5))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+  * Remove deprecated non-namespaced CSS classes from buttons ([cca3e5de](https://github.com/pivotal-cf/pivotal-ui/commit/cca3e5de))
+  * Fix buttons not being disabled within a disabled fieldset ([c5458743](https://github.com/pivotal-cf/pivotal-ui/commit/c5458743))
+* **checkbox**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **code**:
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Remove deprecated Prism files from PUI [[:gear:#155826092](https://www.pivotaltracker.com/story/show/155826092)] ([20ae2576](https://github.com/pivotal-cf/pivotal-ui/commit/20ae2576))
+  * Style Close Min Max Terminal Buttons (#568) ([3b68ccf1](https://github.com/pivotal-cf/pivotal-ui/commit/3b68ccf1))
+  * Fix spacing around terminal dots in Code component [[:beetle:#160367470](https://www.pivotaltracker.com/story/show/160367470)] ([69a6056a](https://github.com/pivotal-cf/pivotal-ui/commit/69a6056a))
+* **collapse**:
+  * remove weird whitespace on collapse ([86d61890](https://github.com/pivotal-cf/pivotal-ui/commit/86d61890))
+  * Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **colors**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **copy-to-clipboard**: Remove deprecated non-namespaced CSS classes from copy-to-clipboard ([a2a55921](https://github.com/pivotal-cf/pivotal-ui/commit/a2a55921))
+* **dropdowns**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Fix background color of title in split dropdowns [[:beetle:#164609841](https://www.pivotaltracker.com/story/show/164609841)] ([723042d7](https://github.com/pivotal-cf/pivotal-ui/commit/723042d7))
+  * Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **flex-grids**:
+  * Add flexDirection prop to Grid component (#588) ([f9ffdfb0](https://github.com/pivotal-cf/pivotal-ui/commit/f9ffdfb0))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **flyout**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **forms**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **hoverable**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **iconography**:
+  * Define icons as React components to eliminate SVG -&gt; JSX build step and allow testing ([9cf99003](https://github.com/pivotal-cf/pivotal-ui/commit/9cf99003))
+  * Do not hardcode fill value in print and highlight icons [[:beetle:#162360007](https://www.pivotaltracker.com/story/show/162360007)] ([36e67b0a](https://github.com/pivotal-cf/pivotal-ui/commit/36e67b0a))
+  * Update upload icon [[:star:#160146179](https://www.pivotaltracker.com/story/show/160146179)] ([00f88aaf](https://github.com/pivotal-cf/pivotal-ui/commit/00f88aaf))
+  * delete 'highlight_off' icon [[:star:#160146327](https://www.pivotaltracker.com/story/show/160146327)] ([d120525d](https://github.com/pivotal-cf/pivotal-ui/commit/d120525d))
+  * delete 'done' icon [[:star:#160146441](https://www.pivotaltracker.com/story/show/160146441)] ([3b5f2a55](https://github.com/pivotal-cf/pivotal-ui/commit/3b5f2a55))
+* **inputs**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **mixins.scss**: Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+* **modal**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Fix modal exit button positioning [[:beetle:#161400408](https://www.pivotaltracker.com/story/show/161400408)] ([afee8dde](https://github.com/pivotal-cf/pivotal-ui/commit/afee8dde))
+* **notifications**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pagination**:
+  * raquel told us to change pagination color and table hover state ([4e50d95a](https://github.com/pivotal-cf/pivotal-ui/commit/4e50d95a))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **panels**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **progress-bar**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pui-variables.scss**:
+  * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * make form errors bright special red ([9faed0cc](https://github.com/pivotal-cf/pivotal-ui/commit/9faed0cc))
+  * add hover overlay colors for dark and light backgrounds ([f2bac3fb](https://github.com/pivotal-cf/pivotal-ui/commit/f2bac3fb))
+  * rename onLite and onDark colors to be non button-specific ([8030fa11](https://github.com/pivotal-cf/pivotal-ui/commit/8030fa11))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+  * raquel told us to change pagination color and table hover state ([4e50d95a](https://github.com/pivotal-cf/pivotal-ui/commit/4e50d95a))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Style Close Min Max Terminal Buttons (#568) ([3b68ccf1](https://github.com/pivotal-cf/pivotal-ui/commit/3b68ccf1))
+* **radio**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **select**: Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+* **selection**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **siteframe**:
+  * Remove account-dropdown specific styling from siteframe that belongs in Apps Manager ([50e0de09](https://github.com/pivotal-cf/pivotal-ui/commit/50e0de09))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([9e6dabfc](https://github.com/pivotal-cf/pivotal-ui/commit/9e6dabfc))
+  * anchors within the Siteframe header should inherit color [[:beetle:#162746306](https://www.pivotaltracker.com/story/show/162746306)] ([201d5a3b](https://github.com/pivotal-cf/pivotal-ui/commit/201d5a3b))
+  * Introduce Siteframe component [[:star:#162564229](https://www.pivotaltracker.com/story/show/162564229)] ([282e2cd0](https://github.com/pivotal-cf/pivotal-ui/commit/282e2cd0))
+* **tables**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **text-filter**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **theme-context**: Remove account-dropdown specific styling from siteframe that belongs in Apps Manager ([50e0de09](https://github.com/pivotal-cf/pivotal-ui/commit/50e0de09))
+* **toggle**:
+  * Make toggle checked color consistent with checkboxes + radio buttons [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([48d6cad5](https://github.com/pivotal-cf/pivotal-ui/commit/48d6cad5))
+  * Remove deprecated non-namespaced CSS classes from toggle ([0336c9f8](https://github.com/pivotal-cf/pivotal-ui/commit/0336c9f8))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **typography**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+#### JS
+* **prismjs**: Remove deprecated Prism files from PUI [[:gear:#155826092](https://www.pivotaltracker.com/story/show/155826092)] ([20ae2576](https://github.com/pivotal-cf/pivotal-ui/commit/20ae2576))
+#### React
+* **alerts**:
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * Remove deprecated non-namespaced CSS classes from alerts ([c5502097](https://github.com/pivotal-cf/pivotal-ui/commit/c5502097))
+* **back-to-top**:
+  * Remove deprecated non-namespaced CSS classes from back-to-top ([ae280091](https://github.com/pivotal-cf/pivotal-ui/commit/ae280091))
+  * BackToTop alwaysVisible should listen to scroll on element, when provided [[:beetle:#160151510](https://www.pivotaltracker.com/story/show/160151510)] ([cf31e8cb](https://github.com/pivotal-cf/pivotal-ui/commit/cf31e8cb))
+  * fix backToTop in Chrome when scrollableId not set [[:beetle:#160149375](https://www.pivotaltracker.com/story/show/160149375)] ([2c61158c](https://github.com/pivotal-cf/pivotal-ui/commit/2c61158c))
+* **buttons**:
+  * Allow button's onDark prop to override theme provider setting [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([7b4970c2](https://github.com/pivotal-cf/pivotal-ui/commit/7b4970c2))
+  * Make button components derive onDark prop from theme context ([46f1201a](https://github.com/pivotal-cf/pivotal-ui/commit/46f1201a))
+  * Use Fragments to simplify markup in buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([26bb1a1d](https://github.com/pivotal-cf/pivotal-ui/commit/26bb1a1d))
+  * Add onDark prop to buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([6979be27](https://github.com/pivotal-cf/pivotal-ui/commit/6979be27))
+  * Rename pui-btn--icon class name to pui-btn--icon-only [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([2823332f](https://github.com/pivotal-cf/pivotal-ui/commit/2823332f))
+  * Use BEM in button class names [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([c52719e4](https://github.com/pivotal-cf/pivotal-ui/commit/c52719e4))
+  * Remove deprecated non-namespaced CSS classes from buttons ([cca3e5de](https://github.com/pivotal-cf/pivotal-ui/commit/cca3e5de))
+  * Add console warning on icon-only buttons that do not have an aria-label [[:beetle:#162823155](https://www.pivotaltracker.com/story/show/162823155)] ([6b9cb919](https://github.com/pivotal-cf/pivotal-ui/commit/6b9cb919))
+* **checkbox**:
+  * Make noSelect prop default to undefined for Checkbox/Radio ([296dc744](https://github.com/pivotal-cf/pivotal-ui/commit/296dc744))
+  * Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **checkbox-dropdown**: CheckboxDropdown accepts initial state for box checked-ness. ([88c35c6a](https://github.com/pivotal-cf/pivotal-ui/commit/88c35c6a))
+* **collapse**: Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **collapsible**: Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **context**: Add new ThemeProvider/ThemeConsumer components ([6bffe690](https://github.com/pivotal-cf/pivotal-ui/commit/6bffe690))
+* **copy-to-clipboard**: Remove deprecated non-namespaced CSS classes from copy-to-clipboard ([a2a55921](https://github.com/pivotal-cf/pivotal-ui/commit/a2a55921))
+* **flex-grids**:
+  * Add flexDirection prop to Grid component (#588) ([f9ffdfb0](https://github.com/pivotal-cf/pivotal-ui/commit/f9ffdfb0))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **forms**:
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * when modifying a checkbox field, call the onModified callback (#587) ([395e4aef](https://github.com/pivotal-cf/pivotal-ui/commit/395e4aef))
+  * Use lodash.cloneDeep in Form to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([21d49234](https://github.com/pivotal-cf/pivotal-ui/commit/21d49234))
+  * Form: only pass callback to setState when custom onChange is provided [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([38cf1cca](https://github.com/pivotal-cf/pivotal-ui/commit/38cf1cca))
+  * Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([11d73de8](https://github.com/pivotal-cf/pivotal-ui/commit/11d73de8))
+* **iconography**: Define icons as React components to eliminate SVG -&gt; JSX build step and allow testing ([9cf99003](https://github.com/pivotal-cf/pivotal-ui/commit/9cf99003))
+* **inputs**: Add innerRef prop to Input component ([3d0c696f](https://github.com/pivotal-cf/pivotal-ui/commit/3d0c696f))
+* **media**: Allow passing vAlign='top' to Media without warning [[:beetle:#160148430](https://www.pivotaltracker.com/story/show/160148430)] ([028b28d9](https://github.com/pivotal-cf/pivotal-ui/commit/028b28d9))
+* **notifications**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pagination**: Add console warning on icon-only buttons that do not have an aria-label [[:beetle:#162823155](https://www.pivotaltracker.com/story/show/162823155)] ([6b9cb919](https://github.com/pivotal-cf/pivotal-ui/commit/6b9cb919))
+* **panels**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **radio**:
+  * Set readOnly: true on Radios in RadioGroups without onChanges to fix React warning ([ebe91be0](https://github.com/pivotal-cf/pivotal-ui/commit/ebe91be0))
+  * Make noSelect prop default to undefined for Checkbox/Radio ([296dc744](https://github.com/pivotal-cf/pivotal-ui/commit/296dc744))
+  * Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **select**: Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+* **siteframe**:
+  * Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([9e6dabfc](https://github.com/pivotal-cf/pivotal-ui/commit/9e6dabfc))
+  * Allow companyName and productName props in Siteframe to be a node [[:beetle:#162669087](https://www.pivotaltracker.com/story/show/162669087)] ([c6104bae](https://github.com/pivotal-cf/pivotal-ui/commit/c6104bae))
+  * Introduce Siteframe component [[:star:#162564229](https://www.pivotaltracker.com/story/show/162564229)] ([282e2cd0](https://github.com/pivotal-cf/pivotal-ui/commit/282e2cd0))
+* **table**: Table should not require 'attribute' on column [[:beetle:#159752146](https://www.pivotaltracker.com/story/show/159752146)] ([39cf6692](https://github.com/pivotal-cf/pivotal-ui/commit/39cf6692))
+* **tabs**:
+  * Make tabs clickable via keyboard navigation [[:beetle:#158048701](https://www.pivotaltracker.com/story/show/158048701)] ([0a509da7](https://github.com/pivotal-cf/pivotal-ui/commit/0a509da7))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **toggle**: Remove deprecated non-namespaced CSS classes from toggle ([0336c9f8](https://github.com/pivotal-cf/pivotal-ui/commit/0336c9f8))
+<a name="18.0.0"></a>
+# 18.0.0 (2019-03-13)
+#### CSS
+* **alerts**:
+  * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * Remove deprecated non-namespaced CSS classes from alerts ([c5502097](https://github.com/pivotal-cf/pivotal-ui/commit/c5502097))
+  * Fix nested flex issue on Alerts (#586) ([f7748a93](https://github.com/pivotal-cf/pivotal-ui/commit/f7748a93))
+* **autocomplete**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **back-to-top**:
+  * Remove deprecated non-namespaced CSS classes from back-to-top ([ae280091](https://github.com/pivotal-cf/pivotal-ui/commit/ae280091))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **button-group**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+* **buttons**:
+  * Remove box shadow from alt buttons [#164456663] ([54aff492](https://github.com/pivotal-cf/pivotal-ui/commit/54aff492))
+  * fix line-height calculation to center text in buttons ([89a26c7e](https://github.com/pivotal-cf/pivotal-ui/commit/89a26c7e))
+  * Fix margin next to icon in button with iconPosition=right, refactor button scss ([777d11ed](https://github.com/pivotal-cf/pivotal-ui/commit/777d11ed))
+  * Remove box-shadow from flat buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([048025b9](https://github.com/pivotal-cf/pivotal-ui/commit/048025b9))
+  * Add 50ms transition to button outlines on focus ([aa6efbb5](https://github.com/pivotal-cf/pivotal-ui/commit/aa6efbb5))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+  * Remove deprecated non-namespaced CSS classes from buttons ([cca3e5de](https://github.com/pivotal-cf/pivotal-ui/commit/cca3e5de))
+  * Fix buttons not being disabled within a disabled fieldset ([c5458743](https://github.com/pivotal-cf/pivotal-ui/commit/c5458743))
+* **checkbox**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **code**:
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Remove deprecated Prism files from PUI [[:gear:#155826092](https://www.pivotaltracker.com/story/show/155826092)] ([20ae2576](https://github.com/pivotal-cf/pivotal-ui/commit/20ae2576))
+  * Style Close Min Max Terminal Buttons (#568) ([3b68ccf1](https://github.com/pivotal-cf/pivotal-ui/commit/3b68ccf1))
+  * Fix spacing around terminal dots in Code component [[:beetle:#160367470](https://www.pivotaltracker.com/story/show/160367470)] ([69a6056a](https://github.com/pivotal-cf/pivotal-ui/commit/69a6056a))
+* **collapse**:
+  * remove weird whitespace on collapse ([86d61890](https://github.com/pivotal-cf/pivotal-ui/commit/86d61890))
+  * Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **colors**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **copy-to-clipboard**: Remove deprecated non-namespaced CSS classes from copy-to-clipboard ([a2a55921](https://github.com/pivotal-cf/pivotal-ui/commit/a2a55921))
+* **dropdowns**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Fix background color of title in split dropdowns [[:beetle:#164609841](https://www.pivotaltracker.com/story/show/164609841)] ([723042d7](https://github.com/pivotal-cf/pivotal-ui/commit/723042d7))
+  * Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **flex-grids**:
+  * Add flexDirection prop to Grid component (#588) ([f9ffdfb0](https://github.com/pivotal-cf/pivotal-ui/commit/f9ffdfb0))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **flyout**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **forms**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **hoverable**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **iconography**:
+  * Define icons as React components to eliminate SVG -&gt; JSX build step and allow testing ([9cf99003](https://github.com/pivotal-cf/pivotal-ui/commit/9cf99003))
+  * Do not hardcode fill value in print and highlight icons [[:beetle:#162360007](https://www.pivotaltracker.com/story/show/162360007)] ([36e67b0a](https://github.com/pivotal-cf/pivotal-ui/commit/36e67b0a))
+  * Update upload icon [[:star:#160146179](https://www.pivotaltracker.com/story/show/160146179)] ([00f88aaf](https://github.com/pivotal-cf/pivotal-ui/commit/00f88aaf))
+  * delete 'highlight_off' icon [[:star:#160146327](https://www.pivotaltracker.com/story/show/160146327)] ([d120525d](https://github.com/pivotal-cf/pivotal-ui/commit/d120525d))
+  * delete 'done' icon [[:star:#160146441](https://www.pivotaltracker.com/story/show/160146441)] ([3b5f2a55](https://github.com/pivotal-cf/pivotal-ui/commit/3b5f2a55))
+* **inputs**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **mixins.scss**: Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+* **modal**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Fix modal exit button positioning [[:beetle:#161400408](https://www.pivotaltracker.com/story/show/161400408)] ([afee8dde](https://github.com/pivotal-cf/pivotal-ui/commit/afee8dde))
+* **notifications**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pagination**:
+  * raquel told us to change pagination color and table hover state ([4e50d95a](https://github.com/pivotal-cf/pivotal-ui/commit/4e50d95a))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **panels**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **progress-bar**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pui-variables.scss**:
+  * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * make form errors bright special red ([9faed0cc](https://github.com/pivotal-cf/pivotal-ui/commit/9faed0cc))
+  * add hover overlay colors for dark and light backgrounds ([f2bac3fb](https://github.com/pivotal-cf/pivotal-ui/commit/f2bac3fb))
+  * rename onLite and onDark colors to be non button-specific ([8030fa11](https://github.com/pivotal-cf/pivotal-ui/commit/8030fa11))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+  * raquel told us to change pagination color and table hover state ([4e50d95a](https://github.com/pivotal-cf/pivotal-ui/commit/4e50d95a))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Style Close Min Max Terminal Buttons (#568) ([3b68ccf1](https://github.com/pivotal-cf/pivotal-ui/commit/3b68ccf1))
+* **radio**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **select**: Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+* **selection**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **siteframe**:
+  * Remove account-dropdown specific styling from siteframe that belongs in Apps Manager ([50e0de09](https://github.com/pivotal-cf/pivotal-ui/commit/50e0de09))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([9e6dabfc](https://github.com/pivotal-cf/pivotal-ui/commit/9e6dabfc))
+  * anchors within the Siteframe header should inherit color [[:beetle:#162746306](https://www.pivotaltracker.com/story/show/162746306)] ([201d5a3b](https://github.com/pivotal-cf/pivotal-ui/commit/201d5a3b))
+  * Introduce Siteframe component [[:star:#162564229](https://www.pivotaltracker.com/story/show/162564229)] ([282e2cd0](https://github.com/pivotal-cf/pivotal-ui/commit/282e2cd0))
+* **tables**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **text-filter**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **theme-context**: Remove account-dropdown specific styling from siteframe that belongs in Apps Manager ([50e0de09](https://github.com/pivotal-cf/pivotal-ui/commit/50e0de09))
+* **toggle**:
+  * Make toggle checked color consistent with checkboxes + radio buttons [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([48d6cad5](https://github.com/pivotal-cf/pivotal-ui/commit/48d6cad5))
+  * Remove deprecated non-namespaced CSS classes from toggle ([0336c9f8](https://github.com/pivotal-cf/pivotal-ui/commit/0336c9f8))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **typography**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+#### JS
+* **prismjs**: Remove deprecated Prism files from PUI [[:gear:#155826092](https://www.pivotaltracker.com/story/show/155826092)] ([20ae2576](https://github.com/pivotal-cf/pivotal-ui/commit/20ae2576))
+#### React
+* **alerts**:
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * Remove deprecated non-namespaced CSS classes from alerts ([c5502097](https://github.com/pivotal-cf/pivotal-ui/commit/c5502097))
+* **back-to-top**:
+  * Remove deprecated non-namespaced CSS classes from back-to-top ([ae280091](https://github.com/pivotal-cf/pivotal-ui/commit/ae280091))
+  * BackToTop alwaysVisible should listen to scroll on element, when provided [[:beetle:#160151510](https://www.pivotaltracker.com/story/show/160151510)] ([cf31e8cb](https://github.com/pivotal-cf/pivotal-ui/commit/cf31e8cb))
+  * fix backToTop in Chrome when scrollableId not set [[:beetle:#160149375](https://www.pivotaltracker.com/story/show/160149375)] ([2c61158c](https://github.com/pivotal-cf/pivotal-ui/commit/2c61158c))
+* **buttons**:
+  * Allow button's onDark prop to override theme provider setting [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([7b4970c2](https://github.com/pivotal-cf/pivotal-ui/commit/7b4970c2))
+  * Make button components derive onDark prop from theme context ([46f1201a](https://github.com/pivotal-cf/pivotal-ui/commit/46f1201a))
+  * Use Fragments to simplify markup in buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([26bb1a1d](https://github.com/pivotal-cf/pivotal-ui/commit/26bb1a1d))
+  * Add onDark prop to buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([6979be27](https://github.com/pivotal-cf/pivotal-ui/commit/6979be27))
+  * Rename pui-btn--icon class name to pui-btn--icon-only [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([2823332f](https://github.com/pivotal-cf/pivotal-ui/commit/2823332f))
+  * Use BEM in button class names [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([c52719e4](https://github.com/pivotal-cf/pivotal-ui/commit/c52719e4))
+  * Remove deprecated non-namespaced CSS classes from buttons ([cca3e5de](https://github.com/pivotal-cf/pivotal-ui/commit/cca3e5de))
+  * Add console warning on icon-only buttons that do not have an aria-label [[:beetle:#162823155](https://www.pivotaltracker.com/story/show/162823155)] ([6b9cb919](https://github.com/pivotal-cf/pivotal-ui/commit/6b9cb919))
+* **checkbox**:
+  * Make noSelect prop default to undefined for Checkbox/Radio ([296dc744](https://github.com/pivotal-cf/pivotal-ui/commit/296dc744))
+  * Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **checkbox-dropdown**: CheckboxDropdown accepts initial state for box checked-ness. ([88c35c6a](https://github.com/pivotal-cf/pivotal-ui/commit/88c35c6a))
+* **collapse**: Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **collapsible**: Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **context**: Add new ThemeProvider/ThemeConsumer components ([6bffe690](https://github.com/pivotal-cf/pivotal-ui/commit/6bffe690))
+* **copy-to-clipboard**: Remove deprecated non-namespaced CSS classes from copy-to-clipboard ([a2a55921](https://github.com/pivotal-cf/pivotal-ui/commit/a2a55921))
+* **flex-grids**:
+  * Add flexDirection prop to Grid component (#588) ([f9ffdfb0](https://github.com/pivotal-cf/pivotal-ui/commit/f9ffdfb0))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **forms**:
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * when modifying a checkbox field, call the onModified callback (#587) ([395e4aef](https://github.com/pivotal-cf/pivotal-ui/commit/395e4aef))
+  * Use lodash.cloneDeep in Form to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([21d49234](https://github.com/pivotal-cf/pivotal-ui/commit/21d49234))
+  * Form: only pass callback to setState when custom onChange is provided [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([38cf1cca](https://github.com/pivotal-cf/pivotal-ui/commit/38cf1cca))
+  * Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([11d73de8](https://github.com/pivotal-cf/pivotal-ui/commit/11d73de8))
+* **iconography**: Define icons as React components to eliminate SVG -&gt; JSX build step and allow testing ([9cf99003](https://github.com/pivotal-cf/pivotal-ui/commit/9cf99003))
+* **inputs**: Add innerRef prop to Input component ([3d0c696f](https://github.com/pivotal-cf/pivotal-ui/commit/3d0c696f))
+* **media**: Allow passing vAlign='top' to Media without warning [[:beetle:#160148430](https://www.pivotaltracker.com/story/show/160148430)] ([028b28d9](https://github.com/pivotal-cf/pivotal-ui/commit/028b28d9))
+* **notifications**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pagination**: Add console warning on icon-only buttons that do not have an aria-label [[:beetle:#162823155](https://www.pivotaltracker.com/story/show/162823155)] ([6b9cb919](https://github.com/pivotal-cf/pivotal-ui/commit/6b9cb919))
+* **panels**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **radio**:
+  * Set readOnly: true on Radios in RadioGroups without onChanges to fix React warning ([ebe91be0](https://github.com/pivotal-cf/pivotal-ui/commit/ebe91be0))
+  * Make noSelect prop default to undefined for Checkbox/Radio ([296dc744](https://github.com/pivotal-cf/pivotal-ui/commit/296dc744))
+  * Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **select**: Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+* **siteframe**:
+  * Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([9e6dabfc](https://github.com/pivotal-cf/pivotal-ui/commit/9e6dabfc))
+  * Allow companyName and productName props in Siteframe to be a node [[:beetle:#162669087](https://www.pivotaltracker.com/story/show/162669087)] ([c6104bae](https://github.com/pivotal-cf/pivotal-ui/commit/c6104bae))
+  * Introduce Siteframe component [[:star:#162564229](https://www.pivotaltracker.com/story/show/162564229)] ([282e2cd0](https://github.com/pivotal-cf/pivotal-ui/commit/282e2cd0))
+* **table**: Table should not require 'attribute' on column [[:beetle:#159752146](https://www.pivotaltracker.com/story/show/159752146)] ([39cf6692](https://github.com/pivotal-cf/pivotal-ui/commit/39cf6692))
+* **tabs**:
+  * Make tabs clickable via keyboard navigation [[:beetle:#158048701](https://www.pivotaltracker.com/story/show/158048701)] ([0a509da7](https://github.com/pivotal-cf/pivotal-ui/commit/0a509da7))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **toggle**: Remove deprecated non-namespaced CSS classes from toggle ([0336c9f8](https://github.com/pivotal-cf/pivotal-ui/commit/0336c9f8))
+<a name="18.0.0"></a>
+# 18.0.0 (2019-03-13)
+#### CSS
+* **alerts**:
+  * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * Remove deprecated non-namespaced CSS classes from alerts ([c5502097](https://github.com/pivotal-cf/pivotal-ui/commit/c5502097))
+  * Fix nested flex issue on Alerts (#586) ([f7748a93](https://github.com/pivotal-cf/pivotal-ui/commit/f7748a93))
+* **autocomplete**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **back-to-top**:
+  * Remove deprecated non-namespaced CSS classes from back-to-top ([ae280091](https://github.com/pivotal-cf/pivotal-ui/commit/ae280091))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **button-group**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+* **buttons**:
+  * Remove box shadow from alt buttons [#164456663] ([54aff492](https://github.com/pivotal-cf/pivotal-ui/commit/54aff492))
+  * fix line-height calculation to center text in buttons ([89a26c7e](https://github.com/pivotal-cf/pivotal-ui/commit/89a26c7e))
+  * Fix margin next to icon in button with iconPosition=right, refactor button scss ([777d11ed](https://github.com/pivotal-cf/pivotal-ui/commit/777d11ed))
+  * Remove box-shadow from flat buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([048025b9](https://github.com/pivotal-cf/pivotal-ui/commit/048025b9))
+  * Add 50ms transition to button outlines on focus ([aa6efbb5](https://github.com/pivotal-cf/pivotal-ui/commit/aa6efbb5))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+  * Remove deprecated non-namespaced CSS classes from buttons ([cca3e5de](https://github.com/pivotal-cf/pivotal-ui/commit/cca3e5de))
+  * Fix buttons not being disabled within a disabled fieldset ([c5458743](https://github.com/pivotal-cf/pivotal-ui/commit/c5458743))
+* **checkbox**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **code**:
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Remove deprecated Prism files from PUI [[:gear:#155826092](https://www.pivotaltracker.com/story/show/155826092)] ([20ae2576](https://github.com/pivotal-cf/pivotal-ui/commit/20ae2576))
+  * Style Close Min Max Terminal Buttons (#568) ([3b68ccf1](https://github.com/pivotal-cf/pivotal-ui/commit/3b68ccf1))
+  * Fix spacing around terminal dots in Code component [[:beetle:#160367470](https://www.pivotaltracker.com/story/show/160367470)] ([69a6056a](https://github.com/pivotal-cf/pivotal-ui/commit/69a6056a))
+* **collapse**:
+  * remove weird whitespace on collapse ([86d61890](https://github.com/pivotal-cf/pivotal-ui/commit/86d61890))
+  * Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **colors**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **copy-to-clipboard**: Remove deprecated non-namespaced CSS classes from copy-to-clipboard ([a2a55921](https://github.com/pivotal-cf/pivotal-ui/commit/a2a55921))
+* **dropdowns**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Fix background color of title in split dropdowns [[:beetle:#164609841](https://www.pivotaltracker.com/story/show/164609841)] ([723042d7](https://github.com/pivotal-cf/pivotal-ui/commit/723042d7))
+  * Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **flex-grids**:
+  * Add flexDirection prop to Grid component (#588) ([f9ffdfb0](https://github.com/pivotal-cf/pivotal-ui/commit/f9ffdfb0))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **flyout**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **forms**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **hoverable**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **iconography**:
+  * Define icons as React components to eliminate SVG -&gt; JSX build step and allow testing ([9cf99003](https://github.com/pivotal-cf/pivotal-ui/commit/9cf99003))
+  * Do not hardcode fill value in print and highlight icons [[:beetle:#162360007](https://www.pivotaltracker.com/story/show/162360007)] ([36e67b0a](https://github.com/pivotal-cf/pivotal-ui/commit/36e67b0a))
+  * Update upload icon [[:star:#160146179](https://www.pivotaltracker.com/story/show/160146179)] ([00f88aaf](https://github.com/pivotal-cf/pivotal-ui/commit/00f88aaf))
+  * delete 'highlight_off' icon [[:star:#160146327](https://www.pivotaltracker.com/story/show/160146327)] ([d120525d](https://github.com/pivotal-cf/pivotal-ui/commit/d120525d))
+  * delete 'done' icon [[:star:#160146441](https://www.pivotaltracker.com/story/show/160146441)] ([3b5f2a55](https://github.com/pivotal-cf/pivotal-ui/commit/3b5f2a55))
+* **inputs**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **mixins.scss**: Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+* **modal**:
+  * Remove deprecated button group styles & documentation [[:gear:#164339716](https://www.pivotaltracker.com/story/show/164339716)] ([40723188](https://github.com/pivotal-cf/pivotal-ui/commit/40723188))
+  * Fix modal exit button positioning [[:beetle:#161400408](https://www.pivotaltracker.com/story/show/161400408)] ([afee8dde](https://github.com/pivotal-cf/pivotal-ui/commit/afee8dde))
+* **notifications**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pagination**:
+  * raquel told us to change pagination color and table hover state ([4e50d95a](https://github.com/pivotal-cf/pivotal-ui/commit/4e50d95a))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **panels**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **progress-bar**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pui-variables.scss**:
+  * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * make form errors bright special red ([9faed0cc](https://github.com/pivotal-cf/pivotal-ui/commit/9faed0cc))
+  * add hover overlay colors for dark and light backgrounds ([f2bac3fb](https://github.com/pivotal-cf/pivotal-ui/commit/f2bac3fb))
+  * rename onLite and onDark colors to be non button-specific ([8030fa11](https://github.com/pivotal-cf/pivotal-ui/commit/8030fa11))
+  * Update button & button_group CSS for new color palette [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([a2b1a1d1](https://github.com/pivotal-cf/pivotal-ui/commit/a2b1a1d1))
+  * raquel told us to change pagination color and table hover state ([4e50d95a](https://github.com/pivotal-cf/pivotal-ui/commit/4e50d95a))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Style Close Min Max Terminal Buttons (#568) ([3b68ccf1](https://github.com/pivotal-cf/pivotal-ui/commit/3b68ccf1))
+* **radio**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **select**: Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+* **selection**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **siteframe**:
+  * Remove account-dropdown specific styling from siteframe that belongs in Apps Manager ([50e0de09](https://github.com/pivotal-cf/pivotal-ui/commit/50e0de09))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([9e6dabfc](https://github.com/pivotal-cf/pivotal-ui/commit/9e6dabfc))
+  * anchors within the Siteframe header should inherit color [[:beetle:#162746306](https://www.pivotaltracker.com/story/show/162746306)] ([201d5a3b](https://github.com/pivotal-cf/pivotal-ui/commit/201d5a3b))
+  * Introduce Siteframe component [[:star:#162564229](https://www.pivotaltracker.com/story/show/162564229)] ([282e2cd0](https://github.com/pivotal-cf/pivotal-ui/commit/282e2cd0))
+* **tables**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **text-filter**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **theme-context**: Remove account-dropdown specific styling from siteframe that belongs in Apps Manager ([50e0de09](https://github.com/pivotal-cf/pivotal-ui/commit/50e0de09))
+* **toggle**:
+  * Make toggle checked color consistent with checkboxes + radio buttons [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([48d6cad5](https://github.com/pivotal-cf/pivotal-ui/commit/48d6cad5))
+  * Remove deprecated non-namespaced CSS classes from toggle ([0336c9f8](https://github.com/pivotal-cf/pivotal-ui/commit/0336c9f8))
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **typography**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+#### JS
+* **prismjs**: Remove deprecated Prism files from PUI [[:gear:#155826092](https://www.pivotaltracker.com/story/show/155826092)] ([20ae2576](https://github.com/pivotal-cf/pivotal-ui/commit/20ae2576))
+#### React
+* **alerts**:
+  * Update alerts for new color palette + accessibility [#164292905] ([1d84421d](https://github.com/pivotal-cf/pivotal-ui/commit/1d84421d))
+  * Remove deprecated non-namespaced CSS classes from alerts ([c5502097](https://github.com/pivotal-cf/pivotal-ui/commit/c5502097))
+* **back-to-top**:
+  * Remove deprecated non-namespaced CSS classes from back-to-top ([ae280091](https://github.com/pivotal-cf/pivotal-ui/commit/ae280091))
+  * BackToTop alwaysVisible should listen to scroll on element, when provided [[:beetle:#160151510](https://www.pivotaltracker.com/story/show/160151510)] ([cf31e8cb](https://github.com/pivotal-cf/pivotal-ui/commit/cf31e8cb))
+  * fix backToTop in Chrome when scrollableId not set [[:beetle:#160149375](https://www.pivotaltracker.com/story/show/160149375)] ([2c61158c](https://github.com/pivotal-cf/pivotal-ui/commit/2c61158c))
+* **buttons**:
+  * Allow button's onDark prop to override theme provider setting [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([7b4970c2](https://github.com/pivotal-cf/pivotal-ui/commit/7b4970c2))
+  * Make button components derive onDark prop from theme context ([46f1201a](https://github.com/pivotal-cf/pivotal-ui/commit/46f1201a))
+  * Use Fragments to simplify markup in buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([26bb1a1d](https://github.com/pivotal-cf/pivotal-ui/commit/26bb1a1d))
+  * Add onDark prop to buttons [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([6979be27](https://github.com/pivotal-cf/pivotal-ui/commit/6979be27))
+  * Rename pui-btn--icon class name to pui-btn--icon-only [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([2823332f](https://github.com/pivotal-cf/pivotal-ui/commit/2823332f))
+  * Use BEM in button class names [[:star:#164253492](https://www.pivotaltracker.com/story/show/164253492)] ([c52719e4](https://github.com/pivotal-cf/pivotal-ui/commit/c52719e4))
+  * Remove deprecated non-namespaced CSS classes from buttons ([cca3e5de](https://github.com/pivotal-cf/pivotal-ui/commit/cca3e5de))
+  * Add console warning on icon-only buttons that do not have an aria-label [[:beetle:#162823155](https://www.pivotaltracker.com/story/show/162823155)] ([6b9cb919](https://github.com/pivotal-cf/pivotal-ui/commit/6b9cb919))
+* **checkbox**:
+  * Make noSelect prop default to undefined for Checkbox/Radio ([296dc744](https://github.com/pivotal-cf/pivotal-ui/commit/296dc744))
+  * Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **checkbox-dropdown**: CheckboxDropdown accepts initial state for box checked-ness. ([88c35c6a](https://github.com/pivotal-cf/pivotal-ui/commit/88c35c6a))
+* **collapse**: Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **collapsible**: Remove deprecated non-namespaced CSS classes from collapse & collapsible ([413ee32e](https://github.com/pivotal-cf/pivotal-ui/commit/413ee32e))
+* **context**: Add new ThemeProvider/ThemeConsumer components ([6bffe690](https://github.com/pivotal-cf/pivotal-ui/commit/6bffe690))
+* **copy-to-clipboard**: Remove deprecated non-namespaced CSS classes from copy-to-clipboard ([a2a55921](https://github.com/pivotal-cf/pivotal-ui/commit/a2a55921))
+* **flex-grids**:
+  * Add flexDirection prop to Grid component (#588) ([f9ffdfb0](https://github.com/pivotal-cf/pivotal-ui/commit/f9ffdfb0))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **forms**:
+  * Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+  * when modifying a checkbox field, call the onModified callback (#587) ([395e4aef](https://github.com/pivotal-cf/pivotal-ui/commit/395e4aef))
+  * Use lodash.cloneDeep in Form to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([21d49234](https://github.com/pivotal-cf/pivotal-ui/commit/21d49234))
+  * Form: only pass callback to setState when custom onChange is provided [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([38cf1cca](https://github.com/pivotal-cf/pivotal-ui/commit/38cf1cca))
+  * Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([11d73de8](https://github.com/pivotal-cf/pivotal-ui/commit/11d73de8))
+* **iconography**: Define icons as React components to eliminate SVG -&gt; JSX build step and allow testing ([9cf99003](https://github.com/pivotal-cf/pivotal-ui/commit/9cf99003))
+* **inputs**: Add innerRef prop to Input component ([3d0c696f](https://github.com/pivotal-cf/pivotal-ui/commit/3d0c696f))
+* **media**: Allow passing vAlign='top' to Media without warning [[:beetle:#160148430](https://www.pivotaltracker.com/story/show/160148430)] ([028b28d9](https://github.com/pivotal-cf/pivotal-ui/commit/028b28d9))
+* **notifications**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **pagination**: Add console warning on icon-only buttons that do not have an aria-label [[:beetle:#162823155](https://www.pivotaltracker.com/story/show/162823155)] ([6b9cb919](https://github.com/pivotal-cf/pivotal-ui/commit/6b9cb919))
+* **panels**: Switch to new color palette [[:star:#164018225](https://www.pivotaltracker.com/story/show/164018225)] ([215197cf](https://github.com/pivotal-cf/pivotal-ui/commit/215197cf))
+* **radio**:
+  * Set readOnly: true on Radios in RadioGroups without onChanges to fix React warning ([ebe91be0](https://github.com/pivotal-cf/pivotal-ui/commit/ebe91be0))
+  * Make noSelect prop default to undefined for Checkbox/Radio ([296dc744](https://github.com/pivotal-cf/pivotal-ui/commit/296dc744))
+  * Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([835c8574](https://github.com/pivotal-cf/pivotal-ui/commit/835c8574))
+* **select**: Remove deprecated React Select component [[:gear:#164616273](https://www.pivotaltracker.com/story/show/164616273)] ([30ee187b](https://github.com/pivotal-cf/pivotal-ui/commit/30ee187b))
+* **siteframe**:
+  * Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([9e6dabfc](https://github.com/pivotal-cf/pivotal-ui/commit/9e6dabfc))
+  * Allow companyName and productName props in Siteframe to be a node [[:beetle:#162669087](https://www.pivotaltracker.com/story/show/162669087)] ([c6104bae](https://github.com/pivotal-cf/pivotal-ui/commit/c6104bae))
+  * Introduce Siteframe component [[:star:#162564229](https://www.pivotaltracker.com/story/show/162564229)] ([282e2cd0](https://github.com/pivotal-cf/pivotal-ui/commit/282e2cd0))
+* **table**: Table should not require 'attribute' on column [[:beetle:#159752146](https://www.pivotaltracker.com/story/show/159752146)] ([39cf6692](https://github.com/pivotal-cf/pivotal-ui/commit/39cf6692))
+* **tabs**:
+  * Make tabs clickable via keyboard navigation [[:beetle:#158048701](https://www.pivotaltracker.com/story/show/158048701)] ([0a509da7](https://github.com/pivotal-cf/pivotal-ui/commit/0a509da7))
+  * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
+* **toggle**: Remove deprecated non-namespaced CSS classes from toggle ([0336c9f8](https://github.com/pivotal-cf/pivotal-ui/commit/0336c9f8))
+<a name="17.2.0"></a>
+# 17.2.0 (2019-01-11)
+#### CSS
+* **alerts**: Fix nested flex issue on Alerts (#586) ([aedcd84e](https://github.com/pivotal-cf/pivotal-ui/commit/aedcd84e))
+* **flex-grids**: Add flexDirection prop to Grid component (#588) ([b97db226](https://github.com/pivotal-cf/pivotal-ui/commit/b97db226))
+* **siteframe**: Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([0fb0b737](https://github.com/pivotal-cf/pivotal-ui/commit/0fb0b737))
+#### React
+* **flex-grids**: Add flexDirection prop to Grid component (#588) ([b97db226](https://github.com/pivotal-cf/pivotal-ui/commit/b97db226))
+* **forms**: when modifying a checkbox field, call the onModified callback (#587) ([6b9310fd](https://github.com/pivotal-cf/pivotal-ui/commit/6b9310fd))
+* **siteframe**: Make Siteframe header link styling rules apply specifically to header text [[:beetle:#162920819](https://www.pivotaltracker.com/story/show/162920819)] ([0fb0b737](https://github.com/pivotal-cf/pivotal-ui/commit/0fb0b737))
+<a name="17.1.2"></a>
+## 17.1.2 (2018-12-18)
+#### CSS
+* **siteframe**: anchors within the Siteframe header should inherit color [[:beetle:#162746306](https://www.pivotaltracker.com/story/show/162746306)] ([a01c84a9](https://github.com/pivotal-cf/pivotal-ui/commit/a01c84a9))
+<a name="17.1.1"></a>
+## 17.1.1 (2018-12-18)
+#### CSS
+* **iconography**: Do not hardcode fill value in print and highlight icons [[:beetle:#162360007](https://www.pivotaltracker.com/story/show/162360007)] ([057f38b1](https://github.com/pivotal-cf/pivotal-ui/commit/057f38b1))
+* **modal**: Fix modal exit button positioning [[:beetle:#161400408](https://www.pivotaltracker.com/story/show/161400408)] ([e69275fd](https://github.com/pivotal-cf/pivotal-ui/commit/e69275fd))
+* **selection**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([0e4ea1de](https://github.com/pivotal-cf/pivotal-ui/commit/0e4ea1de))
+#### React
+* **checkbox**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([0e4ea1de](https://github.com/pivotal-cf/pivotal-ui/commit/0e4ea1de))
+* **radio**: Add noSelect prop for checkbox and radios [[:beetle:#162585528](https://www.pivotaltracker.com/story/show/162585528)] ([0e4ea1de](https://github.com/pivotal-cf/pivotal-ui/commit/0e4ea1de))
+* **siteframe**: Allow companyName and productName props in Siteframe to be a node [[:beetle:#162669087](https://www.pivotaltracker.com/story/show/162669087)] ([6ee29b48](https://github.com/pivotal-cf/pivotal-ui/commit/6ee29b48))
+<a name="17.1.0"></a>
+# 17.1.0 (2018-12-11)
+#### CSS
+* **siteframe**: Introduce Siteframe component [[:star:#162564229](https://www.pivotaltracker.com/story/show/162564229)] ([bb40bd4c](https://github.com/pivotal-cf/pivotal-ui/commit/bb40bd4c))
+#### React
+* **siteframe**: Introduce Siteframe component [[:star:#162564229](https://www.pivotaltracker.com/story/show/162564229)] ([bb40bd4c](https://github.com/pivotal-cf/pivotal-ui/commit/bb40bd4c))
+<a name="17.0.5"></a>
+## 17.0.5 (2018-12-04)
+#### React
+* **forms**:
+  * Use lodash.cloneDeep in Form to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([00fb9212](https://github.com/pivotal-cf/pivotal-ui/commit/00fb9212))
+  * Form: only pass callback to setState when custom onChange is provided [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([2eeb0907](https://github.com/pivotal-cf/pivotal-ui/commit/2eeb0907))
+  * Form: defer deepEqual comparison until we know onModified prop is set [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([726a82b8](https://github.com/pivotal-cf/pivotal-ui/commit/726a82b8))
+  * In Form, remove unnecessary binding of setState [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([9229f99c](https://github.com/pivotal-cf/pivotal-ui/commit/9229f99c))
+  * In Form, loop over fields more efficiently to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([f4dbb3eb](https://github.com/pivotal-cf/pivotal-ui/commit/f4dbb3eb))
+  * Use for-in to loop over form fields in Form render method to improve performance [[:beetle:#162335682](https://www.pivotaltracker.com/story/show/162335682)] ([9ae1f209](https://github.com/pivotal-cf/pivotal-ui/commit/9ae1f209))
+<a name="17.0.4"></a>
+## 17.0.4 (2018-11-09)
+
+<a name="17.0.3"></a>
+## 17.0.3 (2018-11-05)
+#### CSS
+* **code**:
+  * Fix spacing around terminal dots in Code component [[:beetle:#160367470](https://www.pivotaltracker.com/story/show/160367470)] ([20b1dccd](https://github.com/pivotal-cf/pivotal-ui/commit/20b1dccd))
+  * Style Close Min Max Terminal Buttons (#568) ([bf5c58a1](https://github.com/pivotal-cf/pivotal-ui/commit/bf5c58a1))
+* **pui-variables.scss**: Style Close Min Max Terminal Buttons (#568) ([bf5c58a1](https://github.com/pivotal-cf/pivotal-ui/commit/bf5c58a1))
+#### React
+* **checkbox-dropdown**: CheckboxDropdown accepts initial state for box checked-ness. ([338ab471](https://github.com/pivotal-cf/pivotal-ui/commit/338ab471))
+* **forms**: Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([35c2a68a](https://github.com/pivotal-cf/pivotal-ui/commit/35c2a68a))
+* **table**: Table should not require 'attribute' on column [[:beetle:#159752146](https://www.pivotaltracker.com/story/show/159752146)] ([99653fa7](https://github.com/pivotal-cf/pivotal-ui/commit/99653fa7))
+<a name="17.0.2"></a>
+## 17.0.2 (2018-09-05)
+#### React
+* **back-to-top**:
+  * BackToTop alwaysVisible should listen to scroll on element, when provided [[:beetle:#160151510](https://www.pivotaltracker.com/story/show/160151510)] ([d8e544c1](https://github.com/pivotal-cf/pivotal-ui/commit/d8e544c1))
+  * fix backToTop in Chrome when scrollableId not set [[:beetle:#160149375](https://www.pivotaltracker.com/story/show/160149375)] ([0cb028f9](https://github.com/pivotal-cf/pivotal-ui/commit/0cb028f9))
+* **media**: Allow passing vAlign='top' to Media without warning [[:beetle:#160148430](https://www.pivotaltracker.com/story/show/160148430)] ([9ae41c55](https://github.com/pivotal-cf/pivotal-ui/commit/9ae41c55))
+<a name="17.0.1"></a>
+## 17.0.1 (2018-08-23)
+#### CSS
+* **flex-grids**: New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([4fed70c9](https://github.com/pivotal-cf/pivotal-ui/commit/4fed70c9))
+#### React
+* **flex-grids**: New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([4fed70c9](https://github.com/pivotal-cf/pivotal-ui/commit/4fed70c9))
+* **tabs**: New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([4fed70c9](https://github.com/pivotal-cf/pivotal-ui/commit/4fed70c9))
 <a name="17.0.0"></a>
 # 17.0.0 (2018-08-22)
 #### CSS
@@ -50,6 +556,10 @@
   * Introduce renderThChildren table plugin [[:gear:#159899107](https://www.pivotaltracker.com/story/show/159899107)] ([0ab59be2](https://github.com/pivotal-cf/pivotal-ui/commit/0ab59be2))
   * Use TooltipTrigger instead of OverlayTrigger in Table plugin ([b2247290](https://github.com/pivotal-cf/pivotal-ui/commit/b2247290))
 * **toggle**: Add position: relative to div that wraps Toggle component [[:beetle:#158548185](https://www.pivotaltracker.com/story/show/158548185)] ([b322c772](https://github.com/pivotal-cf/pivotal-ui/commit/b322c772))
+<a name="16.2.1"></a>
+## 16.2.1 (2018-11-05)
+#### React
+* **forms**: Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([546c08b7](https://github.com/pivotal-cf/pivotal-ui/commit/546c08b7))
 <a name="16.2.0"></a>
 # 16.2.0 (2018-08-07)
 #### CSS
@@ -105,7 +615,6 @@ React 16 is no longer a direct dependency. Now, React is a peer dependency, requ
   * Separate common flyout/modal css into dialog css [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([7daaa937](https://github.com/pivotal-cf/pivotal-ui/commit/7daaa937))
   * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
 * **modals**:
-  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
   * Rewrite Modal to improve keyboard navigation and animation performance [[:beetle:#154675375](https://www.pivotaltracker.com/story/show/154675375)] ([ea939561](https://github.com/pivotal-cf/pivotal-ui/commit/ea939561))
   * Apply modal size css classes [[:beetle:#157378266](https://www.pivotaltracker.com/story/show/157378266)] ([fce27525](https://github.com/pivotal-cf/pivotal-ui/commit/fce27525))
 * **panels**: Change panel loading bar speed and color [[:beetle:#155007308](https://www.pivotaltracker.com/story/show/155007308)] ([e19ff0ce](https://github.com/pivotal-cf/pivotal-ui/commit/e19ff0ce))
@@ -161,6 +670,10 @@ React 16 is no longer a direct dependency. Now, React is a peer dependency, requ
 * **stream-list**: delete stream-list [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([aa0222de](https://github.com/pivotal-cf/pivotal-ui/commit/aa0222de))
 * **table**: Add withRenderTdChildren table plugin [[:beetle:#157580060](https://www.pivotaltracker.com/story/show/157580060)] ([4893562c](https://github.com/pivotal-cf/pivotal-ui/commit/4893562c))
 * **toggle**: Move toggle css from form.scss into its own file [[:beetle:#157613435](https://www.pivotaltracker.com/story/show/157613435)] ([14e244e8](https://github.com/pivotal-cf/pivotal-ui/commit/14e244e8))
+<a name="15.1.1"></a>
+## 15.1.1 (2018-11-05)
+#### React
+* **forms**: Form component works for inputs with initial value of 0 [[:beetle:#161687629](https://www.pivotaltracker.com/story/show/161687629)] ([9a10ac01](https://github.com/pivotal-cf/pivotal-ui/commit/9a10ac01))
 <a name="15.1.0"></a>
 # 15.1.0 (2018-07-06)
 React 16 is no longer a direct dependency. Now, React is a peer dependency, requiring version 15 or 16.

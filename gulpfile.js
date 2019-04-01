@@ -6,4 +6,4 @@ require('@babel/polyfill');
 require('./tasks/css-build');
 require('./tasks/react-build');
 require('./tasks/build');
-require('./tasks/release');
+require('./tasks/update-changelog');

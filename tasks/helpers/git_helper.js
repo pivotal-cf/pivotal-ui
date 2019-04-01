@@ -3,7 +3,10 @@ import {exec} from 'child_process';
 const ignoredCommits = [
   'f107f79', '50b53e5', '8da492c', 'b57a9cd', 'e5a6b3b', '220c75d', '985780a', 'b11c291', '22faa4a', 'fb8a5ccb',
   'a7ca8886', 'f51ed4ad', '64d86183', '8a15a5d', '7bcc5f42', 'dc154075', 'dd8fbb95', '94b6aacd', '441854e2', '62310d68',
-  'ad4194db'
+  'ad4194db', '4ed250f7', 'b805e094', 'da6e92ee', '8c63a103', 'c6935c16', 'cc58687a', '2e76eeaa', '660712e5', 'd96d6a2a',
+  '84b5e3fa', 'e42c9248', 'b481d93a', '954e1430', '577b3643', '71155549', 'cd2177f8', 'cf8f4f4d', '139ff5cb', '4474fd62',
+  '24c63071', 'ec0e613d', 'e36dc561', 'f23bb9e1', '6ae6f444', '92c4d876', '39dd57ea', '01c21cd5', 'c5038953', '788ee44f',
+  '371c3d1f'
 ];
 
 const tagToSemver = tag => tag.split('.').map(s => s.replace(/^[^\d]*(\d+)[^\d]*$/, '$1')).map(i => +i);
@@ -18,7 +21,10 @@ const sortSemversReverse = ([majorA, minorA, patchA], [majorB, minorB, patchB]) 
 export default class GitHelper {
   git(cmd, noTrim) {
     return new Promise((res, rej) => exec(`git ${cmd}`, {maxBuffer: 1024 * 1024}, (err, out) => {
-      if (err) return rej(err);
+      if (err) {
+        console.error(`git ${cmd} failed!`);
+        return rej(err);
+      }
       out = out.toString('utf8');
       if (!noTrim) out = out.replace(/^\s*(.*)\s*$/gm, '$1');
       return res(out);
@@ -42,14 +48,22 @@ export default class GitHelper {
 
   async getFiles(shas) {
     const files = {};
-    const promises = {};
-    shas.forEach(sha => promises[sha] = this.git(`diff-tree --no-commit-id --name-only -r ${sha}`));
-    for (let i = 0; i < shas.length; i++) {
-      const sha = shas[i];
-      files[sha] = (await promises[sha])
-        .split('\n')
-        .filter(file => file.indexOf('src') !== -1);
+    const shaArgs = shas.join(' ');
+
+    const changedFiles = (await this.git(`show --name-only --oneline ${shaArgs}`));
+    for (let i = 1; i < shas.length; i++) {
+      const currentSha = shas[i - 1];
+      const startIndex = changedFiles.indexOf(currentSha);
+      const endIndex = changedFiles.indexOf(shas[i]);
+      const [commitMessage, ...changedFilesForSha] = changedFiles.substring(startIndex, endIndex).split('\n');
+      files[currentSha] = changedFilesForSha.filter(file => file.indexOf('src') !== -1);
     }
+
+    const lastSha = shas[shas.length - 1];
+    const lastCommitIndex = changedFiles.indexOf(lastSha);
+    const [commitMessage, ...changedFilesForSha] = changedFiles.substring(lastCommitIndex).split('\n');
+    files[lastSha] = changedFilesForSha.filter(file => file.indexOf('src') !== -1);
+
     return files;
   }
 
