@@ -60,19 +60,7 @@ Buttons that appear over dark backgrounds are styled differently to achieve acce
 </div>
 ```
 
-Alternatively, you can wrap components in the `ThemeProvider` component and set `theme="dark"`. This will make all buttons anywhere inside of the `ThemeProvider` use the dark theme without needing to set the `onDark` prop.
-
-```jsx
-//title=Using a ThemeProvider
-<div className="bg-dark-gray pal">
-  <ThemeProvider theme="dark">
-    <PrimaryButton>Primary Button</PrimaryButton>
-    <DefaultButton>Default Button</DefaultButton>
-    <DangerButton>Danger Button</DangerButton>
-    <BrandButton>Brand Button</BrandButton>
-  </ThemeProvider>
-</div>
-```
+Alternatively, you can wrap components in the `ThemeProvider` component.
 
 ## Common button patterns
 

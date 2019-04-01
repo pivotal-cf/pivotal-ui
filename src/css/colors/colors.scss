@@ -6,6 +6,14 @@
   }
 }
 
+.bg-hover--onDark:hover {
+  background-color: $hover--onDark;
+}
+
+.bg-hover--onLite:hover {
+  background-color: $hover--onLite;
+}
+
 // These classes are for the style guide only
 
 .bg-glow-1 {

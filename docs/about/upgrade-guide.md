@@ -6,6 +6,139 @@ Pivotal UI follows [semantic versioning](https://semver.org/). Major version bum
 
 Below are the upgrade guides for recent major versions of Pivotal UI. For more details about minor and patch releases, see the [changelog](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md) on the branch in question (e.g. `v17` for version 17).
 
+## v18
+
+### Goals
+
+The goals of the 18.0 release are:
+
+- Increase accessibility of applications using Pivotal UI
+- Reduce the number of colors available to make it easier for users to know when to use each color
+
+### Big Changes
+
+#### React version
+
+- Pivotal UI now specifies React 16.8 as a dependency, and it is recommended that users upgrade to this version
+
+#### New Color Palette
+
+- We have revamped and simplified our color palette. For details on how our new palette was designed, [see this article by Raquel Breternitz](https://medium.com/@raquel/a11y-color-contrast-button-triads-and-the-new-pivotal-ui-color-palette-63bb25122bdd).
+- We have introduced the concept of light and dark backgrounds to our color conventions. For buttons and hover states, we have corresponding colors that ensure accessibility.
+- Now, the set of encouraged background colors is much smaller: backgrounds should be white, light-gray, dark-gray, or (in rare cases) black. White and light-gray are considered "light" backgrounds, while dark-gray and black are considered "dark" backgrounds. This is important for "on-light"/"on-dark" styles (see below).
+- Our components had their colors updated to use the new color palette. This is most noticeable on components like `Alert`s, `Button`s, and `Pagination`. These changes are intentional – they are not meant to look exactly the same!
+
+### Migration Guide
+
+#### Colors
+
+- It should be a simple find-and-replace to convert from our old colors to the new color selection. This conversion applies to Sass variables (e.g. `$neutral-1` to `$black`), background color modifier classes (e.g. `bg-neutral-1` to `bg-black`), and text color modifier classes (e.g. `type-neutral-1` to `type-black`). Here is the mapping of colors to new:
+
+| If you're using... | Switch to...    |
+|--------------------|--------------------|
+| neutral-1 | black |
+| neutral-2 | dark-gray |
+| neutral-3, neutral-4 | gray |
+| neutral-5, neutral-6, neutral-7 | accent-gray |
+| neutral-8, neutral-9 | light-gray|
+| neutral-10, neutral-11 | white |
+| dark-1 | black |
+| dark-2, dark-3 | dark-gray |
+| dark-4, dark-5, dark-6 | gray |
+| dark-7, dark-8 | accent-gray |
+| dark-9 | light-gray |
+| dark-10, dark-11 | white |
+| brand-1, brand-2 | black |
+| brand-3, brand-4, brand-5, brand-6, brand-7 | teal |
+| brand-8, brand-9, brand-10 | accent-teal |
+| brand-11 | light-teal |
+| accent-1, accent-2 | dark-blue |
+| accent-3, accent-4 | blue |
+| accent-5 | accent-blue |
+| accent-6 | light-blue |
+| error-1, error-2, error-3 | dark-red |
+| error-4, error-5 | red |
+| error-6 | light-red|
+| warn-1, warn-2 | black |
+| warn-3, warn-4, warn-5 | decorative-yellow |
+| warn-6 | light-yellow |
+| success-1, success-2 | green |
+| success-3, success-4, success-5 | accent-green |
+| success-6 | light-green | 
+
+After this conversion, look over your app to make sure things still look okay. Some change is intended, but you might need to use different colors in some places. For places where you were previously using light shades of gray (like hover states), they may now be white and not show up over white backgrounds.
+
+For hover states that appear over light backgrounds, use the `$hover--onLite` color variable or the `bg-hover--onLite` background modifier class. For hover states over dark backgrounds, use the `$hover--onDark` variable or the `bg-hover--onDark` background modifier class.
+
+#### ThemeProvider
+
+- We have introduced a new component called `ThemeProvider` which will tell components anywhere inside the ThemeProvider use the associated theme
+- Note that as of now this functionality is currently limited to `Button`s
+
+#### Buttons
+
+Our button components (`DefaultButton`, `PrimaryButton`, etc.) were revamped to clean up the code and use the new color palette. The breaking changes are as follows:
+
+- The `span` with class name `pui-btn-inner-content` inside the `Button` component was removed to simplify markup
+- Class names used by these components that did not have a `pui-` prefix have been removed (e.g. `btn`, `btn-sm`).
+- The remaining class names (prefixed with `pui-`) were slightly renamed to follow [BEM](http://getbem.com/) conventions. Here are the changes:
+
+| Old class name | New class name |
+|----------------|----------------|
+| `pui-btn-full` | `pui-btn--full` |
+| `pui-btn-icon` | `pui-btn--icon-only` |
+| `pui-btn-icon-right` | `pui-btn--icon-right` |
+| `pui-btn-lg` | `pui-btn--lg` |
+| `pui-btn-sm` | `pui-btn--sm` |
+| `pui-btn-sm` | `pui-btn--sm` |
+| N/A (new feature) | `pui-btn--on-dark` |
+
+We have also split out the class names that correlate to the type of button.
+
+| Old class name | New class name |
+|----------------|----------------|
+| `pui-btn-primary` | `pui-btn--primary` |
+| `pui-btn-primary-alt` | `pui-btn--primary pui-btn--alt` |
+| `pui-btn-primary-flat` | `pui-btn--primary pui-btn--flat` |
+| `pui-btn-default` | `pui-btn--default` |
+| `pui-btn-default-alt` | `pui-btn--default pui-btn--alt` |
+| `pui-btn-default-flat` | `pui-btn--default pui-btn--flat` |
+| `pui-btn-danger` | `pui-btn--danger` |
+| `pui-btn-danger-alt` | `pui-btn--danger pui-btn--alt` |
+| `pui-btn-danger-flat` | `pui-btn--danger pui-btn--flat` |
+| `pui-btn-brand` | `pui-btn--brand` |
+| `pui-btn-brand-alt` | `pui-btn--brand pui-btn--alt` |
+| `pui-btn-brand-flat` | `pui-btn--brand pui-btn--flat` |
+
+
+These changes will only be breaking if you had tests that asserted on these class names, or if you have custom CSS overrides that applied to these class names.
+
+In an effort to ensure accessibility, when using a `Button` with the `iconOnly` prop set to true, if the `Button` does not have an associated `aria-label` a console warning will show in development
+
+#### RadioGroup
+
+- The `RadioGroup` component sets `readOnly` to `true` on radio inputs when no `onChange` is provided.
+
+#### Alerts
+
+- Colors of the `Alert`s have been changed to align with the new color palette, and to increase the contrast ratio in order to improve accessibility
+- Status prefixes (i.e. "Success:", "Warning:") have been added to the alert content
+
+#### Deletions
+
+- The `Svg` component has been removed. It is recommended that uses are replaced with the [SVG Loader for Webpack](https://github.com/webpack-contrib/svg-inline-loader).
+- The `ButtonGroup` component has been removed. If you still need the components, the CSS is still available in older versions of Pivotal UI, and can be brought into your codebase
+- The `Select` component has been removed. It is recommended that uses are replaced with the HTML `select` tag
+
+
+- Remove deprecated non-namespaced CSS classes from toggle  …
+- Remove deprecated non-namespaced CSS classes from copy-to-clipboard  …
+- Remove deprecated non-namespaced CSS classes from collapse & collapsible  …
+- Remove deprecated non-namespaced CSS classes from buttons  …
+- Remove deprecated non-namespaced CSS classes from back-to-top  …
+- Remove deprecated non-namespaced CSS classes from alerts
+
+
 ## v17
 
 ### Goals
