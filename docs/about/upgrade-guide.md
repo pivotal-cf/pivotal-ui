@@ -123,21 +123,60 @@ In an effort to ensure accessibility, when using a `Button` with the `iconOnly` 
 
 - Colors of the `Alert`s have been changed to align with the new color palette, and to increase the contrast ratio in order to improve accessibility
 - Status prefixes (i.e. "Success:", "Warning:") have been added to the alert content
+- Non-namespaced CSS classes were removed as follows:
+
+| Old class name | New class name |
+|----------------|----------------|
+| `alert` | `pui-alert` |
+| `alert-link` | `pui-alert-link` |
+| `alert-dismissable` | `pui-alert-dismissable` |
+| `close` | `pui-close` |
+| `alert-success` | `pui-alert-success` |
+| `alert-info` | `pui-alert-info` |
+| `alert-warning` | `pui-alert-warning` |
+| `alert-danger` | `pui-alert-danger` |
+| `alert-error` | `pui-alert-error` |
 
 #### Deletions
 
 - The `Svg` component has been removed. It is recommended that uses are replaced with the [SVG Loader for Webpack](https://github.com/webpack-contrib/svg-inline-loader).
 - The `ButtonGroup` component has been removed. If you still need the components, the CSS is still available in older versions of Pivotal UI, and can be brought into your codebase
 - The `Select` component has been removed. It is recommended that uses are replaced with the HTML `select` tag
+- We removed non-namespaced CSS classes from the following components:
 
+######`BackToTop`
 
-- Remove deprecated non-namespaced CSS classes from toggle  …
-- Remove deprecated non-namespaced CSS classes from copy-to-clipboard  …
-- Remove deprecated non-namespaced CSS classes from collapse & collapsible  …
-- Remove deprecated non-namespaced CSS classes from buttons  …
-- Remove deprecated non-namespaced CSS classes from back-to-top  …
-- Remove deprecated non-namespaced CSS classes from alerts
+| Old class name | New class name |
+|----------------|----------------|
+| `back-to-top` | `pui-back-to-top` |
 
+######`Collapse` and `Collapsible`
+
+| Old class name | New class name |
+|----------------|----------------|
+| `panel` | `pui-collapse` |
+| `panel-body` | `pui-collapse-panel-body` |
+| `panel-collapse` | `pui-collapse-panel` |
+| `panel-divider` | `pui-collapse-divider` |
+| `panel-heading` | `pui-collapse-panel-heading` |
+| `panel-title` | `pui-collapse-panel-title` |
+| `collapse` | `pui-collapsible` |
+| `collapse-icon` | `pui-collapse-icon` |
+| `collapse-shield` | `pui-collapsible-shield` |
+| `collapse-title` | `pui-collapse-title` |
+| `collapse-trigger` | `pui-collapse-trigger` |
+
+######`CopyToClipboard`
+
+| Old class name | New class name |
+|----------------|----------------|
+| `copy-to-clipboard` | `pui-copy-to-clipboard` |
+
+######`Toggle`
+
+| Old class name | New class name |
+|----------------|----------------|
+| `toggle-switch` | `pui-toggle-switch` |
 
 ## v17
 
