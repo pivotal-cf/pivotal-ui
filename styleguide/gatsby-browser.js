@@ -1,4 +1,5 @@
 const React = require('react');
+const smoothscroll = require('smoothscroll-polyfill');
 const Layout = require('./src/components/layout').default;
 
 exports.wrapPageElement = ({element, props}) => {
@@ -12,4 +13,8 @@ exports.onRouteUpdate = () => {
     main.scrollTo(0, 0);
     main.focus();
   }
+};
+
+exports.onClientEntry = () => {
+  smoothscroll.polyfill();
 };
