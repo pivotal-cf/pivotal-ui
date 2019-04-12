@@ -12,8 +12,22 @@
   outline: none !important;
 }
 
+.sg-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .sg-full-sidebar {
   @media screen and (max-width: $responsive-breakpoint) {
     display: none;
+  }
+}
+
+.sg-footer {
+  background-color: $light-gray;
+
+  a {
+    color: $blue--onLite;
   }
 }
