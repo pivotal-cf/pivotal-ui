@@ -9,23 +9,38 @@ body {
   line-height: $pui-line-height-medium;
 }
 
-@mixin font-helper($name, $weight, $style) {
+@mixin source-sans-pro-helper($name, $weight, $style) {
   @font-face {
     font-family: 'SourceSansPro';
-    src: url("fonts/#{$name}.eot");
-    src: url("fonts/#{$name}.eot?#iefix") format("embedded-opentype"),
-    url("fonts/#{$name}.woff") format("woff"),
-    url("fonts/#{$name}.ttf") format("truetype");
+    src: url("fonts/sourcesanspro-#{$name}-webfont.eot");
+    src: url("fonts/sourcesanspro-#{$name}-webfont.eot?#iefix") format("embedded-opentype"),
+    url("fonts/sourcesanspro-#{$name}-webfont.woff") format("woff"),
+    url("fonts/sourcesanspro-#{$name}-webfont.ttf") format("truetype");
     font-weight: $weight;
     font-style: $style;
   }
 }
 
-@include font-helper('sourcesanspro-light-webfont', 200, normal);
-@include font-helper('sourcesanspro-regular-webfont', 400, normal);
-@include font-helper('sourcesanspro-it-webfont', 400, italic);
-@include font-helper('sourcesanspro-semibold-webfont', 600, normal);
-@include font-helper('sourcesanspro-bold-webfont', 700, normal);
+@mixin source-code-pro-helper($weight, $style) {
+  @font-face {
+    font-family: 'SourceCodePro';
+    src: url("fonts/source-code-pro-v9-latin-#{$weight}.eot");
+    src: url("fonts/source-code-pro-v9-latin-#{$weight}.eot?#iefix") format("embedded-opentype"),
+    url("fonts/source-code-pro-v9-latin-#{$weight}.woff") format("woff"),
+    url("fonts/source-code-pro-v9-latin-#{$weight}.ttf") format("truetype");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include source-sans-pro-helper('light', 200, normal);
+@include source-sans-pro-helper('regular', 400, normal);
+@include source-sans-pro-helper('it', 400, italic);
+@include source-sans-pro-helper('semibold', 600, normal);
+@include source-sans-pro-helper('bold', 700, normal);
+@include source-code-pro-helper(400, normal);
+@include source-code-pro-helper(600, normal);
+@include source-code-pro-helper(700, normal);
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
