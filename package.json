@@ -3,8 +3,6 @@
   "bugs": {
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
-  "license": "ISC",
-  "author": "",
   "repository": {
     "url": "https://github.com/pivotal-cf/pivotal-ui.git",
     "type": "git"
