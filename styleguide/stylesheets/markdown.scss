@@ -1,11 +1,16 @@
 @import "./variables.scss";
 
 .sg-heading {
+  border-bottom: 1px solid $light-gray;
   &:hover {
     .sg-heading__link {
       opacity: 1;
     }
   }
+}
+
+.sg-heading + .sg-heading {
+  border-bottom: 1px solid transparent;
 }
 
 .sg-heading__link {

@@ -1,5 +1,6 @@
 @import "./variables.scss";
 
+
 .sg-home {
   width: 100%;
   height: calc(100vh - (#{$base-unit} * 19));
@@ -7,6 +8,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  padding: 0;
 
   .sg-home__title {
     font-size: $base-unit * 8;
