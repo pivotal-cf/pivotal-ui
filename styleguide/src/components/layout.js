@@ -25,7 +25,6 @@ if (typeof window !== 'undefined') {
       window[key] = value));
 }
 
-const year = new Date().getFullYear();
 
 const Layout = ({children}) => (
   <div className="sg-wrapper">
@@ -33,18 +32,6 @@ const Layout = ({children}) => (
     <SiteHeader/>
     <Main>
       {children}
-      <footer className="sg-footer mtxxxl pvxl border-top">
-        © {year} <a href="https://pivotal.io" target="_blank" rel="noreferrer">Pivotal Software</a>, Inc. All Rights Reserved.
-        <span className="pln">
-          <span className="mll">
-            <a href="https://pivotal.io/privacy-policy" target="_blank" rel="noreferrer">Privacy Policy</a>
-          </span>
-          <span className="mll">
-            <a href="https://pivotal.io/terms-of-use" target="_blank" rel="noreferrer">Terms of Use</a>
-          </span>
-          <span className="mll" id="teconsent"/>
-        </span>
-      </footer>
     </Main>
   </div>
 );

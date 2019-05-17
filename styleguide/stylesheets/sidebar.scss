@@ -5,13 +5,16 @@
   height: 100%;
   flex-grow: 0;
   flex-shrink: 0;
-  color: $black;
+  color: $dark-gray;
   background: $light-gray;
-  border-right: 1px solid $accent-gray;
+  border-right: 1px solid $light-gray;
   overflow-y: auto;
 
   a {
     color: $dark-gray;
+    &:hover {
+      color: $blue--onLite;
+    }
   }
 
   @media screen and (max-width: $responsive-breakpoint) {
@@ -26,9 +29,10 @@
 
 .sg-sidebar__group {
   padding: $base-unit * 2;
+  margin: $base-unit * 2;
 
   + .sg-sidebar__group {
-    border-top: 1px solid $accent-gray;
+    border-top: 1px solid $accent-teal;
   }
 }
 

@@ -9,11 +9,13 @@ If you're brand new to Pivotal UI, start by reading the [FAQ](/about/faq) and th
 
 The system is implemented as a Figma library, React components, and CSS styles that you can include in your project. To start using Pivotal UI, follow the steps below.
 
-## Using the Figma team library
+## For Designers 
+###Using the Figma team library
 
-If you're a designer looking to incorporate Pivotal UI into your designs, you can use the Figma team library by following the instructions in [this video](https://drive.google.com/open?id=1uTT_xn5t8L0w7CziG1vQA3rEoxvtpTSx). If you need access to the video, please reach out in the #pivotal-ui Slack channel.
+If you're a designer looking to incorporate Pivotal UI into your designs, you can use the Figma team library by following the instructions in [this video](https://drive.google.com/open?id=1uTT_xn5t8L0w7CziG1vQA3rEoxvtpTSx). If you need access to the video, please reach out in the [#pivotal-ui Slack channel](https://pivotal.slack.com/messages/C055JEPQQ).
 
-## Installing from npm
+## For Developers 
+###Installing from npm
 
 The most common way to add Pivotal UI to your project is to use the [npm package](https://www.npmjs.com/package/pivotal-ui). The package includes all of Pivotal UI's CSS, Sass variables, and React components.
 
@@ -33,7 +35,8 @@ yarn add pivotal-ui
 
 To use individual components, see the instructions on the pages for those components.
 
-## Consuming CSS from a CDN
+
+###Consuming CSS from a CDN
 
 For projects that are not using npm or Webpack, like static sites built with [Hugo](https://gohugo.io/) or [Jekyll](https://jekyllrb.com/), our compiled CSS is made available via a CDN:
 

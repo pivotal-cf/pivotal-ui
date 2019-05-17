@@ -8,7 +8,7 @@ const createHeading = (Tag, link) => mdNode => {
   const slug = headingNodeToSlug(mdNode);
 
   return (
-    <Tag className={`em-high mbxl mtxxl border-bottom sg-heading sg-${Tag}`} id={slug}>
+    <Tag className={`em-high mbxl mtxxl sg-heading sg-${Tag}`} id={slug}>
       {mdNode.children}
       {link && (
         <a
@@ -56,7 +56,7 @@ export const Table = ({children, ...props}) => {
     <table {...props} {...{className: 'table sg-table'}}>
       <thead>
         {React.Children.map(thead.props.children, child => {
-          return React.cloneElement(child, {className: 'tr-no-h-borders bg-neutral-10'});
+          return React.cloneElement(child, {className: 'tr-no-h-borders'});
         })}
       </thead>
       <tbody>
