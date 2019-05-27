@@ -2,11 +2,12 @@
 title: Icons
 reactPath: pivotal-ui/react/iconography
 cssPath: pivotal-ui/css/iconography
+deprecationMessage: ''
 reactComponents:
 - Icon
 ---
 
-Use the `Icon` component to insert one of Pivotal UI's SVG icons. The full list of icons that Pivotal UI provides, along with their names, can be found [here](/components/icons/icon_list).
+Use the `Icon` component to insert an SVG icons. The full list of icons that Pivotal UI provides, along with their names, can be found [here](/components/icons/icon_list).
 
 To use an icon, specify the name of the icon as the `src` prop.
 

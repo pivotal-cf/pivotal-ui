@@ -16,6 +16,7 @@ const Page = ({data}) => {
     frontmatter: {title, deprecationMessage}
   } = pageData;
 
+  const hasDeprecationMessage = deprecationMessage && deprecationMessage !== '';
   const editUrl = `${siteMetadata.repoUrl}/edit/master/docs${route.replace(/\/$/, '.md')}`;
   const issueUrl = `${siteMetadata.repoUrl}/issues/new`;
   const pageGroup = siteMetadata.sidebarGroups.find(g => g.id === group);
@@ -46,7 +47,7 @@ const Page = ({data}) => {
         </h1>
       </header>
 
-      {deprecationMessage && (
+      {hasDeprecationMessage && (
         <WarningAlert className="mbxl">{deprecationMessage}</WarningAlert>
       )}
 
