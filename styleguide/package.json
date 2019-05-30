@@ -20,7 +20,7 @@
     "gatsby": "^2.0.88",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sass": "^2.0.7",
-    "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-source-filesystem": "^2.0.37",
     "gatsby-transformer-remark": "^2.2.0",
     "node-sass": "^4.11.0",
     "prismjs": "^1.15.0",
