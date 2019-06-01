@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@babel/register": "^7.0.0",
+    "@babel/register": "^7.4.4",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
     "gatsby": "^2.0.88",
     "gatsby-plugin-react-helmet": "^3.0.2",
