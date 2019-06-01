@@ -36,9 +36,11 @@
     "classnames": "^2.2.5",
     "codemirror": "^5.43.0",
     "elasticlunr": "^0.9.5",
+    "pretty": "^2.0.0",
     "prop-types": "^15.6.1",
     "react": "^16.8.0",
     "react-codemirror": "^1.0.0",
+    "react-codemirror2": "^6.0.0",
     "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0"
   },
