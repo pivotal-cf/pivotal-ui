@@ -42,7 +42,7 @@
     "react-codemirror": "^1.0.0",
     "react-codemirror2": "^6.0.0",
     "react-dom": "^16.8.0",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.1"
   },
   "scripts": {
     "clean": "rm -rf public && rm -rf .cache",
