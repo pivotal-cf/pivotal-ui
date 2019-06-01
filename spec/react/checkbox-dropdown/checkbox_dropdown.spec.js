@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import {setProps} from '../../support/jest-helpers';
 import {CheckboxDropdown} from '../../../src/react/checkbox-dropdown';
 
@@ -20,10 +19,10 @@ describe('checkbox dropdown', () => {
     });
 
     it('checks the configured labels', () => {
-      expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeFalsy();
-      expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeTruthy();
-      expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeFalsy();
-      expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+      expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+      expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+      expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+      expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
     });
   });
 
@@ -38,28 +37,28 @@ describe('checkbox dropdown', () => {
       });
 
       it('renders the items passed in props', () => {
-        expect($('.checkbox-dropdown-item-checkbox:eq(0)')).toHaveText('ALL');
-        expect($('.checkbox-dropdown-item-checkbox:eq(1)')).toHaveText('item #1');
-        expect($('.checkbox-dropdown-item-checkbox:eq(2)')).toHaveText('item #2');
-        expect($('.checkbox-dropdown-item-checkbox:eq(3)')).toHaveText('item #3');
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0]).toHaveText('ALL');
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1]).toHaveText('item #1');
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2]).toHaveText('item #2');
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3]).toHaveText('item #3');
       });
 
       it('renders the items with labels and labelClassNames', () => {
-        expect($('.pui-checkbox-label:eq(0)')).toHaveClass('pui-checkbox-dropdown-item-label');
-        expect($('.pui-checkbox-label:eq(1)')).toHaveClass('pui-checkbox-dropdown-item-label');
-        expect($('.pui-checkbox-label:eq(2)')).toHaveClass('pui-checkbox-dropdown-item-label');
-        expect($('.pui-checkbox-label:eq(3)')).toHaveClass('pui-checkbox-dropdown-item-label');
+        expect(document.querySelectorAll('.pui-checkbox-label')[0]).toHaveClass('pui-checkbox-dropdown-item-label');
+        expect(document.querySelectorAll('.pui-checkbox-label')[1]).toHaveClass('pui-checkbox-dropdown-item-label');
+        expect(document.querySelectorAll('.pui-checkbox-label')[2]).toHaveClass('pui-checkbox-dropdown-item-label');
+        expect(document.querySelectorAll('.pui-checkbox-label')[3]).toHaveClass('pui-checkbox-dropdown-item-label');
       });
 
       it('has the text "ALL"', () => {
-        expect($('.dropdown > button')).toHaveText('ALL');
+        expect(document.querySelector('.dropdown > button')).toHaveText('ALL');
       });
 
       it('all the checkboxes are checked', () => {
-        expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeTruthy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeTruthy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeTruthy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
       });
 
       it('initializes the state to true for all the options', () => {
@@ -73,158 +72,158 @@ describe('checkbox dropdown', () => {
 
     describe('unselecting a checkbox option', () => {
       beforeEach(() => {
-        $('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]').click();
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').click();
       });
 
       it('the title changes to show the selected options', () => {
-        expect($('.dropdown > button')).toHaveText('item #1, item #3');
+        expect(document.querySelector('.dropdown > button')).toHaveText('item #1, item #3');
       });
 
       it('will unselect the "ALL" checkbox', () => {
-        expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeFalsy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeTruthy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeFalsy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
       });
 
       describe('reselecting the checkbox option', () => {
         beforeEach(() => {
-          $('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').click();
         });
 
         it('the title text displays "ALL"', () => {
-          expect($('.dropdown > button')).toHaveText('ALL');
+          expect(document.querySelector('.dropdown > button')).toHaveText('ALL');
         });
 
         it('will reselect the all checkboxes', () => {
-          expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
         });
       });
 
       describe('reselecting the "ALL" checkbox option', () => {
         beforeEach(() => {
-          $('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').click();
         });
 
         it('the title text displays "ALL"', () => {
-          expect($('.dropdown > button')).toHaveText('ALL');
+          expect(document.querySelector('.dropdown > button')).toHaveText('ALL');
         });
 
         it('will reselect the all checkboxes', () => {
-          expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
         });
       });
     });
 
     describe('unselecting all checkbox options', () => {
       beforeEach(() => {
-        $('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]').click();
-        $('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]').click();
-        $('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]').click();
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').click();
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').click();
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').click();
       });
 
       it('the title changes to show "NONE"', () => {
-        expect($('.dropdown > button')).toHaveText('NONE');
+        expect(document.querySelector('.dropdown > button')).toHaveText('NONE');
       });
 
       it('will unselect the "ALL" checkbox', () => {
-        expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeFalsy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeFalsy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeFalsy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeFalsy();
       });
 
       describe('reselecting the unchecked checkbox options', () => {
         beforeEach(() => {
-          $('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]').click();
-          $('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]').click();
-          $('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').click();
         });
 
         it('the title text displays "ALL"', () => {
-          expect($('.dropdown > button')).toHaveText('ALL');
+          expect(document.querySelector('.dropdown > button')).toHaveText('ALL');
         });
 
         it('will reselect all the checkboxes', () => {
-          expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
         });
       });
 
       describe('reselecting the "ALL" checkbox option', () => {
         beforeEach(() => {
-          $('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').click();
         });
 
         it('the title text displays "ALL"', () => {
-          expect($('.dropdown > button')).toHaveText('ALL');
+          expect(document.querySelector('.dropdown > button')).toHaveText('ALL');
         });
 
         it('will reselect all the checkboxes', () => {
-          expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
         });
       });
     });
 
     describe('unselecting the "ALL" checkbox option', () => {
       beforeEach(() => {
-        $('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]').click();
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').click();
       });
 
       it('the title changes to show "NONE"', () => {
-        expect($('.dropdown > button')).toHaveText('NONE');
+        expect(document.querySelector('.dropdown > button')).toHaveText('NONE');
       });
 
       it('will unselect all checkboxes', () => {
-        expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeFalsy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeFalsy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeFalsy();
-        expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+        expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeFalsy();
       });
 
       describe('reselecting any checkbox options', () => {
         beforeEach(() => {
-          $('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]').click();
-          $('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').click();
         });
 
         it('the title changes to show the selected options', () => {
-          expect($('.dropdown > button')).toHaveText('item #2, item #3');
+          expect(document.querySelector('.dropdown > button')).toHaveText('item #2, item #3');
         });
 
         it('will reselect some of the checkboxes', () => {
-          expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeFalsy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeFalsy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeFalsy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
         });
       });
 
       describe('reselecting the "ALL" checkbox option', () => {
         beforeEach(() => {
-          $('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]').click();
+          document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').click();
         });
 
         it('the title changes to show "ALL"', () => {
-          expect($('.dropdown > button')).toHaveText('ALL');
+          expect(document.querySelector('.dropdown > button')).toHaveText('ALL');
         });
 
         it('will reselect all the checkboxes', () => {
-          expect($('.checkbox-dropdown-item-checkbox:eq(0) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(1) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]')[0].checked).toBeTruthy();
-          expect($('.checkbox-dropdown-item-checkbox:eq(3) input[type="checkbox"]')[0].checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[0].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').checked).toBeTruthy();
+          expect(document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').checked).toBeTruthy();
         });
       });
     });
@@ -234,7 +233,7 @@ describe('checkbox dropdown', () => {
       beforeEach(() => {
         testableFn = jasmine.createSpy('testableFn');
         subject::setProps({onChange: testableFn});
-        $('.checkbox-dropdown-item-checkbox:eq(2) input[type="checkbox"]').click();
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').click();
       });
 
       it('calls the onChange callback', () => {
@@ -252,7 +251,7 @@ describe('checkbox dropdown', () => {
       beforeEach(() => {
         onChange = jasmine.createSpy('onChange');
         subject::setProps({onChange});
-        $('.pui-checkbox-label:eq(2)').click();
+        document.querySelectorAll('.pui-checkbox-label')[2].click();
       });
 
       it('calls the onChange callback', () => {

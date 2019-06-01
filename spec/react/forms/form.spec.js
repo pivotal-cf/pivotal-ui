@@ -933,7 +933,7 @@ describe('Form', () => {
       describe('when resetting with the reset callback', () => {
         beforeEach(() => {
           onModified.calls.reset();
-          $('.cancel').click();
+          document.querySelector('.cancel').click();
         });
 
         it('calls the onModified callback with false', () => {
@@ -945,7 +945,7 @@ describe('Form', () => {
       describe('when submitting', () => {
         beforeEach(() => {
           onModified.calls.reset();
-          $('.save').click();
+          document.querySelector('.save').click();
         });
 
         it('calls the onModified callback with false', () => {
@@ -992,7 +992,7 @@ describe('Form', () => {
       describe('when resetting with the reset callback', () => {
         beforeEach(() => {
           onModified.calls.reset();
-          $('.cancel').click();
+          document.querySelector('.cancel').click();
         });
 
         it('calls the onModified callback with false', () => {
@@ -1004,7 +1004,7 @@ describe('Form', () => {
       describe('when submitting', () => {
         beforeEach(() => {
           onModified.calls.reset();
-          $('.save').click();
+          document.querySelector('.save').click();
         });
 
         it('calls the onModified callback with false', () => {
@@ -1113,7 +1113,7 @@ describe('Form', () => {
 
     describe('when adding a new col', () => {
       beforeEach(() => {
-        $('.col-toggle input').click();
+        document.querySelector('.col-toggle input').click();
       });
 
       it('renders the new col', () => {
@@ -1212,7 +1212,7 @@ describe('Form', () => {
         }}>
           {({fields: {title}}) => <Grid><FlexCol>{title}</FlexCol></Grid>}
         </Form>, root);
-      $('.form input').click();
+      document.querySelector('.form input').click();
     });
 
     it('updates the current state', () => {
@@ -1298,7 +1298,7 @@ describe('Form', () => {
 
     describe('when changing the input value', () => {
       beforeEach(() => {
-        $('input').click();
+        document.querySelector('input').click();
       });
 
       it('renders the new value', () => {
