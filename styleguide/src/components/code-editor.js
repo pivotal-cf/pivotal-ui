@@ -46,7 +46,7 @@ const CodeEditor = props => {
     }
   };
 
-  const getOutput = (code, hasReact) => {
+  const getOutput = (code, transpiled, hasReact) => {
     if (!hasReact) return (
       <div dangerouslySetInnerHTML={{__html: code}}/>
     );
@@ -60,7 +60,7 @@ const CodeEditor = props => {
   const [showReactCode, setShowReactCode] = useState(false);
 
   const hasReact = language !== 'html';
-  const output = getOutput(value, hasReact);
+  const output = getOutput(value, transpiled, hasReact);
 
   return (
     <figure className="sg-code-editor">
