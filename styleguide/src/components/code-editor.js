@@ -46,12 +46,17 @@ const CodeEditor = props => {
     }
   };
 
-  const getOutput = (code, language) => {
+  const getOutput = (code, transpiled, hasReact) => {
     if (!hasReact) return (
       <div dangerouslySetInnerHTML={{__html: code}}/>
     );
-    // eslint-disable-next-line no-eval
-    return eval(transpiled) || null;
+
+    try {
+      // eslint-disable-next-line no-eval
+      return eval(transpiled) || null;
+    } catch (err) {
+      return <pre><code>{err.toString()}</code></pre>;
+    }
   };
 
   const [value, setValue] = useState(code);
@@ -60,7 +65,7 @@ const CodeEditor = props => {
   const [showReactCode, setShowReactCode] = useState(false);
 
   const hasReact = language !== 'html';
-  const output = getOutput(value, language);
+  const output = getOutput(value, transpiled, hasReact);
 
   return (
     <figure className="sg-code-editor">
