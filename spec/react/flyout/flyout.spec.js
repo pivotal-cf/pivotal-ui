@@ -44,8 +44,8 @@ describe('Flyout', () => {
       className: 'pui-flyout-dialog-backdrop',
       dialogClassName: 'some-dialog-class pui-flyout-dialog',
       children: jasmine.any(Object),
-      hideOnBackdropClick: false,
-      hideOnEscKeyDown: false,
+      hideOnBackdropClick: true,
+      hideOnEscKeyDown: true,
       width: '100px',
       updateParentZIndex: true
     });

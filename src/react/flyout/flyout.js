@@ -37,8 +37,8 @@ export class Flyout extends React.PureComponent {
     const mergedDialogClassNames = classnames(dialogClassName, 'pui-flyout-dialog');
     const dialogProps = {
       ...props,
-      hideOnBackdropClick: false,
-      hideOnEscKeyDown: false,
+      hideOnBackdropClick: true,
+      hideOnEscKeyDown: true,
       dialogClassName: mergedDialogClassNames,
       onHide,
       className: 'pui-flyout-dialog-backdrop',
