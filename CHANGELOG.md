@@ -1,3 +1,11 @@
+<a name="18.1.0"></a>
+# 18.1.0 (2019-06-04)
+#### CSS
+* **tables**: Make withRowDrawer table plugin keyboard navigable [#163574940] ([8cedd5b8](https://github.com/pivotal-cf/pivotal-ui/commit/8cedd5b8))
+#### React
+* **flyout**: Allow users to close flyouts with escape key or by clicking outside of flyout [#163573952] ([320113ae](https://github.com/pivotal-cf/pivotal-ui/commit/320113ae))
+* **svg**: Remove deprecated SVG component [[:gear:#164283978](https://www.pivotaltracker.com/story/show/164283978)] ([eabc5497](https://github.com/pivotal-cf/pivotal-ui/commit/eabc5497))
+* **table**: Make withRowDrawer table plugin keyboard navigable [#163574940] ([8cedd5b8](https://github.com/pivotal-cf/pivotal-ui/commit/8cedd5b8))
 <a name="18.0.0"></a>
 # 18.0.0 (2019-04-08)
 #### CSS
