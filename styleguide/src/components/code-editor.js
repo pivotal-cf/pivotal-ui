@@ -50,8 +50,13 @@ const CodeEditor = props => {
     if (!hasReact) return (
       <div dangerouslySetInnerHTML={{__html: code}}/>
     );
-    // eslint-disable-next-line no-eval
-    return eval(transpiled) || null;
+
+    try {
+      // eslint-disable-next-line no-eval
+      return eval(transpiled) || null;
+    } catch (err) {
+      return <pre><code>{err.toString()}</code></pre>;
+    }
   };
 
   const [value, setValue] = useState(code);
