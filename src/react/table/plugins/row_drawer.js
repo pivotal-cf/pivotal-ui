@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Collapsible} from '../../collapsible';
 import {Icon} from '../../iconography';
+import {DefaultButton} from '../../buttons';
 import classnames from 'classnames';
 
 import {TablePlugin} from '../table_plugin';
@@ -139,7 +140,13 @@ export function withRowDrawer(Table) {
 
       let leftColumn;
       if (rowIndex !== -1) {
-        leftColumn = <Icon {...{className: 'expand-icon', src}}/>;
+        leftColumn = (<DefaultButton
+          flat
+          iconOnly
+          icon={<Icon {...{className: 'expand-icon', src}}/>}
+          className="expand-button"
+          aria-label="Expand"
+        />);
       } else {
         leftColumn = (<div {...{
           className: 'th col col-fixed',
