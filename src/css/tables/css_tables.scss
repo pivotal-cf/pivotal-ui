@@ -196,6 +196,13 @@
     padding-left: 14px;
   }
 
+  .expand-button {
+    display: flex;
+    align-self: center;
+    padding: 0;
+    margin-left: -$base-unit/2;
+  }
+
   .icon.expand-icon {
     height: 20px;
     width: 20px;
