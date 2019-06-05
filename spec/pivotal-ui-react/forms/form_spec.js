@@ -513,9 +513,12 @@ describe('Form', () => {
   });
 
   describe('with two required fields', () => {
+    let nameId;
+    let passId;
+
     beforeEach(() => {
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, fields: {name: {}, password: {}}}}>
+        <Form {...{className: 'some-form', afterSubmit, fields: {name: {label: 'name'}, password: {label: 'password'}}}}>
           {({fields: {name, password}, ...rest}) => (
             <Grid>
               <FlexCol>{name}</FlexCol>
@@ -524,20 +527,27 @@ describe('Form', () => {
             </Grid>
           )}
         </Form>, root);
+      nameId = $('label:contains("name")').attr('for');
+      passId = $('label:contains("password")').attr('for');
+    });
+
+    it('renders labels referring to valid and unique ids', () => {
+      expect(nameId).toMatch(/^[A-Za-z][A-Za-z0-9_.:-]+$/);
+      expect(passId).toMatch(/^[A-Za-z][A-Za-z0-9_.:-]+$/);
+      expect(nameId).not.toBe(passId);
     });
 
     it('renders inputs without values', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('');
-      expect('fieldset > .grid:eq(0) > .col:eq(1) input').toHaveValue('');
+      expect(`#${nameId}`).toHaveValue('');
+      expect(`#${passId}`).toHaveValue('');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
-      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
-      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
+      expect('.col-fixed .save').toHaveAttr('type', 'submit');
+      expect('.col-fixed .save').toHaveText('Save');
+      expect('.col-fixed .save').toBeDisabled();
+      expect('.col-fixed .cancel').toHaveText('Cancel');
+      expect('.col-fixed .cancel').toBeDisabled();
     });
 
     describe('when setting the name', () => {
@@ -550,9 +560,8 @@ describe('Form', () => {
       });
 
       it('renders buttons ', () => {
-        expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect('.col-fixed .save').toBeDisabled();
+        expect('.col-fixed .cancel').not.toBeDisabled();
       });
 
       describe('when setting the password', () => {
@@ -561,9 +570,8 @@ describe('Form', () => {
         });
 
         it('renders enabled buttons ', () => {
-          expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-          expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-          expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+          expect('.col-fixed .save').not.toBeDisabled();
+          expect('.col-fixed .cancel').not.toBeDisabled();
         });
       });
     });
