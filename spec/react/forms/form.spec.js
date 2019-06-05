@@ -25,9 +25,10 @@ describe('Form', () => {
 
   describe('with one required field', () => {
     let fields;
+    let id;
 
     beforeEach(() => {
-      fields = {name: {initialValue: 'some-name'}};
+      fields = {name: {initialValue: 'some-name', label: 'name'}};
       subject = ReactDOM.render(
         <Form {...{className: 'some-form', afterSubmit, fields}}>
           {({fields: {name}, ...rest}) => (
@@ -37,6 +38,11 @@ describe('Form', () => {
             </Grid>
           )}
         </Form>, root);
+      id = $('label:contains("name")').attr('for');
+    });
+
+    it('has a label referring to a valid id', () => {
+      expect(id).toMatch(/^[A-Za-z][A-Za-z0-9_.:-]+$/);
     });
 
     it('uses the form classname', () => {
@@ -47,8 +53,8 @@ describe('Form', () => {
       expect('form > fieldset').not.toBeDisabled();
     });
 
-    it('renders an input with a default value', () => {
-      expect('fieldset > .grid:eq(0) > .col:eq(0) input').toHaveValue('some-name');
+    it('renders an input with a label and a default value', () => {
+      expect(`#${id}`).toHaveValue('some-name');
     });
 
     it('renders Buttons', () => {
