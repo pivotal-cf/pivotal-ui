@@ -6,11 +6,11 @@ import cloneDeep from 'lodash.clonedeep';
 import {FormUnit} from './form-unit';
 import {find} from '../helpers';
 import {Input} from '../inputs';
-import crypto from 'crypto';
 
 const isOptional = ({optional}, current) => typeof optional === 'function' ? optional({current}) : optional;
 const isPromise = promise => promise && typeof promise.then === 'function';
-const newId = () => crypto.randomBytes(16).toString('base64');
+const random = Math.round(Math.random() * Number.MAX_SAFE_INTEGER);
+const newId = () => `pui-form-${random}`;
 const noop = () => undefined;
 
 const newFormState = (fields, ids, cb) => {
