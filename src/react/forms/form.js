@@ -9,8 +9,7 @@ import {Input} from '../inputs';
 
 const isOptional = ({optional}, current) => typeof optional === 'function' ? optional({current}) : optional;
 const isPromise = promise => promise && typeof promise.then === 'function';
-const random = Math.round(Math.random() * Number.MAX_SAFE_INTEGER);
-const newId = () => `pui-form-${random}`;
+const newId = () => `pui-form-${Math.round(Math.random() * Number.MAX_SAFE_INTEGER)}`;
 const noop = () => undefined;
 
 const newFormState = (fields, ids, cb) => {
