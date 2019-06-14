@@ -16,16 +16,16 @@ export class Tooltip extends React.PureComponent {
   };
 
   componentDidMount() {
-    require('../../css/tooltips');
+    require('../../css/tooltips/');
   }
 
   render() {
     let {isSticky, visible, size, className, children, ...others} = this.props;
 
     const newClasses = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden',
-                                  size === 'auto' ? null : `tooltip-${size}`,
-                                  isSticky? 'tooltip-hoverable': null,
-                                  className);
+      size === 'auto' ? null : `tooltip-${size}`,
+      isSticky? 'tooltip-hoverable': null,
+      className);
 
     return (
       <div className={newClasses} {...others}>
@@ -40,7 +40,7 @@ export class TooltipTrigger extends React.Component {
     display: PropTypes.bool,
     tooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
     placement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
-    trigger: PropTypes.oneOf(['manual', 'hover', 'click']),
+    trigger: PropTypes.oneOf(['manual', 'click', 'hover focus']),
     clickHideDelay: PropTypes.number,
     onClick: PropTypes.func,
     onEntered: PropTypes.func,
@@ -53,7 +53,7 @@ export class TooltipTrigger extends React.Component {
   static defaultProps = {
     display: false,
     placement: 'top',
-    trigger: 'hover',
+    trigger: 'hover focus',
     clickHideDelay: 1000,
     onClick: () => {},
     onEntered: () => {},
@@ -80,6 +80,10 @@ export class TooltipTrigger extends React.Component {
 
   hoverHandler(e) {
     this.setState({visible: e.type === 'mouseenter'});
+  }
+
+  focusHandler(e) {
+    this.setState({visible: e.type === 'focus'});
   }
 
   clickHandler(e, onClick) {
@@ -132,14 +136,16 @@ export class TooltipTrigger extends React.Component {
         triggerHandler = {
           onClick,
           onMouseEnter: this.hoverHandler.bind(this),
-          onMouseLeave: this.hoverHandler.bind(this)
+          onMouseLeave: this.hoverHandler.bind(this),
+          onFocus: this.focusHandler.bind(this),
+          onBlur: this.focusHandler.bind(this)
         };
         break;
     }
 
     const newClasses = classnames('tooltip', className, placementClass,
       theme === 'light' ? 'tooltip-light' : null);
-    const newProps = Object.assign({className: newClasses}, triggerHandler, others);
+    const newProps = Object.assign({className: newClasses, 'tabIndex': '0'}, triggerHandler, others);
 
     return (
       <div {...newProps}>

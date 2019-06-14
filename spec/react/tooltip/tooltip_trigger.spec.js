@@ -16,6 +16,11 @@ describe('TooltipTrigger Component', () => {
     expect('.tooltip').toExist();
   });
 
+  it('is accessible by tab', () => {
+    renderComponent({tooltip: 'Some default tooltip'});
+    expect('.tooltip').toHaveAttr('tabIndex', 0);
+  });
+
   it('renders with content', () => {
     renderComponent({tooltip: 'Some default tooltip'});
     expect('.trigger').toHaveText('Some default message');
@@ -109,8 +114,8 @@ describe('TooltipTrigger Component', () => {
     });
   });
 
-  describe('trigger is default (hover)', () => {
-    it('defaults to hover', () => {
+  describe('trigger is default (hover focus)', () => {
+    it('defaults to triggering on both hover and focus', () => {
       renderComponent({tooltip: 'Some tooltip content'});
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
 
@@ -121,9 +126,17 @@ describe('TooltipTrigger Component', () => {
       $('.tooltip').simulate('mouseLeave');
       jest.advanceTimersByTime(1);
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+
+      $('.tooltip').simulate('focus');
+      jest.advanceTimersByTime(1);
+      expect('.tooltip-container').toHaveClass('tooltip-container-visible');
+
+      $('.tooltip').simulate('blur');
+      jest.advanceTimersByTime(1);
+      expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
     });
 
-    it('allows the user to customize the click handler when trigger is hover', () => {
+    it('allows the user to customize the click handler when trigger is (hover focus)', () => {
       const onClick = jasmine.createSpy('onClick');
       renderComponent({tooltip: 'Some tooltip content', onClick});
 
@@ -213,7 +226,7 @@ describe('TooltipTrigger Component', () => {
     });
 
     describe('when the trigger prop changes', () => {
-      const nextTrigger = 'hover';
+      const nextTrigger = 'hover focus';
 
       beforeEach(() => {
         renderComponent({trigger, tooltip, display: true});

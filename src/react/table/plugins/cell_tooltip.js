@@ -19,7 +19,7 @@ export function withCellTooltip(Table) {
         tooltip: text,
         theme,
         size,
-        trigger: 'hover'
+        trigger: 'hover focus'
       }}>
         <span>
           <span>{oldChildren}</span>
