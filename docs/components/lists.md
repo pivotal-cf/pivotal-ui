@@ -22,10 +22,10 @@ reactComponents:
 //description=The `.list-breadcrumb` can be used to provide additional page navigation. Breadcrumbs use their own monospace font-family.
 <ul class="list-breadcrumb">
   <li>
-    <a href="http://google.com">Parent</a>
+    <a href="#parent">Parent</a>
   </li>
   <li>
-    <a href="http://google.com">Child</a>
+    <a href="#child">Child</a>
   </li>
   <li class="current">
     <span>Current Page</span>

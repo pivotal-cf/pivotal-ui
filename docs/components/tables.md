@@ -16,7 +16,7 @@ Several enhanced `Table` components are also available:
 * **SortableTable**: rows can be sorted ascending or descending by a chosen column.
 * **FlexTable**: uses `div` tags to compose a table rather than traditional HTML tags.
 * **SortableFlexTable**: a SortableTable that is composed of `div` tags.
-* **AdvancedTable**: a `Table` that includes all [plugins](/components/tables/using_plugins)
+* **AdvancedTable**: a `Table` that includes all [plugins](/components/tables/#using-plugins)
 
 ```jsx
 //title=Basic HTML Table with implicit columns
@@ -248,8 +248,8 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 //description=Each cell in a column of a FlexTable can be an `<a>` tag. In this example, the first column links to the top of this section, and the last column links to the top of this page.
 const FlexTableWithCellLink = withCellLink(FlexTable);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].link = () => '/components/tables/usage';
-columns[2].link = () => '/components/tables/props';
+columns[0].link = () => '/components/tables/#using-plugins';
+columns[2].link = () => '/components/tables/#props';
 const data = [1, 2].map(() => ({header1: 'Link to Usage', header2: 'Cell 2', header3: 'Link to Props'}));
 <FlexTableWithCellLink columns={columns} data={data}/>
 ```
@@ -368,7 +368,7 @@ const rowDrawer = (i, rowDatum) => (
 const TableWithRowLink = withRowLink(FlexTable);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
-<TableWithRowLink columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '/components/tables/usage'}}/>
+<TableWithRowLink columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '/components/tables/#using-plugins'}}/>
 ```
 
 ```jsx
@@ -525,5 +525,5 @@ Property         | Required | Type | Default | Description
 `renderThChildren` | no       | Function  |       | Function which will be called to render custom header children. Only valid when used with `withRenderThChildren` plugin.
 `sortable`         | no       | Boolean   |       | Determines whether a column is sortable. Only valid when used with `withSorting` plugin.
 `sortBy`           | no       | Function  |       | Function that determines sort order. The input is the cell data. Only valid when used with `withSorting` plugin and if `sortable` is true.
-`tooltip`          | no       | Function  |       | Function whose inputs are `({isHeader}, rowDatum)` and should output an object containing `{text, size, theme, showIcon}`. `text` and `size` are used in the [Tooltip](/tooltips#tooltips) Component. `theme` is a prop of the [OverlayTrigger](/tooltips#overlay-triggers) Component. `showIcon` determines if the info icon is shown. Only valid when used with `withCellTooltip` plugin.
+`tooltip`          | no       | Function  |       | Function whose inputs are `({isHeader}, rowDatum)` and should output an object containing `{text, size, theme, showIcon}`. `text` and `size` are used in the [Tooltip](/components/tooltips) Component. `theme` is a prop of the [OverlayTrigger](/components/overlay-trigger) Component. `showIcon` determines if the info icon is shown. Only valid when used with `withCellTooltip` plugin.
 `width`            | no       | String    |       | Can be any valid CSS `width` input. Only valid when used with `withCellWidth` plugin.

@@ -9,7 +9,7 @@ Use the typography modifiers to control text sizing, emphasis, and color.
 
 ## Classes
 
-In addition to the modifiers listed here, importing typography CSS gives you the `type-{color-name}` modifiers listed on the [Colors page](/colors).
+In addition to the modifiers listed here, importing typography CSS gives you the `type-{color-name}` modifiers listed on the [Colors page](/modifiers/colors).
 
 Modifier | Purpose
 ---------|--------

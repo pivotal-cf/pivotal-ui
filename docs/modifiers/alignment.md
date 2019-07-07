@@ -16,7 +16,7 @@ Modifier | Purpose
 `txt-m` | Center contents vertically
 `txt-b` | Align contents to the bottom
 
-Note that the vertical alignment classes listed here (`txt-t`, `txt-m`, `txt-b`) will only work when applied to elements with `display: inline` or `display: table-cell`. For vertical alignment within `display: block` elements, [these modifiers](/vertical-alignment) might be more useful.
+Note that the vertical alignment classes listed here (`txt-t`, `txt-m`, `txt-b`) will only work when applied to elements with `display: inline` or `display: table-cell`. For vertical alignment within `display: block` elements, [these modifiers](/modifiers/vertical-alignment) might be more useful.
 
 ```jsx
 //title=Horizontal alignment
