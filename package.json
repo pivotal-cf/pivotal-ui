@@ -60,7 +60,7 @@
     "gulp-postcss": "^6.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
-    "gulp-sass": "^2.1.1",
+    "gulp-sass": "*",
     "gulp-uglify": "^1.0.1",
     "gulp-util": "^3.0.7",
     "gulp-zip": "^2.0.2",
