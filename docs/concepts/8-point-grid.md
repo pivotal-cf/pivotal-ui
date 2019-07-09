@@ -16,8 +16,8 @@ Components like the `Form`, `Panel` and `Table` have the 8-point grid built in, 
 
 ### Grid & FlexCol components
 
-When more control is needed over layout, or when implementing custom components, the `Grid` and `FlexCol` components can be used to lay out content according to the 8-point grid. For more information, see the [Grids page](/grids).
+When more control is needed over layout, or when implementing custom components, the `Grid` and `FlexCol` components can be used to lay out content according to the 8-point grid. For more information, see the [Grids page](/components/grids).
 
 ### Margin & padding modifiers
 
-The margin and padding CSS modifier classes (e.g. `mtxl`, `paxxl`) make it simple to add spacing around elements in increments of 8 pixels. The `l` indicates 8 pixels, `xl` indicates 16 pixels, and so on. For more information, see the [Whitespace page](/whitespace).
+The margin and padding CSS modifier classes (e.g. `mtxl`, `paxxl`) make it simple to add spacing around elements in increments of 8 pixels. The `l` indicates 8 pixels, `xl` indicates 16 pixels, and so on. For more information, see the [Whitespace page](/modifiers/whitespace).
