@@ -20,7 +20,7 @@ To measure this, we can calculate the contrast ratio between a foreground color 
 
 According to [WCAG](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html), a minimum contrast ratio of 4.5:1 achieves level AA compliance for normal-sized text and is recommended to account for users with less-than-perfect vision. See [here](https://www.w3.org/TR/2008/REC-WCAG20-20081211/#visual-audio-contrast-contrast) for detailed acceptance criteria and exceptions to this rule.
 
-To ease the process of finding accessible combinations of Pivotal UI colors, use [this tool](/concepts/accessibility/color_contrast_tool).
+To ease the process of finding accessible combinations of Pivotal UI colors, use [this tool](/tools/color-contrast).
 
 ## Support keyboard navigation
 
