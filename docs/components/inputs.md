@@ -42,6 +42,6 @@ Inputs will only be fully styled if their type is properly declared.
 
 Property | Required | Type                              | Default  | Description
 ---------|----------|-----------------------------------|----------|------------
-`icon`   | no       | String                            |          | See [Icons](/icons) for valid icon names
+`icon`   | no       | String                            |          | See [Icons](/components/icons/#icon-list) for valid icon names
 `size`   | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
 All other props are passed to the internal `<input>` tag.

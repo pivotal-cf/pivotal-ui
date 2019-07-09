@@ -81,7 +81,7 @@ Pivotal UI provides three variations on the spinner icon, differing in their spe
 </div>
 ```
 
-To use icons in buttons, see the [Buttons](/components/buttons/usage) page.
+To use icons in buttons, see the [Buttons](/components/buttons) page.
 
 ## Icon List
 

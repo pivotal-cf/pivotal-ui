@@ -189,7 +189,7 @@ The goals of the 17.0 release are:
 - Improve accessibility of alert components (`SuccessAlert`, `ErrorAlert`, `InfoAlert`, `WarningAlert`).
 - Deprecate the `Select` React component.
 - Deprecate the `CellRenderer` `Table` plugin.
-- Introduce the [`renderThChildren`](/components/tables/using_plugins) `Table` plugin.
+- Introduce the [`renderThChildren`](/components/tables/#using-plugins) `Table` plugin.
 
 ### Big Changes
 
@@ -202,7 +202,7 @@ The goals of the 17.0 release are:
 ##### Fields
 * The `Form` component now supports adding and removing fields after the initial render.
 * The `Form` now requires a new `fields` object prop. They keys of this object are the unique field names that will be used in the `Form`. The values are mostly what was used to be props on the `FormCol`. See the Migration Guide below for examples.
-* When an individual `field` has no `children` specified, it will default to a text [`Input`](/components/inputs/usage).
+* When an individual `field` has no `children` specified, it will default to a text [`Input`](/components/inputs).
 
 ##### onChange
 * When composite `Form` fields call `onChange`, the first argument should now be either the new value or the associated event (previously this had to be the second argument).
@@ -447,7 +447,7 @@ The goals of the 16.0 release are:
 
 #### ProgressBar
 
-Previously progress bars was solely a CSS implementation. See the [ProgressBars](/progress-bars) page for details on new React component.
+Previously progress bars was solely a CSS implementation. See the [ProgressBars](/components/progress-bars) page for details on new React component.
 
 * ProgressBar CSS moved from `pivotal-ui/css/progress-bars` to `pivotal-ui/css/progress-bar`
 
@@ -596,7 +596,7 @@ from the outside.
 
 Details:
 - Add a new public method `updateList`, which updates the list of search results without showing the list. To see how this
-this might be used, see the [Autocomplete](/autocomplete) page.
+this might be used, see the [Autocomplete](/components/autocomplete) page.
 - Change the callback that is passed in to `onInitializeItems` to return a Promise, so that it can be awaited from
 the outside if desired. This means that an outer component can wait for the inner trie data structure to be built
 before calling `updateList` to update the list.
@@ -688,7 +688,7 @@ The goals of the 13.0 release are:
 
 #### Panels
 
-- Panels have been redesigned to have a title, header, body, and footer section. You can insert components in the title and header sections. See the [Panels](/panels#examples) examples.
+- Panels have been redesigned to have a title, header, body, and footer section. You can insert components in the title and header sections. See the [Panels](/components/panels) examples.
   - The panel title appears outside the rounded box
   - The panel header appears within the rounded box, separated from the content by a border
   - The panel body appears within the rounded box, below the header (if any)
@@ -729,7 +729,7 @@ The goals of the 12.0 release are:
 
 #### Table
 - When no `columns` prop is given, the table will automatically determine the columns and column headers based on the keys of `data`.
-- See the [Tables](/tables#examples) example
+- See the [Tables](/components/tables) example
 
 #### Checkbox
 - CSS selectors prefixed with `pui-`, eg. `pui-checkbox`
@@ -743,7 +743,7 @@ The goals of the 12.0 release are:
 ### Conversion Guide
 
 #### Checkbox
-- Use the new [Form](forms) component to obtain functionality such as field labels, tooltips, and help text.
+- Use the new [Form](/components/forms) component to obtain functionality such as field labels, tooltips, and help text.
 
 ## v11
 
