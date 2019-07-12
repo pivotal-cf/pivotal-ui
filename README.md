@@ -65,7 +65,7 @@ ReactDOM.render(<MyTestPage />, document.getElementById('root'));
 HTML:
 
 ```html
-<html>
+<html lang="en-US">
 <body>
     <div id="root"></div>
     <script src="<path-to-your-project's-compiled-javascript-file>"></script>
