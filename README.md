@@ -1,5 +1,14 @@
 [![NPM](https://nodei.co/npm/pivotal-ui.png?compact=true)](https://npmjs.org/package/pivotal-ui)
 
+# OLD VERSION OF NODE NEEDED
+This version of Pivotal UI only builds on Node 8, though the
+PUI node module may be used with other versions. On a mac, try:
+```
+brew install node@8
+/usr/local/opt/node\@8/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js
+/usr/local/opt/node\@8/bin/node node_modules/gulp/bin/gulp.js
+```
+
 # Welcome to Pivotal UI
 
 [Build pipeline](https://wings.concourse.ci/teams/pivotalui/pipelines/pivotal-ui)
