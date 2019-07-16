@@ -63,6 +63,7 @@ describe('Form', () => {
         canReset: subject.canReset,
         reset: subject.reset,
         onSubmit: subject.onSubmit,
+        setErrors: subject.setErrors,
         state: subject.state,
         onBlur: subject.onBlur,
         setValues: subject.setValues,
@@ -178,6 +179,7 @@ describe('Form', () => {
             canReset: subject.canReset,
             reset: subject.reset,
             onSubmit: subject.onSubmit,
+            setErrors: subject.setErrors,
             state: subject.state,
             onBlur: subject.onBlur,
             setValues: subject.setValues,
@@ -200,6 +202,7 @@ describe('Form', () => {
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
+              setErrors: subject.setErrors,
               state: subject.state,
               onBlur: subject.onBlur,
               setValues: subject.setValues,
@@ -244,6 +247,7 @@ describe('Form', () => {
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
+              setErrors: subject.setErrors,
               state: subject.state,
               onBlur: subject.onBlur,
               setValues: subject.setValues,
@@ -1334,6 +1338,29 @@ describe('Form', () => {
     it('changes the state', () => {
       expect(subject.state.initial).toEqual({name: 'some-other-name'});
       expect(subject.state.current).toEqual({name: 'some-other-name'});
+    });
+  });
+
+  describe('when rendering a form with initial errors', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(
+        <Form {...{
+          fields: {
+            title: {
+              children: <input/>
+            }
+          }
+        }}>
+          {({fields: {title}}) => {
+            return <Grid><FlexCol>{title}</FlexCol></Grid>;
+          }}
+        </Form>, root);
+      subject.setErrors({title: 'my title error'});
+    });
+
+    it('renders error text', () => {
+      expect('.form .form-unit').toHaveClass('has-error');
+      expect('.form .help-row').toHaveText('my title error');
     });
   });
 });
