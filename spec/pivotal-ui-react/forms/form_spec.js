@@ -1342,4 +1342,27 @@ describe('Form', () => {
       expect(subject.state.current).toEqual({name: 'some-other-name'});
     });
   });
+
+  describe('when rendering a form with initial errors', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(
+        <Form {...{
+          fields: {
+            title: {
+              children: <input/>
+            }
+          }
+        }}>
+          {({fields: {title}}) => {
+            return <Grid><FlexCol>{title}</FlexCol></Grid>;
+          }}
+        </Form>, root);
+      subject.setErrors({title: 'my title error'});
+    });
+
+    it('renders error text', () => {
+      expect('.form .form-unit').toHaveClass('has-error');
+      expect('.form .help-row').toHaveText('my title error');
+    });
+  });
 });

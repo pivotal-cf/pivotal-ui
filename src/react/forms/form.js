@@ -195,14 +195,16 @@ export class Form extends React.Component {
 
   setValues = (values, cb) => this.setState({current: {...this.state.current, ...values}}, cb);
 
+  setErrors = (errors, cb) => this.setState({errors: {...this.state.errors, ...errors}}, cb);
+
   controlField = ({children = <Input type="text"/>, validator, name, ids}) => {
-    const {canSubmit, canReset, reset, onSubmit, setValues, state, onChange, onBlur, onChangeCheckbox} = this;
+    const {canSubmit, canReset, reset, onSubmit, setErrors, setValues, state, onChange, onBlur, onChangeCheckbox} = this;
     const {submitting} = state;
 
     const element = typeof children !== 'function'
       ? children
       : children({
-        onChange: onChange(name, validator), canSubmit, canReset, reset, onSubmit, submitting, setValues, state
+        onChange: onChange(name, validator), canSubmit, canReset, reset, onSubmit, submitting, setValues, setErrors, state
       });
 
     if (!element || React.Children.count(element) !== 1 || !name) return element;
@@ -231,7 +233,7 @@ export class Form extends React.Component {
   render() {
     // eslint-disable-next-line no-unused-vars
     const {className, children, fields, onModified, onSubmitError, afterSubmit, resetOnSubmit, ...others} = this.props;
-    const {canSubmit, canReset, reset, onSubmit, setValues, state, onBlur} = this;
+    const {canSubmit, canReset, reset, onSubmit, setValues, setErrors, state, onBlur} = this;
     const {current, submitting, ids} = state;
 
     const formUnits = {};
@@ -248,7 +250,7 @@ export class Form extends React.Component {
 
       formUnits[name] = (
         <FormUnit {...{
-          ...rest, key: name, optional: isOptional(rest, current), setValues, state, name, hasError: !!error,
+          ...rest, key: name, optional: isOptional(rest, current), setValues, setErrors, state, name, hasError: !!error,
           help, labelFor, children
         }}/>
       );
@@ -258,7 +260,7 @@ export class Form extends React.Component {
       <form {...{...others, className: classnames('form', className), onSubmit: this.onSubmit}}>
         <fieldset {...{disabled: submitting}}>
           {children({
-            fields: formUnits, canSubmit, canReset, reset, onSubmit, setValues, state, onBlur, submitting
+            fields: formUnits, canSubmit, canReset, reset, onSubmit, setValues, setErrors, state, onBlur, submitting
           })}
         </fieldset>
       </form>
