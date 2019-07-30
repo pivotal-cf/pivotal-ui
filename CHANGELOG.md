@@ -1,3 +1,12 @@
+<a name="17.2.1"></a>
+## 17.2.1 (2019-07-30)
+#### React
+* **dialog**: Only close modals and flyouts if click is initiated outside dialog [[:beetle:#167525463](https://www.pivotaltracker.com/story/show/167525463)] ([2ed044f7](https://github.com/pivotal-cf/pivotal-ui/commit/2ed044f7))
+* **forms**:
+  * Introduce `setErrors` callback to Form component ([89e1877f](https://github.com/pivotal-cf/pivotal-ui/commit/89e1877f))
+  * Fix form id to be unique [[:beetle:#166481920](https://www.pivotaltracker.com/story/show/166481920)] ([4ae24e8f](https://github.com/pivotal-cf/pivotal-ui/commit/4ae24e8f))
+  * Generate valid DOM ids for form labels [[:beetle:#166481920](https://www.pivotaltracker.com/story/show/166481920)] ([e365dfba](https://github.com/pivotal-cf/pivotal-ui/commit/e365dfba))
+* **table**: Allow the rowDrawer plugin's expanded state to be controlled (#627) ([a96dd542](https://github.com/pivotal-cf/pivotal-ui/commit/a96dd542))
 <a name="17.2.0"></a>
 # 17.2.0 (2019-01-11)
 #### CSS
