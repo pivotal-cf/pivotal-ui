@@ -317,6 +317,19 @@ describe('Tabs', () => {
         expect('.in:eq(0)').toHaveText('Content1');
       });
 
+      it('does not add a hash to the url on click', () => {
+        let preventDefaultCalled = false;
+        expect('.tab-heading .active').toHaveText('Tab1');
+
+        $('h4:eq(1) a:eq(0)').simulate('click', {
+          preventDefault: () => preventDefaultCalled = true
+        });
+        jest.advanceTimersByTime(1);
+
+        expect(preventDefaultCalled).toBeTruthy();
+        expect('.tab-heading .active').toHaveText('Tab2');
+      });
+
       describe('aria-labelledby', () => {
         it('uses the provided value, if given', () => {
           expect('.in:eq(0)').toHaveAttr('aria-labelledby', 'provided-aria-label');
@@ -387,6 +400,19 @@ describe('Tabs', () => {
         jest.advanceTimersByTime(1);
 
         expect('a:eq(0)').toHaveText('Tab1');
+      });
+
+      it('does not add a hash to the url on click', () => {
+        let preventDefaultCalled = false;
+        expect('.nav-tabs .active').toHaveText('Tab1');
+
+        $('li:eq(1) a:eq(0)').simulate('click', {
+          preventDefault: () => preventDefaultCalled = true
+        });
+        jest.advanceTimersByTime(1);
+
+        expect(preventDefaultCalled).toBeTruthy();
+        expect('.nav-tabs .active').toHaveText('Tab2');
       });
     });
   });

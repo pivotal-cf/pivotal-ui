@@ -381,7 +381,7 @@ $tab-action-padding: ($base-unit/2) ($base-unit*2);
       @include transition-pui();
     }
 
-    .active a, a:hover, a:focus {
+    .active a, a:hover, a:focus, a.active {
       background-color: $tab-left-bg;
       color: $tab-left-active-color;
     }

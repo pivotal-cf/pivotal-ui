@@ -23,7 +23,11 @@ export default class TabHeaders extends React.Component {
       const tabId = `${id}-tab-${key}`;
       const isActive = (eventKey === activeKey);
 
-      const onClick = disabled ? () => {} : e => handleClick(e, eventKey, onSelect);
+      const onClick = e => {
+        e.preventDefault();
+        if (disabled) return;
+        handleClick(e, eventKey, onSelect);
+      };
       return (
         <li key={key} role="presentation" className={classnames({active: isActive, disabled})} aria-expanded={isActive}>
           <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab" className={tabClassName} tabIndex="0"
