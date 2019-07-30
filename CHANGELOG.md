@@ -1,3 +1,15 @@
+<a name="18.1.1"></a>
+## 18.1.1 (2019-07-30)
+#### CSS
+* **tabs**: Prevent tabs from adding a hash to the url on click - and fix styling of responsive small tabs to match left aligned non-responsive large tabs [[:beetle:#167583925](https://www.pivotaltracker.com/story/show/167583925)] ([24cfcab6](https://github.com/pivotal-cf/pivotal-ui/commit/24cfcab6))
+#### React
+* **dialog**: Only close modals and flyouts if click is initiated outside dialog [[:beetle:#167525463](https://www.pivotaltracker.com/story/show/167525463)] ([321751d0](https://github.com/pivotal-cf/pivotal-ui/commit/321751d0))
+* **forms**:
+  * Introduce `setErrors` callback to Form component ([2b8cca8c](https://github.com/pivotal-cf/pivotal-ui/commit/2b8cca8c))
+  * Fix form id to be unique [[:beetle:#166481920](https://www.pivotaltracker.com/story/show/166481920)] ([c36f12b3](https://github.com/pivotal-cf/pivotal-ui/commit/c36f12b3))
+  * Generate valid DOM ids for form labels [[:beetle:#166481920](https://www.pivotaltracker.com/story/show/166481920)] ([f12b2bee](https://github.com/pivotal-cf/pivotal-ui/commit/f12b2bee))
+* **table**: Allow the rowDrawer plugin's expanded state to be controlled (#627) ([df0dfd50](https://github.com/pivotal-cf/pivotal-ui/commit/df0dfd50))
+* **tabs**: Prevent tabs from adding a hash to the url on click - and fix styling of responsive small tabs to match left aligned non-responsive large tabs [[:beetle:#167583925](https://www.pivotaltracker.com/story/show/167583925)] ([24cfcab6](https://github.com/pivotal-cf/pivotal-ui/commit/24cfcab6))
 <a name="18.1.0"></a>
 # 18.1.0 (2019-06-04)
 #### CSS
