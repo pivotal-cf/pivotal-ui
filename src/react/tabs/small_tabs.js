@@ -28,10 +28,19 @@ class SmallTab extends React.PureComponent {
     };
 
     return (<div>
-      <div className="tab-heading">
-        <h4 className="tab-title" role="presentation">
-          <a aria-expanded={expanded} aria-controls={paneId} aria-selected={expanded}
-             className={classnames({disabled})} role="tab" onClick={onClick} href="#">{header}</a>
+      <div className="tab-heading tab-left">
+        <h4 className="tab-title nav mvxl" role="presentation">
+          <a aria-expanded={expanded}
+             aria-controls={paneId}
+             aria-selected={expanded}
+             className={classnames({disabled, active: expanded})}
+             role="tab"
+             onClick={e => {
+               e.preventDefault();
+               onClick();
+             }}
+             href="#"
+          >{header}</a>
         </h4>
       </div>
       <Collapsible {...collapsibleProps}>
