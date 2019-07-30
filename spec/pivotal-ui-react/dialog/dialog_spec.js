@@ -190,7 +190,7 @@ describe('Dialog', () => {
         beforeEach(() => {
           subject::setProps({hideOnBackdropClick: true});
           onHide.calls.reset();
-          $('.pui-dialog-backdrop').simulate('click');
+          $('.pui-dialog-backdrop').simulate('mouseDown');
         });
 
         it('calls the onHide prop', () => {
@@ -201,7 +201,7 @@ describe('Dialog', () => {
       describe('when hideOnBackdropClick is false', () => {
         beforeEach(() => {
           onHide.calls.reset();
-          $('.pui-dialog-backdrop').simulate('click');
+          $('.pui-dialog-backdrop').simulate('mouseDown');
         });
 
         it('does not call the onHide prop', () => {

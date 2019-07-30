@@ -136,7 +136,7 @@ export class Dialog extends React.PureComponent {
             'pui-dialog-show': show
           }, className),
           style: backdropStyle,
-          onClick: this.onBackdropClick,
+          onMouseDown: this.onBackdropClick,
           'aria-hidden': !show,
           ref: el => this.backdrop = el
         }}>

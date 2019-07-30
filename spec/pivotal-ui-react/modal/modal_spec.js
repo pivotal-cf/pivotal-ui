@@ -159,7 +159,7 @@ describe('Modal', () => {
   describe('when the backdrop is clicked', () => {
     beforeEach(() => {
       onHide.calls.reset();
-      $('.pui-dialog-backdrop').simulate('click');
+      $('.pui-dialog-backdrop').simulate('mouseDown');
     });
 
     it('calls the onHide prop', () => {
