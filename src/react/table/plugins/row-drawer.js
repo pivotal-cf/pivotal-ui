@@ -84,7 +84,18 @@ export function withRowDrawer(Table) {
       rowIndex: PropTypes.number,
       rowDatum: PropTypes.object,
       keyboardNavigation: PropTypes.bool,
-      isSelected: PropTypes.bool
+      isSelected: PropTypes.bool,
+      expanded: PropTypes.bool,
+      defaultExpanded: PropTypes.bool,
+      setRowDrawerExpanded: PropTypes.func,
+      rowDrawerExpandedIcon: PropTypes.string,
+      rowDrawerCollapsedIcon: PropTypes.string,
+    };
+
+    static defaultProps = {
+      defaultExpanded: false,
+      rowDrawerExpandedIcon: 'chevron_down',
+      rowDrawerCollapsedIcon: 'chevron_right',
     };
 
     constructor(props) {
@@ -128,23 +139,44 @@ export function withRowDrawer(Table) {
 
     render() {
       // eslint-disable-next-line no-unused-vars
-      const {children, rowDrawer, rowIndex, rowDatum, keyboardNavigation, isSelected, ...props} = this.props;
-      const {expanded} = this.state;
+      const { children, rowDrawer, rowIndex, rowDatum, keyboardNavigation, isSelected, defaultExpanded, setRowDrawerExpanded, rowDrawerExpandedIcon, rowDrawerCollapsedIcon, expanded: expandedProps, ...props} = this.props;
+      const {expanded: expandedState} = this.state;
+      const expanded = expandedProps !== undefined && expandedProps !== null ? expandedProps : expandedState;
 
       const drawerContent = rowIndex !== -1 && rowDrawer(rowIndex, rowDatum);
-      const onClick = () => drawerContent && this.setState({expanded: !expanded});
-      const src = expanded ? 'chevron_down' : 'chevron_right';
-      const className = classnames(props.className, {expandable: rowIndex !== -1}, {expanded},
-        {'tr-selected': isSelected}, {'no-drawer-content': rowIndex !== -1 && !drawerContent});
+      const onClick = () => {
+        if (!drawerContent) {
+          return;
+        }
+
+        if (expandedProps !== undefined && setRowDrawerExpanded) {
+          setRowDrawerExpanded({rowIndex, rowDatum, expanded: !expanded});
+        } else {
+          this.setState({expanded: !expanded});
+        }
+      };
+      const src = expanded ? rowDrawerExpandedIcon : rowDrawerCollapsedIcon;
+
+      const className = classnames(
+        props.className,
+        {expandable: rowIndex !== -1},
+        {expanded: expanded},
+        {'tr-selected': isSelected},
+        {'no-drawer-content': rowIndex !== -1 && !drawerContent}
+      );
 
       let leftColumn;
       if (rowIndex !== -1) {
-        leftColumn = <Icon {...{className: 'expand-icon', src}}/>;
+        leftColumn = <Icon {...{className: 'expand-icon', src}} />;
       } else {
-        leftColumn = (<div {...{
-          className: 'th col col-fixed',
-          style: {borderRightWidth: '0px', width: '36px'}
-        }}/> );
+        leftColumn = (
+          <div
+            {...{
+              className: 'th col col-fixed',
+              style: {borderRightWidth: '0px', width: '36px'},
+            }}
+          />
+        );
       }
       return (
         <div className="tr-drawer">
@@ -152,9 +184,9 @@ export function withRowDrawer(Table) {
             {leftColumn}
             {children}
           </div>
-          {rowIndex !== -1 && <Collapsible {...{expanded: expanded && !!drawerContent, delay: 200}}>
-            {drawerContent}
-          </Collapsible>}
+          {rowIndex !== -1 && (
+            <Collapsible {...{expanded: expanded && !!drawerContent, delay: 200}}>{drawerContent}</Collapsible>
+          )}
         </div>
       );
     }
@@ -163,22 +195,35 @@ export function withRowDrawer(Table) {
   return class TableWithRowDrawer extends TablePlugin {
     static propTypes = {
       rowDrawer: PropTypes.func,
-      keyboardNavigation: PropTypes.bool
+      keyboardNavigation: PropTypes.bool,
+      getRowDrawerExpanded: PropTypes.func,
+      setRowDrawerExpanded: PropTypes.func,
+      rowDrawerExpandedIcon: PropTypes.string,
+      rowDrawerCollapsedIcon: PropTypes.string,
     };
 
     render() {
-      const {rowDrawer, keyboardNavigation, ...props} = this.props;
-      return this.renderTable(Table, {
-        tbodyTag: () => rowDrawer && TbodyWithDrawer,
-        trTag: () => rowDrawer && RowWithDrawer,
-        tbody: () => rowDrawer && {keyboardNavigation},
-        tr: (props, {rowIndex, rowDatum}) => rowDrawer && {
-          rowDrawer,
-          rowIndex,
-          rowDatum,
-          keyboardNavigation
-        }
-      }, props);
+      const {rowDrawer, keyboardNavigation, getRowDrawerExpanded, setRowDrawerExpanded, rowDrawerExpandedIcon, rowDrawerCollapsedIcon, ...props} = this.props;
+      return this.renderTable(
+        Table,
+        {
+          tbodyTag: () => rowDrawer && TbodyWithDrawer,
+          trTag: () => rowDrawer && RowWithDrawer,
+          tbody: () => rowDrawer && {keyboardNavigation},
+          tr: (props, {rowIndex, rowDatum}) =>
+            rowDrawer && {
+              rowDrawer,
+              rowIndex,
+              rowDatum,
+              keyboardNavigation,
+              setRowDrawerExpanded,
+              rowDrawerExpandedIcon,
+              rowDrawerCollapsedIcon,
+              expanded: getRowDrawerExpanded && getRowDrawerExpanded({rowIndex, rowDatum}),
+            },
+        },
+        props
+      );
     }
   };
 }
