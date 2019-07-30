@@ -375,5 +375,62 @@ describe('withRowDrawer', () => {
         });
       });
     });
+
+    describe('with custom row expanded icon', () => {
+      beforeEach(() => {
+        rowDrawer.and.returnValue('some-drawer-content');
+        ReactDOM.render(<ComposedTable {...{columns, data, rowDrawer, keyboardNavigation: true, rowDrawerExpandedIcon: 'arrow_upward'}}/>, root);
+        $('.tbody .tr:eq(0)').simulate('click');
+      });
+
+      it('shows the custom expanded icon', () => {
+          expect('.tbody .tr:eq(0) .icon svg').toHaveClass('icon-arrow_upward');
+        });
+    });
+
+    describe('with custom row collapsed icon', () => {
+      beforeEach(() => {
+        rowDrawer.and.returnValue('some-drawer-content');
+        ReactDOM.render(<ComposedTable {...{columns, data, rowDrawer, keyboardNavigation: true, rowDrawerCollapsedIcon: 'arrow_downward'}}/>, root);
+      });
+
+      it('shows the custom collapsed icon', () => {
+        expect('.tbody .tr:eq(0) .icon svg').toHaveClass('icon-arrow_downward');
+      });
+    });
+
+    describe('when the expanded state is controlled by the parent', () => {
+      let getRowDrawerExpanded, setRowDrawerExpanded;
+      beforeEach(() => {
+        rowDrawer.and.returnValue('some-drawer-content');
+
+        getRowDrawerExpanded = jasmine.createSpy('getRowDrawerExpanded');
+        getRowDrawerExpanded.and.returnValue(true);
+        setRowDrawerExpanded = jasmine.createSpy('setRowDrawerExpanded');
+
+        ReactDOM.render(<ComposedTable {...{columns, data, rowDrawer, getRowDrawerExpanded, setRowDrawerExpanded, keyboardNavigation: true}}/>, root);
+      });
+
+      describe('when the expanded state is given by the parent', () => {
+        it('renders the drawer as expanded', () => {
+          expect(getRowDrawerExpanded).toHaveBeenCalledWith({rowIndex: 0, rowDatum: data[0]});
+          expect('.tbody > div:eq(0) .pui-collapsible').toHaveClass('in');
+        });
+      });
+
+      describe('when clicking a row', () => {
+        beforeEach(() => {
+          $('.tbody .tr:eq(0)').simulate('click');
+        });
+
+        it('calls the setRowDrawerExpanded method controlled by the parent', () => {
+          expect(setRowDrawerExpanded).toHaveBeenCalledWith({
+            rowIndex: 0,
+            rowDatum: data[0],
+            expanded: false
+          });
+        });
+      });
+    });
   });
 });
