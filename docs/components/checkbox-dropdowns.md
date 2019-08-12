@@ -38,6 +38,31 @@ class Example extends React.Component {
 <Example/>
 ```
 
+```jsx
+//title=Checkbox dropdown with customizeTitle
+
+class Example extends React.Component {
+  render() {
+    return (
+      <div>
+        <CheckboxDropdown {...{
+          labels: {DEBUG: true, WARNING: false, ERROR: true},
+          customizeTitle: selected => {
+            if (selected['DEBUG']) {
+              return 'Catch all the bugs'
+            } else {
+              return 'The bug hunt is off'
+            }
+          }
+        }}/>
+      </div>
+    );
+  }
+}
+
+<Example/>
+```
+
 ## Props
 
 Property          | Required | Type                                | Default        | Description
@@ -50,3 +75,4 @@ Property          | Required | Type                                | Default    
 `onChange`        | no       | Function                            |                | Callback that fires after clicking a checkbox
 `size`            | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
 `split`           | no       | Boolean                             |                | If true, separates the button text from the toggle
+`customizeTitle`  | no       | Function                            |                | Callback that allows dropdown title customization if ALL are not selected

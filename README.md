@@ -18,7 +18,7 @@ See [MAINTAINERS.md](MAINTAINERS.md).
 
 ## Contributing
 
-Please refer to our [contribution guidelines](https://styleguide.pivotal.io/contribute/index).
+Please refer to our [contribution guidelines](https://styleguide.pivotal.io/about/contributing/).
 
 Pivotal UI expects all maintainers, consumers, and contributors to adhere to our [code of conduct](CODE_OF_CONDUCT.md).
 

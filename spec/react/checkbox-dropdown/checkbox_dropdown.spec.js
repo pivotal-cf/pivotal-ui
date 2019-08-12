@@ -263,4 +263,47 @@ describe('checkbox dropdown', () => {
       });
     });
   });
+
+  describe('when there is a custom title', () => {
+    let labels;
+    let customizeTitle;
+
+    beforeEach(() => {
+      labels = ['item #1', 'item #2', 'item #3'];
+      customizeTitle = (options) => {
+        const selected = Object.keys(options).filter(key => options[key]);
+        if (selected.length > 0) {
+          return `Selected (${selected.length})`;
+        }
+        return '';
+      };
+      subject = ReactDOM.render(<CheckboxDropdown labels={labels} customizeTitle={customizeTitle}/>, root);
+    });
+
+    it('the title text displays "ALL" when all are clicked', () => {
+      expect(document.querySelector('.dropdown > button')).toHaveText('ALL');
+    });
+
+    describe('when all are unclicked', () => {
+      beforeEach(() => {
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[1].querySelector('input[type="checkbox"]').click();
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').click();
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[3].querySelector('input[type="checkbox"]').click();
+      });
+
+      it('the title changes to show "NONE"', () => {
+        expect(document.querySelector('.dropdown > button')).toHaveText('NONE');
+      });
+    });
+
+    describe('when some items are selected', () => {
+      beforeEach(() => {
+        document.querySelectorAll('.checkbox-dropdown-item-checkbox')[2].querySelector('input[type="checkbox"]').click();
+      });
+
+      it('the title changes to show the custom text when some items are selected ', () => {
+        expect(document.querySelector('.dropdown > button')).toHaveText('Selected (2)');
+      });
+    });
+  });
 });
