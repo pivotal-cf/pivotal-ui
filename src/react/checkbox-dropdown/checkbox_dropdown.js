@@ -7,6 +7,10 @@ import classnames from 'classnames';
 function doNothing() {
 }
 
+function getDefaultTitle(options) {
+  return Object.keys(options).filter(key => options[key]).join(', ');
+}
+
 export class CheckboxDropdown extends React.Component {
   static propTypes = {
     buttonAriaLabel: PropTypes.string,
@@ -17,9 +21,11 @@ export class CheckboxDropdown extends React.Component {
     size: PropTypes.oneOf(['normal', 'large', 'small']),
     split: PropTypes.bool,
     labels: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    title: PropTypes.func,
   };
 
   static defaultProps = {
+    title: getDefaultTitle,
     onChange: doNothing,
     size: 'normal'
   };
@@ -48,7 +54,8 @@ export class CheckboxDropdown extends React.Component {
   getTitle() {
     if (this.allSelected()) return 'ALL';
     const {options} = this.state;
-    const selectedOptions = Object.keys(options).filter(key => options[key]).join(', ');
+    const {title} = this.props
+    const selectedOptions = title(options)
     if (!selectedOptions) return 'NONE';
     return selectedOptions;
   }
