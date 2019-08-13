@@ -271,12 +271,12 @@ describe('checkbox dropdown', () => {
     beforeEach(() => {
       labels = ['item #1', 'item #2', 'item #3'];
       title = (options) => {
-        const selected = Object.keys(options).filter(key => options[key])
+        const selected = Object.keys(options).filter(key => options[key]);
         if (selected.length > 0) {
-          return `Selected (${selected.length})`
+          return `Selected (${selected.length})`;
         }
-        return ''
-      }
+        return '';
+      };
       subject = ReactDOM.render(<CheckboxDropdown labels={labels} title={title}/>, root);
     });
 
@@ -293,7 +293,7 @@ describe('checkbox dropdown', () => {
 
       it('the title changes to show "NONE"', () => {
         expect(document.querySelector('.dropdown > button')).toHaveText('NONE');
-      })
+      });
     });
 
     describe('when some items are selected', () => {
@@ -304,6 +304,6 @@ describe('checkbox dropdown', () => {
       it('the title changes to show the custom text when some items are selected ', () => {
         expect(document.querySelector('.dropdown > button')).toHaveText('Selected (2)');
       });
-    })
+    });
   });
 });

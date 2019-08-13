@@ -54,8 +54,8 @@ export class CheckboxDropdown extends React.Component {
   getTitle() {
     if (this.allSelected()) return 'ALL';
     const {options} = this.state;
-    const {title} = this.props
-    const selectedOptions = title(options)
+    const {title} = this.props;
+    const selectedOptions = title(options);
     if (!selectedOptions) return 'NONE';
     return selectedOptions;
   }
