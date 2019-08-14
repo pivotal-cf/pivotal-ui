@@ -266,18 +266,18 @@ describe('checkbox dropdown', () => {
 
   describe('when there is a custom title', () => {
     let labels;
-    let title;
+    let customizeTitle;
 
     beforeEach(() => {
       labels = ['item #1', 'item #2', 'item #3'];
-      title = (options) => {
+      customizeTitle = (options) => {
         const selected = Object.keys(options).filter(key => options[key]);
         if (selected.length > 0) {
           return `Selected (${selected.length})`;
         }
         return '';
       };
-      subject = ReactDOM.render(<CheckboxDropdown labels={labels} title={title}/>, root);
+      subject = ReactDOM.render(<CheckboxDropdown labels={labels} customizeTitle={customizeTitle}/>, root);
     });
 
     it('the title text displays "ALL" when all are clicked', () => {

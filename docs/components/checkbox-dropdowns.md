@@ -50,3 +50,4 @@ Property          | Required | Type                                | Default    
 `onChange`        | no       | Function                            |                | Callback that fires after clicking a checkbox
 `size`            | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
 `split`           | no       | Boolean                             |                | If true, separates the button text from the toggle
+`customizeTitle`  | no       | Function                            |                | Callback that allows dropdown title customization if ALL are not selected

@@ -21,11 +21,11 @@ export class CheckboxDropdown extends React.Component {
     size: PropTypes.oneOf(['normal', 'large', 'small']),
     split: PropTypes.bool,
     labels: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    title: PropTypes.func,
+    customizeTitle: PropTypes.func,
   };
 
   static defaultProps = {
-    title: getDefaultTitle,
+    customizeTitle: getDefaultTitle,
     onChange: doNothing,
     size: 'normal'
   };
@@ -54,8 +54,8 @@ export class CheckboxDropdown extends React.Component {
   getTitle() {
     if (this.allSelected()) return 'ALL';
     const {options} = this.state;
-    const {title} = this.props;
-    const selectedOptions = title(options);
+    const {customizeTitle} = this.props;
+    const selectedOptions = customizeTitle(options);
     if (!selectedOptions) return 'NONE';
     return selectedOptions;
   }
@@ -86,7 +86,7 @@ export class CheckboxDropdown extends React.Component {
 
   render() {
     // eslint-disable-next-line no-unused-vars
-    const {labels, onChange, className, ...dropDownProps} = this.props;
+    const {labels, onChange, className, customizeTitle, ...dropDownProps} = this.props;
     const {options} = this.state;
 
     const dropdownItems = Object.entries(options).map(([label, checked]) => {
