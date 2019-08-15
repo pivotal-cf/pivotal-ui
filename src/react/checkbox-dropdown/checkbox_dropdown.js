@@ -7,6 +7,10 @@ import classnames from 'classnames';
 function doNothing() {
 }
 
+function getDefaultTitle(options) {
+  return Object.keys(options).filter(key => options[key]).join(', ');
+}
+
 export class CheckboxDropdown extends React.Component {
   static propTypes = {
     buttonAriaLabel: PropTypes.string,
@@ -17,9 +21,11 @@ export class CheckboxDropdown extends React.Component {
     size: PropTypes.oneOf(['normal', 'large', 'small']),
     split: PropTypes.bool,
     labels: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    customizeTitle: PropTypes.func,
   };
 
   static defaultProps = {
+    customizeTitle: getDefaultTitle,
     onChange: doNothing,
     size: 'normal'
   };
@@ -48,7 +54,8 @@ export class CheckboxDropdown extends React.Component {
   getTitle() {
     if (this.allSelected()) return 'ALL';
     const {options} = this.state;
-    const selectedOptions = Object.keys(options).filter(key => options[key]).join(', ');
+    const {customizeTitle} = this.props;
+    const selectedOptions = customizeTitle(options);
     if (!selectedOptions) return 'NONE';
     return selectedOptions;
   }
@@ -79,7 +86,7 @@ export class CheckboxDropdown extends React.Component {
 
   render() {
     // eslint-disable-next-line no-unused-vars
-    const {labels, onChange, className, ...dropDownProps} = this.props;
+    const {labels, onChange, className, customizeTitle, ...dropDownProps} = this.props;
     const {options} = this.state;
 
     const dropdownItems = Object.entries(options).map(([label, checked]) => {
