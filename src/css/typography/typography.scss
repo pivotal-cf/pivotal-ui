@@ -9,38 +9,38 @@ body {
   line-height: $pui-line-height-medium;
 }
 
-@mixin source-sans-pro-helper($name, $weight, $style) {
+$charsets: (
+  "latin": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+  "cyrillic": "U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116"
+);
+
+@mixin fontHelper($name, $style, $weight, $charset) {
   @font-face {
-    font-family: 'SourceSansPro';
-    src: url("fonts/sourcesanspro-#{$name}-webfont.eot");
-    src: url("fonts/sourcesanspro-#{$name}-webfont.eot?#iefix") format("embedded-opentype"),
-    url("fonts/sourcesanspro-#{$name}-webfont.woff") format("woff"),
-    url("fonts/sourcesanspro-#{$name}-webfont.ttf") format("truetype");
-    font-weight: $weight;
+    font-family: $name;
     font-style: $style;
+    font-weight: $weight;
+    font-display: swap;
+    src: url("fonts/#{$name}-#{$style}-#{$weight}-#{$charset}.woff") format('woff');
+    unicode-range: map-get($charsets, $charset);
   }
 }
 
-@mixin source-code-pro-helper($weight, $style) {
-  @font-face {
-    font-family: 'SourceCodePro';
-    src: url("fonts/source-code-pro-v9-latin-#{$weight}.eot");
-    src: url("fonts/source-code-pro-v9-latin-#{$weight}.eot?#iefix") format("embedded-opentype"),
-    url("fonts/source-code-pro-v9-latin-#{$weight}.woff") format("woff"),
-    url("fonts/source-code-pro-v9-latin-#{$weight}.ttf") format("truetype");
-    font-weight: $weight;
-    font-style: $style;
-  }
-}
-
-@include source-sans-pro-helper('light', 200, normal);
-@include source-sans-pro-helper('regular', 400, normal);
-@include source-sans-pro-helper('it', 400, italic);
-@include source-sans-pro-helper('semibold', 600, normal);
-@include source-sans-pro-helper('bold', 700, normal);
-@include source-code-pro-helper(400, normal);
-@include source-code-pro-helper(600, normal);
-@include source-code-pro-helper(700, normal);
+@include fontHelper('SourceSansPro', normal, 200, 'latin');
+@include fontHelper('SourceSansPro', normal, 200, 'cyrillic');
+@include fontHelper('SourceSansPro', normal, 400, 'latin');
+@include fontHelper('SourceSansPro', normal, 400, 'cyrillic');
+@include fontHelper('SourceSansPro', italic, 400, 'latin');
+@include fontHelper('SourceSansPro', italic, 400, 'cyrillic');
+@include fontHelper('SourceSansPro', normal, 600, 'latin');
+@include fontHelper('SourceSansPro', normal, 600, 'cyrillic');
+@include fontHelper('SourceSansPro', normal, 700, 'latin');
+@include fontHelper('SourceSansPro', normal, 700, 'cyrillic');
+@include fontHelper('SourceCodePro', normal, 400, 'latin');
+@include fontHelper('SourceCodePro', normal, 400, 'cyrillic');
+@include fontHelper('SourceCodePro', normal, 600, 'latin');
+@include fontHelper('SourceCodePro', normal, 600, 'cyrillic');
+@include fontHelper('SourceCodePro', normal, 700, 'latin');
+@include fontHelper('SourceCodePro', normal, 700, 'cyrillic');
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
