@@ -92,6 +92,7 @@ Property       | Required | Type                                      | Default 
 Property         | Required | Type                                      | Default  | Description
 -----------------|----------|-------------------------------------------|----------|----------------------------------
 `clickHideDelay` | no       | Number                                    | 1000     | How long (in milliseconds) to wait before hiding after click
+`disabled`       | no       | Boolean                                   | false    | Disables the tooltip trigger, causing the tooltip not to display regardless of other settings
 `display`        | no       | Boolean                                   | false    | if `trigger` is set to `manual` controls whether or not the tooltip is visible
 `isSticky`       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
 `onEntered`      | no       | Func                                      | () => {} | Callback that is called after the tooltip is shown

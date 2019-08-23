@@ -37,30 +37,32 @@ export class Tooltip extends React.PureComponent {
 
 export class TooltipTrigger extends React.Component {
   static propTypes = {
-    display: PropTypes.bool,
-    tooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
-    placement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
-    trigger: PropTypes.oneOf(['manual', 'click', 'hover focus']),
     clickHideDelay: PropTypes.number,
+    disabled: PropTypes.bool,
+    display: PropTypes.bool,
+    isSticky: PropTypes.bool,
     onClick: PropTypes.func,
     onEntered: PropTypes.func,
     onExited: PropTypes.func,
-    theme: PropTypes.oneOf(['dark', 'light']),
+    placement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
     size: PropTypes.oneOf(['auto', 'sm', 'md', 'lg']),
-    isSticky: PropTypes.bool
+    theme: PropTypes.oneOf(['dark', 'light']),
+    tooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
+    trigger: PropTypes.oneOf(['manual', 'click', 'hover focus'])
   };
 
   static defaultProps = {
-    display: false,
-    placement: 'top',
-    trigger: 'hover focus',
     clickHideDelay: 1000,
+    disabled: false,
+    display: false,
+    isSticky: false,
     onClick: () => {},
     onEntered: () => {},
     onExited: () => {},
-    theme: 'dark',
+    placement: 'top',
     size: 'auto',
-    isSticky: false
+    theme: 'dark',
+    trigger: 'hover focus'
   };
 
   constructor(props) {
@@ -116,8 +118,9 @@ export class TooltipTrigger extends React.Component {
   }
 
   render() {
-    const {isSticky, placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, onClick, display, ...others} = this.props;
-    const {visible} = this.state;
+    const {isSticky, placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, onClick, display, disabled, ...others} = this.props;
+    let visible = false;
+    if (!disabled) visible = this.state.visible;
 
     let placementClass;
     if(placement !== 'top') {
