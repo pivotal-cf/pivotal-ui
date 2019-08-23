@@ -1,3 +1,9 @@
+<a name="18.1.2"></a>
+## 18.1.2 (2019-08-23)
+#### CSS
+* **typography**: Add cyrillic charactors to our fonts ([fbcef3b2](https://github.com/pivotal-cf/pivotal-ui/commit/fbcef3b2))
+#### React
+* **checkbox-dropdown**: Make title of checkbox dropdown connfigurable ([bdffe7e0](https://github.com/pivotal-cf/pivotal-ui/commit/bdffe7e0))
 <a name="18.1.1"></a>
 ## 18.1.1 (2019-07-30)
 #### CSS
