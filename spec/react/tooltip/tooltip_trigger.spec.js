@@ -147,6 +147,21 @@ describe('TooltipTrigger Component', () => {
         expect('.tooltip-container').toHaveClass('tooltip-container-visible');
       });
     });
+
+    describe('when disabled is true', () => {
+      it('does not show the tooltip on hover', () => {
+        renderComponent({tooltip: 'Some tooltip content', disabled: true});
+        expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+
+        $('.tooltip').simulate('mouseEnter');
+        jest.advanceTimersByTime(1);
+        expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+
+        $('.tooltip').simulate('mouseLeave');
+        jest.advanceTimersByTime(1);
+        expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+      });
+    });
   });
 
   describe('trigger is click', () => {
@@ -196,6 +211,16 @@ describe('TooltipTrigger Component', () => {
         expect('.tooltip-container').toHaveClass('tooltip-container-visible');
       });
     });
+
+    describe('when disabled is true', () => {
+      it('does not show the tooltip on click', () => {
+        renderComponent({trigger: 'click', tooltip: 'Some tooltip content', disabled: true});
+
+        $('.tooltip').simulate('click');
+        jest.advanceTimersByTime(1);
+        expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+      });
+    });
   });
 
   describe('trigger is manual', () => {
@@ -221,6 +246,13 @@ describe('TooltipTrigger Component', () => {
       });
 
       it('takes the trigger prop into account', () => {
+        expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+      });
+    });
+
+    describe('when disabled is true', () => {
+      it('does not show the tooltip even when display is true', () => {
+        renderComponent({trigger, tooltip, display: true, disabled: true});
         expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
       });
     });
