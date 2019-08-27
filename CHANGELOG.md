@@ -1,3 +1,8 @@
+<a name="17.2.2"></a>
+## 17.2.2 (2019-08-27)
+#### CSS
+* **flex-grids**:
+  * Remove conflicting flex css and remove flex-basis: 0 to fix layouts on IE ([d22e3bb7](https://github.com/pivotal-cf/pivotal-ui/commit/d22e3bb7)) ([d573c30c](https://github.com/pivotal-cf/pivotal-ui/commit/d573c30c))
 <a name="17.2.1"></a>
 ## 17.2.1 (2019-07-30)
 #### React
