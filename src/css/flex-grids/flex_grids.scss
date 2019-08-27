@@ -55,7 +55,7 @@ $flexDirectionProps: row row-reverse column column-reverse;
   -webkit-box-flex: 1;
   flex-grow: 1;
   flex-shrink: 0;
-  -ms-flex-preferred-size: 0;
+  flex-basis: auto;
   max-width: 100%;
   padding: 0 $base-unit 0 $base-unit;
 }
