@@ -8,7 +8,8 @@ export class CopyToClipboard extends React.PureComponent {
   static propTypes = {
     text: PropTypes.string.isRequired,
     onClick: PropTypes.func,
-    tooltip: PropTypes.string
+    tooltip: PropTypes.string,
+    tooltipPlacement: PropTypes.oneOf(['left', 'right', 'bottom', 'top'])
   };
 
   componentDidMount() {
@@ -21,7 +22,7 @@ export class CopyToClipboard extends React.PureComponent {
   };
 
   render() {
-    const {children, text, onClick, tooltip = 'Copied', ...others} = this.props;
+    const {children, text, onClick, tooltip = 'Copied', tooltipPlacement, ...others} = this.props;
 
     const anchorProps = mergeProps(others, {
       className: 'pui-copy-to-clipboard',
@@ -31,7 +32,7 @@ export class CopyToClipboard extends React.PureComponent {
 
     return (
       <a {...anchorProps}>
-        <TooltipTrigger {...{tooltip, trigger: 'click'}}>
+        <TooltipTrigger {...{tooltip, placement: tooltipPlacement, trigger: 'click'}}>
           {children}
         </TooltipTrigger>
       </a>

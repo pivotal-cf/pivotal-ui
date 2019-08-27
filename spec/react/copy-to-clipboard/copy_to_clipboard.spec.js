@@ -42,6 +42,16 @@ describe('CopyToClipboard', () => {
     });
   });
 
+  describe('when given tooltipPlacement', () => {
+    beforeEach(() => {
+      subject::setProps({tooltipPlacement: 'right'});
+    });
+
+    it('places the tooltip where specified', () => {
+      expect('.tooltip.tooltip-right').toHaveText('Copied');
+    });
+  });
+
   describe('when given additional props', () => {
     beforeEach(() => {
       subject::setProps({className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
