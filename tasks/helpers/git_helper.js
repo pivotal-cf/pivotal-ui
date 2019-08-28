@@ -6,7 +6,7 @@ const ignoredCommits = [
   'ad4194db', '4ed250f7', 'b805e094', 'da6e92ee', '8c63a103', 'c6935c16', 'cc58687a', '2e76eeaa', '660712e5', 'd96d6a2a',
   '84b5e3fa', 'e42c9248', 'b481d93a', '954e1430', '577b3643', '71155549', 'cd2177f8', 'cf8f4f4d', '139ff5cb', '4474fd62',
   '24c63071', 'ec0e613d', 'e36dc561', 'f23bb9e1', '6ae6f444', '92c4d876', '39dd57ea', '01c21cd5', 'c5038953', '788ee44f',
-  '371c3d1f'
+  '371c3d1f', '5bb00d50', '745518bd', '29e5b866'
 ];
 
 const tagToSemver = tag => tag.split('.').map(s => s.replace(/^[^\d]*(\d+)[^\d]*$/, '$1')).map(i => +i);

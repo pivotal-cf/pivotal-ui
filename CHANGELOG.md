@@ -1,12 +1,16 @@
+<a name="18.1.5"></a>
+## 18.1.5 (2019-08-28)
+#### CSS
+* **flex-grids**:
+  * Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
+#### React
+* **panels**: Move loading indicator to top of panel rather than in panel body ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
 <a name="18.1.4"></a>
 ## 18.1.4 (2019-08-28)
 #### CSS
 * **typography**: Add tests to validate our fonts are WOFFs and remove italic 400 cyrillic since it is not yet supported ([c6f8cd4c](https://github.com/pivotal-cf/pivotal-ui/commit/c6f8cd4c))
 <a name="18.1.3"></a>
 ## 18.1.3 (2019-08-27)
-#### CSS
-* **flex-grids**:
-  * Remove conflicting flex css and remove flex-basis: 0 to fix layouts on IE ([29e5b866](https://github.com/pivotal-cf/pivotal-ui/commit/29e5b866)) ([745518bd](https://github.com/pivotal-cf/pivotal-ui/commit/745518bd))
 #### React
 * **copy-to-clipboard**: Allow users to specifiy tooltip placement on CopyToClipboard component ([428c1791](https://github.com/pivotal-cf/pivotal-ui/commit/428c1791))
 * **tooltip**: Add 'disabled' prop to tooltip trigger [#168090263] ([62e26693](https://github.com/pivotal-cf/pivotal-ui/commit/62e26693))
