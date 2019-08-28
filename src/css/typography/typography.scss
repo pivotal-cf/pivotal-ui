@@ -30,7 +30,6 @@ $charsets: (
 @include fontHelper('SourceSansPro', normal, 400, 'latin');
 @include fontHelper('SourceSansPro', normal, 400, 'cyrillic');
 @include fontHelper('SourceSansPro', italic, 400, 'latin');
-@include fontHelper('SourceSansPro', italic, 400, 'cyrillic');
 @include fontHelper('SourceSansPro', normal, 600, 'latin');
 @include fontHelper('SourceSansPro', normal, 600, 'cyrillic');
 @include fontHelper('SourceSansPro', normal, 700, 'latin');
