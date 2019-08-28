@@ -1,3 +1,7 @@
+<a name="18.1.4"></a>
+## 18.1.4 (2019-08-28)
+#### CSS
+* **typography**: Add tests to validate our fonts are WOFFs and remove italic 400 cyrillic since it is not yet supported ([c6f8cd4c](https://github.com/pivotal-cf/pivotal-ui/commit/c6f8cd4c))
 <a name="18.1.3"></a>
 ## 18.1.3 (2019-08-27)
 #### CSS
