@@ -1,3 +1,8 @@
+<a name="17.2.3"></a>
+## 17.2.3 (2019-08-28)
+#### CSS
+* **flex-grids**:
+  * Fix flex layout on non IE browsers
 <a name="17.2.2"></a>
 ## 17.2.2 (2019-08-27)
 #### CSS
