@@ -23,8 +23,8 @@
   }
 
   .pui-panel-loading-indicator {
+    border-top-left-radius: $border-radius-base;
     position: absolute;
-    top: -3px;
     left: 0;
     width: 100%;
     height: 3px;
