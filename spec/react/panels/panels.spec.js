@@ -12,17 +12,17 @@ describe('Panel', () => {
   });
 
   it('renders a panel-container', () => {
-    expect('.pui-panel-container').toExist();
+    expect('section.pui-panel-container').toExist();
   });
 
   it('does not render a panel title', () => {
-    expect('.pui-panel-container > .pui-panel-title').not.toExist();
+    expect('section.pui-panel-container > .pui-panel-title').not.toExist();
   });
 
   it('renders a panel with the expected classes', () => {
-    expect('.pui-panel-container > .pui-panel').toHaveClass('bg-white');
-    expect('.pui-panel-container > .pui-panel').toHaveClass('box-shadow-1');
-    expect('.pui-panel-container > .pui-panel').toHaveClass('border-rounded');
+    expect('section.pui-panel-container > .pui-panel').toHaveClass('bg-white');
+    expect('section.pui-panel-container > .pui-panel').toHaveClass('box-shadow-1');
+    expect('section.pui-panel-container > .pui-panel').toHaveClass('border-rounded');
   });
 
   it('does not render a header', () => {
@@ -43,7 +43,7 @@ describe('Panel', () => {
     });
 
     it('renders the panel class name', () => {
-      expect('.pui-panel-container').toHaveClass('custom-panel-container-class');
+      expect('section.pui-panel-container').toHaveClass('custom-panel-container-class');
     });
   });
 
@@ -53,11 +53,11 @@ describe('Panel', () => {
     });
 
     it('renders the title', () => {
-      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('some title');
-      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('h5');
-      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('em-high');
-      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('type-ellipsis');
-      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('col-middle');
+      expect('section.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('some title');
+      expect('section.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('h5');
+      expect('section.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('em-high');
+      expect('section.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('type-ellipsis');
+      expect('section.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('col-middle');
     });
 
     describe('with titleClassName', () => {
@@ -66,7 +66,7 @@ describe('Panel', () => {
       });
 
       it('renders the title class name', () => {
-        expect('.pui-panel-container > .pui-panel-title').toHaveClass('custom-title-class');
+        expect('section.pui-panel-container > .pui-panel-title').toHaveClass('custom-title-class');
       });
     });
   });
@@ -80,9 +80,9 @@ describe('Panel', () => {
     });
 
     it('renders the title cols', () => {
-      expect('.pui-panel-container > .pui-panel-title > .col').toHaveLength(2);
-      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('Col 1');
-      expect('.pui-panel-container > .pui-panel-title > .col:eq(1)').toHaveText('Col 2');
+      expect('section.pui-panel-container > .pui-panel-title > .col').toHaveLength(2);
+      expect('section.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('Col 1');
+      expect('section.pui-panel-container > .pui-panel-title > .col:eq(1)').toHaveText('Col 2');
     });
 
     describe('with a title', () => {
@@ -91,10 +91,10 @@ describe('Panel', () => {
       });
 
       it('renders the title before the title cols', () => {
-        expect('.pui-panel-container > .pui-panel-title > .col').toHaveLength(3);
-        expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('My Title');
-        expect('.pui-panel-container > .pui-panel-title > .col:eq(1)').toHaveText('Col 1');
-        expect('.pui-panel-container > .pui-panel-title > .col:eq(2)').toHaveText('Col 2');
+        expect('section.pui-panel-container > .pui-panel-title > .col').toHaveLength(3);
+        expect('section.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('My Title');
+        expect('section.pui-panel-container > .pui-panel-title > .col:eq(1)').toHaveText('Col 1');
+        expect('section.pui-panel-container > .pui-panel-title > .col:eq(2)').toHaveText('Col 2');
       });
     });
   });
@@ -189,7 +189,7 @@ describe('Panel', () => {
       });
 
       it('renders a loading bar', () => {
-        expect('.pui-panel > .pui-panel-body > .pui-panel-loading-indicator').toExist();
+        expect('.pui-panel .pui-panel-loading-indicator').toExist();
       });
     });
   });
