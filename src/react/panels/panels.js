@@ -39,8 +39,8 @@ export class Panel extends React.Component {
         </Grid>}
         <div {...{className: classnames('pui-panel bg-white box-shadow-1 border-rounded', panelClassName)}}>
           {loading && (
-            <div className="position-relative">
-              <div className="pui-panel-loading-indicator"/>
+            <div className="pui-panel-loading-indicator-container">
+              <div className="pui-panel-loading-indicator" />
             </div>
           )}
           {(header || headerCols.length > 0) && <Grid className={classnames('pui-panel-header', headerClassName)}>
