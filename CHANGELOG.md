@@ -1,8 +1,17 @@
+<a name="18.1.7"></a>
+## 18.1.7 (2019-09-04)
+#### CSS
+* **panels**: Use an actual element rather than a pseudo element for animating ([a05a35ed](https://github.com/pivotal-cf/pivotal-ui/commit/a05a35ed))
+#### React
+* **panels**: Use an actual element rather than a pseudo element for animating ([a05a35ed](https://github.com/pivotal-cf/pivotal-ui/commit/a05a35ed))
+<a name="18.1.6"></a>
+## 18.1.6 (2019-08-28)
+#### CSS
+* **panels**: Update loading indicator to have a border radius ([bf3d0b71](https://github.com/pivotal-cf/pivotal-ui/commit/bf3d0b71))
 <a name="18.1.5"></a>
 ## 18.1.5 (2019-08-28)
 #### CSS
-* **flex-grids**:
-  * Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
+* **flex-grids**: Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
 #### React
 * **panels**: Move loading indicator to top of panel rather than in panel body ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
 <a name="18.1.4"></a>
@@ -186,6 +195,10 @@
   * Make tabs clickable via keyboard navigation [[:beetle:#158048701](https://www.pivotaltracker.com/story/show/158048701)] ([0a509da7](https://github.com/pivotal-cf/pivotal-ui/commit/0a509da7))
   * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
 * **toggle**: Remove deprecated non-namespaced CSS classes from toggle ([0336c9f8](https://github.com/pivotal-cf/pivotal-ui/commit/0336c9f8))
+<a name="17.2.3"></a>
+## 17.2.3 (2019-08-28)
+#### CSS
+* **flex-grids**: Fix flex basis for non IE browsers [#167720153](https://www.pivotaltracker.com/story/show/167720153) ([99a2a437](https://github.com/pivotal-cf/pivotal-ui/commit/99a2a437))
 <a name="17.2.2"></a>
 ## 17.2.2 (2019-08-27)
 #### CSS
