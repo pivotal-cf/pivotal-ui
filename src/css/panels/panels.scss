@@ -22,19 +22,21 @@
     margin-bottom: 2 * $base-unit;
   }
 
-  .pui-panel-loading-indicator {
+  .pui-panel-loading-indicator-container {
+    position: relative;
     border-top-left-radius: $border-radius-base;
-    position: absolute;
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: transparent;
     overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 
-    animation: pui-panel-loading-slide 3s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
-
-    &::after {
-      content: "";
+    .pui-panel-loading-indicator {
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
       position: absolute;
       right: 100%;
       width: 40%;
