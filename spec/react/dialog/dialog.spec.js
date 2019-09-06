@@ -43,13 +43,18 @@ describe('Dialog', () => {
 
   it('renders a hidden backdrop', () => {
     expect('.pui-dialog-backdrop').not.toHaveClass('pui-dialog-show');
-    expect('.pui-dialog-backdrop').toHaveStyle({visibility: 'hidden'});
+    expect('.pui-dialog-backdrop').toHaveStyle({
+      visibility: 'hidden',
+      transition: 'opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'
+    });
     expect('.pui-dialog-backdrop').toHaveAttr('aria-hidden', 'true');
   });
 
   it('renders a hidden dialog', () => {
     expect('.pui-dialog').not.toHaveClass('pui-dialog-show');
-    expect('.pui-dialog').toHaveStyle({});
+    expect('.pui-dialog').toHaveStyle({
+      transition: 'transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'
+    });
   });
 
   it('does not render the children', () => {
@@ -109,7 +114,10 @@ describe('Dialog', () => {
     });
 
     it('renders a modal', () => {
-      expect('.pui-dialog-backdrop').toHaveStyle({visibility: 'visible'});
+      expect('.pui-dialog-backdrop').toHaveStyle({
+        visibility: 'visible',
+        transition: 'opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'
+      });
       expect('.pui-dialog-backdrop').toHaveClass('pui-dialog-show');
     });
 
