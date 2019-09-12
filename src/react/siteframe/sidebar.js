@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {SidebarLinks} from './sidebar_links';
 
 export class Sidebar extends React.PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     primaryLinks: PropTypes.array.isRequired,
     secondaryLinks: PropTypes.array,
     renderLink: PropTypes.func.isRequired
   };
 
   render() {
-    const {primaryLinks, secondaryLinks, renderLink} = this.props;
+    const {className, primaryLinks, secondaryLinks, renderLink} = this.props;
     return (
-      <nav className="pui-siteframe-sidebar">
+      <nav className={classnames('pui-siteframe-sidebar', className)}>
         <SidebarLinks {...{
           links: primaryLinks,
           renderLink,

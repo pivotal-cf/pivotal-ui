@@ -45,9 +45,10 @@ describe('Header', () => {
   });
 
   describe('with props', () => {
-    let companyName, onClick, logoSrc, productName, cols, logo;
+    let className, companyName, onClick, logoSrc, productName, cols, logo;
 
     beforeEach(() => {
+      className = 'other-class-name';
       companyName = 'some-company-name';
       onClick = jasmine.createSpy('onClick');
       logoSrc = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
@@ -55,12 +56,16 @@ describe('Header', () => {
       productName = <a href="#">some-product-name</a>;
       cols = [<FlexCol>first custom column</FlexCol>, <FlexCol>second custom column</FlexCol>];
 
-      ReactDOM.render(<Header {...{cols, companyName, logo, productName}}/>, root);
+      ReactDOM.render(<Header {...{className, cols, companyName, logo, productName}}/>, root);
     });
 
     it('renders a grid with four columns', () => {
       expect('.pui-siteframe-header').toHaveClass('grid');
       expect('.pui-siteframe-header > .col').toHaveLength(4);
+    });
+
+    it('adds any additional class names to the header', () => {
+      expect('.pui-siteframe-header').toHaveClass('other-class-name');
     });
 
     it('renders a fixed first column with the logo', () => {

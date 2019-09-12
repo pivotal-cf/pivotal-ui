@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {Grid, FlexCol} from '../flex-grids';
 
 export class Header extends React.PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     cols: PropTypes.array,
     companyName: PropTypes.node.isRequired,
     logo: PropTypes.node,
@@ -16,10 +18,10 @@ export class Header extends React.PureComponent {
   };
 
   render() {
-    const {cols, companyName, logo, productName} = this.props;
+    const {className, cols, companyName, logo, productName} = this.props;
 
     return (
-      <Grid className="pui-siteframe-header">
+      <Grid className={classnames('pui-siteframe-header', className)}>
         {[
           logo && <FlexCol fixed>
             {logo}

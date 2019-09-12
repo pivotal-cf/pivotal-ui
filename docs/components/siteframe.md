@@ -138,6 +138,7 @@ Property | Required | Type | Default | Description
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
+`className` | no  | String      | | Additional className, added alongside className `pui-siteframe-header`
 `cols` | no  | Any      | `[]` | Array of `FlexCol`'s to include to the right of company/product name.
 `companyName` | yes  | node   | | Name of company
 `logo` | no  | node   | `null` | Content to the left of company name.
@@ -147,6 +148,7 @@ Property | Required | Type | Default | Description
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
+`className` | no  | String      | | Additional className, added alongside className `pui-siteframe-sidebar`
 `primaryLinks` | yes  | Array      | | Array of objects (representing a link) to be passed into `renderLink` function. Appears at the top of the sidebar. If an object has property `active: true`, it will be styled as an active link.
 `secondaryLinks` | no  | Array      | `[]` | Array of objects (representing a link) to be passed into `renderLink` function. Appears at the bottom of the sidebar. If an object has property `active: true`, it will be styled as an active link.
 `renderLink` | yes  | Function      | | Function that will be called with each link object as an argument. Should return a node representing how to render that link.

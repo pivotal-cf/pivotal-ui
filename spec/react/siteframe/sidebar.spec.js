@@ -5,27 +5,33 @@ import {Sidebar} from '../../../src/react/siteframe/sidebar';
 import {SidebarLinks} from '../../../src/react/siteframe/sidebar_links';
 
 describe('Sidebar', () => {
-  let primaryLinks, secondaryLinks, renderLink;
+  let className, primaryLinks, secondaryLinks, renderLink;
 
   describe('without secondary links', () => {
     beforeEach(() => {
+      className = 'some-class-name';
       primaryLinks = [
         {name: 'primary-link-1'},
         {name: 'primary-link-2'}
       ];
       renderLink = () => null;
       spyOnRender(SidebarLinks);
-      ReactDOM.render(<Sidebar {...{primaryLinks, secondaryLinks, renderLink}}/>, root);
+      ReactDOM.render(<Sidebar {...{className, primaryLinks, secondaryLinks, renderLink}}/>, root);
     });
 
     it('renders the upper SidebarLinks component only', () => {
       expect(SidebarLinks).toHaveBeenRenderedWithProps({
+        className,
         links: primaryLinks,
         renderLink,
         className: 'pui-sidebar-primary-links'
       });
 
       expect(SidebarLinks).toHaveBeenRenderedTimes(1);
+    });
+
+    it('adds any additional class names to the sidebar', () => {
+      expect('.pui-siteframe-sidebar').toHaveClass('some-class-name');
     });
   });
 
