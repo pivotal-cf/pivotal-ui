@@ -47,7 +47,7 @@
     "jasmine_dom_matchers": "atomanyih/jasmine_dom_matchers",
     "jest": "^24.9.0",
     "jquery": "^3.3.1",
-    "merge-stream": "^1.0.1",
+    "merge-stream": "^2.0.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "postcss-cssnext": "^3.1.0",
