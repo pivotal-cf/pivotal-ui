@@ -5,8 +5,6 @@
 * Nick Guerette ([@nguerette](https://github.com/nguerette))
 * Kenny Wang ([@kennyw12](https://github.com/kennyw12))
 * Sarah Weinstein ([@sweinstein22](https://github.com/sweinstein22))
-* Spencer Hawley ([@sphawley](https://github.com/sphawley))
-* Ana Nelson ([@anaclair](https://github.com/anaclair))
 
 ## Past maintainers
 
@@ -21,3 +19,5 @@
 * August Toman-Yih ([@atomanyih](https://github.com/atomanyih))
 * Ming Xiao ([@mingxiao](https://github.com/mingxiao))
 * Reid Mitchell ([@reid47](https://github.com/reid47))
+* Spencer Hawley ([@sphawley](https://github.com/sphawley))
+* Ana Nelson ([@anaclair](https://github.com/anaclair))
