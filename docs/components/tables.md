@@ -4,526 +4,625 @@ cssPath: pivotal-ui/css/tables
 reactPath: pivotal-ui/react/table
 reactComponents:
 - Table
-- FlexTable
-- SortableTable
-- SortableFlexTable
-- AdvancedTable
+- Caption
+- Thead
+- Tbody
+- Tfoot
+- Tr
+- Th
+- Td
+- TrHeaderForDrawers
+- TrWithoutDrawer
+- TrWithDrawer
 ---
 
-The `Table` component is a robust component that offers a styled table. If the rows change, the content on the page will update.
-
-Several enhanced `Table` components are also available:
-* **SortableTable**: rows can be sorted ascending or descending by a chosen column.
-* **FlexTable**: uses `div` tags to compose a table rather than traditional HTML tags.
-* **SortableFlexTable**: a SortableTable that is composed of `div` tags.
-* **AdvancedTable**: a `Table` that includes all [plugins](/components/tables/#using-plugins)
+The `Table` component is a component that offers a styled table.
 
 ```jsx
-//title=Basic HTML Table with implicit columns
-//description=When no `columns` prop is given, the table will automatically determine the columns and column headers based on the keys of `data`.
-const data = [{
-  instances: '1',
-  bar: 11,
-  title: 'foo'
-}, {
-  instances: '3',
-  bar: 7,
-  title: 'sup'
-}, {
-  title: 'yee',
-  instances: '2',
-  bar: 8
-}];
-<Table data={data}/>
+//title=Basic HTML Table
+//description=Use this table like native html tables.
+<Table>
+  <Caption>Some table</Caption>
+  <Thead>
+    <Tr>
+      <Th>A column header</Th>
+      <Th>Another column header</Th>
+      <Th>One more column header</Th>
+      <Th>Last column header</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>The</Td>
+      <Td>very</Td>
+      <Td>first</Td>
+      <Td>row</Td>
+    </Tr>
+    <Tr>
+      <Td>Another</Td>
+      <Td>very</Td>
+      <Td>cool</Td>
+      <Td>row</Td>
+    </Tr>
+  </Tbody>
+  <Tfoot>
+    <Tr>
+      <Td>A</Td>
+      <Td>place</Td>
+      <Td>for</Td>
+      <Td>totals</Td>
+    </Tr>
+  </Tfoot>
+</Table>
 ```
 
-```jsx
-//title=Basic HTML Table with simple columns
-//description=When the `columns` prop contains strings, the associated data will be shown in the data in the order provided.
-const data = [{
-  instances: '1',
-  bar: 11,
-  title: 'foo'
-}, {
-  instances: '3',
-  bar: 7,
-  title: 'sup'
-}, {
-  title: 'yee',
-  instances: '2',
-  bar: 8
-}];
-const columns = ['title', 'instances'];
-<Table columns={columns} data={data}/>
-```
+## Table modifiers
 
-```jsx
-//title=Sortable HTML Table with explicit columns
-//description=The `columns` prop defines the properties of each column. This allows for more complex table behavior, such as sorting.
-const columns = [{
-  attribute: 'title',
-  displayName: 'Title',
-  sortable: false
-}, {
-  attribute: 'instances',
-  sortable: true
-}, {
-  attribute: 'bar',
-  displayName: 'Bar',
-  sortable: true,
-  sortBy: function(value) { return -value; }
-}, {
-  attribute: 'unsortable',
-  sortable: false
-}];
-const data = [{
-  instances: '1',
-  bar: 11,
-  title: 'foo',
-  unsortable: '14'
-}, {
-  instances: '3',
-  bar: 7,
-  title: 'sup',
-  unsortable: '22'
-}, {
-  title: 'yee',
-  instances: '2',
-  bar: 8,
-  unsortable: '1'
-}];
-<SortableTable columns={columns} data={data} defaultSort="instances"/>
-```
-
-```jsx
-//title=Basic Flex Table
-const columns = [{
-  attribute: 'title', displayName: 'Title'
-}, {
-  attribute: 'instances'
-}, {
-  attribute: 'bar', displayName: 'Bar'
-}];
-const data = [{
-  instances: '1',
-  bar: 11,
-  title: 'foo'
-}, {
-  instances: '3',
-  bar: 7,
-  title: 'sup'
-}, {
-  title: 'yee',
-  instances: '2',
-  bar: 8
-}];
-<FlexTable columns={columns} data={data}/>
-```
-
-```jsx
-//title=Sortable Flex Table
-const columns = [{
-  attribute: 'title',
-  displayName: 'Title',
-  sortable: false
-}, {
-  attribute: 'instances',
-  sortable: true
-}, {
-  attribute: 'bar',
-  displayName: 'Bar',
-  sortable: true,
-  sortBy: function(value) { return -value; }
-}, {
-  attribute: 'unsortable',
-  sortable: false
-}];
-const data = [{
-  instances: '1',
-  bar: 11,
-  title: 'foo',
-  unsortable: '14'
-}, {
-  instances: '3',
-  bar: 7,
-  title: 'sup',
-  unsortable: '22'
-}, {
-  title: 'yee',
-  instances: '2',
-  bar: 8,
-  unsortable: '1'
-}];
-<SortableFlexTable columns={columns} data={data} defaultSort="instances"/>
-```
+Class                         | Description
+------------------------------| -----------------
+`.pui-table`                  | Applied to the table element to define the style standards.
+`.pui-table--tr-hover`        | Applied to the starting table element to add the hover effect on table body rows.
+`.pui-table--td-hover`        | Applied to the starting table element to add the hover effect on table body cells.
+`.pui-table--h-borders-none`  | Removes inner horizontal borders from the table body rows.
+`.pui-table--ext-borders-none`| Removes external borders for the entire table when applied to the .table element.
+`.pui-table--borders-none`    | Removes all borders, internal and external, when applied to the .table element.Removes all borders, internal and external, when applied to the .table element.
+`.pui-table--scrollable`      | Makes the table body scrollable in the y direction.
 
 ```jsx
 //title=Table row hover
-//description=Adding .tr-hover to a specific table row or the table element itself will add the hover effect.
-const ComposedTable = withRowClassName(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<ComposedTable columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'tr-hover'}/>
+//description=Adding a `pui-table--tr-hover` className to the table will change the background color to the table body rows on hover.
+<Table className="pui-table--tr-hover">
+  <Caption>Some table</Caption>
+  <Thead>
+    <Tr>
+      <Th>A column header</Th>
+      <Th>Another column header</Th>
+      <Th>One more column header</Th>
+      <Th>Last column header</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>The</Td>
+      <Td>very</Td>
+      <Td>first</Td>
+      <Td>row</Td>
+    </Tr>
+    <Tr>
+      <Td>Hover</Td>
+      <Td>over</Td>
+      <Td>me</Td>
+      <Td>!</Td>
+    </Tr>
+  </Tbody>
+  <Tfoot>
+    <Tr>
+      <Td>A</Td>
+      <Td>place</Td>
+      <Td>for</Td>
+      <Td>totals</Td>
+    </Tr>
+  </Tfoot>
+</Table>
 ```
 
 ```jsx
 //title=Table cell hover
-//description=Adding .td-hover to the table element will allow the user to highlight individual cells.
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<Table columns={columns} data={data} className="td-hover"/>
+//description=Adding `pui-table--td-hover` to the table will allow the user to highlight individual cells in the table body.
+<Table className="pui-table--td-hover">
+  <Caption>Some table</Caption>
+  <Thead>
+    <Tr>
+      <Th>A column header</Th>
+      <Th>Another column header</Th>
+      <Th>One more column header</Th>
+      <Th>Last column header</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>The</Td>
+      <Td>very</Td>
+      <Td>first</Td>
+      <Td>row</Td>
+    </Tr>
+    <Tr>
+      <Td>Hover</Td>
+      <Td>over</Td>
+      <Td>me</Td>
+      <Td>!</Td>
+    </Tr>
+  </Tbody>
+  <Tfoot>
+    <Tr>
+      <Td>A</Td>
+      <Td>place</Td>
+      <Td>for</Td>
+      <Td>totals</Td>
+    </Tr>
+  </Tfoot>
+</Table>
 ```
 
 ```jsx
-//title=Table border modifiers
-//description=Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<Table columns={columns} data={data} className="tr-no-h-borders"/>
+//title=No horizontal borders
+//description=Remove all of the internal horizontal borders with class `pui-table--h-borders-none` on the table element.
+<Table className="pui-table--h-borders-none">
+  <Caption>Some table</Caption>
+  <Thead>
+    <Tr>
+      <Th>A column header</Th>
+      <Th>Another column header</Th>
+      <Th>One more column header</Th>
+      <Th>Last column header</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>The</Td>
+      <Td>very</Td>
+      <Td>first</Td>
+      <Td>row</Td>
+    </Tr>
+    <Tr>
+      <Td>Hover</Td>
+      <Td>over</Td>
+      <Td>me</Td>
+      <Td>!</Td>
+    </Tr>
+  </Tbody>
+  <Tfoot>
+    <Tr>
+      <Td>A</Td>
+      <Td>place</Td>
+      <Td>for</Td>
+      <Td>totals</Td>
+    </Tr>
+  </Tfoot>
+</Table>
 ```
 
 ```jsx
 //title=No external borders
-//description=No external borders to rows using class .table-no-ext-borders on the table element.
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<Table columns={columns} data={data} className="table-no-ext-borders"/>
+//description=No external borders to rows using class `pui-table--ext-borders-none` on the table element.
+<Table className="pui-table--ext-borders-none">
+  <Caption>Some table</Caption>
+  <Thead>
+    <Tr>
+      <Th>A column header</Th>
+      <Th>Another column header</Th>
+      <Th>One more column header</Th>
+      <Th>Last column header</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>The</Td>
+      <Td>very</Td>
+      <Td>first</Td>
+      <Td>row</Td>
+    </Tr>
+    <Tr>
+      <Td>Hover</Td>
+      <Td>over</Td>
+      <Td>me</Td>
+      <Td>!</Td>
+    </Tr>
+  </Tbody>
+  <Tfoot>
+    <Tr>
+      <Td>A</Td>
+      <Td>place</Td>
+      <Td>for</Td>
+      <Td>totals</Td>
+    </Tr>
+  </Tfoot>
+</Table>
 ```
 
 ```jsx
 //title=No borders
-//description=No borders to rows using class .table-no-borders on the table element.
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<Table columns={columns} data={data} className="table-no-borders"/>
-```
-
-## Using plugins
-
-The base `Table` component has a limited feature-set. Users can compose Tables with additional features by using plugins.
-
-Here are the plugins provided by Pivotal UI:
-* withCellClassName
-* withCellEllipsis
-* withCellOnClick
-* withCellTooltip
-* withCellWidth
-* withFlex
-* withFooterRow
-* withRenderTdChildren
-* withRenderThChildren
-* withRowClassName
-* withRowDrawer
-* withRowLink
-* withScrollableTbody
-* withSorting
-
-A composed table can be created by composing one or more of the above plugins:
-
-```jsx
-import {withFlex, withSorting, Table} from 'pivotal-ui/react/table';
-const ComposedTable = withFlex(withSorting(Table));
-ReactDOM.render(<ComposedTable columns={columns} data={data}/>
-```
-
-Or with `lodash.flow`:
-```jsx
-import flow from 'lodash.flow';
-const ComposedTable = flow(withFlex, withSorting)(Table);
-```
-
-The following examples demonstrate the individual usage of each of the above plugins.
-
-```jsx
-//title=Flex
-//description=Flex tables are composed of `div` tags.
-const TableWithFlex = withFlex(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithFlex columns={columns} data={data}/>
+//description=No borders to rows using class `pui-table--borders-none` on the table element.
+<Table className="pui-table--borders-none">
+  <Caption>Some table</Caption>
+  <Thead>
+    <Tr>
+      <Th>A column header</Th>
+      <Th>Another column header</Th>
+      <Th>One more column header</Th>
+      <Th>Last column header</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>The</Td>
+      <Td>very</Td>
+      <Td>first</Td>
+      <Td>row</Td>
+    </Tr>
+    <Tr>
+      <Td>Hover</Td>
+      <Td>over</Td>
+      <Td>me</Td>
+      <Td>!</Td>
+    </Tr>
+  </Tbody>
+  <Tfoot>
+    <Tr>
+      <Td>A</Td>
+      <Td>place</Td>
+      <Td>for</Td>
+      <Td>totals</Td>
+    </Tr>
+  </Tfoot>
+</Table>
 ```
 
 ```jsx
-//title=Cell links (requires FlexTable)
-//description=Each cell in a column of a FlexTable can be an `<a>` tag. In this example, the first column links to the top of this section, and the last column links to the top of this page.
-const FlexTableWithCellLink = withCellLink(FlexTable);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].link = () => '/components/tables/#using-plugins';
-columns[2].link = () => '/components/tables/#props';
-const data = [1, 2].map(() => ({header1: 'Link to Usage', header2: 'Cell 2', header3: 'Link to Props'}));
-<FlexTableWithCellLink columns={columns} data={data}/>
-```
-
-```jsx
-//title=Cell className
-//description=Each cell in a column can have custom classes. In this example, the first column has the `h4` class applied.
-const TableWithClassName = withCellClassName(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].className = 'h4';
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithClassName columns={columns} data={data}/>
-```
-
-```jsx
-//title=Row className
-//description=A className can be provided to a row element. In this example, the body rows are given the `h4` class.
-const TableWithRowClassName = withRowClassName(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithRowClassName columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'h4'}/>
-```
-
-```jsx
-//title=Cell ellipsis (requires FlexTable)
-//description=Each cell in a column of a FlexTable can be set to trail off with an ellipsis when the contents exceed the available space. In this example, the first column has the `type-ellipsis` class applied.
-const FlexTableWithCellEllipsis = withCellEllipsis(FlexTable);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].ellipsis = true;
-const data = [1, 2].map(() => ({header1: 'CellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCell', header2: 'Cell 2', header3: 'Cell 3'}));
-<FlexTableWithCellEllipsis columns={columns} data={data}/>
-```
-
-```jsx
-//title=Cell onClick
-//description=Each cell in a column can be provided an onClick handler. In this example, the first column has the will show an alert with  contextual information for the row when clicked.
-const TableWithCellOnClick = withCellOnClick(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].onClick = (e, context) => alert(JSON.stringify(context, null, 2));
-const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
-<TableWithCellOnClick columns={columns} data={data}/>
-```
-
-```jsx
-//title=Custom renderTdChildren function
-//description=Each cell in a column can provide a custom render function. In this example, the first column has a custom child render function that capitalizes its text.
-const TableWithRenderTdChildren = withRenderTdChildren(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].renderTdChildren = rowDatum => rowDatum.header1.toUpperCase();
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithRenderTdChildren columns={columns} data={data}/>
-```
-
-```jsx
-//title=Custom renderThChildren function
-//description=Each header in a column can provide a custom render function. In this example, the first header has a custom child render function that capitalizes its text.
-const TableWithRenderThChildren = withRenderThChildren(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].renderThChildren = () => columns[0].displayName.toUpperCase();
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithRenderThChildren columns={columns} data={data}/>
-```
-
-```jsx
-//title=Cell tooltip
-//description=Each cell in a column can have a tooltip. In this example, the first column has a tooltip that displays its text, reversed. The header tooltip has a dark theme, while the body cell tooltips have a light theme.
-const TableWithCellTooltip = withCellTooltip(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].tooltip = ({isHeader}, {header1} = {}) => ({text: (header1 || new Date().toLocaleString()).split('').reverse().join(''), theme: isHeader ? 'dark' : 'light', showIcon: true});
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithCellTooltip columns={columns} data={data}/>
-```
-
-```jsx
-//title=Cell width
-//description=Each cell in a column can have a fixed width. In this example, the cells in the first column are 100px wide, and the cells in the second column are 200px. The cells in the final column use the remaining space.
-const TableWithCellWidth = withCellWidth(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].width = '100px';
-columns[1].width = '200px';
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithCellWidth columns={columns} data={data}/>
-```
-
-```jsx
-//title=Footer row
-//description=A custom footer row can be provided.
-const TableWithFooterRow = withFooterRow(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-const footerRow = <tr><td colSpan={3}><strong>I am a footer!</strong></td></tr>;
-<TableWithFooterRow columns={columns} data={data} footerRow={footerRow}/>
-```
-
-```jsx
-//title=Row drawer (requires FlexTable)
-//description=When body rows of a FlexTable are clicked, drawer content is revealed.
-const TableWithRowDrawer = withRowDrawer(FlexTable);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(row => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3', drawerContent: `Drawer content for Row ${row}.`}));
-const rowDrawer = (i, rowDatum) => (
-  <div className="table-drawer">
-    <div className="table-drawer-content">
-      <div className="table-drawer-container phxl">
-        {rowDatum.drawerContent}
-      </div>
-    </div>
-  </div>
-);
-<TableWithRowDrawer columns={columns} data={data} rowDrawer={rowDrawer}/>
-```
-
-```jsx
-//title=Row links (requires FlexTable)
-//description=An entire row of a FlexTable can be rendered as an `<a>` tag. In this example, clicking the first body row links to `Table` usage.
-const TableWithRowLink = withRowLink(FlexTable);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
-<TableWithRowLink columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '/components/tables/#using-plugins'}}/>
-```
-
-```jsx
-//title=Sorting
-//description=A table can be sorted ascending or descending by a given column by clicking on that column's header.
-const TableWithSorting = withSorting(Table);
-const columns = [{
-  attribute: 'title',
-  displayName: 'Title',
-  sortable: false
-}, {
-  attribute: 'instances',
-  sortable: true
-}, {
-  attribute: 'bar',
-  displayName: 'Bar',
-  sortable: true,
-  sortBy: function(value) { return -value; }
-}, {
-  attribute: 'unsortable',
-  sortable: false
-}];
-const data = [{
-  instances: '1',
-  bar: 11,
-  title: 'foo',
-  unsortable: '14'
-}, {
-  instances: '3',
-  bar: 7,
-  title: 'sup',
-  unsortable: '22'
-}, {
-  title: 'yee',
-  instances: '2',
-  bar: 8,
-  unsortable: '1'
-}];
-<TableWithSorting columns={columns} data={data} defaultSort="instances"/>
-```
-
-```jsx
-//title=Scrollable table body (requires FlexTable)
-//description=When `scrollable` and `tbodyHeight="<some height>"`, the table body will scroll when that height is exceeded.
-const ScrollableTable = withScrollableTbody(FlexTable);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
-<ScrollableTable scrollable tbodyHeight="200px" columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '#using-plugins'}}/>
-```
-
-## Writing plugins
-
-The Table component renders the following DOM elements: `table`, `thead`, `tbody`, `tfoot`, `tr`, `th`, `td`.
-
-Table plugins provide the ability to:
-
-1. inspect and inject new props
-1. use a custom DOM element or React component in place of one of the above standard table elements
-
-In order to write a new plugin:
-
-1. Create a new file that imports `TablePlugin` from `pivotal-ui/react/table`.
-  ```jsx
-  import {TablePlugin} from 'pivotal-ui/react/table';
-  ```
-2. Export a function that takes a `Table` argument:
-  ```jsx
-  export function withCellColor(Table) { /* ... */ }
-  ```
-3. Inside the function, return a class that extends `TablePlugin`:
-  ```jsx
-  return class TableWithCellColor extends TablePlugin { /* ... */}
-  ```
-4. In the class, define a `render` function that returns the result of calling `this.renderTable` with the `Table` argument, and an Object:
-  ```jsx
-  render() {
-    return this.renderTable(Table, { /* ... */ }
-  }
-  ```
-
-The Object can contain any of the following keys:
-* Tag keys: `tableTag`, `theadTag`, `tbodyTag`, `tfootTag`, `trTag`, `thTag`, `tdTag`
-* Prop keys: `table`, `thead`, `tbody`, `tfoot`, `tr`, `th`, `td`
-
-The value should be a callback.
-
-For Tag callbacks, relevant `context` is passed as an argument.
-The callback should return a new DOM element as a String or a React Component to be used in place of the standard HTML element.
-
-For Prop callbacks, the first argument is the `props` that the element will receive. The second argument is relevant `context`.
-The callback should return any new props that the element should be rendered with. They will generally overwrite any pre-existing props. The `className` and `style` props will be merged with the old values.
-
-```jsx
-//title=Table with cell color
-//description=Each column has a different color: red, green, and blue.
-function withCellColor(Table) {
-  return class TableWithCellColor extends TablePlugin {
-    render() {
-      return this.renderTable(Table, {
-        td: (props, {column: {color}}) => ({style: {color}})
-      });
+//title=Scrollable table body
+//description=Add a `pui-table--scrollable` class to the table to make the table body scrollable.
+<Table className="pui-table--scrollable">
+  <Thead>
+    <Tr>
+      <Th>Header 1</Th>
+      <Th>Header 2</Th>
+      <Th>Header 3</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    {
+      function() {
+        const rows = [];
+        for (let i = 0; i < 15; i++) {
+          rows.push(
+            <Tr key={i}>
+              <Td>{`Row ${i}, Cell 1`}</Td>
+              <Td>{`Row ${i}, Cell 2`}</Td>
+              <Td>{`Row ${i}, Cell 3`}</Td>
+            </Tr>
+          )
+        }
+        return rows;
+      }()
     }
+  </Tbody>
+</Table>
+```
+
+### Table Examples
+
+```jsx
+//title=Sortable Table Example
+const createData = (name, calories, fat, carbs, protein) => {
+  return { name, calories, fat, carbs, protein };
+};
+
+const dessertOptions = [
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Donut', 452, 25.0, 51, 4.9),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('Honeycomb', 408, 3.2, 87, 6.5),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Jelly Bean', 375, 0.0, 94, 0.0),
+  createData('KitKat', 518, 26.0, 65, 7.0),
+  createData('Lollipop', 392, 0.2, 98, 0.0),
+  createData('Marshmallow', 318, 0, 81, 2.0),
+  createData('Nougat', 360, 19.0, 9, 37.0),
+  createData('Oreo', 437, 18.0, 63, 4.0),
+];
+
+const ASCENDING = Symbol('asc');
+const DESCENDING = Symbol('desc');
+const NONE = Symbol('none');
+const sortIconMap = {
+  [ASCENDING]: 'chevron_up',
+  [DESCENDING]: 'chevron_down',
+  [NONE]: 'select_chevrons'
+};
+
+const ariaSortMap = {
+  [ASCENDING]: 'ascending',
+  [DESCENDING]: 'descending',
+  [NONE]: 'none'
+};
+
+const sortStateMap = {
+  [ASCENDING]: DESCENDING,
+  [DESCENDING]: NONE,
+  [NONE]: ASCENDING
+};
+
+const compareOptions = (option1, option2, sortCol) => {
+  if (option2[sortCol] > option1[sortCol]) return 1;
+  if (option2[sortCol] < option1[sortCol]) return -1;
+  if (option2[sortCol] === option1[sortCol]) return 0
+};
+
+class SortableTable extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sortDirection: NONE,
+      sortCol: 'name'
+    }
+  }
+
+  render() {
+    const {sortDirection, sortCol} = this.state;
+    const sortIconSrc = sortIconMap[sortDirection];
+    const nextSortState = sortStateMap[sortDirection];
+
+    const setSort = (col) => {
+      if (sortCol === col) {
+        this.setState({sortDirection: nextSortState});
+      } else {
+        this.setState({sortDirection: ASCENDING, sortCol: col});
+      }
+    };
+
+    return (
+      <Table>
+        <Caption>Dessert Options</Caption>
+        <Thead>
+          <Tr>
+            <Th className="pan" aria-sort={sortCol === 'name' ? ariaSortMap[sortDirection] : null}>
+              <button onClick={() => setSort('name')}>
+                <Grid justifyContent="space-between">
+                  <FlexCol>Name</FlexCol>
+                {sortCol === 'name' && <Icon className="float-right" src={sortIconSrc}/>}
+                </Grid>
+              </button>
+            </Th>
+            <Th className="pan" aria-sort={sortCol === 'calories' ? ariaSortMap[sortDirection] : null}>
+              <button onClick={() => setSort('calories')}>
+                <Grid justifyContent="space-between">
+                  <FlexCol>Calories</FlexCol>
+                {sortCol === 'calories' && <Icon className="float-right" src={sortIconSrc}/>}
+                </Grid>
+              </button>
+            </Th>
+            <Th className="pan" aria-sort={sortCol === 'fat' ? ariaSortMap[sortDirection] : null}>
+              <button onClick={() => setSort('fat')}>
+                <Grid justifyContent="space-between">
+                  <FlexCol>Fat</FlexCol>
+                {sortCol === 'fat' && <Icon className="float-right" src={sortIconSrc}/>}
+                </Grid>
+              </button>
+            </Th>
+            <Th className="pan" aria-sort={sortCol === 'carbs' ? ariaSortMap[sortDirection] : null}>
+              <button onClick={() => setSort('carbs')}>
+                <Grid justifyContent="space-between">
+                  <FlexCol>Carbs</FlexCol>
+                {sortCol === 'carbs' && <Icon className="float-right" src={sortIconSrc}/>}
+                </Grid>
+              </button>
+            </Th>
+            <Th className="pan" aria-sort={sortCol === 'protein' ? ariaSortMap[sortDirection] : null}>
+              <button onClick={() => setSort('protein')}>
+                <Grid justifyContent="space-between">
+                  <FlexCol>Protein</FlexCol>
+                {sortCol === 'protein' && <Icon className="float-right" src={sortIconSrc}/>}
+                </Grid>
+              </button>
+            </Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {
+            [...dessertOptions]
+              .sort((option1, option2) => {
+                if (sortDirection === NONE) return 0;
+                let order = compareOptions(option1, option2, sortCol);
+                if (sortDirection === DESCENDING) return order * -1;
+                return order;
+              })
+              .map(({name, calories, fat, carbs, protein}) => (
+                <Tr key={name}>
+                  <Td>{name}</Td>
+                  <Td>{calories}</Td>
+                  <Td>{fat}</Td>
+                  <Td>{carbs}</Td>
+                  <Td>{protein}</Td>
+                </Tr>
+              ))
+          }
+        </Tbody>
+      </Table>
+    )
   };
 }
 
-const TableWithCellColor = withCellColor(Table);
-const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].color = 'red';
-columns[1].color = 'green';
-columns[2].color = 'blue';
-const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
-<TableWithCellColor columns={columns} data={data}/>
+<SortableTable/>
 ```
 
-For additional examples, [review the plugins that Pivotal UI provides](https://github.com/pivotal-cf/pivotal-ui/tree/master/src/react/table/plugins).
+```jsx
+//title=Link Cell Table Example
+//description=Table with links as cells
+<Table>
+  <Thead>
+    <Tr>
+      <Th>Header 1</Th>
+      <Th>Header 2</Th>
+      <Th>Header 3</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td><a href="/components/tables/#table-modifiers">Link to Modifiers</a></Td>
+      <Td>Cell 2</Td>
+      <Td><a href="/components/tables/#props">Link to Props</a></Td>
+    </Tr>
+    <Tr>
+      <Td><a href="/components/tables/#table-modifiers">Link to Modifiers</a></Td>
+      <Td>Cell 2</Td>
+      <Td><a href="/components/tables/#props">Link to Props</a></Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
 
-## Table modifiers
+```jsx
+//title=Cell with className Example
+//description=Apply classNames directly on the components
+<Table>
+  <Thead>
+    <Tr>
+      <Th className="h4">Header 1</Th>
+      <Th className="width-50">Header 2</Th>
+      <Th>Header 3</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td className="h4">Cell 1</Td>
+      <Td className="type-ellipsis">CellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCellCell</Td>
+      <Td>Cell 3</Td>
+    </Tr>
+    <Tr className="h4">
+      <Td>Cell 1</Td>
+      <Td>Cell 2</Td>
+      <Td>Cell 3</Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
 
-Class                   | Description
-------------------------| -----------------
-`.table`                | Applied to the starting element to define the style standards.
-`.tr-hover`             | Applied to the starting table element or the desired row to add the hover effect.
-`.td-hover`             | Applied to the starting .table element to change the table row hover effect to a table cell hover.
-`.tr-no-h-borders`      | Removes inner horizontal borders from the desired .table or table row element.
-`.table-no-ext-borders` | Removes external borders for the entire table when applied to the .table element.
-`.table-no-borders`     | Removes all borders, internal and external, when applied to the .table element.Removes all borders, internal and external, when applied to the .table element.
-`.table-td-pal`         | Applied to table cell to add 8px vertical padding
-`.table-td-paxl`        | Applied to table cell to add 16px vertical padding
+```jsx
+//title=Cell with onClick Example
+//description=To apply an onClick to a table element, provide an interactive element as a child, add the onClick to that element, and provide a visual indication that the cell is interactive for accessibility
+<Table>
+  <Thead>
+    <Tr>
+      <Th className="pan"><button onClick={() => alert('Header 1 clicked')}>Header 1</button></Th>
+      <Th>Header 2</Th>
+      <Th>Header 3</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Th>Row 1</Th>
+      <Td className="pan"><button onClick={() => alert('Row1, Cell 1 clicked')}>Cell 1</button></Td>
+      <Td>Cell 2</Td>
+    </Tr>
+    <Tr>
+      <Th>Row 2</Th>
+      <Td>Cell 1</Td>
+      <Td>Cell 2</Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
+
+
+```jsx
+//title=Cell Tooltip Example
+//description=To add a tooltip to a table element, render the TooltipTrigger component. Note that cells with TooltipTriggers cannot be `type-ellipsis` or the tooltip will be cut off.
+<Table>
+  <Thead>
+    <Tr>
+      <Th>Header 1<TooltipTrigger tooltip="Some information about Header 1"><Icon src="info" verticalAlign="baseline"/></TooltipTrigger></Th>
+      <Th>Header 2</Th>
+      <Th>Header 3</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>Row 1, Cell 1</Td>
+      <Td>Row 1, Cell 2</Td>
+      <Td>Row 1, Cell 3</Td>
+    </Tr>
+    <Tr>
+      <Td>Row 2, Cell 1</Td>
+      <Td>Row 2, Cell 2</Td>
+      <Td>Row 2, Cell 3</Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
+
+```jsx
+//title=Cell Width Example
+//description=To specify the width of the columns use one of the `width-{n}` helper classes on the table header or provide your own class to define the widths.
+<Table>
+  <Thead>
+    <Tr>
+      <Th className="width-30">Header 1</Th>
+      <Th className="width-60">Header 2</Th>
+      <Th className="width-10">Header 3</Th>
+    </Tr>
+  </Thead>
+  <Tbody>
+    <Tr>
+      <Td>Row 1, Cell 1</Td>
+      <Td>Row 1, Cell 2</Td>
+      <Td>Row 1, Cell 3</Td>
+    </Tr>
+    <Tr>
+      <Td>Row 2, Cell 1</Td>
+      <Td>Row 2, Cell 2</Td>
+      <Td>Row 2, Cell 3</Td>
+    </Tr>
+  </Tbody>
+</Table>
+```
+
+```jsx
+//title=Expandable table rows
+//description=When the chevron is clicked, the drawer content is revealed. Provide the `ariaLabelCollapsed` and `ariaLabelExpanded` props to give a more descriptive label to assistive tech when the drawer is collapsed or expanded.
+<Table>
+  <Thead>
+    <TrHeaderForDrawers>
+      <Th>Header 1</Th>
+      <Th>Header 2</Th>
+      <Th>Header 3</Th>
+    </TrHeaderForDrawers>
+  </Thead>
+  <Tbody>
+    <TrWithDrawer
+      ariaLabelCollapsed="Reveal more content"
+      ariaLabelExpanded="Hide more content"
+      buttonClassName="icon"
+      drawerContent={<span className="paxl">Row 1: More content</span>}
+    >
+      <Td>Row 1, Cell 1</Td>
+      <Td>Row 1, Cell 2</Td>
+      <Td>Row 1, Cell 3</Td>
+    </TrWithDrawer>
+    <TrWithDrawer
+      ariaLabelCollapsed="Reveal more content"
+      ariaLabelExpanded="Hide more content"
+      drawerContent={<span className="paxl">Row 2: More content</span>}
+    >
+      <Td>Row 2, Cell 1</Td>
+      <Td>Row 2, Cell 2</Td>
+      <Td>Row 2, Cell 3</Td>
+    </TrWithDrawer>
+  </Tbody>
+</Table>
+```
 
 ## Props
 
-### Table props
+### Th props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-`columns`     | no | Array     | | Metadata about columns
-`data`        | yes | Array     | | The data to display in the table
-`footerRow`   | no  | Any       | | Anything that evaluates into HTML. Only valid when used with `withFooterRow` plugin.
-`rowClassName`| no  | Function  | | Function with input `({rowDatum, isHeader, rowIndex})` and outputs a string. Only valid when used with `withRowClassName` plugin.
-`rowDrawer`   | no  | Function  | | Function with input `(rowIndex)`. Only valid when used with `withRowDrawer` plugin.
-`rowLink`     | no  | Object    | | Object comprising of `{link, onClick}`. `link` is a function whose input is `{rowDatum}` and outputs an `href`. `onClick` is a function that is executed when the row is clicked. Only valid with `withRowLink` plugin.
+`scope` | no | oneOf['col', 'row'] | 'col' | Indicates if the table header is for the row or the column.
 
-### Column object props
+### Tr props
 
-Property         | Required | Type | Default | Description
------------------|----------|------|---------|------------
-`attribute`        | yes      | String    |       | The key to use in the data prop to get data for that column
-`className`        | no       | String or Function | | The class(es) to apply to a column. If this is a function, the inputs are `(rowDatum, isHeader)`. Only valid when used with `withCellClassName` plugin.
-`displayName`      | no       | String    |       | The text in the TableHeader for that column
-`ellipsis`         | no       | Boolean   | false | Ellipsify overflow text. Only valid when used with `withCellEllipsis` plugin.
-`link`             | no       | Function  |       | The link destination. Only valid when used with `withCellLink` plugin.
-`onClick`          | no       | Function  |       | The function to execute when the cell is clicked. The inputs to this function are `(event, rowDatum)`. Only valid when used with `withCellOnClick` plugin.
-`renderTdChildren` | no       | Function  |       | Function which will be called to render custom cell children. Called with `rowDatum` as its argument. Only valid when used with `withRenderTdChildren` plugin.
-`renderThChildren` | no       | Function  |       | Function which will be called to render custom header children. Only valid when used with `withRenderThChildren` plugin.
-`sortable`         | no       | Boolean   |       | Determines whether a column is sortable. Only valid when used with `withSorting` plugin.
-`sortBy`           | no       | Function  |       | Function that determines sort order. The input is the cell data. Only valid when used with `withSorting` plugin and if `sortable` is true.
-`tooltip`          | no       | Function  |       | Function whose inputs are `({isHeader}, rowDatum)` and should output an object containing `{text, size, theme, showIcon}`. `text` and `size` are used in the [Tooltip](/components/tooltips) Component. `theme` is a prop of the [OverlayTrigger](/components/overlay-trigger) Component. `showIcon` determines if the info icon is shown. Only valid when used with `withCellTooltip` plugin.
-`width`            | no       | String    |       | Can be any valid CSS `width` input. Only valid when used with `withCellWidth` plugin.
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+`scope` | no | oneOf['col', 'row'] | 'col' | Indicates if the table header is for the row or the column.
+
+### TrWithDrawer props
+
+Property            | Required | Type   | Default | Description
+--------------------|----------|--------|---------|------------
+`ariaLabelCollapsed`| yes      | String |         | Aria label when the drawer is collapsed
+`ariaLabelExpanded` | yes      | String |         | Aria label when the drawer is expanded
+`drawerContent`     | no       | node   |         | Content to render in the expanded drawer
+`onExpand`          | no       | func   |         | Callback for when the drawer is expanded
+`children`          | no       | node   |         | Content to render in the table row

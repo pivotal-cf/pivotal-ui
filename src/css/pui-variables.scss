@@ -250,7 +250,7 @@ $table-header-font-weight: 600;
 $table-bg: transparent !default;
 $table-bg-hover: rgba($black, 0.03);
 $table-border-color: $light-gray;
-$table-border-radius: 2px;
+$table-border-radius: 4px;
 
 // Buttons
 // -------------------------
@@ -1009,3 +1009,4 @@ $container-xl: $container-extra-large-desktop !default;
 // -------------------------
 
 $hr-border: $light-gray !default;
+$animation-duration: 0.5s;

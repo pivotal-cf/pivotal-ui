@@ -1,0 +1,12 @@
+@import "../pui-variables";
+
+.transition-transform {
+  transition: transform $animation-duration;
+}
+.rotate-qtr-turn {
+  transform: rotate(0.25turn);
+}
+
+.rotate-hlf-turn {
+  transform: rotate(0.5turn);
+}

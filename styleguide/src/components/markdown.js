@@ -53,7 +53,7 @@ export const Table = ({children, ...props}) => {
   const tbody = children.find(child => child.type === 'tbody');
 
   return (
-    <table {...props} {...{className: 'table sg-table'}}>
+    <table {...props} {...{className: 'pui-table sg-table'}}>
       <thead>
         {React.Children.map(thead.props.children, child => {
           return React.cloneElement(child, {className: 'tr-no-h-borders'});

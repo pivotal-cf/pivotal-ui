@@ -1,330 +1,202 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {setProps} from '../../support/jest-helpers';
-import {Table} from '../../../src/react/table';
+import {
+  Caption,
+  Table,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+  TrHeaderForDrawers,
+  TrWithDrawer,
+  TrWithoutDrawer
+} from '../../../src/react/table';
 
 describe('Table', () => {
-  let data, columns, table, thead, tbody, tfoot, tr, th, td, subject;
+  it('renders a table', () => {
+    ReactDOM.render(<Table/>, root);
+    expect('table').toExist();
+    expect('table').toHaveClass('pui-table');
+  });
+
+  it('passes through classnames', () => {
+    ReactDOM.render(<Table className="my-table"/>, root);
+    expect('table').toHaveClass('my-table');
+  });
+});
+
+describe('Caption', () => {
+  it('renders a caption', () => {
+    ReactDOM.render(<Table><Caption>My cool table</Caption></Table>, root);
+    expect('caption').toHaveText('My cool table');
+  });
+
+  it('passes through classnames', () => {
+    ReactDOM.render(<Table><Caption className="my-caption">My cool table</Caption></Table>, root);
+    expect('caption').toHaveClass('my-caption');
+  });
+});
+
+describe('Th', () => {
+  it('defaults the scope to col', () => {
+    ReactDOM.render(<Table><Thead><Tr><Th>My awesome header</Th></Tr></Thead></Table>, root);
+    expect('table thead tr th').toHaveAttr('scope', 'col');
+  });
+});
+
+describe('TrHeaderForDrawers', () => {
+  beforeEach(() => {
+    ReactDOM.render(<Table><Thead><TrHeaderForDrawers>
+      <Th>Content header 1</Th>
+      <Th>Content header 2</Th>
+    </TrHeaderForDrawers></Thead></Table>, root);
+  });
+
+  it(
+    'renders an empty table header that sets the column' +
+    'to the proper width for collapsible toggles',
+    () => {
+      expect(document.querySelectorAll('th')[0]).toHaveText('');
+      expect(document.querySelectorAll('th')[0]).toHaveClass('pui-table--collapsible-toggle');
+    }
+  );
+
+  it('renders table header cells given as children after the toggle header cell', () => {
+    const ths = document.querySelectorAll('th');
+    expect(ths).toHaveLength(3);
+    expect(ths[1]).toHaveText('Content header 1');
+    expect(ths[2]).toHaveText('Content header 2');
+  });
+});
+
+describe('TrWithoutDrawer', () => {
+  beforeEach(() => {
+    ReactDOM.render(<Table>
+      <Tbody>
+        <TrWithoutDrawer>
+          <Td>Content cell 1</Td>
+          <Td>Content cell 2</Td>
+        </TrWithoutDrawer>
+      </Tbody>
+    </Table>, root);
+  });
+
+  it('renders an empty table data that sets the column to the proper width for collapsible toggles', () => {
+      expect(document.querySelectorAll('td')[0]).toHaveText('');
+      expect(document.querySelectorAll('td')[0]).toHaveClass('pui-table--collapsible-toggle');
+    }
+  );
+
+  it('renders table data cells given as children after the table data spacer cell', () => {
+    const tds = document.querySelectorAll('td');
+    expect(tds).toHaveLength(3);
+    expect(tds[1]).toHaveText('Content cell 1');
+    expect(tds[2]).toHaveText('Content cell 2');
+  });
+});
+
+describe('TrWithDrawer', () => {
+  let ariaLabelCollapsed, ariaLabelExpanded, drawerContent, onExpandSpy, className;
 
   beforeEach(() => {
-    table = jasmine.createSpy('table').and.returnValue({className: 'table-class'});
-    thead = jasmine.createSpy('thead').and.returnValue({className: 'thead-class'});
-    tbody = jasmine.createSpy('tbody').and.returnValue({className: 'tbody-class'});
-    tfoot = jasmine.createSpy('tfoot').and.returnValue({className: 'tfoot-class'});
-    tr = jasmine.createSpy('tr').and.returnValue({className: 'tr-class'});
-    th = jasmine.createSpy('th').and.returnValue({className: 'th-class'});
-    td = jasmine.createSpy('td').and.returnValue({className: 'td-class'});
+    onExpandSpy = jest.fn();
+    ariaLabelCollapsed = 'show the thing';
+    ariaLabelExpanded = 'hide the thing';
+    className = 'my-special-class';
+    drawerContent = <i>Drawer content</i>;
+
+    ReactDOM.render(<Table><Tbody>
+      <TrWithDrawer {...{ariaLabelCollapsed, ariaLabelExpanded, drawerContent, className, onExpand: onExpandSpy}}>
+        <Td>Content cell 1</Td>
+        <Td>Content cell 2</Td>
+      </TrWithDrawer>
+    </Tbody></Table>, root);
   });
 
-  describe('with columns', () => {
+  it('passes the className to the hidden drawer row', () => {
+    const drawerTr = document.querySelectorAll('tr')[1];
+    expect(drawerTr).toHaveClass(className);
+  });
+
+  it('renders a collapsible toggle for a row drawer in collapsed state', () => {
+    const toggleTd = document.querySelectorAll('tr')[0].querySelectorAll('td')[0];
+    expect(toggleTd).not.toHaveClass('active-indicator');
+    expect(toggleTd.querySelector('button')).toHaveClass('pui-table--collapsible-btn');
+    expect(toggleTd.querySelector('button')).toHaveAttr('aria-label', 'show the thing');
+    expect(toggleTd.querySelector('button div')).toHaveClass('transition-transform');
+    expect(toggleTd.querySelector('button div')).not.toHaveClass('rotate-qtr-turn');
+    expect(toggleTd.querySelector('button div svg')).toHaveClass('icon-chevron_right');
+  });
+
+  it('renders table data cells given as children after the toggle cell', () => {
+    const tds = document.querySelectorAll('tr')[0].querySelectorAll('td');
+    expect(tds).toHaveLength(3);
+    expect(tds[1]).toHaveText('Content cell 1');
+    expect(tds[2]).toHaveText('Content cell 2');
+  });
+
+  it('renders hidden drawer row with drawer content in a single full-width cell', () => {
+    const drawerTr = document.querySelectorAll('tr')[1];
+    const drawerTds = drawerTr.querySelectorAll('td');
+    expect(drawerTr).toHaveClass('border-top-0');
+    expect(drawerTds).toHaveLength(1);
+    expect(drawerTds[0]).toHaveAttr('colspan', '3');
+    expect(drawerTds[0].querySelector('.pui-collapsible')).not.toHaveClass('in');
+    expect(drawerTds[0].querySelector('.pui-collapsible')).toHaveAttr('aria-hidden', 'true');
+    expect(drawerTds[0].querySelector('.pui-collapsible i')).toHaveText('Drawer content');
+  });
+
+  describe('when clicked to expand', () => {
     beforeEach(() => {
-      data = [{
-        attr1: 'row1-value1', attr2: 'row1-value2', attr3: {usage: {name: 'name1'}}
-      }, {
-        attr1: 'row2-value1', attr2: 'row2-value2', attr3: {}
-      }];
-      columns = [{
-        attribute: 'attr1'
-      }, {
-        attribute: 'attr2', displayName: 'Display2'
-      }, {
-        attribute: 'attr3.usage.name'
-      }];
-
-      subject = ReactDOM.render(<Table {...{
-        className: 'some-class-name',
-        columns, data, table, thead, tbody, tfoot, tr, th, td
-      }}/>, root);
+      document.querySelector('td button').click();
     });
 
-    it('calls the table callback with props and empty context', () => {
-      expect(table).toHaveBeenCalledWith({
-        className: 'table some-class-name',
-        children: jasmine.any(Array)
-      }, {});
+    it('renders collapsible toggle as expanded', () => {
+      const toggleTd = document.querySelectorAll('tr')[0].querySelectorAll('td')[0];
+      expect(toggleTd).toHaveClass('active-indicator');
+      expect(toggleTd.querySelector('.pui-table--collapsible-btn')).toHaveAttr('aria-label', 'hide the thing');
+      expect(toggleTd.querySelector('.pui-table--collapsible-btn div')).toHaveClass('rotate-qtr-turn');
     });
 
-    it('calls the thead callback with props and empty context', () => {
-      expect(thead).toHaveBeenCalledWith({children: jasmine.any(Object)}, {});
+    it('displays the drawer content', () => {
+      const drawerTr = document.querySelectorAll('tr')[1];
+      const drawer = drawerTr.querySelector('.pui-collapsible');
+      expect(drawerTr).not.toHaveClass('border-top-0');
+      expect(drawerTr).not.toHaveClass('display-none');
+      expect(drawer).toHaveClass('in');
+      expect(drawer.getAttribute('aria-hidden')).toBe('false');
     });
 
-    it('calls the tbody callback with props and empty context', () => {
-      expect(tbody).toHaveBeenCalledWith({children: jasmine.any(Array)}, {});
+    it('calls the onExpand callback', () => {
+      expect(onExpandSpy).toHaveBeenCalled();
     });
 
-    it('calls the tfoot callback with props and empty context', () => {
-      expect(tfoot).toHaveBeenCalledWith({children: jasmine.any(Array)}, {});
-    });
-
-    it('calls the tr callback with props and isHeader context', () => {
-      expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {isHeader: true, rowIndex: -1});
-      expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {
-        isHeader: false,
-        rowDatum: data[0],
-        rowIndex: 0
-      });
-      expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {
-        isHeader: false,
-        rowDatum: data[1],
-        rowIndex: 1
-      });
-    });
-
-    it('calls the th callback with props and column context', () => {
-      expect(th).toHaveBeenCalledWith({children: columns[0].attribute}, {column: columns[0]});
-      expect(th).toHaveBeenCalledWith({children: columns[1].displayName}, {column: columns[1]});
-    });
-
-    it('calls the td callback with props and column context', () => {
-      expect(td).toHaveBeenCalledWith({children: data[0].attr1}, {rowDatum: data[0], column: columns[0]});
-      expect(td).toHaveBeenCalledWith({children: data[0].attr2}, {rowDatum: data[0], column: columns[1]});
-      expect(td).toHaveBeenCalledWith({children: data[0].attr3.usage.name}, {rowDatum: data[0], column: columns[2]});
-      expect(td).toHaveBeenCalledWith({children: data[1].attr1}, {rowDatum: data[1], column: columns[0]});
-      expect(td).toHaveBeenCalledWith({children: data[1].attr2}, {rowDatum: data[1], column: columns[1]});
-      expect(td).toHaveBeenCalledWith({children: undefined}, {rowDatum: data[1], column: columns[2]});
-    });
-
-    it('renders a table element with the expected classes', () => {
-      expect('table').toHaveClass('table');
-      expect('table').toHaveClass('table-class');
-    });
-
-    it('renders a thead element with the expected class', () => {
-      expect('table thead').toHaveClass('thead-class');
-    });
-
-    it('renders a header tr element with the expected class', () => {
-      expect('table thead tr').toHaveClass('tr-class');
-    });
-
-    it('renders th elements with the expected class and text', () => {
-      expect('table thead tr th').toHaveLength(3);
-
-      expect('table thead tr th:eq(0)').toHaveClass('th-class');
-      expect('table thead tr th:eq(0)').toHaveText('attr1');
-
-      expect('table thead tr th:eq(1)').toHaveClass('th-class');
-      expect('table thead tr th:eq(1)').toHaveText('Display2');
-
-      expect('table thead tr th:eq(2)').toHaveClass('th-class');
-      expect('table thead tr th:eq(2)').toHaveText('attr3.usage.name');
-    });
-
-    it('renders a tbody element with the expected class', () => {
-      expect('table tbody').toHaveClass('tbody-class');
-    });
-
-    it('renders body tr elements with the expected class', () => {
-      expect('table tbody tr:eq(0)').toHaveClass('tr-class');
-      expect('table tbody tr:eq(1)').toHaveClass('tr-class');
-    });
-
-    it('renders td elements with the expected class and text', () => {
-      expect('table tbody tr:eq(0) td:eq(0)').toHaveClass('td-class');
-      expect('table tbody tr:eq(0) td:eq(0)').toHaveText('row1-value1');
-      expect('table tbody tr:eq(0) td:eq(1)').toHaveClass('td-class');
-      expect('table tbody tr:eq(0) td:eq(1)').toHaveText('row1-value2');
-      expect('table tbody tr:eq(0) td:eq(2)').toHaveClass('td-class');
-      expect('table tbody tr:eq(0) td:eq(2)').toHaveText('name1');
-
-      expect('table tbody tr:eq(1) td:eq(0)').toHaveClass('td-class');
-      expect('table tbody tr:eq(1) td:eq(0)').toHaveText('row2-value1');
-      expect('table tbody tr:eq(1) td:eq(1)').toHaveClass('td-class');
-      expect('table tbody tr:eq(1) td:eq(1)').toHaveText('row2-value2');
-      expect('table tbody tr:eq(1) td:eq(2)').toHaveClass('td-class');
-      expect('table tbody tr:eq(1) td:eq(2)').toHaveText('');
-    });
-
-    it('renders a tfoot element with the expected class', () => {
-      expect('table tfoot').toHaveClass('tfoot-class');
-    });
-
-    describe('with custom html tags', () => {
-      beforeEach(() => subject::setProps({
-        tableTag: () => 'div',
-        theadTag: () => 'div',
-        tbodyTag: () => 'div',
-        tfootTag: () => 'div',
-        trTag: () => 'div',
-        thTag: () => 'div',
-        tdTag: () => 'div'
-      }));
-
-      it('renders a table div element with the expected classes', () => {
-        expect('div.table').toHaveClass('table-class');
-      });
-
-      it('renders a thead div element with the expected classes', () => {
-        expect('.table > div:eq(0)').toExist('thead-class');
-      });
-
-      it('renders a header tr div element with the expected class', () => {
-        expect('.thead-class > div').toHaveClass('tr-class');
-      });
-
-      it('renders th div elements with the expected class and text', () => {
-        expect('.thead-class .tr-class div:eq(0)').toHaveClass('th-class');
-        expect('.thead-class .tr-class div:eq(0)').toHaveText('attr1');
-
-        expect('.thead-class .tr-class div:eq(1)').toHaveClass('th-class');
-        expect('.thead-class .tr-class div:eq(1)').toHaveText('Display2');
-
-        expect('.thead-class .tr-class div:eq(2)').toHaveClass('th-class');
-        expect('.thead-class .tr-class div:eq(2)').toHaveText('attr3.usage.name');
-      });
-
-      it('renders a tbody div element with the expected classes', () => {
-        expect('div.table > div:eq(1)').toHaveClass('tbody-class');
-      });
-
-      it('renders body tr div elements with the expected class', () => {
-        expect('.tbody-class .tr-class:eq(0)').toHaveClass('tr-class');
-        expect('.tbody-class .tr-class:eq(1)').toHaveClass('tr-class');
-      });
-
-      it('renders td div elements with the expected class and text', () => {
-        expect('.tbody-class .tr-class:eq(0) div:eq(0)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(0) div:eq(0)').toHaveText('row1-value1');
-        expect('.tbody-class .tr-class:eq(0) div:eq(1)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(0) div:eq(1)').toHaveText('row1-value2');
-        expect('.tbody-class .tr-class:eq(0) div:eq(2)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(0) div:eq(2)').toHaveText('name1');
-
-        expect('.tbody-class .tr-class:eq(1) div:eq(0)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(1) div:eq(0)').toHaveText('row2-value1');
-        expect('.tbody-class .tr-class:eq(1) div:eq(1)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(1) div:eq(1)').toHaveText('row2-value2');
-        expect('.tbody-class .tr-class:eq(1) div:eq(2)').toHaveClass('td-class');
-        expect('.tbody-class .tr-class:eq(1) div:eq(2)').toHaveText('');
-      });
-
-      it('renders a tfoot div element with the expected classes', () => {
-        expect('div.table > div:eq(2)').toHaveClass('tfoot-class');
-      });
-    });
-
-    describe('with opt-out custom html tags', () => {
-      beforeEach(() => subject::setProps({
-        tableTag: () => null,
-        theadTag: () => null,
-        tbodyTag: () => null,
-        tfootTag: () => null,
-        trTag: () => null,
-        thTag: () => null,
-        tdTag: () => null
-      }));
-
-      it('renders a table element with the expected classes', () => {
-        expect('table').toHaveClass('table');
-        expect('table').toHaveClass('table-class');
-      });
-
-      it('renders a thead element with the expected class', () => {
-        expect('table thead').toHaveClass('thead-class');
-      });
-
-      it('renders a header tr element with the expected class', () => {
-        expect('table thead tr').toHaveClass('tr-class');
-      });
-
-      it('renders th elements with the expected class and text', () => {
-        expect('table thead tr th:eq(0)').toHaveClass('th-class');
-        expect('table thead tr th:eq(0)').toHaveText('attr1');
-
-        expect('table thead tr th:eq(1)').toHaveClass('th-class');
-        expect('table thead tr th:eq(1)').toHaveText('Display2');
-
-        expect('table thead tr th:eq(2)').toHaveClass('th-class');
-        expect('table thead tr th:eq(2)').toHaveText('attr3.usage.name');
-      });
-
-      it('renders a tbody element with the expected class', () => {
-        expect('table tbody').toHaveClass('tbody-class');
-      });
-
-      it('renders body tr elements with the expected class', () => {
-        expect('table tbody tr:eq(0)').toHaveClass('tr-class');
-        expect('table tbody tr:eq(1)').toHaveClass('tr-class');
-      });
-
-      it('renders td elements with the expected class and text', () => {
-        expect('table tbody tr:eq(0) td:eq(0)').toHaveClass('td-class');
-        expect('table tbody tr:eq(0) td:eq(0)').toHaveText('row1-value1');
-        expect('table tbody tr:eq(0) td:eq(1)').toHaveClass('td-class');
-        expect('table tbody tr:eq(0) td:eq(1)').toHaveText('row1-value2');
-        expect('table tbody tr:eq(0) td:eq(2)').toHaveClass('td-class');
-        expect('table tbody tr:eq(0) td:eq(2)').toHaveText('name1');
-
-        expect('table tbody tr:eq(1) td:eq(0)').toHaveClass('td-class');
-        expect('table tbody tr:eq(1) td:eq(0)').toHaveText('row2-value1');
-        expect('table tbody tr:eq(1) td:eq(1)').toHaveClass('td-class');
-        expect('table tbody tr:eq(1) td:eq(1)').toHaveText('row2-value2');
-        expect('table tbody tr:eq(1) td:eq(2)').toHaveClass('td-class');
-        expect('table tbody tr:eq(1) td:eq(2)').toHaveText('');
-      });
-
-      it('renders a tfoot element with the expected class', () => {
-        expect('table tfoot').toHaveClass('tfoot-class');
-      });
-    });
-
-    describe('with empty column attribute', () => {
+    describe('when clicked to collapse', () => {
       beforeEach(() => {
-        subject::setProps({ columns: [...columns, {}] });
+        onExpandSpy.mockClear();
+        document.querySelector('td button').click();
       });
 
-      it('renders empty column', () => {
-        expect('table thead tr th').toHaveLength(4);
-        expect('table thead tr th:eq(3)').toHaveClass('th-class');
-        expect('table thead tr th:eq(3)').toHaveText('');
+      it('renders collapsible toggle as collapsed', () => {
+        const toggleTd = document.querySelectorAll('tr')[0].querySelectorAll('td')[0];
+        expect(toggleTd).not.toHaveClass('active-indicator');
+        expect(toggleTd.querySelector('.pui-table--collapsible-btn')).toHaveAttr('aria-label', 'show the thing');
+        expect(toggleTd.querySelector('.pui-table--collapsible-btn div')).not.toHaveClass('rotate-qtr-turn');
       });
-    });
-  });
 
-  describe('without columns', () => {
-    beforeEach(() => {
-      data = [{
-        attr1: 'row1-value1', attr2: 'row1-value2', attr3: 'row1-value3'
-      }, {
-        attr1: 'row2-value1', attr2: 'row2-value2'
-      }];
+      it('hides the drawer content', () => {
+        const drawerTr = document.querySelectorAll('tr')[1];
+        const drawer = document.querySelectorAll('tr')[1].querySelector('.pui-collapsible');
+        expect(drawer).not.toHaveClass('in');
+        expect(drawer).toHaveAttr('aria-hidden');
+        expect(drawerTr).toHaveClass('border-top-0');
+        expect(drawerTr).toHaveClass('display-none');
+      });
 
-      ReactDOM.render(<Table {...{
-        className: 'some-class-name',
-        data, table, thead, tbody, tfoot, tr, th, td
-      }}/>, root);
-    });
-
-    it('renders the data keys as column headers', () => {
-      expect('table thead tr th:eq(0)').toHaveText('attr1');
-      expect('table thead tr th:eq(1)').toHaveText('attr2');
-      expect('table thead tr th:eq(2)').toHaveText('attr3');
-    });
-  });
-
-  describe('with simple columns', () => {
-    beforeEach(() => {
-      data = [{
-        attr1: 'row1-value1', attr2: 'row1-value2', attr3: 'row1-value3'
-      }, {
-        attr1: 'row2-value1', attr2: 'row2-value2'
-      }];
-
-      columns = ['attr3', 'attr1'];
-
-      ReactDOM.render(<Table {...{
-        className: 'some-class-name',
-        data, columns, table, thead, tbody, tfoot, tr, th, td
-      }}/>, root);
-    });
-
-    it('renders 2 columns', () => {
-      expect('table thead tr th').toHaveLength(2);
-    });
-
-    it('uses the given strings as the column attributes', () => {
-      expect('table thead tr th:eq(0)').toHaveText('attr3');
-      expect('table thead tr th:eq(1)').toHaveText('attr1');
+      it('does not call the onExpand callback', () => {
+        expect(onExpandSpy).not.toHaveBeenCalled();
+      });
     });
   });
 });

@@ -6,7 +6,58 @@ Pivotal UI follows [semantic versioning](https://semver.org/). Major version bum
 
 Below are the upgrade guides for recent major versions of Pivotal UI. For more details about minor and patch releases, see the [changelog](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md) on the branch in question (e.g. `v17` for version 17).
 
-## v18
+
+## v19 Table-Flippers (╯°□°)╯︵ ┻━┻
+
+### Goals
+
+The goal of the 19.0 release is to increase accessibility of tables within applications using Pivotal UI.
+
+### Big Changes
+
+#### New Table Component Structure
+
+- Pivotal UI tables are now based on building block components (e.g. `<Table/>`, `<Tbody/>`, etc.) rather than a single component
+- Tables also no longer support the concept of "plugins"
+
+### Migration Guide
+
+#### Tables
+
+##### Plugin Conversions
+
+Follow the directions below to replace previously supported table plugins for Pivotal UI table functionality.
+
+| If you're using... | Switch to...    |
+|--------------------|--------------------|
+| withCellClassName | Cell class names can now be passed directly to the `<Td>` and `<Th>` tags, e.g. `<Td className="my-cell-class" />` |
+| withCellEllipsis | Pass `className="type-ellipsis"` to `<Td>` or `<Th>` tags |
+| withCellOnClick | Wrap cell children in a `<button type="button" onClick={yourOnClickCallback}>` tag |
+| withCellTooltip | Render a `<TooltipTrigger>` component inside the `<Td>` or `<Th>` tag |
+| withCellWidth | Assign a className to the `<Th>` tag and add a css `width` property. Assigning the width to a `<Th>` will affect the entire column. |
+| withFlex | Flex columns are no longer supported due to accessibility constraints. However, by default the Pivotal UI table cells should accommodate the size of their contents. |
+| withFooterRow | Use a `<Tfoot>` component with `<Tr>`'s inside of it as the last row(s) of your table |
+| withRenderTdChildren | This functionality has been replaced by deconstructing the table. You should now be able to render whatever `<Td>` and `<Th>` tags you would like inside a given row. |
+| withRenderThChildren | See above. |
+| withRowClassName | Row class names can now be passed directly to the `<Tr>` tag, e.g. `<Tr className="my-row-class" />` |
+| withRowDrawer | The `<TrWithRowDrawer>` component enables this functionality. See the Tables page for more information. |
+| withRowLink | Due to accessibility constraints table rows can no longer be links. However, you can wrap components within a table cell in links. |
+| withScrollableTbody | Pass the `scrollable` prop to the `<Tbody>` component. |
+| withSorting | See detailed sortable table example on the Tables page. |
+
+##### Accessibility Considerations for Tables
+
+When building a table, the following attributes are important to include in order to ensure the accessibility of your table for assistive technology:
+
+- Include a `<Caption>` as a descriptive title for your table
+- Use `<Th>` tags to indicate headers, and add property `scope="row"` if the `<Th>` is a header for a row rather than a column
+- For sortable tables, provide the `aria-sort` property, with value `ascending`, `descending`, or `none`
+
+###### More Resources:
+https://www.w3.org/WAI/tutorials/tables/
+https://inclusive-components.design/data-tables/
+
+## v18 Taste The Rainbow 🌈
 
 ### Goals
 

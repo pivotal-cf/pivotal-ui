@@ -1,2 +1,277 @@
-@import "html_tables";
-@import "css_tables";
+@import "../pui-variables";
+
+$row-drawer-active-border-width: $base-unit / 2;
+
+.pui-table {
+  font-size: $table-font-size;
+  width: 100%;
+  background-color: $table-bg;
+  margin-bottom: ($base-unit*2);
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+
+  th {
+    font-weight: $font-weight-em-high;
+  }
+
+  tr {
+    border-top: solid 1px $table-border-color;
+    border-left: solid 1px $table-border-color;
+    border-right: solid 1px $table-border-color;
+
+    &:last-child {
+      border-bottom: solid 1px $table-border-color;
+    }
+  }
+
+  tbody > tr:first-child {
+    border-top: none;
+  }
+
+  thead {
+    border-bottom: solid 1px $table-border-color;
+    font-weight: $table-header-font-weight;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  tbody th {
+    font-weight: $font-weight-em-default;
+  }
+
+  td, th {
+    border-right: solid 1px $table-border-color;
+    padding: $base-unit;
+    text-align: inherit;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    > button {
+      height: 100%;
+      width: 100%;
+      border: none;
+      text-align: left;
+      padding: $base-unit;
+    }
+  }
+}
+
+// Table Drawers
+.pui-table--collapsible-toggle {
+  width: 7 * $base-unit;
+}
+
+.pui-table--collapsible-btn {
+  font-size: $font-size-extra-large;
+}
+
+.active-indicator {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: $row-drawer-active-border-width;
+    background-color: $teal;
+    transition: transform $animation-duration;
+  }
+}
+
+// Table Modifiers
+.bg-pui-table-hover-color {
+  background-color: $table-bg-hover !important;
+}
+
+.pui-table--tr-hover {
+  tbody tr:hover {
+    background-color: $table-bg-hover;
+  }
+
+  thead tr:hover, tfoot tr:hover {
+    background-color: inherit;
+  }
+}
+
+.pui-table--td-hover {
+  tbody td:hover {
+    background-color: $table-bg-hover;
+  }
+
+  thead tr:hover, tfoot tr:hover {
+    background-color: inherit;
+  }
+}
+
+.pui-table--h-borders-none {
+  td, th {
+    border-right: none;
+  }
+}
+
+.pui-table--ext-borders-none thead {
+  border-bottom: solid 2px $table-border-color;
+}
+
+.pui-table--ext-borders-none tr {
+  border-left: none;
+  border-right: none;
+  border-top: solid 1px $table-border-color;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.pui-table--ext-borders-none thead tr {
+  border: none;
+}
+
+.pui-table--borders-none {
+  tr,
+  tr td,
+  tr th {
+    border: none !important;
+  }
+}
+
+.pui-table--scrollable {
+  margin-bottom: ($base-unit*2);
+  border-bottom: solid 1px $table-border-color;
+
+  tr:first-child {
+    border-top: none;
+  }
+
+  tr:last-child {
+    border-bottom: none;
+  }
+
+  thead {
+    display: table;
+    overflow: auto;
+    width: 100%;
+
+    th:last-child {
+      padding-right: 21px;
+    }
+  }
+
+  tbody {
+    display: block;
+    max-height: 164px;
+    overflow-y: scroll;
+    width: 100%;
+  }
+
+  tbody tr {
+    display: table;
+    width: 100%;
+  }
+
+  &:not(.table-no-borders):not(.table-no-ext-borders) {
+    .scrollable-body {
+      border-bottom: solid 1px $table-border-color;
+
+      tr:last-child {
+        border-bottom: none;
+
+        td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+.width-5 {
+  width: 5%;
+}
+
+.width-8 {
+  width: 8%;
+}
+
+.width-10 {
+  width: 10%;
+}
+
+.width-15 {
+  width: 15%;
+}
+
+.width-20 {
+  width: 20%;
+}
+
+.width-25 {
+  width: 25%;
+}
+
+.width-30 {
+  width: 30%;
+}
+
+.width-35 {
+  width: 35%;
+}
+
+.width-40 {
+  width: 40%;
+}
+
+.width-45 {
+  width: 45%;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.width-55 {
+  width: 55%;
+}
+
+.width-60 {
+  width: 60%;
+}
+
+.width-65 {
+  width: 65%;
+}
+
+.width-70 {
+  width: 70%;
+}
+
+.width-75 {
+  width: 75%;
+}
+
+.width-80 {
+  width: 80%;
+}
+
+.width-85 {
+  width: 85%;
+}
+
+.width-90 {
+  width: 90%;
+}
+
+.width-95 {
+  width: 95%;
+}
+
+.width-100 {
+  width: 100%;
+}

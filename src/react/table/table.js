@@ -1,72 +1,85 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
-
-import {TablePlugin} from './table_plugin';
+import React, {Fragment} from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-export class Table extends TablePlugin {
-  static defaultProps = {...TablePlugin.defaultProps};
+import '../../css/tables/index.js';
+import {Collapsible} from '../collapsible';
+import {Icon} from '../iconography';
+import {DefaultButton} from '../buttons';
 
-  componentDidMount() {
-    require('../../css/tables');
-  }
+export const Table = ({className, ...props}) => (
+  <table {...props} {...{
+    className: classnames('pui-table', className)
+  }}/>
+);
+
+export const Caption = ({className, children, ...props}) =>
+  (<caption {...{...props, className: classnames(className, 'em-high h5 txt-l')}}>{children}</caption>);
+export const Thead = props => <thead {...props}/>;
+export const Tbody = props => <tbody {...props}/>;
+export const Tfoot = props => <tfoot {...props}/>;
+export const Tr = props => <tr {...props}/>;
+export const Td = props => <td {...props}/>;
+export const Th = ({scope = 'col', ...props}) => <th {...props} {...{scope}}/>;
+
+export const TrHeaderForDrawers = ({children}) => (<Tr>
+  <Th className="pui-table--collapsible-toggle border-right-0"/>
+  {children}
+</Tr>);
+
+export const TrWithoutDrawer = ({children}) => (<Tr>
+  <Td className="pui-table--collapsible-toggle border-right-0"/>
+  {children}
+</Tr>);
+
+export class TrWithDrawer extends React.PureComponent {
+  static propTypes = {
+    ariaLabelCollapsed: PropTypes.string.isRequired,
+    ariaLabelExpanded: PropTypes.string.isRequired,
+    drawerContent: PropTypes.node,
+    onExpand: PropTypes.func,
+    children: PropTypes.node
+  };
+
+  state = {expanded: false};
 
   render() {
-    const {className, columns, data} = this.props;
+    const {
+      ariaLabelCollapsed,
+      ariaLabelExpanded,
+      children,
+      className,
+      drawerContent,
+      onExpand
+    } = this.props;
+    const {expanded} = this.state;
 
-    let dataColumns;
-
-    if (!columns && data.length > 0) {
-      dataColumns = Object.keys(data[0]).map(attribute => ({attribute}));
-    }
-
-    const renderedColumns = (columns || dataColumns || [])
-      .map(column => typeof column === 'string' ? {attribute: column} : column);
-
-    const headers = renderedColumns.map((column, key) => {
-      const Th = this.plugTag('th', 'th');
-      const children = column.displayName || column.attribute;
-      const thContext = {column};
-      return <Th {...{key, ...this.plugProps('th', {children}, thContext)}}/>;
-    });
-
-    const HeaderTr = this.plugTag('tr', 'tr');
-    const headerTrContext = {isHeader: true, rowIndex: -1};
-    const headerRow = <HeaderTr {...this.plugProps('tr', {children: headers}, headerTrContext)}/>;
-
-    const bodyCols = rowDatum => renderedColumns.map((column, key) => {
-      const keys = (column.attribute || '').split('.');
-      let children = rowDatum;
-      keys.forEach(key => children = (children || {})[key]);
-      const tdContext = {column, rowDatum};
-      const Td = this.plugTag('td', 'td', tdContext);
-      return <Td {...{key, ...this.plugProps('td', {children}, tdContext)}}/>;
-    });
-
-    const bodyRows = data.map((rowDatum, key) => {
-      const trContext = {rowDatum, isHeader: false, rowIndex: key};
-      const Tr = this.plugTag('tr', 'tr', trContext);
-      return <Tr {...{key, ...this.plugProps('tr', {children: bodyCols(rowDatum)}, trContext)}}/>;
-    });
-
-    const Table = this.plugTag('table', 'table');
-    const tableChildren = [{
-      method: 'thead', children: headerRow
-    }, {
-      method: 'tbody', children: bodyRows
-    }, {
-      method: 'tfoot', children: []
-    }].map(({method, children}, key) => {
-        const Tag = this.plugTag(method, method);
-        return <Tag {...{...this.plugProps(method, {children}), key}}/>;
-      }
-    );
-
-    return (
-      <Table {...this.plugProps('table', {
-        className: classnames('table', className),
-        children: tableChildren
-      })}/>
-    );
+    return (<Fragment>
+      <Tr className={classnames({'border-bottom': !expanded})}>
+        <Td className={classnames('border-right-0', {'active-indicator': expanded})}>
+          <DefaultButton
+            className="pui-table--collapsible-btn"
+            icon={<Icon src="chevron_right" className={
+              classnames('transition-transform', {'rotate-qtr-turn': expanded})
+            }/>}
+            onClick={() => {
+              if (!expanded && onExpand) onExpand();
+              this.setState(({expanded}) => ({expanded: !expanded}));
+            }}
+            iconOnly
+            flat
+            aria-label={expanded ? ariaLabelExpanded : ariaLabelCollapsed}
+          />
+        </Td>
+        {children}
+      </Tr>
+      <Tr className={classnames(className, {'border-top-0 display-none': !expanded})}>
+        <Td colSpan={1 + children.length} className="pan">
+          <Collapsible {...{expanded}}>
+            {drawerContent}
+          </Collapsible>
+        </Td>
+      </Tr>
+    </Fragment>);
   }
 }

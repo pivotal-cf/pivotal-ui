@@ -100,23 +100,23 @@ small, .type-sm {
 }
 
 .title {
-  font-size: $font-size-title;
+  font-size: $font-size-title !important;
 }
 
 .em-low {
-  font-weight: $font-weight-em-low;
+  font-weight: $font-weight-em-low !important;
 }
 
 .em-default {
-  font-weight: $font-weight-em-default;
+  font-weight: $font-weight-em-default !important;
 }
 
 .em-high {
-  font-weight: $font-weight-em-high;
+  font-weight: $font-weight-em-high !important;
 }
 
 .em-max {
-  font-weight: $font-weight-em-max;
+  font-weight: $font-weight-em-max !important;
 }
 
 .em-alt {
