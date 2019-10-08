@@ -1,5 +1,76 @@
+<a name="19.0.0"></a>
+## 19.0.0 (2019-10-08)
+#### CSS
+* **tables**: Update table styles to more easily apply PUI table styles to a plain html table
+#### React
+* **tables**: Rewrite Tables component into building block components to more easily enable accessibility
+<a name="18.1.8"></a>
+## 18.1.8 (2019-09-27)
+#### CSS
+* **panels**: Make pui-panel position relative so the loading state does not escape from the panel ([11e6af39](https://github.com/pivotal-cf/pivotal-ui/commit/11e6af39))
+#### React
+* **siteframe**: Add className prop to siteframe components [#168434418] ([9c954703](https://github.com/pivotal-cf/pivotal-ui/commit/9c954703))
+<a name="18.1.7"></a>
+## 18.1.7 (2019-09-04)
+#### CSS
+* **panels**: Use an actual element rather than a pseudo element for animating ([a05a35ed](https://github.com/pivotal-cf/pivotal-ui/commit/a05a35ed))
+#### React
+* **panels**: Use an actual element rather than a pseudo element for animating ([a05a35ed](https://github.com/pivotal-cf/pivotal-ui/commit/a05a35ed))
+<a name="18.1.6"></a>
+## 18.1.6 (2019-08-28)
+#### CSS
+* **border**: Update loading indicator to have a border radius ([bf3d0b71](https://github.com/pivotal-cf/pivotal-ui/commit/bf3d0b71))
+* **panels**: Update loading indicator to have a border radius ([bf3d0b71](https://github.com/pivotal-cf/pivotal-ui/commit/bf3d0b71))
+<a name="18.1.5"></a>
+## 18.1.5 (2019-08-28)
+#### CSS
+* **flex-grids**:
+  * Use correct css rule for -ms-flex-preferred-size ([5bb00d50](https://github.com/pivotal-cf/pivotal-ui/commit/5bb00d50))
+  * Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
+* **pui-variables.scss**: Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
+#### React
+* **panels**: Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
+<a name="18.1.4"></a>
+## 18.1.4 (2019-08-28)
+#### CSS
+* **typography**: Add tests to validate our fonts are WOFFs and remove italic 400 cyrillic since it is not yet supported ([c6f8cd4c](https://github.com/pivotal-cf/pivotal-ui/commit/c6f8cd4c))
+<a name="18.1.3"></a>
+## 18.1.3 (2019-08-27)
+#### CSS
+* **flex-grids**:
+  * Remove -ms-flex-preferred-size since it overrides flex-basis and explicitly set flex-basis ([745518bd](https://github.com/pivotal-cf/pivotal-ui/commit/745518bd))
+  * Remove conflicting flex css and remove flex-basis: 0 to fix layouts on IE ([29e5b866](https://github.com/pivotal-cf/pivotal-ui/commit/29e5b866))
+#### React
+* **copy-to-clipboard**: Allow users to specifiy tooltip placement on CopyToClipboard component ([428c1791](https://github.com/pivotal-cf/pivotal-ui/commit/428c1791))
+* **tooltip**: Add 'disabled' prop to tooltip trigger [#168090263] ([62e26693](https://github.com/pivotal-cf/pivotal-ui/commit/62e26693))
+<a name="18.1.2"></a>
+## 18.1.2 (2019-08-23)
+#### CSS
+* **typography**: Add cyrillic charactors to our fonts ([fbcef3b2](https://github.com/pivotal-cf/pivotal-ui/commit/fbcef3b2))
+#### React
+* **checkbox-dropdown**: Make title of checkbox dropdown connfigurable ([bdffe7e0](https://github.com/pivotal-cf/pivotal-ui/commit/bdffe7e0))
+<a name="18.1.1"></a>
+## 18.1.1 (2019-07-30)
+#### CSS
+* **tabs**: Prevent tabs from adding a hash to the url on click - and fix styling of responsive small tabs to match left aligned non-responsive large tabs [[:beetle:#167583925](https://www.pivotaltracker.com/story/show/167583925)] ([24cfcab6](https://github.com/pivotal-cf/pivotal-ui/commit/24cfcab6))
+#### React
+* **dialog**: Only close modals and flyouts if click is initiated outside dialog [[:beetle:#167525463](https://www.pivotaltracker.com/story/show/167525463)] ([321751d0](https://github.com/pivotal-cf/pivotal-ui/commit/321751d0))
+* **forms**:
+  * Introduce `setErrors` callback to Form component ([2b8cca8c](https://github.com/pivotal-cf/pivotal-ui/commit/2b8cca8c))
+  * Fix form id to be unique [[:beetle:#166481920](https://www.pivotaltracker.com/story/show/166481920)] ([c36f12b3](https://github.com/pivotal-cf/pivotal-ui/commit/c36f12b3))
+  * Generate valid DOM ids for form labels [[:beetle:#166481920](https://www.pivotaltracker.com/story/show/166481920)] ([f12b2bee](https://github.com/pivotal-cf/pivotal-ui/commit/f12b2bee))
+* **table**: Allow the rowDrawer plugin's expanded state to be controlled (#627) ([df0dfd50](https://github.com/pivotal-cf/pivotal-ui/commit/df0dfd50))
+* **tabs**: Prevent tabs from adding a hash to the url on click - and fix styling of responsive small tabs to match left aligned non-responsive large tabs [[:beetle:#167583925](https://www.pivotaltracker.com/story/show/167583925)] ([24cfcab6](https://github.com/pivotal-cf/pivotal-ui/commit/24cfcab6))
+<a name="18.1.0"></a>
+# 18.1.0 (2019-06-04)
+#### CSS
+* **tables**: Make withRowDrawer table plugin keyboard navigable [#163574940] ([8cedd5b8](https://github.com/pivotal-cf/pivotal-ui/commit/8cedd5b8))
+#### React
+* **flyout**: Allow users to close flyouts with escape key or by clicking outside of flyout [#163573952] ([320113ae](https://github.com/pivotal-cf/pivotal-ui/commit/320113ae))
+* **svg**: Remove deprecated SVG component [[:gear:#164283978](https://www.pivotaltracker.com/story/show/164283978)] ([eabc5497](https://github.com/pivotal-cf/pivotal-ui/commit/eabc5497))
+* **table**: Make withRowDrawer table plugin keyboard navigable [#163574940] ([8cedd5b8](https://github.com/pivotal-cf/pivotal-ui/commit/8cedd5b8))
 <a name="18.0.0"></a>
-# 18.0.0 (2019-04-08)
+# 18.0.0 (2019-03-13)
 #### CSS
 * **alerts**:
   * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
@@ -144,6 +215,25 @@
   * Make tabs clickable via keyboard navigation [[:beetle:#158048701](https://www.pivotaltracker.com/story/show/158048701)] ([0a509da7](https://github.com/pivotal-cf/pivotal-ui/commit/0a509da7))
   * New justifyContent prop for Grid [[:star:#159503837](https://www.pivotaltracker.com/story/show/159503837)] ([72d79d3d](https://github.com/pivotal-cf/pivotal-ui/commit/72d79d3d))
 * **toggle**: Remove deprecated non-namespaced CSS classes from toggle ([0336c9f8](https://github.com/pivotal-cf/pivotal-ui/commit/0336c9f8))
+<a name="17.2.3"></a>
+## 17.2.3 (2019-08-28)
+#### CSS
+* **flex-grids**: Fix flex basis for non IE browsers [#167720153](https://www.pivotaltracker.com/story/show/167720153) ([99a2a437](https://github.com/pivotal-cf/pivotal-ui/commit/99a2a437))
+<a name="17.2.2"></a>
+## 17.2.2 (2019-08-27)
+#### CSS
+* **flex-grids**:
+  * Remove -ms-flex-preferred-size since it overrides flex-basis and explicitly set flex-basis ([d573c30c](https://github.com/pivotal-cf/pivotal-ui/commit/d573c30c))
+  * Remove conflicting flex css and remove flex-basis: 0 to fix layouts on IE ([d22e3bb7](https://github.com/pivotal-cf/pivotal-ui/commit/d22e3bb7))
+<a name="17.2.1"></a>
+## 17.2.1 (2019-07-30)
+#### React
+* **dialog**: Only close modals and flyouts if click is initiated outside dialog [[:beetle:#167525463](https://www.pivotaltracker.com/story/show/167525463)] ([2ed044f7](https://github.com/pivotal-cf/pivotal-ui/commit/2ed044f7))
+* **forms**:
+  * Introduce `setErrors` callback to Form component ([89e1877f](https://github.com/pivotal-cf/pivotal-ui/commit/89e1877f))
+  * Fix form id to be unique [[:beetle:#166481920](https://www.pivotaltracker.com/story/show/166481920)] ([4ae24e8f](https://github.com/pivotal-cf/pivotal-ui/commit/4ae24e8f))
+  * Generate valid DOM ids for form labels [[:beetle:#166481920](https://www.pivotaltracker.com/story/show/166481920)] ([e365dfba](https://github.com/pivotal-cf/pivotal-ui/commit/e365dfba))
+* **table**: Allow the rowDrawer plugin's expanded state to be controlled (#627) ([a96dd542](https://github.com/pivotal-cf/pivotal-ui/commit/a96dd542))
 <a name="17.2.0"></a>
 # 17.2.0 (2019-01-11)
 #### CSS
