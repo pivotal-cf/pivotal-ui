@@ -1,3 +1,13 @@
+<a name="18.1.9"></a>
+## 18.1.8 (2019-09-27)
+#### React
+* **react**: Upgrade to react 16.10.2 and fix remove deprecated lifecycle methods [#168434418] ([a08f867f](https://github.com/pivotal-cf/pivotal-ui/commit/a08f867f))
+<a name="18.1.8"></a>
+## 18.1.8 (2019-09-27)
+#### CSS
+* **panels**: Make pui-panel position relative so the loading state does not escape from the panel ([11e6af39](https://github.com/pivotal-cf/pivotal-ui/commit/11e6af39))
+#### React
+* **siteframe**: Add className prop to siteframe components [#168434418] ([9c954703](https://github.com/pivotal-cf/pivotal-ui/commit/9c954703))
 <a name="18.1.7"></a>
 ## 18.1.7 (2019-09-04)
 #### CSS
@@ -50,7 +60,7 @@
 * **svg**: Remove deprecated SVG component [[:gear:#164283978](https://www.pivotaltracker.com/story/show/164283978)] ([eabc5497](https://github.com/pivotal-cf/pivotal-ui/commit/eabc5497))
 * **table**: Make withRowDrawer table plugin keyboard navigable [#163574940] ([8cedd5b8](https://github.com/pivotal-cf/pivotal-ui/commit/8cedd5b8))
 <a name="18.0.0"></a>
-# 18.0.0 (2019-04-08)
+# 18.0.0 (2019-03-13)
 #### CSS
 * **alerts**:
   * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
