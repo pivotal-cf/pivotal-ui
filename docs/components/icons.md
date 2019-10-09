@@ -54,7 +54,7 @@ Images can be used like icons by wrapping them in a container with the `icon` cl
 ```html
 //title=Images as icons
 <span class="h3">The following image is wrapped as an icon <div class="icon icon-baseline">
-  <img src="/static/cf-logo.png">
+  <img src="/cf-logo.png">
 </div>.
 </span>
 ```
