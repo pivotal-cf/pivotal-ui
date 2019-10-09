@@ -65,9 +65,9 @@ export class Tabs extends mixin(React.Component).with(Animation) {
     this.checkScreenSize();
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.defaultActiveKey !== this.props.defaultActiveKey) {
-      this.setActiveKey(nextProps.defaultActiveKey);
+  componentDidUpdate(prevProps) {
+    if (prevProps.defaultActiveKey !== this.props.defaultActiveKey) {
+      this.setActiveKey(this.props.defaultActiveKey);
     }
   }
 
