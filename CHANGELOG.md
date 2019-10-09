@@ -1,9 +1,13 @@
-<a name="19.0.0"></a>
-## 19.0.0 (2019-10-08)
-#### CSS
-* **tables**: Update table styles to more easily apply PUI table styles to a plain html table
+<a name="19.0.1"></a>
+# 19.0.1 (2019-10-09)
 #### React
-* **tables**: Rewrite Tables component into building block components to more easily enable accessibility
+* **react**: Update components to remove usage of deprecated React lifecycle methods ([0ad1100b](https://github.com/pivotal-cf/pivotal-ui/commit/0ad1100b))
+<a name="19.0.0"></a>
+# 19.0.0 (2019-10-08)
+#### CSS
+* **tables**: Update table styles to more easily apply PUI table styles to a plain html table ([0f18c0fb](https://github.com/pivotal-cf/pivotal-ui/commit/0f18c0fb))
+#### React
+* **table**: Update Table to be more accessible and use building blocks rather than big objects ([0f18c0fb](https://github.com/pivotal-cf/pivotal-ui/commit/0f18c0fb))
 <a name="18.1.8"></a>
 ## 18.1.8 (2019-09-27)
 #### CSS
