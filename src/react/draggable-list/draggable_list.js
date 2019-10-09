@@ -25,13 +25,14 @@ export class DraggableList extends React.Component {
     require('../../css/lists');
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.children) {
-      this.setState({
-        itemIndices: childrenIndices(nextProps.children),
+  static getDerivedStateFromProps(props, state) {
+    if (props.children.length !== state.itemIndices.length) {
+      return {
+        itemIndices: childrenIndices(props.children),
         draggingId: null
-      });
+      };
     }
+    return null;
   }
 
   dragStart = (draggingId, {dataTransfer}) => {

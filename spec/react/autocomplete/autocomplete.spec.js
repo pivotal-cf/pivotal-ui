@@ -11,6 +11,14 @@ const simulateKeyDown = (selector, keyCode) => {
 
 describe('Autocomplete', () => {
   let subject, onInitializeItems, pickSpy, initializePromise;
+  const renderSubject = (props = {}) => {
+    subject = ReactDOM.render(
+      <Autocomplete {...{
+        onInitializeItems,
+        onPick: pickSpy,
+        ...props
+      }} />, root);
+  };
 
   beforeEach(() => {
     const Cursor = require('pui-cursor');
@@ -27,11 +35,6 @@ describe('Autocomplete', () => {
     };
 
     pickSpy = jasmine.createSpy('pick');
-    subject = ReactDOM.render(
-      <Autocomplete {...{
-        onInitializeItems,
-        onPick: pickSpy
-      }} />, root);
   });
 
   it('passes through custom props', () => {
@@ -42,15 +45,12 @@ describe('Autocomplete', () => {
     };
     const CustomList = () => (<ul className="my-custom-list"/>);
 
-    subject = ReactDOM.render(
-      <Autocomplete {...{
-        onInitializeItems,
-        input: (<CustomInput/>),
-        disabled: true,
-        placeholder: 'Best autocomplete ever...'
-      }}>
-        <CustomList/>
-      </Autocomplete>, root);
+    renderSubject({
+      input: (<CustomInput/>),
+      disabled: true,
+      placeholder: 'Best autocomplete ever...',
+      children: <CustomList/>
+    });
 
     subject.showList();
 
@@ -63,9 +63,7 @@ describe('Autocomplete', () => {
 
   describe('when nothing is entered into input and the list is shown with a list of objects', () => {
     beforeEach(async () => {
-      ReactDOM.unmountComponentAtNode(root);
-      subject = ReactDOM.render(<Autocomplete {...{onInitializeItems}} />, root);
-
+      renderSubject();
       await initializePromise;
 
       subject.showList();
@@ -83,6 +81,7 @@ describe('Autocomplete', () => {
 
   describe('when the user starts to type into the input', () => {
     beforeEach(async () => {
+      renderSubject();
       pickSpy.calls.reset();
       await initializePromise;
 
@@ -208,8 +207,8 @@ describe('Autocomplete', () => {
 
   describe('when the user tries to apply a selection that is not in the list', () => {
     beforeEach(async () => {
+      renderSubject();
       pickSpy.calls.reset();
-      subject::setProps({onPick: pickSpy});
       await initializePromise;
 
       $('.autocomplete input').val('does not exist').simulate('change');
@@ -223,7 +222,7 @@ describe('Autocomplete', () => {
 
   describe('when one of the autocomplete items is the selected suggestion', () => {
     beforeEach(async () => {
-      subject::setProps({selectedSuggestion: 'lily.water'});
+      renderSubject({selectedSuggestion: 'lily.water'});
       await initializePromise;
 
       $('.autocomplete input').simulate('change');
@@ -239,7 +238,7 @@ describe('Autocomplete', () => {
   describe('when there are no suggested autocomplete results', () => {
     describe('when the showNoSearchResultsProp is true', () => {
       beforeEach(() => {
-        subject::setProps({showNoSearchResults: true});
+        renderSubject({showNoSearchResults: true});
         $('input[aria-label="Search"]').val('zzzz').simulate('change');
       });
 
@@ -251,7 +250,7 @@ describe('Autocomplete', () => {
 
   describe('when maxItems is provided', () => {
     it('caps length of displayed list', async () => {
-      subject::setProps({maxItems: 1});
+      renderSubject({maxItems: 1});
       await initializePromise;
 
       $('.autocomplete input').simulate('change');
@@ -264,7 +263,7 @@ describe('Autocomplete', () => {
   describe('when a custom filter function is provided', () => {
     it('filters results', async () => {
       const containsLetterE = items => items.filter(item => item.value.name.indexOf('e') !== -1);
-      subject::setProps({onFilter: containsLetterE});
+      renderSubject({onFilter: containsLetterE});
       await initializePromise;
 
       $('.autocomplete input').simulate('change');
@@ -278,12 +277,7 @@ describe('Autocomplete', () => {
 
   describe('when custom trieOptions are provided', () => {
     beforeEach(async () => {
-      ReactDOM.unmountComponentAtNode(root);
-      subject = ReactDOM.render(
-        <Autocomplete {...{
-          onInitializeItems,
-          trieOptions: {splitOnRegEx: /\./}
-        }} />, root);
+      renderSubject({trieOptions: {splitOnRegEx: /\./}});
 
       await initializePromise;
       $('.autocomplete input').val('wat').simulate('change');
@@ -302,9 +296,9 @@ describe('Autocomplete', () => {
 
   describe('when the values are scalar', () => {
     it('renders and maintains the order', async () => {
+      renderSubject();
       ReactDOM.unmountComponentAtNode(root);
-      const props = {onInitializeItems: cb => cb(['d', 'a', 'c', 'b'])};
-      subject = ReactDOM.render(<Autocomplete {...props}/>, root);
+      renderSubject({onInitializeItems: cb => cb(['d', 'a', 'c', 'b'])});
       await initializePromise;
 
       $('.autocomplete input').simulate('change');
@@ -318,13 +312,10 @@ describe('Autocomplete', () => {
   });
 
   describe('when an asynchronous onInitializeItems is provided', () => {
-    let promise;
+    let promise, cb;
 
     beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-      let cb;
-      const props = {onInitializeItems: callback => cb = callback};
-      subject = ReactDOM.render(<Autocomplete {...props}/>, root);
+      renderSubject({onInitializeItems: callback => cb = callback});
       promise = cb(['a', 'b', 'c', 'd']);
     });
 
@@ -342,7 +333,7 @@ describe('Autocomplete', () => {
 
   describe('when a initial value is provided', () => {
     beforeEach(() => {
-      subject::setProps({value: 'lily.water'});
+      renderSubject({value: 'lily.water'});
     });
 
     it('defaults to that value being selected', () => {
@@ -354,9 +345,7 @@ describe('Autocomplete', () => {
     let cb;
 
     beforeEach(async () => {
-      subject::setProps({
-        onSearch: (_, callback) => cb = callback
-      });
+      renderSubject({onSearch: (_, callback) => cb = callback});
       await initializePromise;
 
       $('.autocomplete input').val('zo').simulate('change');

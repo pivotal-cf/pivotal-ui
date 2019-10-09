@@ -65,12 +65,6 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     this.state = {hidden: true, highlightedSuggestion: 0, suggestedValues: [], trie: null, value};
   }
 
-  componentWillReceiveProps({value}) {
-    if (value !== this.props.value) {
-      this.setState({value});
-    }
-  }
-
   componentWillUnmount() {
     super.componentWillUnmount();
     this.mounted = false;
