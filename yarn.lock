@@ -6383,12 +6383,10 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash.uniqueid@^3.0.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.uniqueid/-/lodash.uniqueid-3.2.0.tgz#59416f134103ce253d4b4aa818272be3fbbcbbdb"
-  integrity sha1-WUFvE0EDziU9S0qoGCcr4/u8u9s=
-  dependencies:
-    lodash._root "^3.0.0"
+lodash.uniqueid@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
+  integrity sha1-MmjyanyI5PSxdY1nknGBTjH6WyY=
 
 lodash@^4.0.0, lodash@~4.17.10:
   version "4.17.14"
