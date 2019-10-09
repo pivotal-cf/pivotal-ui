@@ -30,7 +30,7 @@ export function withRowDrawer(Table) {
       privates.set(this, {});
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       if (!this.props.keyboardNavigation) return;
       const keyDownListener = e => this.handleKeyDown(e);
       privates.set(this, {keyDownListener});
@@ -105,7 +105,7 @@ export function withRowDrawer(Table) {
       privates.set(this, {});
     }
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
       if (!this.props.keyboardNavigation) return;
       const keyDownListener = e => this.handleKeyDown(e);
       privates.set(this, {keyDownListener});
