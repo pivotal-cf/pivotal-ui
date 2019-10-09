@@ -42,7 +42,6 @@
     "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify": "^3.0.1",
-    "gulp-util": "^3.0.7",
     "image-webpack-loader": "^4.6.0",
     "jasmine_dom_matchers": "atomanyih/jasmine_dom_matchers",
     "jest": "^24.9.0",
