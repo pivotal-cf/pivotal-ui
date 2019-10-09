@@ -38,8 +38,8 @@ export const useBoundingClientRect = Klass => {
       privates.delete(this);
     }
 
-    componentWillReceiveProps(nextProps) {
-      if (!shallowEqual(this.props, nextProps)) this.resize();
+    componentDidUpdate(previousProps) {
+      if (!shallowEqual(this.props, previousProps)) this.resize();
     }
 
     getBoundingClientRect() {

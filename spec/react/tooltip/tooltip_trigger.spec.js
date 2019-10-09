@@ -137,17 +137,6 @@ describe('TooltipTrigger Component', () => {
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
     });
 
-    describe('when the display prop changes', () => {
-      beforeEach(() => {
-        renderComponent({tooltip: 'Some tooltip content'});
-        renderComponent({tooltip: 'Some tooltip content', display: true});
-      });
-
-      it('takes the display prop into account', () => {
-        expect('.tooltip-container').toHaveClass('tooltip-container-visible');
-      });
-    });
-
     describe('when disabled is true', () => {
       it('does not show the tooltip on hover', () => {
         renderComponent({tooltip: 'Some tooltip content', disabled: true});
@@ -201,17 +190,6 @@ describe('TooltipTrigger Component', () => {
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
     });
 
-    describe('when the display prop changes', () => {
-      beforeEach(() => {
-        renderComponent({trigger: 'click', tooltip: 'Some tooltip content'});
-        renderComponent({trigger: 'click', tooltip: 'Some tooltip content', display: true});
-      });
-
-      it('takes the display prop into account', () => {
-        expect('.tooltip-container').toHaveClass('tooltip-container-visible');
-      });
-    });
-
     describe('when disabled is true', () => {
       it('does not show the tooltip on click', () => {
         renderComponent({trigger: 'click', tooltip: 'Some tooltip content', disabled: true});
@@ -247,6 +225,15 @@ describe('TooltipTrigger Component', () => {
 
       it('takes the trigger prop into account', () => {
         expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+      });
+    });
+
+    describe('when the display prop changes', () => {
+      it('takes the display prop into account', () => {
+        renderComponent({trigger: 'manual', tooltip: 'Some tooltip content'});
+        expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+        renderComponent({trigger: 'manual', tooltip: 'Some tooltip content', display: true});
+        expect('.tooltip-container').toHaveClass('tooltip-container-visible');
       });
     });
 

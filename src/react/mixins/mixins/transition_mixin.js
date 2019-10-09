@@ -6,16 +6,16 @@ export default ParentClass => {
     static propTypes = {
       onEntered: PropTypes.func,
       onExited: PropTypes.func
-    }
+    };
 
-    componentWillUpdate(nextProps, nextState) {
-      super.componentWillUpdate && super.componentWillUpdate(nextProps, nextState);
+    componentDidUpdate(prevProps, prevState) {
+      super.componentDidUpdate && super.componentDidUpdate(prevProps, prevState);
 
-      const {open} = nextState;
-      const {onEntered, onExited} = nextProps;
+      const {open} = this.state;
+      const {onEntered, onExited} = this.props;
 
       const transitionCallback = open ? onEntered : onExited;
-      const transitioning = (open !== this.state.open);
+      const transitioning = (open !== prevState.open);
       if (transitioning && transitionCallback) transitionCallback();
     }
   };

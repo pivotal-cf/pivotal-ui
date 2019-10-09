@@ -74,8 +74,8 @@
     "pui-cursor": "^3.0.4",
     "pui-react-animation": "^1.0.2",
     "raf": "^3.1.0",
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3",
+    "react": "^16.10.0",
+    "react-dom": "^16.10.0",
     "scroll-into-view": "^1.3.0",
     "smoothscroll-polyfill": "^0.4.4",
     "tether": "1.4.3",
@@ -83,8 +83,8 @@
     "trie-search": "1.1.0"
   },
   "peerDependencies": {
-    "react": "^16.8.3",
-    "react-dom": "^16.8.3"
+    "react": "^16.10.0",
+    "react-dom": "^16.10.0"
   },
   "scripts": {
     "build": "gulp build",

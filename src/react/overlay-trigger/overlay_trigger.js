@@ -49,12 +49,13 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     trigger: 'hover'
   };
 
-  componentWillReceiveProps({display}) {
-    if(display !== this.props.display) this.setDisplay(display);
+  componentDidMount(...args) {
+    super.componentDidMount(...args);
+    require('../../css/tooltips');
   }
 
   componentDidUpdate(prevProps, prevState) {
-    require('../../css/tooltips');
+    if(prevProps.display !== this.props.display) this.setDisplay(this.props.display);
     if(prevState.display !== this.state.display) {
       const {onEntered, onExited} = this.props;
       const callback = this.state.display ? onEntered : onExited;
