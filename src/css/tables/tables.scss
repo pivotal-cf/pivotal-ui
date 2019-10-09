@@ -52,6 +52,7 @@ $row-drawer-active-border-width: $base-unit / 2;
     }
 
     > button {
+      background-color: inherit;
       height: 100%;
       width: 100%;
       border: none;
