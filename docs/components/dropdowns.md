@@ -6,7 +6,7 @@ reactComponents:
 - Dropdown
 ---
 
-Use dropdowns as navigation menus. 
+Use dropdowns as navigation menus. If you want to render a select see [Select](/components/select).
 
 ```jsx
 //title=Basic dropdown
