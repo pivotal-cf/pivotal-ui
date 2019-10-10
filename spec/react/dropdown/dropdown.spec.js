@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import {setProps} from '../../support/jest-helpers';
 import {Dropdown} from '../../../src/react/dropdowns';
+import {setProps} from '../../support/jest-helpers';
 
 describe('Dropdown', () => {
   let subject;
@@ -14,7 +14,8 @@ describe('Dropdown', () => {
       style: {opacity: '0.5'},
       title: 'Dropping',
       buttonClassName: 'test-btn-class',
-      buttonAriaLabel: 'Nessun Dorma'
+      buttonAriaLabel: 'Nessun Dorma',
+      buttonId: 'dropdown-button'
     };
 
     subject = ReactDOM.render(<Dropdown {...props}>
@@ -31,7 +32,7 @@ describe('Dropdown', () => {
   it('correctly styles the dropdown-toggle, and adds a chevron icon', () => {
     expect('.dropdown button').toHaveText('Dropping');
     expect('.dropdown button').toHaveClass('test-btn-class');
-    expect('.dropdown button').toHaveAttr('aria-haspopup', 'true');
+    expect('.dropdown-toggle').toHaveAttr('aria-haspopup', 'true');
     expect('.dropdown button').toHaveAttr('aria-label', 'Nessun Dorma');
 
     expect('.icon-chevron_down').toExist();
@@ -96,9 +97,11 @@ describe('Dropdown', () => {
       expect('.dropdown-menu').toExist();
     });
 
-    it('has an aria-label on the underlying ul', () => {
+    it('has an aria-label and role on the underlying ul', () => {
       $('.dropdown-toggle').simulate('click');
-      expect('.dropdown-menu ul').toHaveAttr('aria-label', 'submenu');
+      expect('.dropdown ul').toHaveAttr('role', 'menu');
+      expect('.dropdown-menu ul').toHaveAttr('aria-labelledby', 'dropdown-button');
+      expect('.dropdown button').toHaveAttr('id', 'dropdown-button');
     });
 
     describe('when floatMenu is in the props', () => {
@@ -182,7 +185,7 @@ describe('Dropdown', () => {
 
         describe('when clicking outside of the dropdown', () => {
           beforeEach(() => {
-            $('body').click();
+            $('body').simulate('click');
           });
 
           it('does not hide the dropdown menu', () => {
@@ -207,7 +210,7 @@ describe('Dropdown', () => {
 
         describe('when clicking outside of the dropdown', () => {
           beforeEach(() => {
-            $('body').click();
+            $('body').simulate('click');
           });
 
           it('does not hide the dropdown menu', () => {
@@ -374,6 +377,10 @@ describe('Dropdown', () => {
       expect('.dropdown li').toHaveLength(2);
       expect('.dropdown li:eq(0) a').toHaveAttr('href', '/link1');
       expect('.dropdown li:eq(1) a').toHaveAttr('href', '/link2');
+      expect('.dropdown li:eq(0) a').toHaveAttr('role', 'menuitem');
+      expect('.dropdown li:eq(1) a').toHaveAttr('role', 'menuitem');
+      expect('.dropdown li:eq(0)').toHaveAttr('role', 'none');
+      expect('.dropdown li:eq(1)').toHaveAttr('role', 'none');
     });
   });
 
@@ -393,6 +400,26 @@ describe('Dropdown', () => {
       expect('.dropdown li').toHaveLength(2);
       expect('.dropdown li:eq(0)').toHaveClass('custom-li-class');
       expect('.dropdown li:eq(1)').toHaveClass('custom-li-class');
+    });
+  });
+
+  describe('when given dropdown menu classname(s)', () => {
+    beforeEach(() => {
+      subject::setProps({dropdownMenuClassName: 'border'});
+    });
+
+    it('applies the class name to the dropdown menu', () => {
+      expect('.dropdown .dropdown-menu').toHaveClass('border');
+    });
+  });
+
+  describe('when given open as a prop', () => {
+    beforeEach(() => {
+      subject::setProps({open: true});
+    });
+
+    it('opens the dropdown menu', () => {
+      expect('.dropdown').toHaveClass('dropdown-open');
     });
   });
 });

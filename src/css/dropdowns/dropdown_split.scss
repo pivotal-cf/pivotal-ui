@@ -3,22 +3,21 @@
 .dropdown.dropdown-split {
   > .grid {
     width: 100%;
+  }
 
-    .dropdown-toggle {
-      border: 1px solid $input-border;
-      border-radius: 0 2px 2px 0;
-      width: 32px;
+  .dropdown-toggle {
+    border: 1px solid $input-border;
+    border-radius: 0 2px 2px 0;
+    width: 32px;
 
-      .icon-toggle {
-        justify-content: center;
-        pointer-events: none;
-        font-size: 16px;
-      }
+    .icon-toggle {
+      justify-content: center;
+      pointer-events: none;
+      font-size: 16px;
     }
   }
 
   .dropdown-label.col {
-    background: $white;
     border: 1px solid $input-border;
     border-radius: 2px 0 0 2px;
     border-right: none;
