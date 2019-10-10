@@ -18,6 +18,7 @@ Modifier | Purpose
 `em-high` | Makes font weight bold
 `em-max` | Makes font weight extra bold
 `em-alt` | Makes text uppercase
+`em-capitalize` | Makes text capitalized
 `h1` | Sets font size, family, and spacing to be the same as an `<h1>` tag
 `h2` | Sets font size, family, and spacing to be the same as an `<h2>` tag
 `h3` | Sets font size, family, and spacing to be the same as an `<h3>` tag
@@ -54,6 +55,7 @@ Modifier | Purpose
 <h1 class="mbxl em-high">High emphasis</h1>
 <h1 class="mbxl em-max">Max emphasis</h1>
 <h1 class="em-alt">Alternate emphasis (all-caps)</h1>
+<h1 class="em-capitalize">capitalize emphasis</h1>
 ```
 
 ```html

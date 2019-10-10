@@ -123,6 +123,10 @@ small, .type-sm {
   text-transform: uppercase !important;
 }
 
+.em-capitalize {
+  text-transform: capitalize !important;
+}
+
 @each $color-name, $color-value in $general-color-palette {
   .type-#{$color-name} {
     color: $color-value !important;
