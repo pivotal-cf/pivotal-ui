@@ -1,0 +1,28 @@
+@import '../pui-variables';
+
+.pui-select {
+  position: relative;
+  display: flex;
+
+  select {
+    min-width: 50px;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  .icon {
+    position: absolute;
+    right: $base-unit;
+    top: 6px;
+    fill: $gray;
+    font-size: 20px;
+    pointer-events: none;
+  }
+}

@@ -1,2 +1,5 @@
 require('../iconography');
-require('../forms');
+try {
+  require('./select.css');
+} catch (e) {
+}
