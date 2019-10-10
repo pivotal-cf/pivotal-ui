@@ -71,13 +71,8 @@
     border-bottom: 3px solid $light-gray;
   }
 
-  .pui-panel-header, .pui-panel-footer {
+  .pui-panel-header, .pui-panel-footer, .pui-panel-body {
     padding: $base-unit;
-  }
-
-  .pui-panel-body {
-    padding: $base-unit;
-    position: relative;
   }
 
   .pui-panel-body, .td {
