@@ -9,7 +9,7 @@
   },
   "name": "pivotal-ui",
   "description": "***",
-  "version": "19.0.1",
+  "version": "19.1.0",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",

@@ -1,4 +1,13 @@
 <a name="19.0.1"></a>
+# 19.1.0 (2019-10-09)
+#### CSS
+* **panels**: Update .pui-panel-body to not be position relative since the .pui-panel is ([ce159636](https://github.com/pivotal-cf/pivotal-ui/commit/ce159636))
+* **typography**: Add .em-capitalize modifier class ([d9f06482](https://github.com/pivotal-cf/pivotal-ui/commit/d9f06482))
+#### React
+* **dropdowns**: Add menu a11y roles and attributes to the dropdown ([c54f496b](https://github.com/pivotal-cf/pivotal-ui/commit/c54f496b))
+* **select**: Add a Select component for use in forms ([786221f4](https://github.com/pivotal-cf/pivotal-ui/commit/786221f4))
+* **collapsible**: Remove setImmediate since it is not a standard web api ([d16fb04c](https://github.com/pivotal-cf/pivotal-ui/commit/d16fb04c))
+<a name="19.0.1"></a>
 # 19.0.1 (2019-10-09)
 #### React
 * **react**: Update components to remove usage of deprecated React lifecycle methods ([0ad1100b](https://github.com/pivotal-cf/pivotal-ui/commit/0ad1100b))
