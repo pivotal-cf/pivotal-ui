@@ -5,6 +5,12 @@
 @import "dropdown_flat";
 @import "dropdown_split";
 
+$dropdown-background-color: $white;
+$dropdown-menu-item-hover-background-color: $hover--onLite;
+$dropdown-menu-item-focus-background-color: $hover--onLite;
+$dropdown-menu-item-hover-text-color:  $blue--onLite;
+$dropdown-menu-item-focus-text-color:  $blue--onLite;
+
 .dropdown {
   width: 100%;
   position: relative;
@@ -17,7 +23,7 @@
     height: ($base-unit*4);
     line-height: ($base-unit*4) - 2px;
     font-size: 14px;
-    background-color: $white;
+    background-color: $dropdown-background-color;
     border: 1px solid $input-border;
     border-radius: 2px;
     text-align: left;
@@ -88,7 +94,7 @@
     width: 100%;
     z-index: $zindex-dropdown;
     margin-top: -1px;
-    background-color: $white;
+    background-color: $dropdown-background-color;
     border-top: none;
     border-left: 1px solid $input-border-focus;
     border-right: 1px solid $input-border-focus;
@@ -109,12 +115,16 @@
         font-size: 14px;
 
         &:hover {
-          background-color: $white;
+          background-color: $dropdown-menu-item-hover-background-color;
+          color: $dropdown-menu-item-hover-text-color;
+          text-decoration: underline;
         }
 
         &:focus {
-          background-color: $white;
+          background-color: $dropdown-menu-item-focus-background-color;
           outline: none;
+          color: $dropdown-menu-item-focus-text-color;
+          text-decoration: underline;
         }
 
         a {
@@ -164,7 +174,7 @@
     //Dropdown Scroll
     &.dropdown-menu-scroll {
       max-height: ($base-unit * 20);
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 
@@ -178,4 +188,3 @@
     }
   }
 }
-
