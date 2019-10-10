@@ -28,7 +28,7 @@ export const useBoundingClientRect = Klass => {
       privates.set(this, {resize: this.resize});
       window.addEventListener('resize', this.resize);
       this.setState({container: ReactDOM.findDOMNode(this.component)});
-      global.setImmediate(() => this.state.containerReady.resolve(this.state.container));
+      setTimeout(() => this.state.containerReady.resolve(this.state.container), 0);
     }
 
     componentWillUnmount() {
