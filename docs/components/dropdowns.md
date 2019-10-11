@@ -142,8 +142,10 @@ Property           | Required | Type                                | Default   
 `blockingScrim`    | no       | Boolean                             | false          | If true, blocks mouse events outside of the dropdown. Clicking outside of the dropdown will still close the dropdown.
 `buttonAriaLabel`  | no       | String                              |                | aria-label for the button
 `buttonClassName`  | no       | String                              |                | Classname to add to the button
+`buttonId`         | no       | String                              | Randomly generated | Id to add to the button to associate it with the menu for assistive tech
 `closeOnMenuClick` | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
 `disableScrim`     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown
+`dropdownMenuClassName` | no  | String                              |                | Classname to add to the menu
 `flat`             | no       | Boolean                             |                | If true, dropdown toggle has no borders and is transparent
 `floatMenu`        | no       | Boolean                             | false          | If true, float the dropdown menu. This only applies to the basic dropdown
 `icon`             | no       | String                              | 'chevron_down' | Name of the icon to use for the toggle icon
@@ -158,3 +160,4 @@ Property           | Required | Type                                | Default   
 `size`             | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
 `split`            | no       | Boolean                             |                | If true, separates the button text from the toggle
 `title`            | no       | Node                                |                | The button contents
+`toggle`           | no       | Node                                | <button>       | To provide an element other than a button as the toggle for the menu
