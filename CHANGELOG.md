@@ -1,5 +1,9 @@
-<a name="19.0.1"></a>
-# 19.1.0 (2019-10-09)
+<a name="19.1.1"></a>
+# 19.1.1 (2019-10-14)
+#### React
+* **panels**: Remove all relative positioning on panel elements ([f12e5c14](https://github.com/pivotal-cf/pivotal-ui/commit/f12e5c14))
+<a name="19.1.0"></a>
+# 19.1.0 (2019-10-10)
 #### CSS
 * **panels**: Update .pui-panel-body to not be position relative since the .pui-panel is ([ce159636](https://github.com/pivotal-cf/pivotal-ui/commit/ce159636))
 * **typography**: Add .em-capitalize modifier class ([d9f06482](https://github.com/pivotal-cf/pivotal-ui/commit/d9f06482))
