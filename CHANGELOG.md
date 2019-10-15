@@ -1,7 +1,11 @@
-<a name="18.1.9"></a>
-## 18.1.8 (2019-09-27)
+<a name="18.1.10"></a>
+## 18.1.10 (2019-10-15)
 #### React
-* **react**: Upgrade to react 16.10.2 and fix remove deprecated lifecycle methods [#168434418] ([a08f867f](https://github.com/pivotal-cf/pivotal-ui/commit/a08f867f))
+* **autocomplete**: Fix bug in how the autocomplete component interacted with asynchronous onSearch functions [[:beetle:#169158884](https://www.pivotaltracker.com/story/show/169158884)](https://www.pivotaltracker.com/story/show/169158884) ([54d53ac6](https://github.com/pivotal-cf/pivotal-ui/commit/54d53ac6))
+<a name="18.1.9"></a>
+## 18.1.9 (2019-10-09)
+#### React
+* **table**: Rename RowDrawer component deprecated lifecycle events ([b56b500b](https://github.com/pivotal-cf/pivotal-ui/commit/b56b500b))
 <a name="18.1.8"></a>
 ## 18.1.8 (2019-09-27)
 #### CSS
@@ -17,13 +21,15 @@
 <a name="18.1.6"></a>
 ## 18.1.6 (2019-08-28)
 #### CSS
+* **border**: Update loading indicator to have a border radius ([bf3d0b71](https://github.com/pivotal-cf/pivotal-ui/commit/bf3d0b71))
 * **panels**: Update loading indicator to have a border radius ([bf3d0b71](https://github.com/pivotal-cf/pivotal-ui/commit/bf3d0b71))
 <a name="18.1.5"></a>
 ## 18.1.5 (2019-08-28)
 #### CSS
 * **flex-grids**: Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
+* **pui-variables.scss**: Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
 #### React
-* **panels**: Move loading indicator to top of panel rather than in panel body ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
+* **panels**: Fix col spacing for non IE browsers ([622711f6](https://github.com/pivotal-cf/pivotal-ui/commit/622711f6))
 <a name="18.1.4"></a>
 ## 18.1.4 (2019-08-28)
 #### CSS
