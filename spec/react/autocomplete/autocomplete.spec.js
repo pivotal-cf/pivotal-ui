@@ -342,18 +342,25 @@ describe('Autocomplete', () => {
   });
 
   describe('when a custom (possibly asynchronous) search function is provided', () => {
-    let cb;
+    let cb, inputSelector;
 
     beforeEach(async () => {
       renderSubject({onSearch: (_, callback) => cb = callback});
+      inputSelector = $('.autocomplete input');
       await initializePromise;
 
-      $('.autocomplete input').val('zo').simulate('change');
+      inputSelector.val('zo').simulate('change');
+    });
 
-      cb([{value: 'a'}, {value: 'b'}, {value: 'c'}, {value: 'd'}]);
+    it('does not depend on the callback returning for the input value to change', () => {
+      expect('.autocomplete-input').toHaveValue('zo');
+      expect('.autocomplete-list').not.toExist();
     });
 
     it('uses that search callback', () => {
+      inputSelector.val('asdf').simulate('change');
+      cb([{value: 'a'}, {value: 'b'}, {value: 'c'}, {value: 'd'}]);
+      expect('.autocomplete-input').toHaveValue('asdf');
       expect('.autocomplete-list').toHaveText('abcd');
     });
   });

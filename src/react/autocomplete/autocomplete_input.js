@@ -41,8 +41,9 @@ export class AutocompleteInput extends React.Component {
 
   change = e => {
     const {value} = e.currentTarget;
+    this.props.$autocomplete.merge({hidden: false, highlightedSuggestion: 0, value}).flush();
     this.props.onSearch(value, suggestedValues => {
-      this.props.$autocomplete.merge({hidden: false, highlightedSuggestion: 0, value, suggestedValues}).flush();
+      this.props.$autocomplete.merge({suggestedValues}).flush();
     });
   };
 
