@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import {setProps} from '../../support/jest-helpers';
 import PropTypes from 'prop-types';
 import {Autocomplete, AutocompleteInput} from '../../../src/react/autocomplete';
 
@@ -21,8 +20,6 @@ describe('Autocomplete', () => {
   };
 
   beforeEach(() => {
-    const Cursor = require('pui-cursor');
-    Cursor.async = false;
 
     onInitializeItems = cb => {
       initializePromise = cb([
@@ -103,7 +100,7 @@ describe('Autocomplete', () => {
 
     describe('when the enter key is pressed', () => {
       beforeEach(() => {
-        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ENTER_KEY);
+        simulateKeyDown('.autocomplete input:eq(0)', 13);
       });
 
       it('hides the list', () => {
@@ -117,21 +114,17 @@ describe('Autocomplete', () => {
 
     describe('when the tab key is pressed', () => {
       beforeEach(() => {
-        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.TAB_KEY);
+        simulateKeyDown('.autocomplete input:eq(0)', 9);
       });
 
       it('hides the list', () => {
         expect('.autocomplete-list').not.toExist();
       });
-
-      it('calls the autocomplete callback', () => {
-        expect(pickSpy).toHaveBeenCalledWith({_key_: 'watson', value: {name: 'watson', age: 4}});
-      });
     });
 
     describe('when the escape key is pressed', () => {
       beforeEach(() => {
-        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ESC_KEY);
+        simulateKeyDown('.autocomplete input:eq(0)', 27);
       });
 
       it('hides the list', () => {
@@ -141,7 +134,7 @@ describe('Autocomplete', () => {
 
     describe('when the up key is pressed at the beginning of the list', () => {
       beforeEach(() => {
-        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.UP_KEY);
+        simulateKeyDown('.autocomplete input:eq(0)', 38);
       });
 
       it('unhighlights any autocomplete suggestions', () => {
@@ -150,7 +143,7 @@ describe('Autocomplete', () => {
 
       describe('when the down key is then pressed', () => {
         beforeEach(() => {
-          simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.DOWN_KEY);
+          simulateKeyDown('.autocomplete input:eq(0)', 40);
         });
 
         it('adds highlighted class to the first autocomplete item', () => {
@@ -161,7 +154,7 @@ describe('Autocomplete', () => {
 
     describe('when the down key is pressed', () => {
       beforeEach(() => {
-        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.DOWN_KEY);
+        simulateKeyDown('.autocomplete input:eq(0)', 40);
       });
 
       it('adds highlighted class to the next autocomplete item', () => {
@@ -171,7 +164,7 @@ describe('Autocomplete', () => {
 
       describe('when the up key is then pressed', () => {
         beforeEach(() => {
-          simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.UP_KEY);
+          simulateKeyDown('.autocomplete input:eq(0)', 38);
         });
 
         it('adds highlighted class to the first autocomplete item', () => {
@@ -183,8 +176,8 @@ describe('Autocomplete', () => {
 
     describe('when the down key is pressed while the list is closed', () => {
       beforeEach(() => {
-        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ESC_KEY);
-        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.DOWN_KEY);
+        simulateKeyDown('.autocomplete input:eq(0)', 27);
+        simulateKeyDown('.autocomplete input:eq(0)', 40);
       });
 
       it('opens the list', () => {
@@ -212,7 +205,7 @@ describe('Autocomplete', () => {
       await initializePromise;
 
       $('.autocomplete input').val('does not exist').simulate('change');
-      simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ENTER_KEY);
+      simulateKeyDown('.autocomplete input:eq(0)', 13);
     });
 
     it('calls autocomplete callback with the value of the input', () => {
@@ -331,13 +324,23 @@ describe('Autocomplete', () => {
     });
   });
 
-  describe('when a initial value is provided', () => {
+  describe('when a value is provided', () => {
     beforeEach(() => {
       renderSubject({value: 'lily.water'});
     });
 
-    it('defaults to that value being selected', () => {
+    it('uses that value for the input', () => {
       expect(subject.state.value).toEqual('lily.water');
+      expect('input').toHaveAttr('value', 'lily.water');
+    });
+
+    describe('when that value changes', () => {
+      beforeEach(() => {
+        renderSubject({value: ''});
+      });
+      it('updates the value on the input', () => {
+        expect('input').toHaveAttr('value', '');
+      });
     });
   });
 

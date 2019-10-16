@@ -6,6 +6,18 @@ Pivotal UI follows [semantic versioning](https://semver.org/). Major version bum
 
 Below are the upgrade guides for recent major versions of Pivotal UI. For more details about minor and patch releases, see the [changelog](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md) on the branch in question (e.g. `v17` for version 17).
 
+## v20 WIP
+
+### Migration Guide
+
+#### Autocomplete
+
+##### Breaking Changes
+- We've removed our dependency on `pui-cursor`.
+- Removed the `AutocompleteInput` Component since it could not easily be used without the `Autocomplete`
+- Pressing `Tab` while in the input of the `Autocomplete` no longer selects the highlighted item. It now closes the `Autocomplete` and focuses the next item in the DOM.
+- Pressing the `Up` or `Down` arrow keys no longer scroll to the `Autocomplete` item.
+- The `value` prop on `Autocomplete` actually makes it a controlled component. Rather than setting it as a default value.
 
 ## v19 Table-Flippers (╯°□°)╯︵ ┻━┻
 

@@ -1,11 +1,8 @@
 import {AutocompleteList} from './autocomplete_list';
-import {AutocompleteInput} from './autocomplete_input';
 import classnames from 'classnames';
-import Cursor from 'pui-cursor';
 import from from 'from';
 import {default as mixin} from '../mixins';
 import React from 'react';
-import scrollIntoView from 'scroll-into-view';
 import Scrim from '../mixins/mixins/scrim_mixin';
 import through from 'through';
 import TrieSearch from 'trie-search';
@@ -32,6 +29,12 @@ const trieFromSearchableItems = (searchableItems, trieOptions) => {
   });
 };
 
+const DOWN_KEY = 40;
+const ENTER_KEY = 13;
+const ESC_KEY = 27;
+const TAB_KEY = 9;
+const UP_KEY = 38;
+
 export class Autocomplete extends mixin(React.Component).with(Scrim) {
   static propTypes = {
     className: PropTypes.string,
@@ -54,7 +57,7 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
   static defaultProps = {
     maxItems: 50,
     onInitializeItems: done => done([]),
-    input: <AutocompleteInput/>,
+    input: <input/>,
     placeholder: 'Search',
     showNoSearchResults: false
   };
@@ -91,29 +94,81 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     });
   };
 
-  onSearch = (value, callback) => {
-    if (this.props.onSearch) return this.props.onSearch(value, callback);
+  onSearch = (value) => {
     const {maxItems} = this.props;
     const {trie} = this.state;
-    if (!trie) return callback([]);
-    value = value.trim();
-    let result = value ? trie.get(value) : this.searchItemsInOrder();
+    let suggestedValues;
+    if (this.props.onSearch) {
+      this.setState({
+        hidden: false,
+        highlightedSuggestion: 0,
+        value
+      });
+      return this.props.onSearch(value, suggestedValues => this.setState({
+        suggestedValues
+      }));
+    } else if (!trie) {
+      suggestedValues = [];
+    } else {
+      value = value.trim();
+      let result = value ? trie.get(value) : this.searchItemsInOrder();
 
-    if (this.props.onFilter) {
-      result = this.props.onFilter(result);
+      if (this.props.onFilter) {
+        result = this.props.onFilter(result);
+      }
+      suggestedValues = result.slice(0, maxItems);
     }
-    callback(result.slice(0, maxItems));
+    this.setState({hidden: false, highlightedSuggestion: 0, value, suggestedValues});
+  };
+
+  getValue() {
+    return this.props.value === undefined ? this.state.value : this.props.value;
+  }
+
+  onKeyDown = e => {
+    const {keyCode} = e;
+    const {highlightedSuggestion, suggestedValues} = this.state;
+
+    const pickItem = () => {
+      e && (keyCode === ENTER_KEY) && e.preventDefault();
+      const value = suggestedValues[highlightedSuggestion] || {value: this.getValue()};
+      this.setState({highlightedSuggestion: -1, hidden: true});
+      this.onPick(value);
+    };
+
+    const keyCodes = {
+      [DOWN_KEY]: () => {
+        this.setState({
+          hidden: false,
+          highlightedSuggestion: Math.min(highlightedSuggestion + 1, suggestedValues.length - 1)
+        });
+      },
+
+      [UP_KEY]: () => {
+        this.setState({
+          highlightedSuggestion: Math.max(highlightedSuggestion - 1, -1)
+        });
+      },
+
+      [TAB_KEY]: () => this.setState({highlightedSuggestion: -1, hidden: true}),
+
+      [ENTER_KEY]: pickItem,
+
+      [ESC_KEY]: () => this.setState({highlightedSuggestion: -1, hidden: true}),
+    };
+
+    if (keyCodes[keyCode]) keyCodes[keyCode]();
   };
 
   updateList = (defaultValue = null) => {
-    const value = defaultValue === null ? this.state.value : defaultValue;
+    const value = defaultValue === null ? this.getValue() : defaultValue;
     this.onSearch(value, (suggestedValues) => {
       this.setState({suggestedValues: suggestedValues});
     });
   };
 
   showList = (defaultValue = null) => {
-    const value = defaultValue === null ? this.state.value : defaultValue;
+    const value = defaultValue === null ? this.getValue() : defaultValue;
     this.onSearch(value, (suggestedValues) => {
       this.setState({hidden: false, suggestedValues: suggestedValues});
     });
@@ -124,33 +179,43 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     this.hideList();
   };
 
-  scrollIntoViewFn = () => {
-    if (!this.autocomplete) return;
-    Array.from(this.autocomplete.querySelectorAll('.highlighted'))
-      .map(el => scrollIntoView(el, {validTarget: target => target !== window}));
-  };
-
   hideList = () => this.setState({hidden: true});
   scrimClick = () => this.hideList();
 
   render() {
-    const $autocomplete = new Cursor(this.state, state => this.setState(state));
     const {
       className, maxItems, onFocus, onClick, disabled, selectedSuggestion, placeholder, input, children,
       onInitializeItems: __IGNORE1, onFilter: __IGNORE2, onPick: __IGNORE3, onSearch: __IGNORE4,
-      trieOptions: __IGNORE5, showNoSearchResults, ...props
+      trieOptions: __IGNORE5, value: __IGNORE6, showNoSearchResults, ...props
     } = this.props;
-    const {scrollIntoViewFn, onPick, onSearch} = this;
+    const {onKeyDown} = this;
     const clonedInput = React.cloneElement(
       input,
-      {$autocomplete, onPick, scrollIntoView: scrollIntoViewFn, onSearch, disabled, onFocus, onClick, placeholder}
+      {
+        value: this.getValue(),
+        onChange: (e) => this.onSearch(e.target.value),
+        disabled,
+        onFocus,
+        onClick,
+        onKeyDown,
+        placeholder,
+        'aria-label': placeholder,
+        type: 'search',
+        ...input.props,
+        className: classnames('autocomplete-input', 'form-control', input.props.className)
+      }
     );
 
     return (
       <div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
         {clonedInput}
         <AutocompleteList {...{
-          $autocomplete, onPick, maxItems, selectedSuggestion, showNoSearchResults
+          ...this.state,
+          value: this.getValue(),
+          onClick: this.onPick,
+          maxItems,
+          selectedSuggestion,
+          showNoSearchResults
         }}>
           {children}
         </AutocompleteList>
