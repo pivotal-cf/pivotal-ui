@@ -1663,7 +1663,7 @@ babel-preset-jest@^24.9.0:
     "@babel/plugin-syntax-object-rest-spread" "^7.0.0"
     babel-plugin-jest-hoist "^24.9.0"
 
-babel-runtime@^6.23.0, babel-runtime@^6.6.1:
+babel-runtime@^6.23.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
@@ -4875,13 +4875,6 @@ imagemin@^5.3.1:
     pify "^2.3.0"
     replace-ext "^1.0.0"
 
-immutability-helper@^2.0.0:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-2.7.1.tgz#5636dbb593e3deb5e572766d42249ea06bae7640"
-  integrity sha512-6uhvN9F1TRPtirUV3b7MIeY34h+U2hFR5hyK6jaWOvT36BNXYCx2tGujZhx/41fzUta/VNmK47scDhohTFYRDw==
-  dependencies:
-    invariant "^2.2.0"
-
 import-cwd@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/import-cwd/-/import-cwd-2.1.0.tgz#aa6cf36e722761285cb371ec6519f53e2435b0a9"
@@ -5004,7 +4997,7 @@ into-stream@^3.1.0:
     from2 "^2.1.1"
     p-is-promise "^1.1.0"
 
-invariant@^2.2.0, invariant@^2.2.2, invariant@^2.2.4:
+invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -6267,7 +6260,7 @@ lodash.escape@^3.0.0:
   dependencies:
     lodash._root "^3.0.0"
 
-lodash.flow@^3.2.1, lodash.flow@^3.5.0:
+lodash.flow@^3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/lodash.flow/-/lodash.flow-3.5.0.tgz#87bf40292b8cf83e4e8ce1a3ae4209e20071675a"
   integrity sha1-h79AKSuM+D5OjOGjrkIJ4gBxZ1o=
@@ -6281,11 +6274,6 @@ lodash.isarray@^3.0.0:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
   integrity sha1-eeTriMNqgSKvhvhEqpvNhRtfu1U=
-
-lodash.isobject@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
-  integrity sha1-PI+41bW/S/kK4G4U8qUwpO2TXh0=
 
 lodash.istypedarray@^3.0.0:
   version "3.0.6"
@@ -8267,17 +8255,6 @@ public-encrypt@^4.0.0:
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
-
-pui-cursor@^3.0.4:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/pui-cursor/-/pui-cursor-3.0.5.tgz#e80805f27edfc4e7b8c54d2755180cd087729bb5"
-  integrity sha1-6AgF8n7fxOe4xU0nVRgM0Idym7U=
-  dependencies:
-    babel-runtime "^6.6.1"
-    immutability-helper "^2.0.0"
-    lodash.flow "^3.2.1"
-    lodash.isobject "^3.0.2"
-    warning "^2.1.0"
 
 pui-react-animation@^1.0.2:
   version "1.0.2"
@@ -10376,13 +10353,6 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha1-L3+bj9ENZ3JisYqITijRlhjgKPs=
   dependencies:
     makeerror "1.0.x"
-
-warning@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-2.1.0.tgz#21220d9c63afc77a8c92111e011af705ce0c6901"
-  integrity sha1-ISINnGOvx3qMkhEeARr3Bc4MaQE=
-  dependencies:
-    loose-envify "^1.0.0"
 
 watchpack@^1.6.0:
   version "1.6.0"

@@ -10,18 +10,21 @@ const UP_KEY = 38;
 
 export class AutocompleteInput extends React.Component {
   static propTypes = {
-    $autocomplete: PropTypes.object,
     autoFocus: PropTypes.bool,
     children(props, name) {
       if (props[name] && props[name].length) return new Error('AutocompleteInput can only wrap one element');
     },
     disabled: PropTypes.bool,
+    highlightedSuggestion: PropTypes.any,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,
     onPick: PropTypes.func,
     onPicking: PropTypes.func,
     onSearch: PropTypes.func,
-    scrollIntoView: PropTypes.func
+    scrollIntoView: PropTypes.func,
+    setState: PropTypes.func,
+    suggestedValues: PropTypes.array,
+    value: PropTypes.string
   };
 
   static defaultProps = {
@@ -41,28 +44,32 @@ export class AutocompleteInput extends React.Component {
 
   change = e => {
     const {value} = e.currentTarget;
-    this.props.$autocomplete.merge({hidden: false, highlightedSuggestion: 0, value}).flush();
+    this.props.setState({
+      hidden: false, highlightedSuggestion: 0, value
+    });
     this.props.onSearch(value, suggestedValues => {
-      this.props.$autocomplete.merge({suggestedValues}).flush();
+      this.props.setState({suggestedValues});
     });
   };
 
   keyDown = e => {
     const {keyCode} = e;
-    const {highlightedSuggestion, suggestedValues} = this.props.$autocomplete.get();
-    const {onPicking = () => suggestedValues} = this.props;
+    const {highlightedSuggestion, suggestedValues, value, onPicking = () => suggestedValues} = this.props;
 
     const pickItem = () => {
       const selectableSuggestions = onPicking(suggestedValues);
       e && (keyCode === ENTER_KEY) && e.preventDefault();
-      this.props.$autocomplete.merge({highlightedSuggestion: -1, hidden: true}).flush();
-      this.props.onPick(selectableSuggestions[highlightedSuggestion] || {value: this.props.$autocomplete.get('value')});
+      this.props.setState({
+        highlightedSuggestion: -1,
+        hidden: true
+      });
+      this.props.onPick(selectableSuggestions[highlightedSuggestion] || {value});
     };
 
     const keyCodes = {
       [DOWN_KEY]: () => {
         const selectableSuggestions = onPicking(suggestedValues);
-        this.props.$autocomplete.merge({
+        this.props.setState({
           hidden: false,
           highlightedSuggestion: Math.min(highlightedSuggestion + 1, selectableSuggestions.length - 1)
         });
@@ -70,7 +77,9 @@ export class AutocompleteInput extends React.Component {
       },
 
       [UP_KEY]: () => {
-        this.props.$autocomplete.merge({highlightedSuggestion: Math.max(highlightedSuggestion - 1, -1)});
+        this.props.setState({
+          highlightedSuggestion: Math.max(highlightedSuggestion - 1, -1)
+        });
         this.props.scrollIntoView();
       },
 
@@ -79,7 +88,10 @@ export class AutocompleteInput extends React.Component {
       [ENTER_KEY]: pickItem,
 
       [ESC_KEY]: () => {
-        this.props.$autocomplete.merge({highlightedSuggestion: -1, hidden: true});
+        this.props.setState({
+          highlightedSuggestion: -1,
+          hidden: true
+        });
       },
 
       noop: () => {
@@ -90,14 +102,20 @@ export class AutocompleteInput extends React.Component {
   };
 
   renderDefault(props) {
-    return (<input {...props} className={classnames('autocomplete-input', 'form-control', props.className)} type="search"
-                             value={props.value} aria-label={props.placeholder}/>);
+    delete props.setState;
+    delete props.highlightedSuggestion;
+    delete props.suggestedValues;
+    return (<input
+      {...props}
+      className={classnames('autocomplete-input', 'form-control', props.className)}
+      type="search"
+      value={props.value}
+      aria-label={props.placeholder}
+    />);
   }
 
   render() {
-    let {autoFocus, children, $autocomplete, onPick, onPicking, onSearch, scrollIntoView, ...props} = this.props;
-    if (!$autocomplete) return null;
-    const {value} = $autocomplete.get();
+    let {autoFocus, value, children, onPick, onPicking, onSearch, scrollIntoView, ...props} = this.props;
     const otherProps = {autoFocus, value, onChange: this.change, onKeyDown: this.keyDown};
     props = {...props, ...otherProps};
     if (!children) return this.renderDefault(props);

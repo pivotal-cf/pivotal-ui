@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import {setProps} from '../../support/jest-helpers';
 import PropTypes from 'prop-types';
 import {Autocomplete, AutocompleteInput} from '../../../src/react/autocomplete';
 
@@ -21,9 +20,6 @@ describe('Autocomplete', () => {
   };
 
   beforeEach(() => {
-    const Cursor = require('pui-cursor');
-    Cursor.async = false;
-
     onInitializeItems = cb => {
       initializePromise = cb([
         {watson: {name: 'watson', age: 4}},
@@ -331,13 +327,23 @@ describe('Autocomplete', () => {
     });
   });
 
-  describe('when a initial value is provided', () => {
+  describe('when a value is provided', () => {
     beforeEach(() => {
       renderSubject({value: 'lily.water'});
     });
 
-    it('defaults to that value being selected', () => {
+    it('uses that value for the input', () => {
       expect(subject.state.value).toEqual('lily.water');
+      expect('input').toHaveAttr('value', 'lily.water');
+    });
+
+    describe('when that value changes', () => {
+      beforeEach(() => {
+        renderSubject({value: ''});
+      });
+      it('updates the value on the input', () => {
+        expect('input').toHaveAttr('value', '');
+      });
     });
   });
 

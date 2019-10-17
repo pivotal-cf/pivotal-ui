@@ -70,7 +70,6 @@
     "lodash.uniqueid": "^3.0.0",
     "pretty-format": "^24.8.0",
     "prop-types": "^15.5.6",
-    "pui-cursor": "^3.0.4",
     "pui-react-animation": "^1.0.2",
     "raf": "^3.1.0",
     "react": "^16.10.0",

@@ -64,6 +64,40 @@ class AutocompleteExample extends React.Component {
 <AutocompleteExample/>
 ```
 
+```jsx
+//title=Controlled Autocomplete input
+//description=By using the `value` and `onSearch` props you can manage the value of the input directly.
+
+const onPick = item => alert('You selected ' + item.value);
+
+class AutocompleteExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { value: '' }
+  }
+  
+  render() {
+    return (<div>
+      <PrimaryButton className="mbxl" onClick={() => this.setState({value: ''})}>Clear Autocomplete</PrimaryButton>
+
+      <Autocomplete {...{
+        value: this.state.value,
+        onSearch: (value, cb) => {
+          this.setState({value})
+          cb([{value: 'newly'}, {value: 'displayed'}, {value: 'item'}, {value}])
+        },
+        onInitializeItems: done => {
+          done(['foo', 'food', 'bar']);
+        },
+        onPick
+      }}/>
+    </div>);
+  }
+}
+
+<AutocompleteExample/>
+```
+
 #### onInitializeItems
 The callback passed to this function should return the values to initially populate the list of items.
 

@@ -4,20 +4,23 @@ import classnames from 'classnames';
 
 export class AutocompleteList extends React.Component {
   static propTypes = {
-    $autocomplete: PropTypes.object,
     children(props, name) {
       if(props[name] && props[name].length) return new Error('AutocompleteList can only wrap one element');
     },
     className: PropTypes.string,
+    hidden: PropTypes.bool,
+    highlightedSuggestion: PropTypes.any,
     minSearchTerm: PropTypes.number,
     onPick: PropTypes.func,
     selectedSuggestion: PropTypes.any,
-    showNoSearchResults: PropTypes.bool
-  }
+    showNoSearchResults: PropTypes.bool,
+    suggestedValues: PropTypes.array,
+    value: PropTypes.string
+  };
 
   static defaultProps = {
     minSearchTerm: 0
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
@@ -34,35 +37,33 @@ export class AutocompleteList extends React.Component {
   }
 
   renderSuggestionList() {
-    const {className, showNoSearchResults} = this.props;
-    const suggestedValues = this.props.$autocomplete.get('suggestedValues');
+    const {className, showNoSearchResults, suggestedValues, highlightedSuggestion} = this.props;
     const suggestions = suggestedValues.map((suggestion, key) => {
       const value = '_key_' in suggestion ? suggestion._key_ : suggestion.value;
-      const className = classnames('autocomplete-item', {highlighted: key === this.props.$autocomplete.get('highlightedSuggestion')}, {selected: value === this.props.selectedSuggestion});
+      const className = classnames('autocomplete-item', {
+        highlighted: key === highlightedSuggestion,
+        selected: value === this.props.selectedSuggestion
+      });
       return (<li key={key}>
         <a href="#" onClick={this.onClick.bind(this, suggestion)} role="button" title={value}
            className={className}>{value}</a>
       </li>);
     });
     if(!suggestions.length) {
-      const result = showNoSearchResults ? (<div><ul><li className="autocomplete-list autocomplete-item autocomplete-item-no-results">No search results</li></ul></div>) : null;
-      return result;
+      return showNoSearchResults ? (<div><ul><li className="autocomplete-list autocomplete-item autocomplete-item-no-results">No search results</li></ul></div>) : null;
     }
     return (<ul className={classnames('autocomplete-list', className)}>{suggestions}</ul>);
   }
 
   renderDefault() {
-    const {$autocomplete, minSearchTerm} = this.props;
-    const {hidden, value} = $autocomplete.get();
+    const {hidden, value, minSearchTerm} = this.props;
     if(hidden || (value.length < minSearchTerm)) return null;
     return this.renderSuggestionList();
   }
 
   render() {
-    let {children, $autocomplete, ...props} = this.props;
-    if(!$autocomplete) return null;
+    let {children, hidden, value, highlightedSuggestion, suggestedValues, ...props} = this.props;
     if(!children) return this.renderDefault();
-    const {hidden, value, highlightedSuggestion, suggestedValues} = $autocomplete.get();
     if(hidden) return null;
 
 

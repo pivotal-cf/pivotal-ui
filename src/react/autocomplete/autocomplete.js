@@ -1,7 +1,6 @@
 import {AutocompleteList} from './autocomplete_list';
 import {AutocompleteInput} from './autocomplete_input';
 import classnames from 'classnames';
-import Cursor from 'pui-cursor';
 import from from 'from';
 import {default as mixin} from '../mixins';
 import React from 'react';
@@ -133,24 +132,47 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
   hideList = () => this.setState({hidden: true});
   scrimClick = () => this.hideList();
 
+  getValue() {
+    return this.props.value === undefined ? this.state.value : this.props.value;
+  }
+
   render() {
-    const $autocomplete = new Cursor(this.state, state => this.setState(state));
     const {
       className, maxItems, onFocus, onClick, disabled, selectedSuggestion, placeholder, input, children,
       onInitializeItems: __IGNORE1, onFilter: __IGNORE2, onPick: __IGNORE3, onSearch: __IGNORE4,
       trieOptions: __IGNORE5, showNoSearchResults, ...props
     } = this.props;
+    const {highlightedSuggestion, suggestedValues, hidden} = this.state;
     const {scrollIntoViewFn, onPick, onSearch} = this;
     const clonedInput = React.cloneElement(
       input,
-      {$autocomplete, onPick, scrollIntoView: scrollIntoViewFn, onSearch, disabled, onFocus, onClick, placeholder}
+      {
+        highlightedSuggestion,
+        suggestedValues,
+        value: this.getValue(),
+        setState: state => this.setState(state),
+        onPick,
+        scrollIntoView: scrollIntoViewFn,
+        onSearch,
+        disabled,
+        onFocus,
+        onClick,
+        placeholder
+      }
     );
 
     return (
       <div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
         {clonedInput}
         <AutocompleteList {...{
-          $autocomplete, onPick, maxItems, selectedSuggestion, showNoSearchResults
+          highlightedSuggestion,
+          suggestedValues,
+          hidden,
+          value: this.getValue(),
+          onPick,
+          maxItems,
+          selectedSuggestion,
+          showNoSearchResults
         }}>
           {children}
         </AutocompleteList>
