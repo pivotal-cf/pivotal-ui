@@ -1,3 +1,7 @@
+<a name="19.2.2"></a>
+## 19.2.2 (2019-10-15)
+#### React
+* **autocomplete**: When the autocomplete is passed a value, make the autocomplete behave like a controlled component rather than having value behave like a default value ([35d45b42](https://github.com/pivotal-cf/pivotal-ui/commit/35d45b42))
 <a name="19.1.2"></a>
 ## 19.1.2 (2019-10-15)
 #### React
