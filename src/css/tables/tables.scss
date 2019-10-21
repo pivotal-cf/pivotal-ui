@@ -82,7 +82,7 @@ $row-drawer-active-border-width: $base-unit / 2;
     left: 0;
     height: 100%;
     width: $row-drawer-active-border-width;
-    background-color: $teal;
+    background-color: $accent-gray;
     transition: transform $animation-duration;
   }
 }
