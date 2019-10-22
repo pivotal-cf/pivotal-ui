@@ -62,6 +62,10 @@ $row-drawer-active-border-width: $base-unit / 2;
   }
 }
 
+.pui-table--selectable-toggle {
+  width: 1 * $base-unit;
+}
+
 // Table Drawers
 .pui-table--collapsible-toggle {
   width: 7 * $base-unit;
