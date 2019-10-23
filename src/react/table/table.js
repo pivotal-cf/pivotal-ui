@@ -23,12 +23,19 @@ export const Tr = props => <tr {...props}/>;
 export const Td = props => <td {...props}/>;
 export const Th = ({scope = 'col', ...props}) => <th {...props} {...{scope}}/>;
 
-const SelectionContext = React.createContext();
+const SelectionContext = React.createContext({
+  isSelected: ()=>false,
+  toggleSelected: ()=>{},
+  allSelected: ()=>false,
+  isSelectionIndeterminate: ()=>false,
+  toggleSelectAll: ()=>{},
+});
 
-export class TbodyForSelectable extends React.PureComponent {
+export class TableSelectable extends React.PureComponent {
   static propTypes = {
     onSelectionChanged: PropTypes.func,
-    children: PropTypes.node
+    children: PropTypes.node,
+    identifiers: PropTypes.array
   };
 
   constructor (props) {
@@ -36,21 +43,29 @@ export class TbodyForSelectable extends React.PureComponent {
     this.toggleSelected = this.toggleSelected.bind(this);
     this.isSelected = this.isSelected.bind(this);
 
+    this.allSelected = this.allSelected.bind(this);
+    this.isSelectionIndeterminate = this.isSelectionIndeterminate.bind(this);
+    this.toggleSelectAll = this.toggleSelectAll.bind(this);
+
     this.state = {
+      selection: {},
       selectionContextValue: {
-        selection: {},
+        isSelected: this.isSelected,
         toggleSelected: this.toggleSelected,
-        isSelected: this.isSelected
+
+        allSelected: this.allSelected,
+        isSelectionIndeterminate: this.isSelectionIndeterminate,
+        toggleSelectAll: this.toggleSelectAll,
       }
     };
   }
 
   isSelected(identifier) {
-    return this.state.selectionContextValue.selection[identifier] === true;
+    return this.state.selection[identifier] === true;
   }
 
   toggleSelected(identifier) {
-    let newSelection = Object.assign({}, this.state.selectionContextValue.selection);
+    let newSelection = Object.assign({}, this.state.selection);
     if(this.isSelected(identifier)) {
       delete newSelection[identifier];
     } else {
@@ -58,26 +73,69 @@ export class TbodyForSelectable extends React.PureComponent {
     }
 
     this.props.onSelectionChanged(newSelection);
-    this.setState({selectionContextValue: { ...this.state.selectionContextValue, selection: newSelection } });
+    this.setState({selection: newSelection });
   }
 
+  allSelected(){
+    return Object.entries(this.state.selection).length === this.props.identifiers.length;
+  }
+
+  isSelectionIndeterminate(){
+    let selected = Object.entries(this.state.selection).length;
+    let allSelectable = this.props.identifiers.length;
+    return selected !== 0 && (selected < allSelectable);
+  }
+
+  toggleSelectAll(){
+    let selection = Object.assign({}, this.state.selection);
+    let noneAreSelected = Object.entries(selection).length === 0;
+
+    if (noneAreSelected) {
+      this.props.identifiers.forEach(id => selection[id] = true);
+    } else {
+      this.props.identifiers.forEach(id => {
+        if (this.isSelected(id)) {
+          delete selection[id];
+        }
+      });
+    }
+
+    let forceUpdate = Object.assign({}, this.state.selectionContextValue);
+    this.setState({selection, selectionContextValue:forceUpdate});
+  }
+
+
   render() {
+    const {className, onSelectionChanged, identifiers, ...props} = this.props;
     return (
         <SelectionContext.Provider value={this.state.selectionContextValue}>
-        <tbody>
-          {this.props.children}
-        </tbody>
+          <table {...props} {...{
+            className: classnames('pui-table', className)
+          }}/>
         </SelectionContext.Provider>
     );
   }
 }
 
 
-export const TrHeaderForDrawers = ({children, selectable}) => (<Tr>
-  {selectable ? <Th className="pui-table--selectable-toggle border-right-0"/> : null}
-  <Th className="pui-table--collapsible-toggle border-right-0"/>
-  {children}
-</Tr>);
+export const TrHeaderForDrawers = ({children, selectable}) =>
+    (<Tr>
+      {selectable ?
+          <SelectionContext.Consumer>
+            { context =>
+                (<Th className={classnames('pui-table--selectable-toggle border-right-0')}>
+                  <Checkbox
+                      checked={context.allSelected()}
+                      indeterminate={context.isSelectionIndeterminate()}
+                      onChange={context.toggleSelectAll}/>
+                </Th>)
+            }
+          </SelectionContext.Consumer>
+          : null}
+
+      <Th className="pui-table--collapsible-toggle border-right-0"/>
+      {children}
+    </Tr>);
 
 export const TrWithoutDrawer = ({children}) => (<Tr>
   <Td className="pui-table--collapsible-toggle border-right-0"/>
@@ -105,9 +163,7 @@ export class TrWithDrawer extends React.PureComponent {
   }
 
 
-  checkboxOnChange(e){
-    console.log('e.target', e.target);
-
+  checkboxOnChange(){
     this.context.toggleSelected(this.props.identifier);
   }
 
