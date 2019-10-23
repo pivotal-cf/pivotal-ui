@@ -26,7 +26,7 @@ export const Th = ({scope = 'col', ...props}) => <th {...props} {...{scope}}/>;
 const SelectionContext = React.createContext({
   isSelected: ()=>false,
   toggleSelected: ()=>{},
-  allSelected: ()=>false,
+  allAreSelected: ()=>false,
   isSelectionIndeterminate: ()=>false,
   toggleSelectAll: ()=>{},
 });
@@ -40,69 +40,54 @@ export class TableSelectable extends React.PureComponent {
 
   constructor (props) {
     super(props);
-    this.toggleSelected = this.toggleSelected.bind(this);
-    this.isSelected = this.isSelected.bind(this);
-
-    this.allSelected = this.allSelected.bind(this);
-    this.isSelectionIndeterminate = this.isSelectionIndeterminate.bind(this);
-    this.toggleSelectAll = this.toggleSelectAll.bind(this);
-
     this.state = {
       selection: {},
       selectionContextValue: {
         isSelected: this.isSelected,
         toggleSelected: this.toggleSelected,
 
-        allSelected: this.allSelected,
+        allAreSelected: this.allAreSelected,
         isSelectionIndeterminate: this.isSelectionIndeterminate,
         toggleSelectAll: this.toggleSelectAll,
       }
     };
   }
 
-  isSelected(identifier) {
-    return this.state.selection[identifier] === true;
-  }
+  isSelected = (identifier) => this.state.selection[identifier] === true;
+  allAreSelected = () => Object.entries(this.state.selection).length === this.props.identifiers.length;
+  noneAreSelected = () => Object.entries(this.state.selection).length === 0;
+  isSelectionIndeterminate = () => !this.allAreSelected() && !this.noneAreSelected();
 
-  toggleSelected(identifier) {
+  _selectOne = (id, draftState) => draftState[id] = true;
+  _deselectOne = (id, draftState) => delete draftState[id];
+
+  toggleSelected = (identifier) => {
     let newSelection = Object.assign({}, this.state.selection);
     if(this.isSelected(identifier)) {
-      delete newSelection[identifier];
+      this._deselectOne(identifier, newSelection);
     } else {
-      newSelection[identifier] = true;
+      this._selectOne(identifier, newSelection);
     }
 
     this.props.onSelectionChanged(newSelection);
     this.setState({selection: newSelection });
-  }
+  };
 
-  allSelected(){
-    return Object.entries(this.state.selection).length === this.props.identifiers.length;
-  }
-
-  isSelectionIndeterminate(){
-    let selected = Object.entries(this.state.selection).length;
-    let allSelectable = this.props.identifiers.length;
-    return selected !== 0 && (selected < allSelectable);
-  }
-
-  toggleSelectAll(){
+  toggleSelectAll = () => {
     let selection = Object.assign({}, this.state.selection);
-    let noneAreSelected = Object.entries(selection).length === 0;
+    let action;
 
-    if (noneAreSelected) {
-      this.props.identifiers.forEach(id => selection[id] = true);
+    if (this.noneAreSelected()) {
+      action = this._selectOne;
     } else {
-      this.props.identifiers.forEach(id => {
-        if (this.isSelected(id)) {
-          delete selection[id];
-        }
-      });
+      action = this._deselectOne;
     }
+    this.props.identifiers.forEach(id => action(id, selection));
 
+    // update the context value to a clone to cause react to rerender all consumers:
     let forceUpdate = Object.assign({}, this.state.selectionContextValue);
     this.setState({selection, selectionContextValue:forceUpdate});
-  }
+  };
 
 
   render() {
@@ -125,7 +110,7 @@ export const TrHeaderForDrawers = ({children, selectable}) =>
             { context =>
                 (<Th className={classnames('pui-table--selectable-toggle border-right-0')}>
                   <Checkbox
-                      checked={context.allSelected()}
+                      checked={context.allAreSelected()}
                       indeterminate={context.isSelectionIndeterminate()}
                       onChange={context.toggleSelectAll}/>
                 </Th>)
