@@ -101,89 +101,6 @@ describe('TrHeaderForDrawers', () => {
         expect(ths[2]).toHaveText('Content header 1');
         expect(ths[3]).toHaveText('Content header 2');
       });
-
-
-    });
-
-    describe('when the selectAll checkbox is clicked', () =>{
-      const contextValue = {
-        isSelectableTable: true,
-        allAreSelected: ()=>false,
-        someAreSelected: ()=>false,
-        toggleSelectAll: jest.fn()
-      };
-
-      beforeEach(() => {
-        ReactDOM.render(<TableSelectable identifiers={[]}>
-          <SelectionContext.Provider value={contextValue}>
-            <Thead>
-              <TrHeaderForDrawers/>
-            </Thead>
-          </SelectionContext.Provider>
-        </TableSelectable>, root);
-      });
-
-      it('calls the context handler when clicked', () => {
-        document.querySelector('th .pui-checkbox input').click();
-        expect(contextValue.toggleSelectAll).toHaveBeenCalled();
-      });
-    });
-
-    it('is checked when allAreSelected', () => {
-      const contextValue = {
-        isSelectableTable: true,
-        allAreSelected: () => true,
-        someAreSelected: () => false,
-        toggleSelectAll: () => {}
-      };
-
-      ReactDOM.render(<TableSelectable identifiers={[]}>
-        <SelectionContext.Provider value={contextValue}>
-          <Thead>
-            <TrHeaderForDrawers/>
-          </Thead>
-        </SelectionContext.Provider>
-      </TableSelectable>, root);
-
-      expect(document.querySelector('th .pui-checkbox input').checked).toBeTruthy();
-    });
-
-    it('is indeterminate when someAreSelected', () => {
-      const contextValue = {
-        isSelectableTable: true,
-        allAreSelected: () => false,
-        someAreSelected: () => true,
-        toggleSelectAll: () => {}
-      };
-
-      ReactDOM.render(<TableSelectable identifiers={[]}>
-        <SelectionContext.Provider value={contextValue}>
-          <Thead>
-            <TrHeaderForDrawers/>
-          </Thead>
-        </SelectionContext.Provider>
-      </TableSelectable>, root);
-
-      expect(document.querySelector('th .pui-checkbox input').indeterminate).toBeTruthy();
-    });
-
-    it('is not checked when not allAreSelected and not someAreSelected', () => {
-      const contextValue = {
-        isSelectableTable: true,
-        allAreSelected: () => false,
-        someAreSelected: () => false,
-        toggleSelectAll: () => {}
-      };
-
-      ReactDOM.render(<TableSelectable identifiers={[]}>
-        <SelectionContext.Provider value={contextValue}>
-          <Thead>
-            <TrHeaderForDrawers/>
-          </Thead>
-        </SelectionContext.Provider>
-      </TableSelectable>, root);
-
-      expect(document.querySelector('th .pui-checkbox input').checked).toBeFalsy();
     });
 
     describe('withoutSelectAll', ()=>{
@@ -203,6 +120,55 @@ describe('TrHeaderForDrawers', () => {
             expect('th:nth-child(1) .pui-checkbox').not.toExist();
           }
       );
+    });
+
+    describe('when the selectAll checkbox is clicked', () =>{
+      const contextValue = {
+        isSelectableTable: true,
+        allAreSelected: ()=>false,
+        someAreSelected: ()=>false,
+        toggleSelectAll: () => {}
+      };
+
+      const selectableTable = (
+          <TableSelectable identifiers={[]}>
+            <SelectionContext.Provider value={contextValue}>
+              <Thead>
+                <TrHeaderForDrawers/>
+              </Thead>
+            </SelectionContext.Provider>
+          </TableSelectable>);
+
+      it('calls the context handler when clicked', () => {
+        contextValue.toggleSelectAll = jest.fn();
+        ReactDOM.render(selectableTable, root);
+
+        document.querySelector('th .pui-checkbox input').click();
+        expect(contextValue.toggleSelectAll).toHaveBeenCalled();
+      });
+
+      it('is checked when allAreSelected', () => {
+        contextValue.allAreSelected = () => true;
+        ReactDOM.render(selectableTable, root);
+
+        expect(document.querySelector('th .pui-checkbox input').checked).toBeTruthy();
+      });
+
+      it('is indeterminate when someAreSelected', () => {
+        contextValue.someAreSelected = () => true;
+        ReactDOM.render(selectableTable, root);
+
+        expect(document.querySelector('th .pui-checkbox input').indeterminate).toBeTruthy();
+      });
+
+      it('is not checked when none are selected', () => {
+        contextValue.allAreSelected = () => false;
+        contextValue.someAreSelected = () => false;
+
+        ReactDOM.render(selectableTable, root);
+
+        expect(document.querySelector('th .pui-checkbox input').checked).toBeFalsy();
+      });
     });
   });
 });
