@@ -155,6 +155,7 @@ describe.each([
         ReactDOM.render(selectableTable(HeaderComponent), root);
 
         expect(document.querySelector('th .pui-checkbox input').checked).toBeFalsy();
+        expect(document.querySelector('th .pui-checkbox input').indeterminate).toBeFalsy();
       });
 
       describe('with select all (default)', () => {
