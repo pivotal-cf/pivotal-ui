@@ -121,27 +121,32 @@ describe('TrHeaderForDrawers', () => {
           }
       );
     });
+  });
+});
 
-    describe('when the selectAll checkbox is clicked', () =>{
+describe.each([['TrHeaderForDrawers', <TrHeaderForDrawers/>]])
+('Contract for selectable header %s',
+    (_, headerComponent) => {
       const contextValue = {
         isSelectableTable: true,
-        allAreSelected: ()=>false,
-        someAreSelected: ()=>false,
-        toggleSelectAll: () => {}
+        allAreSelected: () => false,
+        someAreSelected: () => false,
+        toggleSelectAll: () => {
+        }
       };
 
-      const selectableTable = (
+      const selectableTable = (headerComponent) => (
           <TableSelectable identifiers={[]}>
             <SelectionContext.Provider value={contextValue}>
               <Thead>
-                <TrHeaderForDrawers/>
+                {headerComponent}
               </Thead>
             </SelectionContext.Provider>
           </TableSelectable>);
 
       it('calls the context handler when clicked', () => {
         contextValue.toggleSelectAll = jest.fn();
-        ReactDOM.render(selectableTable, root);
+        ReactDOM.render(selectableTable(headerComponent), root);
 
         document.querySelector('th .pui-checkbox input').click();
         expect(contextValue.toggleSelectAll).toHaveBeenCalled();
@@ -149,14 +154,14 @@ describe('TrHeaderForDrawers', () => {
 
       it('is checked when allAreSelected', () => {
         contextValue.allAreSelected = () => true;
-        ReactDOM.render(selectableTable, root);
+        ReactDOM.render(selectableTable(headerComponent), root);
 
         expect(document.querySelector('th .pui-checkbox input').checked).toBeTruthy();
       });
 
       it('is indeterminate when someAreSelected', () => {
         contextValue.someAreSelected = () => true;
-        ReactDOM.render(selectableTable, root);
+        ReactDOM.render(selectableTable(headerComponent), root);
 
         expect(document.querySelector('th .pui-checkbox input').indeterminate).toBeTruthy();
       });
@@ -165,13 +170,11 @@ describe('TrHeaderForDrawers', () => {
         contextValue.allAreSelected = () => false;
         contextValue.someAreSelected = () => false;
 
-        ReactDOM.render(selectableTable, root);
+        ReactDOM.render(selectableTable(headerComponent), root);
 
         expect(document.querySelector('th .pui-checkbox input').checked).toBeFalsy();
       });
     });
-  });
-});
 
 
 describe('TrWithoutDrawer', () => {
