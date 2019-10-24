@@ -9,6 +9,7 @@ import {
   Th,
   Thead,
   Tr,
+  TrHeader,
   TrHeaderForDrawers,
   TrWithDrawer,
   TrWithoutDrawer,
@@ -124,7 +125,10 @@ describe('TrHeaderForDrawers', () => {
   });
 });
 
-describe.each([['TrHeaderForDrawers', <TrHeaderForDrawers/>]])
+describe.each([
+    ['TrHeader', <TrHeader/>],
+    ['TrHeaderForDrawers', <TrHeaderForDrawers/>]
+])
 ('Contract for selectable header %s',
     (_, headerComponent) => {
       const contextValue = {
