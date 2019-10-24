@@ -84,6 +84,7 @@ export class TableSelectable extends React.PureComponent {
     }
     this.props.identifiers.forEach(id => action(id, selection));
 
+    this.props.onSelectionChanged(selection);
     // update the context value to a clone to cause react to rerender all consumers:
     let forceUpdate = Object.assign({}, this.state.selectionContextValue);
     this.setState({selection, selectionContextValue:forceUpdate});
@@ -103,9 +104,9 @@ export class TableSelectable extends React.PureComponent {
 }
 
 
-export const TrHeaderForDrawers = ({children, selectable}) =>
+export const TrHeaderForDrawers = ({children, withSelectAll}) =>
     (<Tr>
-      {selectable ?
+      {withSelectAll ?
           <SelectionContext.Consumer>
             { context =>
                 (<Th className={classnames('pui-table--selectable-toggle border-right-0')}>
