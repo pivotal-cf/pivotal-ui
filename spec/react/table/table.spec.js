@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {
   Caption,
   Table,
+  TableSelectable,
   Tbody,
   Td,
   Th,
@@ -10,7 +11,8 @@ import {
   Tr,
   TrHeaderForDrawers,
   TrWithDrawer,
-  TrWithoutDrawer
+  TrWithoutDrawer,
+  SelectionContext
 } from '../../../src/react/table';
 
 describe('Table', () => {
@@ -46,29 +48,165 @@ describe('Th', () => {
 });
 
 describe('TrHeaderForDrawers', () => {
-  beforeEach(() => {
-    ReactDOM.render(<Table><Thead><TrHeaderForDrawers>
-      <Th>Content header 1</Th>
-      <Th>Content header 2</Th>
-    </TrHeaderForDrawers></Thead></Table>, root);
+  describe('standard', () => {
+    beforeEach(() => {
+      ReactDOM.render(<Table><Thead><TrHeaderForDrawers>
+        <Th>Content header 1</Th>
+        <Th>Content header 2</Th>
+      </TrHeaderForDrawers></Thead></Table>, root);
+    });
+
+    it(
+        'renders an empty table header that sets the column' +
+        'to the proper width for collapsible toggles',
+        () => {
+          expect(document.querySelectorAll('th')[0]).toHaveText('');
+          expect(document.querySelectorAll('th')[0]).toHaveClass('pui-table--collapsible-toggle');
+        }
+    );
+
+    it('renders table header cells given as children after the toggle header cell', () => {
+      const ths = document.querySelectorAll('th');
+      expect(ths).toHaveLength(3);
+      expect(ths[1]).toHaveText('Content header 1');
+      expect(ths[2]).toHaveText('Content header 2');
+    });
   });
 
-  it(
-    'renders an empty table header that sets the column' +
-    'to the proper width for collapsible toggles',
-    () => {
-      expect(document.querySelectorAll('th')[0]).toHaveText('');
-      expect(document.querySelectorAll('th')[0]).toHaveClass('pui-table--collapsible-toggle');
-    }
-  );
+  describe('in a selectable Table', ()=>{
+    describe('default', ()=>{
+      beforeEach(() => {
+        ReactDOM.render(<TableSelectable identifiers={[]}><Thead><TrHeaderForDrawers>
+          <Th>Content header 1</Th>
+          <Th>Content header 2</Th>
+        </TrHeaderForDrawers></Thead></TableSelectable>, root);
+      });
 
-  it('renders table header cells given as children after the toggle header cell', () => {
-    const ths = document.querySelectorAll('th');
-    expect(ths).toHaveLength(3);
-    expect(ths[1]).toHaveText('Content header 1');
-    expect(ths[2]).toHaveText('Content header 2');
+      it(
+          'renders a table header with a selectAll checkbox that sets the column ' +
+          'to the proper width for collapsible toggles and selectOne checkboxes',
+          () => {
+            expect(document.querySelectorAll('th')[0]).toHaveText('');
+            expect(document.querySelectorAll('th')[0]).toHaveClass('pui-table--selectable-toggle');
+            expect('th:nth-child(1) .pui-checkbox').toExist();
+
+            expect(document.querySelectorAll('th')[1]).toHaveText('');
+            expect(document.querySelectorAll('th')[1]).toHaveClass('pui-table--collapsible-toggle');
+          }
+      );
+
+      it('renders table header cells given as children after an empty selectAll cell and the toggle header cell', () => {
+        const ths = document.querySelectorAll('th');
+        expect(ths).toHaveLength(4);
+        expect(ths[2]).toHaveText('Content header 1');
+        expect(ths[3]).toHaveText('Content header 2');
+      });
+
+
+    });
+
+    describe('when the selectAll checkbox is clicked', () =>{
+      const contextValue = {
+        isSelectableTable: true,
+        allAreSelected: ()=>false,
+        someAreSelected: ()=>false,
+        toggleSelectAll: jest.fn()
+      };
+
+      beforeEach(() => {
+        ReactDOM.render(<TableSelectable identifiers={[]}>
+          <SelectionContext.Provider value={contextValue}>
+            <Thead>
+              <TrHeaderForDrawers/>
+            </Thead>
+          </SelectionContext.Provider>
+        </TableSelectable>, root);
+      });
+
+      it('calls the context handler when clicked', () => {
+        document.querySelector('th .pui-checkbox input').click();
+        expect(contextValue.toggleSelectAll).toHaveBeenCalled();
+      });
+    });
+
+    it('is checked when allAreSelected', () => {
+      const contextValue = {
+        isSelectableTable: true,
+        allAreSelected: () => true,
+        someAreSelected: () => false,
+        toggleSelectAll: () => {}
+      };
+
+      ReactDOM.render(<TableSelectable identifiers={[]}>
+        <SelectionContext.Provider value={contextValue}>
+          <Thead>
+            <TrHeaderForDrawers/>
+          </Thead>
+        </SelectionContext.Provider>
+      </TableSelectable>, root);
+
+      expect(document.querySelector('th .pui-checkbox input').checked).toBeTruthy();
+    });
+
+    it('is indeterminate when someAreSelected', () => {
+      const contextValue = {
+        isSelectableTable: true,
+        allAreSelected: () => false,
+        someAreSelected: () => true,
+        toggleSelectAll: () => {}
+      };
+
+      ReactDOM.render(<TableSelectable identifiers={[]}>
+        <SelectionContext.Provider value={contextValue}>
+          <Thead>
+            <TrHeaderForDrawers/>
+          </Thead>
+        </SelectionContext.Provider>
+      </TableSelectable>, root);
+
+      expect(document.querySelector('th .pui-checkbox input').indeterminate).toBeTruthy();
+    });
+
+    it('is not checked when not allAreSelected and not someAreSelected', () => {
+      const contextValue = {
+        isSelectableTable: true,
+        allAreSelected: () => false,
+        someAreSelected: () => false,
+        toggleSelectAll: () => {}
+      };
+
+      ReactDOM.render(<TableSelectable identifiers={[]}>
+        <SelectionContext.Provider value={contextValue}>
+          <Thead>
+            <TrHeaderForDrawers/>
+          </Thead>
+        </SelectionContext.Provider>
+      </TableSelectable>, root);
+
+      expect(document.querySelector('th .pui-checkbox input').checked).toBeFalsy();
+    });
+
+    describe('withoutSelectAll', ()=>{
+      beforeEach(() => {
+        ReactDOM.render(<TableSelectable identifiers={[]}><Thead><TrHeaderForDrawers withoutSelectAll>
+          <Th>Content header 1</Th>
+          <Th>Content header 2</Th>
+        </TrHeaderForDrawers></Thead></TableSelectable>, root);
+      });
+
+      it(
+          'renders a table header without a selectAll checkbox, that sets the column' +
+          'to the proper width for collapsible toggles and selectOne checkboxes',
+          () => {
+            expect(document.querySelectorAll('th')[0]).toHaveText('');
+            expect(document.querySelectorAll('th')[0]).toHaveClass('pui-table--selectable-toggle');
+            expect('th:nth-child(1) .pui-checkbox').not.toExist();
+          }
+      );
+    });
   });
 });
+
 
 describe('TrWithoutDrawer', () => {
   beforeEach(() => {

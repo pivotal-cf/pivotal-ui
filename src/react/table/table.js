@@ -23,11 +23,12 @@ export const Tr = props => <tr {...props}/>;
 export const Td = props => <td {...props}/>;
 export const Th = ({scope = 'col', ...props}) => <th {...props} {...{scope}}/>;
 
-const SelectionContext = React.createContext({
+export const SelectionContext = React.createContext({
+  isSelectableTable: false,
   isSelected: ()=>false,
   toggleSelected: ()=>{},
   allAreSelected: ()=>false,
-  isSelectionIndeterminate: ()=>false,
+  someAreSelected: ()=>false,
   toggleSelectAll: ()=>{},
 });
 
@@ -35,7 +36,7 @@ export class TableSelectable extends React.PureComponent {
   static propTypes = {
     onSelectionChanged: PropTypes.func,
     children: PropTypes.node,
-    identifiers: PropTypes.array
+    identifiers: PropTypes.array.isRequired
   };
 
   constructor (props) {
@@ -43,11 +44,12 @@ export class TableSelectable extends React.PureComponent {
     this.state = {
       selection: {},
       selectionContextValue: {
+        isSelectableTable: true,
         isSelected: this.isSelected,
         toggleSelected: this.toggleSelected,
 
         allAreSelected: this.allAreSelected,
-        isSelectionIndeterminate: this.isSelectionIndeterminate,
+        someAreSelected: this.someAreSelected,
         toggleSelectAll: this.toggleSelectAll,
       }
     };
@@ -56,7 +58,7 @@ export class TableSelectable extends React.PureComponent {
   isSelected = (identifier) => this.state.selection[identifier] === true;
   allAreSelected = () => Object.entries(this.state.selection).length === this.props.identifiers.length;
   noneAreSelected = () => Object.entries(this.state.selection).length === 0;
-  isSelectionIndeterminate = () => !this.allAreSelected() && !this.noneAreSelected();
+  someAreSelected = () => !this.allAreSelected() && !this.noneAreSelected();
 
   _selectOne = (id, draftState) => draftState[id] = true;
   _deselectOne = (id, draftState) => delete draftState[id];
@@ -104,20 +106,26 @@ export class TableSelectable extends React.PureComponent {
 }
 
 
-export const TrHeaderForDrawers = ({children, withSelectAll}) =>
+export const TrHeaderForDrawers = ({children, withoutSelectAll}) =>
     (<Tr>
-      {withSelectAll ?
-          <SelectionContext.Consumer>
-            { context =>
-                (<Th className={classnames('pui-table--selectable-toggle border-right-0')}>
-                  <Checkbox
-                      checked={context.allAreSelected()}
-                      indeterminate={context.isSelectionIndeterminate()}
-                      onChange={context.toggleSelectAll}/>
-                </Th>)
+      {
+        <SelectionContext.Consumer>
+          {context => {
+            if (context.isSelectableTable) {
+              return (
+                  <Th className={classnames('pui-table--selectable-toggle border-right-0')}>
+                    {!withoutSelectAll ?
+                        <Checkbox
+                            checked={context.allAreSelected()}
+                            indeterminate={context.someAreSelected()}
+                            onChange={context.toggleSelectAll}/>
+                        : null}
+                  </Th>
+              );
             }
-          </SelectionContext.Consumer>
-          : null}
+          }}
+        </SelectionContext.Consumer>
+      }
 
       <Th className="pui-table--collapsible-toggle border-right-0"/>
       {children}
