@@ -107,7 +107,7 @@ describe.each([
     ['TrHeader', TrHeader],
     ['TrHeaderForDrawers', TrHeaderForDrawers]
 ])
-('Contract for selectable header %s',
+('Contract for selectable header: %s',
     (_, HeaderComponent) => {
       const contextValue = {
         isSelectableTable: true,
@@ -198,32 +198,33 @@ describe.each([
       });
     });
 
-describe('TrForBody', ()=>{
+describe('TrForBody', () => {
   beforeEach(() => {
     ReactDOM.render(
         <Table>
-      <Tbody>
-        <TrForBody>
-          <Td>Content cell 1</Td>
-          <Td>Content cell 2</Td>
-        </TrForBody>
-      </Tbody>
-    </Table>, root);
+          <Tbody>
+            <TrForBody>
+              <Td>Content cell 1</Td>
+              <Td>Content cell 2</Td>
+            </TrForBody>
+          </Tbody>
+        </Table>, root);
   });
 
-  describe('table row in a standard table', ()=> {
-    it('renders a tr', ()=>{
-      expect(document.querySelectorAll('tr')[0]).toExist();
-    });
-
-    it('renders only the children into the tr', ()=>{
-      const tds = document.querySelectorAll('td');
-      expect(tds).toHaveLength(2);
-      expect(tds[0]).toHaveText('Content cell 1');
-      expect(tds[1]).toHaveText('Content cell 2');
-    });
+  it('renders a tr', () => {
+    expect(document.querySelectorAll('tr')[0]).toExist();
   });
 
+  it('renders only the children into the tr', () => {
+    const tds = document.querySelectorAll('td');
+    expect(tds).toHaveLength(2);
+    expect(tds[0]).toHaveText('Content cell 1');
+    expect(tds[1]).toHaveText('Content cell 2');
+  });
+});
+
+describe.each([['TrForBody', TrForBody, {}], ['TrWithDrawer', TrWithDrawer, {ariaLabelExpanded:'', ariaLabelCollapsed:''}]])
+('Contract for body table row: %s', (_, TrComponentUnderTest, props)=>{
   describe('when in a selectable table', ()=> {
     const contextValue = {
       isSelectableTable: true,
@@ -235,14 +236,14 @@ describe('TrForBody', ()=>{
         <TableSelectable identifiers={[]}>
           <SelectionContext.Provider value={contextValue}>
             <Tbody>
-              <TrForBody identifier={'first row'}>
+              <TrComponentUnderTest {...props} identifier={'first row'}>
                 <Td>Content cell 1</Td>
                 <Td>Content cell 2</Td>
-              </TrForBody>
-              <TrForBody identifier={'second row'}>
-                <Td>Content cell 1</Td>
-                <Td>Content cell 2</Td>
-              </TrForBody>
+              </TrComponentUnderTest>
+              <TrComponentUnderTest {...props} identifier={'second row'}>
+                <Td>Content cell 11</Td>
+                <Td>Content cell 22</Td>
+              </TrComponentUnderTest>
             </Tbody>
           </SelectionContext.Provider>
         </TableSelectable>);
@@ -252,12 +253,17 @@ describe('TrForBody', ()=>{
         ReactDOM.render(selectableTable(), root);
 
         const tds = document.querySelectorAll('td');
-        expect(tds).toHaveLength(6);
+        const rowLength = tds.length / 2;
+
         expect(tds[0]).toHaveClass('pui-table--selectable-toggle');
         expect(tds[0]).toHaveText('');
-        expect(tds[1]).toHaveText('Content cell 1');
-        expect(tds[2]).toHaveText('Content cell 2');
-        expect(tds[3]).toHaveClass('pui-table--selectable-toggle');
+
+        expect(tds[rowLength-2]).toHaveText('Content cell 1');
+        expect(tds[rowLength-1]).toHaveText('Content cell 2');
+        expect(tds[rowLength]).toHaveClass('pui-table--selectable-toggle');
+
+        expect(tds[rowLength*2-2]).toHaveText('Content cell 11');
+        expect(tds[rowLength*2-1]).toHaveText('Content cell 22');
       });
 
       it('calls the callback when the checkbox is clicked with the appropriate identifier', ()=>{
@@ -276,7 +282,7 @@ describe('TrForBody', ()=>{
             case 'first row': return false;
             case 'second row': return true;
 
-            default: fail('identifier not recognized')
+            default: fail('identifier not recognized');
           }
         });
 
@@ -294,20 +300,21 @@ describe('TrForBody', ()=>{
       it('renders a blank space where the checkbox would have been', () => {
         ReactDOM.render(<TableSelectable identifiers={[]}>
                 <Tbody>
-                  <TrForBody notSelectable>
+                  <TrComponentUnderTest {...props} notSelectable>
                     <Td>Content cell 1</Td>
                     <Td>Content cell 2</Td>
-                  </TrForBody>
+                  </TrComponentUnderTest>
                 </Tbody>
-            </TableSelectable>, root)
+            </TableSelectable>, root);
 
         const tds = document.querySelectorAll('td');
+        const rowLength = tds.length;
+
         expect('.pui-checkbox input').not.toExist();
-        expect(tds).toHaveLength(3);
         expect(tds[0]).toHaveClass('pui-table--selectable-toggle');
         expect(tds[0]).toHaveText('');
-        expect(tds[1]).toHaveText('Content cell 1');
-        expect(tds[2]).toHaveText('Content cell 2');
+        expect(tds[rowLength-2]).toHaveText('Content cell 1');
+        expect(tds[rowLength-1]).toHaveText('Content cell 2');
       });
     });
   });

@@ -201,10 +201,12 @@ export class TrWithDrawer extends React.PureComponent {
     let collapsableBtnClassNames = classnames('border-right-0', {'active-indicator': expanded});
 
     let checkBoxTd;
-    if (selectable) {
-      checkBoxTd = (<Td className={classnames('border-right-0', {'active-indicator': expanded})}><Checkbox
+    if (this.context.isSelectableTable) {
+      checkBoxTd = (<Td className={classnames('border-right-0', {'active-indicator': expanded})}>
+        <Checkbox
           checked={this.context.isSelected(this.props.identifier)}
-          onChange={this.checkboxOnChange}/></Td>);
+          onChange={this.checkboxOnChange}/>
+      </Td>);
       collapsableBtnClassNames = classnames('border-right-0');
     }
 
