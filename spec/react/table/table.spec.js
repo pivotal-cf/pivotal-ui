@@ -13,7 +13,7 @@ import {
   TrHeaderForDrawers,
   TrWithDrawer,
   TrWithoutDrawer,
-  SelectionContext
+  SelectionContext, TrForBody
 } from '../../../src/react/table';
 
 describe('Table', () => {
@@ -197,6 +197,46 @@ describe.each([
       });
     });
 
+describe('TrForBody', ()=>{
+  beforeEach(() => {
+    ReactDOM.render(
+        <Table>
+      <Tbody>
+        <TrForBody>
+          <Td>Content cell 1</Td>
+          <Td>Content cell 2</Td>
+        </TrForBody>
+      </Tbody>
+    </Table>, root);
+  });
+
+  describe('table row in a standard table', ()=> {
+    it('renders a tr', ()=>{
+      expect(document.querySelectorAll('tr')[0]).toExist();
+    });
+    it('renders only the children into the tr', ()=>{
+      const tds = document.querySelectorAll('td');
+      expect(tds).toHaveLength(2);
+      expect(tds[0]).toHaveText('Content cell 1');
+      expect(tds[1]).toHaveText('Content cell 2');
+    });
+  });
+
+  xdescribe('when in a selectable table', ()=> {
+
+    describe('when the table row is selectable (default)', ()=> {
+      it('renders a checkbox', ()=>{});
+      it('calls the callback when the checkbox is clicked', ()=>{});
+      it('renders checked status when context shows that it should be checked', ()=>{});
+      it('renders unchecked status when context shows that it should be unchecked', ()=>{});
+    });
+
+    describe('when the table row is not selectable', ()=> {
+      it('renders a blank space where the checkbox would have been', ()=>{});
+    });
+
+  });
+});
 
 describe('TrWithoutDrawer', () => {
   beforeEach(() => {

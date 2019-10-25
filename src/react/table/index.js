@@ -10,6 +10,7 @@ import {
   Tfoot,
   Td,
   Th,
+  TrForBody,
   TrHeaderForDrawers,
   TrWithDrawer,
   TrWithoutDrawer
@@ -27,6 +28,7 @@ export {
   Tfoot,
   Td,
   Th,
+  TrForBody,
   TrHeaderForDrawers,
   TrWithDrawer,
   TrWithoutDrawer

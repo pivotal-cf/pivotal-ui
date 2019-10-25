@@ -127,11 +127,13 @@ export const TrHeader = ({children, withoutSelectAll}) =>
       {children}
     </Tr>);
 
-export const TrHeaderForDrawers = ({children, withoutSelectAll}) =>
-    (<TrHeader withoutSelectAll={withoutSelectAll}>
+export const TrHeaderForDrawers = ({children, ...props}) =>
+    (<TrHeader {...props}>
       <Th className="pui-table--collapsible-toggle border-right-0"/>
       {children}
     </TrHeader>);
+
+export const TrForBody = ({children}) => <tr>{children}</tr>;
 
 export const TrWithoutDrawer = ({children}) => (<Tr>
   <Td className="pui-table--collapsible-toggle border-right-0"/>
