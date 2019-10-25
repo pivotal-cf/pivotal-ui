@@ -131,6 +131,7 @@ describe.each([
         ReactDOM.render(selectableTable(HeaderComponent), root);
 
         document.querySelector('th .pui-checkbox input').click();
+        expect(contextValue.toggleSelectAll).toHaveBeenCalledTimes(1);
         expect(contextValue.toggleSelectAll).toHaveBeenCalled();
       });
 
@@ -214,6 +215,7 @@ describe('TrForBody', ()=>{
     it('renders a tr', ()=>{
       expect(document.querySelectorAll('tr')[0]).toExist();
     });
+
     it('renders only the children into the tr', ()=>{
       const tds = document.querySelectorAll('td');
       expect(tds).toHaveLength(2);
@@ -222,19 +224,92 @@ describe('TrForBody', ()=>{
     });
   });
 
-  xdescribe('when in a selectable table', ()=> {
+  describe('when in a selectable table', ()=> {
+    const contextValue = {
+      isSelectableTable: true,
+      toggleSelected: jest.fn(),
+      isSelected: ()=>false,
+    };
+
+    const selectableTable = () => (
+        <TableSelectable identifiers={[]}>
+          <SelectionContext.Provider value={contextValue}>
+            <Tbody>
+              <TrForBody identifier={'first row'}>
+                <Td>Content cell 1</Td>
+                <Td>Content cell 2</Td>
+              </TrForBody>
+              <TrForBody identifier={'second row'}>
+                <Td>Content cell 1</Td>
+                <Td>Content cell 2</Td>
+              </TrForBody>
+            </Tbody>
+          </SelectionContext.Provider>
+        </TableSelectable>);
 
     describe('when the table row is selectable (default)', ()=> {
-      it('renders a checkbox', ()=>{});
-      it('calls the callback when the checkbox is clicked', ()=>{});
-      it('renders checked status when context shows that it should be checked', ()=>{});
-      it('renders unchecked status when context shows that it should be unchecked', ()=>{});
+      it('prepends a td that will contain a checkbox', ()=>{
+        ReactDOM.render(selectableTable(), root);
+
+        const tds = document.querySelectorAll('td');
+        expect(tds).toHaveLength(6);
+        expect(tds[0]).toHaveClass('pui-table--selectable-toggle');
+        expect(tds[0]).toHaveText('');
+        expect(tds[1]).toHaveText('Content cell 1');
+        expect(tds[2]).toHaveText('Content cell 2');
+        expect(tds[3]).toHaveClass('pui-table--selectable-toggle');
+      });
+
+      it('calls the callback when the checkbox is clicked with the appropriate identifier', ()=>{
+        ReactDOM.render(selectableTable(), root);
+
+        document.querySelector('tr:nth-child(1) td .pui-checkbox input').click();
+        document.querySelector('tr:nth-child(2) td .pui-checkbox input').click();
+        expect(contextValue.toggleSelected).toHaveBeenCalledTimes(2);
+        expect(contextValue.toggleSelected).toHaveBeenNthCalledWith(1, 'first row');
+        expect(contextValue.toggleSelected).toHaveBeenNthCalledWith(2, 'second row');
+      });
+
+      it('renders checked status when context shows that it should be checked', () => {
+        contextValue.isSelected = jest.fn((identifier) => {
+          switch (identifier) {
+            case 'first row': return false;
+            case 'second row': return true;
+
+            default: fail('identifier not recognized')
+          }
+        });
+
+        ReactDOM.render(selectableTable(), root);
+
+        let checkboxes = document.querySelectorAll('td .pui-checkbox input');
+        expect(checkboxes[0].checked).toBeFalsy();
+        expect(checkboxes[0].indeterminate).toBeFalsy();
+        expect(checkboxes[1].checked).toBeTruthy();
+        expect(checkboxes[1].indeterminate).toBeFalsy();
+      });
     });
 
     describe('when the table row is not selectable', ()=> {
-      it('renders a blank space where the checkbox would have been', ()=>{});
-    });
+      it('renders a blank space where the checkbox would have been', () => {
+        ReactDOM.render(<TableSelectable identifiers={[]}>
+                <Tbody>
+                  <TrForBody notSelectable>
+                    <Td>Content cell 1</Td>
+                    <Td>Content cell 2</Td>
+                  </TrForBody>
+                </Tbody>
+            </TableSelectable>, root)
 
+        const tds = document.querySelectorAll('td');
+        expect('.pui-checkbox input').not.toExist();
+        expect(tds).toHaveLength(3);
+        expect(tds[0]).toHaveClass('pui-table--selectable-toggle');
+        expect(tds[0]).toHaveText('');
+        expect(tds[1]).toHaveText('Content cell 1');
+        expect(tds[2]).toHaveText('Content cell 2');
+      });
+    });
   });
 });
 

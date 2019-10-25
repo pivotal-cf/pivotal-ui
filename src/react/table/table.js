@@ -133,7 +133,28 @@ export const TrHeaderForDrawers = ({children, ...props}) =>
       {children}
     </TrHeader>);
 
-export const TrForBody = ({children}) => <tr>{children}</tr>;
+export const TrForBody = ({children, identifier, notSelectable}) =>
+    (<tr>
+      {
+        <SelectionContext.Consumer>
+          {context => {
+            if (context.isSelectableTable) {
+              return (
+                  <Td className={classnames('pui-table--selectable-toggle border-right-0')}>
+                    {notSelectable ? null :
+                        (<Checkbox
+                            checked={context.isSelected(identifier)}
+                            indeterminate={false}
+                            onChange={() => context.toggleSelected(identifier)}/>)
+                    }
+                  </Td>
+              );
+            }
+          }}
+        </SelectionContext.Consumer>
+      }
+      {children}
+    </tr>);
 
 export const TrWithoutDrawer = ({children}) => (<Tr>
   <Td className="pui-table--collapsible-toggle border-right-0"/>
