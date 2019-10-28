@@ -168,22 +168,14 @@ export class TrWithDrawer extends React.PureComponent {
     drawerContent: PropTypes.node,
     onExpand: PropTypes.func,
     children: PropTypes.node,
-    selectable: PropTypes.bool,
-    identifier: PropTypes.string
+    identifier: PropTypes.string,
+    notSelectable: PropTypes.bool,
   };
 
-  state = {expanded: false, selected: false};
-
-  static contextType = SelectionContext;
+  state = {expanded: false};
 
   constructor (props) {
     super(props);
-    this.checkboxOnChange = this.checkboxOnChange.bind(this);
-  }
-
-
-  checkboxOnChange(){
-    this.context.toggleSelected(this.props.identifier);
   }
 
   render() {
@@ -195,7 +187,7 @@ export class TrWithDrawer extends React.PureComponent {
       drawerContent,
       onExpand,
       identifier,
-      notSelectable,
+      notSelectable
     } = this.props;
     const {expanded} = this.state;
 
