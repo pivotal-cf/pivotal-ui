@@ -401,6 +401,35 @@ describe('TrWithDrawer', () => {
     expect(drawerTds[0].querySelector('.pui-collapsible i')).toHaveText('Drawer content');
   });
 
+  describe('when in a selectable table', () => {
+    beforeEach(() => {
+      ReactDOM.render(<TableSelectable identifiers={[]}><Tbody>
+        <TrWithDrawer {...{ariaLabelCollapsed, ariaLabelExpanded, drawerContent, className, onExpand: onExpandSpy}}>
+          <Td>Content cell 1</Td>
+          <Td>Content cell 2</Td>
+        </TrWithDrawer>
+      </Tbody></TableSelectable>, root);
+    });
+
+    it('extends the drawer across the whole width of the table', () => {
+      const drawerTr = document.querySelectorAll('tr')[1];
+      const drawerTds = drawerTr.querySelectorAll('td');
+
+      expect(drawerTds).toHaveLength(1);
+      expect(drawerTds[0]).toHaveAttr('colspan', '4');
+    });
+
+    it('adds the active-indicator before the checkbox when expanded', () => {
+      document.querySelector('td button').click();
+
+      const tdContainingCheckbox = document.querySelectorAll('tr')[0].querySelectorAll('td')[0];
+      expect(tdContainingCheckbox).toHaveClass('active-indicator');
+
+      const toggleTd = document.querySelectorAll('tr')[0].querySelectorAll('td')[1];
+      expect(toggleTd).not.toHaveClass('active-indicator');
+    });
+  });
+
   describe('when clicked to expand', () => {
     beforeEach(() => {
       document.querySelector('td button').click();

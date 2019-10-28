@@ -133,14 +133,14 @@ export const TrHeaderForDrawers = ({children, ...props}) =>
       {children}
     </TrHeader>);
 
-export const TrForBody = ({children, identifier, notSelectable}) =>
+export const TrForBody = ({children, identifier, notSelectable, activated}) =>
     (<tr>
       {
         <SelectionContext.Consumer>
           {context => {
             if (context.isSelectableTable) {
               return (
-                  <Td className={classnames('pui-table--selectable-toggle border-right-0')}>
+                  <Td className={classnames('pui-table--selectable-toggle border-right-0', {'active-indicator': activated})}>
                     {notSelectable ? null :
                         (<Checkbox
                             checked={context.isSelected(identifier)}
@@ -172,6 +172,7 @@ export class TrWithDrawer extends React.PureComponent {
     notSelectable: PropTypes.bool,
   };
 
+  static contextType = SelectionContext;
   state = {expanded: false};
 
   constructor (props) {
@@ -190,11 +191,12 @@ export class TrWithDrawer extends React.PureComponent {
       notSelectable
     } = this.props;
     const {expanded} = this.state;
+    const selectableTable = this.context.isSelectableTable
 
     return (<Fragment>
-      <TrForBody className={classnames({'border-bottom': !expanded})} notSelectable={notSelectable} identifier={identifier}>
+      <TrForBody className={classnames({'border-bottom': !expanded})} activated={expanded} notSelectable={notSelectable} identifier={identifier}>
 
-        <Td className={classnames('border-right-0', {'active-indicator': expanded})}>
+        <Td className={classnames('border-right-0', {'active-indicator': expanded && !selectableTable})}>
           <DefaultButton
             className="pui-table--collapsible-btn"
             icon={<Icon src="chevron_right" className={
@@ -212,7 +214,7 @@ export class TrWithDrawer extends React.PureComponent {
         {children}
       </TrForBody>
       <Tr className={classnames(className, {'border-top-0 display-none': !expanded})}>
-        <Td colSpan={1 + children.length} className="pan">
+        <Td colSpan={1 + children.length + (selectableTable ? 1:0)} className="pan">
           <Collapsible {...{expanded}}>
             {drawerContent}
           </Collapsible>
