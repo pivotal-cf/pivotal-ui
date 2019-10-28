@@ -194,29 +194,15 @@ export class TrWithDrawer extends React.PureComponent {
       className,
       drawerContent,
       onExpand,
-      notSelectable
+      identifier,
+      notSelectable,
     } = this.props;
     const {expanded} = this.state;
 
-    let collapsableBtnClassNames = classnames('border-right-0', {'active-indicator': expanded});
-
-    let checkBoxTd;
-    if (this.context.isSelectableTable) {
-      checkBoxTd = (<Td className={classnames('border-right-0', 'pui-table--selectable-toggle', {'active-indicator': expanded})}>
-        {notSelectable ? null :
-            <Checkbox
-                checked={this.context.isSelected(this.props.identifier)}
-                onChange={this.checkboxOnChange}/>
-        }
-      </Td>);
-      collapsableBtnClassNames = classnames('border-right-0');
-    }
-
     return (<Fragment>
-      <Tr className={classnames({'border-bottom': !expanded})}>
-        {checkBoxTd}
+      <TrForBody className={classnames({'border-bottom': !expanded})} notSelectable={notSelectable} identifier={identifier}>
 
-        <Td className={collapsableBtnClassNames}>
+        <Td className={classnames('border-right-0', {'active-indicator': expanded})}>
           <DefaultButton
             className="pui-table--collapsible-btn"
             icon={<Icon src="chevron_right" className={
@@ -232,7 +218,7 @@ export class TrWithDrawer extends React.PureComponent {
           />
         </Td>
         {children}
-      </Tr>
+      </TrForBody>
       <Tr className={classnames(className, {'border-top-0 display-none': !expanded})}>
         <Td colSpan={1 + children.length} className="pan">
           <Collapsible {...{expanded}}>

@@ -223,7 +223,10 @@ describe('TrForBody', () => {
   });
 });
 
-describe.each([['TrForBody', TrForBody, {}], ['TrWithDrawer', TrWithDrawer, {ariaLabelExpanded:'', ariaLabelCollapsed:''}]])
+describe.each([
+  ['TrForBody', TrForBody, {}],
+  ['TrWithDrawer', TrWithDrawer, {ariaLabelExpanded: '', ariaLabelCollapsed: ''}]
+])
 ('Contract for body table row: %s', (_, TrComponentUnderTest, props)=>{
   describe('when in a selectable table', ()=> {
     const contextValue = {
