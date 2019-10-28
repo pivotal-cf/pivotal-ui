@@ -194,7 +194,7 @@ export class TrWithDrawer extends React.PureComponent {
       className,
       drawerContent,
       onExpand,
-      selectable
+      notSelectable
     } = this.props;
     const {expanded} = this.state;
 
@@ -202,10 +202,12 @@ export class TrWithDrawer extends React.PureComponent {
 
     let checkBoxTd;
     if (this.context.isSelectableTable) {
-      checkBoxTd = (<Td className={classnames('border-right-0', {'active-indicator': expanded})}>
-        <Checkbox
-          checked={this.context.isSelected(this.props.identifier)}
-          onChange={this.checkboxOnChange}/>
+      checkBoxTd = (<Td className={classnames('border-right-0', 'pui-table--selectable-toggle', {'active-indicator': expanded})}>
+        {notSelectable ? null :
+            <Checkbox
+                checked={this.context.isSelected(this.props.identifier)}
+                onChange={this.checkboxOnChange}/>
+        }
       </Td>);
       collapsableBtnClassNames = classnames('border-right-0');
     }

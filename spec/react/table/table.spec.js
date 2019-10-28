@@ -252,28 +252,28 @@ describe.each([['TrForBody', TrForBody, {}], ['TrWithDrawer', TrWithDrawer, {ari
       it('prepends a td that will contain a checkbox', ()=>{
         ReactDOM.render(selectableTable(), root);
 
-        const tds = document.querySelectorAll('td');
-        const rowLength = tds.length / 2;
+        const firstRow = document.querySelectorAll('tr:nth-child(1) td');
+        const rowLength = firstRow.length;
 
-        expect(tds[0]).toHaveClass('pui-table--selectable-toggle');
-        expect(tds[0]).toHaveText('');
+        expect(firstRow[0]).toHaveClass('pui-table--selectable-toggle');
+        expect(firstRow[0]).toHaveText('');
 
-        expect(tds[rowLength-2]).toHaveText('Content cell 1');
-        expect(tds[rowLength-1]).toHaveText('Content cell 2');
-        expect(tds[rowLength]).toHaveClass('pui-table--selectable-toggle');
-
-        expect(tds[rowLength*2-2]).toHaveText('Content cell 11');
-        expect(tds[rowLength*2-1]).toHaveText('Content cell 22');
+        expect(firstRow[rowLength-2]).toHaveText('Content cell 1');
+        expect(firstRow[rowLength-1]).toHaveText('Content cell 2');
       });
 
       it('calls the callback when the checkbox is clicked with the appropriate identifier', ()=>{
         ReactDOM.render(selectableTable(), root);
 
-        document.querySelector('tr:nth-child(1) td .pui-checkbox input').click();
-        document.querySelector('tr:nth-child(2) td .pui-checkbox input').click();
-        expect(contextValue.toggleSelected).toHaveBeenCalledTimes(2);
+        let checkboxes = document.querySelectorAll('td .pui-checkbox input');
+        checkboxes[0].click();
+        checkboxes[1].click();
+        checkboxes[0].click();
+
+        expect(contextValue.toggleSelected).toHaveBeenCalledTimes(3);
         expect(contextValue.toggleSelected).toHaveBeenNthCalledWith(1, 'first row');
         expect(contextValue.toggleSelected).toHaveBeenNthCalledWith(2, 'second row');
+        expect(contextValue.toggleSelected).toHaveBeenNthCalledWith(3, 'first row');
       });
 
       it('renders checked status when context shows that it should be checked', () => {
@@ -298,7 +298,8 @@ describe.each([['TrForBody', TrForBody, {}], ['TrWithDrawer', TrWithDrawer, {ari
 
     describe('when the table row is not selectable', ()=> {
       it('renders a blank space where the checkbox would have been', () => {
-        ReactDOM.render(<TableSelectable identifiers={[]}>
+        ReactDOM.render(
+            <TableSelectable identifiers={[]}>
                 <Tbody>
                   <TrComponentUnderTest {...props} notSelectable>
                     <Td>Content cell 1</Td>
@@ -307,7 +308,7 @@ describe.each([['TrForBody', TrForBody, {}], ['TrWithDrawer', TrWithDrawer, {ari
                 </Tbody>
             </TableSelectable>, root);
 
-        const tds = document.querySelectorAll('td');
+        const tds = document.querySelectorAll('tr:nth-child(1) td');
         const rowLength = tds.length;
 
         expect('.pui-checkbox input').not.toExist();
