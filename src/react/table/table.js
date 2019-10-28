@@ -156,10 +156,11 @@ export const TrForBody = ({children, identifier, notSelectable, activated}) =>
       {children}
     </tr>);
 
-export const TrWithoutDrawer = ({children}) => (<Tr>
-  <Td className="pui-table--collapsible-toggle border-right-0"/>
-  {children}
-</Tr>);
+export const TrWithoutDrawer = ({children, ...props}) =>
+    (<TrForBody {...props}>
+      <Td className="pui-table--collapsible-toggle border-right-0"/>
+      {children}
+    </TrForBody>);
 
 export class TrWithDrawer extends React.PureComponent {
   static propTypes = {

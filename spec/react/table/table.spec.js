@@ -225,7 +225,8 @@ describe('TrForBody', () => {
 
 describe.each([
   ['TrForBody', TrForBody, {}],
-  ['TrWithDrawer', TrWithDrawer, {ariaLabelExpanded: '', ariaLabelCollapsed: ''}]
+  ['TrWithDrawer', TrWithDrawer, {ariaLabelExpanded: '', ariaLabelCollapsed: ''}],
+  ['TrWithoutDrawer', TrWithoutDrawer, {}]
 ])
 ('Contract for body table row: %s', (_, TrComponentUnderTest, props)=>{
   describe('when in a selectable table', ()=> {
@@ -347,6 +348,22 @@ describe('TrWithoutDrawer', () => {
     expect(tds).toHaveLength(3);
     expect(tds[1]).toHaveText('Content cell 1');
     expect(tds[2]).toHaveText('Content cell 2');
+  });
+
+  describe('when in a selectable table', () => {
+    it('sets the column to the proper width for collapsible toggles', () => {
+      ReactDOM.render(<TableSelectable identifiers={[]}>
+        <Tbody>
+          <TrWithoutDrawer>
+            <Td>Content cell 1</Td>
+            <Td>Content cell 2</Td>
+          </TrWithoutDrawer>
+        </Tbody>
+      </TableSelectable>, root);
+
+      expect(document.querySelectorAll('td')[1]).toHaveText('');
+      expect(document.querySelectorAll('td')[1]).toHaveClass('pui-table--collapsible-toggle');
+    });
   });
 });
 
