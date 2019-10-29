@@ -48,24 +48,76 @@ describe('Th', () => {
   });
 });
 
-describe('TableSelectable Integration', () => {
+describe('TableSelectable', () => {
   it('renders a table', () => {
-    ReactDOM.render(<Table/>, root);
+    ReactDOM.render(<TableSelectable/>, root);
     expect('table').toExist();
     expect('table').toHaveClass('pui-table');
   });
-  it('creates a selection context');
 
-  describe('when selecting individual rows', () => {
-    it('the select all checkbox is indeterminate when not all are selected');
-    it('the select all checkbox is checked when all are selected');
-    it('the select all checkbox is unchecked when none are selected');
-    it('calls onSelectionChanged with the appropriate identifiers');
+  it('creates a selection context', () => {
+    let contextValue = 'fakeContext';
+
+    ReactDOM.render(<TableSelectable>
+      <SelectionContext.Consumer>
+        {value => { contextValue = value; }}
+      </SelectionContext.Consumer>
+    </TableSelectable>, root);
+
+    expect(contextValue.isSelectableTable).toBeTruthy();
   });
 
-  describe('when selecting all', () => {
-    it('calls onSelectionChanged with all identifiers');
-    it('causes all rows to be checked');
+  describe('onSelectionChange', () => {
+    const onSelectionChangedSpy = jest.fn();
+
+    beforeEach(() => {
+      ReactDOM.render(
+          <TableSelectable identifiers={['GH', 'MH', 'AT']} onSelectionChanged={onSelectionChangedSpy}>
+            <Thead>
+              <TrHeader>
+                <Td>Name</Td>
+                <Td>Surname</Td>
+              </TrHeader>
+            </Thead>
+            <Tbody>
+              <TrForBody identifier={'MH'}>
+                <Td>Margaret</Td>
+                <Td>Hamilton</Td>
+              </TrForBody>
+              <TrForBody identifier={'GH'}>
+                <Td>Grace</Td>
+                <Td>Hopper</Td>
+              </TrForBody>
+              <TrForBody identifier={'AT'}>
+                <Td>Alan</Td>
+                <Td>Turing</Td>
+              </TrForBody>
+            </Tbody>
+          </TableSelectable>, root);
+    });
+
+    it('is called with the appropriate identifiers when selecting individual rows ', () => {
+      let checkboxes = document.querySelectorAll('tbody input');
+
+      checkboxes[0].click();
+      expect(onSelectionChangedSpy).toHaveBeenCalledWith({'MH': true});
+
+      checkboxes[1].click();
+      expect(onSelectionChangedSpy).toHaveBeenCalledWith({'MH': true, 'GH': true});
+
+      checkboxes[0].click();
+      expect(onSelectionChangedSpy).toHaveBeenCalledWith({'GH': true});
+    });
+
+    it('is called with all identifiers when selecting all', () => {
+      let selectAll = document.querySelector('thead input');
+
+      selectAll.click();
+      expect(onSelectionChangedSpy).toHaveBeenCalledWith({'MH': true, 'GH': true, 'AT': true});
+
+      selectAll.click();
+      expect(onSelectionChangedSpy).toHaveBeenCalledWith({});
+    });
   });
 });
 
