@@ -135,14 +135,9 @@ export const TrHeaderForDrawers = ({children, ...props}) =>
 
 export class TrForBody extends React.PureComponent {
   static contextType = SelectionContext;
-  state = {checked: false}
 
   render() {
     const {children, identifier, notSelectable, activated, className} = this.props;
-
-    if(this.context.isSelected(identifier) !== this.state.checked){
-      this.setState({checked: this.context.isSelected(identifier)});
-    }
 
     return (<tr className={className}>
       {
@@ -153,11 +148,11 @@ export class TrForBody extends React.PureComponent {
                   <Td className={classnames('border-right-0', {'active-indicator': activated})}>
                     {notSelectable ? null :
                         (<Checkbox
-                            checked={this.state.checked}
+                            checked={this.context.isSelected(identifier)}
                             indeterminate={false}
                             onChange={() => {
                               context.toggleSelected(identifier);
-                              this.setState({checked: !this.state.checked});
+                              this.forceUpdate();
                             }}/>)
                     }
                   </Td>

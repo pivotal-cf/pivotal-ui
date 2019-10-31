@@ -50,7 +50,7 @@ describe('Th', () => {
 
 describe('TableSelectable', () => {
   it('renders a table', () => {
-    ReactDOM.render(<TableSelectable/>, root);
+    ReactDOM.render(<TableSelectable identifiers={[]}/>, root);
     expect('table').toExist();
     expect('table').toHaveClass('pui-table');
   });
@@ -58,7 +58,7 @@ describe('TableSelectable', () => {
   it('creates a selection context', () => {
     let contextValue = 'fakeContext';
 
-    ReactDOM.render(<TableSelectable>
+    ReactDOM.render(<TableSelectable identifiers={[]}>
       <SelectionContext.Consumer>
         {value => { contextValue = value; }}
       </SelectionContext.Consumer>
