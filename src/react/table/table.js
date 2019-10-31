@@ -133,19 +133,32 @@ export const TrHeaderForDrawers = ({children, ...props}) =>
       {children}
     </TrHeader>);
 
-export const TrForBody = ({children, identifier, notSelectable, activated}) =>
-    (<tr>
+export class TrForBody extends React.PureComponent {
+  static contextType = SelectionContext;
+  state = {checked: false}
+
+  render() {
+    const {children, identifier, notSelectable, activated, className} = this.props;
+
+    if(this.context.isSelected(identifier) !== this.state.checked){
+      this.setState({checked: this.context.isSelected(identifier)});
+    }
+
+    return (<tr className={className}>
       {
         <SelectionContext.Consumer>
           {context => {
             if (context.isSelectableTable) {
               return (
-                  <Td className={classnames('pui-table--selectable-toggle border-right-0', {'active-indicator': activated})}>
+                  <Td className={classnames('border-right-0', {'active-indicator': activated})}>
                     {notSelectable ? null :
                         (<Checkbox
-                            checked={context.isSelected(identifier)}
+                            checked={this.state.checked}
                             indeterminate={false}
-                            onChange={() => context.toggleSelected(identifier)}/>)
+                            onChange={() => {
+                              context.toggleSelected(identifier);
+                              this.setState({checked: !this.state.checked});
+                            }}/>)
                     }
                   </Td>
               );
@@ -155,6 +168,8 @@ export const TrForBody = ({children, identifier, notSelectable, activated}) =>
       }
       {children}
     </tr>);
+  }
+}
 
 export const TrWithoutDrawer = ({children, ...props}) =>
     (<TrForBody {...props}>

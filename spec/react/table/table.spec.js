@@ -510,7 +510,6 @@ describe.each([
         const firstRow = document.querySelectorAll('tr:nth-child(1) td');
         const rowLength = firstRow.length;
 
-        expect(firstRow[0]).toHaveClass('pui-table--selectable-toggle');
         expect(firstRow[0]).toHaveText('');
 
         expect(firstRow[rowLength-2]).toHaveText('Content cell 1');
@@ -567,7 +566,6 @@ describe.each([
         const rowLength = tds.length;
 
         expect('.pui-checkbox input').not.toExist();
-        expect(tds[0]).toHaveClass('pui-table--selectable-toggle');
         expect(tds[0]).toHaveText('');
         expect(tds[rowLength-2]).toHaveText('Content cell 1');
         expect(tds[rowLength-1]).toHaveText('Content cell 2');

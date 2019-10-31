@@ -63,7 +63,7 @@ $row-drawer-active-border-width: $base-unit / 2;
 }
 
 .pui-table--selectable-toggle {
-  width: 1 * $base-unit;
+  width: 3.5 * $base-unit;
 }
 
 // Table Drawers
@@ -86,7 +86,7 @@ $row-drawer-active-border-width: $base-unit / 2;
     left: 0;
     height: 100%;
     width: $row-drawer-active-border-width;
-    background-color: $accent-gray;
+    background-color: $teal;
     transition: transform $animation-duration;
   }
 }
