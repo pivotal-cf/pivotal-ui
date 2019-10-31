@@ -97,6 +97,7 @@ export class TableSelectable extends React.PureComponent {
     );
   }
 }
+
 export const TrHeader = ({children, withoutSelectAll}) =>
     (<Tr>
       {
@@ -127,12 +128,17 @@ export const TrHeaderForDrawers = ({children, ...props}) =>
     </TrHeader>);
 
 export class TrForBody extends React.PureComponent {
-  static contextType = SelectionContext;
+  static propTypes = {
+    children: PropTypes.node,
+    identifier: PropTypes.string,
+    notSelectable: PropTypes.bool,
+    activated: PropTypes.bool,
+  };
 
   render() {
     const {children, identifier, notSelectable, activated, className} = this.props;
 
-    return (<tr className={className}>
+    return (<Tr className={className}>
       {
         <SelectionContext.Consumer>
           {context => {
@@ -141,7 +147,7 @@ export class TrForBody extends React.PureComponent {
                   <Td className={classnames('border-right-0', {'active-indicator': activated})}>
                     {notSelectable ? null :
                         (<Checkbox
-                            checked={this.context.isSelected(identifier)}
+                            checked={context.isSelected(identifier)}
                             indeterminate={false}
                             onChange={() => {
                               context.toggleSelected(identifier);
@@ -155,7 +161,7 @@ export class TrForBody extends React.PureComponent {
         </SelectionContext.Consumer>
       }
       {children}
-    </tr>);
+    </Tr>);
   }
 }
 
@@ -179,10 +185,6 @@ export class TrWithDrawer extends React.PureComponent {
   static contextType = SelectionContext;
   state = {expanded: false};
 
-  constructor (props) {
-    super(props);
-  }
-
   render() {
     const {
       ariaLabelCollapsed,
@@ -195,11 +197,14 @@ export class TrWithDrawer extends React.PureComponent {
       notSelectable
     } = this.props;
     const {expanded} = this.state;
-    const selectableTable = this.context.isSelectableTable
+    const selectableTable = this.context.isSelectableTable;
 
     return (<Fragment>
-      <TrForBody className={classnames({'border-bottom': !expanded})} activated={expanded} notSelectable={notSelectable} identifier={identifier}>
-
+      <TrForBody className={classnames({'border-bottom': !expanded})}
+                 activated={expanded}
+                 notSelectable={notSelectable}
+                 identifier={identifier}
+      >
         <Td className={classnames('border-right-0', {'active-indicator': expanded && !selectableTable})}>
           <DefaultButton
             className="pui-table--collapsible-btn"

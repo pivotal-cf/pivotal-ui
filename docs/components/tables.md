@@ -719,6 +719,13 @@ class TableSelectableExample extends React.Component {
 
 ## Props
 
+### TableSelectable props
+
+Property            | Required | Type  | Default | Description
+--------------------|----------|-------|---------|------------
+`identifiers`       | yes      | Array |         | Array of Strings used to select all selectable rows. (this should contain all identifiers passed to each selectable row) 
+`onSelectionChange` | yes      | func  |         | Callback for when any or all are selected or deselected
+
 ### Th props
 
 Property | Required | Type | Default | Description
@@ -736,13 +743,6 @@ Property            | Required |  Type   | Default | Description
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
 `scope` | no | oneOf['col', 'row'] | 'col' | Indicates if the table header is for the row or the column.
-
-### TableSelectable props
-
-Property            | Required | Type  | Default | Description
---------------------|----------|-------|---------|------------
-`identifiers`       | yes      | Array |         | Array of Strings used to select all selectable rows. (this should contain all identifiers passed to each selectable row) 
-`onSelectionChange` | yes      | func  |         | Callback for when any or all are selected or deselected
 
 ### TrWithDrawer props
 
