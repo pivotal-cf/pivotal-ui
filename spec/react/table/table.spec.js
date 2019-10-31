@@ -68,11 +68,11 @@ describe('TableSelectable', () => {
   });
 
   describe('onSelectionChange', () => {
-    const onSelectionChangedSpy = jest.fn();
+    const onSelectionChangeSpy = jest.fn();
 
     beforeEach(() => {
       ReactDOM.render(
-          <TableSelectable identifiers={['GH', 'MH', 'AT']} onSelectionChanged={onSelectionChangedSpy}>
+          <TableSelectable identifiers={['GH', 'MH', 'AT']} onSelectionChange={onSelectionChangeSpy}>
             <Thead>
               <TrHeader>
                 <Td>Name</Td>
@@ -100,23 +100,23 @@ describe('TableSelectable', () => {
       let checkboxes = document.querySelectorAll('tbody input');
 
       checkboxes[0].click();
-      expect(onSelectionChangedSpy).toHaveBeenCalledWith({'MH': true});
+      expect(onSelectionChangeSpy).toHaveBeenCalledWith({'MH': true});
 
       checkboxes[1].click();
-      expect(onSelectionChangedSpy).toHaveBeenCalledWith({'MH': true, 'GH': true});
+      expect(onSelectionChangeSpy).toHaveBeenCalledWith({'MH': true, 'GH': true});
 
       checkboxes[0].click();
-      expect(onSelectionChangedSpy).toHaveBeenCalledWith({'GH': true});
+      expect(onSelectionChangeSpy).toHaveBeenCalledWith({'GH': true});
     });
 
     it('is called with all identifiers when selecting all', () => {
       let selectAll = document.querySelector('thead input');
 
       selectAll.click();
-      expect(onSelectionChangedSpy).toHaveBeenCalledWith({'MH': true, 'GH': true, 'AT': true});
+      expect(onSelectionChangeSpy).toHaveBeenCalledWith({'MH': true, 'GH': true, 'AT': true});
 
       selectAll.click();
-      expect(onSelectionChangedSpy).toHaveBeenCalledWith({});
+      expect(onSelectionChangeSpy).toHaveBeenCalledWith({});
     });
   });
 });

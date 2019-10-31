@@ -34,7 +34,7 @@ export const SelectionContext = React.createContext({
 
 export class TableSelectable extends React.PureComponent {
   static propTypes = {
-    onSelectionChanged: PropTypes.func,
+    onSelectionChange: PropTypes.func.isRequired,
     children: PropTypes.node,
     identifiers: PropTypes.array.isRequired
   };
@@ -71,7 +71,7 @@ export class TableSelectable extends React.PureComponent {
       this._selectOne(identifier, newSelection);
     }
 
-    this.props.onSelectionChanged(newSelection);
+    this.props.onSelectionChange(newSelection);
     this.setState({selection: newSelection });
   };
 
@@ -86,7 +86,7 @@ export class TableSelectable extends React.PureComponent {
     }
     this.props.identifiers.forEach(id => action(id, selection));
 
-    this.props.onSelectionChanged(selection);
+    this.props.onSelectionChange(selection);
     // update the context value to a clone to cause react to rerender all consumers:
     let forceUpdate = Object.assign({}, this.state.selectionContextValue);
     this.setState({selection, selectionContextValue:forceUpdate});
@@ -94,7 +94,7 @@ export class TableSelectable extends React.PureComponent {
 
 
   render() {
-    const {className, onSelectionChanged, identifiers, ...props} = this.props;
+    const {className, onSelectionChange, identifiers, ...props} = this.props;
     return (
         <SelectionContext.Provider value={this.state.selectionContextValue}>
           <table {...props} {...{
@@ -112,12 +112,12 @@ export const TrHeader = ({children, withoutSelectAll}) =>
             if (context.isSelectableTable) {
               return (
                   <Th className={classnames('pui-table--selectable-toggle border-right-0')}>
-                    {!withoutSelectAll ?
-                        <Checkbox
+                    {withoutSelectAll ? null :
+                        (<Checkbox
                             checked={context.allAreSelected()}
                             indeterminate={context.someAreSelected()}
-                            onChange={context.toggleSelectAll}/>
-                        : null}
+                            onChange={context.toggleSelectAll}
+                        />)}
                   </Th>
               );
             }

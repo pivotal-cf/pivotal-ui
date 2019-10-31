@@ -629,7 +629,7 @@ class TableSelectableExample extends React.Component {
     const selectionAsArray = Object.keys(this.state.selection);
     return (
         <>
-        <TableSelectable identifiers={['first-row', 'second-row']} onSelectionChanged={(selection) => this.setState({selection})}>
+        <TableSelectable identifiers={['first-row', 'second-row']} onSelectionChange={(selection) => this.setState({selection})}>
           <Thead>
             <TrHeader>
               <Th>Header 1</Th>
@@ -666,7 +666,7 @@ class TableSelectableExample extends React.Component {
 ```jsx
 //title=Selectable Table with drawer
 //description=When the TrWithDrawer or TrWithoutDrawer components are within a TableSelectable they become selectable.
-<TableSelectable identifiers={['first-row', 'second-row', 'fourth-row']} onSelectionChanged={() => {}}>
+<TableSelectable identifiers={['first-row', 'second-row', 'fourth-row']} onSelectionChange={() => {}}>
   <Thead>
     <TrHeaderForDrawers>
       <Th>Header 1</Th>
@@ -737,6 +737,13 @@ Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
 `scope` | no | oneOf['col', 'row'] | 'col' | Indicates if the table header is for the row or the column.
 
+### TableSelectable props
+
+Property            | Required | Type  | Default | Description
+--------------------|----------|-------|---------|------------
+`identifiers`       | yes      | Array |         | Array of Strings used to select all selectable rows. (this should contain all identifiers passed to each selectable row) 
+`onSelectionChange` | yes      | func  |         | Callback for when any or all are selected or deselected
+
 ### TrWithDrawer props
 
 Property            | Required | Type    | Default | Description
@@ -746,11 +753,12 @@ Property            | Required | Type    | Default | Description
 `drawerContent`     | no       | node    |         | Content to render in the expanded drawer
 `onExpand`          | no       | func    |         | Callback for when the drawer is expanded
 `children`          | no       | node    |         | Content to render in the table row
+`identifier`        | no       | String  |         | String used by this row to report when the checkbox is toggled (this should match one of the identifiers passed to the TableSelectable)
 `notSelectable`     | no       | boolean |  false  | Removes the checkbox when the Tr is within a TableSelectable
 
 ### TrForBody props
 
 Property            | Required | Type    | Default | Description
 --------------------|----------|---------|---------|------------
-`identifier`        | yes      | String  |         | Callback for when the drawer is expanded
+`identifier`        | no       | String  |         | String used by this row to report when the checkbox is toggled (this should match one of the identifiers passed to the TableSelectable)
 `notSelectable`     | no       | boolean |  false  | Removes the checkbox when the Tr is within a TableSelectable
