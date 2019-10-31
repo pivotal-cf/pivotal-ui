@@ -14,6 +14,9 @@ reactComponents:
 - TrHeaderForDrawers
 - TrWithoutDrawer
 - TrWithDrawer
+- TableSelectable
+- TrForBody
+- TrHeader
 ---
 
 The `Table` component is a component that offers a styled table.
@@ -568,6 +571,8 @@ class SortableTable extends React.PureComponent {
 </Table>
 ```
 
+## Table with Drawers
+
 ```jsx
 //title=Expandable table rows
 //description=When the chevron is clicked, the drawer content is revealed. Provide the `ariaLabelCollapsed` and `ariaLabelExpanded` props to give a more descriptive label to assistive tech when the drawer is collapsed or expanded.
@@ -603,6 +608,115 @@ class SortableTable extends React.PureComponent {
 </Table>
 ```
 
+## Selectable Table
+
+```jsx
+//title=Selectable table
+//description=A callback is triggered when the selection changes, the callback receives an object containing the identifiers of the currently selected rows 
+
+
+class TableSelectableExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selection: {}
+    };
+  }
+
+
+  render() {
+
+    const selectionAsArray = Object.keys(this.state.selection);
+    return (
+        <>
+        <TableSelectable identifiers={['first-row', 'second-row']} onSelectionChanged={(selection) => this.setState({selection})}>
+          <Thead>
+            <TrHeader>
+              <Th>Header 1</Th>
+              <Th>Header 2</Th>
+              <Th>Header 3</Th>
+            </TrHeader>
+          </Thead>
+          <Tbody>
+            <TrForBody
+              identifier={'first-row'}
+            >
+              <Td>Row 1, Cell 1</Td>
+              <Td>Row 1, Cell 2</Td>
+              <Td>Row 1, Cell 3</Td>
+            </TrForBody>
+            <TrForBody
+              identifier={'second-row'}
+            >
+              <Td>Row 2, Cell 1</Td>
+              <Td>Row 2, Cell 2</Td>
+              <Td>Row 2, Cell 3</Td>
+            </TrForBody>
+          </Tbody>
+        </TableSelectable>
+        <p> Number selected: {selectionAsArray.length}, Rows selected: {selectionAsArray.join(', ')} </p>
+        </>
+    );
+  }
+}
+
+<TableSelectableExample/>
+```
+
+```jsx
+//title=Selectable Table with drawer
+//description=When the TrWithDrawer or TrWithoutDrawer components are within a TableSelectable they become selectable.
+<TableSelectable identifiers={['first-row', 'second-row', 'fourth-row']} onSelectionChanged={() => {}}>
+  <Thead>
+    <TrHeaderForDrawers>
+      <Th>Header 1</Th>
+      <Th>Header 2</Th>
+      <Th>Header 3</Th>
+    </TrHeaderForDrawers>
+  </Thead>
+  <Tbody>
+    <TrWithDrawer
+      identifier={'first-row'}
+      ariaLabelCollapsed="Reveal more content"
+      ariaLabelExpanded="Hide more content"
+      drawerContent={<span className="paxl">Row 1: More content</span>}
+    >
+      <Td>Row 1, Cell 1</Td>
+      <Td>Row 1, Cell 2</Td>
+      <Td>Row 1, Cell 3</Td>
+    </TrWithDrawer>
+    <TrWithDrawer
+      identifier={'second-row'}
+      ariaLabelCollapsed="Reveal more content"
+      ariaLabelExpanded="Hide more content"
+      drawerContent={<span className="paxl">Row 2: More content</span>}
+    >
+      <Td>Row 2, Cell 1</Td>
+      <Td>Row 2, Cell 2</Td>
+      <Td>Row 2, Cell 3</Td>
+    </TrWithDrawer>
+    <TrWithDrawer
+      notSelectable
+      ariaLabelCollapsed="Reveal more content"
+      ariaLabelExpanded="Hide more content"
+      drawerContent={<span className="paxl">but it still has a drawer</span>}
+    >
+      <Td>This row</Td>
+      <Td>is not</Td>
+      <Td>selectable</Td>
+    </TrWithDrawer>
+
+    <TrWithoutDrawer
+      identifier={'fourth-row'}
+    >
+      <Td>This row</Td>
+      <Td>does not</Td>
+      <Td>have a drawer</Td>
+    </TrWithoutDrawer>
+  </Tbody>
+</TableSelectable>
+```
+
 ## Props
 
 ### Th props
@@ -610,6 +724,12 @@ class SortableTable extends React.PureComponent {
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
 `scope` | no | oneOf['col', 'row'] | 'col' | Indicates if the table header is for the row or the column.
+
+### TrHeader props
+
+Property            | Required |  Type   | Default | Description
+--------------------|----------|---------|---------|------------
+`withoutSelectAll`  | no       | boolean |  false  | Removes the checkbox when the Tr is within a TableSelectable
 
 ### Tr props
 
@@ -619,10 +739,18 @@ Property | Required | Type | Default | Description
 
 ### TrWithDrawer props
 
-Property            | Required | Type   | Default | Description
---------------------|----------|--------|---------|------------
-`ariaLabelCollapsed`| yes      | String |         | Aria label when the drawer is collapsed
-`ariaLabelExpanded` | yes      | String |         | Aria label when the drawer is expanded
-`drawerContent`     | no       | node   |         | Content to render in the expanded drawer
-`onExpand`          | no       | func   |         | Callback for when the drawer is expanded
-`children`          | no       | node   |         | Content to render in the table row
+Property            | Required | Type    | Default | Description
+--------------------|----------|---------|---------|------------
+`ariaLabelCollapsed`| yes      | String  |         | Aria label when the drawer is collapsed
+`ariaLabelExpanded` | yes      | String  |         | Aria label when the drawer is expanded
+`drawerContent`     | no       | node    |         | Content to render in the expanded drawer
+`onExpand`          | no       | func    |         | Callback for when the drawer is expanded
+`children`          | no       | node    |         | Content to render in the table row
+`notSelectable`     | no       | boolean |  false  | Removes the checkbox when the Tr is within a TableSelectable
+
+### TrForBody props
+
+Property            | Required | Type    | Default | Description
+--------------------|----------|---------|---------|------------
+`identifier`        | yes      | String  |         | Callback for when the drawer is expanded
+`notSelectable`     | no       | boolean |  false  | Removes the checkbox when the Tr is within a TableSelectable
