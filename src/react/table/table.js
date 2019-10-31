@@ -64,42 +64,35 @@ export class TableSelectable extends React.PureComponent {
   _deselectOne = (id, draftState) => delete draftState[id];
 
   toggleSelected = (identifier) => {
-    let newSelection = Object.assign({}, this.state.selection);
+    let draftSelection = Object.assign({}, this.state.selection);
     if(this.isSelected(identifier)) {
-      this._deselectOne(identifier, newSelection);
+      this._deselectOne(identifier, draftSelection);
     } else {
-      this._selectOne(identifier, newSelection);
+      this._selectOne(identifier, draftSelection);
     }
 
-    this.props.onSelectionChange(newSelection);
-    this.setState({selection: newSelection });
+    this.props.onSelectionChange(draftSelection);
+    this.setState({selection: draftSelection });
   };
 
   toggleSelectAll = () => {
-    let selection = Object.assign({}, this.state.selection);
-    let action;
+    let draftSelection = {};
 
     if (this.noneAreSelected()) {
-      action = this._selectOne;
-    } else {
-      action = this._deselectOne;
+      this.props.identifiers.forEach(id => this._selectOne(id, draftSelection));
     }
-    this.props.identifiers.forEach(id => action(id, selection));
 
-    this.props.onSelectionChange(selection);
+    this.props.onSelectionChange(draftSelection);
     // update the context value to a clone to cause react to rerender all consumers:
     let forceUpdate = Object.assign({}, this.state.selectionContextValue);
-    this.setState({selection, selectionContextValue:forceUpdate});
+    this.setState({selection: draftSelection, selectionContextValue: forceUpdate});
   };
 
-
   render() {
-    const {className, onSelectionChange, identifiers, ...props} = this.props;
+    const {onSelectionChange, identifiers, ...props} = this.props;
     return (
         <SelectionContext.Provider value={this.state.selectionContextValue}>
-          <table {...props} {...{
-            className: classnames('pui-table', className)
-          }}/>
+          <Table {...props} />
         </SelectionContext.Provider>
     );
   }

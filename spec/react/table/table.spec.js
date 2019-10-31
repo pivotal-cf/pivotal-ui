@@ -50,7 +50,7 @@ describe('Th', () => {
 
 describe('TableSelectable', () => {
   it('renders a table', () => {
-    ReactDOM.render(<TableSelectable identifiers={[]}/>, root);
+    ReactDOM.render(<TableSelectable identifiers={[]} onSelectionChange={() => {}}/>, root);
     expect('table').toExist();
     expect('table').toHaveClass('pui-table');
   });
@@ -58,7 +58,7 @@ describe('TableSelectable', () => {
   it('creates a selection context', () => {
     let contextValue = 'fakeContext';
 
-    ReactDOM.render(<TableSelectable identifiers={[]}>
+    ReactDOM.render(<TableSelectable identifiers={[]} onSelectionChange={() => {}}>
       <SelectionContext.Consumer>
         {value => { contextValue = value; }}
       </SelectionContext.Consumer>
@@ -164,7 +164,7 @@ describe('TrHeaderForDrawers', () => {
     it('renders a table header that sets the column ' +
         'to the proper width for collapsible toggles and selectOne checkboxes',
         () => {
-          ReactDOM.render(<TableSelectable identifiers={[]}><Thead><TrHeaderForDrawers>
+          ReactDOM.render(<TableSelectable identifiers={[]} onSelectionChange={() => {}}><Thead><TrHeaderForDrawers>
             <Th>Content header 1</Th>
             <Th>Content header 2</Th>
           </TrHeaderForDrawers></Thead></TableSelectable>, root);
@@ -204,7 +204,7 @@ describe('TrWithoutDrawer', () => {
 
   describe('when in a selectable table', () => {
     it('sets the column to the proper width for collapsible toggles', () => {
-      ReactDOM.render(<TableSelectable identifiers={[]}>
+      ReactDOM.render(<TableSelectable identifiers={[]} onSelectionChange={() => {}}>
         <Tbody>
           <TrWithoutDrawer>
             <Td>Content cell 1</Td>
@@ -272,7 +272,7 @@ describe('TrWithDrawer', () => {
 
   describe('when in a selectable table', () => {
     beforeEach(() => {
-      ReactDOM.render(<TableSelectable identifiers={[]}><Tbody>
+      ReactDOM.render(<TableSelectable identifiers={[]} onSelectionChange={() => {}}><Tbody>
         <TrWithDrawer {...{ariaLabelCollapsed, ariaLabelExpanded, drawerContent, className, onExpand: onExpandSpy}}>
           <Td>Content cell 1</Td>
           <Td>Content cell 2</Td>
@@ -394,7 +394,7 @@ describe.each([
       };
 
       const selectableTable = (HeaderComponent) => (
-          <TableSelectable identifiers={[]}>
+          <TableSelectable identifiers={[]} onSelectionChange={() => {}}>
             <SelectionContext.Provider value={contextValue}>
               <Thead>
                 <HeaderComponent/>
@@ -437,7 +437,7 @@ describe.each([
 
       describe('with select all (default)', () => {
         beforeEach(() => {
-          ReactDOM.render(<TableSelectable identifiers={[]}><Thead><HeaderComponent>
+          ReactDOM.render(<TableSelectable identifiers={[]} onSelectionChange={() => {}}><Thead><HeaderComponent>
             <Th>Content header 1</Th>
             <Th>Content header 2</Th>
           </HeaderComponent></Thead></TableSelectable>, root);
@@ -456,7 +456,7 @@ describe.each([
 
       describe('withoutSelectAll', () => {
         beforeEach(() => {
-          ReactDOM.render(<TableSelectable identifiers={[]}><Thead><HeaderComponent withoutSelectAll>
+          ReactDOM.render(<TableSelectable identifiers={[]} onSelectionChange={() => {}}><Thead><HeaderComponent withoutSelectAll>
             <Th>Content header 1</Th>
             <Th>Content header 2</Th>
           </HeaderComponent></Thead></TableSelectable>, root);
@@ -488,7 +488,7 @@ describe.each([
     };
 
     const selectableTable = () => (
-        <TableSelectable identifiers={[]}>
+        <TableSelectable identifiers={[]} onSelectionChange={() => {}}>
           <SelectionContext.Provider value={contextValue}>
             <Tbody>
               <TrComponentUnderTest {...props} identifier={'first row'}>
@@ -553,7 +553,7 @@ describe.each([
     describe('when the table row is not selectable', ()=> {
       it('renders a blank space where the checkbox would have been', () => {
         ReactDOM.render(
-            <TableSelectable identifiers={[]}>
+            <TableSelectable identifiers={[]} onSelectionChange={() => {}}>
                 <Tbody>
                   <TrComponentUnderTest {...props} notSelectable>
                     <Td>Content cell 1</Td>
