@@ -63,7 +63,7 @@ When a user would like to access each group of information separately. | When it
 Property               | Required | Type     | Default | Description
 -----------------------|----------|-------------------------------|----------|------------
 `actions`              | no       | Node                          |          | An element or text that will display in the upper right
-`animation`            | no       | Boolean                       | false    | Whether to animate when moving between tabs, defaults to true
+`animation`            | no       | Boolean                       | true    | Whether to animate when moving between tabs, defaults to true
 `defaultActiveKey`     | no       | Any                           |          | The tab which will start out open. This should equal one of your tab's event keys
 `largeScreenClassName` | no       | String                        |          | Will be applied to large screen tabs only
 `onSelect`             | no       | Function                      |          | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
