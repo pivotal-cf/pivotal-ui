@@ -13,3 +13,4 @@ View archived style guides for past versions of Pivotal UI:
 - [Version 15](https://styleguide-v15.cfapps.io/)
 - [Version 16](https://styleguide-v16.cfapps.io/)
 - [Version 17](https://styleguide-v17.cfapps.io/)
+- [Version 18](https://styleguide-v18.cfapps.io/)
