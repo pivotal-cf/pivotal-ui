@@ -9,7 +9,7 @@ tmp/
 .sass-cache/
 node_modules/
 /vendor/
-.idea/*
+.idea/
 !.idea/pivotal-ui.iml
 !.idea/codeStyleSettings.xml
 !.idea/inspectionProfiles/*
