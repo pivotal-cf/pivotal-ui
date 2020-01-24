@@ -102,7 +102,7 @@ Property           | Required | Type    | Default | Description
 `className`        | no       | String  |         | Class(es) to apply to the panel container
 `footer`           | no       | Node    |         | Node to render in the footer
 `footerClassName`  | no       | String  |         | Class(es) to apply to the footer
-`header`           | no       | String  |         | String to render in the header
+`header`           | no       | Node    |         | Node to render in the header
 `headerClassName`  | no       | String  |         | Class(es) to apply to the header
 `headerCols`       | no       | Array   | []      | An array of nodes to render on the header row, each element should be wrapped in a `FlexCol`
 `loading`          | no       | Boolean |         | If true, will render a pulsing loading bar

@@ -9,7 +9,7 @@ export class Panel extends React.Component {
     titleCols: PropTypes.array,
     titleClassName: PropTypes.string,
     panelClassName: PropTypes.string,
-    header: PropTypes.string,
+    header: PropTypes.node,
     headerCols: PropTypes.array,
     headerClassName: PropTypes.string,
     loading: PropTypes.bool,
