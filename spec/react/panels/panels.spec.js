@@ -111,11 +111,19 @@ describe('Panel', () => {
 
   describe('header', () => {
     beforeEach(() => {
-      subject::setProps({header: 'some header'});
+      subject::setProps({
+        header: <ul>
+          <li>some</li>
+          <li>complex</li>
+          <li>header</li>
+        </ul>
+      });
     });
 
     it('renders the header', () => {
-      expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveText('some header');
+      expect('.pui-panel > .pui-panel-header > .col:eq(0) li:eq(0)').toHaveText('some');
+      expect('.pui-panel > .pui-panel-header > .col:eq(0) li:eq(1)').toHaveText('complex');
+      expect('.pui-panel > .pui-panel-header > .col:eq(0) li:eq(2)').toHaveText('header');
       expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveClass('type-ellipsis');
       expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveClass('em-high');
       expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveClass('col-middle');
