@@ -39,6 +39,13 @@ $dropdown-menu-item-focus-text-color:  $blue--onLite;
       outline: none;
     }
 
+    &:disabled {
+      background-color: $input-disabled;
+      cursor: not-allowed;
+      color: $gray;
+      border-color: $input-border;
+    }
+
     .icon-toggle {
       pointer-events: none;
       font-size: 18px;

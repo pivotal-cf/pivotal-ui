@@ -34,6 +34,7 @@ describe('Dropdown', () => {
     expect('.dropdown button').toHaveClass('test-btn-class');
     expect('.dropdown-toggle').toHaveAttr('aria-haspopup', 'true');
     expect('.dropdown button').toHaveAttr('aria-label', 'Nessun Dorma');
+    expect('.dropdown button:disabled').not.toExist();
 
     expect('.icon-chevron_down').toExist();
   });
@@ -420,6 +421,16 @@ describe('Dropdown', () => {
 
     it('opens the dropdown menu', () => {
       expect('.dropdown').toHaveClass('dropdown-open');
+    });
+  });
+
+  describe('when dropdown disabled', () => {
+    beforeEach(() => {
+      subject::setProps({disabled: true});
+    });
+
+    it('should be disabled', () => {
+      expect('.dropdown button:disabled').toExist();
     });
   });
 });

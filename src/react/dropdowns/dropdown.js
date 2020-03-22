@@ -38,6 +38,7 @@ export class Dropdown extends mixin(React.Component).with(Transition) {
     buttonId: PropTypes.string,
     closeOnMenuClick: PropTypes.bool,
     disableScrim: PropTypes.bool,
+    disabled: PropTypes.bool,
     dropdownMenuClassName: PropTypes.string,
     flat: PropTypes.bool,
     floatMenu: PropTypes.bool,
@@ -87,7 +88,7 @@ export class Dropdown extends mixin(React.Component).with(Transition) {
     const {
       // eslint-disable-next-line no-unused-vars
       closeOnMenuClick, onClick, onEntered, onExited, buttonId = this.state.buttonId,
-      blockingScrim, border, buttonAriaLabel, buttonClassName, children, className, disableScrim, showIcon,
+      blockingScrim, border, buttonAriaLabel, buttonClassName, children, className, disableScrim, disabled, showIcon,
       flat, link, menuAlign, size, icon, split, title, toggle, floatMenu, scroll, itemClassName, dropdownMenuClassName, ...props
     } = this.props;
 
@@ -100,6 +101,7 @@ export class Dropdown extends mixin(React.Component).with(Transition) {
       showIcon: noTitle || split || showIcon,
       icon,
       onClick: this.click,
+      disabled: disabled,
       title: !split && title,
       className: buttonStyleClasses,
       'aria-label': buttonAriaLabel,

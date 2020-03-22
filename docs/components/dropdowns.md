@@ -145,6 +145,7 @@ Property           | Required | Type                                | Default   
 `buttonId`         | no       | String                              | Randomly generated | Id to add to the button to associate it with the menu for assistive tech
 `closeOnMenuClick` | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
 `disableScrim`     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown
+`disabled`         | no       | Boolean                             | false          | Whether the dropdown is disabled
 `dropdownMenuClassName` | no  | String                              |                | Classname to add to the menu
 `flat`             | no       | Boolean                             |                | If true, dropdown toggle has no borders and is transparent
 `floatMenu`        | no       | Boolean                             | false          | If true, float the dropdown menu. This only applies to the basic dropdown
