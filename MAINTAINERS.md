@@ -2,9 +2,8 @@
 
 ## Core maintainers
 
-* Nick Guerette ([@nguerette](https://github.com/nguerette))
-* Kenny Wang ([@kennyw12](https://github.com/kennyw12))
 * Sarah Weinstein ([@sweinstein22](https://github.com/sweinstein22))
+* Weyman Fung ([@weymanf](https://github.com/weymanf))
 
 ## Past maintainers
 
@@ -21,3 +20,5 @@
 * Reid Mitchell ([@reid47](https://github.com/reid47))
 * Spencer Hawley ([@sphawley](https://github.com/sphawley))
 * Ana Nelson ([@anaclair](https://github.com/anaclair))
+* Kenny Wang ([@kennyw12](https://github.com/kennyw12))
+* Nick Guerette ([@nguerette](https://github.com/nguerette))
