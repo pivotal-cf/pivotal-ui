@@ -1,3 +1,7 @@
+<a name="18.1.11"></a>
+## 18.1.11 (2020-01-25)
+#### React
+* **panels**: Change Panel header to take in node to allow increased flexibility ([301b5a51](https://github.com/pivotal-cf/pivotal-ui/commit/301b5a51))
 <a name="18.1.10"></a>
 ## 18.1.10 (2019-10-15)
 #### React
