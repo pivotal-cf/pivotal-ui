@@ -1,7 +1,11 @@
-<a name="19.2.2"></a>
-## 19.2.2 (2019-10-15)
+<a name="19.2.3"></a>
+## 19.2.3 (2020-01-25)
 #### React
-* **autocomplete**: When the autocomplete is passed a value, make the autocomplete behave like a controlled component rather than having value behave like a default value ([35d45b42](https://github.com/pivotal-cf/pivotal-ui/commit/35d45b42))
+* **panels**: Change Panel header to take in node to allow increased flexibility ([49f4292f](https://github.com/pivotal-cf/pivotal-ui/commit/49f4292f))
+<a name="19.2.0"></a>
+# 19.2.0 (2019-10-17)
+#### React
+* **autocomplete**: Make autocomplete a controlled component when value is passed to it ([35d45b42](https://github.com/pivotal-cf/pivotal-ui/commit/35d45b42))
 <a name="19.1.2"></a>
 ## 19.1.2 (2019-10-15)
 #### React
@@ -77,6 +81,14 @@
 * **tooltip**:
   * Add 'disabled' prop to tooltip trigger [#168090263] ([0ec87f8f](https://github.com/pivotal-cf/pivotal-ui/commit/0ec87f8f))
   * Make tooltips tabbable and trigger on focus [#163572717] ([fb385bff](https://github.com/pivotal-cf/pivotal-ui/commit/fb385bff))
+<a name="18.1.11"></a>
+## 18.1.11 (2020-01-25)
+#### React
+* **panels**: Change Panel header to take in node to allow increased flexibility ([301b5a51](https://github.com/pivotal-cf/pivotal-ui/commit/301b5a51))
+<a name="18.1.10"></a>
+## 18.1.10 (2019-10-15)
+#### React
+* **autocomplete**: Fix bug in how the autocomplete component interacted with asynchronous onSearch functions [[:beetle:#169158884](https://www.pivotaltracker.com/story/show/169158884)](https://www.pivotaltracker.com/story/show/169158884) ([54d53ac6](https://github.com/pivotal-cf/pivotal-ui/commit/54d53ac6))
 <a name="18.1.9"></a>
 ## 18.1.9 (2019-10-09)
 #### React
