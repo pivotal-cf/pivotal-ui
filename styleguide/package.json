@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.2.1",
-    "gatsby": "^2.0.88",
+    "gatsby": "^2.24.0",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-source-filesystem": "^2.0.8",
