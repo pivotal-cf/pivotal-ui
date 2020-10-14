@@ -1,0 +1,35 @@
+.styleguide-search-bar {
+  position: relative;
+
+  .search-input {
+    border: none;
+
+    &:focus {
+      border: none;
+      box-shadow: 0 0 0 2px $brand-8;
+    }
+  }
+
+  .autocomplete {
+    .autocomplete-list, ul {
+      margin-top: $base-unit;
+    }
+
+    .autocomplete-list {
+      border: none;
+      border-radius: $base-unit / 4;
+      max-height: 240px;
+    }
+
+    .autocomplete-item, .autocomplete-item-no-results {
+      font-size: 14px;
+      min-width: 100%;
+      color: $dark-2;
+      opacity: 1;
+
+      &:hover {
+        background: $dark-11;
+      }
+    }
+  }
+}
