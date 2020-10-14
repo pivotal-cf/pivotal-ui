@@ -16,7 +16,7 @@ pushd $PUI_DIR
 
   pushd $STYLEGUIDE_DIR
     yarn
-    yarn build
+    yarn build --prefix-paths
   popd
 
   CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"

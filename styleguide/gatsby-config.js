@@ -1,6 +1,8 @@
 const path = require('path');
 const puiPkg = require('../package.json');
 
+exports.pathPrefix = '/pivotal-ui';
+
 exports.siteMetadata = {
   title: 'Pivotal UI',
   description: 'Style guide for Pivotal UI, design system and component library of Pivotal Software',

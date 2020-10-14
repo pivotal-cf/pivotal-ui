@@ -41,6 +41,6 @@
     "clean": "rm -rf public && rm -rf .cache",
     "build": "yarn clean && gatsby build",
     "start": "gatsby develop",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve --prefix-paths"
   }
 }
