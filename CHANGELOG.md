@@ -1,3 +1,9 @@
+<a name="18.1.13"></a>
+## 18.1.13 (2020-10-21)
+
+<a name="18.1.12"></a>
+## 18.1.12 (2020-05-07)
+
 <a name="18.1.11"></a>
 ## 18.1.11 (2020-01-25)
 #### React
@@ -70,7 +76,7 @@
 * **svg**: Remove deprecated SVG component [[:gear:#164283978](https://www.pivotaltracker.com/story/show/164283978)] ([eabc5497](https://github.com/pivotal-cf/pivotal-ui/commit/eabc5497))
 * **table**: Make withRowDrawer table plugin keyboard navigable [#163574940] ([8cedd5b8](https://github.com/pivotal-cf/pivotal-ui/commit/8cedd5b8))
 <a name="18.0.0"></a>
-# 18.0.0 (2019-03-13)
+# 18.0.0 (2019-04-08)
 #### CSS
 * **alerts**:
   * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
