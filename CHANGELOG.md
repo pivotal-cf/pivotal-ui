@@ -1,7 +1,19 @@
+<a name="19.2.5"></a>
+## 19.2.5 (2020-10-21)
+
+<a name="19.2.4"></a>
+## 19.2.4 (2020-05-01)
+
 <a name="19.2.3"></a>
 ## 19.2.3 (2020-01-25)
 #### React
 * **panels**: Change Panel header to take in node to allow increased flexibility ([49f4292f](https://github.com/pivotal-cf/pivotal-ui/commit/49f4292f))
+<a name="19.2.2"></a>
+## 19.2.2 (2019-10-17)
+
+<a name="19.2.1"></a>
+## 19.2.1 (2019-10-17)
+
 <a name="19.2.0"></a>
 # 19.2.0 (2019-10-17)
 #### React
@@ -26,6 +38,9 @@
 * **dropdowns**: Make dropdown more accessible as a navigation menu ([c54f496b](https://github.com/pivotal-cf/pivotal-ui/commit/c54f496b))
 * **mixins**: Do not use setImmediate in our implementation since it is nonstandard ([d16fb04c](https://github.com/pivotal-cf/pivotal-ui/commit/d16fb04c))
 * **select**: Add AppsManager select to PUI ([786221f4](https://github.com/pivotal-cf/pivotal-ui/commit/786221f4))
+<a name="19.0.1"></a>
+## 19.0.1 (2019-10-09)
+
 <a name="19.0.0"></a>
 # 19.0.0 (2019-10-08)
 #### CSS
@@ -81,6 +96,12 @@
 * **tooltip**:
   * Add 'disabled' prop to tooltip trigger [#168090263] ([0ec87f8f](https://github.com/pivotal-cf/pivotal-ui/commit/0ec87f8f))
   * Make tooltips tabbable and trigger on focus [#163572717] ([fb385bff](https://github.com/pivotal-cf/pivotal-ui/commit/fb385bff))
+<a name="18.1.13"></a>
+## 18.1.13 (2020-10-21)
+
+<a name="18.1.12"></a>
+## 18.1.12 (2020-05-07)
+
 <a name="18.1.11"></a>
 ## 18.1.11 (2020-01-25)
 #### React
@@ -166,7 +187,7 @@
 * **svg**: Remove deprecated SVG component [[:gear:#164283978](https://www.pivotaltracker.com/story/show/164283978)] ([eabc5497](https://github.com/pivotal-cf/pivotal-ui/commit/eabc5497))
 * **table**: Make withRowDrawer table plugin keyboard navigable [#163574940] ([8cedd5b8](https://github.com/pivotal-cf/pivotal-ui/commit/8cedd5b8))
 <a name="18.0.0"></a>
-# 18.0.0 (2019-03-13)
+# 18.0.0 (2019-04-08)
 #### CSS
 * **alerts**:
   * Make links in alerts styled correctly without pui-alert-link class ([6dcc3281](https://github.com/pivotal-cf/pivotal-ui/commit/6dcc3281))
