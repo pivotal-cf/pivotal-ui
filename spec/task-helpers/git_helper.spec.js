@@ -13,7 +13,7 @@ describe('GitHelper', () => {
         beforeEach(async () => {
           spyOn(gitHelper, 'git').and.callFake(command => {
             if (command === 'branch') {
-              return Promise.resolve('  v8\n  v9\n* v10\n  master');
+              return Promise.resolve('  v8\n  v9\n* v10\n  main');
             } else if (command.startsWith('rev-parse')) {
               return Promise.reject(new Error('tag does not exist'));
             }
@@ -31,7 +31,7 @@ describe('GitHelper', () => {
         beforeEach(async () => {
           spyOn(gitHelper, 'git').and.callFake(command => {
             if (command === 'branch') {
-              return Promise.resolve('  v8\n  v9\n* master');
+              return Promise.resolve('  v8\n  v9\n* main');
             } else if (command.startsWith('rev-parse')) {
               return Promise.reject(new Error('tag does not exist'));
             }
@@ -39,9 +39,9 @@ describe('GitHelper', () => {
           await gitHelper.getLatestCommit('10.0.0');
         });
 
-        it('gets the latest commit on master', () => {
+        it('gets the latest commit on main', () => {
           expect(gitHelper.git).toHaveBeenCalledWith('rev-parse 10.0.0');
-          expect(gitHelper.git).toHaveBeenCalledWith('log master -1 --oneline --format=format:%H');
+          expect(gitHelper.git).toHaveBeenCalledWith('log main -1 --oneline --format=format:%H');
         });
       });
     });
@@ -54,7 +54,7 @@ describe('GitHelper', () => {
 
       it('returns the commit of that tag', () => {
         expect(gitHelper.git).toHaveBeenCalledWith('rev-parse 10.0.0');
-        expect(gitHelper.git).not.toHaveBeenCalledWith('log master -1 --oneline --format=format:%H');
+        expect(gitHelper.git).not.toHaveBeenCalledWith('log main -1 --oneline --format=format:%H');
       });
     });
   });

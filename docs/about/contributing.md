@@ -20,13 +20,13 @@ For large pull requests, especially those that involve breaking changes, it's a 
 
 ## Improving documentation
 
-Text content & code examples are written in Markdown files located in the [`docs` directory](https://github.com/pivotal-cf/pivotal-ui/tree/master/docs). Smaller changes to these files can be made directly on GitHub. Each page on this site also has a link to edit it on GitHub.
+Text content & code examples are written in Markdown files located in the [`docs` directory](https://github.com/pivotal-cf/pivotal-ui/tree/main/docs). Smaller changes to these files can be made directly on GitHub. Each page on this site also has a link to edit it on GitHub.
 
-The style guide itself is a React app built using [Gatsby](https://www.gatsbyjs.org/). Source files live in the [`styleguide` directory](https://github.com/pivotal-cf/pivotal-ui/tree/master/styleguide).
+The style guide itself is a React app built using [Gatsby](https://www.gatsbyjs.org/). Source files live in the [`styleguide` directory](https://github.com/pivotal-cf/pivotal-ui/tree/main/styleguide).
 
 ## Improving components and styles
 
-Pivotal UI components and styles live in the [`src` directory](https://github.com/pivotal-cf/pivotal-ui/tree/master/src).
+Pivotal UI components and styles live in the [`src` directory](https://github.com/pivotal-cf/pivotal-ui/tree/main/src).
 
 If your team has built a component that you feel would be a good fit for Pivotal UI (i.e. it could be useful to several Pivotal teams), let the maintainers know via an issue or on Slack so we can figure out the best way to help.
 
