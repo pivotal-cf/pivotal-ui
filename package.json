@@ -20,7 +20,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "babel-eslint": "^10.0.1",
     "caniuse-lite": "^1.0.30000697",
     "css-loader": "^2.1.0",
