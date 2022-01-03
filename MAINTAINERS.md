@@ -2,9 +2,6 @@
 
 ## Core maintainers
 
-* Sarah Weinstein ([@sweinstein22](https://github.com/sweinstein22))
-* Weyman Fung ([@weymanf](https://github.com/weymanf))
-
 ## Past maintainers
 
 * Jonathan Berney ([@jberney](https://github.com/jberney))
@@ -22,3 +19,5 @@
 * Ana Nelson ([@anaclair](https://github.com/anaclair))
 * Kenny Wang ([@kennyw12](https://github.com/kennyw12))
 * Nick Guerette ([@nguerette](https://github.com/nguerette))
+* Sarah Weinstein ([@sweinstein22](https://github.com/sweinstein22))
+* Weyman Fung ([@weymanf](https://github.com/weymanf))
