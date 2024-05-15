@@ -2,7 +2,7 @@
 
 Pivotal UI is Pivotal's design system & component library. It contains CSS & React components that are styled for the Pivotal brand.
 
-For documentation, [visit the style guide](https://styleguide.pivotal.io).
+For documentation, [visit the style guide](https://pivotal-cf.github.io/pivotal-ui/).
 
 ## Installation
 
@@ -18,7 +18,7 @@ See [MAINTAINERS.md](MAINTAINERS.md).
 
 ## Contributing
 
-Please refer to our [contribution guidelines](https://styleguide.pivotal.io/about/contributing/).
+Please refer to our [contribution guidelines](https://pivotal-cf.github.io/pivotal-ui/about/contributing/).
 
 Pivotal UI expects all maintainers, consumers, and contributors to adhere to our [code of conduct](CODE_OF_CONDUCT.md).
 

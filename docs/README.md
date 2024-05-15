@@ -1,6 +1,6 @@
 # Pivotal UI documentation
 
-The Markdown files in this directory are transformed into pages on the [style guide](https://styleguide.pivotal.io).
+The Markdown files in this directory are transformed into pages on the [style guide](https://pivotal-cf.github.io/pivotal-ui/).
 
 We welcome any and all contributions towards improving the documentation!
 
