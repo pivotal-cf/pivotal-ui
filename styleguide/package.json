@@ -29,7 +29,7 @@
   "dependencies": {
     "@babel/standalone": "^7.0.0",
     "classnames": "^2.2.5",
-    "codemirror": "^5.43.0",
+    "codemirror": "^5.58.2",
     "elasticlunr": "^0.9.5",
     "pretty": "^2.0.0",
     "react": "^16.8.6",
